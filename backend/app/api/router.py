@@ -46,9 +46,15 @@ try:
 except Exception as e:
     print("[router] skip quality:", e)
 
-# 可选模块：folders
 try:
-    from .v1 import folders
-    api_router.include_router(folders.router,  prefix="/folders",  tags=["folders"])
+    import importlib
+    folders_module = importlib.import_module("app.api.v1.folders")
+    if hasattr(folders_module, "router"):
+        api_router.include_router(folders_module.router, prefix="/folders", tags=["folders"])
+        print("[router] folders mounted at /api/v1/folders")
+    else:
+        print("[router] folders module has no 'router' attribute")
 except Exception as e:
-    print("[router] skip folders:", e)
+    import traceback
+    print("[router] skip folders due to error:", repr(e))
+    traceback.print_exc()

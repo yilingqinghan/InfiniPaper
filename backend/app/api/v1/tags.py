@@ -2,8 +2,9 @@ from typing import List
 from fastapi import APIRouter, HTTPException
 from sqlmodel import select
 from ..deps import SessionDep
-from ...models import Tag
+from ...models import Tag, PaperTagLink
 from ...schemas import TagCreate, TagRead
+from sqlalchemy import delete
 
 router = APIRouter()
 
