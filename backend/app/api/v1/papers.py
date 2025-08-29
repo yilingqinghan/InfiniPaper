@@ -155,21 +155,23 @@ async def upload_paper(
     dest = _safe_write_upload(pdf_dir / (file.filename or "upload.pdf"), raw)
     pdf_url = f"/files/pdfs/{dest.name}"
 
-    # 2) 解析元数据（GROBID/Crossref/启发式）
+       # 2) 解析元数据（GROBID + Crossref + OpenAlex）
     meta: Dict[str, Any] = {}
     try:
         meta = await parse_pdf_metadata(str(dest))
     except Exception:
         meta = {}
 
-    # 3) 组装候选数据
+    # 优先用开放获取 PDF，其次用本地存储
+    pdf_url_final = meta.get("oa_pdf_url") or f"/files/pdfs/{dest.name}"
+
     data = {
         "title": title or meta.get("title") or (file.filename or dest.name),
         "abstract": abstract or meta.get("abstract"),
         "year": year or meta.get("year"),
         "doi": (doi or meta.get("doi")),
         "venue": venue or meta.get("venue"),
-        "pdf_url": pdf_url,
+        "pdf_url": pdf_url_final,
     }
 
     # 4) DOI 去重 / 合并（避免 UNIQUE 约束错误）

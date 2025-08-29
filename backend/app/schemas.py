@@ -14,6 +14,12 @@ class AuthorCreate(AuthorBase):
 class AuthorRead(AuthorBase):
     id: int
 
+class AuthorOut(BaseModel):
+    id: Optional[int] = None
+    name: Optional[str] = None
+    orcid: Optional[str] = None
+    affiliation: Optional[str] = None
+
 # ----- Tag -----
 class TagBase(BaseModel):
     name: str
@@ -50,6 +56,7 @@ class PaperUpdate(BaseModel):
 
 class PaperRead(PaperBase):
     id: int
+    authors: List[AuthorOut] = []   # <<< 新增字段
 
 # ----- Note -----
 class NoteBase(BaseModel):
