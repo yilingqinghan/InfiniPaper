@@ -1,121 +1,133 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FolderTree, Tag, Star, FileText, Clock, FileSearch, Link } from "lucide-react";
+import { FolderTree, Plus, ChevronRight, ChevronDown } from "lucide-react";
+import SwalCore from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-type TagItem = { id: number; name: string };
+const Swal = withReactContent(SwalCore);
+
+type Folder = {
+  id: number;
+  name: string;
+  color?: string | null;
+  priority?: number | null;
+  parent_id?: number | null;
+};
+
+function buildTree(items: Folder[]) {
+  const map = new Map<number, any>();
+  const roots: any[] = [];
+  items.forEach((it) => map.set(it.id, { ...it, children: [] }));
+  items.forEach((it) => {
+    const node = map.get(it.id);
+    if (it.parent_id && map.get(it.parent_id)) {
+      map.get(it.parent_id).children.push(node);
+    } else {
+      roots.push(node);
+    }
+  });
+  return roots;
+}
 
 export default function DirectorySidebar({
-  papers,
-  onSelect,
+  currentFolder,
+  onChangeFolder,
   className = "",
 }: {
-  papers: any[];
-  onSelect?: (payload: { type: "all" | "recent" | "withpdf" | "withoutpdf" | "favorite" | "tag"; value?: any }) => void;
+  currentFolder?: number | null;
+  onChangeFolder?: (id: number | null) => void;
   className?: string;
 }) {
   const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
-  const [tags, setTags] = React.useState<TagItem[]>([]);
+  const [folders, setFolders] = React.useState<Folder[]>([]);
+  const [open, setOpen] = React.useState<Record<number, boolean>>({});
 
-  React.useEffect(() => {
-    (async () => {
-      try {
-        const r = await fetch(`${apiBase}/api/v1/tags/`);
-        if (!r.ok) return;
-        const data = await r.json();
-        setTags(Array.isArray(data) ? data : []);
-      } catch {}
-    })();
+  const load = React.useCallback(async () => {
+    const r = await fetch(`${apiBase}/api/v1/folders/`);
+    if (r.ok) setFolders(await r.json());
   }, [apiBase]);
 
-  const countWithPDF = papers.filter((p) => !!p.pdf_url).length;
+  React.useEffect(() => {
+    load();
+  }, [load]);
+
+  const createFolder = async () => {
+    const { value: name } = await Swal.fire({
+      title: "新建目录",
+      input: "text",
+      inputLabel: "目录名称",
+      inputPlaceholder: "例如：组会/方法/综述",
+      confirmButtonText: "确定",
+      cancelButtonText: "取消",
+      showCancelButton: true,
+      customClass: {
+        popup: "rounded-2xl",
+        confirmButton: "swal2-confirm !rounded-xl",
+        cancelButton: "swal2-cancel !rounded-xl",
+      },
+    });
+    if (!name) return;
+    await fetch(`${apiBase}/api/v1/folders/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name }),
+    });
+    load();
+  };
+
+  const TreeNode = ({ node, depth = 0 }: { node: any; depth?: number }) => {
+    const hasChildren = node.children && node.children.length > 0;
+    const expanded = open[node.id] ?? true;
+    const colorDot = node.color || "#CBD5E1";
+    return (
+      <div>
+        <div
+          className={`flex items-center gap-1 px-2 py-1.5 rounded-lg hover:bg-gray-50 cursor-pointer ${currentFolder === node.id ? "bg-gray-50" : ""}`}
+          onClick={() => onChangeFolder?.(node.id)}
+        >
+          <button
+            onClick={(e) => { e.stopPropagation(); if (hasChildren) setOpen({ ...open, [node.id]: !expanded }); }}
+            className="w-5 h-5 flex items-center justify-center"
+            title={expanded ? "收起" : "展开"}
+          >
+            {hasChildren ? (expanded ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />) : <span className="w-4 h-4" />}
+          </button>
+          <span className="w-2 h-2 rounded-full" style={{ background: colorDot }} />
+          <span className="text-sm truncate" title={node.name}>{node.name}</span>
+        </div>
+        {hasChildren && expanded && (
+          <div className="ml-5">
+            {node.children.map((c: any) => <TreeNode key={c.id} node={c} depth={depth + 1} />)}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const tree = buildTree(folders);
 
   return (
     <aside className={`${className} sticky top-20`}>
-      <motion.div
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="rounded-2xl border bg-white p-4"
-      >
-        <div className="text-xs font-medium text-gray-600 flex items-center gap-2 mb-2">
-          <FolderTree className="w-4 h-4" />
-          目录/视图
+      <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border bg-white p-4">
+        <div className="flex items-center justify-between mb-2">
+          <div className="text-xs font-medium text-gray-600 flex items-center gap-2">
+            <FolderTree className="w-4 h-4" />
+            目录
+          </div>
+          <button onClick={createFolder} className="text-xs px-2 py-1 rounded-lg border hover:bg-gray-50 flex items-center gap-1">
+            <Plus className="w-3.5 h-3.5" /> 新建
+          </button>
         </div>
-        <ul className="space-y-1">
-          <li>
-            <button
-              onClick={() => onSelect?.({ type: "all" })}
-              className="w-full text-left px-2 py-1.5 rounded-lg hover:bg-gray-50 flex items-center gap-2"
-            >
-              <FileText className="w-4 h-4 text-gray-500" />
-              全部（{papers.length}）
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => onSelect?.({ type: "recent" })}
-              className="w-full text-left px-2 py-1.5 rounded-lg hover:bg-gray-50 flex items-center gap-2"
-            >
-              <Clock className="w-4 h-4 text-gray-500" />
-              近期导入
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => onSelect?.({ type: "withpdf" })}
-              className="w-full text-left px-2 py-1.5 rounded-lg hover:bg-gray-50 flex items-center gap-2"
-            >
-              <Link className="w-4 h-4 text-gray-500" />
-              PDF 可用（{countWithPDF}）
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => onSelect?.({ type: "withoutpdf" })}
-              className="w-full text-left px-2 py-1.5 rounded-lg hover:bg-gray-50 flex items-center gap-2"
-            >
-              <FileSearch className="w-4 h-4 text-gray-500" />
-              无 PDF
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => onSelect?.({ type: "favorite" })}
-              className="w-full text-left px-2 py-1.5 rounded-lg hover:bg-gray-50 flex items-center gap-2"
-            >
-              <Star className="w-4 h-4 text-amber-500" />
-              收藏夹
-            </button>
-          </li>
-        </ul>
-      </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.05 }}
-        className="rounded-2xl border bg-white p-4 mt-3"
-      >
-        <div className="text-xs font-medium text-gray-600 flex items-center gap-2 mb-2">
-          <Tag className="w-4 h-4" />
-          标签
+        <div className="space-y-1">
+          <button
+            onClick={() => onChangeFolder?.(null)}
+            className={`w-full text-left px-2 py-1.5 rounded-lg hover:bg-gray-50 ${currentFolder == null ? "bg-gray-50" : ""}`}
+          >
+            全部
+          </button>
+          {tree.map((n) => <TreeNode key={n.id} node={n} />)}
         </div>
-        {tags.length === 0 ? (
-          <div className="text-xs text-gray-500">暂无标签</div>
-        ) : (
-          <ul className="space-y-1 max-h-[280px] overflow-auto pr-1">
-            {tags.map((t) => (
-              <li key={t.id}>
-                <button
-                  onClick={() => onSelect?.({ type: "tag", value: t })}
-                  className="w-full text-left px-2 py-1.5 rounded-lg hover:bg-gray-50 truncate"
-                  title={`#${t.name}`}
-                >
-                  #{t.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
       </motion.div>
     </aside>
   );

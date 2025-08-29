@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
     "axios": "^1.7.7",
     "cytoscape": "^3.28.1",
     "framer-motion": "^12.23.12",
@@ -16,6 +17,8 @@
     "next": "14.2.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "sweetalert2": "^11.22.5",
+    "sweetalert2-react-content": "^5.1.0",
     "swr": "^2.2.5"
   },
   "devDependencies": {

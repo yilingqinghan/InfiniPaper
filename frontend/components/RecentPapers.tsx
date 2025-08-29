@@ -1,54 +1,67 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { List, Rows } from "lucide-react";
 import PaperCard from "@/components/PaperCard";
 
 export default function RecentPapers({
   papers,
   loading,
   onReload,
+  onOpen,
 }: {
   papers: any[];
-  loading: boolean;
+  loading?: boolean;
   onReload?: () => void;
+  onOpen?: (id: number) => void;
 }) {
+  const [dense, setDense] = React.useState(false);
+
   return (
-    <div className="space-y-3">
+    <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border bg-white p-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">最近导入</h2>
-        <button
-          onClick={onReload}
-          className="text-xs px-2 py-1 rounded-lg border hover:bg-gray-50"
-        >
-          刷新
-        </button>
+        <div className="text-sm font-medium">最近导入</div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setDense((s) => !s)}
+            className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50 flex items-center gap-1"
+            title={dense ? "卡片模式" : "密集模式"}
+          >
+            {dense ? <Rows className="w-3.5 h-3.5" /> : <List className="w-3.5 h-3.5" />}
+            {dense ? "卡片" : "密集"}
+          </button>
+        </div>
       </div>
 
-      {loading ? (
-        <div className="grid md:grid-cols-2 gap-3">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="rounded-2xl border p-4 bg-white">
-              <div className="h-4 w-2/3 bg-gray-100 rounded" />
-              <div className="mt-2 h-3 w-1/2 bg-gray-100 rounded" />
-              <div className="mt-3 h-20 w-full bg-gray-100 rounded" />
-            </div>
-          ))}
-        </div>
-      ) : papers.length === 0 ? (
-        <div className="text-sm text-gray-500">暂无论文，先上传或导入一批 PDF。</div>
-      ) : (
-        <div className="grid md:grid-cols-2 gap-3">
-          {papers.map((p, i) => (
-            <motion.div
-              key={p.id}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.03 }}
-            >
-              <PaperCard paper={p} onOpen={() => {}} />
-            </motion.div>
-          ))}
-        </div>
-      )}
-    </div>
+      <div className="mt-3">
+        {loading ? (
+          <div className="text-sm text-gray-400">加载中…</div>
+        ) : papers.length === 0 ? (
+          <div className="text-sm text-gray-400">暂无数据</div>
+        ) : dense ? (
+          <ul className="divide-y">
+            {papers.map((p) => (
+              <li key={p.id} className="py-2 text-sm flex items-center justify-between gap-4">
+                <button
+                  className="text-left hover:underline truncate"
+                  onClick={() => onOpen?.(p.id)}
+                  title={p.title}
+                >
+                  {p.title}
+                </button>
+                <div className="shrink-0 text-xs text-gray-500">
+                  {(p.venue || "未知 venue")} · {(p.year || "年份未知")}
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="grid grid-cols-1 gap-3">
+            {papers.map((p) => (
+              <PaperCard key={p.id} paper={p} onOpen={onOpen} />
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 }
