@@ -8,6 +8,7 @@ export default function Home() {
       <div className="space-x-4">
         <Link href="/search" className="px-4 py-2 bg-blue-600 text-white rounded-md">搜索</Link>
         <Link href="/papers" className="px-4 py-2 bg-gray-800 text-white rounded-md">论文列表</Link>
+        <Link href="/import" className="px-4 py-2 bg-blue-600/80 text-white rounded-md">导入 PDF</Link>
       </div>
     </div>
   );

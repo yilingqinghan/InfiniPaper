@@ -1,0 +1,242 @@
+from __future__ import annotations
+from sqlalchemy import delete
+
+from pathlib import Path
+from typing import Optional
+
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+from pydantic import BaseModel
+from sqlmodel import select, SQLModel
+
+from ..deps import SessionDep
+from ...models import Paper, Tag, Author, PaperTagLink, PaperAuthorLink, Note
+from ...schemas import PaperCreate, PaperRead, PaperUpdate
+from ...core.config import settings
+from ...services.pdf_parser import parse_pdf_metadata
+
+router = APIRouter()
+
+def _norm_title(s: str | None) -> str:
+    if not s:
+        return ""
+    import re
+    s = s.lower()
+    s = re.sub(r"[^a-z0-9]+", "", s)
+    return s
+
+@router.get("/", response_model=list[PaperRead])
+def list_papers(session: SessionDep, q: str | None = None, tag_id: int | None = None, dedup: bool = True):
+    stmt = select(Paper)
+    if q:
+        from sqlalchemy import or_
+        qlike = f"%{q}%"
+        stmt = stmt.where(or_(Paper.title.ilike(qlike), Paper.venue.ilike(qlike), Paper.doi.ilike(qlike)))
+    if tag_id is not None:
+        stmt = stmt.join(PaperTagLink, PaperTagLink.paper_id == Paper.id).where(PaperTagLink.tag_id == tag_id)
+    stmt = stmt.order_by(Paper.created_at.desc())
+    rows = session.exec(stmt).all()
+
+    result = []
+    seen = set()
+    for p in rows:
+        tag_ids = session.exec(
+            select(PaperTagLink.tag_id).where(PaperTagLink.paper_id == p.id)
+        ).scalars().all()      # ← 只有一次 .scalars()
+
+        author_ids = session.exec(
+            select(PaperAuthorLink.author_id).where(PaperAuthorLink.paper_id == p.id)
+        ).scalars().all()      # ← 只有一次 .scalars()
+
+        key = p.doi or _norm_title(p.title)
+        if dedup and key in seen:
+            continue
+        seen.add(key)
+        result.append({
+            "id": p.id,
+            "title": p.title,
+            "abstract": p.abstract,
+            "year": p.year,
+            "doi": p.doi,
+            "venue": p.venue,
+            "pdf_url": p.pdf_url,
+            "tag_ids": tag_ids,
+            "author_ids": author_ids,
+        })
+    return result
+
+@router.get("/{paper_id}", response_model=PaperRead)
+def get_paper(paper_id: int, session: SessionDep):
+    paper = session.get(Paper, paper_id)
+    if not paper:
+        raise HTTPException(status_code=404, detail="Not Found")
+
+    # 直接拿标量列表：不要 .scalars()，不要 [row[0]]
+    tag_ids = list(session.exec(
+        select(PaperTagLink.tag_id).where(PaperTagLink.paper_id == paper_id)
+    ))
+    author_ids = list(session.exec(
+        select(PaperAuthorLink.author_id).where(PaperAuthorLink.paper_id == paper_id)
+    ))
+
+    return {
+        "id": paper.id,
+        "title": paper.title,
+        "abstract": paper.abstract,
+        "year": paper.year,
+        "doi": paper.doi,
+        "venue": paper.venue,
+        "pdf_url": paper.pdf_url,
+        "tag_ids": tag_ids,
+        "author_ids": author_ids,
+    }
+
+
+
+@router.patch("/{paper_id}", response_model=PaperRead)
+def update_paper(paper_id: int, data: PaperUpdate, session: SessionDep):
+    paper = session.get(Paper, paper_id)
+    if not paper:
+        raise HTTPException(status_code=404, detail="Not Found")
+    for field, value in data.model_dump(exclude_unset=True).items():
+        if field in {"tag_ids", "author_ids"}:
+            continue
+        setattr(paper, field, value)
+    if data.tag_ids is not None:
+        session.exec(delete(PaperTagLink).where(PaperTagLink.paper_id == paper_id))
+        for tid in data.tag_ids:
+            session.add(PaperTagLink(paper_id=paper_id, tag_id=tid))
+    if data.author_ids is not None:
+        session.exec(delete(PaperAuthorLink).where(PaperAuthorLink.paper_id == paper_id))
+        for aid in data.author_ids:
+            session.add(PaperAuthorLink(paper_id=paper_id, author_id=aid))
+    session.add(paper)
+    session.commit()
+    session.refresh(paper)
+    return get_paper(paper_id, session)
+
+@router.post("/upload", response_model=PaperRead)
+async def upload_paper(
+    session: SessionDep,
+    file: UploadFile = File(...),
+    title: str | None = Form(None),
+    abstract: str | None = Form(None),
+    year: int | None = Form(None),
+    doi: str | None = Form(None),
+    venue: str | None = Form(None),
+    tag_ids: list[int] | None = Form(None),
+    author_ids: list[int] | None = Form(None),
+):
+    pdf_dir = Path(settings.STORAGE_DIR) / "pdfs"
+    pdf_dir.mkdir(parents=True, exist_ok=True)
+    dest = pdf_dir / (file.filename or "upload.pdf")
+    i = 0
+    while dest.exists():
+        i += 1
+        dest = pdf_dir / f"{dest.stem}_{i}.pdf"
+    with dest.open("wb") as out:
+        out.write(await file.read())
+    pdf_url = f"/files/pdfs/{dest.name}"
+
+    meta = {}
+    try:
+        meta = await parse_pdf_metadata(str(dest))
+    except Exception:
+        meta = {}
+
+    data = {
+        "title": title or meta.get("title") or (file.filename or dest.name),
+        "abstract": abstract,
+        "year": year or meta.get("year"),
+        "doi": doi or meta.get("doi"),
+        "venue": venue or meta.get("venue"),
+        "pdf_url": pdf_url,
+    }
+    paper = Paper(**data)
+    session.add(paper)
+    session.commit()
+    session.refresh(paper)
+
+    if tag_ids:
+        for tid in tag_ids:
+            session.add(PaperTagLink(paper_id=paper.id, tag_id=tid))
+    if author_ids:
+        for aid in author_ids:
+            session.add(PaperAuthorLink(paper_id=paper.id, author_id=aid))
+    session.commit()
+    return get_paper(paper.id, session)
+
+@router.post("/upload/batch", response_model=list[PaperRead])
+async def upload_batch(session: SessionDep, files: list[UploadFile] = File(...)):
+    created = []
+    for f in files:
+        pdf_dir = Path(settings.STORAGE_DIR) / "pdfs"
+        pdf_dir.mkdir(parents=True, exist_ok=True)
+        dest = pdf_dir / (f.filename or "upload.pdf")
+        i = 0
+        while dest.exists():
+            i += 1
+            dest = pdf_dir / f"{dest.stem}_{i}.pdf"
+        with dest.open("wb") as out:
+            out.write(await f.read())
+        pdf_url = f"/files/pdfs/{dest.name}"
+        meta = {}
+        try:
+            meta = await parse_pdf_metadata(str(dest))
+        except Exception:
+            meta = {}
+        data = {
+            "title": meta.get("title") or (f.filename or dest.name),
+            "year": meta.get("year"),
+            "venue": meta.get("venue"),
+            "doi": meta.get("doi"),
+            "pdf_url": pdf_url,
+        }
+        paper = Paper(**data)
+        session.add(paper)
+        session.commit()
+        session.refresh(paper)
+        created.append(get_paper(paper.id, session))
+    return created
+
+class TagNames(BaseModel):
+    tags: list[str]
+
+@router.put("/{paper_id}/tags", response_model=PaperRead)
+def update_tags_by_names(paper_id: int, payload: TagNames, session: SessionDep):
+    paper = session.get(Paper, paper_id)
+    if not paper:
+        raise HTTPException(status_code=404, detail="Not Found")
+    session.exec(delete(PaperTagLink).where(PaperTagLink.paper_id == paper_id))
+    tag_ids: list[int] = []
+    for name in [t.strip() for t in payload.tags if t.strip()]:
+        existing = session.exec(select(Tag).where(Tag.name == name)).first()
+        if not existing:
+            t = Tag(name=name)
+            session.add(t)
+            session.commit()
+            session.refresh(t)
+            existing = t
+        tag_ids.append(existing.id)
+        session.add(PaperTagLink(paper_id=paper_id, tag_id=existing.id))
+    session.commit()
+    return get_paper(paper_id, session)
+
+@router.delete("/{paper_id}")
+def delete_paper(paper_id: int, session: SessionDep):
+    paper = session.get(Paper, paper_id)
+    if not paper:
+        raise HTTPException(status_code=404, detail="Not Found")
+    session.exec(delete(PaperTagLink).where(PaperTagLink.paper_id == paper_id))
+    session.exec(delete(PaperAuthorLink).where(PaperAuthorLink.paper_id == paper_id))
+    session.exec(delete(Note).where(Note.paper_id == paper_id))
+    try:
+        if paper.pdf_url and paper.pdf_url.startswith("/files/"):
+            rel = paper.pdf_url.replace("/files/", "")
+            target = Path(settings.STORAGE_DIR) / rel
+            if target.exists():
+                target.unlink()
+    except Exception:
+        pass
+    session.delete(paper)
+    session.commit()
+    return {"ok": True}

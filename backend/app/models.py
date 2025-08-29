@@ -1,7 +1,7 @@
 from __future__ import annotations
-from typing import Optional, List
+from typing import Optional
 from datetime import datetime
-from sqlmodel import SQLModel, Field, Relationship
+from sqlmodel import SQLModel, Field
 from sqlalchemy import Column
 from sqlalchemy import JSON as SAJSON
 from pgvector.sqlalchemy import Vector
@@ -29,18 +29,9 @@ class Paper(SQLModel, table=True):
 
     # Embedding storage: Postgres uses pgvector; SQLite (and others) fallback to JSON
     if settings.is_postgres:
-        embedding: List[float] | None = Field(
-            sa_column=Column(Vector(768), nullable=True)
-        )
+        embedding: list[float] | None = Field(sa_column=Column(Vector(768), nullable=True))
     else:
-        embedding: List[float] | None = Field(
-            default=None,
-            sa_column=Column(SAJSON, nullable=True)
-        )
-
-    authors: List["Author"] = Relationship(back_populates="papers", link_model=PaperAuthorLink)
-    tags: List["Tag"] = Relationship(back_populates="papers", link_model=PaperTagLink)
-    notes: List["Note"] = Relationship(back_populates="paper")
+        embedding: list[float] | None = Field(default=None, sa_column=Column(SAJSON, nullable=True))
 
 class Author(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
@@ -48,13 +39,9 @@ class Author(SQLModel, table=True):
     orcid: str | None = Field(default=None, index=True, unique=False)
     affiliation: str | None = None
 
-    papers: List[Paper] = Relationship(back_populates="authors", link_model=PaperAuthorLink)
-
 class Tag(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     name: str = Field(index=True, unique=True)
-
-    papers: List[Paper] = Relationship(back_populates="tags", link_model=PaperTagLink)
 
 class Note(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
@@ -62,5 +49,3 @@ class Note(SQLModel, table=True):
     content: str
     created_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)
     updated_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)
-
-    paper: Paper | None = Relationship(back_populates="notes")

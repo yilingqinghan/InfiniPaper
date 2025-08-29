@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from loguru import logger
 
 from .core.config import settings
@@ -8,11 +9,16 @@ from .api.router import api_router
 
 app = FastAPI(title="InfiniPaper API", version="0.1.0")
 
+# Mount static file serving for uploaded PDFs
+import os
+os.makedirs(settings.STORAGE_DIR, exist_ok=True)
+app.mount("/files", StaticFiles(directory=settings.STORAGE_DIR), name="files")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["*"],   # 包含 DELETE
     allow_headers=["*"],
 )
 

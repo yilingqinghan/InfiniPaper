@@ -8,7 +8,7 @@ backend:
 	cd backend && poetry run uvicorn app.main:app --reload
 
 frontend:
-	cd frontend && pnpm dev
+	cd frontend && pnpm install && pnpm dev
 
 dev:
 	@echo "Start two terminals:"

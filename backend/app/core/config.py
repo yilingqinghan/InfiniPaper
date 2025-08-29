@@ -11,6 +11,9 @@ class Settings(BaseSettings):
     GROBID_URL: str = "http://localhost:8070"
     EMBEDDING_MODEL_NAME: str = "specter2"
 
+    # File storage (served at /files)
+    STORAGE_DIR: str = "./storage"
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

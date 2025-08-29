@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-body { @apply bg-gray-50 text-gray-900; }
-a { @apply text-blue-600 hover:underline; }
-.container { @apply max-w-6xl mx-auto px-4; }
+@layer base {
+  :root {
+    --radius: 1rem;
+  }
+  body { @apply bg-gray-50 text-gray-900 antialiased; }
+  a { @apply text-blue-600 hover:underline; }
+  .container { @apply max-w-6xl mx-auto px-4; }
+}
+
+@layer components {
+  .card { @apply bg-white rounded-2xl border shadow-sm; }
+  .btn { @apply rounded-xl border px-3 py-2 bg-white hover:bg-gray-50; }
+  .input { @apply border rounded-xl px-3 py-2; }
+}
