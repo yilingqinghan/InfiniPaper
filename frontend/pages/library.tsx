@@ -40,7 +40,19 @@ type Paper = {
 };
 
 /* --------------------------- helpers --------------------------- */
-async function j<T = any>(url: string, init?: RequestInit) { const r = await fetch(url, init); if (!r.ok) throw new Error(String(r.status)); return r.json() as Promise<T>; }
+async function j<T = any>(url: string, init?: RequestInit) {
+    const r = await fetch(url, {
+      credentials: "include",            // ✅ 默认带上 cookie
+      cache: "no-store",
+      headers: { "Cache-Control": "no-cache", ...(init?.headers || {}) },
+      ...init,
+    });
+    if (!r.ok) {
+      const text = await r.text().catch(() => "");
+      throw new Error(`${r.status} ${r.statusText}${text ? ` - ${text}` : ""}`); // ✅ 更可读的错误
+    }
+    return r.json() as Promise<T>;
+  }
 const toast = (title: string) => Swal.fire({ toast: true, position: "top", showConfirmButton: false, timer: 1200, icon: "success", title });
 
 /** venue 缩写映射 */
@@ -134,6 +146,7 @@ function DragHandle({ id }: { id: number }) {
         </button>
     );
 }
+
 
 /* --------------------------- row --------------------------- */
 function PaperRow({
@@ -263,10 +276,15 @@ function QuickTagPanel({
     };
 
     const apply = async () => {
-        await onApply(sel);
-        await onRefreshAll();
+        const v = input.trim();
+        const names = v ? (sel.includes(v) ? sel : [...sel, v]) : sel; // 把输入框里的值也一起提交
+        if (!names.length) {
+            await Swal.fire({ icon: "info", title: "请先选择或输入标签" });
+            return;
+        }
+        setInput(""); // 清空输入框
+        await onApply(names); // onApply 内部已处理刷新/提示
         onVizChange();
-        toast("已更新标签");
     };
 
     return (
@@ -371,7 +389,13 @@ function QuickTagPanel({
                                 }
                             }}
                             className="flex-1 text-sm px-2 py-1.5 rounded-md border outline-none focus:ring-2 ring-blue-200" />
-                        <button onClick={apply} className="text-sm px-3 py-1.5 rounded-md border hover:bg-gray-50">应用</button>
+                        <button
+                            onClick={apply}
+                            disabled={!paper}
+                            className="text-sm px-3 py-1.5 rounded-md border hover:bg-gray-50 disabled:opacity-50"
+                        >
+                            应用
+                        </button>
                     </div>
                 </div>
             )}
@@ -574,15 +598,33 @@ export default function Library() {
 
     // 快捷标签应用（确保实时刷新 + 乐观更新）
     const applyTags = async (names: string[]) => {
-        if (!selectedId) return;
-        const updated = await j<Paper>(`${apiBase}/api/v1/papers/${selectedId}/tags`, {
-            method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tags: names })
-        });
-        setPapers(list => list.map(p => p.id === updated.id ? { ...p, tag_ids: updated.tag_ids, authors: updated.authors } : p));
-        await refreshAll();
-        setSelectedId(s => s);
-    };
-
+    if (!selectedId) return;
+    try {
+      const updated = await j<Paper>(`${apiBase}/api/v1/papers/${selectedId}/tags`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tags: names }), // ✅ 后端要求标签名
+      });
+  
+      // 乐观更新当前页数据
+      setPapers(list =>
+        list.map(p =>
+          p.id === updated.id ? { ...p, tag_ids: updated.tag_ids, authors: updated.authors } : p
+        )
+      );
+  
+      // 再做一次真实刷新，确保与后端完全一致
+      await refreshAll();
+      setSelectedId(s => s);
+      toast("已更新标签");
+    } catch (err: any) {
+      await Swal.fire({
+        icon: "error",
+        title: "更新标签失败",
+        text: String(err?.message || err),
+      });
+    }
+  };
     // 排序 & 标签筛选
     const displayPapers = React.useMemo(() => {
         let arr = [...papers];

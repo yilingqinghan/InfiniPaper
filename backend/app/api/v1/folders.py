@@ -34,6 +34,7 @@ def _get_folder(session: SessionDep, folder_id: int) -> Folder:
 # ---------- Routes ----------
 @router.get("/", response_model=list[Folder])
 def list_folders(session: SessionDep):
+    # 统一按照 name 升序；树形在前端 buildTree
     return list(session.exec(select(Folder).order_by(Folder.name.asc())))
 
 @router.post("/", response_model=Folder)
@@ -76,7 +77,7 @@ def assign_papers(folder_id: int, payload: AssignPayload, session: SessionDep):
     ids = list({int(x) for x in (payload.paper_ids or [])})
     if not ids:
         return {"ok": True}
-    # 一篇论文只在一个目录：先清理旧的，再写新的
+    # “一篇论文只在一个目录”：先清理旧的，再写新的
     session.exec(delete(PaperFolderLink).where(PaperFolderLink.paper_id.in_(ids)))
     for pid in ids:
         if session.get(Paper, pid):
