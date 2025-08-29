@@ -1,20 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Search, UploadCloud, Tags, BookOpen, Sparkles, TrendingUp } from "lucide-react";
-import UploadDropzone from "@/components/UploadDropzone";
-import StatsCards, { StatsData } from "@/components/StatsCards";
-import RecentPapers from "@/components/RecentPapers";
 import DirectorySidebar from "@/components/DirectorySidebar";
-import QuickLinksDock from "@/components/QuickLinksDock";
+import RecentPapers from "@/components/RecentPapers";
 import PaperDetailDialog from "@/components/PaperDetailDialog";
-
-type PaperItem = any;
+import UploadDropzone from "@/components/UploadDropzone";
 
 export default function Home() {
   const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
-  const [papers, setPapers] = React.useState<PaperItem[]>([]);
+  const [papers, setPapers] = React.useState<any[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
-  const [stats, setStats] = React.useState<StatsData>({ papers: 0, authors: 0, tags: 0, withPDF: 0 });
   const [currentFolder, setCurrentFolder] = React.useState<number | null>(null);
   const [openId, setOpenId] = React.useState<number | null>(null);
 
@@ -25,23 +20,13 @@ export default function Home() {
       url.searchParams.set("dedup", "true");
       if (currentFolder != null) url.searchParams.set("folder_id", String(currentFolder));
       const r = await fetch(url.toString());
-      const data: PaperItem[] = r.ok ? await r.json() : [];
-      setPapers(data);
-
-      const authors = new Set<string>(); const tags = new Set<number>(); let withPDF = 0;
-      data.forEach((p) => {
-        (p.authors || []).forEach((a: any) => a?.name && authors.add(a.name));
-        (p.tag_ids || []).forEach((t: number) => tags.add(t));
-        if (p.pdf_url) withPDF += 1;
-      });
-      setStats({ papers: data.length, authors: authors.size, tags: tags.size, withPDF });
-    } catch { setPapers([]); setStats({ papers: 0, authors: 0, tags: 0, withPDF: 0 }); }
-    finally { setLoading(false); }
+      setPapers(r.ok ? await r.json() : []);
+    } finally { setLoading(false); }
   }, [apiBase, currentFolder]);
 
   React.useEffect(() => { load(); }, [load]);
 
-  const QuickButton = ({ icon: Icon, text, href }: { icon: any; text: string; href: string }) => (
+  const Quick = ({ icon: Icon, text, href }: any) => (
     <a href={href} className="flex items-center gap-2 px-3 py-2 rounded-xl border hover:bg-gray-50 transition">
       <Icon className="w-4 h-4" /><span className="text-sm">{text}</span>
     </a>
@@ -59,10 +44,11 @@ export default function Home() {
               <h1 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">把论文“收、管、找、看、讲”一站式做好</h1>
               <p className="mt-2 text-sm text-gray-600">支持 PDF 导入、目录管理、彩色标签、语义搜索与导出。</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <QuickButton icon={Search} text="搜索" href="/search" />
-                <QuickButton icon={BookOpen} text="论文列表" href="/papers" />
-                <QuickButton icon={Tags} text="标签" href="/tags" />
-                <QuickButton icon={TrendingUp} text="质量面板" href="/quality" />
+                <Quick icon={Search} text="搜索" href="/search" />
+                <Quick icon={BookOpen} text="论文列表" href="/papers" />
+                <Quick icon={Tags} text="标签" href="/tags" />
+                <Quick icon={TrendingUp} text="质量面板" href="/quality" />
+                <Quick icon={BookOpen} text="目录管理" href="/library" />
               </div>
             </div>
             <div className="w-full md:w-[360px]">
@@ -72,7 +58,7 @@ export default function Home() {
                 className="rounded-2xl border-dashed border-2 p-4 bg-white"
               >
                 <div className="flex items-center gap-2 text-sm">
-                  <UploadCloud className="w-4 h-4" /> 拖拽 PDF 到这里，或点击选择
+                  <UploadCloud className="w-4 h-4" /> 拖拽 PDF 到这里，或点击选择（支持多选）
                 </div>
                 <div className="text-xs text-gray-500 mt-1">
                   自动识别标题/年份/作者/单位/DOI（可用时）{currentFolder != null ? " · 导入到当前目录" : ""}
@@ -82,17 +68,13 @@ export default function Home() {
           </div>
         </motion.div>
 
-        <StatsCards loading={loading} stats={stats} />
-
         <div className="grid grid-cols-1 md:grid-cols-[260px,1fr] gap-4">
-          <DirectorySidebar className="hidden md:block" currentFolder={currentFolder} onChangeFolder={setCurrentFolder} />
-          <RecentPapers loading={loading} papers={papers.slice(0, 20)} onReload={load} onOpen={(id) => setOpenId(id)} />
+          <DirectorySidebar className="hidden md:block" currentFolder={currentFolder} onChangeFolder={(id)=>{setCurrentFolder(id);}} />
+          <RecentPapers loading={loading} papers={papers.slice(0, 30)} onOpen={(id)=>setOpenId(id)} onReload={load} />
         </div>
-
-        <QuickLinksDock />
       </div>
 
-      <PaperDetailDialog openId={openId} onClose={() => setOpenId(null)} onChanged={load} />
+      <PaperDetailDialog openId={openId} onClose={()=>setOpenId(null)} onChanged={load} />
     </>
   );
 }

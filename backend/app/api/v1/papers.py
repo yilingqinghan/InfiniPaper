@@ -91,22 +91,19 @@ def list_papers(
     session: SessionDep,
     q: Optional[str] = None,
     tag_id: Optional[int] = None,
-    folder_id: Optional[int] = Query(None, description="目录ID（基于TagExtra.is_folder=1）"),
+    folder_id: Optional[int] = None,   # ← 新增
     dedup: bool = True
 ):
     stmt = select(Paper)
-
     if q:
         from sqlalchemy import or_
         qlike = f"%{q}%"
         stmt = stmt.where(or_(Paper.title.ilike(qlike), Paper.venue.ilike(qlike), Paper.doi.ilike(qlike)))
-    if tag_id is not None:
-        stmt = stmt.join(PaperTagLink, PaperTagLink.paper_id == Paper.id).where(PaperTagLink.tag_id == tag_id)
-    if folder_id is not None:
-        # 过滤属于该目录的论文
-        stmt = stmt.join(PaperTagLink, PaperTagLink.paper_id == Paper.id).where(PaperTagLink.tag_id == folder_id)
-
+    use_tag = folder_id if folder_id is not None else tag_id
+    if use_tag is not None:
+        stmt = stmt.join(PaperTagLink, PaperTagLink.paper_id == Paper.id).where(PaperTagLink.tag_id == use_tag)
     stmt = stmt.order_by(Paper.created_at.desc())
+
     rows = list(session.exec(stmt))
     result = []
     seen = set()
@@ -118,6 +115,7 @@ def list_papers(
         seen.add(key)
         result.append(payload)
     return result
+
 
 @router.get("/{paper_id}", response_model=PaperRead)
 def get_paper(paper_id: int, session: SessionDep):

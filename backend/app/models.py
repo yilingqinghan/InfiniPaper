@@ -1,11 +1,12 @@
 from __future__ import annotations
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 from sqlalchemy import Column
 from sqlalchemy import JSON as SAJSON
 from pgvector.sqlalchemy import Vector
 from .core.config import settings
+from datetime import datetime
 
 class PaperTagLink(SQLModel, table=True):
     paper_id: int | None = Field(default=None, foreign_key="paper.id", primary_key=True)

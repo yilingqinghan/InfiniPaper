@@ -9,6 +9,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
     "@radix-ui/react-dialog": "^1.1.15",
     "axios": "^1.7.7",
     "cytoscape": "^3.28.1",
