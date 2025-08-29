@@ -1,0 +1,24 @@
+# Node / Next
+node_modules/
+.next/
+out/
+# Python
+__pycache__/
+*.pyc
+.venv/
+# OS
+.DS_Store
+# Env & local
+.env
+.env.*
+# Python build
+dist/
+build/
+# Editor
+.vscode/
+.idea/
+# Data
+*.sqlite
+*.db
+# Docker
+*.log

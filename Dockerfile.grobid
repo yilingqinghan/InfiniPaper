@@ -1,0 +1,2 @@
+# Optional custom Dockerfile (not required since docker-compose uses grobid/grobid:latest)
+FROM grobid/grobid:latest

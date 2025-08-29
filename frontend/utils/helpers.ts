@@ -1,0 +1,1 @@
+export const fmtYear = (y?: number) => (y ? String(y) : "年份未知");
