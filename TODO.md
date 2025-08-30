@@ -1,6 +1,5 @@
 - 论文加一个是否开源，由我来设置
-- 一键导出为csv、markdown
-- 批量改名模板：{year}-{venue-abbr}-{firstAuthor}-{shortTitle}.pdf。
+- 一键导出论文数据库为csv、markdown、并统一命名
 - 可以在刚才的library.tsx加一个预览，就和Mac访答的空格预览文件一样，但是你可以加更多信息
 - 集成LLM总结归纳（这个可以先不实现）
 - 阅读统计：天/周热力图（导入的文件数量）
