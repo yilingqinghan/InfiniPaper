@@ -1,3 +1,109 @@
+/* --------------------------- tag filter dropdown --------------------------- */
+function TagFilterDropdown({
+    tags, value, onChange,
+}: { tags: Tag[]; value: string[]; onChange: (names: string[]) => void }) {
+    const [open, setOpen] = React.useState(false);
+    const [q, setQ] = React.useState("");
+    const ref = React.useRef<HTMLDivElement | null>(null);
+
+    // 点击页面空白处收起
+    React.useEffect(() => {
+        const onClick = (e: MouseEvent) => {
+            if (!ref.current) return;
+            if (!ref.current.contains(e.target as Node)) setOpen(false);
+        };
+        window.addEventListener("click", onClick, true);
+        return () => window.removeEventListener("click", onClick, true);
+    }, []);
+
+    const filtered = React.useMemo(
+        () => tags.filter(t => !q || t.name.toLowerCase().includes(q.toLowerCase())),
+        [tags, q]
+    );
+
+    const toggle = (name: string) => {
+        if (value.includes(name)) onChange(value.filter(n => n !== name));
+        else onChange([...value, name]);
+    };
+
+    const selectAll = () => onChange(filtered.map(t => t.name));
+    const clearAll = () => onChange([]);
+
+    // 按钮上的摘要：最多展示 3 个已选标签，剩余显示 +N
+    const summary = React.useMemo(() => {
+        if (!value.length) return <span className="text-gray-500">全部标签</span>;
+        const head = value.slice(0, 3);
+        const rest = value.length - head.length;
+        return (
+            <span className="flex items-center gap-1 flex-wrap">
+                {head.map(n => {
+                    const color = getTagColor(n);
+                    return (
+                        <span key={n}
+                              className="text-[11px] px-2 py-[2px] rounded-full border inline-flex items-center gap-1"
+                              style={{ borderColor: color || "#cbd5e1" }}>
+                            <span className="w-2 h-2 rounded-full" style={{ background: color || "#94a3b8" }} />
+                            {n}
+                        </span>
+                    );
+                })}
+                {rest > 0 && <span className="text-xs text-gray-500">+{rest}</span>}
+            </span>
+        );
+    }, [value]);
+
+    return (
+        <div className="relative" ref={ref}>
+            <button
+                type="button"
+                onClick={(e) => { e.stopPropagation(); setOpen(o => !o); }}
+                className="flex items-center gap-2 px-2 py-1 rounded-md border bg-white hover:bg-gray-50"
+                title={value.length ? `已选 ${value.length} 个标签` : "全部标签"}
+            >
+                <span className="text-xs text-gray-500">按标签筛选：</span>
+                {summary}
+                <ChevronDown className="w-4 h-4 text-gray-500" />
+            </button>
+
+            {open && (
+                <div className="absolute right-0 z-50 mt-2 w-[320px] rounded-xl border bg-white shadow-lg">
+                    <div className="p-2 border-b bg-gray-50 flex items-center gap-2">
+                        <input
+                            value={q}
+                            onChange={e => setQ(e.target.value)}
+                            placeholder="搜索标签…"
+                            className="flex-1 text-sm px-2 py-1 rounded-md border bg-white"
+                        />
+                        <button className="text-xs px-2 py-1 rounded border" onClick={selectAll}>全选</button>
+                        <button className="text-xs px-2 py-1 rounded border" onClick={clearAll}>清空</button>
+                    </div>
+                    <div className="max-h-64 overflow-auto p-1">
+                        {filtered.map(t => {
+                            const checked = value.includes(t.name);
+                            const color = getTagColor(t.name);
+                            return (
+                                <label key={t.id}
+                                       className={`flex items-center gap-2 px-2 py-1 rounded cursor-pointer ${checked ? "bg-blue-50" : "hover:bg-gray-50"}`}>
+                                    <input
+                                        type="checkbox"
+                                        checked={checked}
+                                        onChange={() => toggle(t.name)}
+                                    />
+                                    <span className="w-2.5 h-2.5 rounded-full border" style={{ background: color || "transparent" }} />
+                                    <span className="text-sm">{t.name}</span>
+                                </label>
+                            );
+                        })}
+                        {!filtered.length && <div className="p-3 text-center text-sm text-gray-400">没有匹配的标签</div>}
+                    </div>
+                    <div className="p-2 border-t text-right">
+                        <button className="text-xs px-2 py-1 rounded border hover:bg-gray-50" onClick={() => setOpen(false)}>完成</button>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
 // frontend/pages/library.tsx
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -79,6 +185,13 @@ function abbrevVenue(venue?: string | null): string | null {
     if (!venue) return null;
     for (const [re, abbr] of VENUE_ABBR) if (re.test(venue)) return abbr;
     return null;
+}
+
+/** 顶尖会议/期刊缩写定义（Tier1） */
+const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH"]);
+function venueTier(abbr: string | null): 0 | 1 | 2 {
+    if (!abbr) return 0;
+    return TOP_TIER.has(abbr) ? 1 : 2;
 }
 
 /** 本地可视化配置：给标签指定颜色/优先级符号（不改后端表结构） */
@@ -219,10 +332,15 @@ function PaperRow({
     const colored = allTags.filter(t => getTagColor(t.name));
     const plain = allTags.filter(t => !getTagColor(t.name));
     const abbr = abbrevVenue(p.venue);
+    const tier = venueTier(abbr);
+    const chipClass =
+        tier === 1
+            ? "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-rose-50 border-rose-200 text-rose-700"
+            : "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-indigo-50 border-indigo-200 text-indigo-700";
 
     return (
         <tr
-            className={`border-t hover:bg-gray-50 ${selected ? "bg-blue-50/40" : ""} cursor-pointer select-none`}
+            className={`border-t ${selected ? "bg-blue-50/60" : "odd:bg-white even:bg-slate-50/40 hover:bg-gray-50"} cursor-pointer select-none`}
             onClick={() => onSelect(p.id)}
             onDoubleClick={() => onOpen(p.id)}
             onMouseEnter={() => onPreviewHover(p.id)}
@@ -230,23 +348,23 @@ function PaperRow({
             onContextMenu={(e) => onContextMenu(e, p)}
             data-viz={vizNonce}
         >
-            <td className="px-2 py-2 w-[36px]"><DragHandle id={p.id} /></td>
-            <td className="px-3 py-2 w-[80px] text-gray-600">{p.year ?? "—"}</td>
-            <td className="px-3 py-2 w-[40%] min-w-[360px]">
+            <td className="px-2 py-1.5 w-[36px]"><DragHandle id={p.id} /></td>
+            <td className="px-2 py-1.5 w-[80px] text-gray-600">{p.year ?? "—"}</td>
+            <td className="px-2 py-1.5 w-[40%] min-w-[360px]">
                 <div className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
-                    {abbr && <span className="text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-indigo-50 text-indigo-700">{abbr}</span>}
+                    {abbr && <span className={chipClass} title={tier === 1 ? "顶尖会议/期刊" : "其它会议/期刊"}>{abbr}</span>}
                     {p.title}
                 </div>
             </td>
-            <td className="px-3 py-2 w-[22%]">
+            <td className="px-2 py-1.5 w-[22%]">
                 <div className="text-xs text-gray-700 whitespace-nowrap overflow-hidden text-ellipsis">{authors || "—"}</div>
             </td>
             {showVenueCol && (
-                <td className="px-3 py-2 w-[20%]">
+                <td className="px-2 py-1.5 w-[20%]">
                     <div className="text-xs text-gray-600 whitespace-nowrap overflow-hidden text-ellipsis">{p.venue || "—"}</div>
                 </td>
             )}
-            <td className="px-3 py-2 w-[18%]">
+            <td className="px-2 py-1.5 w-[18%]">
                 <div className="flex flex-wrap gap-1 items-center">
                     {colored.length ? colored.map(t => {
                         const color = getTagColor(t.name) || "#3b82f6";
@@ -264,7 +382,7 @@ function PaperRow({
                     }) : <span className="text-[11px] text-gray-400">—</span>}
                 </div>
             </td>
-            <td className="px-3 py-2 w-[18%]">
+            <td className="px-2 py-1.5 w-[18%]">
                 <div className="flex flex-wrap gap-1">
                     {plain.length ? plain.map(t => (
                         <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1" title={t.name}>
@@ -274,7 +392,7 @@ function PaperRow({
                     )) : <span className="text-[11px] text-gray-400">—</span>}
                 </div>
             </td>
-            <td className="px-3 py-2 w-[60px]">{p.pdf_url ? "有" : "-"}</td>
+            <td className="px-2 py-1.5 w-[60px]">{p.pdf_url ? "有" : "-"}</td>
         </tr>
     );
 }
@@ -1000,41 +1118,21 @@ export default function Library() {
                                 <button className="text-xs px-2 py-1 rounded border" onClick={loadPapers}>应用</button>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <div className="text-xs text-gray-500">按标签筛选：</div>
-                                <div className="flex flex-wrap gap-1 max-w-[520px]">
-                                    {tags.map(t => {
-                                        const color = getTagColor(t.name);
-                                        const prio = getTagPrio(t.name);
-                                        return (
-                                            <button key={t.id}
-                                                onClick={() => {
-                                                    setFilterTagNames(s => s.includes(t.name) ? s.filter(x => x !== t.name) : [...s, t.name]);
-                                                }}
-                                                className={`text-[11px] px-2 py-[2px] rounded-md border transition inline-flex items-center gap-1
-                          ${filterTagNames.includes(t.name) ? "bg-blue-50 border-blue-300 text-blue-700" : "hover:bg-white"}`}>
-                                                <span className="w-2.5 h-2.5 rounded-full border" style={{ background: color || "transparent" }} />
-                                                {prio ? <span>{prio}</span> : null}
-                                                {t.name}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                            </div>
+                        <TagFilterDropdown tags={tags} value={filterTagNames} onChange={setFilterTagNames} />
                         </div>
 
                         <div className="max-h-[74vh] overflow-auto">
                             <table className="w-full text-sm table-fixed">
                                 <thead className="sticky top-0 bg-gray-50">
                                     <tr className="text-left text-xs text-gray-500">
-                                        <th className="px-2 py-2 w-[36px]"></th>
-                                        <th className="px-3 py-2 w-[80px]">年</th>
-                                        <th className="px-3 py-2 w-[40%] min-w-[360px]">标题</th>
-                                        <th className="px-3 py-2 w-[22%]">作者</th>
-                                        {!displayPapers.every(p => !!abbrevVenue(p.venue)) && <th className="px-3 py-2 w-[20%]">期刊/会议</th>}
-                                        <th className="px-3 py-2 w-[18%]">彩色标签</th>
-                                        <th className="px-3 py-2 w-[18%]">文字标签</th>
-                                        <th className="px-3 py-2 w-[60px]">PDF</th>
+                                        <th className="px-2 py-1.5 w-[36px]"></th>
+                                        <th className="px-2 py-1.5 w-[80px]">年</th>
+                                        <th className="px-2 py-1.5 w-[48%] min-w-[360px]">标题</th>
+                                        <th className="px-2 py-1.5 w-[18%]">作者</th>
+                                        {!displayPapers.every(p => !!abbrevVenue(p.venue)) && <th className="px-2 py-1.5 w-[10%]">期刊/会议</th>}
+                                        <th className="px-2 py-1.5 w-[18%]">彩色标签</th>
+                                        <th className="px-2 py-1.5 w-[18%]">文字标签</th>
+                                        <th className="px-2 py-1.5 w-[60px]">PDF</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1110,6 +1208,30 @@ export default function Library() {
                                     </button>
                                 ))}
                             </div>
+                            <div className="border-t my-1" />
+                            <button
+                                className="w-full text-left px-2 py-1.5 rounded hover:bg-red-50 text-sm flex items-center gap-2 text-red-600"
+                                onClick={async () => {
+                                  if (!ctx.payload) return;
+                                  const ok = (await Swal.fire({
+                                    icon: "warning",
+                                    title: "删除该论文？",
+                                    text: "此操作不可撤销，将删除论文及其关联（标签/作者关系、笔记、目录关系）。",
+                                    showCancelButton: true,
+                                    confirmButtonText: "删除",
+                                    confirmButtonColor: "#ef4444"
+                                  })).isConfirmed;
+                                  if (!ok) return;
+                                  await fetch(`${apiBase}/api/v1/papers/${ctx.payload.id}`, { method: "DELETE" });
+                                  setCtx(s => ({ ...s, visible: false }));
+                                  setSelectedId(s => (s === ctx.payload!.id ? null : s));
+                                  await loadPapers();
+                                  toast("论文已删除");
+                                }}
+                            >
+                                <Trash2 className="w-4 h-4" />
+                                删除论文
+                            </button>
                         </div>
                     </div>
                 )}
