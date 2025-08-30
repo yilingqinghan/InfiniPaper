@@ -31,6 +31,33 @@ def _norm_title(s: Optional[str]) -> str:
     s = re.sub(r"[^a-z0-9]+", "", s)
     return s
 
+# venue 缩写映射（与前端一致）
+import re as _re
+_VENUE_ABBR_PATTERNS: list[tuple[_re.Pattern[str], str]] = [
+    (_re.compile(r"(international symposium on microarchitecture|(^|\W)micro(\W|$))", _re.I), "MICRO"),
+    (_re.compile(r"programming language design and implementation|(^|\W)pldi(\W|$)", _re.I), "PLDI"),
+    (_re.compile(r"international symposium on computer architecture|(^|\W)isca(\W|$)", _re.I), "ISCA"),
+    (_re.compile(r"architectural support for programming languages|(^|\W)asplos?(\W|$)", _re.I), "ASPLOS"),
+    (_re.compile(r"transactions on architecture and code optimization|(^|\W)taco(\W|$)", _re.I), "TACO"),
+    (_re.compile(r"transactions on design automation of electronic systems|(^|\W)todaes(\W|$)", _re.I), "TODAES"),
+    (_re.compile(r"design automation conference|(^|\W)dac(\W|$)", _re.I), "DAC"),
+    (_re.compile(r"neurips|nips", _re.I), "NeurIPS"),
+    (_re.compile(r"international conference on machine learning|(^|\W)icml(\W|$)", _re.I), "ICML"),
+    (_re.compile(r"computer vision and pattern recognition|(^|\W)cvpr(\W|$)", _re.I), "CVPR"),
+    (_re.compile(r"international conference on computer vision|(^|\W)iccv(\W|$)", _re.I), "ICCV"),
+    (_re.compile(r"european conference on computer vision|(^|\W)eccv(\W|$)", _re.I), "ECCV"),
+    (_re.compile(r"very large data bases|(^|\W)vldb(\W|$)", _re.I), "VLDB"),
+    (_re.compile(r"sigmod", _re.I), "SIGMOD"),
+    (_re.compile(r"the web conference|(^|\W)www(\W|$)", _re.I), "WWW"),
+    (_re.compile(r"supercomputing|(^|\W)sc(\W|$)", _re.I), "SC"),
+    (_re.compile(r"siggraph", _re.I), "SIGGRAPH"),
+]
+def _venue_abbr(name: str | None) -> str | None:
+    if not name: return None
+    for pat, abbr in _VENUE_ABBR_PATTERNS:
+        if pat.search(name): return abbr
+    return None    
+
 def _paper_payload(session: SessionDep, paper_id: int) -> Dict[str, Any]:
     paper = session.get(Paper, paper_id)
     if not paper:
@@ -79,6 +106,7 @@ def list_papers(
     year_min: Optional[int] = None,   # ✅ 新增
     year_max: Optional[int] = None,   # ✅ 新增
     venue: Optional[str] = None,      # ✅ 新增
+    venue_abbr: Optional[str] = None,   # 👈 新增
     dedup: bool = True,
 ):
     stmt = select(Paper)
@@ -115,6 +143,9 @@ def list_papers(
     stmt = stmt.order_by(Paper.created_at.desc())
 
     rows = list(session.exec(stmt))
+    if venue_abbr:
+        wanted = {x.strip().upper() for x in venue_abbr.split(",") if x.strip()}
+        rows = [p for p in rows if (_venue_abbr(getattr(p, "venue", None)) or "").upper() in wanted]
     result = []
     seen = set()
     for p in rows:

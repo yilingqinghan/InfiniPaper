@@ -181,6 +181,8 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/supercomputing|(^|\W)sc(\W|$)/i, "SC"],
     [/siggraph/i, "SIGGRAPH"],
 ];
+const VENUE_ABBR_SET = new Set(VENUE_ABBR.map(([, ab]) => ab.toUpperCase()));
+const VENUE_ABBR_LIST = Array.from(new Set(VENUE_ABBR.map(([, ab]) => ab)));
 function abbrevVenue(venue?: string | null): string | null {
     if (!venue) return null;
     for (const [re, abbr] of VENUE_ABBR) if (re.test(venue)) return abbr;
@@ -495,7 +497,7 @@ function QuickTagPanel({
     const canApply = !!paper && (sel.length > 0 || input.trim().length > 0);
     const outerCls = compact
         ? "rounded-2xl border bg-white flex flex-col overflow-hidden max-h-[260px]"
-        : "rounded-2xl border bg-white h-full flex flex-col overflow-hidden";
+        : "rounded-2xl border bg-white h-full flex flex-col overflow-hidden  max-h-[500px]";
     return (
         <div className={outerCls}>
             <div className="px-3 py-2 border-b bg-gradient-to-r from-indigo-50 to-blue-50 flex items-center gap-2">
@@ -510,7 +512,7 @@ function QuickTagPanel({
 
             {!paper ? (
                 <div className="flex-1 text-sm text-gray-500 flex items-center justify-center px-4 text-center">
-                    选中一篇论文后，可在这里管理标签。点击芯片上的「×」仅从当前论文移除；在“管理”模式下可<strong>全局删除</strong>标签。
+                    选中一篇论文后，可在这里管理标签。点击气泡上的「×」仅从当前论文移除；在“管理”模式下可全局删除标签。
                 </div>
             ) : (
                 <div className="flex-1 overflow-auto p-3 space-y-3">
@@ -725,6 +727,145 @@ function FolderTreeNode({
     );
 }
 
+/* --------------------------- dual year slider (non-linear) --------------------------- */
+function YearDualSlider({
+    start, end, value, onChange,
+}: { start: number; end: number; value: [number, number]; onChange: (a: number, b: number) => void }) {
+    const [a, b] = value;
+    const clamp = (x: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, x));
+    // 非线性映射（反向）：p ∈ [0,1] -> year = start + (end-start) * sqrt(p)
+    // 目的：靠近“现在(end)”更细腻，靠近早年(start)更稀疏
+    const pctToYear = (p: number) => Math.round(start + (end - start) * Math.sqrt(p));
+    const yearToPct = (y: number) => {
+        const r = Math.max(1, (end - start));
+        const t = clamp((y - start) / r, 0, 1);
+        return t * t; // 反变换：p = ((y-start)/range)^2
+    };
+    const pMin = Math.round(yearToPct(a) * 100);
+    const pMax = Math.round(yearToPct(b) * 100);
+
+    const handleMin = (p: number) => {
+        const y = clamp(pctToYear(p / 100), start, b);
+        onChange(y, b);
+    };
+    const handleMax = (p: number) => {
+        const y = clamp(pctToYear(p / 100), a, end);
+        onChange(a, y);
+    };
+
+    const trackSel = `linear-gradient(to right, transparent ${pMin}%, #60a5fa ${pMin}%, #60a5fa ${pMax}%, transparent ${pMax}%)`;
+
+    return (
+        <div className="relative w-[260px] h-6">
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1.5 rounded bg-slate-200" />
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1.5 rounded pointer-events-none" style={{ background: trackSel }} />
+
+            <input
+            type="range" min={0} max={100} value={pMin}
+            onChange={(e) => handleMin(Number(e.currentTarget.value))}
+            className="absolute inset-0 w-full appearance-none bg-transparent pointer-events-none z-20
+                        [&::-webkit-slider-runnable-track]:bg-transparent [&::-moz-range-track]:bg-transparent
+                        [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:pointer-events-auto
+                        [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:pointer-events-auto"
+            />
+            <input
+            type="range" min={0} max={100} value={pMax}
+            onChange={(e) => handleMax(Number(e.currentTarget.value))}
+            className="absolute inset-0 w-full appearance-none bg-transparent pointer-events-none z-30
+                        [&::-webkit-slider-runnable-track]:bg-transparent [&::-moz-range-track]:bg-transparent
+                        [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:pointer-events-auto
+                        [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:pointer-events-auto"
+            />
+        </div>
+    );
+}
+/* --------------------------- venue abbr dropdown --------------------------- */
+function VenueAbbrDropdown({ value, onChange }: { value: string[]; onChange: (abbrs: string[]) => void }) {
+    const [open, setOpen] = React.useState(false);
+    const [q, setQ] = React.useState("");
+    const ref = React.useRef<HTMLDivElement | null>(null);
+  
+    React.useEffect(() => {
+      const onClick = (e: MouseEvent) => { if (!ref.current) return; if (!ref.current.contains(e.target as Node)) setOpen(false); };
+      window.addEventListener("click", onClick, true);
+      return () => window.removeEventListener("click", onClick, true);
+    }, []);
+  
+    const options = React.useMemo(() => {
+      const list = VENUE_ABBR_LIST.slice().sort((a, b) => a.localeCompare(b));
+      return list.filter(ab => !q || ab.toLowerCase().includes(q.toLowerCase()));
+    }, [q]);
+  
+    const toggle = (abbr: string) => {
+      if (value.includes(abbr)) onChange(value.filter(x => x !== abbr));
+      else onChange([...value, abbr]);
+    };
+    const selectAll = () => onChange(options);
+    const clearAll = () => onChange([]);
+  
+    const summary = React.useMemo(() => {
+      if (!value.length) return <span className="text-gray-500">全部会议/期刊</span>;
+      const head = value.slice(0, 4);
+      const rest = value.length - head.length;
+      return (
+        <span className="flex items-center gap-1 flex-wrap">
+          {head.map(n => {
+            const tier = venueTier(n);
+            const chip = tier === 1
+              ? "text-[11px] px-1.5 py-[1px] rounded-md border bg-rose-50 border-rose-200 text-rose-700"
+              : "text-[11px] px-1.5 py-[1px] rounded-md border bg-indigo-50 border-indigo-200 text-indigo-700";
+            return <span key={n} className={chip}>{n}</span>;
+          })}
+          {rest > 0 && <span className="text-xs text-gray-500">+{rest}</span>}
+        </span>
+      );
+    }, [value]);
+  
+    return (
+      <div className="relative" ref={ref}>
+        <button
+          type="button"
+          onClick={(e) => { e.stopPropagation(); setOpen(o => !o); }}
+          className="flex items-center gap-2 px-2 py-1 rounded-md border bg-white hover:bg-gray-50"
+          title={value.length ? `已选 ${value.length} 个缩写` : "全部会议/期刊"}
+        >
+          <span className="text-xs text-gray-500">按会议/期刊：</span>
+          {summary}
+          <ChevronDown className="w-4 h-4 text-gray-500" />
+        </button>
+  
+        {open && (
+          <div className="absolute right-0 z-50 mt-2 w-[320px] rounded-xl border bg-white shadow-lg">
+            <div className="p-2 border-b bg-gray-50 flex items-center gap-2">
+              <input value={q} onChange={e => setQ(e.target.value)} placeholder="搜索缩写…"
+                className="flex-1 text-sm px-2 py-1 rounded-md border bg-white" />
+              <button className="text-xs px-2 py-1 rounded border" onClick={selectAll}>全选</button>
+              <button className="text-xs px-2 py-1 rounded border" onClick={clearAll}>清空</button>
+            </div>
+            <div className="max-h-64 overflow-auto p-1">
+              {options.map(abbr => {
+                const checked = value.includes(abbr);
+                const tier = venueTier(abbr);
+                return (
+                  <label key={abbr}
+                    className={`flex items-center gap-2 px-2 py-1 rounded cursor-pointer ${checked ? "bg-blue-50" : "hover:bg-gray-50"}`}>
+                    <input type="checkbox" checked={checked} onChange={() => toggle(abbr)} />
+                    <span className={`text-[11px] px-1.5 py-[1px] rounded-md border ${tier === 1
+                      ? "bg-rose-50 border-rose-200 text-rose-700"
+                      : "bg-indigo-50 border-indigo-200 text-indigo-700"}`}>{abbr}</span>
+                  </label>
+                );
+              })}
+              {!options.length && <div className="p-3 text-center text-sm text-gray-400">没有匹配的缩写</div>}
+            </div>
+            <div className="p-2 border-t text-right">
+              <button className="text-xs px-2 py-1 rounded border hover:bg-gray-50" onClick={() => setOpen(false)}>完成</button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
 /* --------------------------- main page --------------------------- */
 export default function Library() {
     const sensors = useSensors(useSensor(PointerSensor));
@@ -746,9 +887,8 @@ export default function Library() {
 
     const [yearAsc, setYearAsc] = React.useState<boolean>(false);
     const [filterTagNames, setFilterTagNames] = React.useState<string[]>([]);
-
+    const [filterVenueAbbrs, setFilterVenueAbbrs] = React.useState<string[]>([]);
     const [search, setSearch] = React.useState<string>("");
-    const [venueFilter, setVenueFilter] = React.useState<string>("");
     const yearNow = new Date().getFullYear();
     const [minYear, setMinYear] = React.useState<number>(1990);
     const [maxYear, setMaxYear] = React.useState<number>(yearNow);
@@ -775,12 +915,14 @@ export default function Library() {
           url.searchParams.set("dedup", "true");
           if (activeFolderId != null) url.searchParams.set("folder_id", String(activeFolderId));
           if (search) url.searchParams.set("q", search);
-          if (venueFilter) url.searchParams.set("venue", venueFilter);
           if (yearMin != null) url.searchParams.set("year_min", String(yearMin));
           if (yearMax != null) url.searchParams.set("year_max", String(yearMax));
           setPapers(await j<Paper[]>(url.toString()));
+          if (filterVenueAbbrs.length) {
+            url.searchParams.set("venue_abbr", filterVenueAbbrs.join(","));
+          }
         } catch { setPapers([]); }
-      }, [activeFolderId, search, venueFilter, yearMin, yearMax]);
+      }, [activeFolderId, search, filterVenueAbbrs, yearMin, yearMax]);
 
     const refreshAll = React.useCallback(async () => { await loadTags(); await loadPapers(); }, [loadTags, loadPapers]);
 
@@ -816,7 +958,13 @@ export default function Library() {
       };
 
     React.useEffect(() => { loadFolders(); loadTags(); }, [loadFolders, loadTags]);
-    React.useEffect(() => { loadPapers(); }, [loadPapers]);
+    // 初次加载
+    React.useEffect(() => { loadPapers(); }, []);
+    // 任何筛选项变动，自动触发检索（轻微防抖）
+    React.useEffect(() => {
+        const t = setTimeout(() => { loadPapers(); }, 180);
+        return () => clearTimeout(t);
+    }, [search, filterVenueAbbrs, yearMin, yearMax, activeFolderId]);
 
     const createFolder = async () => {
         const { value: name } = await Swal.fire({ title: "新建目录名称", input: "text", showCancelButton: true, confirmButtonText: "确定", cancelButtonText: "取消" });
@@ -1096,29 +1244,32 @@ export default function Library() {
                     <div className="rounded-2xl border bg-white overflow-hidden">
                         {/* 顶部工具行（标签筛选留在顶部，不占用左侧目录区） */}
                         <div className="flex items-center justify-between px-3 py-2 border-b bg-gray-50">
-                            <div className="flex items-center gap-3 text-sm">
-                                <button onClick={() => setYearAsc(v => !v)} className="px-2 py-1 rounded-md border hover:bg-white">
+                        <div className="flex items-center gap-3 text-sm">
+                            <button onClick={() => setYearAsc(v => !v)} className="px-2 py-1 rounded-md border hover:bg-white">
                                 年份排序 {yearAsc ? <ChevronUp className="w-4 h-4 inline" /> : <ChevronDown className="w-4 h-4 inline" />}
-                                </button>
-                                <input
-                                placeholder="搜索标题 / DOI / 期刊（回车）"
+                            </button>
+                            <input
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                placeholder="搜索标题 / DOI / 期刊（即时）"
                                 className="px-2 py-1 rounded-md border"
-                                onKeyDown={async (e) => { if (e.key === "Enter") { setSearch((e.target as HTMLInputElement).value.trim()); await loadPapers(); } }}
-                                />
-                                <input
-                                placeholder="期刊/会议（回车筛选）"
-                                className="px-2 py-1 rounded-md border"
-                                onKeyDown={async (e) => { if (e.key === "Enter") { setVenueFilter((e.target as HTMLInputElement).value.trim()); await loadPapers(); } }}
-                                />
-                                <div className="flex items-center gap-2">
+                            />
+                            <div className="flex items-center gap-2">
                                 <span className="text-xs text-gray-500">年份：</span>
-                                <input type="range" min={minYear} max={maxYear} value={yearMin} onChange={e => setYearMin(Number(e.target.value))} />
-                                <input type="range" min={minYear} max={maxYear} value={yearMax} onChange={e => setYearMax(Number(e.target.value))} />
+                                <YearDualSlider
+                                    start={minYear}
+                                    end={maxYear}
+                                    value={[yearMin, yearMax]}
+                                    onChange={(a, b) => { setYearMin(a); setYearMax(b); }}
+                                />
                                 <span className="text-xs text-gray-600">{yearMin} - {yearMax}</span>
                                 <button className="text-xs px-2 py-1 rounded border" onClick={loadPapers}>应用</button>
                                 </div>
                             </div>
-                        <TagFilterDropdown tags={tags} value={filterTagNames} onChange={setFilterTagNames} />
+                        <div className="flex items-center gap-2">
+                            <VenueAbbrDropdown value={filterVenueAbbrs} onChange={setFilterVenueAbbrs} />
+                            <TagFilterDropdown tags={tags} value={filterTagNames} onChange={setFilterTagNames} />
+                        </div>
                         </div>
 
                         <div className="max-h-[74vh] overflow-auto">
