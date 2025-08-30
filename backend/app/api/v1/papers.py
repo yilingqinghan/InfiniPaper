@@ -146,79 +146,22 @@ async def upload_paper(
     tag_ids: Optional[list[int]] = Form(None),
     author_ids: Optional[list[int]] = Form(None),
 ):
-    pdf_dir = Path(settings.STORAGE_DIR) / "pdfs"
-    pdf_dir.mkdir(parents=True, exist_ok=True)
-    raw = await file.read()
-    dest = _safe_write_upload(pdf_dir / (file.filename or "upload.pdf"), raw)
-    pdf_url = f"/files/pdfs/{dest.name}"
+    return await _upload_one(
+        session=session, file=file,
+        title=title, abstract=abstract, year=year, doi=doi, venue=venue,
+        tag_ids=tag_ids, author_ids=author_ids,
+    )
 
-    meta: Dict[str, Any] = {}
-    try:
-        meta = await parse_pdf_metadata(str(dest))
-    except Exception as e:
-        logger.warning(f"pdf parse failed: {e}")
-        meta = {}
-
-    data = {
-        "title": title or meta.get("title") or (file.filename or dest.name),
-        "abstract": abstract or meta.get("abstract"),
-        "year": year or meta.get("year"),
-        "doi": (doi or meta.get("doi")),
-        "venue": venue or meta.get("venue"),
-        "pdf_url": pdf_url,
-    }
-
-    existing = None
-    if data.get("doi"):
-        existing = session.exec(select(Paper).where(Paper.doi == data["doi"])).first()
-    if existing:
-        _merge_paper_fields(existing, data)
-        session.add(existing); session.commit()
-        paper = existing
-    else:
-        paper = Paper(**data)
-        session.add(paper); session.commit(); session.refresh(paper)
-
-    # 解析作者（若有）
-    authors_meta = meta.get("authors") or []
-    explicit_ids = set(author_ids or [])
-    created_ids: List[int] = []
-    for am in authors_meta:
-        name = (am or {}).get("name")
-        if not name: continue
-        aff = (am or {}).get("affiliation")
-        a = session.exec(select(Author).where(Author.name == name)).first()
-        if not a:
-            try:
-                a = Author(name=name, affiliation=aff)
-            except TypeError:
-                a = Author(name=name)
-            session.add(a); session.commit(); session.refresh(a)
-        else:
-            if aff and hasattr(a, "affiliation") and not getattr(a, "affiliation"):
-                a.affiliation = aff; session.add(a); session.commit()
-        created_ids.append(a.id)
-
-    final_author_ids = list({*explicit_ids, *created_ids})
-    if final_author_ids:
-        session.exec(delete(PaperAuthorLink).where(PaperAuthorLink.paper_id == paper.id))
-        for aid in final_author_ids:
-            session.add(PaperAuthorLink(paper_id=paper.id, author_id=aid))
-
-    if tag_ids:
-        session.exec(delete(PaperTagLink).where(PaperTagLink.paper_id == paper.id))
-        for tid in tag_ids:
-            session.add(PaperTagLink(paper_id=paper.id, tag_id=tid))
-
-    session.commit()
-    logger.info(f"[upload] paper#{paper.id} saved file={dest.name} doi={paper.doi}")
-    return _paper_payload(session, paper.id)
 
 @router.post("/upload/batch", response_model=list[PaperRead])
 async def upload_batch(session: SessionDep, files: list[UploadFile] = File(...)):
     out: list[PaperRead] = []
     for f in files:
-        tmp = await upload_paper(session=session, file=f)  # type: ignore
+        tmp = await _upload_one(
+            session=session, file=f,
+            title=None, abstract=None, year=None, doi=None, venue=None,
+            tag_ids=None, author_ids=None,
+        )
         out.append(tmp)
     return out
 
@@ -291,3 +234,83 @@ def delete_paper(paper_id: int, session: SessionDep):
     session.delete(paper); session.commit()
     logger.info(f"[delete] paper#{paper_id} removed")
     return {"ok": True}
+
+# 放在 _merge_paper_fields 后面
+async def _upload_one(
+    session: SessionDep,
+    file: UploadFile,
+    title: Optional[str] = None,
+    abstract: Optional[str] = None,
+    year: Optional[int] = None,
+    doi: Optional[str] = None,
+    venue: Optional[str] = None,
+    tag_ids: Optional[list[int]] = None,
+    author_ids: Optional[list[int]] = None,
+) -> PaperRead:
+    pdf_dir = Path(settings.STORAGE_DIR) / "pdfs"
+    pdf_dir.mkdir(parents=True, exist_ok=True)
+    raw = await file.read()
+    dest = _safe_write_upload(pdf_dir / (file.filename or "upload.pdf"), raw)
+    pdf_url = f"/files/pdfs/{dest.name}"
+
+    meta: Dict[str, Any] = {}
+    try:
+        meta = await parse_pdf_metadata(str(dest))
+    except Exception as e:
+        logger.warning(f"pdf parse failed: {e}")
+        meta = {}
+
+    data = {
+        "title": title or meta.get("title") or (file.filename or dest.name),
+        "abstract": abstract or meta.get("abstract"),
+        "year": year or meta.get("year"),
+        "doi": (doi or meta.get("doi")),
+        "venue": venue or meta.get("venue"),
+        "pdf_url": pdf_url,
+    }
+
+    existing = None
+    if data.get("doi"):
+        existing = session.exec(select(Paper).where(Paper.doi == data["doi"])).first()
+    if existing:
+        _merge_paper_fields(existing, data)
+        session.add(existing); session.commit()
+        paper = existing
+    else:
+        paper = Paper(**data)
+        session.add(paper); session.commit(); session.refresh(paper)
+
+    # 解析作者
+    authors_meta = meta.get("authors") or []
+    explicit_ids = set(author_ids or [])
+    created_ids: List[int] = []
+    for am in authors_meta:
+        name = (am or {}).get("name")
+        if not name: continue
+        aff = (am or {}).get("affiliation")
+        a = session.exec(select(Author).where(Author.name == name)).first()
+        if not a:
+            try:
+                a = Author(name=name, affiliation=aff)
+            except TypeError:
+                a = Author(name=name)
+            session.add(a); session.commit(); session.refresh(a)
+        else:
+            if aff and hasattr(a, "affiliation") and not getattr(a, "affiliation"):
+                a.affiliation = aff; session.add(a); session.commit()
+        created_ids.append(a.id)
+
+    final_author_ids = list({*explicit_ids, *created_ids})
+    if final_author_ids:
+        session.exec(delete(PaperAuthorLink).where(PaperAuthorLink.paper_id == paper.id))
+        for aid in final_author_ids:
+            session.add(PaperAuthorLink(paper_id=paper.id, author_id=aid))
+
+    if tag_ids:
+        session.exec(delete(PaperTagLink).where(PaperTagLink.paper_id == paper.id))
+        for tid in tag_ids:
+            session.add(PaperTagLink(paper_id=paper.id, tag_id=tid))
+
+    session.commit()
+    logger.info(f"[upload] paper#{paper.id} saved file={dest.name} doi={paper.doi}")
+    return _paper_payload(session, paper.id)
