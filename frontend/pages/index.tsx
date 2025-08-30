@@ -6,6 +6,14 @@ import RecentPapers from "@/components/RecentPapers";
 import PaperDetailDialog from "@/components/PaperDetailDialog";
 import UploadDropzone from "@/components/UploadDropzone";
 
+import DecorBG from "@/components/DecorBG";
+import Particles from "@/components/Particles";
+import MagneticButton from "@/components/MagneticButton";
+import TiltCard from "@/components/TiltCard";
+import Reveal from "@/components/Reveal";
+import Skeleton from "@/components/Skeleton";
+import { fireConfetti } from "@/utils/confetti";
+
 type Tab = { key: string; label: string; href: string; icon: React.ComponentType<any>; grad: string };
 
 const TABS: Tab[] = [

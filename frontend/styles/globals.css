@@ -16,3 +16,81 @@
   .btn { @apply rounded-xl border px-3 py-2 bg-white hover:bg-gray-50; }
   .input { @apply border rounded-xl px-3 py-2; }
 }
+
+:root{
+  --bg: 255 255 255;
+  --fg: 17 24 39;
+  --muted: 107 114 128;
+  --card: 255 255 255 / .7;
+  --ring: 99 102 241;
+  --accent-from: 99 102 241;  /* indigo-500 */
+  --accent-to: 14 165 233;    /* sky-500 */
+  --noise: url("data:image/svg+xml;utf8, \
+    <svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'> \
+    <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/></filter> \
+    <rect width='100%' height='100%' filter='url(%23n)' opacity='.06'/></svg>");
+}
+
+[data-theme=dark]{
+  --bg: 10 10 12; --fg: 229 231 235; --muted: 156 163 175;
+  --card: 17 24 39 / .5; --ring: 129 140 248;
+  --accent-from: 129 140 248; --accent-to: 56 189 248;
+}
+[data-theme=contrast]{
+  --bg: 245 245 245; --fg: 0 0 0; --muted: 20 20 20;
+  --card: 255 255 255 / .9; --ring: 0 0 0;
+}
+[data-theme=spring]{ --accent-from: 16 185 129; --accent-to: 59 130 246; }
+[data-theme=summer]{ --accent-from: 236 72 153; --accent-to: 250 204 21; }
+[data-theme=autumn]{ --accent-from: 234 88 12;  --accent-to: 132 204 22; }
+[data-theme=winter]{ --accent-from: 59 130 246;  --accent-to: 168 85 247; }
+
+html,body{ height:100%; background: rgb(var(--bg)); color: rgb(var(--fg)); }
+*{ box-sizing: border-box; }
+
+/* 字体栈：变量字体 + 中文系统字体 */
+body{ font-family: var(--font-body), ui-sans-serif, -apple-system, "SF Pro", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", Arial, sans-serif; }
+h1,h2,h3,.display{ font-family: var(--font-display), var(--font-body), inherit; }
+
+/* 玻璃拟态卡片 & 渐变描边 */
+.glass {
+  background: rgba(var(--card));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.36);
+}
+.gradient-border {
+  position: relative; border-radius: 16px;
+}
+.gradient-border::before{
+  content:""; position:absolute; inset:-1px; border-radius:inherit;
+  background: linear-gradient(90deg, rgb(var(--accent-from)) , rgb(var(--accent-to)));
+  filter: blur(10px); opacity:.35; z-index:-1;
+}
+
+/* 网格 + 噪声叠加 */
+.bg-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,.06) 1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,.05) 1px, transparent 0);
+  background-size: 24px 24px, 24px 24px;
+}
+.bg-noise::after{
+  content:""; position:fixed; inset:0; pointer-events:none; background-image: var(--noise);
+}
+
+/* Ripple（点击水波） */
+.ripple { position:relative; overflow:hidden; }
+.ripple:after{
+  content:""; position:absolute; inset:auto; width:0; height:0;
+  background: rgba(var(--ring), .25); border-radius:9999px; transform: translate(-50%,-50%);
+  opacity:0; transition:width .35s ease, height .35s ease, opacity .45s;
+}
+.ripple:active:after{ width:180px; height:180px; opacity:1; left:var(--rx,50%); top:var(--ry,50%); }
+
+/* NProgress 样式微调 */
+#nprogress .bar { background: rgb(var(--accent-from)); height: 2px; }
+#nprogress .peg { box-shadow: 0 0 10px rgb(var(--accent-from)), 0 0 5px rgb(var(--accent-from)); }
+
+/* 滚动揭示：搭配 .reveal 使用 */
+.reveal { opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s; }
+.reveal.in { opacity: 1; transform: none; }
