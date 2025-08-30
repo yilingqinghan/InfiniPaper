@@ -1,0 +1,1009 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:USENIX ATC 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20210112T235959
+DTEND;TZID="UTC-12:00":20210113T000059
+DTSTAMP:20250830T065444Z
+UID:67aa55c7-e6ec-49a7-81f6-c7267f143e2f
+DESCRIPTION:USENIX Annual Technical Conference\n🗓️ 会议时间: July
+  14-16\, 2021\n📍 会议地点: SANTA CLARA\, USA\n⏰ 原始截止时
+ 间 (AoE): 2021-01-12 23:59:59\n分类: 计算机体系结构/并行与分
+ 布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https
+ ://www.usenix.org/conference/atc21/\nDBLP索引: https://dblp.org/db/conf/
+ usenix
+LOCATION:SANTA CLARA\, USA
+URL:https://www.usenix.org/conference/atc21/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:USENIX ATC 2022 截稿日期
+DTSTART:20220113T235959Z
+DTEND:20220114T000059Z
+DTSTAMP:20250830T065444Z
+UID:7a88d6e0-6662-4ed3-88c8-ec63761f4b49
+DESCRIPTION:USENIX Annual Technical Conference\n🗓️ 会议时间: July
+  11-13\, 2022\n📍 会议地点: Omni La Costa Resort & Spa in Carlsbad\,
+  CA\, USA\n⏰ 原始截止时间 (UTC+0): 2022-01-13 23:59:59\n分类: 
+ 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, COR
+ E A\, THCPL A\n会议官网: https://www.usenix.org/conference/atc22/\nDBL
+ P索引: https://dblp.org/db/conf/usenix
+LOCATION:Omni La Costa Resort & Spa in Carlsbad\, CA\, USA
+URL:https://www.usenix.org/conference/atc22/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX ATC 2023 摘要截稿
+DTSTART:20230105T235959Z
+DTEND:20230106T000059Z
+DTSTAMP:20250830T065444Z
+UID:821e93e3-189c-4ec9-bbd1-8e88294f0851
+DESCRIPTION:USENIX Annual Technical Conference\n🗓️ 会议时间: July
+  10-12\, 2023\n📍 会议地点: BOSTON\, MA\, USA\n⏰ 原始截止时
+ 间 (UTC+0): 2023-01-05 23:59:59\n分类: 计算机体系结构/并行与
+ 分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: ht
+ tps://www.usenix.org/conference/atc23/\nDBLP索引: https://dblp.org/db/co
+ nf/usenix
+LOCATION:BOSTON\, MA\, USA
+URL:https://www.usenix.org/conference/atc23/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX ATC 2024 摘要截稿
+DTSTART:20240109T235959Z
+DTEND:20240110T000059Z
+DTSTAMP:20250830T065444Z
+UID:da86c82a-cbd9-435d-8bf0-034a9efdf52d
+DESCRIPTION:USENIX Annual Technical Conference\n🗓️ 会议时间: July
+  10-12\, 2024\n📍 会议地点: Santa Clara\, CA\, USA\n⏰ 原始截止
+ 时间 (UTC+0): 2024-01-09 23:59:59\n分类: 计算机体系结构/并行
+ 与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网:
+  https://www.usenix.org/conference/atc24/\nDBLP索引: https://dblp.org/db
+ /conf/usenix
+LOCATION:Santa Clara\, CA\, USA
+URL:https://www.usenix.org/conference/atc24/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX ATC 2025 摘要截稿
+DTSTART:20250107T235959Z
+DTEND:20250108T000059Z
+DTSTAMP:20250830T065444Z
+UID:d0d88f80-38ea-4086-b5e8-855819d8e547
+DESCRIPTION:USENIX Annual Technical Conference\n🗓️ 会议时间: July
+  7-9\, 2025\n📍 会议地点: Boston\, MA\, USA\n⏰ 原始截止时间 
+ (UTC+0): 2025-01-07 23:59:59\n分类: 计算机体系结构/并行与分
+ 布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https
+ ://www.usenix.org/conference/atc25\nDBLP索引: https://dblp.org/db/conf/u
+ senix
+LOCATION:Boston\, MA\, USA
+URL:https://www.usenix.org/conference/atc25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IEEE/ACM CGO 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20240530T235959
+DTEND;TZID="UTC-12:00":20240531T000059
+DTSTAMP:20250830T065444Z
+UID:9d37cc9e-e29d-4f99-bba3-862d12b7aaab
+DESCRIPTION:The International Symposium on Code Generation and Optimizatio
+ n\n🗓️ 会议时间: TBD\n📍 会议地点: TBD\n⏰ 原始截止时
+ 间 (AoE): 2024-05-30 23:59:59\n分类: 计算机体系结构/并行与分
+ 布计算/存储系统 (DS)\nCCF B\, CORE A\, THCPL B\n会议官网: https
+ ://conf.researchr.org/home/cgo-2025\nDBLP索引: https://dblp.org/db/conf/
+ cgo
+LOCATION:TBD
+URL:https://conf.researchr.org/home/cgo-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IEEE/ACM CGO 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20230519T235959
+DTEND;TZID="UTC-12:00":20230520T000059
+DTSTAMP:20250830T065444Z
+UID:819b1128-1d21-466b-a408-ac54970bf463
+DESCRIPTION:The International Symposium on Code Generation and Optimizatio
+ n\n🗓️ 会议时间: March 2-6\, 2024\n📍 会议地点: Edinburgh\, 
+ United Kingdom\n⏰ 原始截止时间 (AoE): 2023-05-19 23:59:59\n分类:
+  计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CO
+ RE A\, THCPL B\n会议官网: https://conf.researchr.org/home/cgo-2024\nDB
+ LP索引: https://dblp.org/db/conf/cgo
+LOCATION:Edinburgh\, United Kingdom
+URL:https://conf.researchr.org/home/cgo-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IEEE/ACM CGO 2026 截稿日期 [First Submission]
+DTSTART;TZID="UTC-12:00":20250529T235959
+DTEND;TZID="UTC-12:00":20250530T000059
+DTSTAMP:20250830T065444Z
+UID:f795d1f3-ff0f-4b8e-8fd6-9020422a14a3
+DESCRIPTION:The International Symposium on Code Generation and Optimizatio
+ n\n🗓️ 会议时间: TBD\n📍 会议地点: Sydney\, Australia\n⏰ 
+ 原始截止时间 (AoE): 2025-05-29 23:59:59\n分类: 计算机体系结
+ 构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, THCPL B\n会
+ 议官网: https://conf.researchr.org/home/cgo-2026\nDBLP索引: https://d
+ blp.org/db/conf/cgo
+LOCATION:Sydney\, Australia
+URL:https://conf.researchr.org/home/cgo-2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IEEE/ACM CGO 2026 截稿日期 [Second Submission]
+DTSTART;TZID="UTC-12:00":20250911T235959
+DTEND;TZID="UTC-12:00":20250912T000059
+DTSTAMP:20250830T065444Z
+UID:ebfa425a-282b-4d5f-86dd-061f72c17104
+DESCRIPTION:The International Symposium on Code Generation and Optimizatio
+ n\n🗓️ 会议时间: TBD\n📍 会议地点: Sydney\, Australia\n⏰ 
+ 原始截止时间 (AoE): 2025-09-11 23:59:59\n分类: 计算机体系结
+ 构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, THCPL B\n会
+ 议官网: https://conf.researchr.org/home/cgo-2026\nDBLP索引: https://d
+ blp.org/db/conf/cgo
+LOCATION:Sydney\, Australia
+URL:https://conf.researchr.org/home/cgo-2026
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:DAC 2022 截稿日期 [abstract deadline]
+DTSTART;TZID="UTC-08:00":20211115T170000
+DTEND;TZID="UTC-08:00":20211115T170100
+DTSTAMP:20250830T065444Z
+UID:db9c360c-9f9b-4269-bce5-66a1184b4f39
+DESCRIPTION:Design Automation Conference\n🗓️ 会议时间: July 10-14
+ \, 2022\n📍 会议地点: San Francisco\, CA\n⏰ 原始截止时间 (UT
+ C-8): 2021-11-15 17:00:00\n分类: 计算机体系结构/并行与分布
+ 计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://
+ www.dac.com/DAC-2022\nDBLP索引: https://dblp.org/db/conf/dac
+LOCATION:San Francisco\, CA
+URL:https://www.dac.com/DAC-2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DAC 2022 截稿日期 [full paper deadline]
+DTSTART;TZID="UTC-08:00":20211122T170000
+DTEND;TZID="UTC-08:00":20211122T170100
+DTSTAMP:20250830T065444Z
+UID:3544b4d1-c09f-4feb-a126-c218bb5d146f
+DESCRIPTION:Design Automation Conference\n🗓️ 会议时间: July 10-14
+ \, 2022\n📍 会议地点: San Francisco\, CA\n⏰ 原始截止时间 (UT
+ C-8): 2021-11-22 17:00:00\n分类: 计算机体系结构/并行与分布
+ 计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://
+ www.dac.com/DAC-2022\nDBLP索引: https://dblp.org/db/conf/dac
+LOCATION:San Francisco\, CA
+URL:https://www.dac.com/DAC-2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DAC 2023 截稿日期 [abstract deadline]
+DTSTART;TZID="UTC-08:00":20221114T170000
+DTEND;TZID="UTC-08:00":20221114T170100
+DTSTAMP:20250830T065444Z
+UID:ab0008fa-9d1c-4ff4-b55b-ca84f5a0029e
+DESCRIPTION:Design Automation Conference\n🗓️ 会议时间: July 9-13\
+ , 2023\n📍 会议地点: San Francisco\, CA\n⏰ 原始截止时间 (UTC
+ -8): 2022-11-14 17:00:00\n分类: 计算机体系结构/并行与分布计
+ 算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://www
+ .dac.com/Conference/2023-Call-for-Contributions\nDBLP索引: https://dblp.
+ org/db/conf/dac
+LOCATION:San Francisco\, CA
+URL:https://www.dac.com/Conference/2023-Call-for-Contributions
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DAC 2023 截稿日期 [full paper deadline]
+DTSTART;TZID="UTC-08:00":20221121T170000
+DTEND;TZID="UTC-08:00":20221121T170100
+DTSTAMP:20250830T065444Z
+UID:235f66f9-0a08-4ac2-b18c-41ee45e2a350
+DESCRIPTION:Design Automation Conference\n🗓️ 会议时间: July 9-13\
+ , 2023\n📍 会议地点: San Francisco\, CA\n⏰ 原始截止时间 (UTC
+ -8): 2022-11-21 17:00:00\n分类: 计算机体系结构/并行与分布计
+ 算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://www
+ .dac.com/Conference/2023-Call-for-Contributions\nDBLP索引: https://dblp.
+ org/db/conf/dac
+LOCATION:San Francisco\, CA
+URL:https://www.dac.com/Conference/2023-Call-for-Contributions
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DAC 2024 摘要截稿
+DTSTART;TZID="UTC-08:00":20231113T170000
+DTEND;TZID="UTC-08:00":20231113T170100
+DTSTAMP:20250830T065444Z
+UID:04b8a25a-7bff-4884-8daf-cf4db06acf3c
+DESCRIPTION:Design Automation Conference\n🗓️ 会议时间: June 23-27
+ \, 2024\n📍 会议地点: San Francisco\, CA\n⏰ 原始截止时间 (UT
+ C-8): 2023-11-13 17:00:00\n分类: 计算机体系结构/并行与分布
+ 计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://
+ www.dac.com/Conference/2024-Call-for-Contributions\nDBLP索引: https://db
+ lp.org/db/conf/dac
+LOCATION:San Francisco\, CA
+URL:https://www.dac.com/Conference/2024-Call-for-Contributions
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DAC 2025 摘要截稿
+DTSTART;TZID="UTC-08:00":20241112T170000
+DTEND;TZID="UTC-08:00":20241112T170100
+DTSTAMP:20250830T065444Z
+UID:085f3e93-0a93-43a3-855d-69f96a15d1e2
+DESCRIPTION:Design Automation Conference\n🗓️ 会议时间: June 22-25
+ \, 2025\n📍 会议地点: San Francisco\, CA\n⏰ 原始截止时间 (UT
+ C-8): 2024-11-12 17:00:00\n分类: 计算机体系结构/并行与分布
+ 计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://
+ www.dac.com/Conference/2025-Call-for-Contributions\nDBLP索引: https://db
+ lp.org/db/conf/dac
+LOCATION:San Francisco\, CA
+URL:https://www.dac.com/Conference/2025-Call-for-Contributions
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroSys 2021 摘要截稿
+DTSTART;TZID="UTC-12:00":20201001T235959
+DTEND;TZID="UTC-12:00":20201002T000059
+DTSTAMP:20250830T065444Z
+UID:817dd186-e5c1-4aea-8d04-6369cf88c10b
+DESCRIPTION:European Conference on Computer Systems\n🗓️ 会议时间:
+  April 26-29\, 2021\n📍 会议地点: Edinburgh\, UK\n⏰ 原始截止
+ 时间 (AoE): 2020-10-01 23:59:59\n分类: 计算机体系结构/并行与
+ 分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: ht
+ tps://2021.eurosys.org/\nDBLP索引: https://dblp.org/db/conf/eurosys
+LOCATION:Edinburgh\, UK
+URL:https://2021.eurosys.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroSys 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20211001T235959
+DTEND;TZID="UTC-12:00":20211002T000059
+DTSTAMP:20250830T065444Z
+UID:965413f6-8087-4e35-a3db-72b0be525625
+DESCRIPTION:European Conference on Computer Systems\n🗓️ 会议时间:
+  April 5-8\, 2022\n📍 会议地点: Rennes\, France\n⏰ 原始截止时
+ 间 (AoE): 2021-10-01 23:59:59\n分类: 计算机体系结构/并行与分
+ 布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https
+ ://2022.eurosys.org/\nDBLP索引: https://dblp.org/db/conf/eurosys
+LOCATION:Rennes\, France
+URL:https://2022.eurosys.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroSys 2023 摘要截稿 [Spring Submission Deadline]
+DTSTART;TZID="UTC-12:00":20220510T235959
+DTEND;TZID="UTC-12:00":20220511T000059
+DTSTAMP:20250830T065444Z
+UID:937f01bf-9d17-44fd-b238-8ee546d6044a
+DESCRIPTION:European Conference on Computer Systems\n🗓️ 会议时间:
+  May 9-12\, 2023\n📍 会议地点: Rome\, Italy\n⏰ 原始截止时间 
+ (AoE): 2022-05-10 23:59:59\n分类: 计算机体系结构/并行与分布
+ 计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://
+ 2023.eurosys.org/\nDBLP索引: https://dblp.org/db/conf/eurosys
+LOCATION:Rome\, Italy
+URL:https://2023.eurosys.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroSys 2023 摘要截稿 [Fall Submission Deadline]
+DTSTART;TZID="UTC-12:00":20221011T235959
+DTEND;TZID="UTC-12:00":20221012T000059
+DTSTAMP:20250830T065444Z
+UID:0f958ef0-7104-4e80-af6f-264a685071c3
+DESCRIPTION:European Conference on Computer Systems\n🗓️ 会议时间:
+  May 9-12\, 2023\n📍 会议地点: Rome\, Italy\n⏰ 原始截止时间 
+ (AoE): 2022-10-11 23:59:59\n分类: 计算机体系结构/并行与分布
+ 计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://
+ 2023.eurosys.org/\nDBLP索引: https://dblp.org/db/conf/eurosys
+LOCATION:Rome\, Italy
+URL:https://2023.eurosys.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroSys 2025 摘要截稿 [Spring Submission Deadline]
+DTSTART;TZID="UTC-12:00":20240514T235959
+DTEND;TZID="UTC-12:00":20240515T000059
+DTSTAMP:20250830T065444Z
+UID:089cc1f2-c9ee-4999-8bde-af80bb9af9e2
+DESCRIPTION:European Conference on Computer Systems\n🗓️ 会议时间:
+  March-April\, 2025\n📍 会议地点: Rotterdam\, The Netherlands.\n⏰ 
+ 原始截止时间 (AoE): 2024-05-14 23:59:59\n分类: 计算机体系结
+ 构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会
+ 议官网: https://www.eurosys.org/news/eurosys-2025\nDBLP索引: https://
+ dblp.org/db/conf/eurosys
+LOCATION:Rotterdam\, The Netherlands.
+URL:https://www.eurosys.org/news/eurosys-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroSys 2025 摘要截稿 [Fall Submission Deadline]
+DTSTART;TZID="UTC-12:00":20241015T235959
+DTEND;TZID="UTC-12:00":20241016T000059
+DTSTAMP:20250830T065444Z
+UID:c3f98822-20f4-44b0-b6ab-ef9eb7c91ab2
+DESCRIPTION:European Conference on Computer Systems\n🗓️ 会议时间:
+  March-April\, 2025\n📍 会议地点: Rotterdam\, The Netherlands.\n⏰ 
+ 原始截止时间 (AoE): 2024-10-15 23:59:59\n分类: 计算机体系结
+ 构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会
+ 议官网: https://www.eurosys.org/news/eurosys-2025\nDBLP索引: https://
+ dblp.org/db/conf/eurosys
+LOCATION:Rotterdam\, The Netherlands.
+URL:https://www.eurosys.org/news/eurosys-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroSys 2026 摘要截稿 [Spring Submission Deadline]
+DTSTART;TZID="UTC-12:00":20250508T235959
+DTEND;TZID="UTC-12:00":20250509T000059
+DTSTAMP:20250830T065444Z
+UID:ac7ec64e-116f-46fe-b92b-71d44701751d
+DESCRIPTION:European Conference on Computer Systems\n🗓️ 会议时间:
+  April 13-16\, 2026\n📍 会议地点: Edinburgh\, UK\n⏰ 原始截止
+ 时间 (AoE): 2025-05-08 23:59:59\n分类: 计算机体系结构/并行与
+ 分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: ht
+ tps://2026.eurosys.org/\nDBLP索引: https://dblp.org/db/conf/eurosys
+LOCATION:Edinburgh\, UK
+URL:https://2026.eurosys.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroSys 2026 摘要截稿 [Fall Submission Deadline]
+DTSTART;TZID="UTC-12:00":20250918T235959
+DTEND;TZID="UTC-12:00":20250919T000059
+DTSTAMP:20250830T065444Z
+UID:4190eb6f-24c9-4cb9-aaf1-628d49f46cfc
+DESCRIPTION:European Conference on Computer Systems\n🗓️ 会议时间:
+  April 13-16\, 2026\n📍 会议地点: Edinburgh\, UK\n⏰ 原始截止
+ 时间 (AoE): 2025-09-18 23:59:59\n分类: 计算机体系结构/并行与
+ 分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: ht
+ tps://2026.eurosys.org/\nDBLP索引: https://dblp.org/db/conf/eurosys
+LOCATION:Edinburgh\, UK
+URL:https://2026.eurosys.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:FAST 2021 截稿日期
+DTSTART;TZID="UTC-07:00":20200924T235959
+DTEND;TZID="UTC-07:00":20200925T000059
+DTSTAMP:20250830T065444Z
+UID:511c4bbd-bc45-44da-ad95-81d126cf2281
+DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ 
+ 会议时间: February 23-25\, 2021\n📍 会议地点: Virtual\n⏰ 原
+ 始截止时间 (UTC-7): 2020-09-24 23:59:59\n分类: 计算机体系结
+ 构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会
+ 议官网: https://www.usenix.org/conference/fast21/\nDBLP索引: https://
+ dblp.org/db/conf/fast
+LOCATION:Virtual
+URL:https://www.usenix.org/conference/fast21/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FAST 2022 截稿日期
+DTSTART;TZID="UTC-07:00":20210923T235959
+DTEND;TZID="UTC-07:00":20210924T000059
+DTSTAMP:20250830T065444Z
+UID:633849a3-f238-4a6e-a20b-a900ed8c66ce
+DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ 
+ 会议时间: February 21-24\, 2022\n📍 会议地点: SANTA CLARA\, CA\,
+  USA\n⏰ 原始截止时间 (UTC-7): 2021-09-23 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, 
+ THCPL A\n会议官网: https://www.usenix.org/conference/fast22/\nDBLP索
+ 引: https://dblp.org/db/conf/fast
+LOCATION:SANTA CLARA\, CA\, USA
+URL:https://www.usenix.org/conference/fast22/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FAST 2023 截稿日期
+DTSTART;TZID="UTC-07:00":20220922T235959
+DTEND;TZID="UTC-07:00":20220923T000059
+DTSTAMP:20250830T065444Z
+UID:8c0ef641-9b36-414b-84bb-85e876e5792d
+DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ 
+ 会议时间: FEBRUARY 20-23\, 2023\n📍 会议地点: SANTA CLARA\, CA\,
+  USA\n⏰ 原始截止时间 (UTC-7): 2022-09-22 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, 
+ THCPL A\n会议官网: https://www.usenix.org/conference/fast23\nDBLP索
+ 引: https://dblp.org/db/conf/fast
+LOCATION:SANTA CLARA\, CA\, USA
+URL:https://www.usenix.org/conference/fast23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FAST 2024 截稿日期
+DTSTART;TZID="UTC-07:00":20230921T235959
+DTEND;TZID="UTC-07:00":20230922T000059
+DTSTAMP:20250830T065444Z
+UID:0e822700-0386-4948-bd9c-c5344f3ebfd7
+DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ 
+ 会议时间: FEBRUARY 27-29\, 2024\n📍 会议地点: SANTA CLARA\, CA\,
+  USA\n⏰ 原始截止时间 (UTC-7): 2023-09-21 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, 
+ THCPL A\n会议官网: https://www.usenix.org/conference/fast24\nDBLP索
+ 引: https://dblp.org/db/conf/fast
+LOCATION:SANTA CLARA\, CA\, USA
+URL:https://www.usenix.org/conference/fast24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FAST 2025 截稿日期
+DTSTART;TZID="UTC-07:00":20240917T235959
+DTEND;TZID="UTC-07:00":20240918T000059
+DTSTAMP:20250830T065444Z
+UID:a7a49af0-4c77-44e5-9883-7823f031d4fa
+DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ 
+ 会议时间: FEBRUARY 25-27\, 2025\n📍 会议地点: SANTA CLARA\, CA\,
+  USA\n⏰ 原始截止时间 (UTC-7): 2024-09-17 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, 
+ THCPL A\n会议官网: https://www.usenix.org/conference/fast25\nDBLP索
+ 引: https://dblp.org/db/conf/fast
+LOCATION:SANTA CLARA\, CA\, USA
+URL:https://www.usenix.org/conference/fast25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FAST 2026 截稿日期 [Spring deadline]
+DTSTART;TZID="UTC-12:00":20250318T235900
+DTEND;TZID="UTC-12:00":20250319T000000
+DTSTAMP:20250830T065444Z
+UID:992fcd7f-b287-47ae-82e0-ee57e4466a16
+DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ 
+ 会议时间: FEBRUARY 24-26\, 2026\n📍 会议地点: SANTA CLARA\, CA\,
+  USA\n⏰ 原始截止时间 (AoE): 2025-03-18 23:59:00\n分类: 计算机
+ 体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THC
+ PL A\n会议官网: https://www.usenix.net/conference/fast26\nDBLP索引: 
+ https://dblp.org/db/conf/fast
+LOCATION:SANTA CLARA\, CA\, USA
+URL:https://www.usenix.net/conference/fast26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FAST 2026 截稿日期 [Fall deadline]
+DTSTART;TZID="UTC-12:00":20250916T235900
+DTEND;TZID="UTC-12:00":20250917T000000
+DTSTAMP:20250830T065444Z
+UID:63f8ea5b-fa2a-4021-8034-714ed71f3aaf
+DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ 
+ 会议时间: FEBRUARY 24-26\, 2026\n📍 会议地点: SANTA CLARA\, CA\,
+  USA\n⏰ 原始截止时间 (AoE): 2025-09-16 23:59:00\n分类: 计算机
+ 体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THC
+ PL A\n会议官网: https://www.usenix.net/conference/fast26\nDBLP索引: 
+ https://dblp.org/db/conf/fast
+LOCATION:SANTA CLARA\, CA\, USA
+URL:https://www.usenix.net/conference/fast26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICCAD 2022 截稿日期 [Abstract Deadline]
+DTSTART;TZID="UTC-12:00":20220516T235959
+DTEND;TZID="UTC-12:00":20220517T000059
+DTSTAMP:20250830T065444Z
+UID:73c7df1d-16e4-494f-9dc8-ff4a2587b90b
+DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
+ 🗓️ 会议时间: Oct 29 - Nov 3\, 2022\n📍 会议地点: San Diego\
+ , CA\, USA\n⏰ 原始截止时间 (UTC-12): 2022-05-16 23:59:59\n分类: 
+ 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, COR
+ E A\, THCPL B\n会议官网: https://iccad.com/\nDBLP索引: https://dblp.
+ org/db/conf/iccad
+LOCATION:San Diego\, CA\, USA
+URL:https://iccad.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICCAD 2022 截稿日期 [Full Paper Deadline]
+DTSTART;TZID="UTC-12:00":20220523T235959
+DTEND;TZID="UTC-12:00":20220524T000059
+DTSTAMP:20250830T065444Z
+UID:77dc587d-8ddc-4af0-b726-37d11918aaba
+DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
+ 🗓️ 会议时间: Oct 29 - Nov 3\, 2022\n📍 会议地点: San Diego\
+ , CA\, USA\n⏰ 原始截止时间 (UTC-12): 2022-05-23 23:59:59\n分类: 
+ 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, COR
+ E A\, THCPL B\n会议官网: https://iccad.com/\nDBLP索引: https://dblp.
+ org/db/conf/iccad
+LOCATION:San Diego\, CA\, USA
+URL:https://iccad.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICCAD 2023 截稿日期 [Abstract Deadline]
+DTSTART;TZID="UTC-12:00":20230515T235959
+DTEND;TZID="UTC-12:00":20230516T000059
+DTSTAMP:20250830T065444Z
+UID:06b2ab25-7b5f-4bcf-9243-9a6de5e3a439
+DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
+ 🗓️ 会议时间: Oct 29 - Nov 2\, 2023\n📍 会议地点: San Diego\
+ , CA\, USA\n⏰ 原始截止时间 (UTC-12): 2023-05-15 23:59:59\n分类: 
+ 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, COR
+ E A\, THCPL B\n会议官网: https://iccad.com/\nDBLP索引: https://dblp.
+ org/db/conf/iccad
+LOCATION:San Diego\, CA\, USA
+URL:https://iccad.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICCAD 2023 截稿日期 [Full Paper Deadline]
+DTSTART;TZID="UTC-12:00":20230522T235959
+DTEND;TZID="UTC-12:00":20230523T000059
+DTSTAMP:20250830T065444Z
+UID:df86e909-8c37-48a8-a20c-ddf1f005bb86
+DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
+ 🗓️ 会议时间: Oct 29 - Nov 2\, 2023\n📍 会议地点: San Diego\
+ , CA\, USA\n⏰ 原始截止时间 (UTC-12): 2023-05-22 23:59:59\n分类: 
+ 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, COR
+ E A\, THCPL B\n会议官网: https://iccad.com/\nDBLP索引: https://dblp.
+ org/db/conf/iccad
+LOCATION:San Diego\, CA\, USA
+URL:https://iccad.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICCAD 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240428T235959
+DTEND;TZID="UTC-12:00":20240429T000059
+DTSTAMP:20250830T065444Z
+UID:0b766e54-5f4a-4f29-b7bf-085f0a98ad50
+DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
+ 🗓️ 会议时间: October 27 - 31\, 2024\n📍 会议地点: New Jerse
+ y\, USA\n⏰ 原始截止时间 (UTC-12): 2024-04-28 23:59:59\n分类: 计
+ 算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A
+ \, THCPL B\n会议官网: https://2024.iccad.com/\nDBLP索引: https://dbl
+ p.org/db/conf/iccad
+LOCATION:New Jersey\, USA
+URL:https://2024.iccad.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICCAD 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250414T235959
+DTEND;TZID="UTC-12:00":20250415T000059
+DTSTAMP:20250830T065444Z
+UID:a64911f0-4da2-464d-8d86-17a05d8b6217
+DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
+ 🗓️ 会议时间: October 26 - 30\, 2025\n📍 会议地点: MUNICH\, 
+ GERMANY\n⏰ 原始截止时间 (UTC-12): 2025-04-14 23:59:59\n分类: 计
+ 算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A
+ \, THCPL B\n会议官网: https://2025.iccad.com\nDBLP索引: https://dblp
+ .org/db/conf/iccad
+LOCATION:MUNICH\, GERMANY
+URL:https://2025.iccad.com
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDCS 2020 摘要截稿
+DTSTART;TZID="UTC-07:00":20200106T235959
+DTEND;TZID="UTC-07:00":20200107T000059
+DTSTAMP:20250830T065444Z
+UID:8d86e92c-b041-436c-8313-ffe71c0a4f8b
+DESCRIPTION:IEEE International Conference on Distributed Computing Systems
+ \n🗓️ 会议时间: July 8-10\, 2020\n📍 会议地点: Singapore\n
+ ⏰ 原始截止时间 (UTC-7): 2020-01-06 23:59:59\n分类: 计算机体
+ 系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, THCPL 
+ B\n会议官网: https://icdcs2020.sg/\nDBLP索引: https://dblp.org/db/co
+ nf/icdcs
+LOCATION:Singapore
+URL:https://icdcs2020.sg/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICDCS 2021 摘要截稿
+DTSTART;TZID="UTC-05:00":20210106T235959
+DTEND;TZID="UTC-05:00":20210107T000059
+DTSTAMP:20250830T065444Z
+UID:21e5aec5-94bd-42b1-acfe-9097cb24602f
+DESCRIPTION:IEEE International Conference on Distributed Computing Systems
+ \n🗓️ 会议时间: July 7-10\, 2021\n📍 会议地点: Virtual\n⏰ 
+ 原始截止时间 (UTC-5): 2021-01-06 23:59:59\n分类: 计算机体系
+ 结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, THCPL B\n
+ 会议官网: https://icdcs2021.us/\nDBLP索引: https://dblp.org/db/conf/
+ icdcs
+LOCATION:Virtual
+URL:https://icdcs2021.us/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDCS 2022 摘要截稿
+DTSTART;TZID="UTC-05:00":20220124T235959
+DTEND;TZID="UTC-05:00":20220125T000059
+DTSTAMP:20250830T065444Z
+UID:4be0ed8c-2275-434f-a4e7-9d66efc698be
+DESCRIPTION:IEEE International Conference on Distributed Computing Systems
+ \n🗓️ 会议时间: July 10-13\, 2022\n📍 会议地点: Bologna\, It
+ aly\n⏰ 原始截止时间 (UTC-5): 2022-01-24 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, 
+ THCPL B\n会议官网: https://icdcs2022.icdcs.org/\nDBLP索引: https://d
+ blp.org/db/conf/icdcs
+LOCATION:Bologna\, Italy
+URL:https://icdcs2022.icdcs.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDCS 2023 摘要截稿
+DTSTART;TZID="UTC-05:00":20230114T235959
+DTEND;TZID="UTC-05:00":20230115T000059
+DTSTAMP:20250830T065444Z
+UID:8f7236ac-b467-4f1e-8d92-56ae2bae6be9
+DESCRIPTION:IEEE International Conference on Distributed Computing Systems
+ \n🗓️ 会议时间: July 18-21\, 2023\n📍 会议地点: Hong Kong\, 
+ China\n⏰ 原始截止时间 (UTC-5): 2023-01-14 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, 
+ THCPL B\n会议官网: https://icdcs2023.icdcs.org/\nDBLP索引: https://d
+ blp.org/db/conf/icdcs
+LOCATION:Hong Kong\, China
+URL:https://icdcs2023.icdcs.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDCS 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240112T235959
+DTEND;TZID="UTC-12:00":20240113T000059
+DTSTAMP:20250830T065444Z
+UID:6944b534-15fb-4bb8-96be-227c4b25193f
+DESCRIPTION:IEEE International Conference on Distributed Computing Systems
+ \n🗓️ 会议时间: July 16-19\, 2024\n📍 会议地点: New Jersey\,
+  USA\n⏰ 原始截止时间 (UTC-12): 2024-01-12 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, 
+ THCPL B\n会议官网: https://icdcs2024.icdcs.org/\nDBLP索引: https://d
+ blp.org/db/conf/icdcs
+LOCATION:New Jersey\, USA
+URL:https://icdcs2024.icdcs.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDCS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20241204T235959
+DTEND;TZID="UTC-12:00":20241205T000059
+DTSTAMP:20250830T065444Z
+UID:7b0b240c-7e19-49c6-a76c-5f0c274d5cd3
+DESCRIPTION:IEEE International Conference on Distributed Computing Systems
+ \n🗓️ 会议时间: July 21-23\, 2025\n📍 会议地点: Glasgow\, Sc
+ otland\, UK\n⏰ 原始截止时间 (UTC-12): 2024-12-04 23:59:59\n分类:
+  计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CO
+ RE A\, THCPL B\n会议官网: https://www.icdcs2025.com\nDBLP索引: https
+ ://dblp.org/db/conf/icdcs
+LOCATION:Glasgow\, Scotland\, UK
+URL:https://www.icdcs2025.com
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDCS 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20251205T235959
+DTEND;TZID="UTC-12:00":20251206T000059
+DTSTAMP:20250830T065444Z
+UID:3cfd51eb-0513-4009-933b-7e437674bb22
+DESCRIPTION:IEEE International Conference on Distributed Computing Systems
+ \n🗓️ 会议时间: TBD\n📍 会议地点: South Korea\n⏰ 原始截
+ 止时间 (AoE): 2025-12-05 23:59:59\n分类: 计算机体系结构/并行
+ 与分布计算/存储系统 (DS)\nCCF B\, CORE A\, THCPL B\n会议官网:
+  http://icdcs2026.icdcs.org/\nDBLP索引: https://dblp.org/db/conf/icdcs
+LOCATION:South Korea
+URL:http://icdcs2026.icdcs.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICS 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240111T235959
+DTEND;TZID="UTC-12:00":20240112T000059
+DTSTAMP:20250830T065444Z
+UID:7cff16e4-f279-4a3b-b5e9-dda28d20a64c
+DESCRIPTION:ACM International Conference on Supercomputing\n🗓️ 会议
+ 时间: June 4-7\, 2024\n📍 会议地点: Kyoto University\, Kyoto\, Jap
+ an\n⏰ 原始截止时间 (AoE): 2024-01-11 23:59:59\n分类: 计算机
+ 体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, THC
+ PL B\n会议官网: https://ics2024.github.io/\nDBLP索引: https://dblp.o
+ rg/db/conf/ics
+LOCATION:Kyoto University\, Kyoto\, Japan
+URL:https://ics2024.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250113T235959
+DTEND;TZID="UTC-12:00":20250114T000059
+DTSTAMP:20250830T065444Z
+UID:a755a956-4182-48ce-a947-86be8bc23dd7
+DESCRIPTION:ACM International Conference on Supercomputing\n🗓️ 会议
+ 时间: June 9-11\, 2025\n📍 会议地点: Salt Lake City\, U.S.A.\n⏰ 
+ 原始截止时间 (AoE): 2025-01-13 23:59:59\n分类: 计算机体系结
+ 构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, THCPL B\n会
+ 议官网: https://hpcrl.github.io/ICS2025-webpage/\nDBLP索引: https://d
+ blp.org/db/conf/ics
+LOCATION:Salt Lake City\, U.S.A.
+URL:https://hpcrl.github.io/ICS2025-webpage/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IPDPS 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20211001T235959
+DTEND;TZID="UTC-12:00":20211002T000059
+DTSTAMP:20250830T065444Z
+UID:2f2fbda6-5c87-44fe-9141-e32cd5ebe5a0
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
+ um\n🗓️ 会议时间: May 30-June 3\, 2022\n📍 会议地点: Lyon\, 
+ France\n⏰ 原始截止时间 (AoE): 2021-10-01 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, 
+ THCPL B\n会议官网: https://www.ipdps.org/ipdps2022/\nDBLP索引: https
+ ://dblp.org/db/conf/ipps
+LOCATION:Lyon\, France
+URL:https://www.ipdps.org/ipdps2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IPDPS 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20220929T235959
+DTEND;TZID="UTC-12:00":20220930T000059
+DTSTAMP:20250830T065444Z
+UID:6270d836-8aaa-4104-aa7f-98b880a4734f
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
+ um\n🗓️ 会议时间: May 15-19\, 2023\n📍 会议地点: St. Petersb
+ urg\, Florida USA\n⏰ 原始截止时间 (AoE): 2022-09-29 23:59:59\n分
+ 类: 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\
+ , CORE A\, THCPL B\n会议官网: https://www.ipdps.org/ipdps2023/\nDBLP
+ 索引: https://dblp.org/db/conf/ipps
+LOCATION:St. Petersburg\, Florida USA
+URL:https://www.ipdps.org/ipdps2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IPDPS 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20230928T235959
+DTEND;TZID="UTC-12:00":20230929T000059
+DTSTAMP:20250830T065444Z
+UID:9c073c97-c0b9-455c-802b-cd6df1359f23
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
+ um\n🗓️ 会议时间: May 27-31\, 2024\n📍 会议地点: San Francis
+ co\, California USA\n⏰ 原始截止时间 (AoE): 2023-09-28 23:59:59\n
+ 分类: 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF
+  B\, CORE A\, THCPL B\n会议官网: https://www.ipdps.org/\nDBLP索引: h
+ ttps://dblp.org/db/conf/ipps
+LOCATION:San Francisco\, California USA
+URL:https://www.ipdps.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IPDPS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20241003T235959
+DTEND;TZID="UTC-12:00":20241004T000059
+DTSTAMP:20250830T065444Z
+UID:10b79a1f-d7bd-433c-b6a9-3e37535b3a96
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
+ um\n🗓️ 会议时间: June 3-7\, 2025\n📍 会议地点: Politecnico 
+ di Milano\, Milan\, Italy\n⏰ 原始截止时间 (AoE): 2024-10-03 23:59:
+ 59\n分类: 计算机体系结构/并行与分布计算/存储系统 (DS)\
+ nCCF B\, CORE A\, THCPL B\n会议官网: https://www.ipdps.org/\nDBLP索
+ 引: https://dblp.org/db/conf/ipps
+LOCATION:Politecnico di Milano\, Milan\, Italy
+URL:https://www.ipdps.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IPDPS 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20251002T235959
+DTEND;TZID="UTC-12:00":20251003T000059
+DTSTAMP:20250830T065444Z
+UID:d89f55e8-5c50-4faa-a117-f16f5bf78315
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
+ um\n🗓️ 会议时间: May 25-29\, 2026\n📍 会议地点: New Orleans
+ \, USA\n⏰ 原始截止时间 (AoE): 2025-10-02 23:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, 
+ THCPL B\n会议官网: https://www.ipdps.org/\nDBLP索引: https://dblp.or
+ g/db/conf/ipps
+LOCATION:New Orleans\, USA
+URL:https://www.ipdps.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICRO 2021 截稿日期 [abstract deadline]
+DTSTART;TZID="UTC-07:00":20210409T235959
+DTEND;TZID="UTC-07:00":20210410T000059
+DTSTAMP:20250830T065444Z
+UID:2335b1fb-9562-4ed6-8695-c98adad408a5
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: Oct 18-22\, 2021\n📍 会议地点: Athens\, Greece\n⏰ 
+ 原始截止时间 (UTC-7): 2021-04-09 23:59:59\n分类: 计算机体系
+ 结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n
+ 会议官网: https://www.microarch.org/micro54/\nDBLP索引: https://dblp
+ .org/db/conf/micro
+LOCATION:Athens\, Greece
+URL:https://www.microarch.org/micro54/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICRO 2021 截稿日期 [full paper deadline]
+DTSTART;TZID="UTC-07:00":20210416T235959
+DTEND;TZID="UTC-07:00":20210417T000059
+DTSTAMP:20250830T065444Z
+UID:7632798a-3804-4134-96ee-1790c80441df
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: Oct 18-22\, 2021\n📍 会议地点: Athens\, Greece\n⏰ 
+ 原始截止时间 (UTC-7): 2021-04-16 23:59:59\n分类: 计算机体系
+ 结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n
+ 会议官网: https://www.microarch.org/micro54/\nDBLP索引: https://dblp
+ .org/db/conf/micro
+LOCATION:Athens\, Greece
+URL:https://www.microarch.org/micro54/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICRO 2022 截稿日期 [Abstract Deadline]
+DTSTART;TZID="UTC-07:00":20220414T115959
+DTEND;TZID="UTC-07:00":20220414T120059
+DTSTAMP:20250830T065444Z
+UID:75f29f02-2346-4e2d-91d0-38ebed4a865a
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: Oct\, 2022\n📍 会议地点: Chicago\, Illinois\, USA\n
+ ⏰ 原始截止时间 (UTC-7): 2022-04-14 11:59:59\n分类: 计算机体
+ 系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL 
+ A\n会议官网: https://www.microarch.org/micro55/\nDBLP索引: https://d
+ blp.org/db/conf/micro
+LOCATION:Chicago\, Illinois\, USA
+URL:https://www.microarch.org/micro55/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICRO 2022 截稿日期 [Full Paper Deadline]
+DTSTART;TZID="UTC-07:00":20220421T115959
+DTEND;TZID="UTC-07:00":20220421T120059
+DTSTAMP:20250830T065444Z
+UID:0041e01e-ceae-409e-8c3b-f1f1024f384f
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: Oct\, 2022\n📍 会议地点: Chicago\, Illinois\, USA\n
+ ⏰ 原始截止时间 (UTC-7): 2022-04-21 11:59:59\n分类: 计算机体
+ 系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL 
+ A\n会议官网: https://www.microarch.org/micro55/\nDBLP索引: https://d
+ blp.org/db/conf/micro
+LOCATION:Chicago\, Illinois\, USA
+URL:https://www.microarch.org/micro55/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICRO 2023 截稿日期 [Abstract Deadline]
+DTSTART;TZID="UTC-07:00":20230421T115959
+DTEND;TZID="UTC-07:00":20230421T120059
+DTSTAMP:20250830T065444Z
+UID:3bbcf7c4-6dd6-4caf-8e3b-56e747979979
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: Oct\, 2023\n📍 会议地点: Toronto\, Canada\n⏰ 原始
+ 截止时间 (UTC-7): 2023-04-21 11:59:59\n分类: 计算机体系结构/
+ 并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议
+ 官网: https://www.microarch.org/micro56/\nDBLP索引: https://dblp.org/d
+ b/conf/micro
+LOCATION:Toronto\, Canada
+URL:https://www.microarch.org/micro56/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICRO 2023 截稿日期 [Full Paper Deadline]
+DTSTART;TZID="UTC-07:00":20230428T115959
+DTEND;TZID="UTC-07:00":20230428T120059
+DTSTAMP:20250830T065444Z
+UID:363555e3-6b90-4c43-a366-9d70dea3d709
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: Oct\, 2023\n📍 会议地点: Toronto\, Canada\n⏰ 原始
+ 截止时间 (UTC-7): 2023-04-28 11:59:59\n分类: 计算机体系结构/
+ 并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议
+ 官网: https://www.microarch.org/micro56/\nDBLP索引: https://dblp.org/d
+ b/conf/micro
+LOCATION:Toronto\, Canada
+URL:https://www.microarch.org/micro56/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICRO 2024 截稿日期 [Abstract Deadline]
+DTSTART;TZID="UTC-05:00":20240411T115959
+DTEND;TZID="UTC-05:00":20240411T120059
+DTSTAMP:20250830T065444Z
+UID:b82ce1a7-6878-4e40-811b-a74cc27e2e37
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: November 2-6\, 2024\n📍 会议地点: Austin\, Texas\, US
+ A\n⏰ 原始截止时间 (UTC-5): 2024-04-11 11:59:59\n分类: 计算机
+ 体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THC
+ PL A\n会议官网: https://microarch.org/micro57/\nDBLP索引: https://db
+ lp.org/db/conf/micro
+LOCATION:Austin\, Texas\, USA
+URL:https://microarch.org/micro57/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICRO 2024 截稿日期 [Full Paper Deadline]
+DTSTART;TZID="UTC-05:00":20240418T115959
+DTEND;TZID="UTC-05:00":20240418T120059
+DTSTAMP:20250830T065444Z
+UID:b6aadc8c-3ab5-43cc-a33c-e30823ee351d
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: November 2-6\, 2024\n📍 会议地点: Austin\, Texas\, US
+ A\n⏰ 原始截止时间 (UTC-5): 2024-04-18 11:59:59\n分类: 计算机
+ 体系结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THC
+ PL A\n会议官网: https://microarch.org/micro57/\nDBLP索引: https://db
+ lp.org/db/conf/micro
+LOCATION:Austin\, Texas\, USA
+URL:https://microarch.org/micro57/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:MICRO 2025 摘要截稿
+DTSTART;TZID="UTC-04:00":20250404T235959
+DTEND;TZID="UTC-04:00":20250405T000059
+DTSTAMP:20250830T065444Z
+UID:1a0481d8-b6f2-43e9-b287-94cdc6be50cd
+DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
+  会议时间: October 18-22\, 2025\n📍 会议地点: Seoul\, Korea\n⏰
+  原始截止时间 (UTC-4): 2025-04-04 23:59:59\n分类: 计算机体系
+ 结构/并行与分布计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n
+ 会议官网: https://microarch.org/micro58/\nDBLP索引: https://dblp.org
+ /db/conf/micro
+LOCATION:Seoul\, Korea
+URL:https://microarch.org/micro58/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RTAS 2024 截稿日期 [Submission Deadline (firm)]
+DTSTART;TZID="UTC-12:00":20231031T115959
+DTEND;TZID="UTC-12:00":20231031T120059
+DTSTAMP:20250830T065444Z
+UID:a3ce6969-7ad4-42e6-9fe6-87925174e934
+DESCRIPTION:IEEE Real-Time and Embedded Technology and Applications Sympos
+ ium\n🗓️ 会议时间: May 13-16\, 2024\n📍 会议地点: Hong Kong\
+ , China\n⏰ 原始截止时间 (AoE): 2023-10-31 11:59:59\n分类: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, CORE A\, 
+ THCPL B\n会议官网: https://2024.rtas.org/\nDBLP索引: https://dblp.or
+ g/db/conf/rtas
+LOCATION:Hong Kong\, China
+URL:https://2024.rtas.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SC 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20220401T235900
+DTEND;TZID="UTC-12:00":20220402T000000
+DTSTAMP:20250830T065444Z
+UID:d36ae3df-e2d2-4a73-987e-8ec5dddda541
+DESCRIPTION:International Conference for High Performance Computing\, Netw
+ orking\, Storage\, and Analysis\n🗓️ 会议时间: November 13-18\, 20
+ 22\n📍 会议地点: Dallas\, Texas\, USA\n⏰ 原始截止时间 (AoE):
+  2022-04-01 23:59:00\n分类: 计算机体系结构/并行与分布计算/
+ 存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://sc22.su
+ percomputing.org/\nDBLP索引: https://dblp.org/db/conf/sc
+LOCATION:Dallas\, Texas\, USA
+URL:https://sc22.supercomputing.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SC 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230406T235900
+DTEND;TZID="UTC-12:00":20230407T000000
+DTSTAMP:20250830T065444Z
+UID:84aaf488-bf96-4b14-aecd-817d4460ddc9
+DESCRIPTION:International Conference for High Performance Computing\, Netw
+ orking\, Storage\, and Analysis\n🗓️ 会议时间: November 12-17\, 20
+ 23\n📍 会议地点: DENVER\, CO\, USA\n⏰ 原始截止时间 (AoE): 20
+ 23-04-06 23:59:00\n分类: 计算机体系结构/并行与分布计算/存
+ 储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://sc23.super
+ computing.org/\nDBLP索引: https://dblp.org/db/conf/sc
+LOCATION:DENVER\, CO\, USA
+URL:https://sc23.supercomputing.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SC 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240326T235959
+DTEND;TZID="UTC-12:00":20240327T000059
+DTSTAMP:20250830T065444Z
+UID:41088699-8898-4e07-91e9-a03444309fb3
+DESCRIPTION:International Conference for High Performance Computing\, Netw
+ orking\, Storage\, and Analysis\n🗓️ 会议时间: November 17-22\, 20
+ 24\n📍 会议地点: ATLANTA\, GA\, USA\n⏰ 原始截止时间 (AoE): 2
+ 024-03-26 23:59:59\n分类: 计算机体系结构/并行与分布计算/
+ 存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://sc24.su
+ percomputing.org/\nDBLP索引: https://dblp.org/db/conf/sc
+LOCATION:ATLANTA\, GA\, USA
+URL:https://sc24.supercomputing.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SC 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250407T235959
+DTEND;TZID="UTC-12:00":20250408T000059
+DTSTAMP:20250830T065444Z
+UID:49193cbd-818e-4b2f-a95d-190861509503
+DESCRIPTION:International Conference for High Performance Computing\, Netw
+ orking\, Storage\, and Analysis\n🗓️ 会议时间: November 16-21\, 20
+ 25\n📍 会议地点: St. louis\, Missouri\, USA\n⏰ 原始截止时间 
+ (AoE): 2025-04-07 23:59:59\n分类: 计算机体系结构/并行与分布
+ 计算/存储系统 (DS)\nCCF A\, CORE A\, THCPL A\n会议官网: https://
+ sc25.supercomputing.org/\nDBLP索引: https://dblp.org/db/conf/sc
+LOCATION:St. louis\, Missouri\, USA
+URL:https://sc25.supercomputing.org/
+END:VEVENT
+END:VCALENDAR

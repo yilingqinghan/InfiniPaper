@@ -1,0 +1,69 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CADE 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250217T235959
+DTEND;TZID="UTC-12:00":20250218T000059
+DTSTAMP:20250830T065447Z
+UID:163225f8-12b8-4d3b-891e-e775945c47ee
+DESCRIPTION:The Conference on Automated Deduction (CADE)\n🗓️ Date: Ju
+ ly 28-31\, 2025\n📍 Location: DHBW Stuttgart\, Stuttgart\, Germany\n⏰ 
+ Original Deadline (AoE): 2025-02-17 23:59:59\nCategory: 计算机科学理
+ 论 (CT)\nCCF B\, CORE A\nConference Website: https://www.dhbw-stuttgart.d
+ e/cade-30/\nDBLP Index: https://dblp.org/db/conf/cade
+LOCATION:DHBW Stuttgart\, Stuttgart\, Germany
+URL:https://www.dhbw-stuttgart.de/cade-30/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CONCUR 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250403T235959
+DTEND;TZID="UTC-12:00":20250404T000059
+DTSTAMP:20250830T065447Z
+UID:49d04d64-481f-4605-9f4e-0f8280e78d31
+DESCRIPTION:International Conference on Concurrency Theory\n🗓️ Date: 
+ Aug 26-29\, 2025\n📍 Location: Aarhus\, Denmark\n⏰ Original Deadline (
+ AoE): 2025-04-03 23:59:59\nCategory: 计算机科学理论 (CT)\nCCF B\, C
+ ORE A\, THCPL B\nConference Website: https://conferences.au.dk/confest2025
+ /concur\nDBLP Index: https://dblp.org/db/conf/concur
+LOCATION:Aarhus\, Denmark
+URL:https://conferences.au.dk/confest2025/concur
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICALP 2025 Deadline [Submissions]
+DTSTART;TZID="UTC-12:00":20250208T235959
+DTEND;TZID="UTC-12:00":20250209T000059
+DTSTAMP:20250830T065447Z
+UID:9c4cd014-0558-459b-a25d-f70d8f738ea0
+DESCRIPTION:EATCS International Colloquium on Automata\, Languages\, and P
+ rogramming\n🗓️ Date: July 8-11\, 2025\n📍 Location: Aarhus\, Denmar
+ k\n⏰ Original Deadline (AoE): 2025-02-08 23:59:59\nCategory: 计算机
+ 科学理论 (CT)\nCCF B\, CORE A\nConference Website: https://conferences
+ .au.dk/icalp2025\nDBLP Index: https://dblp.org/db/conf/icalp
+LOCATION:Aarhus\, Denmark
+URL:https://conferences.au.dk/icalp2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SOCG 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20241106T235900
+DTEND;TZID="UTC-12:00":20241107T000000
+DTSTAMP:20250830T065447Z
+UID:df758840-7015-4561-9126-a0f7eae5aff3
+DESCRIPTION:International Symposium on Computational Geometry\n🗓️ Dat
+ e: June 23-27\, 2025\n📍 Location: Kanazawa\, Japan\n⏰ Original Deadli
+ ne (AoE): 2024-11-06 23:59:00\nCategory: 计算机科学理论 (CT)\nCCF B
+ \, CORE A\nConference Website: https://socg25.github.io/\nDBLP Index: http
+ s://dblp.org/db/conf/compgeom
+LOCATION:Kanazawa\, Japan
+URL:https://socg25.github.io/
+END:VEVENT
+END:VCALENDAR

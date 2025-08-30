@@ -1,0 +1,256 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:BIBM 2021 Deadline [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20210828T170000
+DTEND;TZID="UTC-05:00":20210828T170100
+DTSTAMP:20250830T065448Z
+UID:a5637440-7dc0-414b-b4e2-8f4d12083595
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 9-12\, 2021\n📍 Location: Online\n⏰ Original Dead
+ line (UTC-5): 2021-08-28 17:00:00\nCategory: 交叉/综合/新兴 (MX)\nCC
+ F B\nConference Website: https://ieeebibm.org/BIBM2021/\nDBLP Index: https
+ ://dblp.org/db/conf/bibm
+LOCATION:Online
+URL:https://ieeebibm.org/BIBM2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2022 Deadline [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20220821T170000
+DTEND;TZID="UTC-05:00":20220821T170100
+DTSTAMP:20250830T065448Z
+UID:5a82c687-b7c8-471e-acd2-e8128c2d00c6
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 6-9\, 2022\n📍 Location: Las Vegas\, NV\, USA\n⏰ 
+ Original Deadline (UTC-5): 2022-08-21 17:00:00\nCategory: 交叉/综合/
+ 新兴 (MX)\nCCF B\nConference Website: http://ieeebibm.org/BIBM2022/\nDBL
+ P Index: https://dblp.org/db/conf/bibm
+LOCATION:Las Vegas\, NV\, USA
+URL:http://ieeebibm.org/BIBM2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2023 Deadline [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20230815T170000
+DTEND;TZID="UTC-05:00":20230815T170100
+DTSTAMP:20250830T065448Z
+UID:fec36840-125c-43cf-babe-43c27a8ee826
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 5-8\, 2023\n📍 Location: Istanbul\, Turkey\n⏰ Ori
+ ginal Deadline (UTC-5): 2023-08-15 17:00:00\nCategory: 交叉/综合/新
+ 兴 (MX)\nCCF B\nConference Website: https://bidma.cpsc.ucalgary.ca/IEEE-B
+ IBM-2023/\nDBLP Index: https://dblp.org/db/conf/bibm
+LOCATION:Istanbul\, Turkey
+URL:https://bidma.cpsc.ucalgary.ca/IEEE-BIBM-2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2024 Deadline [First Round\, papers submitted by the June 20 
+ deadline will be reviewed and notified by Aug 15]
+DTSTART;TZID="UTC-05:00":20240620T170000
+DTEND;TZID="UTC-05:00":20240620T170100
+DTSTAMP:20250830T065448Z
+UID:31f20ea3-5d29-4278-8d85-64bb3e0c7747
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 3-6\, 2024\n📍 Location: Lisbon\, Portugal\n⏰ Ori
+ ginal Deadline (UTC-5): 2024-06-20 17:00:00\nCategory: 交叉/综合/新
+ 兴 (MX)\nCCF B\nConference Website: https://ieeebibm.org/BIBM2024/\nDBLP 
+ Index: https://dblp.org/db/conf/bibm
+LOCATION:Lisbon\, Portugal
+URL:https://ieeebibm.org/BIBM2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2024 Deadline [Second Round\, papers submitted by the Aug 16\
+ , 2024 deadline\, will be reviewed and notified by the Oct 16\, 2024]
+DTSTART;TZID="UTC-05:00":20240816T170000
+DTEND;TZID="UTC-05:00":20240816T170100
+DTSTAMP:20250830T065448Z
+UID:574030d6-316e-46d3-be25-1cfcdb67c110
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 3-6\, 2024\n📍 Location: Lisbon\, Portugal\n⏰ Ori
+ ginal Deadline (UTC-5): 2024-08-16 17:00:00\nCategory: 交叉/综合/新
+ 兴 (MX)\nCCF B\nConference Website: https://ieeebibm.org/BIBM2024/\nDBLP 
+ Index: https://dblp.org/db/conf/bibm
+LOCATION:Lisbon\, Portugal
+URL:https://ieeebibm.org/BIBM2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2025 Deadline
+DTSTART;TZID="UTC-05:00":20250803T170000
+DTEND;TZID="UTC-05:00":20250803T170100
+DTSTAMP:20250830T065448Z
+UID:a188695f-5a87-4ef6-8c4a-533863806e77
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 15-18\, 2025\n📍 Location: Wuhan\, China\n⏰ Origi
+ nal Deadline (UTC-5): 2025-08-03 17:00:00\nCategory: 交叉/综合/新兴 
+ (MX)\nCCF B\nConference Website: https://ieeebibm.org/BIBM2025/\nDBLP Inde
+ x: https://dblp.org/db/conf/bibm
+LOCATION:Wuhan\, China
+URL:https://ieeebibm.org/BIBM2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:EMSOFT 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250323T235959
+DTEND;TZID="UTC-12:00":20250324T000059
+DTSTAMP:20250830T065448Z
+UID:6d71aaac-b07b-4cea-bc7f-31ce00335606
+DESCRIPTION:International Conference on Embedded Software\n🗓️ Date: S
+ eptember 28 - October 3\, 2025\n📍 Location: TAIPEI\, TAIWAN\n⏰ Origin
+ al Deadline (AoE): 2025-03-23 23:59:59\nCategory: 交叉/综合/新兴 (MX
+ )\nCCF B\, THCPL B\nConference Website: https://esweek.org/emsoft/\nDBLP I
+ ndex: https://dblp.org/db/conf/emsoft
+LOCATION:TAIPEI\, TAIWAN
+URL:https://esweek.org/emsoft/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICIC 2024 Deadline
+DTSTART;TZID="UTC+08:00":20240411T120000
+DTEND;TZID="UTC+08:00":20240411T120100
+DTSTAMP:20250830T065448Z
+UID:3bee25cc-1d90-4d6c-a3e4-57e13de99fa2
+DESCRIPTION:International Conference on Intelligent Computing\n🗓️ Dat
+ e: August 5-8\, 2024\n📍 Location: Tianjin\, China\n⏰ Original Deadlin
+ e (UTC+8): 2024-04-11 12:00:00\nCategory: 交叉/综合/新兴 (MX)\nCCF C
+ \nConference Website: http://www.ic-icc.cn/2024/index.htm\nDBLP Index: htt
+ ps://dblp.org/db/conf/icic
+LOCATION:Tianjin\, China
+URL:http://www.ic-icc.cn/2024/index.htm
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICIC 2025 Deadline
+DTSTART;TZID="UTC+08:00":20250410T115959
+DTEND;TZID="UTC+08:00":20250410T120059
+DTSTAMP:20250830T065448Z
+UID:fd913f51-86fb-4093-bf28-7711b844a468
+DESCRIPTION:International Conference on Intelligent Computing\n🗓️ Dat
+ e: July 26-29\, 2025\n📍 Location: Ningbo\, China\n⏰ Original Deadline
+  (UTC+8): 2025-04-10 11:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF C\
+ nConference Website: http://www.ic-icc.cn/2025/index.php\nDBLP Index: http
+ s://dblp.org/db/conf/icic
+LOCATION:Ningbo\, China
+URL:http://www.ic-icc.cn/2025/index.php
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISBRA 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250401T235959
+DTEND;TZID="UTC-12:00":20250402T000059
+DTSTAMP:20250830T065448Z
+UID:e96f78ae-0601-4796-aa7f-4053f0e5ea95
+DESCRIPTION:International Symposium on Bioinformatics Research and Applica
+ tions\n🗓️ Date: August 3-5\, 2025\n📍 Location: Helsinki\, Finland\
+ n⏰ Original Deadline (AoE): 2025-04-01 23:59:59\nCategory: 交叉/综合
+ /新兴 (MX)\nCCF C\nConference Website: https://www.helsinki.fi/en/confer
+ ences/isbra2025\nDBLP Index: https://dblp.org/db/conf/isbra
+LOCATION:Helsinki\, Finland
+URL:https://www.helsinki.fi/en/conferences/isbra2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2021 Deadline
+DTSTART;TZID="UTC-12:00":20201011T235959
+DTEND;TZID="UTC-12:00":20201012T000059
+DTSTAMP:20250830T065448Z
+UID:38321574-7971-494b-af80-28f794a36b7e
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ Date: Apri
+ l 5-9\, 2021\n📍 Location: virtual\n⏰ Original Deadline (AoE): 2020-10
+ -11 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nConference Website: htt
+ ps://mlsys.org/Conferences/2021\nDBLP Index: https://dblp.org/db/conf/mlsy
+ s
+LOCATION:virtual
+URL:https://mlsys.org/Conferences/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2022 Deadline
+DTSTART;TZID="UTC-12:00":20211015T200000
+DTEND;TZID="UTC-12:00":20211015T200100
+DTSTAMP:20250830T065448Z
+UID:bf5acf75-c255-4909-97d2-2fe55a87df00
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ Date: Augu
+ st 29-September 1\, 2022\n📍 Location: Santa Clara\, USA\n⏰ Original D
+ eadline (AoE): 2021-10-15 20:00:00\nCategory: 交叉/综合/新兴 (MX)\nC
+ onference Website: https://mlsys.org/Conferences/2022\nDBLP Index: https:/
+ /dblp.org/db/conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/Conferences/2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2023 Deadline
+DTSTART;TZID="UTC-12:00":20221028T200000
+DTEND;TZID="UTC-12:00":20221028T200100
+DTSTAMP:20250830T065448Z
+UID:434aece0-4702-4615-9d6a-169c6612c00f
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ Date: June
+  5-8\, 2023\n📍 Location: Miami\, USA\n⏰ Original Deadline (AoE): 2022
+ -10-28 20:00:00\nCategory: 交叉/综合/新兴 (MX)\nConference Website: 
+ https://mlsys.org/Conferences/2023\nDBLP Index: https://dblp.org/db/conf/m
+ lsys
+LOCATION:Miami\, USA
+URL:https://mlsys.org/Conferences/2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2024 Deadline
+DTSTART;TZID="UTC-12:00":20231027T040000
+DTEND;TZID="UTC-12:00":20231027T040100
+DTSTAMP:20250830T065448Z
+UID:dccf6377-3070-43c9-8f76-323956602b9c
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ Date: May 
+ 12-16\, 2024\n📍 Location: Santa Clara\, USA\n⏰ Original Deadline (AoE
+ ): 2023-10-27 04:00:00\nCategory: 交叉/综合/新兴 (MX)\nConference We
+ bsite: https://mlsys.org/Conferences/2024\nDBLP Index: https://dblp.org/db
+ /conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/Conferences/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2025 Deadline
+DTSTART;TZID="UTC-12:00":20241024T200000
+DTEND;TZID="UTC-12:00":20241024T200100
+DTSTAMP:20250830T065448Z
+UID:017362e8-d800-44d9-a676-57071c70e99d
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ Date: May 
+ 13-16\, 2025\n📍 Location: Santa Clara\, USA\n⏰ Original Deadline (AoE
+ ): 2024-10-24 20:00:00\nCategory: 交叉/综合/新兴 (MX)\nConference We
+ bsite: https://mlsys.org/\nDBLP Index: https://dblp.org/db/conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WINE 2023 Deadline
+DTSTART;TZID="UTC-12:00":20230707T235959
+DTEND;TZID="UTC-12:00":20230708T000059
+DTSTAMP:20250830T065448Z
+UID:288d54fa-cabc-4d43-8c20-3e422d3ba3d8
+DESCRIPTION:Conference on Web and Internet Economics\n🗓️ Date: Dec 04
+ -08\, 2023\n📍 Location: Shanghai\, China\n⏰ Original Deadline (AoE): 
+ 2023-07-07 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\nConferenc
+ e Website: https://wine2023.shanghaitech.edu.cn/\nDBLP Index: https://dblp
+ .org/db/conf/wine
+LOCATION:Shanghai\, China
+URL:https://wine2023.shanghaitech.edu.cn/
+END:VEVENT
+END:VCALENDAR

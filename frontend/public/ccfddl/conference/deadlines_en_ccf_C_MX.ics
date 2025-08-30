@@ -1,0 +1,206 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:APBC 2025 Deadline
+DTSTART:20250615T235959Z
+DTEND:20250616T000059Z
+DTSTAMP:20250830T065448Z
+UID:4134dbf3-ff09-41a4-a473-925f4bb06378
+DESCRIPTION:Asia Pacific Bioinformatics Conference\n🗓️ Date: Septembe
+ r 19-22\, 2025\n📍 Location: Nanjing， China\n⏰ Original Deadline (UT
+ C+0): 2025-06-15 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF C\, CO
+ RE B\nConference Website: https://bioinfo.nuaa.edu.cn/apbc2025/main.psp\nD
+ BLP Index: https://dblp.org/db/conf/apbc
+LOCATION:Nanjing， China
+URL:https://bioinfo.nuaa.edu.cn/apbc2025/main.psp
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:BigData 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250829T235959
+DTEND;TZID="UTC-12:00":20250830T000059
+DTSTAMP:20250830T065448Z
+UID:c8c505e8-23fe-4d55-9375-ef57e70f5651
+DESCRIPTION:IEEE International Conference on Big Data\n🗓️ Date: Decem
+ ber 8-11\, 2025\n📍 Location: Macau SAR\, China\n⏰ Original Deadline (
+ AoE): 2025-08-29 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF C\, CO
+ RE B\nConference Website: https://conferences.cis.um.edu.mo/ieeebigdata202
+ 5/\nDBLP Index: https://dblp.org/db/conf/bigdataconf
+LOCATION:Macau SAR\, China
+URL:https://conferences.cis.um.edu.mo/ieeebigdata2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Cloud 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250310T230000
+DTEND;TZID="UTC-12:00":20250310T230100
+DTSTAMP:20250830T065448Z
+UID:09224f42-7287-4677-8bdf-68a9ba57749d
+DESCRIPTION:IEEE International Conference on Cloud Computing\n🗓️ Date
+ : July 7-12\, 2025\n📍 Location: Helsinki\, Finland\n⏰ Original Deadli
+ ne (AoE): 2025-03-10 23:00:00\nCategory: 交叉/综合/新兴 (MX)\nCCF C\
+ , CORE B\, THCPL B\nConference Website: https://services.conferences.compu
+ ter.org/2025/cloud/\nDBLP Index: https://dblp.org/db/conf/IEEEcloud
+LOCATION:Helsinki\, Finland
+URL:https://services.conferences.computer.org/2025/cloud/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICIC 2024 Deadline
+DTSTART;TZID="UTC+08:00":20240411T120000
+DTEND;TZID="UTC+08:00":20240411T120100
+DTSTAMP:20250830T065448Z
+UID:3e2e940f-a03a-4b79-b636-8f11bc2d6863
+DESCRIPTION:International Conference on Intelligent Computing\n🗓️ Dat
+ e: August 5-8\, 2024\n📍 Location: Tianjin\, China\n⏰ Original Deadlin
+ e (UTC+8): 2024-04-11 12:00:00\nCategory: 交叉/综合/新兴 (MX)\nCCF C
+ \nConference Website: http://www.ic-icc.cn/2024/index.htm\nDBLP Index: htt
+ ps://dblp.org/db/conf/icic
+LOCATION:Tianjin\, China
+URL:http://www.ic-icc.cn/2024/index.htm
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICIC 2025 Deadline
+DTSTART;TZID="UTC+08:00":20250410T115959
+DTEND;TZID="UTC+08:00":20250410T120059
+DTSTAMP:20250830T065448Z
+UID:be81072a-35fd-4175-bbd8-c388df0bbc4c
+DESCRIPTION:International Conference on Intelligent Computing\n🗓️ Dat
+ e: July 26-29\, 2025\n📍 Location: Ningbo\, China\n⏰ Original Deadline
+  (UTC+8): 2025-04-10 11:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF C\
+ nConference Website: http://www.ic-icc.cn/2025/index.php\nDBLP Index: http
+ s://dblp.org/db/conf/icic
+LOCATION:Ningbo\, China
+URL:http://www.ic-icc.cn/2025/index.php
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISBRA 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250401T235959
+DTEND;TZID="UTC-12:00":20250402T000059
+DTSTAMP:20250830T065448Z
+UID:8abba9f6-1ef3-453d-b16d-4041e3f895f1
+DESCRIPTION:International Symposium on Bioinformatics Research and Applica
+ tions\n🗓️ Date: August 3-5\, 2025\n📍 Location: Helsinki\, Finland\
+ n⏰ Original Deadline (AoE): 2025-04-01 23:59:59\nCategory: 交叉/综合
+ /新兴 (MX)\nCCF C\nConference Website: https://www.helsinki.fi/en/confer
+ ences/isbra2025\nDBLP Index: https://dblp.org/db/conf/isbra
+LOCATION:Helsinki\, Finland
+URL:https://www.helsinki.fi/en/conferences/isbra2025
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SIGSPATIAL 2023 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20230609T235959
+DTEND;TZID="UTC-07:00":20230610T000059
+DTSTAMP:20250830T065448Z
+UID:16421fdb-4cbe-42bb-835e-3174a1e0bc3b
+DESCRIPTION:ACM SIGSPATIAL International Conference on Advances in Geograp
+ hic Information Systems\n🗓️ Date: November 13-16\, 2023\n📍 Locatio
+ n: Hamburg\, Germany\n⏰ Original Deadline (UTC-7): 2023-06-09 23:59:59\n
+ Category: 交叉/综合/新兴 (MX)\nCCF C\, CORE A\nConference Website: h
+ ttp://sigspatial2023.sigspatial.org/\nDBLP Index: https://dblp.org/db/conf
+ /sigspatial
+LOCATION:Hamburg\, Germany
+URL:http://sigspatial2023.sigspatial.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SIGSPATIAL 2025 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20250523T235959
+DTEND;TZID="UTC-07:00":20250524T000059
+DTSTAMP:20250830T065448Z
+UID:93ed2342-48d8-4bd0-8f55-519b7fcf5c36
+DESCRIPTION:ACM SIGSPATIAL International Conference on Advances in Geograp
+ hic Information Systems\n🗓️ Date: November 3-6\, 2025\n📍 Location:
+  Minneapolis\, MN\, USA\n⏰ Original Deadline (UTC-7): 2025-05-23 23:59:5
+ 9\nCategory: 交叉/综合/新兴 (MX)\nCCF C\, CORE A\nConference Website
+ : https://sigspatial2025.sigspatial.org/\nDBLP Index: https://dblp.org/db/
+ conf/sigspatial
+LOCATION:Minneapolis\, MN\, USA
+URL:https://sigspatial2025.sigspatial.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SMC 2023 Deadline
+DTSTART;TZID="UTC-08:00":20230330T235959
+DTEND;TZID="UTC-08:00":20230331T000059
+DTSTAMP:20250830T065448Z
+UID:07bf01a6-849e-453d-aeb7-ae482e76cb76
+DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
+ cs\n🗓️ Date: October 1-4\, 2023\n📍 Location: HYATT MAUI\, HAWAII\,
+  USA\n⏰ Original Deadline (UTC-8): 2023-03-30 23:59:59\nCategory: 交叉
+ /综合/新兴 (MX)\nCCF C\, CORE B\nConference Website: https://ieeesmc20
+ 23.org/\nDBLP Index: https://dblp.org/db/conf/smc
+LOCATION:HYATT MAUI\, HAWAII\, USA
+URL:https://ieeesmc2023.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SMC 2024 Deadline
+DTSTART;TZID="UTC+08:00":20240408T235959
+DTEND;TZID="UTC+08:00":20240409T000059
+DTSTAMP:20250830T065448Z
+UID:892e6e63-a518-4313-98b0-18e8e27f0055
+DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
+ cs\n🗓️ Date: October 7-10\, 2024\n📍 Location: Borneo Convention Ce
+ ntre Kuching\, Sarawak\, Malaysia\n⏰ Original Deadline (UTC+8): 2024-04-
+ 08 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF C\, CORE B\nConferen
+ ce Website: https://www.ieeesmc2024.org/\nDBLP Index: https://dblp.org/db/
+ conf/smc
+LOCATION:Borneo Convention Centre Kuching\, Sarawak\, Malaysia
+URL:https://www.ieeesmc2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SMC 2025 Deadline
+DTSTART;TZID="UTC+08:00":20250504T235959
+DTEND;TZID="UTC+08:00":20250505T000059
+DTSTAMP:20250830T065448Z
+UID:35ead426-9ba5-4b49-89f1-541277d79dc6
+DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
+ cs\n🗓️ Date: October 5-8\, 2025\n📍 Location: Vienna\, Austria\n⏰
+  Original Deadline (UTC+8): 2025-05-04 23:59:59\nCategory: 交叉/综合/
+ 新兴 (MX)\nCCF C\, CORE B\nConference Website: https://www.ieeesmc2025.o
+ rg/\nDBLP Index: https://dblp.org/db/conf/smc
+LOCATION:Vienna\, Austria
+URL:https://www.ieeesmc2025.org/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,83 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:MLSys 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20201011T235959
+DTEND;TZID="UTC-12:00":20201012T000059
+DTSTAMP:20250830T065444Z
+UID:57fa3dbd-d33d-4a66-a331-11296a5f3fbb
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: April 5-9\, 2021\n📍 会议地点: virtual\n⏰ 原始截止时间 
+ (AoE): 2020-10-11 23:59:59\n分类: 交叉/综合/新兴 (MX)\n会议官
+ 网: https://mlsys.org/Conferences/2021\nDBLP索引: https://dblp.org/db/c
+ onf/mlsys
+LOCATION:virtual
+URL:https://mlsys.org/Conferences/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20211015T200000
+DTEND;TZID="UTC-12:00":20211015T200100
+DTSTAMP:20250830T065444Z
+UID:36d2150b-c293-4aaf-8454-aa027955b8aa
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: August 29-September 1\, 2022\n📍 会议地点: Santa Clara\, USA\n
+ ⏰ 原始截止时间 (AoE): 2021-10-15 20:00:00\n分类: 交叉/综合/
+ 新兴 (MX)\n会议官网: https://mlsys.org/Conferences/2022\nDBLP索引:
+  https://dblp.org/db/conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/Conferences/2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20221028T200000
+DTEND;TZID="UTC-12:00":20221028T200100
+DTSTAMP:20250830T065444Z
+UID:ec897d18-64bf-4841-960a-fec18e190e91
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: June 5-8\, 2023\n📍 会议地点: Miami\, USA\n⏰ 原始截止时
+ 间 (AoE): 2022-10-28 20:00:00\n分类: 交叉/综合/新兴 (MX)\n会议
+ 官网: https://mlsys.org/Conferences/2023\nDBLP索引: https://dblp.org/d
+ b/conf/mlsys
+LOCATION:Miami\, USA
+URL:https://mlsys.org/Conferences/2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231027T040000
+DTEND;TZID="UTC-12:00":20231027T040100
+DTSTAMP:20250830T065444Z
+UID:b7d094aa-753e-43b3-91fd-cd95667bf4c3
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: May 12-16\, 2024\n📍 会议地点: Santa Clara\, USA\n⏰ 原始截
+ 止时间 (AoE): 2023-10-27 04:00:00\n分类: 交叉/综合/新兴 (MX)\n
+ 会议官网: https://mlsys.org/Conferences/2024\nDBLP索引: https://dblp
+ .org/db/conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/Conferences/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241024T200000
+DTEND;TZID="UTC-12:00":20241024T200100
+DTSTAMP:20250830T065444Z
+UID:a9e74e5b-1b03-42a3-9492-d87e2344da02
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: May 13-16\, 2025\n📍 会议地点: Santa Clara\, USA\n⏰ 原始截
+ 止时间 (AoE): 2024-10-24 20:00:00\n分类: 交叉/综合/新兴 (MX)\n
+ 会议官网: https://mlsys.org/\nDBLP索引: https://dblp.org/db/conf/mls
+ ys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/
+END:VEVENT
+END:VCALENDAR

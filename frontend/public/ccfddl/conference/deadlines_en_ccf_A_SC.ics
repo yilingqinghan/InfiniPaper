@@ -1,0 +1,800 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CCS 2020 Deadline [2 review cycles]
+DTSTART;TZID="UTC-12:00":20200120T235959
+DTEND;TZID="UTC-12:00":20200121T000059
+DTSTAMP:20250830T065448Z
+UID:736b5b61-67aa-4df4-8bd0-6f782c270fc3
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: November 9-13\, 2020\n📍 Location: Orlando\, USA\n⏰ Original
+  Deadline (UTC-12): 2020-01-20 23:59:59\nCategory: 网络与信息安全 (
+ SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www.sigsac.org
+ /ccs/CCS2020/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Orlando\, USA
+URL:https://www.sigsac.org/ccs/CCS2020/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2021 Deadline [2 review cycles]
+DTSTART;TZID="UTC-12:00":20210120T235959
+DTEND;TZID="UTC-12:00":20210121T000059
+DTSTAMP:20250830T065448Z
+UID:b60ebc35-2ef8-45b0-bc9d-65df4d454de6
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: November 15-19\, 2021\n📍 Location: Seoul\, South Korea\n⏰ O
+ riginal Deadline (UTC-12): 2021-01-20 23:59:59\nCategory: 网络与信息
+ 安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www.si
+ gsac.org/ccs/CCS2021/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Seoul\, South Korea
+URL:https://www.sigsac.org/ccs/CCS2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2021 Deadline [spring]
+DTSTART;TZID="UTC-12:00":20210506T235959
+DTEND;TZID="UTC-12:00":20210507T000059
+DTSTAMP:20250830T065448Z
+UID:4e2a2946-6ba2-4a8d-b962-46e203bbef30
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: November 15-19\, 2021\n📍 Location: Seoul\, South Korea\n⏰ O
+ riginal Deadline (UTC-12): 2021-05-06 23:59:59\nCategory: 网络与信息
+ 安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www.si
+ gsac.org/ccs/CCS2021/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Seoul\, South Korea
+URL:https://www.sigsac.org/ccs/CCS2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2022 Deadline [2 review cycles]
+DTSTART;TZID="UTC-12:00":20220114T235959
+DTEND;TZID="UTC-12:00":20220115T000059
+DTSTAMP:20250830T065448Z
+UID:4c526717-060f-4120-ac7e-5af5cee0bc11
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: November 14-19\, 2022\n📍 Location: Los Angeles\, U.S.A.\n⏰ 
+ Original Deadline (UTC-12): 2022-01-14 23:59:59\nCategory: 网络与信息
+ 安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www.si
+ gsac.org/ccs/CCS2022/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Los Angeles\, U.S.A.
+URL:https://www.sigsac.org/ccs/CCS2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2022 Deadline [the second review cycle]
+DTSTART;TZID="UTC-12:00":20220502T235959
+DTEND;TZID="UTC-12:00":20220503T000059
+DTSTAMP:20250830T065448Z
+UID:025e4b4f-2bf2-4bd8-ba45-08f061560722
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: November 14-19\, 2022\n📍 Location: Los Angeles\, U.S.A.\n⏰ 
+ Original Deadline (UTC-12): 2022-05-02 23:59:59\nCategory: 网络与信息
+ 安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www.si
+ gsac.org/ccs/CCS2022/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Los Angeles\, U.S.A.
+URL:https://www.sigsac.org/ccs/CCS2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2023 Deadline [First Round Submission]
+DTSTART;TZID="UTC-12:00":20230119T235959
+DTEND;TZID="UTC-12:00":20230120T000059
+DTSTAMP:20250830T065448Z
+UID:e5ac8d91-401a-4d1e-bfa8-d7bdf8bb5e5d
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: November 26-30\, 2023\n📍 Location: Copenhagen\, Denmark\n⏰ 
+ Original Deadline (UTC-12): 2023-01-19 23:59:59\nCategory: 网络与信息
+ 安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www.si
+ gsac.org/ccs/CCS2023/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Copenhagen\, Denmark
+URL:https://www.sigsac.org/ccs/CCS2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2023 Deadline [Second Round Submission]
+DTSTART;TZID="UTC-12:00":20230504T235959
+DTEND;TZID="UTC-12:00":20230505T000059
+DTSTAMP:20250830T065448Z
+UID:51e6f758-f004-49a8-b5b5-319a150ea462
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: November 26-30\, 2023\n📍 Location: Copenhagen\, Denmark\n⏰ 
+ Original Deadline (UTC-12): 2023-05-04 23:59:59\nCategory: 网络与信息
+ 安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www.si
+ gsac.org/ccs/CCS2023/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Copenhagen\, Denmark
+URL:https://www.sigsac.org/ccs/CCS2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2024 Deadline [First Round Submission]
+DTSTART;TZID="UTC-12:00":20240128T235959
+DTEND;TZID="UTC-12:00":20240129T000059
+DTSTAMP:20250830T065448Z
+UID:31e4d8ed-af88-4ad4-933d-3760986161fd
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: October 14-18\, 2024\n📍 Location: Salt Lake City\, U.S.A\n⏰
+  Original Deadline (UTC-12): 2024-01-28 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www
+ .sigsac.org/ccs/CCS2024/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Salt Lake City\, U.S.A
+URL:https://www.sigsac.org/ccs/CCS2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2024 Deadline [Second Round Submission (tentative)]
+DTSTART;TZID="UTC-12:00":20240429T235959
+DTEND;TZID="UTC-12:00":20240430T000059
+DTSTAMP:20250830T065448Z
+UID:dee44754-af3b-4c9c-9334-9337fe380121
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: October 14-18\, 2024\n📍 Location: Salt Lake City\, U.S.A\n⏰
+  Original Deadline (UTC-12): 2024-04-29 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www
+ .sigsac.org/ccs/CCS2024/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:Salt Lake City\, U.S.A
+URL:https://www.sigsac.org/ccs/CCS2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2025 Deadline [First Review Cycle]
+DTSTART;TZID="UTC-12:00":20250109T235959
+DTEND;TZID="UTC-12:00":20250110T000059
+DTSTAMP:20250830T065448Z
+UID:730dd896-8010-405f-aabb-2b9aa4074ef6
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: October 13-17\, 2025\n📍 Location: TICC\, Taipei\, Taiwan\n⏰
+  Original Deadline (UTC-12): 2025-01-09 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www
+ .sigsac.org/ccs/CCS2025/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:TICC\, Taipei\, Taiwan
+URL:https://www.sigsac.org/ccs/CCS2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2025 Deadline [Second Review Cycle]
+DTSTART;TZID="UTC-12:00":20250414T235959
+DTEND;TZID="UTC-12:00":20250415T000059
+DTSTAMP:20250830T065448Z
+UID:124b4d23-3992-4a05-809c-2ee3138b2d6a
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ Date: October 13-17\, 2025\n📍 Location: TICC\, Taipei\, Taiwan\n⏰
+  Original Deadline (UTC-12): 2025-04-14 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www
+ .sigsac.org/ccs/CCS2025/\nDBLP Index: https://dblp.org/db/conf/ccs
+LOCATION:TICC\, Taipei\, Taiwan
+URL:https://www.sigsac.org/ccs/CCS2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CRYPTO 2021 Deadline
+DTSTART;TZID="UTC-12:00":20210224T210000
+DTEND;TZID="UTC-12:00":20210224T210100
+DTSTAMP:20250830T065448Z
+UID:85cd91f8-d5a0-4a16-a8f2-d4c554b37080
+DESCRIPTION:International Cryptology Conference\n🗓️ Date: August 15-1
+ 9\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC-12): 2021-02-
+ 24 21:00:00\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL
+  A\nConference Website: https://crypto.iacr.org/2021/\nDBLP Index: https:/
+ /dblp.org/db/conf/crypto
+LOCATION:Virtual
+URL:https://crypto.iacr.org/2021/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CRYPTO 2023 Deadline
+DTSTART;TZID="UTC-05:00":20230216T180000
+DTEND;TZID="UTC-05:00":20230216T180100
+DTSTAMP:20250830T065448Z
+UID:61858c3c-f334-47e2-8b7e-9ab9cad048b3
+DESCRIPTION:International Cryptology Conference\n🗓️ Date: August 19-2
+ 4\, 2023\n📍 Location: Santa Barbara\, USA\n⏰ Original Deadline (UTC-5
+ ): 2023-02-16 18:00:00\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://crypto.iacr.org/2023/\nDBLP Ind
+ ex: https://dblp.org/db/conf/crypto
+LOCATION:Santa Barbara\, USA
+URL:https://crypto.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CRYPTO 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240213T235959
+DTEND;TZID="UTC-12:00":20240214T000059
+DTSTAMP:20250830T065448Z
+UID:c5dd2835-e6fb-4d25-841f-10c09adc3b06
+DESCRIPTION:International Cryptology Conference\n🗓️ Date: August 18-2
+ 2\, 2024\n📍 Location: Santa Barbara\, USA\n⏰ Original Deadline (UTC-1
+ 2): 2024-02-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, COR
+ E A*\, THCPL A\nConference Website: https://crypto.iacr.org/2024/\nDBLP In
+ dex: https://dblp.org/db/conf/crypto
+LOCATION:Santa Barbara\, USA
+URL:https://crypto.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CRYPTO 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250213T235959
+DTEND;TZID="UTC-12:00":20250214T000059
+DTSTAMP:20250830T065448Z
+UID:a9a245c9-8eb3-4717-9786-0b79000ad730
+DESCRIPTION:International Cryptology Conference\n🗓️ Date: August 17-2
+ 1\, 2025\n📍 Location: Santa Barbara\, USA\n⏰ Original Deadline (UTC-1
+ 2): 2025-02-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, COR
+ E A*\, THCPL A\nConference Website: https://crypto.iacr.org/2025/\nDBLP In
+ dex: https://dblp.org/db/conf/crypto
+LOCATION:Santa Barbara\, USA
+URL:https://crypto.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EUROCRYPT 2021 Deadline
+DTSTART;TZID="UTC-12:00":20201008T210000
+DTEND;TZID="UTC-12:00":20201008T210100
+DTSTAMP:20250830T065448Z
+UID:6359e034-5ab2-4124-ac14-ee2cefb2377f
+DESCRIPTION:European Cryptology Conference\n🗓️ Date: October 17-21\, 
+ 2021\n📍 Location: Zagreb\, Croatia\n⏰ Original Deadline (UTC-12): 202
+ 0-10-08 21:00:00\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, 
+ THCPL A\nConference Website: https://eurocrypt.iacr.org/2021\nDBLP Index: 
+ https://dblp.org/db/conf/eurocrypt
+LOCATION:Zagreb\, Croatia
+URL:https://eurocrypt.iacr.org/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EUROCRYPT 2024 Deadline
+DTSTART;TZID="UTC-12:00":20231006T235959
+DTEND;TZID="UTC-12:00":20231007T000059
+DTSTAMP:20250830T065448Z
+UID:e3db044b-8e4b-4645-9761-d3a2a64ef240
+DESCRIPTION:European Cryptology Conference\n🗓️ Date: May 26-30\, 2024
+ \n📍 Location: Zurich\, Switzerland\n⏰ Original Deadline (AoE): 2023-1
+ 0-06 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THC
+ PL A\nConference Website: https://eurocrypt.iacr.org/2024\nDBLP Index: htt
+ ps://dblp.org/db/conf/eurocrypt
+LOCATION:Zurich\, Switzerland
+URL:https://eurocrypt.iacr.org/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EUROCRYPT 2025 Deadline
+DTSTART;TZID="UTC-12:00":20241002T235959
+DTEND;TZID="UTC-12:00":20241003T000059
+DTSTAMP:20250830T065448Z
+UID:92a642dc-5aba-4d45-8850-f02518d8e047
+DESCRIPTION:European Cryptology Conference\n🗓️ Date: May 4-8\, 2025\n
+ 📍 Location: Madrid\, Spain\n⏰ Original Deadline (AoE): 2024-10-02 23:
+ 59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nCo
+ nference Website: https://eurocrypt.iacr.org/2025/\nDBLP Index: https://db
+ lp.org/db/conf/eurocrypt
+LOCATION:Madrid\, Spain
+URL:https://eurocrypt.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EUROCRYPT 2026 Deadline
+DTSTART;TZID="UTC-12:00":20251002T235959
+DTEND;TZID="UTC-12:00":20251003T000059
+DTSTAMP:20250830T065448Z
+UID:7eeb101b-44b6-40e7-a27d-50e979eba154
+DESCRIPTION:European Cryptology Conference\n🗓️ Date: May 10-14\, 2026
+ \n📍 Location: Rome\, Italy\n⏰ Original Deadline (AoE): 2025-10-02 23:
+ 59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nCo
+ nference Website: https://eurocrypt.iacr.org/2026/\nDBLP Index: https://db
+ lp.org/db/conf/eurocrypt
+LOCATION:Rome\, Italy
+URL:https://eurocrypt.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2022 Deadline [spring]
+DTSTART;TZID="UTC-12:00":20210521T235959
+DTEND;TZID="UTC-12:00":20210522T000059
+DTSTAMP:20250830T065448Z
+UID:50391cf2-b171-475d-9430-d1c1ac42acba
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: February 27 - March 3\, 2022\n📍 Location: San Diego\, Califor
+ nia\n⏰ Original Deadline (UTC-12): 2021-05-21 23:59:59\nCategory: 网络
+ 与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https
+ ://www.ndss-symposium.org/ndss2022/\nDBLP Index: https://dblp.org/db/conf/
+ ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2022 Deadline [fall]
+DTSTART;TZID="UTC-12:00":20210723T235959
+DTEND;TZID="UTC-12:00":20210724T000059
+DTSTAMP:20250830T065448Z
+UID:4cb60f50-2a31-4c80-b47b-b8c8d8cf898b
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: February 27 - March 3\, 2022\n📍 Location: San Diego\, Califor
+ nia\n⏰ Original Deadline (UTC-12): 2021-07-23 23:59:59\nCategory: 网络
+ 与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https
+ ://www.ndss-symposium.org/ndss2022/\nDBLP Index: https://dblp.org/db/conf/
+ ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2023 Deadline [Summer]
+DTSTART;TZID="UTC-12:00":20220513T235959
+DTEND;TZID="UTC-12:00":20220514T000059
+DTSTAMP:20250830T065448Z
+UID:78c3d977-acc8-4b63-82d9-4ce584a40014
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: TBD\n📍 Location: San Diego\, California\n⏰ Original Deadlin
+ e (UTC-12): 2022-05-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
+  A\, CORE A*\, THCPL A\nConference Website: https://www.ndss-symposium.org
+ /ndss2023/\nDBLP Index: https://dblp.org/db/conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2023 Deadline [Fall]
+DTSTART;TZID="UTC-12:00":20220729T235959
+DTEND;TZID="UTC-12:00":20220730T000059
+DTSTAMP:20250830T065448Z
+UID:4355a8ab-fa82-437c-a5df-6eadcd43ff43
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: TBD\n📍 Location: San Diego\, California\n⏰ Original Deadlin
+ e (UTC-12): 2022-07-29 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
+  A\, CORE A*\, THCPL A\nConference Website: https://www.ndss-symposium.org
+ /ndss2023/\nDBLP Index: https://dblp.org/db/conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2024 Deadline [Summer]
+DTSTART;TZID="UTC-12:00":20230419T235959
+DTEND;TZID="UTC-12:00":20230420T000059
+DTSTAMP:20250830T065448Z
+UID:a62107f1-43ba-4706-9840-94c2dc223545
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: February 26 - March 1\, 2024\n📍 Location: San Diego\, Califor
+ nia\n⏰ Original Deadline (UTC-12): 2023-04-19 23:59:59\nCategory: 网络
+ 与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https
+ ://www.ndss-symposium.org/ndss2024/\nDBLP Index: https://dblp.org/db/conf/
+ ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2024 Deadline [Fall]
+DTSTART;TZID="UTC-12:00":20230628T235959
+DTEND;TZID="UTC-12:00":20230629T000059
+DTSTAMP:20250830T065448Z
+UID:241ed5d5-588f-4882-a24b-db2686757b29
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: February 26 - March 1\, 2024\n📍 Location: San Diego\, Califor
+ nia\n⏰ Original Deadline (UTC-12): 2023-06-28 23:59:59\nCategory: 网络
+ 与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website: https
+ ://www.ndss-symposium.org/ndss2024/\nDBLP Index: https://dblp.org/db/conf/
+ ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2025 Deadline [Summer]
+DTSTART;TZID="UTC-12:00":20240417T235959
+DTEND;TZID="UTC-12:00":20240418T000059
+DTSTAMP:20250830T065448Z
+UID:83433e4c-6683-454a-9616-4684368d8365
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: February 23 - February 28\, 2025\n📍 Location: San Diego\, Cal
+ ifornia\n⏰ Original Deadline (UTC-12): 2024-04-17 23:59:59\nCategory: 
+ 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website:
+  https://www.ndss-symposium.org/ndss2025/\nDBLP Index: https://dblp.org/db
+ /conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2025 Deadline [Fall]
+DTSTART;TZID="UTC-12:00":20240710T235959
+DTEND;TZID="UTC-12:00":20240711T000059
+DTSTAMP:20250830T065448Z
+UID:55f7c414-d899-4abe-8471-65c687838b3f
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: February 23 - February 28\, 2025\n📍 Location: San Diego\, Cal
+ ifornia\n⏰ Original Deadline (UTC-12): 2024-07-10 23:59:59\nCategory: 
+ 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website:
+  https://www.ndss-symposium.org/ndss2025/\nDBLP Index: https://dblp.org/db
+ /conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2026 Abstract Deadline [Summer]
+DTSTART;TZID="UTC-12:00":20250416T235959
+DTEND;TZID="UTC-12:00":20250417T000059
+DTSTAMP:20250830T065448Z
+UID:f9466572-7ddf-45e3-9857-8ed5c14a5421
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: February 23 - February 27\, 2026\n📍 Location: San Diego\, Cal
+ ifornia\n⏰ Original Deadline (UTC-12): 2025-04-16 23:59:59\nCategory: 
+ 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website:
+  https://www.ndss-symposium.org/ndss2026/\nDBLP Index: https://dblp.org/db
+ /conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2026 Abstract Deadline [Fall]
+DTSTART;TZID="UTC-12:00":20250730T235959
+DTEND;TZID="UTC-12:00":20250731T000059
+DTSTAMP:20250830T065448Z
+UID:278211ce-0a39-4fbb-81ee-4f28058c867e
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ Date: February 23 - February 27\, 2026\n📍 Location: San Diego\, Cal
+ ifornia\n⏰ Original Deadline (UTC-12): 2025-07-30 23:59:59\nCategory: 
+ 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\nConference Website:
+  https://www.ndss-symposium.org/ndss2026/\nDBLP Index: https://dblp.org/db
+ /conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2022 Deadline [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20210415T235959
+DTEND;TZID="UTC-12:00":20210416T000059
+DTSTAMP:20250830T065448Z
+UID:f862208f-1196-4c90-8fd3-55bf8bbb907f
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: May 23-2
+ 6\, 2022\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2021-04-15 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2022
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2022 Deadline [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20210819T235959
+DTEND;TZID="UTC-12:00":20210820T000059
+DTSTAMP:20250830T065448Z
+UID:403bb502-4865-48d9-8048-656e7b11cf7c
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: May 23-2
+ 6\, 2022\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2021-08-19 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2022
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2022 Deadline [Third Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20211202T235959
+DTEND;TZID="UTC-12:00":20211203T000059
+DTSTAMP:20250830T065448Z
+UID:d48d8799-4f56-4950-9c41-98f2e85ee260
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: May 23-2
+ 6\, 2022\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2021-12-02 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2022
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2023 Deadline [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20220401T235959
+DTEND;TZID="UTC-12:00":20220402T000059
+DTSTAMP:20250830T065448Z
+UID:13fa570f-f128-4049-aa83-78de572e460a
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: May 22-2
+ 6\, 2023\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2022-04-01 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2023
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2023 Deadline [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20220819T235959
+DTEND;TZID="UTC-12:00":20220820T000059
+DTSTAMP:20250830T065448Z
+UID:a3eced7a-bcd0-45cd-a090-7a52b1129358
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: May 22-2
+ 6\, 2023\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2022-08-19 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2023
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2023 Deadline [Third Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20221202T235959
+DTEND;TZID="UTC-12:00":20221203T000059
+DTSTAMP:20250830T065448Z
+UID:8cebfb6b-d0da-4d9d-8f01-7b1b1c274ccc
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: May 22-2
+ 6\, 2023\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2022-12-02 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2023
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2024 Deadline [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20230413T235959
+DTEND;TZID="UTC-12:00":20230414T000059
+DTSTAMP:20250830T065448Z
+UID:fae9bbe7-1288-4c9e-ac72-56b736287d98
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: MAY 20-2
+ 3\, 2024\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2023-04-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2024
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2024 Deadline [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20230803T235959
+DTEND;TZID="UTC-12:00":20230804T000059
+DTSTAMP:20250830T065448Z
+UID:2898b38b-c071-4895-aae1-e8be182f4ee2
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: MAY 20-2
+ 3\, 2024\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2023-08-03 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2024
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2024 Deadline [Third Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20231206T235959
+DTEND;TZID="UTC-12:00":20231207T000059
+DTSTAMP:20250830T065448Z
+UID:0cc93a62-6416-4702-9fdb-8e40e3c8fa33
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: MAY 20-2
+ 3\, 2024\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2023-12-06 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2024
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2025 Deadline [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20240606T235959
+DTEND;TZID="UTC-12:00":20240607T000059
+DTSTAMP:20250830T065448Z
+UID:01679ea6-954f-44f4-94a8-0a06a329ebb0
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: MAY 12-1
+ 5\, 2025\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2024-06-06 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2025
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2025 Deadline [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20241114T235959
+DTEND;TZID="UTC-12:00":20241115T000059
+DTSTAMP:20250830T065448Z
+UID:58076bd6-c628-4985-a79e-8d12ffeb100e
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: MAY 12-1
+ 5\, 2025\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2024-11-14 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2025
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2026 Deadline [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20250605T235959
+DTEND;TZID="UTC-12:00":20250606T000059
+DTSTAMP:20250830T065448Z
+UID:ae83e07c-8f8f-4cc8-bf20-9c0fc9dc824c
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: MAY 18-2
+ 1\, 2026\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2025-06-05 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2026
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2026 Deadline [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20251113T235959
+DTEND;TZID="UTC-12:00":20251114T000059
+DTSTAMP:20250830T065448Z
+UID:687264e5-eda0-4586-9ef1-abeb28d6fe39
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ Date: MAY 18-2
+ 1\, 2026\n📍 Location: SAN FRANCISCO\, CA\n⏰ Original Deadline (UTC-12
+ ): 2025-11-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://www.ieee-security.org/TC/SP2026
+ /\nDBLP Index: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2022 Deadline [3 review cycles]
+DTSTART;TZID="UTC-12:00":20210608T235959
+DTEND;TZID="UTC-12:00":20210609T000059
+DTSTAMP:20250830T065448Z
+UID:8966ffef-4a1b-4cd1-945c-cf195aed4305
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 10-12\, 2022\n
+ 📍 Location: BOSTON\, MA\, USA\n⏰ Original Deadline (UTC-12): 2021-06-
+ 08 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL
+  A\nConference Website: https://www.usenix.org/conference/usenixsecurity22
+ \nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:BOSTON\, MA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity22
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2022 Deadline [3 review cycles]
+DTSTART;TZID="UTC-12:00":20211012T235959
+DTEND;TZID="UTC-12:00":20211013T000059
+DTSTAMP:20250830T065448Z
+UID:890663eb-d612-48c5-8576-bbbbf9016a94
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 10-12\, 2022\n
+ 📍 Location: BOSTON\, MA\, USA\n⏰ Original Deadline (UTC-12): 2021-10-
+ 12 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL
+  A\nConference Website: https://www.usenix.org/conference/usenixsecurity22
+ \nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:BOSTON\, MA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity22
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2022 Deadline [3 review cycles]
+DTSTART;TZID="UTC-12:00":20220201T235959
+DTEND;TZID="UTC-12:00":20220202T000059
+DTSTAMP:20250830T065448Z
+UID:c71aad00-bcad-4fcf-b505-268ceacff405
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 10-12\, 2022\n
+ 📍 Location: BOSTON\, MA\, USA\n⏰ Original Deadline (UTC-12): 2022-02-
+ 01 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL
+  A\nConference Website: https://www.usenix.org/conference/usenixsecurity22
+ \nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:BOSTON\, MA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity22
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2023 Deadline [Summer Deadline]
+DTSTART;TZID="UTC-12:00":20220607T235959
+DTEND;TZID="UTC-12:00":20220608T000059
+DTSTAMP:20250830T065448Z
+UID:2c28908a-845b-4d8c-aab9-c9d6385047f7
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 9-11\, 2023\n
+ 📍 Location: ANAHEIM\, CA\, USA\n⏰ Original Deadline (UTC-12): 2022-06
+ -07 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCP
+ L A\nConference Website: https://www.usenix.org/conference/usenixsecurity2
+ 3\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:ANAHEIM\, CA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2023 Deadline [Fall Deadline]
+DTSTART;TZID="UTC-12:00":20221011T235959
+DTEND;TZID="UTC-12:00":20221012T000059
+DTSTAMP:20250830T065448Z
+UID:7365acc5-cdd3-4f47-8cbc-72917a7fce7d
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 9-11\, 2023\n
+ 📍 Location: ANAHEIM\, CA\, USA\n⏰ Original Deadline (UTC-12): 2022-10
+ -11 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCP
+ L A\nConference Website: https://www.usenix.org/conference/usenixsecurity2
+ 3\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:ANAHEIM\, CA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2023 Deadline [Winter Deadline]
+DTSTART;TZID="UTC-12:00":20230207T235959
+DTEND;TZID="UTC-12:00":20230208T000059
+DTSTAMP:20250830T065448Z
+UID:87e3745f-2bb5-4c51-8c30-a404b2e679e1
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 9-11\, 2023\n
+ 📍 Location: ANAHEIM\, CA\, USA\n⏰ Original Deadline (UTC-12): 2023-02
+ -07 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCP
+ L A\nConference Website: https://www.usenix.org/conference/usenixsecurity2
+ 3\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:ANAHEIM\, CA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2024 Deadline [Summer Deadline]
+DTSTART;TZID="UTC-12:00":20230606T235959
+DTEND;TZID="UTC-12:00":20230607T000059
+DTSTAMP:20250830T065448Z
+UID:0b6cabc6-7170-4dd8-be70-0f80be1220a5
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 14-16\, 2024\n
+ 📍 Location: PHILADELPHIA\, PA\, USA\n⏰ Original Deadline (UTC-12): 20
+ 23-06-06 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\,
+  THCPL A\nConference Website: https://www.usenix.org/conference/usenixsecu
+ rity24\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:PHILADELPHIA\, PA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2024 Deadline [Fall Deadline]
+DTSTART;TZID="UTC-12:00":20231017T235959
+DTEND;TZID="UTC-12:00":20231018T000059
+DTSTAMP:20250830T065448Z
+UID:0f7fd264-33f0-469f-b879-e72fe547b84f
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 14-16\, 2024\n
+ 📍 Location: PHILADELPHIA\, PA\, USA\n⏰ Original Deadline (UTC-12): 20
+ 23-10-17 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\,
+  THCPL A\nConference Website: https://www.usenix.org/conference/usenixsecu
+ rity24\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:PHILADELPHIA\, PA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2024 Deadline [Winter Deadline]
+DTSTART;TZID="UTC-12:00":20240208T235959
+DTEND;TZID="UTC-12:00":20240209T000059
+DTSTAMP:20250830T065448Z
+UID:149f6303-0cae-4066-a2f3-7040f110c4fa
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 14-16\, 2024\n
+ 📍 Location: PHILADELPHIA\, PA\, USA\n⏰ Original Deadline (UTC-12): 20
+ 24-02-08 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\,
+  THCPL A\nConference Website: https://www.usenix.org/conference/usenixsecu
+ rity24\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:PHILADELPHIA\, PA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2025 Deadline [Cycle 1 Deadline]
+DTSTART;TZID="UTC-12:00":20240904T235959
+DTEND;TZID="UTC-12:00":20240905T000059
+DTSTAMP:20250830T065448Z
+UID:091da8b3-58c9-4886-b7df-223049bc6ceb
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 13-15\, 2025\n
+ 📍 Location: SEATTLE\, WA\, USA\n⏰ Original Deadline (UTC-12): 2024-09
+ -04 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCP
+ L A\nConference Website: https://www.usenix.org/conference/usenixsecurity2
+ 5\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:SEATTLE\, WA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2025 Deadline [Cycle 2 Deadline]
+DTSTART;TZID="UTC-12:00":20250122T235959
+DTEND;TZID="UTC-12:00":20250123T000059
+DTSTAMP:20250830T065448Z
+UID:951c38ee-514e-4156-b70c-61688bd69880
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 13-15\, 2025\n
+ 📍 Location: SEATTLE\, WA\, USA\n⏰ Original Deadline (UTC-12): 2025-01
+ -22 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCP
+ L A\nConference Website: https://www.usenix.org/conference/usenixsecurity2
+ 5\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:SEATTLE\, WA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2026 Abstract Deadline [Cycle 1 Deadline]
+DTSTART;TZID="UTC-12:00":20250819T235959
+DTEND;TZID="UTC-12:00":20250820T000059
+DTSTAMP:20250830T065448Z
+UID:fc97c19b-29d0-4d8c-8c6d-08151456cfd9
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 12-14\, 2026\n
+ 📍 Location: Baltimore\, MD\, USA\n⏰ Original Deadline (UTC-12): 2025-
+ 08-19 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, TH
+ CPL A\nConference Website: https://www.usenix.org/conference/usenixsecurit
+ y26\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:Baltimore\, MD\, USA
+URL:https://www.usenix.org/conference/usenixsecurity26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2026 Abstract Deadline [Cycle 2 Deadline]
+DTSTART;TZID="UTC-12:00":20260129T235959
+DTEND;TZID="UTC-12:00":20260130T000059
+DTSTAMP:20250830T065448Z
+UID:eeae66ac-8dcc-43b0-97f7-3a921530cdaf
+DESCRIPTION:USENIX Security Symposium\n🗓️ Date: August 12-14\, 2026\n
+ 📍 Location: Baltimore\, MD\, USA\n⏰ Original Deadline (UTC-12): 2026-
+ 01-29 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF A\, CORE A*\, TH
+ CPL A\nConference Website: https://www.usenix.org/conference/usenixsecurit
+ y26\nDBLP Index: https://dblp.org/db/conf/uss
+LOCATION:Baltimore\, MD\, USA
+URL:https://www.usenix.org/conference/usenixsecurity26
+END:VEVENT
+END:VCALENDAR

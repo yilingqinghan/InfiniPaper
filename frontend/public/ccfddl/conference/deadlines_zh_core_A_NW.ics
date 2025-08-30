@@ -1,0 +1,142 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20231127T235959
+DTEND;TZID="UTC-12:00":20231128T000059
+DTSTAMP:20250830T065444Z
+UID:76502024-2a75-437d-9ae3-a89462c534e1
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ 会议时间: TBD\n📍 会议地点: TBD\n⏰ 原
+ 始截止时间 (AoE): 2023-11-27 23:59:59\n分类: 计算机网络 (NW)\n
+ CCF B\, CORE A\, THCPL A\n会议官网: https://conferences.sigcomm.org/co
+ -next/2025/#!/home\nDBLP索引: https://dblp.org/db/conf/conext
+LOCATION:TBD
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240620T235959
+DTEND;TZID="UTC-12:00":20240621T000059
+DTSTAMP:20250830T065444Z
+UID:e82377b9-c25f-464e-985c-346176e26cbe
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ 会议时间: TBD\n📍 会议地点: TBD\n⏰ 原
+ 始截止时间 (AoE): 2024-06-20 23:59:59\n分类: 计算机网络 (NW)\n
+ CCF B\, CORE A\, THCPL A\n会议官网: https://conferences.sigcomm.org/co
+ -next/2025/#!/home\nDBLP索引: https://dblp.org/db/conf/conext
+LOCATION:TBD
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 摘要截稿 [Winter submission]
+DTSTART;TZID="UTC-12:00":20241128T235959
+DTEND;TZID="UTC-12:00":20241129T000059
+DTSTAMP:20250830T065444Z
+UID:bd884135-a0c3-4333-9a37-523765821010
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ 会议时间: Dec 1-4\, 2025\n📍 会议地点: H
+ KUST\, Hong Kong\n⏰ 原始截止时间 (AoE): 2024-11-28 23:59:59\n分
+ 类: 计算机网络 (NW)\nCCF B\, CORE A\, THCPL A\n会议官网: https:/
+ /conferences.sigcomm.org/co-next/2025/#!/home\nDBLP索引: https://dblp.or
+ g/db/conf/conext
+LOCATION:HKUST\, Hong Kong
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 摘要截稿 [June submission]
+DTSTART;TZID="UTC-12:00":20250529T235959
+DTEND;TZID="UTC-12:00":20250530T000059
+DTSTAMP:20250830T065444Z
+UID:95a3fd10-45fd-4a95-8b6d-9c2415f4343f
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ 会议时间: Dec 1-4\, 2025\n📍 会议地点: H
+ KUST\, Hong Kong\n⏰ 原始截止时间 (AoE): 2025-05-29 23:59:59\n分
+ 类: 计算机网络 (NW)\nCCF B\, CORE A\, THCPL A\n会议官网: https:/
+ /conferences.sigcomm.org/co-next/2025/#!/home\nDBLP索引: https://dblp.or
+ g/db/conf/conext
+LOCATION:HKUST\, Hong Kong
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240508T235959
+DTEND;TZID="UTC-12:00":20240509T000059
+DTSTAMP:20250830T065444Z
+UID:91144479-213f-4484-a7e9-fc24fdb3771d
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ 会议时间: Nov
+  4-6\, 2024\n📍 会议地点: Madrid\, Spain\n⏰ 原始截止时间 (Ao
+ E): 2024-05-08 23:59:59\n分类: 计算机网络 (NW)\nCCF B\, CORE A\, TH
+ CPL A\n会议官网: https://conferences.sigcomm.org/imc/2024/\nDBLP索引
+ : https://dblp.org/db/conf/imc
+LOCATION:Madrid\, Spain
+URL:https://conferences.sigcomm.org/imc/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2025 摘要截稿 [Fall deadline]
+DTSTART;TZID="UTC-12:00":20241114T235959
+DTEND;TZID="UTC-12:00":20241115T000059
+DTSTAMP:20250830T065444Z
+UID:251f33ad-2f46-4464-b939-1280185fac3b
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ 会议时间: Oct
+  28-31\, 2025\n📍 会议地点: Madison\, Wisconsin\, USA\n⏰ 原始截
+ 止时间 (AoE): 2024-11-14 23:59:59\n分类: 计算机网络 (NW)\nCCF B\
+ , CORE A\, THCPL A\n会议官网: https://conferences.sigcomm.org/imc/2025
+ /\nDBLP索引: https://dblp.org/db/conf/imc
+LOCATION:Madison\, Wisconsin\, USA
+URL:https://conferences.sigcomm.org/imc/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2025 摘要截稿 [Spring deadline]
+DTSTART;TZID="UTC-12:00":20250508T235959
+DTEND;TZID="UTC-12:00":20250509T000059
+DTSTAMP:20250830T065444Z
+UID:4ce05dc2-9f8e-4de6-bd10-0e2e781a0ddb
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ 会议时间: Oct
+  28-31\, 2025\n📍 会议地点: Madison\, Wisconsin\, USA\n⏰ 原始截
+ 止时间 (AoE): 2025-05-08 23:59:59\n分类: 计算机网络 (NW)\nCCF B\
+ , CORE A\, THCPL A\n会议官网: https://conferences.sigcomm.org/imc/2025
+ /\nDBLP索引: https://dblp.org/db/conf/imc
+LOCATION:Madison\, Wisconsin\, USA
+URL:https://conferences.sigcomm.org/imc/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiHoc 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20220225T235959
+DTEND;TZID="UTC-12:00":20220226T000059
+DTSTAMP:20250830T065444Z
+UID:6c0c04fa-05f1-4644-a847-e97820744a4e
+DESCRIPTION:International Symposium on Mobile Ad Hoc Networking and Comput
+ ing\n🗓️ 会议时间: October 17-22\, 2022\n📍 会议地点: Seoul\
+ , South Korea\n⏰ 原始截止时间 (UTC-12): 2022-02-25 23:59:59\n分
+ 类: 计算机网络 (NW)\nCCF B\, CORE A\, THCPL B\n会议官网: https:/
+ /www.sigmobile.org/mobihoc/2022/\nDBLP索引: https://dblp.org/db/conf/mob
+ ihoc
+LOCATION:Seoul\, South Korea
+URL:https://www.sigmobile.org/mobihoc/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiSys 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20211213T235959
+DTEND;TZID="UTC-12:00":20211214T000059
+DTSTAMP:20250830T065444Z
+UID:4ca4dffe-fb83-4545-9e28-794dc42edeec
+DESCRIPTION:ACM International Conference on Mobile Systems\, Applications\
+ , and Services\n🗓️ 会议时间: TBD\n📍 会议地点: TBD\n⏰ 原
+ 始截止时间 (UTC-12): 2021-12-13 23:59:59\n分类: 计算机网络 (NW
+ )\nCCF B\, CORE A\, THCPL A\n会议官网: https://www.sigmobile.org/mobis
+ ys/2022/\nDBLP索引: https://dblp.org/db/conf/mobisys
+LOCATION:TBD
+URL:https://www.sigmobile.org/mobisys/2022/
+END:VEVENT
+END:VCALENDAR

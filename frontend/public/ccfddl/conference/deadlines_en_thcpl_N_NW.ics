@@ -1,0 +1,140 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:APNet 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240308T235959
+DTEND;TZID="UTC-12:00":20240309T000059
+DTSTAMP:20250830T065448Z
+UID:5d85ec57-53a3-4236-9fcd-fc770d8f1c9e
+DESCRIPTION:Asia-Pacific Workshop on Networking\n🗓️ Date: August 3-4\
+ , 2024\n📍 Location: Sydney\, Australia\, co-located with SIGCOMM'24\n
+ ⏰ Original Deadline (UTC-12): 2024-03-08 23:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF C\nConference Website: https://conferences.sigcomm.org/ev
+ ents/apnet2024/\nDBLP Index: https://dblp.org/db/conf/apnet
+LOCATION:Sydney\, Australia\, co-located with SIGCOMM'24
+URL:https://conferences.sigcomm.org/events/apnet2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APNet 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250306T235959
+DTEND;TZID="UTC-12:00":20250307T000059
+DTSTAMP:20250830T065448Z
+UID:8cb6af9f-7bbb-4bd7-92be-b820d48659ab
+DESCRIPTION:Asia-Pacific Workshop on Networking\n🗓️ Date: August 7-8\
+ , 2025\n📍 Location: Shanghai\, China\n⏰ Original Deadline (AoE): 2025
+ -03-06 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\nConference Website
+ : https://conferences.sigcomm.org/events/apnet2025/\nDBLP Index: https://d
+ blp.org/db/conf/apnet
+LOCATION:Shanghai\, China
+URL:https://conferences.sigcomm.org/events/apnet2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FORTE 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240202T235959
+DTEND;TZID="UTC-12:00":20240203T000059
+DTSTAMP:20250830T065448Z
+UID:c8cb8676-498b-4080-93e3-e30fc78ba069
+DESCRIPTION:International Conference on Formal Techniques for (Networked a
+ nd) Distributed Systems\n🗓️ Date: June 17-21\, 2024\n📍 Location: G
+ roningen\, The Netherlands\n⏰ Original Deadline (AoE): 2024-02-02 23:59:
+ 59\nCategory: 计算机网络 (NW)\nCCF C\, CORE C\nConference Website: ht
+ tps://www.discotec.org/2024/forte\nDBLP Index: https://dblp.org/db/conf/fo
+ rte
+LOCATION:Groningen\, The Netherlands
+URL:https://www.discotec.org/2024/forte
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MMSys 2026 Abstract Deadline [Round 1 deadline]
+DTSTART;TZID="UTC-12:00":20250919T235959
+DTEND;TZID="UTC-12:00":20250920T000059
+DTSTAMP:20250830T065448Z
+UID:08984fd5-84a4-480a-b222-af44fbbcfcb6
+DESCRIPTION:ACM International Conference on Multimedia Systems\n🗓️ Da
+ te: April 4 - 8\, 2026\n📍 Location: Hong Kong SAR\n⏰ Original Deadlin
+ e (AoE): 2025-09-19 23:59:59\nCategory: 计算机网络 (NW)\nConference W
+ ebsite: https://2026.acmmmsys.org\nDBLP Index: https://dblp.org/db/conf/mm
+ sys
+LOCATION:Hong Kong SAR
+URL:https://2026.acmmmsys.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MSN 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240720T235959
+DTEND;TZID="UTC-12:00":20240721T000059
+DTSTAMP:20250830T065448Z
+UID:b7ca76be-0246-4359-a635-01236825feac
+DESCRIPTION:International Conference on Mobility\, Sensing and Networking\
+ n🗓️ Date: December 20-22\, 2024\n📍 Location: Harbin\, China\n⏰ O
+ riginal Deadline (UTC-12): 2024-07-20 23:59:59\nCategory: 计算机网络 
+ (NW)\nCCF C\nConference Website: https://ieee-msn.org/2024/\nDBLP Index: h
+ ttps://dblp.org/db/conf/msn
+LOCATION:Harbin\, China
+URL:https://ieee-msn.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MSN 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250915T235959
+DTEND;TZID="UTC-12:00":20250916T000059
+DTSTAMP:20250830T065448Z
+UID:f7504d55-bd11-459d-a197-4dab4f139e94
+DESCRIPTION:International Conference on Mobility\, Sensing and Networking\
+ n🗓️ Date: December 3-6\, 2025\n📍 Location: Bandung\, Indonesia\n
+ ⏰ Original Deadline (UTC-12): 2025-09-15 23:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF C\nConference Website: https://ieee-msn.org/2025\nDBLP In
+ dex: https://dblp.org/db/conf/msn
+LOCATION:Bandung\, Indonesia
+URL:https://ieee-msn.org/2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WASA 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250115T235959
+DTEND;TZID="UTC-12:00":20250116T000059
+DTSTAMP:20250830T065448Z
+UID:30f028b1-92e9-40b8-8c7c-9c424682942b
+DESCRIPTION:International Conference on Wireless Algorithms\, Systems\, an
+ d Applications\n🗓️ Date: June 24-26\, 2025\n📍 Location: Tokyo\, Ja
+ pan\n⏰ Original Deadline (AoE): 2025-01-15 23:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF C\nConference Website: http://wasa-conference.org/WASA202
+ 5/index.html\nDBLP Index: https://dblp.org/db/conf/wasa
+LOCATION:Tokyo\, Japan
+URL:http://wasa-conference.org/WASA2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WCNC 2025 Deadline
+DTSTART;TZID="UTC-12:00":20240902T235959
+DTEND;TZID="UTC-12:00":20240903T000059
+DTSTAMP:20250830T065448Z
+UID:21936016-af2b-405f-8861-129fe69d3a27
+DESCRIPTION:Wireless Communications and Networking Conference\n🗓️ Dat
+ e: March 24-27\, 2025\n📍 Location: Milan\, Italy\n⏰ Original Deadline
+  (UTC-12): 2024-09-02 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\nCon
+ ference Website: https://wcnc2025.ieee-wcnc.org/\nDBLP Index: https://dblp
+ .org/db/conf/wcnc
+LOCATION:Milan\, Italy
+URL:https://wcnc2025.ieee-wcnc.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WCNC 2026 Deadline
+DTSTART;TZID="UTC-12:00":20250914T235959
+DTEND;TZID="UTC-12:00":20250915T000059
+DTSTAMP:20250830T065448Z
+UID:4cb10447-6d10-41d4-bdbe-8b5b16112a33
+DESCRIPTION:Wireless Communications and Networking Conference\n🗓️ Dat
+ e: April 13-16\, 2026\n📍 Location: Kuala Lumpur\, Malaysia\n⏰ Origina
+ l Deadline (UTC-12): 2025-09-14 23:59:59\nCategory: 计算机网络 (NW)\n
+ CCF C\nConference Website: https://wcnc2026.ieee-wcnc.org/group/21\nDBLP I
+ ndex: https://dblp.org/db/conf/wcnc
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://wcnc2026.ieee-wcnc.org/group/21
+END:VEVENT
+END:VCALENDAR

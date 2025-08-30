@@ -1,0 +1,168 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ASSETS 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250416T235959
+DTEND;TZID="UTC-12:00":20250417T000059
+DTSTAMP:20250830T065444Z
+UID:8e5c870c-76cd-45b1-8331-8cee42811fe8
+DESCRIPTION:ACM SIGACCESS Conference on Computers and Accessibility\n🗓
+ ️ 会议时间: Oct 26 - 29\, 2025\n📍 会议地点: Denver\, Colorado
+ \n⏰ 原始截止时间 (AoE): 2025-04-16 23:59:59\n分类: 人机交互
+ 与普适计算 (HI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://asse
+ ts25.sigaccess.org/\nDBLP索引: https://dblp.org/db/conf/assets
+LOCATION:Denver\, Colorado
+URL:https://assets25.sigaccess.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CollaborateCom 2025 截稿日期
+DTSTART;TZID="UTC-08:00":20250501T235959
+DTEND;TZID="UTC-08:00":20250502T000059
+DTSTAMP:20250830T065444Z
+UID:c8b67513-3c87-45d5-8170-be2af07e0414
+DESCRIPTION:International Conference on Collaborative Computing: Networkin
+ g\, Applications and Worksharing\n🗓️ 会议时间: November 15-16\, 2
+ 025\n📍 会议地点: Shanghai\, China\n⏰ 原始截止时间 (UTC-8): 
+ 2025-05-01 23:59:59\n分类: 人机交互与普适计算 (HI)\nCCF C\, COR
+ E C\n会议官网: https://collaboratecom.eai-conferences.org/2025/\nDBLP
+ 索引: https://dblp.org/db/conf/colcom
+LOCATION:Shanghai\, China
+URL:https://collaboratecom.eai-conferences.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCWD 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20211130T235959
+DTEND;TZID="UTC-12:00":20211201T000059
+DTSTAMP:20250830T065444Z
+UID:4748a0b1-3f5c-4822-8f8f-9da333882437
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ 会议时间: May 4-6\, 2022\n📍 会议地点: Hang
+ zhou\, China\n⏰ 原始截止时间 (AoE): 2021-11-30 23:59:59\n分类: 
+ 人机交互与普适计算 (HI)\nCCF C\, CORE C\n会议官网: http://8.1
+ 31.80.51/cscwd2022/index.html\nDBLP索引: https://dblp.org/db/conf/cscwd
+LOCATION:Hangzhou\, China
+URL:http://8.131.80.51/cscwd2022/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCWD 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20221031T235959
+DTEND;TZID="UTC-12:00":20221101T000059
+DTSTAMP:20250830T065444Z
+UID:f695d4bb-b797-4eaf-935f-13a58ce85cec
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ 会议时间: May 24-26\, 2023\n📍 会议地点: Ri
+ o de Janeiro\, Brazil\n⏰ 原始截止时间 (AoE): 2022-10-31 23:59:59\n
+ 分类: 人机交互与普适计算 (HI)\nCCF C\, CORE C\n会议官网: ht
+ tp://2023.cscwd.org\nDBLP索引: https://dblp.org/db/conf/cscwd
+LOCATION:Rio de Janeiro\, Brazil
+URL:http://2023.cscwd.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCWD 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241115T235959
+DTEND;TZID="UTC-12:00":20241116T000059
+DTSTAMP:20250830T065444Z
+UID:04b15909-7397-4755-828f-a4b2a4b99dd1
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ 会议时间: May 5-7\, 2025\n📍 会议地点: Comp
+ iègne\, France\n⏰ 原始截止时间 (AoE): 2024-11-15 23:59:59\n分类
+ : 人机交互与普适计算 (HI)\nCCF C\, CORE C\n会议官网: http://2
+ 025.cscwd.org\nDBLP索引: https://dblp.org/db/conf/cscwd
+LOCATION:Compiègne\, France
+URL:http://2025.cscwd.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DIS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250113T235959
+DTEND;TZID="UTC-12:00":20250114T000059
+DTSTAMP:20250830T065444Z
+UID:48ecb1c6-e96a-4ee5-b456-7b958918335e
+DESCRIPTION:ACM Conference on Designing Interactive Systems\n🗓️ 会
+ 议时间: July 5 - 9\, 2025\n📍 会议地点: Funchal\, Madeira\, Portu
+ gal\n⏰ 原始截止时间 (AoE): 2025-01-13 23:59:59\n分类: 人机交
+ 互与普适计算 (HI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://d
+ is.acm.org/2025/\nDBLP索引: https://dblp.org/db/conf/ACMdis
+LOCATION:Funchal\, Madeira\, Portugal
+URL:https://dis.acm.org/2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+07:00
+TZOFFSETFROM:+0700
+TZOFFSETTO:+0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICMI 2024 摘要截稿
+DTSTART;TZID="UTC+07:00":20240426T235959
+DTEND;TZID="UTC+07:00":20240427T000059
+DTSTAMP:20250830T065444Z
+UID:316ae638-491a-41c4-a9b7-d38b8bcb8d2d
+DESCRIPTION:ACM International Conference on Multimodal Interaction\n🗓
+ ️ 会议时间: Nov 4 - 8\, 2024\n📍 会议地点: San José\, Costa R
+ ica\n⏰ 原始截止时间 (UTC+7): 2024-04-26 23:59:59\n分类: 人机
+ 交互与普适计算 (HI)\nCCF C\, CORE B\, THCPL B\n会议官网: https:
+ //icmi.acm.org/2024/\nDBLP索引: https://dblp.org/db/conf/icmi
+LOCATION:San José\, Costa Rica
+URL:https://icmi.acm.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICMI 2025 摘要截稿
+DTSTART;TZID="UTC+07:00":20250425T235959
+DTEND;TZID="UTC+07:00":20250426T000059
+DTSTAMP:20250830T065444Z
+UID:4429491f-5646-4c98-89a8-833f02bc9d52
+DESCRIPTION:ACM International Conference on Multimodal Interaction\n🗓
+ ️ 会议时间: Oct 13 - 17\, 2025\n📍 会议地点: Canberra\, Austra
+ lia\n⏰ 原始截止时间 (UTC+7): 2025-04-25 23:59:59\n分类: 人机
+ 交互与普适计算 (HI)\nCCF C\, CORE B\, THCPL B\n会议官网: https:
+ //icmi.acm.org/2025/\nDBLP索引: https://dblp.org/db/conf/icmi
+LOCATION:Canberra\, Australia
+URL:https://icmi.acm.org/2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UIC 2025 截稿日期 [Conference Papers]
+DTSTART;TZID="UTC-04:00":20250501T235959
+DTEND;TZID="UTC-04:00":20250502T000059
+DTSTAMP:20250830T065444Z
+UID:cf115914-07d8-4013-990a-46205335c245
+DESCRIPTION:IEEE International Conference on Ubiquitous Intelligence and C
+ omputing\n🗓️ 会议时间: Aug 18 - 22\, 2025\n📍 会议地点: Cal
+ gary\, Alberta\, Canada\n⏰ 原始截止时间 (UTC-4): 2025-05-01 23:59:
+ 59\n分类: 人机交互与普适计算 (HI)\nCCF C\, CORE B\n会议官网
+ : https://www.ieee-smart-world.org/2025/\nDBLP索引: https://dblp.org/db/
+ conf/uic
+LOCATION:Calgary\, Alberta\, Canada
+URL:https://www.ieee-smart-world.org/2025/
+END:VEVENT
+END:VCALENDAR

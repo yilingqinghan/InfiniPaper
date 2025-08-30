@@ -1,0 +1,125 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CADE 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250217T235959
+DTEND;TZID="UTC-12:00":20250218T000059
+DTSTAMP:20250830T065443Z
+UID:ac58a642-a219-48b1-b4ea-6202318700e4
+DESCRIPTION:The Conference on Automated Deduction (CADE)\n🗓️ 会议
+ 时间: July 28-31\, 2025\n📍 会议地点: DHBW Stuttgart\, Stuttgart\,
+  Germany\n⏰ 原始截止时间 (AoE): 2025-02-17 23:59:59\n分类: 计
+ 算机科学理论 (CT)\nCCF B\, CORE A\n会议官网: https://www.dhbw-st
+ uttgart.de/cade-30/\nDBLP索引: https://dblp.org/db/conf/cade
+LOCATION:DHBW Stuttgart\, Stuttgart\, Germany
+URL:https://www.dhbw-stuttgart.de/cade-30/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:COCOON 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250305T235959
+DTEND;TZID="UTC-12:00":20250306T000059
+DTSTAMP:20250830T065443Z
+UID:81a0efb3-efc4-46fd-b484-581368eb18bf
+DESCRIPTION:International Computing and Combinatorics Conference\n🗓️ 
+ 会议时间: August 15-17\, 2025\n📍 会议地点: Chengdu\, China\n⏰
+  原始截止时间 (AoE): 2025-03-05 23:59:59\n分类: 计算机科学理
+ 论 (CT)\nCCF B\n会议官网: https://tcsuestc.com/cocoon2025\nDBLP索引
+ : https://dblp.org/db/conf/cocoon
+LOCATION:Chengdu\, China
+URL:https://tcsuestc.com/cocoon2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FMCAD 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250420T235900
+DTEND;TZID="UTC-12:00":20250421T000000
+DTSTAMP:20250830T065443Z
+UID:29116d1b-2b63-4257-bea8-a63ad1244d6f
+DESCRIPTION:Formal Methods in Computer-Aided Design\n🗓️ 会议时间:
+  Oct. 6-10\, 2025\n📍 会议地点: Menlo Park\, USA\n⏰ 原始截止
+ 时间 (AoE): 2025-04-20 23:59:00\n分类: 计算机科学理论 (CT)\nCCF
+  C\, CORE B\n会议官网: https://fmcad.forsyte.at/FMCAD25/\nDBLP索引: 
+ https://dblp.org/db/conf/fmcad
+LOCATION:Menlo Park\, USA
+URL:https://fmcad.forsyte.at/FMCAD25/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICALP 2025 截稿日期 [Submissions]
+DTSTART;TZID="UTC-12:00":20250208T235959
+DTEND;TZID="UTC-12:00":20250209T000059
+DTSTAMP:20250830T065443Z
+UID:34e66588-a96b-48f4-9323-303720221e5d
+DESCRIPTION:EATCS International Colloquium on Automata\, Languages\, and P
+ rogramming\n🗓️ 会议时间: July 8-11\, 2025\n📍 会议地点: Aar
+ hus\, Denmark\n⏰ 原始截止时间 (AoE): 2025-02-08 23:59:59\n分类: 
+ 计算机科学理论 (CT)\nCCF B\, CORE A\n会议官网: https://conferen
+ ces.au.dk/icalp2025\nDBLP索引: https://dblp.org/db/conf/icalp
+LOCATION:Aarhus\, Denmark
+URL:https://conferences.au.dk/icalp2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SETTA 2024 摘要截稿 [deadline is extended from Aug. 23]
+DTSTART;TZID="UTC-12:00":20240816T235959
+DTEND;TZID="UTC-12:00":20240817T000059
+DTSTAMP:20250830T065443Z
+UID:e903c084-a798-419f-9a3c-e64f4437f554
+DESCRIPTION:Symposium on Dependable Software Engineering: Theories\, Tools
+  and Applications\n🗓️ 会议时间: Nov 26-28\, 2024\n📍 会议地
+ 点: Hong Kong\, China\n⏰ 原始截止时间 (AoE): 2024-08-16 23:59:59\
+ n分类: 计算机科学理论 (CT)\nCCF C\n会议官网: https://setta202
+ 4.cs.cityu.edu.hk\nDBLP索引: https://dblp.org/db/conf/setta
+LOCATION:Hong Kong\, China
+URL:https://setta2024.cs.cityu.edu.hk
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SETTA 2025 截稿日期 [Round 1 Paper Submission]
+DTSTART;TZID="UTC-12:00":20250430T235959
+DTEND;TZID="UTC-12:00":20250501T000059
+DTSTAMP:20250830T065443Z
+UID:652b786a-a318-446e-ab9a-29e97b123978
+DESCRIPTION:Symposium on Dependable Software Engineering: Theories\, Tools
+  and Applications\n🗓️ 会议时间: Dec\, 2025\n📍 会议地点: Ox
+ ford\, UK\n⏰ 原始截止时间 (AoE): 2025-04-30 23:59:59\n分类: 计
+ 算机科学理论 (CT)\nCCF C\n会议官网: https://www.setta2025.uk\nDB
+ LP索引: https://dblp.org/db/conf/setta
+LOCATION:Oxford\, UK
+URL:https://www.setta2025.uk
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SETTA 2025 截稿日期 [Round 2 Paper Submission]
+DTSTART;TZID="UTC-12:00":20250820T235959
+DTEND;TZID="UTC-12:00":20250821T000059
+DTSTAMP:20250830T065443Z
+UID:86904b14-8308-40bf-8223-54e3535084c3
+DESCRIPTION:Symposium on Dependable Software Engineering: Theories\, Tools
+  and Applications\n🗓️ 会议时间: Dec\, 2025\n📍 会议地点: Ox
+ ford\, UK\n⏰ 原始截止时间 (AoE): 2025-08-20 23:59:59\n分类: 计
+ 算机科学理论 (CT)\nCCF C\n会议官网: https://www.setta2025.uk\nDB
+ LP索引: https://dblp.org/db/conf/setta
+LOCATION:Oxford\, UK
+URL:https://www.setta2025.uk
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SOCG 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20241106T235900
+DTEND;TZID="UTC-12:00":20241107T000000
+DTSTAMP:20250830T065443Z
+UID:623513e9-d886-43c8-87e7-bad149f05272
+DESCRIPTION:International Symposium on Computational Geometry\n🗓️ 会
+ 议时间: June 23-27\, 2025\n📍 会议地点: Kanazawa\, Japan\n⏰ 原
+ 始截止时间 (AoE): 2024-11-06 23:59:00\n分类: 计算机科学理论 
+ (CT)\nCCF B\, CORE A\n会议官网: https://socg25.github.io/\nDBLP索引:
+  https://dblp.org/db/conf/compgeom
+LOCATION:Kanazawa\, Japan
+URL:https://socg25.github.io/
+END:VEVENT
+END:VCALENDAR

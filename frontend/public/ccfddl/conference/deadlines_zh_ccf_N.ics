@@ -1,0 +1,610 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CEC 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250115T235959
+DTEND;TZID="UTC-12:00":20250116T000059
+DTSTAMP:20250830T065443Z
+UID:f64a9790-28c4-4688-9ed2-86addebedc19
+DESCRIPTION:IEEE Congress on Evolutionary Computation\n🗓️ 会议时
+ 间: June 8-12\, 2025\n📍 会议地点: Hangzhou\, China\n⏰ 原始截
+ 止时间 (UTC-12): 2025-01-15 23:59:59\n分类: 人工智能 (AI)\nCORE B
+ \n会议官网: https://www.cec2025.org/\nDBLP索引: https://dblp.org/db/
+ conf/cec
+LOCATION:Hangzhou\, China
+URL:https://www.cec2025.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CICAI 2023 截稿日期
+DTSTART;TZID="UTC+08:00":20230630T235959
+DTEND;TZID="UTC+08:00":20230701T000059
+DTSTAMP:20250830T065443Z
+UID:d3a0a3cc-1f71-4bf5-ada6-ef2d88fc9e4a
+DESCRIPTION:CAAI International Conference on Artificial Intelligence\n🗓
+ ️ 会议时间: July 22-23\, 2023\n📍 会议地点: Fuzhou\, China\n
+ ⏰ 原始截止时间 (UTC+8): 2023-06-30 23:59:59\n分类: 人工智能 
+ (AI)\n会议官网: https://cicai.caai.cn/\nDBLP索引: https://dblp.org/d
+ b/conf/cicai
+LOCATION:Fuzhou\, China
+URL:https://cicai.caai.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:COLM 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240322T235959
+DTEND;TZID="UTC-12:00":20240323T000059
+DTSTAMP:20250830T065443Z
+UID:1f8e3041-b3c8-419f-89ca-036c281cffa9
+DESCRIPTION:Conference on Language Modeling\n🗓️ 会议时间: October
+  7-9\, 2024\n📍 会议地点: Philadelphia\, Pennsylvania\, United State
+ s\n⏰ 原始截止时间 (AoE): 2024-03-22 23:59:59\n分类: 人工智能
+  (AI)\n会议官网: https://colmweb.org/cfp.html\nDBLP索引: https://dbl
+ p.org/db/conf/colm
+LOCATION:Philadelphia\, Pennsylvania\, United States
+URL:https://colmweb.org/cfp.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:COLM 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250322T235959
+DTEND;TZID="UTC-12:00":20250323T000059
+DTSTAMP:20250830T065443Z
+UID:ff29eb59-76f7-4a33-93e6-b4db4a5f4dad
+DESCRIPTION:Conference on Language Modeling\n🗓️ 会议时间: October
+  7-9\, 2025\n📍 会议地点: Palais des Congrès Montreal\, Canada\n⏰
+  原始截止时间 (AoE): 2025-03-22 23:59:59\n分类: 人工智能 (AI)\
+ n会议官网: https://colmweb.org/cfp.html\nDBLP索引: https://dblp.org/
+ db/conf/colm
+LOCATION:Palais des Congrès Montreal\, Canada
+URL:https://colmweb.org/cfp.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoRL 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240606T235959
+DTEND;TZID="UTC-12:00":20240607T000059
+DTSTAMP:20250830T065443Z
+UID:218c687d-1c9a-4f69-b45b-5c5e5e065ce4
+DESCRIPTION:The Conference on Robot Learning\n🗓️ 会议时间: Novemb
+ er 6-9\, 2024\n📍 会议地点: Munich\, Germany\n⏰ 原始截止时间
+  (AoE): 2024-06-06 23:59:59\n分类: 人工智能 (AI)\n会议官网: http
+ s://2024.corl.org/\nDBLP索引: https://dblp.org/db/conf/corl
+LOCATION:Munich\, Germany
+URL:https://2024.corl.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoRL 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250430T235959
+DTEND;TZID="UTC-12:00":20250501T000059
+DTSTAMP:20250830T065443Z
+UID:814f45f7-447f-4ba9-bf20-d3a21e004f18
+DESCRIPTION:The Conference on Robot Learning\n🗓️ 会议时间: Septem
+ ber 27-30\, 2025\n📍 会议地点: Seoul\, Korea\n⏰ 原始截止时间
+  (AoE): 2025-04-30 23:59:59\n分类: 人工智能 (AI)\n会议官网: http
+ s://www.corl.org/\nDBLP索引: https://dblp.org/db/conf/corl
+LOCATION:Seoul\, Korea
+URL:https://www.corl.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CPAL 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241125T235959
+DTEND;TZID="UTC-12:00":20241126T000059
+DTSTAMP:20250830T065443Z
+UID:4e0a76a5-4338-4dc1-8f94-8aa8406b451a
+DESCRIPTION:The Conference on Parsimony and Learning\n🗓️ 会议时间
+ : March 24-27\, 2025\n📍 会议地点: California\, USA\n⏰ 原始截
+ 止时间 (AoE): 2024-11-25 23:59:59\n分类: 人工智能 (AI)\n会议官
+ 网: https://cpal.cc/\nDBLP索引: https://dblp.org/db/conf/cpal
+LOCATION:California\, USA
+URL:https://cpal.cc/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ESANN 2025 摘要截稿
+DTSTART;TZID="UTC-08:00":20241120T000000
+DTEND;TZID="UTC-08:00":20241120T000100
+DTSTAMP:20250830T065443Z
+UID:c7f0de43-4962-4da9-b065-12b08af914b0
+DESCRIPTION:European Symposium on Artificial Neural Networks\, Computation
+ al Intelligence and Machine Learning\n🗓️ 会议时间: April 23 - Apr
+ il 25\, 2025\n📍 会议地点: Bruges\, Belgium\n⏰ 原始截止时间 
+ (UTC-8): 2024-11-20 00:00:00\n分类: 人工智能 (AI)\nCORE B\n会议官
+ 网: https://www.esann.org/\nDBLP索引: https://dblp.org/db/conf/esann
+LOCATION:Bruges\, Belgium
+URL:https://www.esann.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICLR 2022 摘要截稿 [Mandatory abstract deadline on Sep 29\, 20
+ 21.]
+DTSTART;TZID="UTC-12:00":20210929T120000
+DTEND;TZID="UTC-12:00":20210929T120100
+DTSTAMP:20250830T065443Z
+UID:2d09af40-a9d9-4b8a-9974-d87e6efbf33a
+DESCRIPTION:International Conference on Learning Representations\n🗓️ 
+ 会议时间: April 25-29\, 2022\n📍 会议地点: Virtual conference\n
+ ⏰ 原始截止时间 (UTC-12): 2021-09-29 12:00:00\n分类: 人工智能
+  (AI)\nCORE A*\, THCPL A\n会议官网: https://iclr.cc/Conferences/2022\n
+ DBLP索引: https://dblp.org/db/conf/iclr
+LOCATION:Virtual conference
+URL:https://iclr.cc/Conferences/2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICLR 2023 摘要截稿 [Mandatory abstract deadline on Sep. 11\, 2
+ 022.]
+DTSTART;TZID="UTC-12:00":20220921T235959
+DTEND;TZID="UTC-12:00":20220922T000059
+DTSTAMP:20250830T065443Z
+UID:d635486d-85f9-486e-b7ab-7f9eed842f66
+DESCRIPTION:International Conference on Learning Representations\n🗓️ 
+ 会议时间: May 01-05\, 2023\n📍 会议地点: Kigali\, Rwanda\n⏰ 
+ 原始截止时间 (UTC-12): 2022-09-21 23:59:59\n分类: 人工智能 (AI
+ )\nCORE A*\, THCPL A\n会议官网: https://iclr.cc/Conferences/2023\nDBLP
+ 索引: https://dblp.org/db/conf/iclr
+LOCATION:Kigali\, Rwanda
+URL:https://iclr.cc/Conferences/2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICLR 2024 摘要截稿 [Mandatory abstract deadline on Sep. 21\, 2
+ 023.]
+DTSTART;TZID="UTC-12:00":20230921T235959
+DTEND;TZID="UTC-12:00":20230922T000059
+DTSTAMP:20250830T065443Z
+UID:8dfb8db1-d121-4094-a605-0664356e58f2
+DESCRIPTION:International Conference on Learning Representations\n🗓️ 
+ 会议时间: May 07-11\, 2024\n📍 会议地点: Vienna\, Austria\n⏰ 
+ 原始截止时间 (UTC-12): 2023-09-21 23:59:59\n分类: 人工智能 (AI
+ )\nCORE A*\, THCPL A\n会议官网: https://iclr.cc/Conferences/2024\nDBLP
+ 索引: https://dblp.org/db/conf/iclr
+LOCATION:Vienna\, Austria
+URL:https://iclr.cc/Conferences/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICLR 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240927T235959
+DTEND;TZID="UTC-12:00":20240928T000059
+DTSTAMP:20250830T065443Z
+UID:e2858acf-c490-4077-a6d7-97056eb96f07
+DESCRIPTION:International Conference on Learning Representations\n🗓️ 
+ 会议时间: April 24-28\, 2025\n📍 会议地点: Singapore\n⏰ 原始
+ 截止时间 (UTC-12): 2024-09-27 23:59:59\n分类: 人工智能 (AI)\nCOR
+ E A*\, THCPL A\n会议官网: https://iclr.cc/Conferences/2025\nDBLP索引
+ : https://dblp.org/db/conf/iclr
+LOCATION:Singapore
+URL:https://iclr.cc/Conferences/2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICLR 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250919T235959
+DTEND;TZID="UTC-12:00":20250920T000059
+DTSTAMP:20250830T065443Z
+UID:72d0408a-f436-4f12-ae61-f843f3901e4f
+DESCRIPTION:International Conference on Learning Representations\n🗓️ 
+ 会议时间: May 01-05\, 2026\n📍 会议地点: Brazil\n⏰ 原始截
+ 止时间 (AoE): 2025-09-19 23:59:59\n分类: 人工智能 (AI)\nCORE A*\,
+  THCPL A\n会议官网: https://iclr.cc/Conferences/2026\nDBLP索引: http
+ s://dblp.org/db/conf/iclr
+LOCATION:Brazil
+URL:https://iclr.cc/Conferences/2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IJCNLP 2025 截稿日期 [ACL Rolling Review]
+DTSTART;TZID="UTC-12:00":20250728T235959
+DTEND;TZID="UTC-12:00":20250729T000059
+DTSTAMP:20250830T065443Z
+UID:f4340290-f54d-438a-98e8-700ae441bc5b
+DESCRIPTION:International Joint Conference on Natural Language Processing\
+ n🗓️ 会议时间: Dec 20-24\, 2025\n📍 会议地点: Mumbai\, India
+ \n⏰ 原始截止时间 (UTC-12): 2025-07-28 23:59:59\n分类: 人工智
+ 能 (AI)\nCORE B\n会议官网: https://www.afnlp.org/conferences/ijcnlp20
+ 25/\nDBLP索引: https://dblp.org/db/conf/ijcnlp
+LOCATION:Mumbai\, India
+URL:https://www.afnlp.org/conferences/ijcnlp2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:LOG 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250822T235959
+DTEND;TZID="UTC-12:00":20250823T000059
+DTSTAMP:20250830T065443Z
+UID:99b9b227-de8b-42c7-967c-1d8d4cf6978f
+DESCRIPTION:Learning on Graphs Conference\n🗓️ 会议时间: December 
+ 10-12\, 2025\n📍 会议地点: Arizona State University\, Phoenix\, USA\
+ n⏰ 原始截止时间 (AoE): 2025-08-22 23:59:59\n分类: 人工智能 (
+ AI)\n会议官网: https://logconference.org/\nDBLP索引: https://dblp.or
+ g/db/conf/log
+LOCATION:Arizona State University\, Phoenix\, USA
+URL:https://logconference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RSS 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230203T235959
+DTEND;TZID="UTC-12:00":20230204T000059
+DTSTAMP:20250830T065443Z
+UID:57dbe214-005e-4757-9977-37fd24cac6c5
+DESCRIPTION:Robotics Science and Systems\n🗓️ 会议时间: July 10-14
+ \, 2023\n📍 会议地点: Daegu\, Republic of Korea\n⏰ 原始截止时
+ 间 (AoE): 2023-02-03 23:59:59\n分类: 人工智能 (AI)\nCORE A*\, THCPL
+  A\n会议官网: https://roboticsconference.org/\nDBLP索引: https://dbl
+ p.org/db/conf/rss
+LOCATION:Daegu\, Republic of Korea
+URL:https://roboticsconference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RSS 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240202T235900
+DTEND;TZID="UTC-12:00":20240203T000000
+DTSTAMP:20250830T065443Z
+UID:6d6d5cd7-8522-437b-9b8e-9613251bb77d
+DESCRIPTION:Robotics Science and Systems\n🗓️ 会议时间: July 15-19
+ \, 2024\n📍 会议地点: Delft\, Netherlands\n⏰ 原始截止时间 (A
+ oE): 2024-02-02 23:59:00\n分类: 人工智能 (AI)\nCORE A*\, THCPL A\n
+ 会议官网: https://roboticsconference.org/\nDBLP索引: https://dblp.or
+ g/db/conf/rss
+LOCATION:Delft\, Netherlands
+URL:https://roboticsconference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RSS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250117T235900
+DTEND;TZID="UTC-12:00":20250118T000000
+DTSTAMP:20250830T065443Z
+UID:333e56c6-fd4d-49d3-836e-f42153e3c416
+DESCRIPTION:Robotics Science and Systems\n🗓️ 会议时间: June 21-25
+ \, 2025\n📍 会议地点: Los Angeles\, California\, USA\n⏰ 原始截
+ 止时间 (AoE): 2025-01-17 23:59:00\n分类: 人工智能 (AI)\nCORE A*\,
+  THCPL A\n会议官网: https://roboticsconference.org\nDBLP索引: https:
+ //dblp.org/db/conf/rss
+LOCATION:Los Angeles\, California\, USA
+URL:https://roboticsconference.org
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:WACV 2025 截稿日期 [first round]
+DTSTART;TZID="UTC-07:00":20240715T235959
+DTEND;TZID="UTC-07:00":20240716T000059
+DTSTAMP:20250830T065443Z
+UID:2b331575-09af-41a6-bbbe-ffc4f77700bc
+DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
+ n🗓️ 会议时间: February 28 - March 4\, 2025\n📍 会议地点: Tu
+ cson\, Arizona\, USA\n⏰ 原始截止时间 (UTC-7): 2024-07-15 23:59:59\
+ n分类: 人工智能 (AI)\nCORE A\n会议官网: https://wacv2025.thecvf.
+ com/\nDBLP索引: https://dblp.org/db/conf/wacv
+LOCATION:Tucson\, Arizona\, USA
+URL:https://wacv2025.thecvf.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WACV 2025 截稿日期 [second round]
+DTSTART;TZID="UTC-07:00":20240909T235959
+DTEND;TZID="UTC-07:00":20240910T000059
+DTSTAMP:20250830T065443Z
+UID:b504331f-0e5d-462a-83e6-0c898ccd8a55
+DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
+ n🗓️ 会议时间: February 28 - March 4\, 2025\n📍 会议地点: Tu
+ cson\, Arizona\, USA\n⏰ 原始截止时间 (UTC-7): 2024-09-09 23:59:59\
+ n分类: 人工智能 (AI)\nCORE A\n会议官网: https://wacv2025.thecvf.
+ com/\nDBLP索引: https://dblp.org/db/conf/wacv
+LOCATION:Tucson\, Arizona\, USA
+URL:https://wacv2025.thecvf.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WACV 2026 摘要截稿 [First round]
+DTSTART;TZID="UTC-12:00":20250711T235900
+DTEND;TZID="UTC-12:00":20250712T000000
+DTSTAMP:20250830T065443Z
+UID:9a27934b-feb1-44c8-902d-82724e3fb84c
+DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
+ n🗓️ 会议时间: Mar 6 - 10\, 2026\n📍 会议地点: Tucson\, Ariz
+ ona\, USA\n⏰ 原始截止时间 (AoE): 2025-07-11 23:59:00\n分类: 人
+ 工智能 (AI)\nCORE A\n会议官网: https://wacv.thecvf.com/\nDBLP索引
+ : https://dblp.org/db/conf/wacv
+LOCATION:Tucson\, Arizona\, USA
+URL:https://wacv.thecvf.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WACV 2026 摘要截稿 [Second round]
+DTSTART;TZID="UTC-12:00":20250912T235900
+DTEND;TZID="UTC-12:00":20250913T000000
+DTSTAMP:20250830T065443Z
+UID:2901439c-fb71-48aa-9120-ff241ee9362c
+DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
+ n🗓️ 会议时间: Mar 6 - 10\, 2026\n📍 会议地点: Tucson\, Ariz
+ ona\, USA\n⏰ 原始截止时间 (AoE): 2025-09-12 23:59:00\n分类: 人
+ 工智能 (AI)\nCORE A\n会议官网: https://wacv.thecvf.com/\nDBLP索引
+ : https://dblp.org/db/conf/wacv
+LOCATION:Tucson\, Arizona\, USA
+URL:https://wacv.thecvf.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:VINCI 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250627T235959
+DTEND;TZID="UTC-12:00":20250628T000059
+DTSTAMP:20250830T065443Z
+UID:a3b33d6f-4e2c-4867-9e0b-1e47785084a8
+DESCRIPTION:International Symposium on Visual Information Communication an
+ d Interaction\n🗓️ 会议时间: December 1-3\, 2025\n📍 会议地
+ 点: Linz\, Austria\n⏰ 原始截止时间 (AoE): 2025-06-27 23:59:59\n
+ 分类: 计算机图形学与多媒体 (CG)\nCORE C\n会议官网: https:/
+ /vinci2025.games.cg.jku.at\nDBLP索引: https://dblp.org/db/conf/vinci
+LOCATION:Linz\, Austria
+URL:https://vinci2025.games.cg.jku.at
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APSys 2024 摘要截稿 [call for papers]
+DTSTART;TZID="UTC-12:00":20240425T235900
+DTEND;TZID="UTC-12:00":20240426T000000
+DTSTAMP:20250830T065443Z
+UID:09846a6a-fcd4-45b9-b307-17c09303c8db
+DESCRIPTION:ACM SIGOPS Asia-Pacific Workshop on Systems\n🗓️ 会议时
+ 间: September 4-5\, 2024\n📍 会议地点: Kyoto\, Japan\n⏰ 原始截
+ 止时间 (AoE): 2024-04-25 23:59:00\n分类: 计算机体系结构/并行
+ 与分布计算/存储系统 (DS)\n会议官网: https://apsys2024.github.
+ io/\nDBLP索引: https://dblp.org/db/conf/apsys
+LOCATION:Kyoto\, Japan
+URL:https://apsys2024.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APSys 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250529T235900
+DTEND;TZID="UTC-12:00":20250530T000000
+DTSTAMP:20250830T065443Z
+UID:fcf9b071-5e5d-48e3-954c-d5f09c84b515
+DESCRIPTION:ACM SIGOPS Asia-Pacific Workshop on Systems\n🗓️ 会议时
+ 间: October 12-13\, 2025\n📍 会议地点: Seoul\, South Korea\n⏰ 原
+ 始截止时间 (AoE): 2025-05-29 23:59:00\n分类: 计算机体系结构/
+ 并行与分布计算/存储系统 (DS)\n会议官网: https://apsys2025.g
+ ithub.io/\nDBLP索引: https://dblp.org/db/conf/apsys
+LOCATION:Seoul\, South Korea
+URL:https://apsys2025.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NETYS 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240229T235900
+DTEND;TZID="UTC-12:00":20240301T000000
+DTSTAMP:20250830T065443Z
+UID:860d30c2-180a-45cd-a564-a1cac7509120
+DESCRIPTION:The International Conference on Networked Systems\n🗓️ 会
+ 议时间: May 29-31\, 2024\n📍 会议地点: Rabat\, Morocco\n⏰ 原
+ 始截止时间 (AoE): 2024-02-29 23:59:00\n分类: 计算机体系结构/
+ 并行与分布计算/存储系统 (DS)\n会议官网: https://netys.net/\
+ nDBLP索引: https://dblp.org/db/conf/netys
+LOCATION:Rabat\, Morocco
+URL:https://netys.net/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+10:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+10:00
+TZOFFSETFROM:+1000
+TZOFFSETTO:+1000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:PDCAT 2025 截稿日期
+DTSTART;TZID="UTC+10:00":20250815T235900
+DTEND;TZID="UTC+10:00":20250816T000000
+DTSTAMP:20250830T065443Z
+UID:4f4c22c5-50df-4a55-94ef-149523f82e15
+DESCRIPTION:International Conference on Parallel and Distributed Computing
+ \, Applications and Technologies\n🗓️ 会议时间: November 22-Novemb
+ er 24\, 2025\n📍 会议地点: Gold Coast\, Australia\n⏰ 原始截止
+ 时间 (UTC+10): 2025-08-15 23:59:00\n分类: 计算机体系结构/并行
+ 与分布计算/存储系统 (DS)\nCORE C\n会议官网: https://www.pd-ca
+ t.org/\nDBLP索引: https://dblp.org/db/conf/pdcat
+LOCATION:Gold Coast\, Australia
+URL:https://www.pd-cat.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20201011T235959
+DTEND;TZID="UTC-12:00":20201012T000059
+DTSTAMP:20250830T065443Z
+UID:646fc024-ca81-4099-81d3-4adbaca38fa3
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: April 5-9\, 2021\n📍 会议地点: virtual\n⏰ 原始截止时间 
+ (AoE): 2020-10-11 23:59:59\n分类: 交叉/综合/新兴 (MX)\n会议官
+ 网: https://mlsys.org/Conferences/2021\nDBLP索引: https://dblp.org/db/c
+ onf/mlsys
+LOCATION:virtual
+URL:https://mlsys.org/Conferences/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20211015T200000
+DTEND;TZID="UTC-12:00":20211015T200100
+DTSTAMP:20250830T065443Z
+UID:df036c1f-5b12-4d0e-8f19-3c37f9e70625
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: August 29-September 1\, 2022\n📍 会议地点: Santa Clara\, USA\n
+ ⏰ 原始截止时间 (AoE): 2021-10-15 20:00:00\n分类: 交叉/综合/
+ 新兴 (MX)\n会议官网: https://mlsys.org/Conferences/2022\nDBLP索引:
+  https://dblp.org/db/conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/Conferences/2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20221028T200000
+DTEND;TZID="UTC-12:00":20221028T200100
+DTSTAMP:20250830T065443Z
+UID:03a4932c-e8de-42ed-ad2f-102a61e3b5c2
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: June 5-8\, 2023\n📍 会议地点: Miami\, USA\n⏰ 原始截止时
+ 间 (AoE): 2022-10-28 20:00:00\n分类: 交叉/综合/新兴 (MX)\n会议
+ 官网: https://mlsys.org/Conferences/2023\nDBLP索引: https://dblp.org/d
+ b/conf/mlsys
+LOCATION:Miami\, USA
+URL:https://mlsys.org/Conferences/2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231027T040000
+DTEND;TZID="UTC-12:00":20231027T040100
+DTSTAMP:20250830T065443Z
+UID:9b0207d6-a900-4cd8-959b-61b911c5eb37
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: May 12-16\, 2024\n📍 会议地点: Santa Clara\, USA\n⏰ 原始截
+ 止时间 (AoE): 2023-10-27 04:00:00\n分类: 交叉/综合/新兴 (MX)\n
+ 会议官网: https://mlsys.org/Conferences/2024\nDBLP索引: https://dblp
+ .org/db/conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/Conferences/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241024T200000
+DTEND;TZID="UTC-12:00":20241024T200100
+DTSTAMP:20250830T065443Z
+UID:4409e4b5-7c01-4e86-8ac3-ae54fcefb21e
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: May 13-16\, 2025\n📍 会议地点: Santa Clara\, USA\n⏰ 原始截
+ 止时间 (AoE): 2024-10-24 20:00:00\n分类: 交叉/综合/新兴 (MX)\n
+ 会议官网: https://mlsys.org/\nDBLP索引: https://dblp.org/db/conf/mls
+ ys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MMSys 2026 摘要截稿 [Round 1 deadline]
+DTSTART;TZID="UTC-12:00":20250919T235959
+DTEND;TZID="UTC-12:00":20250920T000059
+DTSTAMP:20250830T065443Z
+UID:2ecac825-1d66-4733-96ed-c7fbd07fe79e
+DESCRIPTION:ACM International Conference on Multimedia Systems\n🗓️ 
+ 会议时间: April 4 - 8\, 2026\n📍 会议地点: Hong Kong SAR\n⏰ 
+ 原始截止时间 (AoE): 2025-09-19 23:59:59\n分类: 计算机网络 (NW
+ )\n会议官网: https://2026.acmmmsys.org\nDBLP索引: https://dblp.org/d
+ b/conf/mmsys
+LOCATION:Hong Kong SAR
+URL:https://2026.acmmmsys.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INDOCRYPT 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230901T235959
+DTEND;TZID="UTC-12:00":20230902T000059
+DTSTAMP:20250830T065443Z
+UID:379045cd-39b0-4046-b197-048aa153e46d
+DESCRIPTION:International Conference on Cryptology in India\n🗓️ 会
+ 议时间: December 10-13\, 2023\n📍 会议地点: BITS Pilani Goa\, Ind
+ ia\n⏰ 原始截止时间 (UTC-12): 2023-09-01 23:59:59\n分类: 网络
+ 与信息安全 (SC)\n会议官网: https://crsind.in/indocrypt2023/\nDBLP
+ 索引: https://dblp.org/db/conf/indocrypt
+LOCATION:BITS Pilani Goa\, India
+URL:https://crsind.in/indocrypt2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INDOCRYPT 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250901T235959
+DTEND;TZID="UTC-12:00":20250902T000059
+DTSTAMP:20250830T065443Z
+UID:c42f5e2e-e9da-4c23-a8da-2be1bdf5c3ad
+DESCRIPTION:International Conference on Cryptology in India\n🗓️ 会
+ 议时间: December 14-17\, 2025\n📍 会议地点: IIIT Bhubaneswar\, Od
+ isha\, India\n⏰ 原始截止时间 (UTC-12): 2025-09-01 23:59:59\n分类
+ : 网络与信息安全 (SC)\n会议官网: https://www.indocrypt2025.in/\
+ nDBLP索引: https://dblp.org/db/conf/indocrypt
+LOCATION:IIIT Bhubaneswar\, Odisha\, India
+URL:https://www.indocrypt2025.in/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NOMS 2025 摘要截稿
+DTSTART;TZID="UTC+10:00":20240907T195959
+DTEND;TZID="UTC+10:00":20240907T200059
+DTSTAMP:20250830T065443Z
+UID:43d7cea1-c44d-498d-b330-2f69fd4611de
+DESCRIPTION:IEEE/IFIP Network Operations and Management Symposium\n🗓️
+  会议时间: May 12-16\, 2025\n📍 会议地点: Honolulu\, HI\, USA\n
+ ⏰ 原始截止时间 (UTC+10): 2024-09-07 19:59:59\n分类: 网络与信
+ 息安全 (SC)\nCORE B\, THCPL B\n会议官网: https://noms2025.ieee-noms
+ .org/\nDBLP索引: https://dblp.org/db/conf/noms
+LOCATION:Honolulu\, HI\, USA
+URL:https://noms2025.ieee-noms.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SATML 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20250924T235959
+DTEND;TZID="UTC-12:00":20250925T000059
+DTSTAMP:20250830T065443Z
+UID:f88be1d4-7c3e-41ba-ac1c-6c8f3a1f5332
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\n
+ 🗓️ 会议时间: March 23-25\, 2026\n📍 会议地点: Munich\, Germ
+ any\n⏰ 原始截止时间 (UTC-12): 2025-09-24 23:59:59\n分类: 网络
+ 与信息安全 (SC)\n会议官网: https://www.satml.org\nDBLP索引: htt
+ ps://dblp.org/db/conf/satml
+LOCATION:Munich\, Germany
+URL:https://www.satml.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SATML 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20240927T235959
+DTEND;TZID="UTC-12:00":20240928T000059
+DTSTAMP:20250830T065443Z
+UID:80c4cee9-cccc-427c-b2ff-3111173d4910
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\n
+ 🗓️ 会议时间: April 9-11\, 2025\n📍 会议地点: Copenhagen\, D
+ enmark\n⏰ 原始截止时间 (UTC-12): 2024-09-27 23:59:59\n分类: 网
+ 络与信息安全 (SC)\n会议官网: https://satml.org/2025/\nDBLP索引
+ : https://dblp.org/db/conf/satml
+LOCATION:Copenhagen\, Denmark
+URL:https://satml.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SATML 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231011T235959
+DTEND;TZID="UTC-12:00":20231012T000059
+DTSTAMP:20250830T065443Z
+UID:768967d0-30ec-4700-8eaf-e4afae353814
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\n
+ 🗓️ 会议时间: April 9-11\, 2024\n📍 会议地点: Toronto\, Cana
+ da\n⏰ 原始截止时间 (UTC-12): 2023-10-11 23:59:59\n分类: 网络
+ 与信息安全 (SC)\n会议官网: https://satml.org/2024/\nDBLP索引: h
+ ttps://dblp.org/db/conf/satml
+LOCATION:Toronto\, Canada
+URL:https://satml.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SATML 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20220901T235959
+DTEND;TZID="UTC-12:00":20220902T000059
+DTSTAMP:20250830T065443Z
+UID:3ca1ca0e-4fbc-42be-a65a-4963cde5706a
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\n
+ 🗓️ 会议时间: February 8-10\, 2023\n📍 会议地点: Raleigh\, N
+ orth Carolina\, USA\n⏰ 原始截止时间 (UTC-12): 2022-09-01 23:59:59\
+ n分类: 网络与信息安全 (SC)\n会议官网: https://satml.org/2023/
+ \nDBLP索引: https://dblp.org/db/conf/satml
+LOCATION:Raleigh\, North Carolina\, USA
+URL:https://satml.org/2023/
+END:VEVENT
+END:VCALENDAR

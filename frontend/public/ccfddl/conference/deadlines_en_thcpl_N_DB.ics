@@ -1,0 +1,264 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ADMA 2023 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20230408T235959
+DTEND;TZID="UTC-07:00":20230409T000059
+DTSTAMP:20250830T065447Z
+UID:0af339ed-0044-4c9e-8a96-90ac218c38cf
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ Date: August 21 - 23\, 2023\n📍 Location: Shenyang\, Ch
+ ina\n⏰ Original Deadline (UTC-7): 2023-04-08 23:59:59\nCategory: 数据
+ 库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: ht
+ tps://adma2023.uqcloud.net/index.html\nDBLP Index: https://dblp.org/db/con
+ f/adma
+LOCATION:Shenyang\, China
+URL:https://adma2023.uqcloud.net/index.html
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ADMA 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240601T235959
+DTEND;TZID="UTC-12:00":20240602T000059
+DTSTAMP:20250830T065447Z
+UID:d18e0010-cd4f-4273-90c5-0c5793135a85
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ Date: December 3 - 5\, 2024\n📍 Location: Sydney\, Aust
+ ralia\n⏰ Original Deadline (AoE): 2024-06-01 23:59:59\nCategory: 数据
+ 库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: ht
+ tps://adma2024.github.io\nDBLP Index: https://dblp.org/db/conf/adma
+LOCATION:Sydney\, Australia
+URL:https://adma2024.github.io
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ADMA 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250508T235959
+DTEND;TZID="UTC-12:00":20250509T000059
+DTSTAMP:20250830T065447Z
+UID:7f44e6f0-d2a6-45f3-b33b-4b288828b8a9
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ Date: October 22 - 24\, 2025\n📍 Location: Kyoto\, Japa
+ n\n⏰ Original Deadline (AoE): 2025-05-08 23:59:59\nCategory: 数据库/
+ 数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: https:
+ //adma2025.github.io\nDBLP Index: https://dblp.org/db/conf/adma
+LOCATION:Kyoto\, Japan
+URL:https://adma2025.github.io
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2024 Deadline [first round]
+DTSTART;TZID="UTC-12:00":20240320T235959
+DTEND;TZID="UTC-12:00":20240321T000059
+DTSTAMP:20250830T065447Z
+UID:8c92bcd8-d3b9-41d9-8c13-cc7c191c6134
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ Date: August 30 - Septemper 1\, 2024\n📍 Location: Jinh
+ ua\, China\n⏰ Original Deadline (UTC-12): 2024-03-20 23:59:59\nCategory:
+  数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Webs
+ ite: https://apweb2024.zjnu.edu.cn/\nDBLP Index: https://dblp.org/db/conf/
+ APWeb
+LOCATION:Jinhua\, China
+URL:https://apweb2024.zjnu.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2024 Deadline [second round]
+DTSTART;TZID="UTC-12:00":20240523T235959
+DTEND;TZID="UTC-12:00":20240524T000059
+DTSTAMP:20250830T065447Z
+UID:420b20d7-f2d6-482c-a1e3-98161ec031d9
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ Date: August 30 - Septemper 1\, 2024\n📍 Location: Jinh
+ ua\, China\n⏰ Original Deadline (UTC-12): 2024-05-23 23:59:59\nCategory:
+  数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Webs
+ ite: https://apweb2024.zjnu.edu.cn/\nDBLP Index: https://dblp.org/db/conf/
+ APWeb
+LOCATION:Jinhua\, China
+URL:https://apweb2024.zjnu.edu.cn/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2025 Deadline [first round]
+DTSTART;TZID="UTC-08:00":20250302T235959
+DTEND;TZID="UTC-08:00":20250303T000059
+DTSTAMP:20250830T065447Z
+UID:5ce9a18c-ce0f-4439-a50a-ab8c53db7eb9
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ Date: August 28-30\, 2025\n📍 Location: Shenyang\, Chin
+ a\n⏰ Original Deadline (UTC-8): 2025-03-02 23:59:59\nCategory: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: https
+ ://apweb2025.sau.edu.cn/\nDBLP Index: https://dblp.org/db/conf/APWeb
+LOCATION:Shenyang\, China
+URL:https://apweb2025.sau.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2025 Deadline [second round]
+DTSTART;TZID="UTC-08:00":20250504T235959
+DTEND;TZID="UTC-08:00":20250505T000059
+DTSTAMP:20250830T065447Z
+UID:9b15036f-da2e-491b-bb18-52367f778bb7
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ Date: August 28-30\, 2025\n📍 Location: Shenyang\, Chin
+ a\n⏰ Original Deadline (UTC-8): 2025-05-04 23:59:59\nCategory: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: https
+ ://apweb2025.sau.edu.cn/\nDBLP Index: https://dblp.org/db/conf/APWeb
+LOCATION:Shenyang\, China
+URL:https://apweb2025.sau.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIDR 2024 Deadline
+DTSTART;TZID="UTC-08:00":20230727T235959
+DTEND;TZID="UTC-08:00":20230728T000059
+DTSTAMP:20250830T065447Z
+UID:a79af731-b850-4871-b34c-a360264241fa
+DESCRIPTION:International Conference on Innovative Data Systems Research\n
+ 🗓️ Date: Jan 14-17\, 2024\n📍 Location: Chaminade\, USA\n⏰ Origin
+ al Deadline (UTC-8): 2023-07-27 23:59:59\nCategory: 数据库/数据挖掘
+ /内容检索 (DB)\nCCF B\, CORE A\nConference Website: https://www.cidrdb
+ .org/cidr2024/\nDBLP Index: https://dblp.org/db/conf/cidr
+LOCATION:Chaminade\, USA
+URL:https://www.cidrdb.org/cidr2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIDR 2025 Deadline
+DTSTART;TZID="UTC-07:00":20240802T235959
+DTEND;TZID="UTC-07:00":20240803T000059
+DTSTAMP:20250830T065447Z
+UID:11db86d6-f900-4e8c-9431-6930e5472d71
+DESCRIPTION:International Conference on Innovative Data Systems Research\n
+ 🗓️ Date: Jan 19-22\, 2025\n📍 Location: Amsterdam\, The Netherlands
+ \n⏰ Original Deadline (UTC-7): 2024-08-02 23:59:59\nCategory: 数据库/
+ 数据挖掘/内容检索 (DB)\nCCF B\, CORE A\nConference Website: https:
+ //www.cidrdb.org/cidr2025/\nDBLP Index: https://dblp.org/db/conf/cidr
+LOCATION:Amsterdam\, The Netherlands
+URL:https://www.cidrdb.org/cidr2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIDR 2026 Deadline
+DTSTART;TZID="UTC-07:00":20250805T235959
+DTEND;TZID="UTC-07:00":20250806T000059
+DTSTAMP:20250830T065447Z
+UID:aaa4ed70-8379-469f-8c12-9c11af107bed
+DESCRIPTION:International Conference on Innovative Data Systems Research\n
+ 🗓️ Date: Jan 18-21\, 2026\n📍 Location: Chaminade Resort & Spa\, Sa
+ nta Cruz\, California\, USA\n⏰ Original Deadline (UTC-7): 2025-08-05 23:
+ 59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\
+ nConference Website: https://www.cidrdb.org/cidr2026/\nDBLP Index: https:/
+ /dblp.org/db/conf/cidr
+LOCATION:Chaminade Resort & Spa\, Santa Cruz\, California\, USA
+URL:https://www.cidrdb.org/cidr2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PAKDD 2025 Deadline
+DTSTART;TZID="UTC-08:00":20241130T235959
+DTEND;TZID="UTC-08:00":20241201T000059
+DTSTAMP:20250830T065447Z
+UID:d66fb756-c226-48e0-ad01-3e7b04b505e3
+DESCRIPTION:Pacific-Asia Conference on Knowledge Discovery and Data Mining
+ \n🗓️ Date: June 10-13\, 2025\n📍 Location: Sydney\, Australia\n⏰ 
+ Original Deadline (UTC-8): 2024-11-30 23:59:59\nCategory: 数据库/数据
+ 挖掘/内容检索 (DB)\nCCF C\, CORE B\nConference Website: https://pakd
+ d2025.org\nDBLP Index: https://dblp.org/db/conf/pakdd
+LOCATION:Sydney\, Australia
+URL:https://pakdd2025.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2021 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20210326T235959
+DTEND;TZID="UTC-12:00":20210327T000059
+DTSTAMP:20250830T065447Z
+UID:506f9ab1-c32b-407a-a7b1-c164894773f0
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ Date: September 13
+ -17\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (AoE): 2021-03-2
+ 6 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CO
+ RE A\nConference Website: https://2021.ecmlpkdd.org/\nDBLP Index: https://
+ dblp.org/db/conf/pkdd
+LOCATION:Virtual
+URL:https://2021.ecmlpkdd.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2022 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20220330T235959
+DTEND;TZID="UTC-12:00":20220331T000059
+DTSTAMP:20250830T065447Z
+UID:6b80b6a9-9fbf-48b0-88ed-48dfc13168fc
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ Date: September 19
+ -23\, 2022\n📍 Location: Grenoble\, France\n⏰ Original Deadline (AoE):
+  2022-03-30 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\n
+ CCF B\, CORE A\nConference Website: https://2022.ecmlpkdd.org/index.php/ke
+ y-dates-deadlines/\nDBLP Index: https://dblp.org/db/conf/pkdd
+LOCATION:Grenoble\, France
+URL:https://2022.ecmlpkdd.org/index.php/key-dates-deadlines/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2023 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20230326T235959
+DTEND;TZID="UTC-12:00":20230327T000059
+DTSTAMP:20250830T065447Z
+UID:d074f891-0625-43eb-90cb-9a3185b15ded
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ Date: September 18
+ -22\, 2023\n📍 Location: Turin\, Italy\n⏰ Original Deadline (AoE): 202
+ 3-03-26 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nCCF 
+ B\, CORE A\nConference Website: https://2023.ecmlpkdd.org/submissions/key-
+ dates-deadlines/\nDBLP Index: https://dblp.org/db/conf/pkdd
+LOCATION:Turin\, Italy
+URL:https://2023.ecmlpkdd.org/submissions/key-dates-deadlines/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240315T235959
+DTEND;TZID="UTC-12:00":20240316T000059
+DTSTAMP:20250830T065447Z
+UID:5f7b7d54-81f5-4472-9ef3-5ae798bd8616
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ Date: September 9-
+ 13\, 2024\n📍 Location: Vilnius\, Lithuania\n⏰ Original Deadline (AoE)
+ : 2024-03-15 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\
+ nCCF B\, CORE A\nConference Website: https://2024.ecmlpkdd.org/submissions
+ /key-dates-and-deadlines/\nDBLP Index: https://dblp.org/db/conf/pkdd
+LOCATION:Vilnius\, Lithuania
+URL:https://2024.ecmlpkdd.org/submissions/key-dates-and-deadlines/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250307T235959
+DTEND;TZID="UTC-12:00":20250308T000059
+DTSTAMP:20250830T065447Z
+UID:3ce7b4c6-d61e-4fb9-8e83-caeb26bc0ced
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ Date: September 15
+ -19\, 2025\n📍 Location: Porto\, Portugal\n⏰ Original Deadline (AoE): 
+ 2025-03-07 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nC
+ CF B\, CORE A\nConference Website: https://ecmlpkdd.org/2025/\nDBLP Index:
+  https://dblp.org/db/conf/pkdd
+LOCATION:Porto\, Portugal
+URL:https://ecmlpkdd.org/2025/
+END:VEVENT
+END:VCALENDAR

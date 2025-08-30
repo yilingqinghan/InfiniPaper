@@ -1,0 +1,414 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:APBC 2025 截稿日期
+DTSTART:20250615T235959Z
+DTEND:20250616T000059Z
+DTSTAMP:20250830T065444Z
+UID:032acbea-918b-4f73-8303-1548c6ce4773
+DESCRIPTION:Asia Pacific Bioinformatics Conference\n🗓️ 会议时间: 
+ September 19-22\, 2025\n📍 会议地点: Nanjing， China\n⏰ 原始截
+ 止时间 (UTC+0): 2025-06-15 23:59:59\n分类: 交叉/综合/新兴 (MX)\
+ nCCF C\, CORE B\n会议官网: https://bioinfo.nuaa.edu.cn/apbc2025/main.p
+ sp\nDBLP索引: https://dblp.org/db/conf/apbc
+LOCATION:Nanjing， China
+URL:https://bioinfo.nuaa.edu.cn/apbc2025/main.psp
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:BIBM 2021 截稿日期 [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20210828T170000
+DTEND;TZID="UTC-05:00":20210828T170100
+DTSTAMP:20250830T065444Z
+UID:93339209-db36-47e5-ab5b-c50615edcc49
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ 会议时间: Dec 9-12\, 2021\n📍 会议地点: Online\n⏰ 
+ 原始截止时间 (UTC-5): 2021-08-28 17:00:00\n分类: 交叉/综合/新
+ 兴 (MX)\nCCF B\n会议官网: https://ieeebibm.org/BIBM2021/\nDBLP索引:
+  https://dblp.org/db/conf/bibm
+LOCATION:Online
+URL:https://ieeebibm.org/BIBM2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2022 截稿日期 [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20220821T170000
+DTEND;TZID="UTC-05:00":20220821T170100
+DTSTAMP:20250830T065444Z
+UID:eb99a2af-4db8-4ce3-bc2c-5426293f3eed
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ 会议时间: Dec 6-9\, 2022\n📍 会议地点: Las Vegas\, NV
+ \, USA\n⏰ 原始截止时间 (UTC-5): 2022-08-21 17:00:00\n分类: 交
+ 叉/综合/新兴 (MX)\nCCF B\n会议官网: http://ieeebibm.org/BIBM2022/
+ \nDBLP索引: https://dblp.org/db/conf/bibm
+LOCATION:Las Vegas\, NV\, USA
+URL:http://ieeebibm.org/BIBM2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2023 截稿日期 [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20230815T170000
+DTEND;TZID="UTC-05:00":20230815T170100
+DTSTAMP:20250830T065444Z
+UID:31a263ee-4f60-4248-a8e1-d148751947c8
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ 会议时间: Dec 5-8\, 2023\n📍 会议地点: Istanbul\, Tur
+ key\n⏰ 原始截止时间 (UTC-5): 2023-08-15 17:00:00\n分类: 交叉/
+ 综合/新兴 (MX)\nCCF B\n会议官网: https://bidma.cpsc.ucalgary.ca/IE
+ EE-BIBM-2023/\nDBLP索引: https://dblp.org/db/conf/bibm
+LOCATION:Istanbul\, Turkey
+URL:https://bidma.cpsc.ucalgary.ca/IEEE-BIBM-2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2024 截稿日期 [First Round\, papers submitted by the June
+  20 deadline will be reviewed and notified by Aug 15]
+DTSTART;TZID="UTC-05:00":20240620T170000
+DTEND;TZID="UTC-05:00":20240620T170100
+DTSTAMP:20250830T065444Z
+UID:b550b743-6242-4fdc-8b8e-c25cd35f6fa2
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ 会议时间: Dec 3-6\, 2024\n📍 会议地点: Lisbon\, Portu
+ gal\n⏰ 原始截止时间 (UTC-5): 2024-06-20 17:00:00\n分类: 交叉/
+ 综合/新兴 (MX)\nCCF B\n会议官网: https://ieeebibm.org/BIBM2024/\nD
+ BLP索引: https://dblp.org/db/conf/bibm
+LOCATION:Lisbon\, Portugal
+URL:https://ieeebibm.org/BIBM2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2024 截稿日期 [Second Round\, papers submitted by the Aug
+  16\, 2024 deadline\, will be reviewed and notified by the Oct 16\, 2024]
+DTSTART;TZID="UTC-05:00":20240816T170000
+DTEND;TZID="UTC-05:00":20240816T170100
+DTSTAMP:20250830T065444Z
+UID:c3316bb1-2362-43d0-aa89-9dc5e860d579
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ 会议时间: Dec 3-6\, 2024\n📍 会议地点: Lisbon\, Portu
+ gal\n⏰ 原始截止时间 (UTC-5): 2024-08-16 17:00:00\n分类: 交叉/
+ 综合/新兴 (MX)\nCCF B\n会议官网: https://ieeebibm.org/BIBM2024/\nD
+ BLP索引: https://dblp.org/db/conf/bibm
+LOCATION:Lisbon\, Portugal
+URL:https://ieeebibm.org/BIBM2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2025 截稿日期
+DTSTART;TZID="UTC-05:00":20250803T170000
+DTEND;TZID="UTC-05:00":20250803T170100
+DTSTAMP:20250830T065444Z
+UID:72954460-d778-47e1-a65b-349c9ad23cf8
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ 会议时间: Dec 15-18\, 2025\n📍 会议地点: Wuhan\, Chin
+ a\n⏰ 原始截止时间 (UTC-5): 2025-08-03 17:00:00\n分类: 交叉/综
+ 合/新兴 (MX)\nCCF B\n会议官网: https://ieeebibm.org/BIBM2025/\nDBLP
+ 索引: https://dblp.org/db/conf/bibm
+LOCATION:Wuhan\, China
+URL:https://ieeebibm.org/BIBM2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:BigData 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250829T235959
+DTEND;TZID="UTC-12:00":20250830T000059
+DTSTAMP:20250830T065444Z
+UID:3ab3c70a-9427-4f51-bf74-5f43e0176342
+DESCRIPTION:IEEE International Conference on Big Data\n🗓️ 会议时
+ 间: December 8-11\, 2025\n📍 会议地点: Macau SAR\, China\n⏰ 原
+ 始截止时间 (AoE): 2025-08-29 23:59:59\n分类: 交叉/综合/新兴 (
+ MX)\nCCF C\, CORE B\n会议官网: https://conferences.cis.um.edu.mo/ieeeb
+ igdata2025/\nDBLP索引: https://dblp.org/db/conf/bigdataconf
+LOCATION:Macau SAR\, China
+URL:https://conferences.cis.um.edu.mo/ieeebigdata2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CogSci 2023 截稿日期
+DTSTART;TZID="UTC+08:00":20230201T235959
+DTEND;TZID="UTC+08:00":20230202T000059
+DTSTAMP:20250830T065444Z
+UID:2af63194-7c74-4ac0-810f-3bf1911fc359
+DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ 会
+ 议时间: July 26-29\, 2023\n📍 会议地点: Sydney\, Australia\n⏰ 
+ 原始截止时间 (UTC+8): 2023-02-01 23:59:59\n分类: 交叉/综合/新
+ 兴 (MX)\nCCF B\, CORE B\n会议官网: https://cognitivesciencesociety.or
+ g/cogsci-2023/\nDBLP索引: https://dblp.org/db/conf/cogsci
+LOCATION:Sydney\, Australia
+URL:https://cognitivesciencesociety.org/cogsci-2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CogSci 2024 截稿日期
+DTSTART;TZID="UTC+08:00":20240201T235959
+DTEND;TZID="UTC+08:00":20240202T000059
+DTSTAMP:20250830T065444Z
+UID:ce3b17b3-6304-4da8-b915-7ed06c5455e7
+DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ 会
+ 议时间: July 24-27\, 2024\n📍 会议地点: Rotterdam\, Netherlands\n
+ ⏰ 原始截止时间 (UTC+8): 2024-02-01 23:59:59\n分类: 交叉/综合
+ /新兴 (MX)\nCCF B\, CORE B\n会议官网: https://cognitivesciencesociet
+ y.org/cogsci-2024/\nDBLP索引: https://dblp.org/db/conf/cogsci
+LOCATION:Rotterdam\, Netherlands
+URL:https://cognitivesciencesociety.org/cogsci-2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CogSci 2025 截稿日期
+DTSTART;TZID="UTC+08:00":20250201T235959
+DTEND;TZID="UTC+08:00":20250202T000059
+DTSTAMP:20250830T065444Z
+UID:6ea6f284-a7ac-4e27-9df4-b19efdfa94e7
+DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ 会
+ 议时间: July 30-August 2\, 2025\n📍 会议地点: Marriott Marquis\, 
+ San Francisco\n⏰ 原始截止时间 (UTC+8): 2025-02-01 23:59:59\n分类
+ : 交叉/综合/新兴 (MX)\nCCF B\, CORE B\n会议官网: https://cogniti
+ vesciencesociety.org/cogsci-2025/\nDBLP索引: https://dblp.org/db/conf/co
+ gsci
+LOCATION:Marriott Marquis\, San Francisco
+URL:https://cognitivesciencesociety.org/cogsci-2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICIC 2024 截稿日期
+DTSTART;TZID="UTC+08:00":20240411T120000
+DTEND;TZID="UTC+08:00":20240411T120100
+DTSTAMP:20250830T065444Z
+UID:6d2c09e9-2589-4d05-932c-d0eaa2a48868
+DESCRIPTION:International Conference on Intelligent Computing\n🗓️ 会
+ 议时间: August 5-8\, 2024\n📍 会议地点: Tianjin\, China\n⏰ 原
+ 始截止时间 (UTC+8): 2024-04-11 12:00:00\n分类: 交叉/综合/新兴
+  (MX)\nCCF C\n会议官网: http://www.ic-icc.cn/2024/index.htm\nDBLP索
+ 引: https://dblp.org/db/conf/icic
+LOCATION:Tianjin\, China
+URL:http://www.ic-icc.cn/2024/index.htm
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICIC 2025 截稿日期
+DTSTART;TZID="UTC+08:00":20250410T115959
+DTEND;TZID="UTC+08:00":20250410T120059
+DTSTAMP:20250830T065444Z
+UID:94d5690e-f42f-4619-9eff-75ef81daf630
+DESCRIPTION:International Conference on Intelligent Computing\n🗓️ 会
+ 议时间: July 26-29\, 2025\n📍 会议地点: Ningbo\, China\n⏰ 原
+ 始截止时间 (UTC+8): 2025-04-10 11:59:59\n分类: 交叉/综合/新兴
+  (MX)\nCCF C\n会议官网: http://www.ic-icc.cn/2025/index.php\nDBLP索
+ 引: https://dblp.org/db/conf/icic
+LOCATION:Ningbo\, China
+URL:http://www.ic-icc.cn/2025/index.php
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISBRA 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250401T235959
+DTEND;TZID="UTC-12:00":20250402T000059
+DTSTAMP:20250830T065444Z
+UID:40c366a2-26a3-40a0-bbb6-b3348b67d4b0
+DESCRIPTION:International Symposium on Bioinformatics Research and Applica
+ tions\n🗓️ 会议时间: August 3-5\, 2025\n📍 会议地点: Helsink
+ i\, Finland\n⏰ 原始截止时间 (AoE): 2025-04-01 23:59:59\n分类: 
+ 交叉/综合/新兴 (MX)\nCCF C\n会议官网: https://www.helsinki.fi/en
+ /conferences/isbra2025\nDBLP索引: https://dblp.org/db/conf/isbra
+LOCATION:Helsinki\, Finland
+URL:https://www.helsinki.fi/en/conferences/isbra2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20201011T235959
+DTEND;TZID="UTC-12:00":20201012T000059
+DTSTAMP:20250830T065444Z
+UID:0b3ea7d7-5a60-4582-af1d-76ccc16123e9
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: April 5-9\, 2021\n📍 会议地点: virtual\n⏰ 原始截止时间 
+ (AoE): 2020-10-11 23:59:59\n分类: 交叉/综合/新兴 (MX)\n会议官
+ 网: https://mlsys.org/Conferences/2021\nDBLP索引: https://dblp.org/db/c
+ onf/mlsys
+LOCATION:virtual
+URL:https://mlsys.org/Conferences/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20211015T200000
+DTEND;TZID="UTC-12:00":20211015T200100
+DTSTAMP:20250830T065444Z
+UID:07cc6acf-c141-4b33-a0bc-bc08ad8bfb27
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: August 29-September 1\, 2022\n📍 会议地点: Santa Clara\, USA\n
+ ⏰ 原始截止时间 (AoE): 2021-10-15 20:00:00\n分类: 交叉/综合/
+ 新兴 (MX)\n会议官网: https://mlsys.org/Conferences/2022\nDBLP索引:
+  https://dblp.org/db/conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/Conferences/2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20221028T200000
+DTEND;TZID="UTC-12:00":20221028T200100
+DTSTAMP:20250830T065444Z
+UID:97355c97-fdf4-4a9c-a425-479e9086e84f
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: June 5-8\, 2023\n📍 会议地点: Miami\, USA\n⏰ 原始截止时
+ 间 (AoE): 2022-10-28 20:00:00\n分类: 交叉/综合/新兴 (MX)\n会议
+ 官网: https://mlsys.org/Conferences/2023\nDBLP索引: https://dblp.org/d
+ b/conf/mlsys
+LOCATION:Miami\, USA
+URL:https://mlsys.org/Conferences/2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231027T040000
+DTEND;TZID="UTC-12:00":20231027T040100
+DTSTAMP:20250830T065444Z
+UID:2a0f24d4-1a30-4611-8fe0-57dee7496af2
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: May 12-16\, 2024\n📍 会议地点: Santa Clara\, USA\n⏰ 原始截
+ 止时间 (AoE): 2023-10-27 04:00:00\n分类: 交叉/综合/新兴 (MX)\n
+ 会议官网: https://mlsys.org/Conferences/2024\nDBLP索引: https://dblp
+ .org/db/conf/mlsys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/Conferences/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MLSys 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241024T200000
+DTEND;TZID="UTC-12:00":20241024T200100
+DTSTAMP:20250830T065444Z
+UID:b8165c45-e58e-4bf7-8e3b-27d396055d81
+DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
+ 间: May 13-16\, 2025\n📍 会议地点: Santa Clara\, USA\n⏰ 原始截
+ 止时间 (AoE): 2024-10-24 20:00:00\n分类: 交叉/综合/新兴 (MX)\n
+ 会议官网: https://mlsys.org/\nDBLP索引: https://dblp.org/db/conf/mls
+ ys
+LOCATION:Santa Clara\, USA
+URL:https://mlsys.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SIGSPATIAL 2023 摘要截稿
+DTSTART;TZID="UTC-07:00":20230609T235959
+DTEND;TZID="UTC-07:00":20230610T000059
+DTSTAMP:20250830T065444Z
+UID:83054e48-1a75-4fb2-9db1-33ca02578191
+DESCRIPTION:ACM SIGSPATIAL International Conference on Advances in Geograp
+ hic Information Systems\n🗓️ 会议时间: November 13-16\, 2023\n📍
+  会议地点: Hamburg\, Germany\n⏰ 原始截止时间 (UTC-7): 2023-06-
+ 09 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF C\, CORE A\n会议官
+ 网: http://sigspatial2023.sigspatial.org/\nDBLP索引: https://dblp.org/d
+ b/conf/sigspatial
+LOCATION:Hamburg\, Germany
+URL:http://sigspatial2023.sigspatial.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SIGSPATIAL 2025 摘要截稿
+DTSTART;TZID="UTC-07:00":20250523T235959
+DTEND;TZID="UTC-07:00":20250524T000059
+DTSTAMP:20250830T065444Z
+UID:523188f3-f5d8-426c-b85f-845fff42b697
+DESCRIPTION:ACM SIGSPATIAL International Conference on Advances in Geograp
+ hic Information Systems\n🗓️ 会议时间: November 3-6\, 2025\n📍 
+ 会议地点: Minneapolis\, MN\, USA\n⏰ 原始截止时间 (UTC-7): 2025
+ -05-23 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF C\, CORE A\n会议
+ 官网: https://sigspatial2025.sigspatial.org/\nDBLP索引: https://dblp.o
+ rg/db/conf/sigspatial
+LOCATION:Minneapolis\, MN\, USA
+URL:https://sigspatial2025.sigspatial.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SMC 2023 截稿日期
+DTSTART;TZID="UTC-08:00":20230330T235959
+DTEND;TZID="UTC-08:00":20230331T000059
+DTSTAMP:20250830T065444Z
+UID:5f907199-e87a-425a-bbfe-6f3d277cf567
+DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
+ cs\n🗓️ 会议时间: October 1-4\, 2023\n📍 会议地点: HYATT MAU
+ I\, HAWAII\, USA\n⏰ 原始截止时间 (UTC-8): 2023-03-30 23:59:59\n分
+ 类: 交叉/综合/新兴 (MX)\nCCF C\, CORE B\n会议官网: https://ieee
+ smc2023.org/\nDBLP索引: https://dblp.org/db/conf/smc
+LOCATION:HYATT MAUI\, HAWAII\, USA
+URL:https://ieeesmc2023.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SMC 2024 截稿日期
+DTSTART;TZID="UTC+08:00":20240408T235959
+DTEND;TZID="UTC+08:00":20240409T000059
+DTSTAMP:20250830T065444Z
+UID:4ebc6866-81f2-4c5a-9792-f716cfe82933
+DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
+ cs\n🗓️ 会议时间: October 7-10\, 2024\n📍 会议地点: Borneo C
+ onvention Centre Kuching\, Sarawak\, Malaysia\n⏰ 原始截止时间 (UTC
+ +8): 2024-04-08 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF C\, CORE 
+ B\n会议官网: https://www.ieeesmc2024.org/\nDBLP索引: https://dblp.or
+ g/db/conf/smc
+LOCATION:Borneo Convention Centre Kuching\, Sarawak\, Malaysia
+URL:https://www.ieeesmc2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SMC 2025 截稿日期
+DTSTART;TZID="UTC+08:00":20250504T235959
+DTEND;TZID="UTC+08:00":20250505T000059
+DTSTAMP:20250830T065444Z
+UID:74d38697-9b9e-4e60-8396-3fcad924e00a
+DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
+ cs\n🗓️ 会议时间: October 5-8\, 2025\n📍 会议地点: Vienna\, 
+ Austria\n⏰ 原始截止时间 (UTC+8): 2025-05-04 23:59:59\n分类: 交
+ 叉/综合/新兴 (MX)\nCCF C\, CORE B\n会议官网: https://www.ieeesmc2
+ 025.org/\nDBLP索引: https://dblp.org/db/conf/smc
+LOCATION:Vienna\, Austria
+URL:https://www.ieeesmc2025.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WINE 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230707T235959
+DTEND;TZID="UTC-12:00":20230708T000059
+DTSTAMP:20250830T065444Z
+UID:32bca59a-2d98-45a6-abc3-61352e4a72d1
+DESCRIPTION:Conference on Web and Internet Economics\n🗓️ 会议时间
+ : Dec 04-08\, 2023\n📍 会议地点: Shanghai\, China\n⏰ 原始截止
+ 时间 (AoE): 2023-07-07 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF 
+ A\n会议官网: https://wine2023.shanghaitech.edu.cn/\nDBLP索引: https:
+ //dblp.org/db/conf/wine
+LOCATION:Shanghai\, China
+URL:https://wine2023.shanghaitech.edu.cn/
+END:VEVENT
+END:VCALENDAR

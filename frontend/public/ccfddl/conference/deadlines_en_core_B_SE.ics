@@ -1,0 +1,278 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:APLAS 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250531T235959
+DTEND;TZID="UTC-12:00":20250601T000059
+DTSTAMP:20250830T065448Z
+UID:24af9a39-590e-44b4-9f42-9c22ba2837db
+DESCRIPTION:Asian Symposium on Programming Languages and Systems\n🗓️ 
+ Date: October 27-30\, 2025\n📍 Location: Bengaluru\, India\n⏰ Original
+  Deadline (AoE): 2025-05-31 23:59:59\nCategory: 软件工程/系统软件/
+ 程序设计语言 (SE)\nCCF C\, CORE B\nConference Website: https://conf.
+ researchr.org/home/aplas-2025\nDBLP Index: https://dblp.org/db/conf/aplas
+LOCATION:Bengaluru\, India
+URL:https://conf.researchr.org/home/aplas-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ATVA 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250425T235959
+DTEND;TZID="UTC-12:00":20250426T000059
+DTSTAMP:20250830T065448Z
+UID:f68e36b4-ab16-4040-8158-8072b4c3629c
+DESCRIPTION:International Symposium on Automated Technology for Verificati
+ on and Analysis\n🗓️ Date: October 27-31\, 2025\n📍 Location: Bengal
+ uru\, India\n⏰ Original Deadline (AoE): 2025-04-25 23:59:59\nCategory: 
+ 软件工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE B\, THCPL 
+ B\nConference Website: https://conf.researchr.org/home/atva-2025\nDBLP Ind
+ ex: https://dblp.org/db/conf/atva
+LOCATION:Bengaluru\, India
+URL:https://conf.researchr.org/home/atva-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:COMPSAC 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250305T235959
+DTEND;TZID="UTC-12:00":20250306T000059
+DTSTAMP:20250830T065448Z
+UID:7ab8a0cb-2731-47a0-8a85-c6d21a4361f3
+DESCRIPTION:International Computer Software and Applications Conference\n
+ 🗓️ Date: July 8-11\, 2025\n📍 Location: Toronto\, Canada\n⏰ Origi
+ nal Deadline (AoE): 2025-03-05 23:59:59\nCategory: 软件工程/系统软
+ 件/程序设计语言 (SE)\nCCF C\, CORE B\nConference Website: https://i
+ eeecompsac.computer.org/2025/\nDBLP Index: https://dblp.org/db/conf/compsa
+ c
+LOCATION:Toronto\, Canada
+URL:https://ieeecompsac.computer.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICECCS 2024 Deadline [Abstract submission]
+DTSTART;TZID="UTC-12:00":20231229T235959
+DTEND;TZID="UTC-12:00":20231230T000059
+DTSTAMP:20250830T065448Z
+UID:32ce6ec4-eeea-4d1f-abdb-93ae0e78c95c
+DESCRIPTION:International Conference on Engineering of Complex Computer Sy
+ stems\n🗓️ Date: June 19-21\, 2024\n📍 Location: Limassol\, Cyprus\n
+ ⏰ Original Deadline (AoE): 2023-12-29 23:59:59\nCategory: 软件工程/
+ 系统软件/程序设计语言 (SE)\nCCF C\, CORE B\nConference Website: 
+ https://cyprusconferences.org/iceccs2024/\nDBLP Index: https://dblp.org/db
+ /conf/iceccs
+LOCATION:Limassol\, Cyprus
+URL:https://cyprusconferences.org/iceccs2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICECCS 2024 Deadline [Full paper submission]
+DTSTART;TZID="UTC-12:00":20240105T235959
+DTEND;TZID="UTC-12:00":20240106T000059
+DTSTAMP:20250830T065448Z
+UID:5e452b47-2016-4e88-90d4-83c140ce5a52
+DESCRIPTION:International Conference on Engineering of Complex Computer Sy
+ stems\n🗓️ Date: June 19-21\, 2024\n📍 Location: Limassol\, Cyprus\n
+ ⏰ Original Deadline (AoE): 2024-01-05 23:59:59\nCategory: 软件工程/
+ 系统软件/程序设计语言 (SE)\nCCF C\, CORE B\nConference Website: 
+ https://cyprusconferences.org/iceccs2024/\nDBLP Index: https://dblp.org/db
+ /conf/iceccs
+LOCATION:Limassol\, Cyprus
+URL:https://cyprusconferences.org/iceccs2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISPASS 2024 Deadline [Abstract submission]
+DTSTART;TZID="UTC-12:00":20231208T235959
+DTEND;TZID="UTC-12:00":20231209T000059
+DTSTAMP:20250830T065448Z
+UID:7b57f9c6-afb2-40dd-99b6-2b0c55b2370e
+DESCRIPTION:International Symposium on Performance Analysis of Systems and
+  Software\n🗓️ Date: May 5-7\, 2024\n📍 Location: Indianapolis\, Ind
+ iana\n⏰ Original Deadline (AoE): 2023-12-08 23:59:59\nCategory: 软件
+ 工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE B\, THCPL B\nCon
+ ference Website: https://ispass.org/ispass2024/\nDBLP Index: https://dblp.
+ org/db/conf/ispass
+LOCATION:Indianapolis\, Indiana
+URL:https://ispass.org/ispass2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISPASS 2024 Deadline [Full paper submission]
+DTSTART;TZID="UTC-12:00":20231215T235959
+DTEND;TZID="UTC-12:00":20231216T000059
+DTSTAMP:20250830T065448Z
+UID:b9c4b68e-0f3d-4c8a-ae2b-9d8d9a327f89
+DESCRIPTION:International Symposium on Performance Analysis of Systems and
+  Software\n🗓️ Date: May 5-7\, 2024\n📍 Location: Indianapolis\, Ind
+ iana\n⏰ Original Deadline (AoE): 2023-12-15 23:59:59\nCategory: 软件
+ 工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE B\, THCPL B\nCon
+ ference Website: https://ispass.org/ispass2024/\nDBLP Index: https://dblp.
+ org/db/conf/ispass
+LOCATION:Indianapolis\, Indiana
+URL:https://ispass.org/ispass2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:LCTES 2021 Deadline [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20210308T235959
+DTEND;TZID="UTC-12:00":20210309T000059
+DTSTAMP:20250830T065448Z
+UID:684939d4-3a30-4910-9974-b7c82df296fc
+DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
+ r Embedded Systems\n🗓️ Date: June 20-26\, 2021\n📍 Location: Virtua
+ l\n⏰ Original Deadline (AoE): 2021-03-08 23:59:59\nCategory: 软件工
+ 程/系统软件/程序设计语言 (SE)\nCCF B\, CORE B\nConference Websi
+ te: https://pldi21.sigplan.org/home/LCTES-2021\nDBLP Index: https://dblp.o
+ rg/db/conf/lctrts
+LOCATION:Virtual
+URL:https://pldi21.sigplan.org/home/LCTES-2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:LCTES 2021 Deadline [Final Copy Deadline]
+DTSTART;TZID="UTC-12:00":20210505T235959
+DTEND;TZID="UTC-12:00":20210506T000059
+DTSTAMP:20250830T065448Z
+UID:dcbf64ad-f3c4-410c-b71a-f86e94065ab7
+DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
+ r Embedded Systems\n🗓️ Date: June 20-26\, 2021\n📍 Location: Virtua
+ l\n⏰ Original Deadline (AoE): 2021-05-05 23:59:59\nCategory: 软件工
+ 程/系统软件/程序设计语言 (SE)\nCCF B\, CORE B\nConference Websi
+ te: https://pldi21.sigplan.org/home/LCTES-2021\nDBLP Index: https://dblp.o
+ rg/db/conf/lctrts
+LOCATION:Virtual
+URL:https://pldi21.sigplan.org/home/LCTES-2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:LCTES 2023 Deadline
+DTSTART;TZID="UTC-12:00":20230316T235959
+DTEND;TZID="UTC-12:00":20230317T000059
+DTSTAMP:20250830T065448Z
+UID:f1d3a7fb-7765-42ca-9533-0f09595436b5
+DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
+ r Embedded Systems\n🗓️ Date: June 17-21\, 2023\n📍 Location: Orland
+ o\, Florida\, United States\n⏰ Original Deadline (AoE): 2023-03-16 23:59
+ :59\nCategory: 软件工程/系统软件/程序设计语言 (SE)\nCCF B\, 
+ CORE B\nConference Website: https://pldi23.sigplan.org/home/LCTES-2023\nDB
+ LP Index: https://dblp.org/db/conf/lctrts
+LOCATION:Orlando\, Florida\, United States
+URL:https://pldi23.sigplan.org/home/LCTES-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:LCTES 2024 Deadline [Abstract submission]
+DTSTART;TZID="UTC-12:00":20240216T235959
+DTEND;TZID="UTC-12:00":20240217T000059
+DTSTAMP:20250830T065448Z
+UID:683f5660-38d4-4b0a-a98b-4c311e8065dc
+DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
+ r Embedded Systems\n🗓️ Date: June 24\, 2024\n📍 Location: Copenhage
+ n\, Denmark\n⏰ Original Deadline (AoE): 2024-02-16 23:59:59\nCategory: 
+ 软件工程/系统软件/程序设计语言 (SE)\nCCF B\, CORE B\nConfere
+ nce Website: https://pldi24.sigplan.org/home/LCTES-2024\nDBLP Index: https
+ ://dblp.org/db/conf/lctrts
+LOCATION:Copenhagen\, Denmark
+URL:https://pldi24.sigplan.org/home/LCTES-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:LCTES 2024 Deadline [Paper submission]
+DTSTART;TZID="UTC-12:00":20240223T235959
+DTEND;TZID="UTC-12:00":20240224T000059
+DTSTAMP:20250830T065448Z
+UID:18ea997f-1ab8-4998-a0e6-6c4780a23d3f
+DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
+ r Embedded Systems\n🗓️ Date: June 24\, 2024\n📍 Location: Copenhage
+ n\, Denmark\n⏰ Original Deadline (AoE): 2024-02-23 23:59:59\nCategory: 
+ 软件工程/系统软件/程序设计语言 (SE)\nCCF B\, CORE B\nConfere
+ nce Website: https://pldi24.sigplan.org/home/LCTES-2024\nDBLP Index: https
+ ://dblp.org/db/conf/lctrts
+LOCATION:Copenhagen\, Denmark
+URL:https://pldi24.sigplan.org/home/LCTES-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:REFSQ 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20241101T235959
+DTEND;TZID="UTC-12:00":20241102T000059
+DTSTAMP:20250830T065448Z
+UID:5bd40374-45e0-4465-a838-22be9a311907
+DESCRIPTION:Requirements Engineering: Foundation for Software Quality\n
+ 🗓️ Date: April 7-10\, 2025\n📍 Location: Barcelona\, Spain\n⏰ Ori
+ ginal Deadline (AoE): 2024-11-01 23:59:59\nCategory: 软件工程/系统
+ 软件/程序设计语言 (SE)\nCCF C\, CORE B\nConference Website: https:
+ //2025.refsq.org/\nDBLP Index: https://dblp.org/db/conf/refsq
+LOCATION:Barcelona\, Spain
+URL:https://2025.refsq.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RV 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250530T235959
+DTEND;TZID="UTC-12:00":20250531T000059
+DTSTAMP:20250830T065448Z
+UID:1b9dee2a-16c3-4bb2-9df3-b54c4fb291df
+DESCRIPTION:International Conference on Runtime Verification\n🗓️ Date
+ : September 15-19\, 2025\n📍 Location: Graz\, Austria\n⏰ Original Dead
+ line (AoE): 2025-05-30 23:59:59\nCategory: 软件工程/系统软件/程
+ 序设计语言 (SE)\nCCF C\, CORE B\nConference Website: https://rv25.ise
+ c.tugraz.at/\nDBLP Index: https://dblp.org/db/conf/rv
+LOCATION:Graz\, Austria
+URL:https://rv25.isec.tugraz.at/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SAS 2022 Deadline [Submission deadline]
+DTSTART;TZID="UTC-12:00":20220504T235959
+DTEND;TZID="UTC-12:00":20220505T000059
+DTSTAMP:20250830T065448Z
+UID:160a3c50-6846-4bce-9358-7306e5a9fdb1
+DESCRIPTION:International Static Analysis Symposium\n🗓️ Date: Decembe
+ r 5-7\, 2022\n📍 Location: Auckland\, New Zealand\n⏰ Original Deadline
+  (AoE): 2022-05-04 23:59:59\nCategory: 软件工程/系统软件/程序设
+ 计语言 (SE)\nCCF B\, CORE B\nConference Website: https://2022.splashcon
+ .org/home/sas-2022\nDBLP Index: https://dblp.org/db/conf/sas
+LOCATION:Auckland\, New Zealand
+URL:https://2022.splashcon.org/home/sas-2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SAS 2025 Deadline [Paper Submission]
+DTSTART;TZID="UTC-12:00":20250504T235959
+DTEND;TZID="UTC-12:00":20250505T000059
+DTSTAMP:20250830T065448Z
+UID:5907550f-c86d-45a5-ba72-3c69630ec6bd
+DESCRIPTION:International Static Analysis Symposium\n🗓️ Date: October
+  12-18\, 2025\n📍 Location: Singapore\n⏰ Original Deadline (AoE): 2025
+ -05-04 23:59:59\nCategory: 软件工程/系统软件/程序设计语言 (S
+ E)\nCCF B\, CORE B\nConference Website: https://2025.splashcon.org/home/sa
+ s-2025\nDBLP Index: https://dblp.org/db/conf/sas
+LOCATION:Singapore
+URL:https://2025.splashcon.org/home/sas-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SSE 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250310T230000
+DTEND;TZID="UTC-12:00":20250310T230100
+DTSTAMP:20250830T065448Z
+UID:f8136262-7995-4aea-aad3-f88d8dfac05c
+DESCRIPTION:IEEE International Conference on Software Services Engineering
+ \n🗓️ Date: July 7-12\, 2025\n📍 Location: Helsinki\, Finland\n⏰ O
+ riginal Deadline (AoE): 2025-03-10 23:00:00\nCategory: 软件工程/系统
+ 软件/程序设计语言 (SE)\nCCF C\, CORE B\, THCPL B\nConference Websi
+ te: https://services.conferences.computer.org/2025/sse/\nDBLP Index: https
+ ://dblp.org/db/conf/IEEEscc
+LOCATION:Helsinki\, Finland
+URL:https://services.conferences.computer.org/2025/sse/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:VMCAI 2022 Deadline [Submission deadline]
+DTSTART;TZID="UTC-12:00":20210909T235959
+DTEND;TZID="UTC-12:00":20210910T000059
+DTSTAMP:20250830T065448Z
+UID:df9d878d-e9f2-4d64-9a59-26d2c4399f5c
+DESCRIPTION:International Conference on Verification\, Model Checking\, an
+ d Abstract Interpretation\n🗓️ Date: January 16-28\, 2022\n📍 Locati
+ on: Philadelphia\, Pennsylvania\, United States\n⏰ Original Deadline (Ao
+ E): 2021-09-09 23:59:59\nCategory: 软件工程/系统软件/程序设计
+ 语言 (SE)\nCCF B\, CORE B\, THCPL B\nConference Website: https://popl22.
+ sigplan.org/home/VMCAI-2022\nDBLP Index: https://dblp.org/db/conf/vmcai
+LOCATION:Philadelphia\, Pennsylvania\, United States
+URL:https://popl22.sigplan.org/home/VMCAI-2022
+END:VEVENT
+END:VCALENDAR

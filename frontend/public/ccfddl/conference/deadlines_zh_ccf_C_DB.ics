@@ -1,0 +1,160 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ADMA 2023 摘要截稿
+DTSTART;TZID="UTC-07:00":20230408T235959
+DTEND;TZID="UTC-07:00":20230409T000059
+DTSTAMP:20250830T065443Z
+UID:9caf4c29-64df-4ab0-a575-769f59689b28
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ 会议时间: August 21 - 23\, 2023\n📍 会议地点: S
+ henyang\, China\n⏰ 原始截止时间 (UTC-7): 2023-04-08 23:59:59\n分
+ 类: 数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\n会议官
+ 网: https://adma2023.uqcloud.net/index.html\nDBLP索引: https://dblp.org
+ /db/conf/adma
+LOCATION:Shenyang\, China
+URL:https://adma2023.uqcloud.net/index.html
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ADMA 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240601T235959
+DTEND;TZID="UTC-12:00":20240602T000059
+DTSTAMP:20250830T065443Z
+UID:f75daa5a-3a86-49f7-bfd2-cd588dfe7b97
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ 会议时间: December 3 - 5\, 2024\n📍 会议地点: S
+ ydney\, Australia\n⏰ 原始截止时间 (AoE): 2024-06-01 23:59:59\n分
+ 类: 数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\n会议官
+ 网: https://adma2024.github.io\nDBLP索引: https://dblp.org/db/conf/adma
+LOCATION:Sydney\, Australia
+URL:https://adma2024.github.io
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ADMA 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250508T235959
+DTEND;TZID="UTC-12:00":20250509T000059
+DTSTAMP:20250830T065443Z
+UID:86242135-ff98-4e3b-bd1e-65e17952f777
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ 会议时间: October 22 - 24\, 2025\n📍 会议地点: 
+ Kyoto\, Japan\n⏰ 原始截止时间 (AoE): 2025-05-08 23:59:59\n分类: 
+ 数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\n会议官网: ht
+ tps://adma2025.github.io\nDBLP索引: https://dblp.org/db/conf/adma
+LOCATION:Kyoto\, Japan
+URL:https://adma2025.github.io
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2024 截稿日期 [first round]
+DTSTART;TZID="UTC-12:00":20240320T235959
+DTEND;TZID="UTC-12:00":20240321T000059
+DTSTAMP:20250830T065443Z
+UID:ca743bc1-a443-41e8-b66e-7c98a27669b4
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ 会议时间: August 30 - Septemper 1\, 2024\n📍 会议
+ 地点: Jinhua\, China\n⏰ 原始截止时间 (UTC-12): 2024-03-20 23:59:
+ 59\n分类: 数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\n会
+ 议官网: https://apweb2024.zjnu.edu.cn/\nDBLP索引: https://dblp.org/db
+ /conf/APWeb
+LOCATION:Jinhua\, China
+URL:https://apweb2024.zjnu.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2024 截稿日期 [second round]
+DTSTART;TZID="UTC-12:00":20240523T235959
+DTEND;TZID="UTC-12:00":20240524T000059
+DTSTAMP:20250830T065443Z
+UID:93db78c4-6da2-405f-b462-bae0608864df
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ 会议时间: August 30 - Septemper 1\, 2024\n📍 会议
+ 地点: Jinhua\, China\n⏰ 原始截止时间 (UTC-12): 2024-05-23 23:59:
+ 59\n分类: 数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\n会
+ 议官网: https://apweb2024.zjnu.edu.cn/\nDBLP索引: https://dblp.org/db
+ /conf/APWeb
+LOCATION:Jinhua\, China
+URL:https://apweb2024.zjnu.edu.cn/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2025 截稿日期 [first round]
+DTSTART;TZID="UTC-08:00":20250302T235959
+DTEND;TZID="UTC-08:00":20250303T000059
+DTSTAMP:20250830T065443Z
+UID:0dd9cf55-d348-4c62-b610-6619e920ffa2
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ 会议时间: August 28-30\, 2025\n📍 会议地点: She
+ nyang\, China\n⏰ 原始截止时间 (UTC-8): 2025-03-02 23:59:59\n分类
+ : 数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\n会议官网: 
+ https://apweb2025.sau.edu.cn/\nDBLP索引: https://dblp.org/db/conf/APWeb
+LOCATION:Shenyang\, China
+URL:https://apweb2025.sau.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2025 截稿日期 [second round]
+DTSTART;TZID="UTC-08:00":20250504T235959
+DTEND;TZID="UTC-08:00":20250505T000059
+DTSTAMP:20250830T065443Z
+UID:30e09e07-bc86-44d4-b0ef-d73380e84329
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ 会议时间: August 28-30\, 2025\n📍 会议地点: She
+ nyang\, China\n⏰ 原始截止时间 (UTC-8): 2025-05-04 23:59:59\n分类
+ : 数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\n会议官网: 
+ https://apweb2025.sau.edu.cn/\nDBLP索引: https://dblp.org/db/conf/APWeb
+LOCATION:Shenyang\, China
+URL:https://apweb2025.sau.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECIR 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20241002T235959
+DTEND;TZID="UTC-12:00":20241003T000059
+DTSTAMP:20250830T065443Z
+UID:b500b899-fea9-46de-8bb5-51ab4018f484
+DESCRIPTION:European Conference on Information Retrieval\n🗓️ 会议
+ 时间: April 06 - April 10\, 2025\n📍 会议地点: Lucca\, Italy\n⏰ 
+ 原始截止时间 (UTC-12): 2024-10-02 23:59:59\n分类: 数据库/数据
+ 挖掘/内容检索 (DB)\nCCF C\, CORE A\, THCPL B\n会议官网: https://
+ ecir2025.eu/key-dates/\nDBLP索引: https://dblp.org/db/conf/ecir
+LOCATION:Lucca\, Italy
+URL:https://ecir2025.eu/key-dates/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PAKDD 2025 截稿日期
+DTSTART;TZID="UTC-08:00":20241130T235959
+DTEND;TZID="UTC-08:00":20241201T000059
+DTSTAMP:20250830T065444Z
+UID:245fac2a-4668-476d-9da2-8a021841f02d
+DESCRIPTION:Pacific-Asia Conference on Knowledge Discovery and Data Mining
+ \n🗓️ 会议时间: June 10-13\, 2025\n📍 会议地点: Sydney\, Aus
+ tralia\n⏰ 原始截止时间 (UTC-8): 2024-11-30 23:59:59\n分类: 数
+ 据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE B\n会议官网: https
+ ://pakdd2025.org\nDBLP索引: https://dblp.org/db/conf/pakdd
+LOCATION:Sydney\, Australia
+URL:https://pakdd2025.org
+END:VEVENT
+END:VCALENDAR

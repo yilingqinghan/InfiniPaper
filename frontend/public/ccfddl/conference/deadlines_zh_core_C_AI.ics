@@ -1,0 +1,152 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICANN 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230409T235959
+DTEND;TZID="UTC-12:00":20230410T000059
+DTSTAMP:20250830T065443Z
+UID:01a9fc83-3c4b-4f3c-8eaa-63b25e4acbc1
+DESCRIPTION:International Conference on Artificial Neural Networks\n🗓
+ ️ 会议时间: Sept 26-29\, 2023\n📍 会议地点: Crete\, Greece\n
+ ⏰ 原始截止时间 (UTC-12): 2023-04-09 23:59:59\n分类: 人工智能
+  (AI)\nCCF C\, CORE C\n会议官网: https://e-nns.org/icann2023/\nDBLP索
+ 引: https://dblp.org/db/conf/icann
+LOCATION:Crete\, Greece
+URL:https://e-nns.org/icann2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICANN 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240325T235959
+DTEND;TZID="UTC-12:00":20240326T000059
+DTSTAMP:20250830T065443Z
+UID:2e298f49-2db4-4690-9a57-022c880a9562
+DESCRIPTION:International Conference on Artificial Neural Networks\n🗓
+ ️ 会议时间: Sept 17-20\, 2024\n📍 会议地点: Lugano-Viganello\,
+  Switzerland\n⏰ 原始截止时间 (AoE): 2024-03-25 23:59:59\n分类: 
+ 人工智能 (AI)\nCCF C\, CORE C\n会议官网: https://e-nns.org/icann20
+ 24/\nDBLP索引: https://dblp.org/db/conf/icann
+LOCATION:Lugano-Viganello\, Switzerland
+URL:https://e-nns.org/icann2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICANN 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250329T235959
+DTEND;TZID="UTC-12:00":20250330T000059
+DTSTAMP:20250830T065443Z
+UID:a4008246-fe85-4911-8104-d6c9f4872dfa
+DESCRIPTION:International Conference on Artificial Neural Networks\n🗓
+ ️ 会议时间: Sept 9-12\, 2025\n📍 会议地点: Kaunas\, Lithuania\
+ n⏰ 原始截止时间 (AoE): 2025-03-29 23:59:59\n分类: 人工智能 (
+ AI)\nCCF C\, CORE C\n会议官网: https://e-nns.org/icann2025/\nDBLP索
+ 引: https://dblp.org/db/conf/icann
+LOCATION:Kaunas\, Lithuania
+URL:https://e-nns.org/icann2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-06:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-06:00
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0600
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICCBR 2024 截稿日期 [Early Submission]
+DTSTART;TZID="UTC-06:00":20240226T000000
+DTEND;TZID="UTC-06:00":20240226T000100
+DTSTAMP:20250830T065443Z
+UID:ad8c444a-b9a2-4f22-924d-37975b7cd6a9
+DESCRIPTION:International Conference on Case-Based Reasoning\n🗓️ 会
+ 议时间: June 1-4\, 2024\n📍 会议地点: Merida\, Yucatan\, Mexico\n
+ ⏰ 原始截止时间 (UTC-6): 2024-02-26 00:00:00\n分类: 人工智能 
+ (AI)\nCCF B\, CORE C\n会议官网: https://www.iccbr2024.org/\nDBLP索引
+ : https://dblp.org/db/conf/iccbr
+LOCATION:Merida\, Yucatan\, Mexico
+URL:https://www.iccbr2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICCBR 2024 截稿日期 [Late Submission]
+DTSTART;TZID="UTC-06:00":20240402T000000
+DTEND;TZID="UTC-06:00":20240402T000100
+DTSTAMP:20250830T065443Z
+UID:bfc214b4-4922-44f3-b446-d504400337ed
+DESCRIPTION:International Conference on Case-Based Reasoning\n🗓️ 会
+ 议时间: June 1-4\, 2024\n📍 会议地点: Merida\, Yucatan\, Mexico\n
+ ⏰ 原始截止时间 (UTC-6): 2024-04-02 00:00:00\n分类: 人工智能 
+ (AI)\nCCF B\, CORE C\n会议官网: https://www.iccbr2024.org/\nDBLP索引
+ : https://dblp.org/db/conf/iccbr
+LOCATION:Merida\, Yucatan\, Mexico
+URL:https://www.iccbr2024.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:KSEM 2023 截稿日期
+DTSTART;TZID="UTC-08:00":20230428T235900
+DTEND;TZID="UTC-08:00":20230429T000000
+DTSTAMP:20250830T065443Z
+UID:4d0aa54a-a894-4993-9617-11d4731618ce
+DESCRIPTION:International Conference on Knowledge Science\, Engineering an
+ d Management\n🗓️ 会议时间: Aug 16-18\, 2023\n📍 会议地点: G
+ uangzhou\, China\n⏰ 原始截止时间 (UTC-8): 2023-04-28 23:59:00\n分
+ 类: 人工智能 (AI)\nCCF C\, CORE C\n会议官网: https://www.ksem2023
+ .conferences.academy/\nDBLP索引: https://dblp.org/db/conf/ksem
+LOCATION:Guangzhou\, China
+URL:https://www.ksem2023.conferences.academy/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:KSEM 2024 截稿日期
+DTSTART:20240215T235900Z
+DTEND:20240216T000000Z
+DTSTAMP:20250830T065443Z
+UID:5fcf2c1b-faba-447d-9c9c-1ba091d28e56
+DESCRIPTION:International Conference on Knowledge Science\, Engineering an
+ d Management\n🗓️ 会议时间: Aug 16-18\, 2024\n📍 会议地点: B
+ irmingham\n⏰ 原始截止时间 (UTC+0): 2024-02-15 23:59:00\n分类: 
+ 人工智能 (AI)\nCCF C\, CORE C\n会议官网: https://ai-edge.net/\nDBL
+ P索引: https://dblp.org/db/conf/ksem
+LOCATION:Birmingham
+URL:https://ai-edge.net/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:KSEM 2025 截稿日期
+DTSTART:20250320T235959Z
+DTEND:20250321T000059Z
+DTSTAMP:20250830T065443Z
+UID:098c0ec3-d508-4bc8-9e85-469490a45bcf
+DESCRIPTION:International Conference on Knowledge Science\, Engineering an
+ d Management\n🗓️ 会议时间: August 4-6\, 2025\n📍 会议地点: 
+ Macao SAR\, China\n⏰ 原始截止时间 (UTC+0): 2025-03-20 23:59:59\n
+ 分类: 人工智能 (AI)\nCCF C\, CORE C\n会议官网: https://ksem2025.
+ scimeeting.cn/\nDBLP索引: https://dblp.org/db/conf/ksem
+LOCATION:Macao SAR\, China
+URL:https://ksem2025.scimeeting.cn/
+END:VEVENT
+END:VCALENDAR

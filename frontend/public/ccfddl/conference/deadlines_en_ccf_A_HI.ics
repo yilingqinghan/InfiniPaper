@@ -1,0 +1,404 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CHI 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20230907T235959
+DTEND;TZID="UTC-12:00":20230908T000059
+DTSTAMP:20250830T065447Z
+UID:03ad61d7-7963-41f0-8ec8-ab5e083c5acc
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ Date: May 11 - May 16\, 2024\n📍 Location: Honolulu\, Hawaii\, USA\n⏰ 
+ Original Deadline (AoE): 2023-09-07 23:59:59\nCategory: 人机交互与普
+ 适计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website: http://chi2
+ 024.acm.org/\nDBLP Index: https://dblp.org/db/conf/chi
+LOCATION:Honolulu\, Hawaii\, USA
+URL:http://chi2024.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHI 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240905T235959
+DTEND;TZID="UTC-12:00":20240906T000059
+DTSTAMP:20250830T065447Z
+UID:5e5c6c6e-c3c4-43af-b9e3-3932e3ef3ef9
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ Date: April 26 - May 1\, 2025\n📍 Location: Yokohama\, Japan\n⏰ Origin
+ al Deadline (AoE): 2024-09-05 23:59:59\nCategory: 人机交互与普适计
+ 算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://chi2025.a
+ cm.org/\nDBLP Index: https://dblp.org/db/conf/chi
+LOCATION:Yokohama\, Japan
+URL:https://chi2025.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHI 2026 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250904T235959
+DTEND;TZID="UTC-12:00":20250905T000059
+DTSTAMP:20250830T065447Z
+UID:575abf1e-9b0f-46b3-af15-38de9bf7c896
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ Date: April 13 - 17\, 2026\n📍 Location: Centre de Convencions Internaci
+ onal de Barcelona\, Barcelona\, Spain\n⏰ Original Deadline (AoE): 2025-0
+ 9-04 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF A\, CORE A*
+ \, THCPL A\nConference Website: https://chi2026.acm.org/\nDBLP Index: http
+ s://dblp.org/db/conf/chi
+LOCATION:Centre de Convencions Internacional de Barcelona\, Barcelona\, Sp
+ ain
+URL:https://chi2026.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2021 Deadline
+DTSTART;TZID="UTC-12:00":20210415T235959
+DTEND;TZID="UTC-12:00":20210416T000059
+DTSTAMP:20250830T065447Z
+UID:879b9f12-6151-447c-9684-984a361e78a8
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ Date: TBD\n📍 Location: Virtual\n⏰ Original Dead
+ line (AoE): 2021-04-15 23:59:59\nCategory: 人机交互与普适计算 (HI
+ )\nCCF A\, CORE A\, THCPL A\nConference Website: https://cscw.acm.org/2021
+ /\nDBLP Index: https://dblp.org/db/conf/cscw
+LOCATION:Virtual
+URL:https://cscw.acm.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2022 Deadline
+DTSTART;TZID="UTC-12:00":20220115T235959
+DTEND;TZID="UTC-12:00":20220116T000059
+DTSTAMP:20250830T065447Z
+UID:ee3b5427-37ef-4a4b-90c9-7e27efc1548a
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ Date: January 1\, 2022\n📍 Location: Taiwan\n⏰ O
+ riginal Deadline (AoE): 2022-01-15 23:59:59\nCategory: 人机交互与普
+ 适计算 (HI)\nCCF A\, CORE A\, THCPL A\nConference Website: https://cscw
+ .acm.org/2022/\nDBLP Index: https://dblp.org/db/conf/cscw
+LOCATION:Taiwan
+URL:https://cscw.acm.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2023 Deadline
+DTSTART;TZID="UTC-12:00":20230601T235959
+DTEND;TZID="UTC-12:00":20230602T000059
+DTSTAMP:20250830T065447Z
+UID:f040ec34-944f-4d9a-b61c-3026a8fa612e
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ Date: October 14-18\, 2023\n📍 Location: Minneapol
+ is\, MN\, USA\n⏰ Original Deadline (AoE): 2023-06-01 23:59:59\nCategory:
+  人机交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\nConference We
+ bsite: https://cscw.acm.org/2023/\nDBLP Index: https://dblp.org/db/conf/cs
+ cw
+LOCATION:Minneapolis\, MN\, USA
+URL:https://cscw.acm.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240116T235959
+DTEND;TZID="UTC-12:00":20240117T000059
+DTSTAMP:20250830T065447Z
+UID:4f79d52d-5e61-4bc8-b512-0b9eb251126c
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ Date: November 9-13\, 2024\n📍 Location: San José
+ \, Costa Rica\n⏰ Original Deadline (AoE): 2024-01-16 23:59:59\nCategory:
+  人机交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\nConference We
+ bsite: https://cscw.acm.org/2024/\nDBLP Index: https://dblp.org/db/conf/cs
+ cw
+LOCATION:San José\, Costa Rica
+URL:https://cscw.acm.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2025 Deadline [JULY 2024 CYCLE]
+DTSTART;TZID="UTC-12:00":20240702T235959
+DTEND;TZID="UTC-12:00":20240703T000059
+DTSTAMP:20250830T065447Z
+UID:668c80a3-4f8a-4b26-9673-a213c9768920
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ Date: October 18-22\, 2025\n📍 Location: Bergen\, 
+ Norway\n⏰ Original Deadline (AoE): 2024-07-02 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\nConference Website: 
+ https://cscw.acm.org/2025/\nDBLP Index: https://dblp.org/db/conf/cscw
+LOCATION:Bergen\, Norway
+URL:https://cscw.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2025 Deadline [OCTOBER 2024 CYCLE]
+DTSTART;TZID="UTC-12:00":20241029T235959
+DTEND;TZID="UTC-12:00":20241030T000059
+DTSTAMP:20250830T065447Z
+UID:9379a08c-ba12-40cd-8bd6-1e64be05e5c9
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ Date: October 18-22\, 2025\n📍 Location: Bergen\, 
+ Norway\n⏰ Original Deadline (AoE): 2024-10-29 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\nConference Website: 
+ https://cscw.acm.org/2025/\nDBLP Index: https://dblp.org/db/conf/cscw
+LOCATION:Bergen\, Norway
+URL:https://cscw.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2026 Deadline [MAY 2025 SUBMISSION CYCLE]
+DTSTART;TZID="UTC-12:00":20250513T235959
+DTEND;TZID="UTC-12:00":20250514T000059
+DTSTAMP:20250830T065447Z
+UID:6ceea4a3-43c3-4017-a352-e6602075b435
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ Date: TBD\n📍 Location: USA\n⏰ Original Deadline
+  (AoE): 2025-05-13 23:59:59\nCategory: 人机交互与普适计算 (HI)\nC
+ CF A\, CORE A\, THCPL A\nConference Website: https://cscw.acm.org/2026/\nD
+ BLP Index: https://dblp.org/db/conf/cscw
+LOCATION:USA
+URL:https://cscw.acm.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2025 Deadline [first round]
+DTSTART;TZID="UTC-12:00":20250201T235959
+DTEND;TZID="UTC-12:00":20250202T000059
+DTSTAMP:20250830T065447Z
+UID:05db94ad-5c74-406b-8080-e793fa15d4a6
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 12-16\, 2025\n📍 Location: Espoo\, Fin
+ land\n⏰ Original Deadline (AoE): 2025-02-01 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https://w
+ ww.ubicomp.org/ubicomp-iswc-2025\nDBLP Index: https://dblp.org/db/conf/huc
+LOCATION:Espoo\, Finland
+URL:https://www.ubicomp.org/ubicomp-iswc-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2025 Deadline [second round]
+DTSTART;TZID="UTC-12:00":20250501T235959
+DTEND;TZID="UTC-12:00":20250502T000059
+DTSTAMP:20250830T065447Z
+UID:ba68df76-a92e-4e84-8ee0-b6592e8161cf
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 12-16\, 2025\n📍 Location: Espoo\, Fin
+ land\n⏰ Original Deadline (AoE): 2025-05-01 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https://w
+ ww.ubicomp.org/ubicomp-iswc-2025\nDBLP Index: https://dblp.org/db/conf/huc
+LOCATION:Espoo\, Finland
+URL:https://www.ubicomp.org/ubicomp-iswc-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2025 Deadline [third round (only for resubmissions af
+ ter major revisions)]
+DTSTART;TZID="UTC-12:00":20250801T235959
+DTEND;TZID="UTC-12:00":20250802T000059
+DTSTAMP:20250830T065447Z
+UID:441840c0-4a06-4230-a89c-b4bad136f520
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 12-16\, 2025\n📍 Location: Espoo\, Fin
+ land\n⏰ Original Deadline (AoE): 2025-08-01 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https://w
+ ww.ubicomp.org/ubicomp-iswc-2025\nDBLP Index: https://dblp.org/db/conf/huc
+LOCATION:Espoo\, Finland
+URL:https://www.ubicomp.org/ubicomp-iswc-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2025 Deadline [fourth round]
+DTSTART;TZID="UTC-12:00":20251101T235959
+DTEND;TZID="UTC-12:00":20251102T000059
+DTSTAMP:20250830T065447Z
+UID:f520cf1c-6acc-48e6-81cd-e7ad45090073
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 12-16\, 2025\n📍 Location: Espoo\, Fin
+ land\n⏰ Original Deadline (AoE): 2025-11-01 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https://w
+ ww.ubicomp.org/ubicomp-iswc-2025\nDBLP Index: https://dblp.org/db/conf/huc
+LOCATION:Espoo\, Finland
+URL:https://www.ubicomp.org/ubicomp-iswc-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2024 Deadline [first round]
+DTSTART;TZID="UTC-12:00":20240201T235959
+DTEND;TZID="UTC-12:00":20240202T000059
+DTSTAMP:20250830T065447Z
+UID:2f0feae4-c6b6-48e1-84e3-5d4f22125cc9
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 5-9\, 2024\n📍 Location: Melbourne\, A
+ ustralia\n⏰ Original Deadline (AoE): 2024-02-01 23:59:59\nCategory: 人
+ 机交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https:
+ //www.ubicomp.org/ubicomp-iswc-2024\nDBLP Index: https://dblp.org/db/conf/
+ huc
+LOCATION:Melbourne\, Australia
+URL:https://www.ubicomp.org/ubicomp-iswc-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2024 Deadline [second round]
+DTSTART;TZID="UTC-12:00":20240501T235959
+DTEND;TZID="UTC-12:00":20240502T000059
+DTSTAMP:20250830T065447Z
+UID:08d59fac-aaa6-4363-810f-474be5280ff7
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 5-9\, 2024\n📍 Location: Melbourne\, A
+ ustralia\n⏰ Original Deadline (AoE): 2024-05-01 23:59:59\nCategory: 人
+ 机交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https:
+ //www.ubicomp.org/ubicomp-iswc-2024\nDBLP Index: https://dblp.org/db/conf/
+ huc
+LOCATION:Melbourne\, Australia
+URL:https://www.ubicomp.org/ubicomp-iswc-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2024 Deadline [third round (only for revised paper)]
+DTSTART;TZID="UTC-12:00":20240801T235959
+DTEND;TZID="UTC-12:00":20240802T000059
+DTSTAMP:20250830T065447Z
+UID:42659e10-bcbc-460d-9788-95e2c2cd7f55
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 5-9\, 2024\n📍 Location: Melbourne\, A
+ ustralia\n⏰ Original Deadline (AoE): 2024-08-01 23:59:59\nCategory: 人
+ 机交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https:
+ //www.ubicomp.org/ubicomp-iswc-2024\nDBLP Index: https://dblp.org/db/conf/
+ huc
+LOCATION:Melbourne\, Australia
+URL:https://www.ubicomp.org/ubicomp-iswc-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2024 Deadline [fourth round]
+DTSTART;TZID="UTC-12:00":20241101T235959
+DTEND;TZID="UTC-12:00":20241102T000059
+DTSTAMP:20250830T065447Z
+UID:fed7202b-653e-42be-b697-af7f6ae07036
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 5-9\, 2024\n📍 Location: Melbourne\, A
+ ustralia\n⏰ Original Deadline (AoE): 2024-11-01 23:59:59\nCategory: 人
+ 机交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https:
+ //www.ubicomp.org/ubicomp-iswc-2024\nDBLP Index: https://dblp.org/db/conf/
+ huc
+LOCATION:Melbourne\, Australia
+URL:https://www.ubicomp.org/ubicomp-iswc-2024
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2023 Deadline [first round]
+DTSTART;TZID="UTC-05:00":20230215T235959
+DTEND;TZID="UTC-05:00":20230216T000059
+DTSTAMP:20250830T065447Z
+UID:1d2e28b4-e521-4e5d-b657-60487a36104d
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 8-12\, 2023\n📍 Location: Cancún\, Me
+ xico\n⏰ Original Deadline (UTC-5): 2023-02-15 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https://w
+ ww.ubicomp.org/ubicomp-iswc-2023\nDBLP Index: https://dblp.org/db/conf/huc
+LOCATION:Cancún\, Mexico
+URL:https://www.ubicomp.org/ubicomp-iswc-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2023 Deadline [second round]
+DTSTART;TZID="UTC-05:00":20230515T235959
+DTEND;TZID="UTC-05:00":20230516T000059
+DTSTAMP:20250830T065447Z
+UID:3caa9404-6b2d-4151-8dc1-becbe889d278
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 8-12\, 2023\n📍 Location: Cancún\, Me
+ xico\n⏰ Original Deadline (UTC-5): 2023-05-15 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https://w
+ ww.ubicomp.org/ubicomp-iswc-2023\nDBLP Index: https://dblp.org/db/conf/huc
+LOCATION:Cancún\, Mexico
+URL:https://www.ubicomp.org/ubicomp-iswc-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2023 Deadline [third round]
+DTSTART;TZID="UTC-05:00":20230815T235959
+DTEND;TZID="UTC-05:00":20230816T000059
+DTSTAMP:20250830T065447Z
+UID:b54c9ccb-0279-4d4d-80e0-24bf9ec733fc
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 8-12\, 2023\n📍 Location: Cancún\, Me
+ xico\n⏰ Original Deadline (UTC-5): 2023-08-15 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https://w
+ ww.ubicomp.org/ubicomp-iswc-2023\nDBLP Index: https://dblp.org/db/conf/huc
+LOCATION:Cancún\, Mexico
+URL:https://www.ubicomp.org/ubicomp-iswc-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2023 Deadline [fourth round]
+DTSTART;TZID="UTC-05:00":20231115T235959
+DTEND;TZID="UTC-05:00":20231116T000059
+DTSTAMP:20250830T065447Z
+UID:0535d577-b7bf-4555-8d36-b324c6989b86
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ Date: October 8-12\, 2023\n📍 Location: Cancún\, Me
+ xico\n⏰ Original Deadline (UTC-5): 2023-11-15 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, THCPL A\nConference Website: https://w
+ ww.ubicomp.org/ubicomp-iswc-2023\nDBLP Index: https://dblp.org/db/conf/huc
+LOCATION:Cancún\, Mexico
+URL:https://www.ubicomp.org/ubicomp-iswc-2023
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UIST 2024 Deadline [abstract deadline]
+DTSTART;TZID="UTC-08:00":20240327T170000
+DTEND;TZID="UTC-08:00":20240327T170100
+DTSTAMP:20250830T065447Z
+UID:f39c6f4d-b7f5-47b9-abea-c9fbd02a5e56
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ Date: October 13-16\, 2024\n📍 Location: Pittsburgh\, Pennsylvania\,
+  USA\n⏰ Original Deadline (UTC-8): 2024-03-27 17:00:00\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website:
+  https://uist.acm.org/2024\nDBLP Index: https://dblp.org/db/conf/uist
+LOCATION:Pittsburgh\, Pennsylvania\, USA
+URL:https://uist.acm.org/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2024 Deadline [paper deadline]
+DTSTART;TZID="UTC-08:00":20240403T170000
+DTEND;TZID="UTC-08:00":20240403T170100
+DTSTAMP:20250830T065447Z
+UID:38b4ee61-a729-43f1-bc5d-33c733d59a3b
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ Date: October 13-16\, 2024\n📍 Location: Pittsburgh\, Pennsylvania\,
+  USA\n⏰ Original Deadline (UTC-8): 2024-04-03 17:00:00\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website:
+  https://uist.acm.org/2024\nDBLP Index: https://dblp.org/db/conf/uist
+LOCATION:Pittsburgh\, Pennsylvania\, USA
+URL:https://uist.acm.org/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2025 Deadline [abstract deadline]
+DTSTART;TZID="UTC-08:00":20250402T170000
+DTEND;TZID="UTC-08:00":20250402T170100
+DTSTAMP:20250830T065447Z
+UID:37cb69a7-2c00-41bb-815d-5c17b8865202
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ Date: Sep 28 - Oct 1\, 2025\n📍 Location: Busan\, Korea\n⏰ Origina
+ l Deadline (UTC-8): 2025-04-02 17:00:00\nCategory: 人机交互与普适
+ 计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://uist.a
+ cm.org/2025/\nDBLP Index: https://dblp.org/db/conf/uist
+LOCATION:Busan\, Korea
+URL:https://uist.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2025 Deadline [paper deadline]
+DTSTART;TZID="UTC-08:00":20250409T170000
+DTEND;TZID="UTC-08:00":20250409T170100
+DTSTAMP:20250830T065447Z
+UID:17e84619-f13b-4d6d-a714-5a5d4bd3d71b
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ Date: Sep 28 - Oct 1\, 2025\n📍 Location: Busan\, Korea\n⏰ Origina
+ l Deadline (UTC-8): 2025-04-09 17:00:00\nCategory: 人机交互与普适
+ 计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://uist.a
+ cm.org/2025/\nDBLP Index: https://dblp.org/db/conf/uist
+LOCATION:Busan\, Korea
+URL:https://uist.acm.org/2025/
+END:VEVENT
+END:VCALENDAR

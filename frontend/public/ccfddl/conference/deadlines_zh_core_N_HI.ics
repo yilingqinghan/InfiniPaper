@@ -1,0 +1,232 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ISS 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250314T235959
+DTEND;TZID="UTC-12:00":20250315T000059
+DTSTAMP:20250830T065444Z
+UID:9197f623-667d-4db3-a4e5-07148c5b78cb
+DESCRIPTION:ACM International Conference on Interactive Surfaces and Space
+ s\n🗓️ 会议时间: TBD\n📍 会议地点: TBD\n⏰ 原始截止时
+ 间 (AoE): 2025-03-14 23:59:59\n分类: 人机交互与普适计算 (HI)\n
+ CCF B\n会议官网: https://iss.acm.org/2025/\nDBLP索引: https://dblp.o
+ rg/db/conf/tabletop
+LOCATION:TBD
+URL:https://iss.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISS 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250725T235959
+DTEND;TZID="UTC-12:00":20250726T000059
+DTSTAMP:20250830T065444Z
+UID:b65e6ed8-aa26-4453-a848-483cad66ec3a
+DESCRIPTION:ACM International Conference on Interactive Surfaces and Space
+ s\n🗓️ 会议时间: TBD\n📍 会议地点: TBD\n⏰ 原始截止时
+ 间 (AoE): 2025-07-25 23:59:59\n分类: 人机交互与普适计算 (HI)\n
+ CCF B\n会议官网: https://iss.acm.org/2025/\nDBLP索引: https://dblp.o
+ rg/db/conf/tabletop
+LOCATION:TBD
+URL:https://iss.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2025 截稿日期 [first round]
+DTSTART;TZID="UTC-12:00":20250201T235959
+DTEND;TZID="UTC-12:00":20250202T000059
+DTSTAMP:20250830T065444Z
+UID:39cfb651-17cb-40cb-8065-b0fe4ab4a73c
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 12-16\, 2025\n📍 会议地点:
+  Espoo\, Finland\n⏰ 原始截止时间 (AoE): 2025-02-01 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: http
+ s://www.ubicomp.org/ubicomp-iswc-2025\nDBLP索引: https://dblp.org/db/con
+ f/huc
+LOCATION:Espoo\, Finland
+URL:https://www.ubicomp.org/ubicomp-iswc-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2025 截稿日期 [second round]
+DTSTART;TZID="UTC-12:00":20250501T235959
+DTEND;TZID="UTC-12:00":20250502T000059
+DTSTAMP:20250830T065444Z
+UID:c180e849-7af9-4766-b097-a5d5c23d1ed4
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 12-16\, 2025\n📍 会议地点:
+  Espoo\, Finland\n⏰ 原始截止时间 (AoE): 2025-05-01 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: http
+ s://www.ubicomp.org/ubicomp-iswc-2025\nDBLP索引: https://dblp.org/db/con
+ f/huc
+LOCATION:Espoo\, Finland
+URL:https://www.ubicomp.org/ubicomp-iswc-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2025 截稿日期 [third round (only for resubmission
+ s after major revisions)]
+DTSTART;TZID="UTC-12:00":20250801T235959
+DTEND;TZID="UTC-12:00":20250802T000059
+DTSTAMP:20250830T065444Z
+UID:f0ea44d2-5cc3-4f94-bf19-2d39de595aaa
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 12-16\, 2025\n📍 会议地点:
+  Espoo\, Finland\n⏰ 原始截止时间 (AoE): 2025-08-01 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: http
+ s://www.ubicomp.org/ubicomp-iswc-2025\nDBLP索引: https://dblp.org/db/con
+ f/huc
+LOCATION:Espoo\, Finland
+URL:https://www.ubicomp.org/ubicomp-iswc-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2025 截稿日期 [fourth round]
+DTSTART;TZID="UTC-12:00":20251101T235959
+DTEND;TZID="UTC-12:00":20251102T000059
+DTSTAMP:20250830T065444Z
+UID:0d604121-2153-4774-8fc2-90c8f80b1f2c
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 12-16\, 2025\n📍 会议地点:
+  Espoo\, Finland\n⏰ 原始截止时间 (AoE): 2025-11-01 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: http
+ s://www.ubicomp.org/ubicomp-iswc-2025\nDBLP索引: https://dblp.org/db/con
+ f/huc
+LOCATION:Espoo\, Finland
+URL:https://www.ubicomp.org/ubicomp-iswc-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2024 截稿日期 [first round]
+DTSTART;TZID="UTC-12:00":20240201T235959
+DTEND;TZID="UTC-12:00":20240202T000059
+DTSTAMP:20250830T065444Z
+UID:b2a96b0c-5ea7-4798-a271-bbe7c0b4747c
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 5-9\, 2024\n📍 会议地点: M
+ elbourne\, Australia\n⏰ 原始截止时间 (AoE): 2024-02-01 23:59:59\n
+ 分类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: h
+ ttps://www.ubicomp.org/ubicomp-iswc-2024\nDBLP索引: https://dblp.org/db/
+ conf/huc
+LOCATION:Melbourne\, Australia
+URL:https://www.ubicomp.org/ubicomp-iswc-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2024 截稿日期 [second round]
+DTSTART;TZID="UTC-12:00":20240501T235959
+DTEND;TZID="UTC-12:00":20240502T000059
+DTSTAMP:20250830T065444Z
+UID:d59b1c7b-4072-4dff-b874-3743d3d156e9
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 5-9\, 2024\n📍 会议地点: M
+ elbourne\, Australia\n⏰ 原始截止时间 (AoE): 2024-05-01 23:59:59\n
+ 分类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: h
+ ttps://www.ubicomp.org/ubicomp-iswc-2024\nDBLP索引: https://dblp.org/db/
+ conf/huc
+LOCATION:Melbourne\, Australia
+URL:https://www.ubicomp.org/ubicomp-iswc-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2024 截稿日期 [third round (only for revised pape
+ r)]
+DTSTART;TZID="UTC-12:00":20240801T235959
+DTEND;TZID="UTC-12:00":20240802T000059
+DTSTAMP:20250830T065444Z
+UID:3aec4264-71bb-483f-9092-1b1593a82012
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 5-9\, 2024\n📍 会议地点: M
+ elbourne\, Australia\n⏰ 原始截止时间 (AoE): 2024-08-01 23:59:59\n
+ 分类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: h
+ ttps://www.ubicomp.org/ubicomp-iswc-2024\nDBLP索引: https://dblp.org/db/
+ conf/huc
+LOCATION:Melbourne\, Australia
+URL:https://www.ubicomp.org/ubicomp-iswc-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2024 截稿日期 [fourth round]
+DTSTART;TZID="UTC-12:00":20241101T235959
+DTEND;TZID="UTC-12:00":20241102T000059
+DTSTAMP:20250830T065444Z
+UID:6814a2ae-0083-4c68-840f-1f823c055e5b
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 5-9\, 2024\n📍 会议地点: M
+ elbourne\, Australia\n⏰ 原始截止时间 (AoE): 2024-11-01 23:59:59\n
+ 分类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: h
+ ttps://www.ubicomp.org/ubicomp-iswc-2024\nDBLP索引: https://dblp.org/db/
+ conf/huc
+LOCATION:Melbourne\, Australia
+URL:https://www.ubicomp.org/ubicomp-iswc-2024
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2023 截稿日期 [first round]
+DTSTART;TZID="UTC-05:00":20230215T235959
+DTEND;TZID="UTC-05:00":20230216T000059
+DTSTAMP:20250830T065444Z
+UID:efa3a020-c871-4c67-80f4-fb960230c8b3
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 8-12\, 2023\n📍 会议地点: 
+ Cancún\, Mexico\n⏰ 原始截止时间 (UTC-5): 2023-02-15 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: http
+ s://www.ubicomp.org/ubicomp-iswc-2023\nDBLP索引: https://dblp.org/db/con
+ f/huc
+LOCATION:Cancún\, Mexico
+URL:https://www.ubicomp.org/ubicomp-iswc-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2023 截稿日期 [second round]
+DTSTART;TZID="UTC-05:00":20230515T235959
+DTEND;TZID="UTC-05:00":20230516T000059
+DTSTAMP:20250830T065444Z
+UID:94721a04-59f6-4ec5-ab0c-b11fb706c1db
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 8-12\, 2023\n📍 会议地点: 
+ Cancún\, Mexico\n⏰ 原始截止时间 (UTC-5): 2023-05-15 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: http
+ s://www.ubicomp.org/ubicomp-iswc-2023\nDBLP索引: https://dblp.org/db/con
+ f/huc
+LOCATION:Cancún\, Mexico
+URL:https://www.ubicomp.org/ubicomp-iswc-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2023 截稿日期 [third round]
+DTSTART;TZID="UTC-05:00":20230815T235959
+DTEND;TZID="UTC-05:00":20230816T000059
+DTSTAMP:20250830T065444Z
+UID:362a28df-4b6f-47d1-aaa0-9201965ea6b4
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 8-12\, 2023\n📍 会议地点: 
+ Cancún\, Mexico\n⏰ 原始截止时间 (UTC-5): 2023-08-15 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: http
+ s://www.ubicomp.org/ubicomp-iswc-2023\nDBLP索引: https://dblp.org/db/con
+ f/huc
+LOCATION:Cancún\, Mexico
+URL:https://www.ubicomp.org/ubicomp-iswc-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UbiComp/ISWC 2023 截稿日期 [fourth round]
+DTSTART;TZID="UTC-05:00":20231115T235959
+DTEND;TZID="UTC-05:00":20231116T000059
+DTSTAMP:20250830T065444Z
+UID:16c339b4-fb35-4684-9d20-f9abbdde14bb
+DESCRIPTION:ACM International Joint Conference on Pervasive and Ubiquitous
+  Computing\n🗓️ 会议时间: October 8-12\, 2023\n📍 会议地点: 
+ Cancún\, Mexico\n⏰ 原始截止时间 (UTC-5): 2023-11-15 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, THCPL A\n会议官网: http
+ s://www.ubicomp.org/ubicomp-iswc-2023\nDBLP索引: https://dblp.org/db/con
+ f/huc
+LOCATION:Cancún\, Mexico
+URL:https://www.ubicomp.org/ubicomp-iswc-2023
+END:VEVENT
+END:VCALENDAR

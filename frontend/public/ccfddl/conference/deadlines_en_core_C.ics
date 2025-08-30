@@ -1,0 +1,1128 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICANN 2023 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20230409T235959
+DTEND;TZID="UTC-12:00":20230410T000059
+DTSTAMP:20250830T065447Z
+UID:b72a5345-eec5-45e3-974f-ffea8305a91a
+DESCRIPTION:International Conference on Artificial Neural Networks\n🗓
+ ️ Date: Sept 26-29\, 2023\n📍 Location: Crete\, Greece\n⏰ Original D
+ eadline (UTC-12): 2023-04-09 23:59:59\nCategory: 人工智能 (AI)\nCCF C\
+ , CORE C\nConference Website: https://e-nns.org/icann2023/\nDBLP Index: ht
+ tps://dblp.org/db/conf/icann
+LOCATION:Crete\, Greece
+URL:https://e-nns.org/icann2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICANN 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240325T235959
+DTEND;TZID="UTC-12:00":20240326T000059
+DTSTAMP:20250830T065447Z
+UID:334281b5-1064-46af-8098-5148bc73f012
+DESCRIPTION:International Conference on Artificial Neural Networks\n🗓
+ ️ Date: Sept 17-20\, 2024\n📍 Location: Lugano-Viganello\, Switzerland
+ \n⏰ Original Deadline (AoE): 2024-03-25 23:59:59\nCategory: 人工智能
+  (AI)\nCCF C\, CORE C\nConference Website: https://e-nns.org/icann2024/\nD
+ BLP Index: https://dblp.org/db/conf/icann
+LOCATION:Lugano-Viganello\, Switzerland
+URL:https://e-nns.org/icann2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICANN 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250329T235959
+DTEND;TZID="UTC-12:00":20250330T000059
+DTSTAMP:20250830T065447Z
+UID:1f9d7b63-f77f-4e56-ac3b-1eaaa8aad86f
+DESCRIPTION:International Conference on Artificial Neural Networks\n🗓
+ ️ Date: Sept 9-12\, 2025\n📍 Location: Kaunas\, Lithuania\n⏰ Origina
+ l Deadline (AoE): 2025-03-29 23:59:59\nCategory: 人工智能 (AI)\nCCF C\
+ , CORE C\nConference Website: https://e-nns.org/icann2025/\nDBLP Index: ht
+ tps://dblp.org/db/conf/icann
+LOCATION:Kaunas\, Lithuania
+URL:https://e-nns.org/icann2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-06:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-06:00
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0600
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICCBR 2024 Deadline [Early Submission]
+DTSTART;TZID="UTC-06:00":20240226T000000
+DTEND;TZID="UTC-06:00":20240226T000100
+DTSTAMP:20250830T065447Z
+UID:90b5f54c-36e3-4134-83f1-312a82104f89
+DESCRIPTION:International Conference on Case-Based Reasoning\n🗓️ Date
+ : June 1-4\, 2024\n📍 Location: Merida\, Yucatan\, Mexico\n⏰ Original 
+ Deadline (UTC-6): 2024-02-26 00:00:00\nCategory: 人工智能 (AI)\nCCF B\
+ , CORE C\nConference Website: https://www.iccbr2024.org/\nDBLP Index: http
+ s://dblp.org/db/conf/iccbr
+LOCATION:Merida\, Yucatan\, Mexico
+URL:https://www.iccbr2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICCBR 2024 Deadline [Late Submission]
+DTSTART;TZID="UTC-06:00":20240402T000000
+DTEND;TZID="UTC-06:00":20240402T000100
+DTSTAMP:20250830T065447Z
+UID:7672eec7-dfaf-40b4-9319-317e07237a5e
+DESCRIPTION:International Conference on Case-Based Reasoning\n🗓️ Date
+ : June 1-4\, 2024\n📍 Location: Merida\, Yucatan\, Mexico\n⏰ Original 
+ Deadline (UTC-6): 2024-04-02 00:00:00\nCategory: 人工智能 (AI)\nCCF B\
+ , CORE C\nConference Website: https://www.iccbr2024.org/\nDBLP Index: http
+ s://dblp.org/db/conf/iccbr
+LOCATION:Merida\, Yucatan\, Mexico
+URL:https://www.iccbr2024.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:KSEM 2023 Deadline
+DTSTART;TZID="UTC-08:00":20230428T235900
+DTEND;TZID="UTC-08:00":20230429T000000
+DTSTAMP:20250830T065447Z
+UID:03b286d0-bb73-48ac-8362-f57189b7d235
+DESCRIPTION:International Conference on Knowledge Science\, Engineering an
+ d Management\n🗓️ Date: Aug 16-18\, 2023\n📍 Location: Guangzhou\, C
+ hina\n⏰ Original Deadline (UTC-8): 2023-04-28 23:59:00\nCategory: 人工
+ 智能 (AI)\nCCF C\, CORE C\nConference Website: https://www.ksem2023.conf
+ erences.academy/\nDBLP Index: https://dblp.org/db/conf/ksem
+LOCATION:Guangzhou\, China
+URL:https://www.ksem2023.conferences.academy/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:KSEM 2024 Deadline
+DTSTART:20240215T235900Z
+DTEND:20240216T000000Z
+DTSTAMP:20250830T065447Z
+UID:80afb200-f91e-48f2-9541-6b8fbf0d2358
+DESCRIPTION:International Conference on Knowledge Science\, Engineering an
+ d Management\n🗓️ Date: Aug 16-18\, 2024\n📍 Location: Birmingham\n
+ ⏰ Original Deadline (UTC+0): 2024-02-15 23:59:00\nCategory: 人工智能
+  (AI)\nCCF C\, CORE C\nConference Website: https://ai-edge.net/\nDBLP Inde
+ x: https://dblp.org/db/conf/ksem
+LOCATION:Birmingham
+URL:https://ai-edge.net/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:KSEM 2025 Deadline
+DTSTART:20250320T235959Z
+DTEND:20250321T000059Z
+DTSTAMP:20250830T065447Z
+UID:f71da994-2139-428d-a020-e4edaa33190d
+DESCRIPTION:International Conference on Knowledge Science\, Engineering an
+ d Management\n🗓️ Date: August 4-6\, 2025\n📍 Location: Macao SAR\, 
+ China\n⏰ Original Deadline (UTC+0): 2025-03-20 23:59:59\nCategory: 人
+ 工智能 (AI)\nCCF C\, CORE C\nConference Website: https://ksem2025.scime
+ eting.cn/\nDBLP Index: https://dblp.org/db/conf/ksem
+LOCATION:Macao SAR\, China
+URL:https://ksem2025.scimeeting.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SPM 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250308T235959
+DTEND;TZID="UTC-12:00":20250309T000059
+DTSTAMP:20250830T065447Z
+UID:e36ea331-4540-4bdd-aa57-d4fd984e311c
+DESCRIPTION:Symposium on Solid and Physical Modeling\n🗓️ Date: Octobe
+ r 29 - November 2\, 2025\n📍 Location: Hangzhou\, Zhejiang\, P.R. China\
+ n⏰ Original Deadline (AoE): 2025-03-08 23:59:59\nCategory: 计算机图
+ 形学与多媒体 (CG)\nCCF B\, CORE C\, THCPL B\nConference Website: htt
+ ps://spmconf2025.github.io/SPM2025/\nDBLP Index: https://dblp.org/db/conf/
+ sma
+LOCATION:Hangzhou\, Zhejiang\, P.R. China
+URL:https://spmconf2025.github.io/SPM2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:VINCI 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250627T235959
+DTEND;TZID="UTC-12:00":20250628T000059
+DTSTAMP:20250830T065447Z
+UID:bd71991d-04d2-4d65-94a0-df29c0952a00
+DESCRIPTION:International Symposium on Visual Information Communication an
+ d Interaction\n🗓️ Date: December 1-3\, 2025\n📍 Location: Linz\, Au
+ stria\n⏰ Original Deadline (AoE): 2025-06-27 23:59:59\nCategory: 计算
+ 机图形学与多媒体 (CG)\nCORE C\nConference Website: https://vinci20
+ 25.games.cg.jku.at\nDBLP Index: https://dblp.org/db/conf/vinci
+LOCATION:Linz\, Austria
+URL:https://vinci2025.games.cg.jku.at
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ADMA 2023 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20230408T235959
+DTEND;TZID="UTC-07:00":20230409T000059
+DTSTAMP:20250830T065447Z
+UID:e060879c-e05a-47cc-ab9b-9758acfaa31f
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ Date: August 21 - 23\, 2023\n📍 Location: Shenyang\, Ch
+ ina\n⏰ Original Deadline (UTC-7): 2023-04-08 23:59:59\nCategory: 数据
+ 库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: ht
+ tps://adma2023.uqcloud.net/index.html\nDBLP Index: https://dblp.org/db/con
+ f/adma
+LOCATION:Shenyang\, China
+URL:https://adma2023.uqcloud.net/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ADMA 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240601T235959
+DTEND;TZID="UTC-12:00":20240602T000059
+DTSTAMP:20250830T065447Z
+UID:fce724dd-d089-4c22-8ebb-79176d681748
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ Date: December 3 - 5\, 2024\n📍 Location: Sydney\, Aust
+ ralia\n⏰ Original Deadline (AoE): 2024-06-01 23:59:59\nCategory: 数据
+ 库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: ht
+ tps://adma2024.github.io\nDBLP Index: https://dblp.org/db/conf/adma
+LOCATION:Sydney\, Australia
+URL:https://adma2024.github.io
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ADMA 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250508T235959
+DTEND;TZID="UTC-12:00":20250509T000059
+DTSTAMP:20250830T065447Z
+UID:00f73565-4b36-437b-ab36-aa7d0f82c366
+DESCRIPTION:The International Conference on Advanced Data Mining and Appli
+ cations\n🗓️ Date: October 22 - 24\, 2025\n📍 Location: Kyoto\, Japa
+ n\n⏰ Original Deadline (AoE): 2025-05-08 23:59:59\nCategory: 数据库/
+ 数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: https:
+ //adma2025.github.io\nDBLP Index: https://dblp.org/db/conf/adma
+LOCATION:Kyoto\, Japan
+URL:https://adma2025.github.io
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2024 Deadline [first round]
+DTSTART;TZID="UTC-12:00":20240320T235959
+DTEND;TZID="UTC-12:00":20240321T000059
+DTSTAMP:20250830T065447Z
+UID:97521fc4-76c2-4e73-bd40-7ea437e84386
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ Date: August 30 - Septemper 1\, 2024\n📍 Location: Jinh
+ ua\, China\n⏰ Original Deadline (UTC-12): 2024-03-20 23:59:59\nCategory:
+  数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Webs
+ ite: https://apweb2024.zjnu.edu.cn/\nDBLP Index: https://dblp.org/db/conf/
+ APWeb
+LOCATION:Jinhua\, China
+URL:https://apweb2024.zjnu.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2024 Deadline [second round]
+DTSTART;TZID="UTC-12:00":20240523T235959
+DTEND;TZID="UTC-12:00":20240524T000059
+DTSTAMP:20250830T065447Z
+UID:4f7bc0b4-2f26-4ccc-bd66-174d6108f974
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ Date: August 30 - Septemper 1\, 2024\n📍 Location: Jinh
+ ua\, China\n⏰ Original Deadline (UTC-12): 2024-05-23 23:59:59\nCategory:
+  数据库/数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Webs
+ ite: https://apweb2024.zjnu.edu.cn/\nDBLP Index: https://dblp.org/db/conf/
+ APWeb
+LOCATION:Jinhua\, China
+URL:https://apweb2024.zjnu.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2025 Deadline [first round]
+DTSTART;TZID="UTC-08:00":20250302T235959
+DTEND;TZID="UTC-08:00":20250303T000059
+DTSTAMP:20250830T065447Z
+UID:0b77085a-aacb-486c-82d1-7ca017daa252
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ Date: August 28-30\, 2025\n📍 Location: Shenyang\, Chin
+ a\n⏰ Original Deadline (UTC-8): 2025-03-02 23:59:59\nCategory: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: https
+ ://apweb2025.sau.edu.cn/\nDBLP Index: https://dblp.org/db/conf/APWeb
+LOCATION:Shenyang\, China
+URL:https://apweb2025.sau.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APWeb-WAIM 2025 Deadline [second round]
+DTSTART;TZID="UTC-08:00":20250504T235959
+DTEND;TZID="UTC-08:00":20250505T000059
+DTSTAMP:20250830T065447Z
+UID:ce370c28-80ca-4c82-b432-8ea64957f11b
+DESCRIPTION:The 8th APWeb-WAIM joint international conference on Web and B
+ ig Data\n🗓️ Date: August 28-30\, 2025\n📍 Location: Shenyang\, Chin
+ a\n⏰ Original Deadline (UTC-8): 2025-05-04 23:59:59\nCategory: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF C\, CORE C\nConference Website: https
+ ://apweb2025.sau.edu.cn/\nDBLP Index: https://dblp.org/db/conf/APWeb
+LOCATION:Shenyang\, China
+URL:https://apweb2025.sau.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASP-DAC 2024 Deadline [abstract deadline]
+DTSTART;TZID="UTC-12:00":20230728T170000
+DTEND;TZID="UTC-12:00":20230728T170100
+DTSTAMP:20250830T065447Z
+UID:435408fd-8394-47a6-84de-348e1b6bc162
+DESCRIPTION:Asia and South Pacific Design Automation Conference\n🗓️ D
+ ate: Jan 22-25\, 2024\n📍 Location: Sondo Convensia\, Incheon\, Korea\n
+ ⏰ Original Deadline (AoE): 2023-07-28 17:00:00\nCategory: 计算机体
+ 系结构/并行与分布计算/存储系统 (DS)\nCCF C\, CORE C\, THCPL 
+ B\nConference Website: https://www.aspdac.com/aspdac2024/\nDBLP Index: htt
+ ps://dblp.org/db/conf/aspdac
+LOCATION:Sondo Convensia\, Incheon\, Korea
+URL:https://www.aspdac.com/aspdac2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASP-DAC 2024 Deadline [full paper deadline]
+DTSTART;TZID="UTC-12:00":20230804T190000
+DTEND;TZID="UTC-12:00":20230804T190100
+DTSTAMP:20250830T065447Z
+UID:f48a0cb7-952f-4f55-91ed-a431ee97f44b
+DESCRIPTION:Asia and South Pacific Design Automation Conference\n🗓️ D
+ ate: Jan 22-25\, 2024\n📍 Location: Sondo Convensia\, Incheon\, Korea\n
+ ⏰ Original Deadline (AoE): 2023-08-04 19:00:00\nCategory: 计算机体
+ 系结构/并行与分布计算/存储系统 (DS)\nCCF C\, CORE C\, THCPL 
+ B\nConference Website: https://www.aspdac.com/aspdac2024/\nDBLP Index: htt
+ ps://dblp.org/db/conf/aspdac
+LOCATION:Sondo Convensia\, Incheon\, Korea
+URL:https://www.aspdac.com/aspdac2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASP-DAC 2025 Deadline [abstract deadline]
+DTSTART;TZID="UTC-12:00":20240705T170000
+DTEND;TZID="UTC-12:00":20240705T170100
+DTSTAMP:20250830T065447Z
+UID:9b83b05d-91e5-4eaa-a9fe-802b9b71bcae
+DESCRIPTION:Asia and South Pacific Design Automation Conference\n🗓️ D
+ ate: Jan 20-23\, 2025\n📍 Location: Tokyo Odaiba Miraikan\, Japan\n⏰ O
+ riginal Deadline (AoE): 2024-07-05 17:00:00\nCategory: 计算机体系结
+ 构/并行与分布计算/存储系统 (DS)\nCCF C\, CORE C\, THCPL B\nCon
+ ference Website: https://www.aspdac.com/aspdac2025/\nDBLP Index: https://d
+ blp.org/db/conf/aspdac
+LOCATION:Tokyo Odaiba Miraikan\, Japan
+URL:https://www.aspdac.com/aspdac2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASP-DAC 2025 Deadline [full paper deadline]
+DTSTART;TZID="UTC-12:00":20240712T170000
+DTEND;TZID="UTC-12:00":20240712T170100
+DTSTAMP:20250830T065447Z
+UID:48048129-1297-4393-9a87-67957d727342
+DESCRIPTION:Asia and South Pacific Design Automation Conference\n🗓️ D
+ ate: Jan 20-23\, 2025\n📍 Location: Tokyo Odaiba Miraikan\, Japan\n⏰ O
+ riginal Deadline (AoE): 2024-07-12 17:00:00\nCategory: 计算机体系结
+ 构/并行与分布计算/存储系统 (DS)\nCCF C\, CORE C\, THCPL B\nCon
+ ference Website: https://www.aspdac.com/aspdac2025/\nDBLP Index: https://d
+ blp.org/db/conf/aspdac
+LOCATION:Tokyo Odaiba Miraikan\, Japan
+URL:https://www.aspdac.com/aspdac2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASP-DAC 2026 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250704T170000
+DTEND;TZID="UTC-12:00":20250704T170100
+DTSTAMP:20250830T065447Z
+UID:4ac2f762-d844-40a4-b9b9-f336d031a266
+DESCRIPTION:Asia and South Pacific Design Automation Conference\n🗓️ D
+ ate: Jan 19-22\, 2026\n📍 Location: Hong Kong Disneyland\n⏰ Original D
+ eadline (AoE): 2025-07-04 17:00:00\nCategory: 计算机体系结构/并行
+ 与分布计算/存储系统 (DS)\nCCF C\, CORE C\, THCPL B\nConference We
+ bsite: https://www.aspdac.com/aspdac2026/\nDBLP Index: https://dblp.org/db
+ /conf/aspdac
+LOCATION:Hong Kong Disneyland
+URL:https://www.aspdac.com/aspdac2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Hot Chips 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250416T235959
+DTEND;TZID="UTC-12:00":20250417T000059
+DTSTAMP:20250830T065447Z
+UID:eb21e418-913b-471f-8ba9-e8b6497999cb
+DESCRIPTION:Hot Chips: A Symposium on High Performance Chips\n🗓️ Date
+ : August 24-26\, 2025\n📍 Location: Memorial Auditorium\, Stanford\, Pal
+ o Alto\, CA\n⏰ Original Deadline (AoE): 2025-04-16 23:59:59\nCategory: 
+ 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF B\, COR
+ E C\, THCPL B\nConference Website: https://www.hotchips.org/\nDBLP Index: 
+ https://dblp.org/db/conf/hotchips
+LOCATION:Memorial Auditorium\, Stanford\, Palo Alto\, CA
+URL:https://www.hotchips.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:HPCC 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250518T235959
+DTEND;TZID="UTC-12:00":20250519T000059
+DTSTAMP:20250830T065447Z
+UID:ef4ccd53-0e71-4fef-83b8-1e7b161d3dda
+DESCRIPTION:IEEE International Conference on High Performance Computing an
+ d Communications\n🗓️ Date: August 13-15\, 2025\n📍 Location: Exeter
+ \, UK\n⏰ Original Deadline (AoE): 2025-05-18 23:59:59\nCategory: 计算
+ 机体系结构/并行与分布计算/存储系统 (DS)\nCCF C\, CORE C\nC
+ onference Website: https://hpcn.exeter.ac.uk/hpcc2025/\nDBLP Index: https:
+ //dblp.org/db/conf/hpcc
+LOCATION:Exeter\, UK
+URL:https://hpcn.exeter.ac.uk/hpcc2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICA3PP 2022 Deadline [first round]
+DTSTART;TZID="UTC-08:00":20210530T170000
+DTEND;TZID="UTC-08:00":20210530T170100
+DTSTAMP:20250830T065447Z
+UID:5a37017b-58d0-4fae-b46b-176cb5e2073c
+DESCRIPTION:International Conference on Algorithms and Architectures for P
+ arallel Processing\n🗓️ Date: October 10-12\, 2022\n📍 Location: Cop
+ enhagen\, Denmark\n⏰ Original Deadline (UTC-8): 2021-05-30 17:00:00\nCat
+ egory: 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF 
+ C\, CORE C\nConference Website: https://ica3pp2022.compute.dtu.dk/\nDBLP I
+ ndex: https://dblp.org/db/conf/ica3pp
+LOCATION:Copenhagen\, Denmark
+URL:https://ica3pp2022.compute.dtu.dk/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICA3PP 2022 Deadline [second round]
+DTSTART;TZID="UTC-08:00":20210630T170000
+DTEND;TZID="UTC-08:00":20210630T170100
+DTSTAMP:20250830T065447Z
+UID:4e109b14-d2fd-43a1-9717-5d16b12562ec
+DESCRIPTION:International Conference on Algorithms and Architectures for P
+ arallel Processing\n🗓️ Date: October 10-12\, 2022\n📍 Location: Cop
+ enhagen\, Denmark\n⏰ Original Deadline (UTC-8): 2021-06-30 17:00:00\nCat
+ egory: 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF 
+ C\, CORE C\nConference Website: https://ica3pp2022.compute.dtu.dk/\nDBLP I
+ ndex: https://dblp.org/db/conf/ica3pp
+LOCATION:Copenhagen\, Denmark
+URL:https://ica3pp2022.compute.dtu.dk/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICA3PP 2023 Deadline [Paper Submission Due]
+DTSTART;TZID="UTC-08:00":20230530T235900
+DTEND;TZID="UTC-08:00":20230531T000000
+DTSTAMP:20250830T065447Z
+UID:d75b080c-58f5-4415-b8fe-7a6550347b4d
+DESCRIPTION:International Conference on Algorithms and Architectures for P
+ arallel Processing\n🗓️ Date: October 20-22\, 2022\n📍 Location: Tia
+ njin\, China\n⏰ Original Deadline (UTC-8): 2023-05-30 23:59:00\nCategory
+ : 计算机体系结构/并行与分布计算/存储系统 (DS)\nCCF C\, C
+ ORE C\nConference Website: http://tjutanklab.com/ica3pp2023/\nDBLP Index: 
+ https://dblp.org/db/conf/ica3pp
+LOCATION:Tianjin\, China
+URL:http://tjutanklab.com/ica3pp2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICA3PP 2025 Deadline [Paper Submission Due]
+DTSTART;TZID="UTC-08:00":20250630T235900
+DTEND;TZID="UTC-08:00":20250701T000000
+DTSTAMP:20250830T065447Z
+UID:84228b2a-2a27-4bea-964d-c25549dd3c89
+DESCRIPTION:International Conference on Algorithms and Architectures for P
+ arallel Processing\n🗓️ Date: October 30- November 2\, 2025\n📍 Loca
+ tion: Zhengzhou\, Henan\, China\n⏰ Original Deadline (UTC-8): 2025-06-30
+  23:59:00\nCategory: 计算机体系结构/并行与分布计算/存储系
+ 统 (DS)\nCCF C\, CORE C\nConference Website: https://ieee-cybermatics.org
+ /2025/ica3pp/\nDBLP Index: https://dblp.org/db/conf/ica3pp
+LOCATION:Zhengzhou\, Henan\, China
+URL:https://ieee-cybermatics.org/2025/ica3pp/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISPA 2021 Deadline
+DTSTART;TZID="UTC-12:00":20210709T235959
+DTEND;TZID="UTC-12:00":20210710T000059
+DTSTAMP:20250830T065447Z
+UID:e6d0bebc-c6de-4ed4-8fd2-ce8f0ba02e9c
+DESCRIPTION:IEEE International Symposium on Parallel and Distributed Proce
+ ssing with Applications\n🗓️ Date: September 30-October 3\, 2021\n📍
+  Location: New York\, USA\n⏰ Original Deadline (AoE): 2021-07-09 23:59:5
+ 9\nCategory: 计算机体系结构/并行与分布计算/存储系统 (DS)
+ \nCCF C\, CORE C\nConference Website: http://www.cloud-conf.net/ispa2021/\
+ nDBLP Index: https://dblp.org/db/conf/ispa
+LOCATION:New York\, USA
+URL:http://www.cloud-conf.net/ispa2021/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+10:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+10:00
+TZOFFSETFROM:+1000
+TZOFFSETTO:+1000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:PDCAT 2025 Deadline
+DTSTART;TZID="UTC+10:00":20250815T235900
+DTEND;TZID="UTC+10:00":20250816T000000
+DTSTAMP:20250830T065447Z
+UID:42331d46-8ccd-4331-b8af-bfa2b904efa1
+DESCRIPTION:International Conference on Parallel and Distributed Computing
+ \, Applications and Technologies\n🗓️ Date: November 22-November 24\, 
+ 2025\n📍 Location: Gold Coast\, Australia\n⏰ Original Deadline (UTC+10
+ ): 2025-08-15 23:59:00\nCategory: 计算机体系结构/并行与分布计
+ 算/存储系统 (DS)\nCORE C\nConference Website: https://www.pd-cat.org/
+ \nDBLP Index: https://dblp.org/db/conf/pdcat
+LOCATION:Gold Coast\, Australia
+URL:https://www.pd-cat.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CollaborateCom 2025 Deadline
+DTSTART;TZID="UTC-08:00":20250501T235959
+DTEND;TZID="UTC-08:00":20250502T000059
+DTSTAMP:20250830T065447Z
+UID:a9824835-ba09-465a-b3a4-45fbc039f124
+DESCRIPTION:International Conference on Collaborative Computing: Networkin
+ g\, Applications and Worksharing\n🗓️ Date: November 15-16\, 2025\n
+ 📍 Location: Shanghai\, China\n⏰ Original Deadline (UTC-8): 2025-05-01
+  23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF C\, CORE C\nCon
+ ference Website: https://collaboratecom.eai-conferences.org/2025/\nDBLP In
+ dex: https://dblp.org/db/conf/colcom
+LOCATION:Shanghai\, China
+URL:https://collaboratecom.eai-conferences.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCWD 2022 Deadline
+DTSTART;TZID="UTC-12:00":20211130T235959
+DTEND;TZID="UTC-12:00":20211201T000059
+DTSTAMP:20250830T065447Z
+UID:65af936d-0a7b-4b98-bca1-1f9b46a1e58b
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ Date: May 4-6\, 2022\n📍 Location: Hangzhou\, China
+ \n⏰ Original Deadline (AoE): 2021-11-30 23:59:59\nCategory: 人机交互
+ 与普适计算 (HI)\nCCF C\, CORE C\nConference Website: http://8.131.80.
+ 51/cscwd2022/index.html\nDBLP Index: https://dblp.org/db/conf/cscwd
+LOCATION:Hangzhou\, China
+URL:http://8.131.80.51/cscwd2022/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCWD 2023 Deadline
+DTSTART;TZID="UTC-12:00":20221031T235959
+DTEND;TZID="UTC-12:00":20221101T000059
+DTSTAMP:20250830T065447Z
+UID:3b59fdc5-2b2e-432b-a729-ed53c8191470
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ Date: May 24-26\, 2023\n📍 Location: Rio de Janeiro
+ \, Brazil\n⏰ Original Deadline (AoE): 2022-10-31 23:59:59\nCategory: 人
+ 机交互与普适计算 (HI)\nCCF C\, CORE C\nConference Website: http://
+ 2023.cscwd.org\nDBLP Index: https://dblp.org/db/conf/cscwd
+LOCATION:Rio de Janeiro\, Brazil
+URL:http://2023.cscwd.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCWD 2025 Deadline
+DTSTART;TZID="UTC-12:00":20241115T235959
+DTEND;TZID="UTC-12:00":20241116T000059
+DTSTAMP:20250830T065447Z
+UID:1d63cd45-9e6a-4545-afba-6cd19f0a935c
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ Date: May 5-7\, 2025\n📍 Location: Compiègne\, Fra
+ nce\n⏰ Original Deadline (AoE): 2024-11-15 23:59:59\nCategory: 人机交
+ 互与普适计算 (HI)\nCCF C\, CORE C\nConference Website: http://2025.c
+ scwd.org\nDBLP Index: https://dblp.org/db/conf/cscwd
+LOCATION:Compiègne\, France
+URL:http://2025.cscwd.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FORTE 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240202T235959
+DTEND;TZID="UTC-12:00":20240203T000059
+DTSTAMP:20250830T065447Z
+UID:924e5e1b-c6fe-4817-8b90-2263842d4195
+DESCRIPTION:International Conference on Formal Techniques for (Networked a
+ nd) Distributed Systems\n🗓️ Date: June 17-21\, 2024\n📍 Location: G
+ roningen\, The Netherlands\n⏰ Original Deadline (AoE): 2024-02-02 23:59:
+ 59\nCategory: 计算机网络 (NW)\nCCF C\, CORE C\nConference Website: ht
+ tps://www.discotec.org/2024/forte\nDBLP Index: https://dblp.org/db/conf/fo
+ rte
+LOCATION:Groningen\, The Netherlands
+URL:https://www.discotec.org/2024/forte
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DIMVA 2021 Deadline [Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20210301T235959
+DTEND;TZID="UTC-12:00":20210302T000059
+DTSTAMP:20250830T065447Z
+UID:cd9da2c5-986b-4f83-ad07-1dd6448deb7f
+DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
+ \n🗓️ Date: July 14-16 \, 2022\n📍 Location: Virtual\n⏰ Original D
+ eadline (AoE): 2021-03-01 23:59:59\nCategory: 网络与信息安全 (SC)\n
+ CCF C\, CORE C\, THCPL B\nConference Website: https://dimva2021.campus.cie
+ ncias.ulisboa.pt/\nDBLP Index: https://dblp.org/db/conf/dimva
+LOCATION:Virtual
+URL:https://dimva2021.campus.ciencias.ulisboa.pt/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DIMVA 2021 Deadline [Final paper submission deadline]
+DTSTART;TZID="UTC-12:00":20210514T235959
+DTEND;TZID="UTC-12:00":20210515T000059
+DTSTAMP:20250830T065447Z
+UID:b5399889-6082-4d6c-89d9-70e28a66f3b5
+DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
+ \n🗓️ Date: July 14-16 \, 2022\n📍 Location: Virtual\n⏰ Original D
+ eadline (AoE): 2021-05-14 23:59:59\nCategory: 网络与信息安全 (SC)\n
+ CCF C\, CORE C\, THCPL B\nConference Website: https://dimva2021.campus.cie
+ ncias.ulisboa.pt/\nDBLP Index: https://dblp.org/db/conf/dimva
+LOCATION:Virtual
+URL:https://dimva2021.campus.ciencias.ulisboa.pt/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DIMVA 2024 Deadline [Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20231219T235959
+DTEND;TZID="UTC-12:00":20231220T000059
+DTSTAMP:20250830T065447Z
+UID:c90b3861-53fa-47b8-a721-b354b4ce9518
+DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
+ \n🗓️ Date: July 17-19\, 2024\n📍 Location: Lausanne\, Switzerland\n
+ ⏰ Original Deadline (AoE): 2023-12-19 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF C\, CORE C\, THCPL B\nConference Website: https://dimv
+ a.org/dimva2024/\nDBLP Index: https://dblp.org/db/conf/dimva
+LOCATION:Lausanne\, Switzerland
+URL:https://dimva.org/dimva2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DIMVA 2024 Deadline [Final paper submission deadline]
+DTSTART;TZID="UTC-12:00":20240214T235959
+DTEND;TZID="UTC-12:00":20240215T000059
+DTSTAMP:20250830T065447Z
+UID:5d0a31ef-3c22-4aa2-b919-fdc2ba4a82eb
+DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
+ \n🗓️ Date: July 17-19\, 2024\n📍 Location: Lausanne\, Switzerland\n
+ ⏰ Original Deadline (AoE): 2024-02-14 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF C\, CORE C\, THCPL B\nConference Website: https://dimv
+ a.org/dimva2024/\nDBLP Index: https://dblp.org/db/conf/dimva
+LOCATION:Lausanne\, Switzerland
+URL:https://dimva.org/dimva2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DIMVA 2025 Deadline [Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20241210T235959
+DTEND;TZID="UTC-12:00":20241211T000059
+DTSTAMP:20250830T065447Z
+UID:df014ae8-9b69-49f1-ab80-fc88a14dcfe3
+DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
+ \n🗓️ Date: July 9-11\, 2025\n📍 Location: Graz University of Techno
+ logy\, Graz\, Austria\n⏰ Original Deadline (AoE): 2024-12-10 23:59:59\nC
+ ategory: 网络与信息安全 (SC)\nCCF C\, CORE C\, THCPL B\nConference 
+ Website: https://www.dimva.org/dimva2025/\nDBLP Index: https://dblp.org/db
+ /conf/dimva
+LOCATION:Graz University of Technology\, Graz\, Austria
+URL:https://www.dimva.org/dimva2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DIMVA 2025 Deadline [Final paper submission deadline]
+DTSTART;TZID="UTC-12:00":20250212T235959
+DTEND;TZID="UTC-12:00":20250213T000059
+DTSTAMP:20250830T065447Z
+UID:8ebbbec0-67db-4ad2-83a0-7c77bbfe379d
+DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
+ \n🗓️ Date: July 9-11\, 2025\n📍 Location: Graz University of Techno
+ logy\, Graz\, Austria\n⏰ Original Deadline (AoE): 2025-02-12 23:59:59\nC
+ ategory: 网络与信息安全 (SC)\nCCF C\, CORE C\, THCPL B\nConference 
+ Website: https://www.dimva.org/dimva2025/\nDBLP Index: https://dblp.org/db
+ /conf/dimva
+LOCATION:Graz University of Technology\, Graz\, Austria
+URL:https://www.dimva.org/dimva2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2021 Deadline [Paper Submission deadline]
+DTSTART;TZID="UTC-12:00":20210522T235959
+DTEND;TZID="UTC-12:00":20210523T000059
+DTSTAMP:20250830T065447Z
+UID:9b1f04fc-782d-40d1-bc75-f9691ae00ae6
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ Date: September 17-19\, 2021\n📍 Location: Chongqing\, Ch
+ ina\n⏰ Original Deadline (AoE): 2021-05-22 23:59:59\nCategory: 网络与
+ 信息安全 (SC)\nCCF C\, CORE C\nConference Website: https://icics.cn/\n
+ DBLP Index: https://dblp.org/db/conf/icics
+LOCATION:Chongqing\, China
+URL:https://icics.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2023 Deadline
+DTSTART;TZID="UTC-12:00":20230330T235959
+DTEND;TZID="UTC-12:00":20230331T000059
+DTSTAMP:20250830T065447Z
+UID:fdd1081b-49e4-480c-a4d8-f57d28a70109
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ Date: November 18-20\, 2023\n📍 Location: Nankai Universi
+ ty\, Tianjin\, China\n⏰ Original Deadline (AoE): 2023-03-30 23:59:59\nCa
+ tegory: 网络与信息安全 (SC)\nCCF C\, CORE C\nConference Website: ht
+ tps://icics23.nankai.edu.cn/\nDBLP Index: https://dblp.org/db/conf/icics
+LOCATION:Nankai University\, Tianjin\, China
+URL:https://icics23.nankai.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2024 Deadline [First Cycle]
+DTSTART;TZID="UTC-12:00":20240216T235959
+DTEND;TZID="UTC-12:00":20240217T000059
+DTSTAMP:20250830T065447Z
+UID:341b0d10-aa5a-4a29-8391-fcfec06d9521
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ Date: August 26-28\, 2024\n📍 Location: Mytilene\, Greece
+ \n⏰ Original Deadline (AoE): 2024-02-16 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF C\, CORE C\nConference Website: http://icics2024.aegea
+ n.gr/\nDBLP Index: https://dblp.org/db/conf/icics
+LOCATION:Mytilene\, Greece
+URL:http://icics2024.aegean.gr/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2024 Deadline [Second Cycle]
+DTSTART;TZID="UTC-12:00":20240419T235959
+DTEND;TZID="UTC-12:00":20240420T000059
+DTSTAMP:20250830T065447Z
+UID:38862b2b-f59e-4296-b204-7fed577f629d
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ Date: August 26-28\, 2024\n📍 Location: Mytilene\, Greece
+ \n⏰ Original Deadline (AoE): 2024-04-19 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF C\, CORE C\nConference Website: http://icics2024.aegea
+ n.gr/\nDBLP Index: https://dblp.org/db/conf/icics
+LOCATION:Mytilene\, Greece
+URL:http://icics2024.aegean.gr/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICICS 2025 Deadline [First round]
+DTSTART;TZID="UTC+08:00":20250228T235959
+DTEND;TZID="UTC+08:00":20250301T000059
+DTSTAMP:20250830T065447Z
+UID:a6e4839d-6050-4129-88a9-8a03bdd97d3b
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ Date: October 29-31\, 2025\n📍 Location: Nanjing\, China\
+ n⏰ Original Deadline (UTC+8): 2025-02-28 23:59:59\nCategory: 网络与
+ 信息安全 (SC)\nCCF C\, CORE C\nConference Website: https://www.icics20
+ 25.org/\nDBLP Index: https://dblp.org/db/conf/icics
+LOCATION:Nanjing\, China
+URL:https://www.icics2025.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2025 Deadline [Second round]
+DTSTART;TZID="UTC+08:00":20250523T235959
+DTEND;TZID="UTC+08:00":20250524T000059
+DTSTAMP:20250830T065447Z
+UID:b787ddbc-7119-4778-b04b-027d874c1fa8
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ Date: October 29-31\, 2025\n📍 Location: Nanjing\, China\
+ n⏰ Original Deadline (UTC+8): 2025-05-23 23:59:59\nCategory: 网络与
+ 信息安全 (SC)\nCCF C\, CORE C\nConference Website: https://www.icics20
+ 25.org/\nDBLP Index: https://dblp.org/db/conf/icics
+LOCATION:Nanjing\, China
+URL:https://www.icics2025.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IH&MMSec 2021 Deadline [Paper Submission Deadline]
+DTSTART;TZID="UTC-12:00":20210225T235959
+DTEND;TZID="UTC-12:00":20210226T000059
+DTSTAMP:20250830T065447Z
+UID:f378ebbf-1615-4131-b5ff-393fc3a7b8f9
+DESCRIPTION:ACM Workshop on Information Hiding and Multimedia Security\n
+ 🗓️ Date: June 22-25\, 2021\n📍 Location: Virtual\n⏰ Original Dead
+ line (AoE): 2021-02-25 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
+  C\, CORE C\, THCPL B\nConference Website: https://www.ihmmsec.org/\nDBLP 
+ Index: https://dblp.org/db/conf/ih
+LOCATION:Virtual
+URL:https://www.ihmmsec.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IH&MMSec 2024 Deadline [Paper Submission Deadline]
+DTSTART;TZID="UTC-12:00":20240229T235959
+DTEND;TZID="UTC-12:00":20240301T000059
+DTSTAMP:20250830T065447Z
+UID:e1745241-e9b1-4d21-835d-756a337f9053
+DESCRIPTION:ACM Workshop on Information Hiding and Multimedia Security\n
+ 🗓️ Date: June 24-26\, 2024\n📍 Location: Baiona\, Spain\n⏰ Origin
+ al Deadline (AoE): 2024-02-29 23:59:59\nCategory: 网络与信息安全 (S
+ C)\nCCF C\, CORE C\, THCPL B\nConference Website: https://www.ihmmsec.org/
+ \nDBLP Index: https://dblp.org/db/conf/ih
+LOCATION:Baiona\, Spain
+URL:https://www.ihmmsec.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IH&MMSec 2025 Deadline [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20250228T235959
+DTEND;TZID="UTC-12:00":20250301T000059
+DTSTAMP:20250830T065447Z
+UID:87a42768-2bab-48cd-97f5-25af4872f75b
+DESCRIPTION:ACM Workshop on Information Hiding and Multimedia Security\n
+ 🗓️ Date: June 18-20\, 2025\n📍 Location: San Jose\, CA\, USA\n⏰ O
+ riginal Deadline (AoE): 2025-02-28 23:59:59\nCategory: 网络与信息安
+ 全 (SC)\nCCF C\, CORE C\, THCPL B\nConference Website: https://www.ihmmse
+ c.org/cms/home/index.html\nDBLP Index: https://dblp.org/db/conf/ih
+LOCATION:San Jose\, CA\, USA
+URL:https://www.ihmmsec.org/cms/home/index.html
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-11:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-11:00
+TZOFFSETFROM:-1100
+TZOFFSETTO:-1100
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:NSPW 2021 Deadline [Submission deadline]
+DTSTART;TZID="UTC-11:00":20210604T235959
+DTEND;TZID="UTC-11:00":20210605T000059
+DTSTAMP:20250830T065447Z
+UID:f54ae74e-1918-4c5f-afea-2a9e4cc0552c
+DESCRIPTION:New Security Paradigms Workshop\n🗓️ Date: October 25-28\,
+  2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC-11): 2021-06-04 
+ 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE C\nConference
+  Website: https://www.nspw.org/2021\nDBLP Index: https://dblp.org/db/conf/
+ nspw
+LOCATION:Virtual
+URL:https://www.nspw.org/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSPW 2021 Deadline [Final version]
+DTSTART;TZID="UTC-11:00":20211124T235959
+DTEND;TZID="UTC-11:00":20211125T000059
+DTSTAMP:20250830T065447Z
+UID:9bb47089-337f-480a-844e-a5ac0cf45c7a
+DESCRIPTION:New Security Paradigms Workshop\n🗓️ Date: October 25-28\,
+  2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC-11): 2021-11-24 
+ 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE C\nConference
+  Website: https://www.nspw.org/2021\nDBLP Index: https://dblp.org/db/conf/
+ nspw
+LOCATION:Virtual
+URL:https://www.nspw.org/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSPW 2024 Deadline
+DTSTART;TZID="UTC-11:00":20240412T235900
+DTEND;TZID="UTC-11:00":20240413T000000
+DTSTAMP:20250830T065447Z
+UID:b1e308a4-fec2-43fb-8085-4486b54fdc8d
+DESCRIPTION:New Security Paradigms Workshop\n🗓️ Date: September 16-18
+ \, 2024\n📍 Location: Bedford\, PA USA\n⏰ Original Deadline (UTC-11): 
+ 2024-04-12 23:59:00\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE C\
+ nConference Website: https://www.nspw.org/2024/cfp\nDBLP Index: https://db
+ lp.org/db/conf/nspw
+LOCATION:Bedford\, PA USA
+URL:https://www.nspw.org/2024/cfp
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSPW 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250411T235959
+DTEND;TZID="UTC-12:00":20250412T000059
+DTSTAMP:20250830T065447Z
+UID:f1c393cd-4380-4efb-b5ff-eea2382c45c6
+DESCRIPTION:New Security Paradigms Workshop\n🗓️ Date: August 24-27\, 
+ 2025\n📍 Location: Aerzen\, Germany\n⏰ Original Deadline (AoE): 2025-0
+ 4-11 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE C\nConfe
+ rence Website: https://www.nspw.org/2025\nDBLP Index: https://dblp.org/db/
+ conf/nspw
+LOCATION:Aerzen\, Germany
+URL:https://www.nspw.org/2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SACMAT 2021 Deadline [Paper Submission Deadline]
+DTSTART;TZID="UTC-12:00":20210225T235959
+DTEND;TZID="UTC-12:00":20210226T000059
+DTSTAMP:20250830T065447Z
+UID:bb5f4eb9-f259-4508-a7ba-323e52d2c068
+DESCRIPTION:ACM Symposium on Access Control Models and Technologies\n🗓
+ ️ Date: June 16-18\, 2021\n📍 Location: Virtual\n⏰ Original Deadline
+  (AoE): 2021-02-25 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
+  CORE C\nConference Website: http://sacmat.dista.uninsubria.it/2021/\nDBLP
+  Index: https://dblp.org/db/conf/sacmat
+LOCATION:Virtual
+URL:http://sacmat.dista.uninsubria.it/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SACMAT 2025 Deadline [Paper Submission Deadline]
+DTSTART;TZID="UTC-12:00":20250324T235959
+DTEND;TZID="UTC-12:00":20250325T000059
+DTSTAMP:20250830T065447Z
+UID:a707f697-bc3a-411d-abb5-263a48708b6d
+DESCRIPTION:ACM Symposium on Access Control Models and Technologies\n🗓
+ ️ Date: July 8-10\, 2025\n📍 Location: Stony Brook\, NY\, USA\n⏰ Ori
+ ginal Deadline (AoE): 2025-03-24 23:59:59\nCategory: 网络与信息安全
+  (SC)\nCCF C\, CORE C\nConference Website: https://www.sacmat.org/2025/ind
+ ex.php\nDBLP Index: https://dblp.org/db/conf/sacmat
+LOCATION:Stony Brook\, NY\, USA
+URL:https://www.sacmat.org/2025/index.php
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2021 Deadline [Main Track Full Paper Submission deadlin
+ e]
+DTSTART;TZID="UTC-12:00":20210331T235959
+DTEND;TZID="UTC-12:00":20210401T000059
+DTSTAMP:20250830T065447Z
+UID:7947f9b0-deeb-4ee8-9400-d85dce50af43
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ Date: September 6-9\, 2021\n📍 Location: Canterbur
+ y\, Great Britain(online)\n⏰ Original Deadline (AoE): 2021-03-31 23:59:5
+ 9\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE C\nConference Websit
+ e: https://securecomm.eai-conferences.org/2021/\nDBLP Index: https://dblp.
+ org/db/conf/securecomm
+LOCATION:Canterbury\, Great Britain(online)
+URL:https://securecomm.eai-conferences.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2021 Deadline [Late Track Full Paper Submission deadlin
+ e]
+DTSTART;TZID="UTC-12:00":20210504T235959
+DTEND;TZID="UTC-12:00":20210505T000059
+DTSTAMP:20250830T065447Z
+UID:aee648a2-030c-44fd-9483-be9dcdcc373f
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ Date: September 6-9\, 2021\n📍 Location: Canterbur
+ y\, Great Britain(online)\n⏰ Original Deadline (AoE): 2021-05-04 23:59:5
+ 9\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE C\nConference Websit
+ e: https://securecomm.eai-conferences.org/2021/\nDBLP Index: https://dblp.
+ org/db/conf/securecomm
+LOCATION:Canterbury\, Great Britain(online)
+URL:https://securecomm.eai-conferences.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2023 Deadline
+DTSTART;TZID="UTC-12:00":20230506T235959
+DTEND;TZID="UTC-12:00":20230507T000059
+DTSTAMP:20250830T065447Z
+UID:d52a66c0-e01f-4093-ae0e-b4c71ec4e7b0
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ Date: October 19-21\, 2023\n📍 Location: Hong Kong
+  SAR\, Hong Kong\n⏰ Original Deadline (AoE): 2023-05-06 23:59:59\nCatego
+ ry: 网络与信息安全 (SC)\nCCF C\, CORE C\nConference Website: https:
+ //securecomm.eai-conferences.org/2023/\nDBLP Index: https://dblp.org/db/co
+ nf/securecomm
+LOCATION:Hong Kong SAR\, Hong Kong
+URL:https://securecomm.eai-conferences.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240510T235959
+DTEND;TZID="UTC-12:00":20240511T000059
+DTSTAMP:20250830T065447Z
+UID:40403277-0a0d-424a-95e9-d549ad665caf
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ Date: October 28-30\, 2024\n📍 Location: Dubai\, U
+ nited Arab Emirates\n⏰ Original Deadline (AoE): 2024-05-10 23:59:59\nCat
+ egory: 网络与信息安全 (SC)\nCCF C\, CORE C\nConference Website: htt
+ ps://securecomm.eai-conferences.org/2024/\nDBLP Index: https://dblp.org/db
+ /conf/securecomm
+LOCATION:Dubai\, United Arab Emirates
+URL:https://securecomm.eai-conferences.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2025 Deadline [Full Paper Submission deadline]
+DTSTART;TZID="UTC-12:00":20250301T235959
+DTEND;TZID="UTC-12:00":20250302T000059
+DTSTAMP:20250830T065447Z
+UID:83507e9e-45e4-4970-ac79-1ce7a69e78de
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ Date: July 4-6\, 2025\n📍 Location: Xiangtan\, Chi
+ na\n⏰ Original Deadline (AoE): 2025-03-01 23:59:59\nCategory: 网络与
+ 信息安全 (SC)\nCCF C\, CORE C\nConference Website: https://securecomm.
+ eai-conferences.org/2025/\nDBLP Index: https://dblp.org/db/conf/securecomm
+LOCATION:Xiangtan\, China
+URL:https://securecomm.eai-conferences.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APSEC 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250706T235959
+DTEND;TZID="UTC-12:00":20250707T000059
+DTSTAMP:20250830T065447Z
+UID:b9bac0be-dabc-40a0-b275-5b03b72af9c0
+DESCRIPTION:Asia-Pacific Software Engineering Conference\n🗓️ Date: De
+ cember 2-5\, 2025\n📍 Location: Macao SAR\, China\n⏰ Original Deadline
+  (AoE): 2025-07-06 23:59:59\nCategory: 软件工程/系统软件/程序设
+ 计语言 (SE)\nCCF C\, CORE C\nConference Website: https://conf.researchr
+ .org/home/apsec-2025\nDBLP Index: https://dblp.org/db/conf/apsec
+LOCATION:Macao SAR\, China
+URL:https://conf.researchr.org/home/apsec-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICFEM 2024 Deadline [Paper Submission]
+DTSTART;TZID="UTC-12:00":20240624T235959
+DTEND;TZID="UTC-12:00":20240625T000059
+DTSTAMP:20250830T065447Z
+UID:2d07bded-c3d3-4c12-a8c2-da3de0b266b3
+DESCRIPTION:International Conference on Formal Engineering Methods\n🗓
+ ️ Date: December 02 - December 06\, 2024\n📍 Location: Hiroshima\, Jap
+ an\n⏰ Original Deadline (AoE): 2024-06-24 23:59:59\nCategory: 软件工
+ 程/系统软件/程序设计语言 (SE)\nCCF C\, CORE C\nConference Websi
+ te: https://icfem2024.info/\nDBLP Index: https://dblp.org/db/conf/icfem
+LOCATION:Hiroshima\, Japan
+URL:https://icfem2024.info/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICFEM 2023 Deadline [Abstract Submission]
+DTSTART;TZID="UTC-12:00":20230521T235959
+DTEND;TZID="UTC-12:00":20230522T000059
+DTSTAMP:20250830T065447Z
+UID:e9515f5b-64ec-4b8c-89d1-0647221e50b9
+DESCRIPTION:International Conference on Formal Engineering Methods\n🗓
+ ️ Date: November 21 - November 24\, 2023\n📍 Location: Brisbane\, Aust
+ ralia\n⏰ Original Deadline (AoE): 2023-05-21 23:59:59\nCategory: 软件
+ 工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE C\nConference We
+ bsite: https://formal-analysis.com/icfem/2023/\nDBLP Index: https://dblp.o
+ rg/db/conf/icfem
+LOCATION:Brisbane\, Australia
+URL:https://formal-analysis.com/icfem/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICFEM 2023 Deadline [Full Paper Submission]
+DTSTART;TZID="UTC-12:00":20230528T235959
+DTEND;TZID="UTC-12:00":20230529T000059
+DTSTAMP:20250830T065447Z
+UID:a0e3db16-66ee-4090-8d20-8d22b534df84
+DESCRIPTION:International Conference on Formal Engineering Methods\n🗓
+ ️ Date: November 21 - November 24\, 2023\n📍 Location: Brisbane\, Aust
+ ralia\n⏰ Original Deadline (AoE): 2023-05-28 23:59:59\nCategory: 软件
+ 工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE C\nConference We
+ bsite: https://formal-analysis.com/icfem/2023/\nDBLP Index: https://dblp.o
+ rg/db/conf/icfem
+LOCATION:Brisbane\, Australia
+URL:https://formal-analysis.com/icfem/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICFEM 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250525T235959
+DTEND;TZID="UTC-12:00":20250526T000059
+DTSTAMP:20250830T065447Z
+UID:827ccd81-6ac2-43b9-926c-964a1425e209
+DESCRIPTION:International Conference on Formal Engineering Methods\n🗓
+ ️ Date: November 10 - 13\, 2025\n📍 Location: Hangzhou\, China\n⏰ Or
+ iginal Deadline (AoE): 2025-05-25 23:59:59\nCategory: 软件工程/系统
+ 软件/程序设计语言 (SE)\nCCF C\, CORE C\nConference Website: https:
+ //icfem2025.github.io/\nDBLP Index: https://dblp.org/db/conf/icfem
+LOCATION:Hangzhou\, China
+URL:https://icfem2025.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:QRS 2021 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20210815T235959
+DTEND;TZID="UTC-12:00":20210816T000059
+DTSTAMP:20250830T065447Z
+UID:5dd070b5-8beb-4fb7-8f8a-ebcffb5e4ae9
+DESCRIPTION:IEEE International Conference on Software Quality\, Reliabilit
+ y and Security\n🗓️ Date: December 6-10\, 2021\n📍 Location: Hainan 
+ Island\, China\n⏰ Original Deadline (AoE): 2021-08-15 23:59:59\nCategory
+ : 软件工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE C\nConfe
+ rence Website: https://qrs21.techconf.org/\nDBLP Index: https://dblp.org/d
+ b/conf/qrs
+LOCATION:Hainan Island\, China
+URL:https://qrs21.techconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:QRS 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250405T235959
+DTEND;TZID="UTC-12:00":20250406T000059
+DTSTAMP:20250830T065447Z
+UID:bdd91ebb-8cd6-4a4d-9df1-d503ebadae8f
+DESCRIPTION:IEEE International Conference on Software Quality\, Reliabilit
+ y and Security\n🗓️ Date: July 16-20\, 2025\n📍 Location: Hangzhou\,
+  China\n⏰ Original Deadline (AoE): 2025-04-05 23:59:59\nCategory: 软件
+ 工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE C\nConference We
+ bsite: https://qrs25.techconf.org/\nDBLP Index: https://dblp.org/db/conf/q
+ rs
+LOCATION:Hangzhou\, China
+URL:https://qrs25.techconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SCAM 2025 Abstract Deadline [co-located with ICSME 2025]
+DTSTART;TZID="UTC-12:00":20250605T235959
+DTEND;TZID="UTC-12:00":20250606T000059
+DTSTAMP:20250830T065447Z
+UID:7cd8166a-1ec9-4336-a5bd-4fa749da75ce
+DESCRIPTION:IEEE International Working Conference on Source Code Analysis 
+ and Manipulation\n🗓️ Date: September 7-12\, 2025\n📍 Location: Auck
+ land\, New Zealand\n⏰ Original Deadline (AoE): 2025-06-05 23:59:59\nCate
+ gory: 软件工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE C\nC
+ onference Website: https://conf.researchr.org/home/scam-2025\nDBLP Index: 
+ https://dblp.org/db/conf/scam
+LOCATION:Auckland\, New Zealand
+URL:https://conf.researchr.org/home/scam-2025
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SEKE 2023 Deadline
+DTSTART;TZID="UTC-05:00":20230301T235959
+DTEND;TZID="UTC-05:00":20230302T000059
+DTSTAMP:20250830T065447Z
+UID:35c8a28c-62f5-491b-89b9-2b3649cea424
+DESCRIPTION:International Conference on Software Engineering and Knowledge
+  Engineering\n🗓️ Date: July 1-10\, 2023\n📍 Location: San Francisco
+  Bay\, USA and KSIR Virtual Conference Center\, USA\n⏰ Original Deadline
+  (UTC-5): 2023-03-01 23:59:59\nCategory: 软件工程/系统软件/程序
+ 设计语言 (SE)\nCCF C\, CORE C\nConference Website: https://ksiresearch
+ .org/seke/seke23.html\nDBLP Index: https://dblp.org/db/conf/seke
+LOCATION:San Francisco Bay\, USA and KSIR Virtual Conference Center\, USA
+URL:https://ksiresearch.org/seke/seke23.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SEKE 2024 Deadline
+DTSTART;TZID="UTC-05:00":20240610T235959
+DTEND;TZID="UTC-05:00":20240611T000059
+DTSTAMP:20250830T065447Z
+UID:8015a16e-85d2-45bf-b0f4-6659443e3d8d
+DESCRIPTION:International Conference on Software Engineering and Knowledge
+  Engineering\n🗓️ Date: October 28-November 5\, 2024\n📍 Location: A
+ malfi\, Italy / Virtual venue\n⏰ Original Deadline (UTC-5): 2024-06-10 2
+ 3:59:59\nCategory: 软件工程/系统软件/程序设计语言 (SE)\nCCF 
+ C\, CORE C\nConference Website: https://ksiresearch.org/seke/seke24.html\n
+ DBLP Index: https://dblp.org/db/conf/seke
+LOCATION:Amalfi\, Italy / Virtual venue
+URL:https://ksiresearch.org/seke/seke24.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SEKE 2025 Deadline
+DTSTART;TZID="UTC-05:00":20250501T235900
+DTEND;TZID="UTC-05:00":20250502T000000
+DTSTAMP:20250830T065447Z
+UID:06b8d577-f3bf-415c-9aa5-332b5c3c1711
+DESCRIPTION:International Conference on Software Engineering and Knowledge
+  Engineering\n🗓️ Date: Sept 29 - Oct 6\, 2025\n📍 Location: Pompeii
+ \, Italy & Virtual\n⏰ Original Deadline (UTC-5): 2025-05-01 23:59:00\nCa
+ tegory: 软件工程/系统软件/程序设计语言 (SE)\nCCF C\, CORE C\
+ nConference Website: https://ksiresearch.org/seke/seke25.html\nDBLP Index:
+  https://dblp.org/db/conf/seke
+LOCATION:Pompeii\, Italy & Virtual
+URL:https://ksiresearch.org/seke/seke25.html
+END:VEVENT
+END:VCALENDAR

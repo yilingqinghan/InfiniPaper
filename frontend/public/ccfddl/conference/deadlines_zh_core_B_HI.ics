@@ -1,0 +1,148 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ECSCW 2025 截稿日期 [Conference Papers]
+DTSTART;TZID="UTC-12:00":20250225T235959
+DTEND;TZID="UTC-12:00":20250226T000059
+DTSTAMP:20250830T065444Z
+UID:5c304a30-db49-4c82-bef4-18ae31f3d423
+DESCRIPTION:European Conference on Computer Supported Cooperative Work\n
+ 🗓️ 会议时间: June 30 - July 4\, 2025\n📍 会议地点: Newcastl
+ e upon Tyne\, UK\n⏰ 原始截止时间 (AoE): 2025-02-25 23:59:59\n分
+ 类: 人机交互与普适计算 (HI)\nCCF B\, CORE B\n会议官网: https
+ ://ecscw.eusset.eu/2025/\nDBLP索引: https://dblp.org/db/conf/ecscw
+LOCATION:Newcastle upon Tyne\, UK
+URL:https://ecscw.eusset.eu/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECSCW 2026 截稿日期 [Conference Papers]
+DTSTART;TZID="UTC-12:00":20260306T235959
+DTEND;TZID="UTC-12:00":20260307T000059
+DTSTAMP:20250830T065444Z
+UID:844d91d4-8d0e-4012-8fd5-e294578c4d6f
+DESCRIPTION:European Conference on Computer Supported Cooperative Work\n
+ 🗓️ 会议时间: 29 June - 3 July\, 2026\n📍 会议地点: Munich\,
+  Germany\n⏰ 原始截止时间 (AoE): 2026-03-06 23:59:59\n分类: 人
+ 机交互与普适计算 (HI)\nCCF B\, CORE B\n会议官网: https://ecscw
+ .eusset.eu/2026\nDBLP索引: https://dblp.org/db/conf/ecscw
+LOCATION:Munich\, Germany
+URL:https://ecscw.eusset.eu/2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2025 截稿日期 [Full Paper First Wave Submissions]
+DTSTART;TZID="UTC-12:00":20230607T235959
+DTEND;TZID="UTC-12:00":20230608T000059
+DTSTAMP:20250830T065444Z
+UID:db34ea56-8462-49b8-96e6-354277682acb
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  会议时间: January 12-15\, 2025\n📍 会议地点: Omni Hilton Head O
+ ceanfront Resort\, Hilton Head Island\, South Carolina\, USA\n⏰ 原始
+ 截止时间 (AoE): 2023-06-07 23:59:59\n分类: 人机交互与普适计
+ 算 (HI)\nCCF B\, CORE B\n会议官网: https://group.acm.org/conferences/
+ group25\nDBLP索引: https://dblp.org/db/conf/group
+LOCATION:Omni Hilton Head Oceanfront Resort\, Hilton Head Island\, South C
+ arolina\, USA
+URL:https://group.acm.org/conferences/group25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2025 摘要截稿 [Full Paper Second Wave Submissions]
+DTSTART;TZID="UTC-12:00":20240501T235959
+DTEND;TZID="UTC-12:00":20240502T000059
+DTSTAMP:20250830T065444Z
+UID:bd0cac86-0b4d-4d1e-9d0b-e124d158b3f5
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  会议时间: January 12-15\, 2025\n📍 会议地点: Omni Hilton Head O
+ ceanfront Resort\, Hilton Head Island\, South Carolina\, USA\n⏰ 原始
+ 截止时间 (AoE): 2024-05-01 23:59:59\n分类: 人机交互与普适计
+ 算 (HI)\nCCF B\, CORE B\n会议官网: https://group.acm.org/conferences/
+ group25\nDBLP索引: https://dblp.org/db/conf/group
+LOCATION:Omni Hilton Head Oceanfront Resort\, Hilton Head Island\, South C
+ arolina\, USA
+URL:https://group.acm.org/conferences/group25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2027 摘要截稿 [Full Paper First Wave Submissions]
+DTSTART;TZID="UTC-12:00":20250708T235959
+DTEND;TZID="UTC-12:00":20250709T000059
+DTSTAMP:20250830T065444Z
+UID:103e7f9c-ebe4-4679-9c84-85489995f261
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  会议时间: TBD\n📍 会议地点: TBD\n⏰ 原始截止时间 (AoE): 
+ 2025-07-08 23:59:59\n分类: 人机交互与普适计算 (HI)\nCCF B\, COR
+ E B\n会议官网: https://group.acm.org/conferences/group27/\nDBLP索引:
+  https://dblp.org/db/conf/group
+LOCATION:TBD
+URL:https://group.acm.org/conferences/group27/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+07:00
+TZOFFSETFROM:+0700
+TZOFFSETTO:+0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICMI 2024 摘要截稿
+DTSTART;TZID="UTC+07:00":20240426T235959
+DTEND;TZID="UTC+07:00":20240427T000059
+DTSTAMP:20250830T065444Z
+UID:c0f91116-f482-409b-ba21-c8612b9f8b72
+DESCRIPTION:ACM International Conference on Multimodal Interaction\n🗓
+ ️ 会议时间: Nov 4 - 8\, 2024\n📍 会议地点: San José\, Costa R
+ ica\n⏰ 原始截止时间 (UTC+7): 2024-04-26 23:59:59\n分类: 人机
+ 交互与普适计算 (HI)\nCCF C\, CORE B\, THCPL B\n会议官网: https:
+ //icmi.acm.org/2024/\nDBLP索引: https://dblp.org/db/conf/icmi
+LOCATION:San José\, Costa Rica
+URL:https://icmi.acm.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICMI 2025 摘要截稿
+DTSTART;TZID="UTC+07:00":20250425T235959
+DTEND;TZID="UTC+07:00":20250426T000059
+DTSTAMP:20250830T065444Z
+UID:0d87ea9f-6b59-4fde-bdce-b3ed502c8873
+DESCRIPTION:ACM International Conference on Multimodal Interaction\n🗓
+ ️ 会议时间: Oct 13 - 17\, 2025\n📍 会议地点: Canberra\, Austra
+ lia\n⏰ 原始截止时间 (UTC+7): 2025-04-25 23:59:59\n分类: 人机
+ 交互与普适计算 (HI)\nCCF C\, CORE B\, THCPL B\n会议官网: https:
+ //icmi.acm.org/2025/\nDBLP索引: https://dblp.org/db/conf/icmi
+LOCATION:Canberra\, Australia
+URL:https://icmi.acm.org/2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UIC 2025 截稿日期 [Conference Papers]
+DTSTART;TZID="UTC-04:00":20250501T235959
+DTEND;TZID="UTC-04:00":20250502T000059
+DTSTAMP:20250830T065444Z
+UID:218653ad-7063-467c-84f3-e5d2d23e43fc
+DESCRIPTION:IEEE International Conference on Ubiquitous Intelligence and C
+ omputing\n🗓️ 会议时间: Aug 18 - 22\, 2025\n📍 会议地点: Cal
+ gary\, Alberta\, Canada\n⏰ 原始截止时间 (UTC-4): 2025-05-01 23:59:
+ 59\n分类: 人机交互与普适计算 (HI)\nCCF C\, CORE B\n会议官网
+ : https://www.ieee-smart-world.org/2025/\nDBLP索引: https://dblp.org/db/
+ conf/uic
+LOCATION:Calgary\, Alberta\, Canada
+URL:https://www.ieee-smart-world.org/2025/
+END:VEVENT
+END:VCALENDAR

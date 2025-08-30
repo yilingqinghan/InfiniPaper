@@ -1,0 +1,1088 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CCS 2020 截稿日期 [2 review cycles]
+DTSTART;TZID="UTC-12:00":20200120T235959
+DTEND;TZID="UTC-12:00":20200121T000059
+DTSTAMP:20250830T065445Z
+UID:663efde2-d8d5-48bb-b017-efc04c5ee219
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: November 9-13\, 2020\n📍 会议地点: Orlando\, USA\n
+ ⏰ 原始截止时间 (UTC-12): 2020-01-20 23:59:59\n分类: 网络与信
+ 息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://www.sigsa
+ c.org/ccs/CCS2020/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Orlando\, USA
+URL:https://www.sigsac.org/ccs/CCS2020/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2021 截稿日期 [2 review cycles]
+DTSTART;TZID="UTC-12:00":20210120T235959
+DTEND;TZID="UTC-12:00":20210121T000059
+DTSTAMP:20250830T065445Z
+UID:dcd917a7-4f83-4293-be99-7d7d264b91a6
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: November 15-19\, 2021\n📍 会议地点: Seoul\, South 
+ Korea\n⏰ 原始截止时间 (UTC-12): 2021-01-20 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2021/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Seoul\, South Korea
+URL:https://www.sigsac.org/ccs/CCS2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2021 截稿日期 [spring]
+DTSTART;TZID="UTC-12:00":20210506T235959
+DTEND;TZID="UTC-12:00":20210507T000059
+DTSTAMP:20250830T065445Z
+UID:d98d4691-d9ea-49a3-b876-0a6593a8337f
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: November 15-19\, 2021\n📍 会议地点: Seoul\, South 
+ Korea\n⏰ 原始截止时间 (UTC-12): 2021-05-06 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2021/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Seoul\, South Korea
+URL:https://www.sigsac.org/ccs/CCS2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2022 截稿日期 [2 review cycles]
+DTSTART;TZID="UTC-12:00":20220114T235959
+DTEND;TZID="UTC-12:00":20220115T000059
+DTSTAMP:20250830T065445Z
+UID:3c2c4141-3e01-45a7-bfef-479c56983528
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: November 14-19\, 2022\n📍 会议地点: Los Angeles\, 
+ U.S.A.\n⏰ 原始截止时间 (UTC-12): 2022-01-14 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2022/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Los Angeles\, U.S.A.
+URL:https://www.sigsac.org/ccs/CCS2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2022 截稿日期 [the second review cycle]
+DTSTART;TZID="UTC-12:00":20220502T235959
+DTEND;TZID="UTC-12:00":20220503T000059
+DTSTAMP:20250830T065445Z
+UID:7acbc05e-f757-45ad-b1a7-698ddebba302
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: November 14-19\, 2022\n📍 会议地点: Los Angeles\, 
+ U.S.A.\n⏰ 原始截止时间 (UTC-12): 2022-05-02 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2022/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Los Angeles\, U.S.A.
+URL:https://www.sigsac.org/ccs/CCS2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2023 截稿日期 [First Round Submission]
+DTSTART;TZID="UTC-12:00":20230119T235959
+DTEND;TZID="UTC-12:00":20230120T000059
+DTSTAMP:20250830T065445Z
+UID:a3c99022-0ff7-4ada-955d-83ae55ebcfee
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: November 26-30\, 2023\n📍 会议地点: Copenhagen\, D
+ enmark\n⏰ 原始截止时间 (UTC-12): 2023-01-19 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2023/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Copenhagen\, Denmark
+URL:https://www.sigsac.org/ccs/CCS2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2023 截稿日期 [Second Round Submission]
+DTSTART;TZID="UTC-12:00":20230504T235959
+DTEND;TZID="UTC-12:00":20230505T000059
+DTSTAMP:20250830T065445Z
+UID:dfcd3966-9283-4ddf-aaaa-02526d3bb87e
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: November 26-30\, 2023\n📍 会议地点: Copenhagen\, D
+ enmark\n⏰ 原始截止时间 (UTC-12): 2023-05-04 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2023/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Copenhagen\, Denmark
+URL:https://www.sigsac.org/ccs/CCS2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2024 截稿日期 [First Round Submission]
+DTSTART;TZID="UTC-12:00":20240128T235959
+DTEND;TZID="UTC-12:00":20240129T000059
+DTSTAMP:20250830T065445Z
+UID:92bbd1b4-2beb-41cb-8976-1c0a976ed1f9
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: October 14-18\, 2024\n📍 会议地点: Salt Lake City\
+ , U.S.A\n⏰ 原始截止时间 (UTC-12): 2024-01-28 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2024/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Salt Lake City\, U.S.A
+URL:https://www.sigsac.org/ccs/CCS2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2024 截稿日期 [Second Round Submission (tentative)]
+DTSTART;TZID="UTC-12:00":20240429T235959
+DTEND;TZID="UTC-12:00":20240430T000059
+DTSTAMP:20250830T065445Z
+UID:942c9676-1260-485c-9b77-5b65a6c6b8bb
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: October 14-18\, 2024\n📍 会议地点: Salt Lake City\
+ , U.S.A\n⏰ 原始截止时间 (UTC-12): 2024-04-29 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2024/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:Salt Lake City\, U.S.A
+URL:https://www.sigsac.org/ccs/CCS2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2025 截稿日期 [First Review Cycle]
+DTSTART;TZID="UTC-12:00":20250109T235959
+DTEND;TZID="UTC-12:00":20250110T000059
+DTSTAMP:20250830T065445Z
+UID:fd4655a7-ad01-4694-ae95-f56b9b2556c5
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: October 13-17\, 2025\n📍 会议地点: TICC\, Taipei\,
+  Taiwan\n⏰ 原始截止时间 (UTC-12): 2025-01-09 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2025/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:TICC\, Taipei\, Taiwan
+URL:https://www.sigsac.org/ccs/CCS2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CCS 2025 截稿日期 [Second Review Cycle]
+DTSTART;TZID="UTC-12:00":20250414T235959
+DTEND;TZID="UTC-12:00":20250415T000059
+DTSTAMP:20250830T065445Z
+UID:00b41112-c5b1-4492-ad23-50077b2d61dd
+DESCRIPTION:ACM Conference on Computer and Communications Security\n🗓
+ ️ 会议时间: October 13-17\, 2025\n📍 会议地点: TICC\, Taipei\,
+  Taiwan\n⏰ 原始截止时间 (UTC-12): 2025-04-14 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://
+ www.sigsac.org/ccs/CCS2025/\nDBLP索引: https://dblp.org/db/conf/ccs
+LOCATION:TICC\, Taipei\, Taiwan
+URL:https://www.sigsac.org/ccs/CCS2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2022 截稿日期 [Schedule for TCHES Volume 2022/1]
+DTSTART;TZID="UTC-12:00":20210715T235959
+DTEND;TZID="UTC-12:00":20210716T000059
+DTSTAMP:20250830T065445Z
+UID:23918938-8c4e-463f-9a03-2149549fa154
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September \, 2022\n📍 会议地点: Bei
+ jing\, China\n⏰ 原始截止时间 (AoE): 2021-07-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https:
+ //ches.iacr.org/2022/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Beijing\, China
+URL:https://ches.iacr.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2022 截稿日期 [Schedule for TCHES Volume 2022/2]
+DTSTART;TZID="UTC-12:00":20211015T235959
+DTEND;TZID="UTC-12:00":20211016T000059
+DTSTAMP:20250830T065445Z
+UID:ff3c0a8a-e3e2-4569-9665-256d1a4924c4
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September \, 2022\n📍 会议地点: Bei
+ jing\, China\n⏰ 原始截止时间 (AoE): 2021-10-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https:
+ //ches.iacr.org/2022/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Beijing\, China
+URL:https://ches.iacr.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2022 截稿日期 [Schedule for TCHES Volume 2022/3]
+DTSTART;TZID="UTC-12:00":20220115T235959
+DTEND;TZID="UTC-12:00":20220116T000059
+DTSTAMP:20250830T065445Z
+UID:e66bab94-30b5-4214-93c2-ffd3d1211fa3
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September \, 2022\n📍 会议地点: Bei
+ jing\, China\n⏰ 原始截止时间 (AoE): 2022-01-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https:
+ //ches.iacr.org/2022/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Beijing\, China
+URL:https://ches.iacr.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2022 截稿日期 [Schedule for TCHES Volume 2022/4]
+DTSTART;TZID="UTC-12:00":20220415T235959
+DTEND;TZID="UTC-12:00":20220416T000059
+DTSTAMP:20250830T065445Z
+UID:a8d3e571-d1f7-424e-89eb-99fbe1fdf6fb
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September \, 2022\n📍 会议地点: Bei
+ jing\, China\n⏰ 原始截止时间 (AoE): 2022-04-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https:
+ //ches.iacr.org/2022/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Beijing\, China
+URL:https://ches.iacr.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2023 截稿日期 [Schedule for TCHES Volume 2023/1]
+DTSTART;TZID="UTC-12:00":20220715T235959
+DTEND;TZID="UTC-12:00":20220716T000059
+DTSTAMP:20250830T065445Z
+UID:a1796c19-ba11-4e11-920b-9d9019bce5b2
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September 10-14\, 2023\n📍 会议地点
+ : Prague\, Czech Republic\n⏰ 原始截止时间 (AoE): 2022-07-15 23:59:
+ 59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://ches.iacr.org/2023/\nDBLP索引: https://dblp.org/db/conf/
+ ches
+LOCATION:Prague\, Czech Republic
+URL:https://ches.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2023 截稿日期 [Schedule for TCHES Volume 2023/2]
+DTSTART;TZID="UTC-12:00":20221015T235959
+DTEND;TZID="UTC-12:00":20221016T000059
+DTSTAMP:20250830T065445Z
+UID:c7bedd78-c6f3-4567-bd30-10e95300de67
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September 10-14\, 2023\n📍 会议地点
+ : Prague\, Czech Republic\n⏰ 原始截止时间 (AoE): 2022-10-15 23:59:
+ 59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://ches.iacr.org/2023/\nDBLP索引: https://dblp.org/db/conf/
+ ches
+LOCATION:Prague\, Czech Republic
+URL:https://ches.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2023 截稿日期 [Schedule for TCHES Volume 2023/3]
+DTSTART;TZID="UTC-12:00":20230115T235959
+DTEND;TZID="UTC-12:00":20230116T000059
+DTSTAMP:20250830T065445Z
+UID:5e1bd973-e3d5-47c6-9cab-4eae9ab6d8fb
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September 10-14\, 2023\n📍 会议地点
+ : Prague\, Czech Republic\n⏰ 原始截止时间 (AoE): 2023-01-15 23:59:
+ 59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://ches.iacr.org/2023/\nDBLP索引: https://dblp.org/db/conf/
+ ches
+LOCATION:Prague\, Czech Republic
+URL:https://ches.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2023 截稿日期 [Schedule for TCHES Volume 2023/4]
+DTSTART;TZID="UTC-12:00":20230415T235959
+DTEND;TZID="UTC-12:00":20230416T000059
+DTSTAMP:20250830T065445Z
+UID:6ce1203a-8723-4551-974f-5cd79ed6cacc
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September 10-14\, 2023\n📍 会议地点
+ : Prague\, Czech Republic\n⏰ 原始截止时间 (AoE): 2023-04-15 23:59:
+ 59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://ches.iacr.org/2023/\nDBLP索引: https://dblp.org/db/conf/
+ ches
+LOCATION:Prague\, Czech Republic
+URL:https://ches.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2024 截稿日期 [Schedule for TCHES Volume 2024/1]
+DTSTART;TZID="UTC-12:00":20230715T235959
+DTEND;TZID="UTC-12:00":20230716T000059
+DTSTAMP:20250830T065445Z
+UID:633fffc4-e903-4cd5-8ba4-bc5742cb9829
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September\, 2024\n📍 会议地点: Hali
+ fax\, Canada\n⏰ 原始截止时间 (AoE): 2023-07-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https:
+ //ches.iacr.org/2024/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Halifax\, Canada
+URL:https://ches.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2024 截稿日期 [Schedule for TCHES Volume 2024/2]
+DTSTART;TZID="UTC-12:00":20231015T235959
+DTEND;TZID="UTC-12:00":20231016T000059
+DTSTAMP:20250830T065445Z
+UID:83560132-c952-4038-bf6e-d7f66f74e6da
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September\, 2024\n📍 会议地点: Hali
+ fax\, Canada\n⏰ 原始截止时间 (AoE): 2023-10-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https:
+ //ches.iacr.org/2024/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Halifax\, Canada
+URL:https://ches.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2024 截稿日期 [Schedule for TCHES Volume 2024/3]
+DTSTART;TZID="UTC-12:00":20240115T235959
+DTEND;TZID="UTC-12:00":20240116T000059
+DTSTAMP:20250830T065445Z
+UID:e1bd52b4-bbb8-47f6-9dc0-1d318a730403
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September\, 2024\n📍 会议地点: Hali
+ fax\, Canada\n⏰ 原始截止时间 (AoE): 2024-01-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https:
+ //ches.iacr.org/2024/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Halifax\, Canada
+URL:https://ches.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2024 截稿日期 [Schedule for TCHES Volume 2024/4]
+DTSTART;TZID="UTC-12:00":20240415T235959
+DTEND;TZID="UTC-12:00":20240416T000059
+DTSTAMP:20250830T065445Z
+UID:4b268179-1081-44b7-b8e0-02465f4f6c9c
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September\, 2024\n📍 会议地点: Hali
+ fax\, Canada\n⏰ 原始截止时间 (AoE): 2024-04-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https:
+ //ches.iacr.org/2024/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Halifax\, Canada
+URL:https://ches.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2025 截稿日期 [Schedule for TCHES Volume 2025/1]
+DTSTART;TZID="UTC-12:00":20240715T235959
+DTEND;TZID="UTC-12:00":20240716T000059
+DTSTAMP:20250830T065445Z
+UID:db4aec24-c6a9-4316-a38e-4648c6f70ca8
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September 14-18\, 2025\n📍 会议地点
+ : Kuala Lumpur\, Malaysia\n⏰ 原始截止时间 (AoE): 2024-07-15 23:59:
+ 59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://ches.iacr.org/2025/\nDBLP索引: https://dblp.org/db/conf/
+ ches
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://ches.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2025 截稿日期 [Schedule for TCHES Volume 2025/2]
+DTSTART;TZID="UTC-12:00":20241015T235959
+DTEND;TZID="UTC-12:00":20241016T000059
+DTSTAMP:20250830T065445Z
+UID:3e4fb9c7-41dd-4e87-bcf1-1dfa4df14a45
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September 14-18\, 2025\n📍 会议地点
+ : Kuala Lumpur\, Malaysia\n⏰ 原始截止时间 (AoE): 2024-10-15 23:59:
+ 59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://ches.iacr.org/2025/\nDBLP索引: https://dblp.org/db/conf/
+ ches
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://ches.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2025 截稿日期 [Schedule for TCHES Volume 2025/3]
+DTSTART;TZID="UTC-12:00":20250115T235959
+DTEND;TZID="UTC-12:00":20250116T000059
+DTSTAMP:20250830T065445Z
+UID:ff7262aa-2d50-46bb-b5a7-57cc4b788aba
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September 14-18\, 2025\n📍 会议地点
+ : Kuala Lumpur\, Malaysia\n⏰ 原始截止时间 (AoE): 2025-01-15 23:59:
+ 59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://ches.iacr.org/2025/\nDBLP索引: https://dblp.org/db/conf/
+ ches
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://ches.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2025 截稿日期 [Schedule for TCHES Volume 2025/4]
+DTSTART;TZID="UTC-12:00":20250415T235959
+DTEND;TZID="UTC-12:00":20250416T000059
+DTSTAMP:20250830T065445Z
+UID:885a9afc-d38f-4d8e-baf1-d03b985c6cdb
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: September 14-18\, 2025\n📍 会议地点
+ : Kuala Lumpur\, Malaysia\n⏰ 原始截止时间 (AoE): 2025-04-15 23:59:
+ 59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://ches.iacr.org/2025/\nDBLP索引: https://dblp.org/db/conf/
+ ches
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://ches.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2026 截稿日期 [Schedule for TCHES Volume 2026/1]
+DTSTART;TZID="UTC-12:00":20250715T235959
+DTEND;TZID="UTC-12:00":20250716T000059
+DTSTAMP:20250830T065445Z
+UID:074263cb-26ce-40ea-9652-e9d9bc8a7c25
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: October 11-15\, 2026\n📍 会议地点: 
+ Türkiye\n⏰ 原始截止时间 (AoE): 2025-07-15 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https://c
+ hes.iacr.org/2026/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Türkiye
+URL:https://ches.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2026 截稿日期 [Schedule for TCHES Volume 2026/2]
+DTSTART;TZID="UTC-12:00":20251015T235959
+DTEND;TZID="UTC-12:00":20251016T000059
+DTSTAMP:20250830T065445Z
+UID:baaca767-f572-4006-8424-e60fb792ea29
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: October 11-15\, 2026\n📍 会议地点: 
+ Türkiye\n⏰ 原始截止时间 (AoE): 2025-10-15 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https://c
+ hes.iacr.org/2026/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Türkiye
+URL:https://ches.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2026 截稿日期 [Schedule for TCHES Volume 2026/3]
+DTSTART;TZID="UTC-12:00":20260115T235959
+DTEND;TZID="UTC-12:00":20260116T000059
+DTSTAMP:20250830T065445Z
+UID:eafa63ac-236f-4d7a-b3ac-e0f3ed07f20c
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: October 11-15\, 2026\n📍 会议地点: 
+ Türkiye\n⏰ 原始截止时间 (AoE): 2026-01-15 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https://c
+ hes.iacr.org/2026/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Türkiye
+URL:https://ches.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2026 截稿日期 [Schedule for TCHES Volume 2026/4]
+DTSTART;TZID="UTC-12:00":20260415T235959
+DTEND;TZID="UTC-12:00":20260416T000059
+DTSTAMP:20250830T065445Z
+UID:e9890dd8-c5dd-4930-8966-ca9500910faa
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ 会议时间: October 11-15\, 2026\n📍 会议地点: 
+ Türkiye\n⏰ 原始截止时间 (AoE): 2026-04-15 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\n会议官网: https://c
+ hes.iacr.org/2026/\nDBLP索引: https://dblp.org/db/conf/ches
+LOCATION:Türkiye
+URL:https://ches.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CRYPTO 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20210224T210000
+DTEND;TZID="UTC-12:00":20210224T210100
+DTSTAMP:20250830T065445Z
+UID:ae4d7969-f97e-4218-a163-391b54137af7
+DESCRIPTION:International Cryptology Conference\n🗓️ 会议时间: Aug
+ ust 15-19\, 2021\n📍 会议地点: Virtual\n⏰ 原始截止时间 (UTC-
+ 12): 2021-02-24 21:00:00\n分类: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://crypto.iacr.org/2021/\nDBLP索引: ht
+ tps://dblp.org/db/conf/crypto
+LOCATION:Virtual
+URL:https://crypto.iacr.org/2021/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CRYPTO 2023 截稿日期
+DTSTART;TZID="UTC-05:00":20230216T180000
+DTEND;TZID="UTC-05:00":20230216T180100
+DTSTAMP:20250830T065445Z
+UID:cbea1a87-906f-4d25-b804-a275bb31abee
+DESCRIPTION:International Cryptology Conference\n🗓️ 会议时间: Aug
+ ust 19-24\, 2023\n📍 会议地点: Santa Barbara\, USA\n⏰ 原始截止
+ 时间 (UTC-5): 2023-02-16 18:00:00\n分类: 网络与信息安全 (SC)\nC
+ CF A\, CORE A*\, THCPL A\n会议官网: https://crypto.iacr.org/2023/\nDBL
+ P索引: https://dblp.org/db/conf/crypto
+LOCATION:Santa Barbara\, USA
+URL:https://crypto.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CRYPTO 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240213T235959
+DTEND;TZID="UTC-12:00":20240214T000059
+DTSTAMP:20250830T065445Z
+UID:61142a17-d68c-43ab-a766-f1c8d495ce34
+DESCRIPTION:International Cryptology Conference\n🗓️ 会议时间: Aug
+ ust 18-22\, 2024\n📍 会议地点: Santa Barbara\, USA\n⏰ 原始截止
+ 时间 (UTC-12): 2024-02-13 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://crypto.iacr.org/2024/\nDB
+ LP索引: https://dblp.org/db/conf/crypto
+LOCATION:Santa Barbara\, USA
+URL:https://crypto.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CRYPTO 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250213T235959
+DTEND;TZID="UTC-12:00":20250214T000059
+DTSTAMP:20250830T065445Z
+UID:7a2b04b5-3b13-48ca-9dd8-6acbe9cc6093
+DESCRIPTION:International Cryptology Conference\n🗓️ 会议时间: Aug
+ ust 17-21\, 2025\n📍 会议地点: Santa Barbara\, USA\n⏰ 原始截止
+ 时间 (UTC-12): 2025-02-13 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://crypto.iacr.org/2025/\nDB
+ LP索引: https://dblp.org/db/conf/crypto
+LOCATION:Santa Barbara\, USA
+URL:https://crypto.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EUROCRYPT 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20201008T210000
+DTEND;TZID="UTC-12:00":20201008T210100
+DTSTAMP:20250830T065445Z
+UID:7f3e8764-4fa0-462e-8ab7-9acef63164ae
+DESCRIPTION:European Cryptology Conference\n🗓️ 会议时间: October 
+ 17-21\, 2021\n📍 会议地点: Zagreb\, Croatia\n⏰ 原始截止时间 
+ (UTC-12): 2020-10-08 21:00:00\n分类: 网络与信息安全 (SC)\nCCF A\,
+  CORE A*\, THCPL A\n会议官网: https://eurocrypt.iacr.org/2021\nDBLP索
+ 引: https://dblp.org/db/conf/eurocrypt
+LOCATION:Zagreb\, Croatia
+URL:https://eurocrypt.iacr.org/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EUROCRYPT 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231006T235959
+DTEND;TZID="UTC-12:00":20231007T000059
+DTSTAMP:20250830T065445Z
+UID:5d0b9be6-f85a-47ad-8873-d806e7476e53
+DESCRIPTION:European Cryptology Conference\n🗓️ 会议时间: May 26-3
+ 0\, 2024\n📍 会议地点: Zurich\, Switzerland\n⏰ 原始截止时间 
+ (AoE): 2023-10-06 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CO
+ RE A*\, THCPL A\n会议官网: https://eurocrypt.iacr.org/2024\nDBLP索引
+ : https://dblp.org/db/conf/eurocrypt
+LOCATION:Zurich\, Switzerland
+URL:https://eurocrypt.iacr.org/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EUROCRYPT 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241002T235959
+DTEND;TZID="UTC-12:00":20241003T000059
+DTSTAMP:20250830T065445Z
+UID:0e4e6e0e-033d-460f-b7ae-37f40c93b063
+DESCRIPTION:European Cryptology Conference\n🗓️ 会议时间: May 4-8\
+ , 2025\n📍 会议地点: Madrid\, Spain\n⏰ 原始截止时间 (AoE): 2
+ 024-10-02 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, 
+ THCPL A\n会议官网: https://eurocrypt.iacr.org/2025/\nDBLP索引: https
+ ://dblp.org/db/conf/eurocrypt
+LOCATION:Madrid\, Spain
+URL:https://eurocrypt.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EUROCRYPT 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20251002T235959
+DTEND;TZID="UTC-12:00":20251003T000059
+DTSTAMP:20250830T065445Z
+UID:e19e88df-0198-4f93-b974-cc18092a85f6
+DESCRIPTION:European Cryptology Conference\n🗓️ 会议时间: May 10-1
+ 4\, 2026\n📍 会议地点: Rome\, Italy\n⏰ 原始截止时间 (AoE): 2
+ 025-10-02 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, 
+ THCPL A\n会议官网: https://eurocrypt.iacr.org/2026/\nDBLP索引: https
+ ://dblp.org/db/conf/eurocrypt
+LOCATION:Rome\, Italy
+URL:https://eurocrypt.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2022 截稿日期 [spring]
+DTSTART;TZID="UTC-12:00":20210521T235959
+DTEND;TZID="UTC-12:00":20210522T000059
+DTSTAMP:20250830T065445Z
+UID:6dd0e93e-789f-4e15-9539-549a202007b4
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: February 27 - March 3\, 2022\n📍 会议地点: San Die
+ go\, California\n⏰ 原始截止时间 (UTC-12): 2021-05-21 23:59:59\n分
+ 类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: 
+ https://www.ndss-symposium.org/ndss2022/\nDBLP索引: https://dblp.org/db/
+ conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2022 截稿日期 [fall]
+DTSTART;TZID="UTC-12:00":20210723T235959
+DTEND;TZID="UTC-12:00":20210724T000059
+DTSTAMP:20250830T065445Z
+UID:eb128d03-728b-493c-944f-07b17bef4525
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: February 27 - March 3\, 2022\n📍 会议地点: San Die
+ go\, California\n⏰ 原始截止时间 (UTC-12): 2021-07-23 23:59:59\n分
+ 类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: 
+ https://www.ndss-symposium.org/ndss2022/\nDBLP索引: https://dblp.org/db/
+ conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2023 截稿日期 [Summer]
+DTSTART;TZID="UTC-12:00":20220513T235959
+DTEND;TZID="UTC-12:00":20220514T000059
+DTSTAMP:20250830T065445Z
+UID:fe4f5eab-6a6c-47a1-bfb0-c07bcf3c3d8b
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: TBD\n📍 会议地点: San Diego\, California\n⏰ 原
+ 始截止时间 (UTC-12): 2022-05-13 23:59:59\n分类: 网络与信息安
+ 全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://www.ndss-sympos
+ ium.org/ndss2023/\nDBLP索引: https://dblp.org/db/conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2023 截稿日期 [Fall]
+DTSTART;TZID="UTC-12:00":20220729T235959
+DTEND;TZID="UTC-12:00":20220730T000059
+DTSTAMP:20250830T065445Z
+UID:4458a0d1-4e5c-4113-8b25-54c545fc53ba
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: TBD\n📍 会议地点: San Diego\, California\n⏰ 原
+ 始截止时间 (UTC-12): 2022-07-29 23:59:59\n分类: 网络与信息安
+ 全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://www.ndss-sympos
+ ium.org/ndss2023/\nDBLP索引: https://dblp.org/db/conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2024 截稿日期 [Summer]
+DTSTART;TZID="UTC-12:00":20230419T235959
+DTEND;TZID="UTC-12:00":20230420T000059
+DTSTAMP:20250830T065445Z
+UID:cd604964-b9a9-40c5-9664-6e1db206a2b8
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: February 26 - March 1\, 2024\n📍 会议地点: San Die
+ go\, California\n⏰ 原始截止时间 (UTC-12): 2023-04-19 23:59:59\n分
+ 类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: 
+ https://www.ndss-symposium.org/ndss2024/\nDBLP索引: https://dblp.org/db/
+ conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2024 截稿日期 [Fall]
+DTSTART;TZID="UTC-12:00":20230628T235959
+DTEND;TZID="UTC-12:00":20230629T000059
+DTSTAMP:20250830T065445Z
+UID:4758f003-718e-4a4a-8cc5-4e3345e03384
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: February 26 - March 1\, 2024\n📍 会议地点: San Die
+ go\, California\n⏰ 原始截止时间 (UTC-12): 2023-06-28 23:59:59\n分
+ 类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官网: 
+ https://www.ndss-symposium.org/ndss2024/\nDBLP索引: https://dblp.org/db/
+ conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2025 截稿日期 [Summer]
+DTSTART;TZID="UTC-12:00":20240417T235959
+DTEND;TZID="UTC-12:00":20240418T000059
+DTSTAMP:20250830T065445Z
+UID:2bc22a7c-bf71-49e8-a683-1bafd20f4b25
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: February 23 - February 28\, 2025\n📍 会议地点: San
+  Diego\, California\n⏰ 原始截止时间 (UTC-12): 2024-04-17 23:59:59\
+ n分类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官
+ 网: https://www.ndss-symposium.org/ndss2025/\nDBLP索引: https://dblp.or
+ g/db/conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2025 截稿日期 [Fall]
+DTSTART;TZID="UTC-12:00":20240710T235959
+DTEND;TZID="UTC-12:00":20240711T000059
+DTSTAMP:20250830T065445Z
+UID:1bbd6a4e-d750-4746-8e2d-f74a6889e295
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: February 23 - February 28\, 2025\n📍 会议地点: San
+  Diego\, California\n⏰ 原始截止时间 (UTC-12): 2024-07-10 23:59:59\
+ n分类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官
+ 网: https://www.ndss-symposium.org/ndss2025/\nDBLP索引: https://dblp.or
+ g/db/conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2026 摘要截稿 [Summer]
+DTSTART;TZID="UTC-12:00":20250416T235959
+DTEND;TZID="UTC-12:00":20250417T000059
+DTSTAMP:20250830T065445Z
+UID:4afb2813-f481-443e-a80d-194c4604c024
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: February 23 - February 27\, 2026\n📍 会议地点: San
+  Diego\, California\n⏰ 原始截止时间 (UTC-12): 2025-04-16 23:59:59\
+ n分类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官
+ 网: https://www.ndss-symposium.org/ndss2026/\nDBLP索引: https://dblp.or
+ g/db/conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NDSS 2026 摘要截稿 [Fall]
+DTSTART;TZID="UTC-12:00":20250730T235959
+DTEND;TZID="UTC-12:00":20250731T000059
+DTSTAMP:20250830T065445Z
+UID:53d7a7b5-91fc-4865-902c-6d1168be6a9f
+DESCRIPTION:Network and Distributed System Security (NDSS) Symposium\n🗓
+ ️ 会议时间: February 23 - February 27\, 2026\n📍 会议地点: San
+  Diego\, California\n⏰ 原始截止时间 (UTC-12): 2025-07-30 23:59:59\
+ n分类: 网络与信息安全 (SC)\nCCF A\, CORE A*\, THCPL A\n会议官
+ 网: https://www.ndss-symposium.org/ndss2026/\nDBLP索引: https://dblp.or
+ g/db/conf/ndss
+LOCATION:San Diego\, California
+URL:https://www.ndss-symposium.org/ndss2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2022 截稿日期 [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20210415T235959
+DTEND;TZID="UTC-12:00":20210416T000059
+DTSTAMP:20250830T065445Z
+UID:67e47ac8-0cf0-434b-a958-a0a7a0ca024f
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ May 23-26\, 2022\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2021-04-15 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2022/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2022 截稿日期 [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20210819T235959
+DTEND;TZID="UTC-12:00":20210820T000059
+DTSTAMP:20250830T065445Z
+UID:d743487b-a2e3-4fae-9f27-6668c4afd549
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ May 23-26\, 2022\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2021-08-19 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2022/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2022 截稿日期 [Third Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20211202T235959
+DTEND;TZID="UTC-12:00":20211203T000059
+DTSTAMP:20250830T065445Z
+UID:eef60107-b9b2-4eed-b1b8-69a21dff94f1
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ May 23-26\, 2022\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2021-12-02 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2022/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2023 截稿日期 [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20220401T235959
+DTEND;TZID="UTC-12:00":20220402T000059
+DTSTAMP:20250830T065445Z
+UID:9963a422-0656-4ad8-b79e-9765e7c3a405
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ May 22-26\, 2023\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2022-04-01 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2023/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2023 截稿日期 [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20220819T235959
+DTEND;TZID="UTC-12:00":20220820T000059
+DTSTAMP:20250830T065445Z
+UID:3bcbaefe-a81b-4f98-9969-b260fc35fbef
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ May 22-26\, 2023\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2022-08-19 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2023/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2023 截稿日期 [Third Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20221202T235959
+DTEND;TZID="UTC-12:00":20221203T000059
+DTSTAMP:20250830T065445Z
+UID:335197d1-34c8-41d2-95d5-05c64994396a
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ May 22-26\, 2023\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2022-12-02 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2023/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2024 截稿日期 [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20230413T235959
+DTEND;TZID="UTC-12:00":20230414T000059
+DTSTAMP:20250830T065445Z
+UID:5a729f0a-313d-4350-a488-085ee83ba2d7
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ MAY 20-23\, 2024\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2023-04-13 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2024/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2024 截稿日期 [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20230803T235959
+DTEND;TZID="UTC-12:00":20230804T000059
+DTSTAMP:20250830T065445Z
+UID:52e6d924-7edb-476c-9cc8-f02786996537
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ MAY 20-23\, 2024\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2023-08-03 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2024/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2024 截稿日期 [Third Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20231206T235959
+DTEND;TZID="UTC-12:00":20231207T000059
+DTSTAMP:20250830T065445Z
+UID:dde5d68e-48c0-4909-b2ba-89caf28e064c
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ MAY 20-23\, 2024\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2023-12-06 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2024/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2025 截稿日期 [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20240606T235959
+DTEND;TZID="UTC-12:00":20240607T000059
+DTSTAMP:20250830T065445Z
+UID:c103c237-346c-46c2-a952-1efc520cf013
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ MAY 12-15\, 2025\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2024-06-06 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2025/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2025 截稿日期 [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20241114T235959
+DTEND;TZID="UTC-12:00":20241115T000059
+DTSTAMP:20250830T065445Z
+UID:a7520913-5bc8-4241-8625-424b061be60b
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ MAY 12-15\, 2025\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2024-11-14 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2025/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2026 截稿日期 [First Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20250605T235959
+DTEND;TZID="UTC-12:00":20250606T000059
+DTSTAMP:20250830T065445Z
+UID:c4e9eb73-5b1b-4868-8f4a-7f77f975ddd8
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ MAY 18-21\, 2026\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2025-06-05 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2026/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S&P 2026 截稿日期 [Second Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20251113T235959
+DTEND;TZID="UTC-12:00":20251114T000059
+DTSTAMP:20250830T065445Z
+UID:bf0e0844-87f6-48e3-9711-bca7b2d8e34d
+DESCRIPTION:IEEE Symposium on Security and Privacy\n🗓️ 会议时间: 
+ MAY 18-21\, 2026\n📍 会议地点: SAN FRANCISCO\, CA\n⏰ 原始截止
+ 时间 (UTC-12): 2025-11-13 23:59:59\n分类: 网络与信息安全 (SC)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://www.ieee-security.org/TC/
+ SP2026/\nDBLP索引: https://dblp.org/db/conf/sp
+LOCATION:SAN FRANCISCO\, CA
+URL:https://www.ieee-security.org/TC/SP2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2022 截稿日期 [3 review cycles]
+DTSTART;TZID="UTC-12:00":20210608T235959
+DTEND;TZID="UTC-12:00":20210609T000059
+DTSTAMP:20250830T065445Z
+UID:656f8304-674d-4481-b64e-f1aceb6936ed
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 10-12\
+ , 2022\n📍 会议地点: BOSTON\, MA\, USA\n⏰ 原始截止时间 (UTC-
+ 12): 2021-06-08 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixsecur
+ ity22\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:BOSTON\, MA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity22
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2022 截稿日期 [3 review cycles]
+DTSTART;TZID="UTC-12:00":20211012T235959
+DTEND;TZID="UTC-12:00":20211013T000059
+DTSTAMP:20250830T065445Z
+UID:e640ef75-0b07-4be9-9850-db5deecb5751
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 10-12\
+ , 2022\n📍 会议地点: BOSTON\, MA\, USA\n⏰ 原始截止时间 (UTC-
+ 12): 2021-10-12 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixsecur
+ ity22\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:BOSTON\, MA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity22
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2022 截稿日期 [3 review cycles]
+DTSTART;TZID="UTC-12:00":20220201T235959
+DTEND;TZID="UTC-12:00":20220202T000059
+DTSTAMP:20250830T065445Z
+UID:e426cd4f-39f6-4b7d-8030-e624e4c44e55
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 10-12\
+ , 2022\n📍 会议地点: BOSTON\, MA\, USA\n⏰ 原始截止时间 (UTC-
+ 12): 2022-02-01 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixsecur
+ ity22\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:BOSTON\, MA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity22
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2023 截稿日期 [Summer Deadline]
+DTSTART;TZID="UTC-12:00":20220607T235959
+DTEND;TZID="UTC-12:00":20220608T000059
+DTSTAMP:20250830T065445Z
+UID:71d70f8a-d63a-443f-bbbd-472b3980544d
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 9-11\,
+  2023\n📍 会议地点: ANAHEIM\, CA\, USA\n⏰ 原始截止时间 (UTC-
+ 12): 2022-06-07 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixsecur
+ ity23\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:ANAHEIM\, CA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2023 截稿日期 [Fall Deadline]
+DTSTART;TZID="UTC-12:00":20221011T235959
+DTEND;TZID="UTC-12:00":20221012T000059
+DTSTAMP:20250830T065445Z
+UID:8d0ebd2d-3730-40bd-83fe-8283207ec73e
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 9-11\,
+  2023\n📍 会议地点: ANAHEIM\, CA\, USA\n⏰ 原始截止时间 (UTC-
+ 12): 2022-10-11 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixsecur
+ ity23\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:ANAHEIM\, CA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2023 截稿日期 [Winter Deadline]
+DTSTART;TZID="UTC-12:00":20230207T235959
+DTEND;TZID="UTC-12:00":20230208T000059
+DTSTAMP:20250830T065445Z
+UID:177f9543-5527-439c-b85e-7e6c19ab4930
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 9-11\,
+  2023\n📍 会议地点: ANAHEIM\, CA\, USA\n⏰ 原始截止时间 (UTC-
+ 12): 2023-02-07 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixsecur
+ ity23\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:ANAHEIM\, CA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2024 截稿日期 [Summer Deadline]
+DTSTART;TZID="UTC-12:00":20230606T235959
+DTEND;TZID="UTC-12:00":20230607T000059
+DTSTAMP:20250830T065445Z
+UID:6b1bb00c-2552-409f-be6c-cf68bf878ec1
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 14-16\
+ , 2024\n📍 会议地点: PHILADELPHIA\, PA\, USA\n⏰ 原始截止时间
+  (UTC-12): 2023-06-06 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\
+ , CORE A*\, THCPL A\n会议官网: https://www.usenix.org/conference/useni
+ xsecurity24\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:PHILADELPHIA\, PA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2024 截稿日期 [Fall Deadline]
+DTSTART;TZID="UTC-12:00":20231017T235959
+DTEND;TZID="UTC-12:00":20231018T000059
+DTSTAMP:20250830T065445Z
+UID:da51fda2-55d3-419f-abba-763c8384d398
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 14-16\
+ , 2024\n📍 会议地点: PHILADELPHIA\, PA\, USA\n⏰ 原始截止时间
+  (UTC-12): 2023-10-17 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\
+ , CORE A*\, THCPL A\n会议官网: https://www.usenix.org/conference/useni
+ xsecurity24\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:PHILADELPHIA\, PA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2024 截稿日期 [Winter Deadline]
+DTSTART;TZID="UTC-12:00":20240208T235959
+DTEND;TZID="UTC-12:00":20240209T000059
+DTSTAMP:20250830T065445Z
+UID:81cc9281-b9de-4649-a570-25208a5f0cae
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 14-16\
+ , 2024\n📍 会议地点: PHILADELPHIA\, PA\, USA\n⏰ 原始截止时间
+  (UTC-12): 2024-02-08 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\
+ , CORE A*\, THCPL A\n会议官网: https://www.usenix.org/conference/useni
+ xsecurity24\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:PHILADELPHIA\, PA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2025 截稿日期 [Cycle 1 Deadline]
+DTSTART;TZID="UTC-12:00":20240904T235959
+DTEND;TZID="UTC-12:00":20240905T000059
+DTSTAMP:20250830T065445Z
+UID:b0babdee-ce62-4510-97f3-298dd0e8f561
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 13-15\
+ , 2025\n📍 会议地点: SEATTLE\, WA\, USA\n⏰ 原始截止时间 (UTC
+ -12): 2024-09-04 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, COR
+ E A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixsecu
+ rity25\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:SEATTLE\, WA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2025 截稿日期 [Cycle 2 Deadline]
+DTSTART;TZID="UTC-12:00":20250122T235959
+DTEND;TZID="UTC-12:00":20250123T000059
+DTSTAMP:20250830T065445Z
+UID:8bf2209b-b588-4eac-b37c-9ade28b9a4b3
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 13-15\
+ , 2025\n📍 会议地点: SEATTLE\, WA\, USA\n⏰ 原始截止时间 (UTC
+ -12): 2025-01-22 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, COR
+ E A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixsecu
+ rity25\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:SEATTLE\, WA\, USA
+URL:https://www.usenix.org/conference/usenixsecurity25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2026 摘要截稿 [Cycle 1 Deadline]
+DTSTART;TZID="UTC-12:00":20250819T235959
+DTEND;TZID="UTC-12:00":20250820T000059
+DTSTAMP:20250830T065445Z
+UID:a11976db-eec0-4359-bdf2-c7ea4d96cfc4
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 12-14\
+ , 2026\n📍 会议地点: Baltimore\, MD\, USA\n⏰ 原始截止时间 (U
+ TC-12): 2025-08-19 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, C
+ ORE A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixse
+ curity26\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:Baltimore\, MD\, USA
+URL:https://www.usenix.org/conference/usenixsecurity26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:USENIX Security 2026 摘要截稿 [Cycle 2 Deadline]
+DTSTART;TZID="UTC-12:00":20260129T235959
+DTEND;TZID="UTC-12:00":20260130T000059
+DTSTAMP:20250830T065445Z
+UID:dc2328c9-4fc7-4339-8a03-560e604d5f23
+DESCRIPTION:USENIX Security Symposium\n🗓️ 会议时间: August 12-14\
+ , 2026\n📍 会议地点: Baltimore\, MD\, USA\n⏰ 原始截止时间 (U
+ TC-12): 2026-01-29 23:59:59\n分类: 网络与信息安全 (SC)\nCCF A\, C
+ ORE A*\, THCPL A\n会议官网: https://www.usenix.org/conference/usenixse
+ curity26\nDBLP索引: https://dblp.org/db/conf/uss
+LOCATION:Baltimore\, MD\, USA
+URL:https://www.usenix.org/conference/usenixsecurity26
+END:VEVENT
+END:VCALENDAR

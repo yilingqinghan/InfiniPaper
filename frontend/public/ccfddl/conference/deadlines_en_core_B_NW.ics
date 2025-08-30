@@ -1,0 +1,178 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:GLOBECOM 2023 Deadline
+DTSTART;TZID="UTC-04:00":20230415T235959
+DTEND;TZID="UTC-04:00":20230416T000059
+DTSTAMP:20250830T065448Z
+UID:10326a3d-adae-459d-b6f2-b25b65cfc490
+DESCRIPTION:IEEE Global Communications Conference\n🗓️ Date: December 
+ 4-8\, 2023\n📍 Location: Kuala Lumpur\, Malaysia\n⏰ Original Deadline 
+ (UTC-4): 2023-04-15 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\, CORE
+  B\, THCPL B\nConference Website: https://globecom2023.ieee-globecom.org/\
+ nDBLP Index: https://dblp.org/db/conf/globecom
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://globecom2023.ieee-globecom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GLOBECOM 2025 Deadline
+DTSTART;TZID="UTC-04:00":20250415T235959
+DTEND;TZID="UTC-04:00":20250416T000059
+DTSTAMP:20250830T065448Z
+UID:cabb8611-ba50-4131-8117-c3df0ed02b3f
+DESCRIPTION:IEEE Global Communications Conference\n🗓️ Date: December 
+ 8-12\, 2025\n📍 Location: Taipei\, Taiwan\n⏰ Original Deadline (UTC-4)
+ : 2025-04-15 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\, CORE B\, TH
+ CPL B\nConference Website: https://globecom2025.ieee-globecom.org/\nDBLP I
+ ndex: https://dblp.org/db/conf/globecom
+LOCATION:Taipei\, Taiwan
+URL:https://globecom2025.ieee-globecom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICNP 2022 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20220519T200000
+DTEND;TZID="UTC-04:00":20220519T200100
+DTSTAMP:20250830T065448Z
+UID:6693fa6c-be3f-4e6a-a7bb-b7a55c9081b1
+DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
+ te: October 30-November 2\, 2022\n📍 Location: Lexington\, Kentucky\, US
+ A\n⏰ Original Deadline (UTC-4): 2022-05-19 20:00:00\nCategory: 计算机
+ 网络 (NW)\nCCF B\, CORE B\, THCPL A\nConference Website: https://icnp22.
+ cs.ucr.edu/index.html\nDBLP Index: https://dblp.org/db/conf/icnp
+LOCATION:Lexington\, Kentucky\, USA
+URL:https://icnp22.cs.ucr.edu/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICNP 2023 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20230524T200000
+DTEND;TZID="UTC-04:00":20230524T200100
+DTSTAMP:20250830T065448Z
+UID:31aea136-2667-4e18-82bc-ecbd045c51c2
+DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
+ te: October 10-13\, 2023\n📍 Location: Reykjavik\, Iceland\n⏰ Original
+  Deadline (UTC-4): 2023-05-24 20:00:00\nCategory: 计算机网络 (NW)\nCC
+ F B\, CORE B\, THCPL A\nConference Website: https://icnp23.cs.ucr.edu/inde
+ x.html\nDBLP Index: https://dblp.org/db/conf/icnp
+LOCATION:Reykjavik\, Iceland
+URL:https://icnp23.cs.ucr.edu/index.html
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICNP 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240517T235959
+DTEND;TZID="UTC-12:00":20240518T000059
+DTSTAMP:20250830T065448Z
+UID:455ae1ba-823c-4b56-b5f1-5559a6274121
+DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
+ te: October 28-31\, 2024\n📍 Location: Charleroi\, Belgium\n⏰ Original
+  Deadline (AoE): 2024-05-17 23:59:59\nCategory: 计算机网络 (NW)\nCCF 
+ B\, CORE B\, THCPL A\nConference Website: https://icnp24.cs.ucr.edu/index.
+ html\nDBLP Index: https://dblp.org/db/conf/icnp
+LOCATION:Charleroi\, Belgium
+URL:https://icnp24.cs.ucr.edu/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICNP 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250509T235959
+DTEND;TZID="UTC-12:00":20250510T000059
+DTSTAMP:20250830T065448Z
+UID:be16f7c5-41cb-419a-a810-427feee02a3a
+DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
+ te: September 22-25\, 2025\n📍 Location: Seoul\, South Korea\n⏰ Origin
+ al Deadline (AoE): 2025-05-09 23:59:59\nCategory: 计算机网络 (NW)\nCC
+ F B\, CORE B\, THCPL A\nConference Website: https://ieeeicnp2025.pages.dev
+ /\nDBLP Index: https://dblp.org/db/conf/icnp
+LOCATION:Seoul\, South Korea
+URL:https://ieeeicnp2025.pages.dev/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IWQoS 2022 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20220201T235959
+DTEND;TZID="UTC-12:00":20220202T000059
+DTSTAMP:20250830T065448Z
+UID:fe49b70c-8205-43b8-b5fd-464ae37d0424
+DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
+ ️ Date: June 10-12\, 2022\n📍 Location: Virtual\n⏰ Original Deadline
+  (UTC-12): 2022-02-01 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CO
+ RE B\, THCPL B\nConference Website: https://iwqos2022.ieee-iwqos.org/\nDBL
+ P Index: https://dblp.org/db/conf/iwqos
+LOCATION:Virtual
+URL:https://iwqos2022.ieee-iwqos.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IWQoS 2023 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20230129T235959
+DTEND;TZID="UTC-12:00":20230130T000059
+DTSTAMP:20250830T065448Z
+UID:493db1e1-afe5-492f-a4a5-f385b08c20ff
+DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
+ ️ Date: June 19-21\, 2023\n📍 Location: Orlando\, FL\, USA\n⏰ Origin
+ al Deadline (UTC-12): 2023-01-29 23:59:59\nCategory: 计算机网络 (NW)\
+ nCCF B\, CORE B\, THCPL B\nConference Website: https://iwqos2023.ieee-iwqo
+ s.org/\nDBLP Index: https://dblp.org/db/conf/iwqos
+LOCATION:Orlando\, FL\, USA
+URL:https://iwqos2023.ieee-iwqos.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IWQoS 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250216T235959
+DTEND;TZID="UTC-12:00":20250217T000059
+DTSTAMP:20250830T065448Z
+UID:3d62ffd0-bc2f-426f-9167-21ca1629a239
+DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
+ ️ Date: July 02-04\, 2025\n📍 Location: Gold Coast\, Australia\n⏰ Or
+ iginal Deadline (AoE): 2025-02-16 23:59:59\nCategory: 计算机网络 (NW)
+ \nCCF B\, CORE B\, THCPL B\nConference Website: https://iwqos2025.ieee-iwq
+ os.org/\nDBLP Index: https://dblp.org/db/conf/iwqos
+LOCATION:Gold Coast\, Australia
+URL:https://iwqos2025.ieee-iwqos.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NOSSDAV 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250117T235959
+DTEND;TZID="UTC-12:00":20250118T000059
+DTSTAMP:20250830T065448Z
+UID:f824c21a-64cc-460f-88d0-28a2a649379f
+DESCRIPTION:International Workshop on Network and Operating System Support
+  for Digital Audio and Video\n🗓️ Date: March 31- April 3\, 2025\n📍
+  Location: Stellenbosch\, South Africa\n⏰ Original Deadline (AoE): 2025-
+ 01-17 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CORE B\, THCPL B\n
+ Conference Website: https://nossdav.org/2025/\nDBLP Index: https://dblp.or
+ g/db/conf/nossdav
+LOCATION:Stellenbosch\, South Africa
+URL:https://nossdav.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WoWMoM 2025 Deadline
+DTSTART;TZID="UTC-12:00":20241122T235959
+DTEND;TZID="UTC-12:00":20241123T000059
+DTSTAMP:20250830T065448Z
+UID:2f164a1e-5b2b-4953-816f-1569cbf9b211
+DESCRIPTION:IEEE International Symposium on a World of Wireless\, Mobile a
+ nd Multimedia Networks\n🗓️ Date: May 27-30\, 2025\n📍 Location: For
+ t Worth\, Texas\, USA\n⏰ Original Deadline (AoE): 2024-11-22 23:59:59\nC
+ ategory: 计算机网络 (NW)\nCCF C\, CORE B\, THCPL B\nConference Websit
+ e: https://wowmomconference.uta.edu/index.html\nDBLP Index: https://dblp.o
+ rg/db/conf/wowmom
+LOCATION:Fort Worth\, Texas\, USA
+URL:https://wowmomconference.uta.edu/index.html
+END:VEVENT
+END:VCALENDAR

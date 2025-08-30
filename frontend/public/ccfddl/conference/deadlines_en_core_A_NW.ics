@@ -1,0 +1,141 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20231127T235959
+DTEND;TZID="UTC-12:00":20231128T000059
+DTSTAMP:20250830T065448Z
+UID:c201e072-17d2-4866-b5d1-5326673a5e5d
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadli
+ ne (AoE): 2023-11-27 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, COR
+ E A\, THCPL A\nConference Website: https://conferences.sigcomm.org/co-next
+ /2025/#!/home\nDBLP Index: https://dblp.org/db/conf/conext
+LOCATION:TBD
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240620T235959
+DTEND;TZID="UTC-12:00":20240621T000059
+DTSTAMP:20250830T065448Z
+UID:8852244b-3d95-46e8-b1e5-95f421b829db
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadli
+ ne (AoE): 2024-06-20 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, COR
+ E A\, THCPL A\nConference Website: https://conferences.sigcomm.org/co-next
+ /2025/#!/home\nDBLP Index: https://dblp.org/db/conf/conext
+LOCATION:TBD
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 Abstract Deadline [Winter submission]
+DTSTART;TZID="UTC-12:00":20241128T235959
+DTEND;TZID="UTC-12:00":20241129T000059
+DTSTAMP:20250830T065448Z
+UID:f7ca4ecd-984c-4a0d-b5ba-cf4d979782c5
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ Date: Dec 1-4\, 2025\n📍 Location: HKUST\, Hong 
+ Kong\n⏰ Original Deadline (AoE): 2024-11-28 23:59:59\nCategory: 计算
+ 机网络 (NW)\nCCF B\, CORE A\, THCPL A\nConference Website: https://conf
+ erences.sigcomm.org/co-next/2025/#!/home\nDBLP Index: https://dblp.org/db/
+ conf/conext
+LOCATION:HKUST\, Hong Kong
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 Abstract Deadline [June submission]
+DTSTART;TZID="UTC-12:00":20250529T235959
+DTEND;TZID="UTC-12:00":20250530T000059
+DTSTAMP:20250830T065448Z
+UID:8605df74-5ac0-4a52-85f9-8303de31d106
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ Date: Dec 1-4\, 2025\n📍 Location: HKUST\, Hong 
+ Kong\n⏰ Original Deadline (AoE): 2025-05-29 23:59:59\nCategory: 计算
+ 机网络 (NW)\nCCF B\, CORE A\, THCPL A\nConference Website: https://conf
+ erences.sigcomm.org/co-next/2025/#!/home\nDBLP Index: https://dblp.org/db/
+ conf/conext
+LOCATION:HKUST\, Hong Kong
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240508T235959
+DTEND;TZID="UTC-12:00":20240509T000059
+DTSTAMP:20250830T065448Z
+UID:800603fb-309f-4e0d-8456-b0236ed6cefa
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ Date: Nov 4-6\, 2
+ 024\n📍 Location: Madrid\, Spain\n⏰ Original Deadline (AoE): 2024-05-0
+ 8 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CORE A\, THCPL A\nConf
+ erence Website: https://conferences.sigcomm.org/imc/2024/\nDBLP Index: htt
+ ps://dblp.org/db/conf/imc
+LOCATION:Madrid\, Spain
+URL:https://conferences.sigcomm.org/imc/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2025 Abstract Deadline [Fall deadline]
+DTSTART;TZID="UTC-12:00":20241114T235959
+DTEND;TZID="UTC-12:00":20241115T000059
+DTSTAMP:20250830T065448Z
+UID:c82d1a7a-f511-4632-8d9e-50e67678ed5c
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ Date: Oct 28-31\,
+  2025\n📍 Location: Madison\, Wisconsin\, USA\n⏰ Original Deadline (Ao
+ E): 2024-11-14 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CORE A\, 
+ THCPL A\nConference Website: https://conferences.sigcomm.org/imc/2025/\nDB
+ LP Index: https://dblp.org/db/conf/imc
+LOCATION:Madison\, Wisconsin\, USA
+URL:https://conferences.sigcomm.org/imc/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2025 Abstract Deadline [Spring deadline]
+DTSTART;TZID="UTC-12:00":20250508T235959
+DTEND;TZID="UTC-12:00":20250509T000059
+DTSTAMP:20250830T065448Z
+UID:4e782777-fbae-479b-9cf9-5ee8429ee401
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ Date: Oct 28-31\,
+  2025\n📍 Location: Madison\, Wisconsin\, USA\n⏰ Original Deadline (Ao
+ E): 2025-05-08 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CORE A\, 
+ THCPL A\nConference Website: https://conferences.sigcomm.org/imc/2025/\nDB
+ LP Index: https://dblp.org/db/conf/imc
+LOCATION:Madison\, Wisconsin\, USA
+URL:https://conferences.sigcomm.org/imc/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiHoc 2022 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20220225T235959
+DTEND;TZID="UTC-12:00":20220226T000059
+DTSTAMP:20250830T065448Z
+UID:5a721382-2830-4d2f-a4c1-72c16f0cecd8
+DESCRIPTION:International Symposium on Mobile Ad Hoc Networking and Comput
+ ing\n🗓️ Date: October 17-22\, 2022\n📍 Location: Seoul\, South Kore
+ a\n⏰ Original Deadline (UTC-12): 2022-02-25 23:59:59\nCategory: 计算
+ 机网络 (NW)\nCCF B\, CORE A\, THCPL B\nConference Website: https://www.
+ sigmobile.org/mobihoc/2022/\nDBLP Index: https://dblp.org/db/conf/mobihoc
+LOCATION:Seoul\, South Korea
+URL:https://www.sigmobile.org/mobihoc/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiSys 2022 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20211213T235959
+DTEND;TZID="UTC-12:00":20211214T000059
+DTSTAMP:20250830T065448Z
+UID:6aa043f2-241b-4f6e-8e68-3d8b8bcfa172
+DESCRIPTION:ACM International Conference on Mobile Systems\, Applications\
+ , and Services\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadli
+ ne (UTC-12): 2021-12-13 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, 
+ CORE A\, THCPL A\nConference Website: https://www.sigmobile.org/mobisys/20
+ 22/\nDBLP Index: https://dblp.org/db/conf/mobisys
+LOCATION:TBD
+URL:https://www.sigmobile.org/mobisys/2022/
+END:VEVENT
+END:VCALENDAR

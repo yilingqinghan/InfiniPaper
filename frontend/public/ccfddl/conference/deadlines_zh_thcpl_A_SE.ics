@@ -1,0 +1,945 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ASE 2022 截稿日期 [Abstract Submission]
+DTSTART;TZID="UTC-12:00":20220429T235959
+DTEND;TZID="UTC-12:00":20220430T000059
+DTSTAMP:20250830T065445Z
+UID:36452277-fb67-4cfc-b239-3adfd0d9869a
+DESCRIPTION:International Conference on Automated Software Engineering\n
+ 🗓️ 会议时间: September 26- October 01\, 2022\n📍 会议地点: 
+ Ann Arbor\, Michigan\, United States\n⏰ 原始截止时间 (AoE): 2022-0
+ 4-29 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://conf.researchr.org/home/a
+ se-2022\nDBLP索引: https://dblp.org/db/conf/kbse
+LOCATION:Ann Arbor\, Michigan\, United States
+URL:https://conf.researchr.org/home/ase-2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASE 2022 截稿日期 [Paper Submission]
+DTSTART;TZID="UTC-12:00":20220506T235959
+DTEND;TZID="UTC-12:00":20220507T000059
+DTSTAMP:20250830T065445Z
+UID:4ee5577e-cc66-41b4-8566-b77604011857
+DESCRIPTION:International Conference on Automated Software Engineering\n
+ 🗓️ 会议时间: September 26- October 01\, 2022\n📍 会议地点: 
+ Ann Arbor\, Michigan\, United States\n⏰ 原始截止时间 (AoE): 2022-0
+ 5-06 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\n
+ CCF A\, CORE A*\, THCPL A\n会议官网: https://conf.researchr.org/home/a
+ se-2022\nDBLP索引: https://dblp.org/db/conf/kbse
+LOCATION:Ann Arbor\, Michigan\, United States
+URL:https://conf.researchr.org/home/ase-2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASE 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230428T235959
+DTEND;TZID="UTC-12:00":20230429T000059
+DTSTAMP:20250830T065445Z
+UID:24baea63-a463-4506-91d1-877df94063e3
+DESCRIPTION:International Conference on Automated Software Engineering\n
+ 🗓️ 会议时间: September 11-15\, 2023\n📍 会议地点: Kirchberg
+ \, Luxembourg\n⏰ 原始截止时间 (AoE): 2023-04-28 23:59:59\n分类: 
+ 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL
+  A\n会议官网: https://conf.researchr.org/home/ase-2023\nDBLP索引: ht
+ tps://dblp.org/db/conf/kbse
+LOCATION:Kirchberg\, Luxembourg
+URL:https://conf.researchr.org/home/ase-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASE 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240531T235959
+DTEND;TZID="UTC-12:00":20240601T000059
+DTSTAMP:20250830T065445Z
+UID:e7ca245e-c5d0-499d-a52d-9ee2c3c92f4b
+DESCRIPTION:International Conference on Automated Software Engineering\n
+ 🗓️ 会议时间: October 27- November 01\, 2024\n📍 会议地点: S
+ acramento\, California\, United States\n⏰ 原始截止时间 (AoE): 2024
+ -05-31 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)
+ \nCCF A\, CORE A*\, THCPL A\n会议官网: https://conf.researchr.org/home
+ /ase-2024\nDBLP索引: https://dblp.org/db/conf/kbse
+LOCATION:Sacramento\, California\, United States
+URL:https://conf.researchr.org/home/ase-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASE 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250530T235959
+DTEND;TZID="UTC-12:00":20250531T000059
+DTSTAMP:20250830T065445Z
+UID:63006c98-ef2b-45eb-ba83-6ccef6610b07
+DESCRIPTION:International Conference on Automated Software Engineering\n
+ 🗓️ 会议时间: November 16 - November 20\, 2025\n📍 会议地点:
+  Seoul\, South Korea\n⏰ 原始截止时间 (AoE): 2025-05-30 23:59:59\n
+ 分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*
+ \, THCPL A\n会议官网: https://conf.researchr.org/home/ase-2025\nDBLP
+ 索引: https://dblp.org/db/conf/kbse
+LOCATION:Seoul\, South Korea
+URL:https://conf.researchr.org/home/ase-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2022 截稿日期 [paper registration deadline]
+DTSTART;TZID="UTC-12:00":20220310T235959
+DTEND;TZID="UTC-12:00":20220311T000059
+DTSTAMP:20250830T065445Z
+UID:9819f4e4-3510-4140-a464-e829693b0397
+DESCRIPTION:ACM International Conference on the Foundations of Software En
+ gineering\n🗓️ 会议时间: November 14-18\, 2022\n📍 会议地点:
+  Singapore\n⏰ 原始截止时间 (AoE): 2022-03-10 23:59:59\n分类: 软
+ 件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\
+ n会议官网: https://2022.esec-fse.org/\nDBLP索引: https://dblp.org/db
+ /conf/sigsoft
+LOCATION:Singapore
+URL:https://2022.esec-fse.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2022 截稿日期 [full paper submission deadline]
+DTSTART;TZID="UTC-12:00":20220317T235959
+DTEND;TZID="UTC-12:00":20220318T000059
+DTSTAMP:20250830T065445Z
+UID:629fe4e8-003a-43aa-b637-9577aa4602b5
+DESCRIPTION:ACM International Conference on the Foundations of Software En
+ gineering\n🗓️ 会议时间: November 14-18\, 2022\n📍 会议地点:
+  Singapore\n⏰ 原始截止时间 (AoE): 2022-03-17 23:59:59\n分类: 软
+ 件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\
+ n会议官网: https://2022.esec-fse.org/\nDBLP索引: https://dblp.org/db
+ /conf/sigsoft
+LOCATION:Singapore
+URL:https://2022.esec-fse.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2023 截稿日期 [paper registration deadline]
+DTSTART;TZID="UTC-12:00":20230126T235959
+DTEND;TZID="UTC-12:00":20230127T000059
+DTSTAMP:20250830T065445Z
+UID:db557512-b84d-403a-97ef-44296625d126
+DESCRIPTION:ACM International Conference on the Foundations of Software En
+ gineering\n🗓️ 会议时间: November 11-17\, 2023\n📍 会议地点:
+  United States\n⏰ 原始截止时间 (AoE): 2023-01-26 23:59:59\n分类:
+  软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCP
+ L A\n会议官网: https://2023.esec-fse.org/\nDBLP索引: https://dblp.or
+ g/db/conf/sigsoft
+LOCATION:United States
+URL:https://2023.esec-fse.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2023 截稿日期 [full paper submission deadline]
+DTSTART;TZID="UTC-12:00":20230202T235959
+DTEND;TZID="UTC-12:00":20230203T000059
+DTSTAMP:20250830T065445Z
+UID:afa92dd2-8bdb-4b55-b4a1-aacd390a93c2
+DESCRIPTION:ACM International Conference on the Foundations of Software En
+ gineering\n🗓️ 会议时间: November 11-17\, 2023\n📍 会议地点:
+  United States\n⏰ 原始截止时间 (AoE): 2023-02-02 23:59:59\n分类:
+  软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCP
+ L A\n会议官网: https://2023.esec-fse.org/\nDBLP索引: https://dblp.or
+ g/db/conf/sigsoft
+LOCATION:United States
+URL:https://2023.esec-fse.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20230921T235959
+DTEND;TZID="UTC-12:00":20230922T000059
+DTSTAMP:20250830T065445Z
+UID:5e305d1c-f2b9-47ec-9efd-1e1ba5d55c3a
+DESCRIPTION:ACM International Conference on the Foundations of Software En
+ gineering\n🗓️ 会议时间: July 15-19\, 2024\n📍 会议地点: Por
+ to de Galinas\, Brazil\n⏰ 原始截止时间 (AoE): 2023-09-21 23:59:59\
+ n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A
+ *\, THCPL A\n会议官网: https://2024.esec-fse.org/\nDBLP索引: https:/
+ /dblp.org/db/conf/sigsoft
+LOCATION:Porto de Galinas\, Brazil
+URL:https://2024.esec-fse.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240905T235959
+DTEND;TZID="UTC-12:00":20240906T000059
+DTSTAMP:20250830T065445Z
+UID:26f80429-4ec7-412f-a409-1e6b3730c86a
+DESCRIPTION:ACM International Conference on the Foundations of Software En
+ gineering\n🗓️ 会议时间: June 23-27\, 2025\n📍 会议地点: Tro
+ ndheim\, Norway\n⏰ 原始截止时间 (AoE): 2024-09-05 23:59:59\n分类
+ : 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THC
+ PL A\n会议官网: https://conf.researchr.org/home/fse-2025\nDBLP索引: 
+ https://dblp.org/db/conf/sigsoft
+LOCATION:Trondheim\, Norway
+URL:https://conf.researchr.org/home/fse-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250904T235959
+DTEND;TZID="UTC-12:00":20250905T000059
+DTSTAMP:20250830T065445Z
+UID:7a6fc675-58c0-4217-9ad9-bc35292a2bfe
+DESCRIPTION:ACM International Conference on the Foundations of Software En
+ gineering\n🗓️ 会议时间: July 6-10\, 2026\n📍 会议地点: Mont
+ réal\, Canada\n⏰ 原始截止时间 (AoE): 2025-09-04 23:59:59\n分类:
+  软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCP
+ L A\n会议官网: https://conf.researchr.org/home/fse-2026\nDBLP索引: h
+ ttps://dblp.org/db/conf/sigsoft
+LOCATION:Montréal\, Canada
+URL:https://conf.researchr.org/home/fse-2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICSE 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20210827T235959
+DTEND;TZID="UTC-12:00":20210828T000059
+DTSTAMP:20250830T065445Z
+UID:583e4e09-94aa-4940-b279-58f4602d324d
+DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
+ 议时间: May 21-29\, 2022\n📍 会议地点: Pittsburgh\, PA\, USA\n⏰
+  原始截止时间 (AoE): 2021-08-27 23:59:59\n分类: 软件工程/系
+ 统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官网
+ : https://conf.researchr.org/home/icse-2022\nDBLP索引: https://dblp.org/
+ db/conf/icse
+LOCATION:Pittsburgh\, PA\, USA
+URL:https://conf.researchr.org/home/icse-2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICSE 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20220901T235959
+DTEND;TZID="UTC-12:00":20220902T000059
+DTSTAMP:20250830T065445Z
+UID:300997f3-4eaf-4ae1-b7f6-b2944a061a5f
+DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
+ 议时间: May 14-20\, 2023\n📍 会议地点: Melbourne\, Australia\n⏰
+  原始截止时间 (AoE): 2022-09-01 23:59:59\n分类: 软件工程/系
+ 统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官网
+ : https://conf.researchr.org/home/icse-2023\nDBLP索引: https://dblp.org/
+ db/conf/icse
+LOCATION:Melbourne\, Australia
+URL:https://conf.researchr.org/home/icse-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICSE 2024 截稿日期 [Technical Papers First round submission de
+ adline]
+DTSTART;TZID="UTC-12:00":20230329T235959
+DTEND;TZID="UTC-12:00":20230330T000059
+DTSTAMP:20250830T065445Z
+UID:76cdad3f-217d-4100-a847-414dccfff402
+DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
+ 议时间: April 12-21\, 2024\n📍 会议地点: Lisbon\, Portugal\n⏰ 
+ 原始截止时间 (AoE): 2023-03-29 23:59:59\n分类: 软件工程/系统
+ 软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官网: h
+ ttps://conf.researchr.org/home/icse-2024\nDBLP索引: https://dblp.org/db/
+ conf/icse
+LOCATION:Lisbon\, Portugal
+URL:https://conf.researchr.org/home/icse-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICSE 2024 截稿日期 [Technical Papers Second round submission d
+ eadline]
+DTSTART;TZID="UTC-12:00":20230801T235959
+DTEND;TZID="UTC-12:00":20230802T000059
+DTSTAMP:20250830T065445Z
+UID:64d5de40-d298-4680-b677-2e3ba1ecc607
+DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
+ 议时间: April 12-21\, 2024\n📍 会议地点: Lisbon\, Portugal\n⏰ 
+ 原始截止时间 (AoE): 2023-08-01 23:59:59\n分类: 软件工程/系统
+ 软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官网: h
+ ttps://conf.researchr.org/home/icse-2024\nDBLP索引: https://dblp.org/db/
+ conf/icse
+LOCATION:Lisbon\, Portugal
+URL:https://conf.researchr.org/home/icse-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICSE 2025 摘要截稿 [First Cycle: Submission]
+DTSTART;TZID="UTC-12:00":20240315T235959
+DTEND;TZID="UTC-12:00":20240316T000059
+DTSTAMP:20250830T065445Z
+UID:90eb0823-4fd6-477c-a377-88502c9843ed
+DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
+ 议时间: April 26- May 04\, 2025\n📍 会议地点: Ottawa\, Ontario\, 
+ Canada\n⏰ 原始截止时间 (AoE): 2024-03-15 23:59:59\n分类: 软件
+ 工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n
+ 会议官网: https://conf.researchr.org/home/icse-2025\nDBLP索引: https
+ ://dblp.org/db/conf/icse
+LOCATION:Ottawa\, Ontario\, Canada
+URL:https://conf.researchr.org/home/icse-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICSE 2025 摘要截稿 [Second Cycle: Submission]
+DTSTART;TZID="UTC-12:00":20240726T235959
+DTEND;TZID="UTC-12:00":20240727T000059
+DTSTAMP:20250830T065445Z
+UID:e21911b2-0646-46c7-a0f3-7207614d9923
+DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
+ 议时间: April 26- May 04\, 2025\n📍 会议地点: Ottawa\, Ontario\, 
+ Canada\n⏰ 原始截止时间 (AoE): 2024-07-26 23:59:59\n分类: 软件
+ 工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n
+ 会议官网: https://conf.researchr.org/home/icse-2025\nDBLP索引: https
+ ://dblp.org/db/conf/icse
+LOCATION:Ottawa\, Ontario\, Canada
+URL:https://conf.researchr.org/home/icse-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICSE 2026 摘要截稿 [First Cycle: Submission]
+DTSTART;TZID="UTC-12:00":20250307T235959
+DTEND;TZID="UTC-12:00":20250308T000059
+DTSTAMP:20250830T065445Z
+UID:7afc05ec-742f-4a35-8395-f9a266b78e3c
+DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
+ 议时间: April 12-18\, 2026\n📍 会议地点: Rio De Janeiro\, Brazil\
+ n⏰ 原始截止时间 (AoE): 2025-03-07 23:59:59\n分类: 软件工程/
+ 系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官
+ 网: https://conf.researchr.org/home/icse-2026\nDBLP索引: https://dblp.o
+ rg/db/conf/icse
+LOCATION:Rio De Janeiro\, Brazil
+URL:https://conf.researchr.org/home/icse-2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICSE 2026 摘要截稿 [Second Cycle: Submission]
+DTSTART;TZID="UTC-12:00":20250711T235959
+DTEND;TZID="UTC-12:00":20250712T000059
+DTSTAMP:20250830T065445Z
+UID:9f4fc28b-ffee-4469-9908-5b6bea9733b1
+DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
+ 议时间: April 12-18\, 2026\n📍 会议地点: Rio De Janeiro\, Brazil\
+ n⏰ 原始截止时间 (AoE): 2025-07-11 23:59:59\n分类: 软件工程/
+ 系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官
+ 网: https://conf.researchr.org/home/icse-2026\nDBLP索引: https://dblp.o
+ rg/db/conf/icse
+LOCATION:Rio De Janeiro\, Brazil
+URL:https://conf.researchr.org/home/icse-2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISSTA 2022 截稿日期 [Technical Papers due]
+DTSTART;TZID="UTC-12:00":20220128T235959
+DTEND;TZID="UTC-12:00":20220129T000059
+DTSTAMP:20250830T065445Z
+UID:34403f99-5590-4e8a-aa9f-c36a660b4f57
+DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
+ alysis\n🗓️ 会议时间: July 18-22\, 2022\n📍 会议地点: Daejeo
+ n\, South Korea\n⏰ 原始截止时间 (AoE): 2022-01-28 23:59:59\n分类
+ : 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A\, THCP
+ L A\n会议官网: https://conf.researchr.org/home/issta-2022\nDBLP索引:
+  https://dblp.org/db/conf/issta
+LOCATION:Daejeon\, South Korea
+URL:https://conf.researchr.org/home/issta-2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISSTA 2022 截稿日期 [Workshops Submission Deadline]
+DTSTART;TZID="UTC-12:00":20220131T235959
+DTEND;TZID="UTC-12:00":20220201T000059
+DTSTAMP:20250830T065445Z
+UID:8c187df8-38f1-42d1-8c5d-3852a9a7f27c
+DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
+ alysis\n🗓️ 会议时间: July 18-22\, 2022\n📍 会议地点: Daejeo
+ n\, South Korea\n⏰ 原始截止时间 (AoE): 2022-01-31 23:59:59\n分类
+ : 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A\, THCP
+ L A\n会议官网: https://conf.researchr.org/home/issta-2022\nDBLP索引:
+  https://dblp.org/db/conf/issta
+LOCATION:Daejeon\, South Korea
+URL:https://conf.researchr.org/home/issta-2022
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISSTA 2023 截稿日期 [Technical Papers First round submission d
+ eadline]
+DTSTART;TZID="UTC-12:00":20221110T235959
+DTEND;TZID="UTC-12:00":20221111T000059
+DTSTAMP:20250830T065445Z
+UID:43baa075-cfc2-4db4-bd0e-279d4b63a13a
+DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
+ alysis\n🗓️ 会议时间: July 17-21\, 2023\n📍 会议地点: Seattl
+ e\, United States\n⏰ 原始截止时间 (AoE): 2022-11-10 23:59:59\n分
+ 类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A\, T
+ HCPL A\n会议官网: https://conf.researchr.org/home/issta-2023\nDBLP索
+ 引: https://dblp.org/db/conf/issta
+LOCATION:Seattle\, United States
+URL:https://conf.researchr.org/home/issta-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISSTA 2023 截稿日期 [Technical Papers Second round submission 
+ deadline]
+DTSTART;TZID="UTC-12:00":20230216T235959
+DTEND;TZID="UTC-12:00":20230217T000059
+DTSTAMP:20250830T065445Z
+UID:4c438c28-182f-423e-a372-dfac33fff742
+DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
+ alysis\n🗓️ 会议时间: July 17-21\, 2023\n📍 会议地点: Seattl
+ e\, United States\n⏰ 原始截止时间 (AoE): 2023-02-16 23:59:59\n分
+ 类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A\, T
+ HCPL A\n会议官网: https://conf.researchr.org/home/issta-2023\nDBLP索
+ 引: https://dblp.org/db/conf/issta
+LOCATION:Seattle\, United States
+URL:https://conf.researchr.org/home/issta-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISSTA 2024 截稿日期 [Technical Papers Submission deadline (Rou
+ nd 1)]
+DTSTART;TZID="UTC-12:00":20231215T235959
+DTEND;TZID="UTC-12:00":20231216T000059
+DTSTAMP:20250830T065445Z
+UID:45e97f7e-8488-462a-9b90-5946e4f54462
+DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
+ alysis\n🗓️ 会议时间: September 16-20\, 2024\n📍 会议地点: V
+ ienna\, Austria\n⏰ 原始截止时间 (AoE): 2023-12-15 23:59:59\n分类
+ : 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A\, THCP
+ L A\n会议官网: https://conf.researchr.org/home/issta-2024\nDBLP索引:
+  https://dblp.org/db/conf/issta
+LOCATION:Vienna\, Austria
+URL:https://conf.researchr.org/home/issta-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISSTA 2024 截稿日期 [Technical Papers Submission deadline (Rou
+ nd 2)]
+DTSTART;TZID="UTC-12:00":20240412T235959
+DTEND;TZID="UTC-12:00":20240413T000059
+DTSTAMP:20250830T065445Z
+UID:f814a312-ad1d-4e59-ace1-9b8055171d11
+DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
+ alysis\n🗓️ 会议时间: September 16-20\, 2024\n📍 会议地点: V
+ ienna\, Austria\n⏰ 原始截止时间 (AoE): 2024-04-12 23:59:59\n分类
+ : 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A\, THCP
+ L A\n会议官网: https://conf.researchr.org/home/issta-2024\nDBLP索引:
+  https://dblp.org/db/conf/issta
+LOCATION:Vienna\, Austria
+URL:https://conf.researchr.org/home/issta-2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISSTA 2025 截稿日期 [Research Papers Full Paper Submission]
+DTSTART;TZID="UTC-12:00":20241031T235959
+DTEND;TZID="UTC-12:00":20241101T000059
+DTSTAMP:20250830T065445Z
+UID:0e1105bd-f913-4169-bd72-46765583ae6f
+DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
+ alysis\n🗓️ 会议时间: June 25-28\, 2025\n📍 会议地点: Trondh
+ eim\, Norway\n⏰ 原始截止时间 (AoE): 2024-10-31 23:59:59\n分类: 
+ 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A\, THCPL 
+ A\n会议官网: https://conf.researchr.org/home/issta-2025\nDBLP索引: h
+ ttps://dblp.org/db/conf/issta
+LOCATION:Trondheim\, Norway
+URL:https://conf.researchr.org/home/issta-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISSTA 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20260129T235959
+DTEND;TZID="UTC-12:00":20260130T000059
+DTSTAMP:20250830T065445Z
+UID:4eef9169-5ee7-44f6-bf2c-5f0e1eacc377
+DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
+ alysis\n🗓️ 会议时间: October 3-9\, 2026\n📍 会议地点: Oakla
+ nd\, California\, United States\n⏰ 原始截止时间 (AoE): 2026-01-29 
+ 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A
+ \, CORE A\, THCPL A\n会议官网: https://conf.researchr.org/home/issta-2
+ 026\nDBLP索引: https://dblp.org/db/conf/issta
+LOCATION:Oakland\, California\, United States
+URL:https://conf.researchr.org/home/issta-2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2022 截稿日期 [Submission Deadline Round 1]
+DTSTART;TZID="UTC-12:00":20211012T235959
+DTEND;TZID="UTC-12:00":20211013T000059
+DTSTAMP:20250830T065445Z
+UID:a70780c8-4f8a-4fd5-a722-cb5265614ca2
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: November 14-19\, 2022\n📍 会
+ 议地点: Auckland\, New Zealand\n⏰ 原始截止时间 (AoE): 2021-10-1
+ 2 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF
+  A\, CORE A\, THCPL A\n会议官网: https://2022.splashcon.org/track/spla
+ sh-2022-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Auckland\, New Zealand
+URL:https://2022.splashcon.org/track/splash-2022-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2022 截稿日期 [Submission of Revisions Round 1]
+DTSTART;TZID="UTC-12:00":20220211T235959
+DTEND;TZID="UTC-12:00":20220212T000059
+DTSTAMP:20250830T065445Z
+UID:ebba3566-0801-43c1-919d-81e5a4a77307
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: November 14-19\, 2022\n📍 会
+ 议地点: Auckland\, New Zealand\n⏰ 原始截止时间 (AoE): 2022-02-1
+ 1 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF
+  A\, CORE A\, THCPL A\n会议官网: https://2022.splashcon.org/track/spla
+ sh-2022-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Auckland\, New Zealand
+URL:https://2022.splashcon.org/track/splash-2022-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2022 截稿日期 [Submission Deadline Round 2]
+DTSTART;TZID="UTC-12:00":20220415T235959
+DTEND;TZID="UTC-12:00":20220416T000059
+DTSTAMP:20250830T065445Z
+UID:b5f7b998-e468-45ac-8492-f1e8d22bc19e
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: November 14-19\, 2022\n📍 会
+ 议地点: Auckland\, New Zealand\n⏰ 原始截止时间 (AoE): 2022-04-1
+ 5 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF
+  A\, CORE A\, THCPL A\n会议官网: https://2022.splashcon.org/track/spla
+ sh-2022-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Auckland\, New Zealand
+URL:https://2022.splashcon.org/track/splash-2022-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2022 截稿日期 [Submission of Revisions Round 2]
+DTSTART;TZID="UTC-12:00":20220815T235959
+DTEND;TZID="UTC-12:00":20220816T000059
+DTSTAMP:20250830T065445Z
+UID:f88dd0e5-075c-4ee9-b2b9-208c7b4c166d
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: November 14-19\, 2022\n📍 会
+ 议地点: Auckland\, New Zealand\n⏰ 原始截止时间 (AoE): 2022-08-1
+ 5 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF
+  A\, CORE A\, THCPL A\n会议官网: https://2022.splashcon.org/track/spla
+ sh-2022-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Auckland\, New Zealand
+URL:https://2022.splashcon.org/track/splash-2022-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2023 截稿日期 [Submission Deadline Round 1]
+DTSTART;TZID="UTC-12:00":20221028T235959
+DTEND;TZID="UTC-12:00":20221029T000059
+DTSTAMP:20250830T065445Z
+UID:8721de4b-8168-4f12-9afd-4912f4148091
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 22-27\, 2023\n📍 会
+ 议地点: Lisbon\, Portugal\n⏰ 原始截止时间 (AoE): 2022-10-28 23:
+ 59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, 
+ CORE A\, THCPL A\n会议官网: https://2023.splashcon.org/track/splash-20
+ 23-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Lisbon\, Portugal
+URL:https://2023.splashcon.org/track/splash-2023-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2023 截稿日期 [Submission of Revisions Round 1]
+DTSTART;TZID="UTC-12:00":20230224T235959
+DTEND;TZID="UTC-12:00":20230225T000059
+DTSTAMP:20250830T065445Z
+UID:a3535208-3328-4276-a09f-b37688f7ebdd
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 22-27\, 2023\n📍 会
+ 议地点: Lisbon\, Portugal\n⏰ 原始截止时间 (AoE): 2023-02-24 23:
+ 59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, 
+ CORE A\, THCPL A\n会议官网: https://2023.splashcon.org/track/splash-20
+ 23-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Lisbon\, Portugal
+URL:https://2023.splashcon.org/track/splash-2023-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2023 截稿日期 [Submission Deadline Round 2]
+DTSTART;TZID="UTC-12:00":20230414T235959
+DTEND;TZID="UTC-12:00":20230415T000059
+DTSTAMP:20250830T065445Z
+UID:6e7709f5-1eb8-469a-ab39-ccc5aa0ea30f
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 22-27\, 2023\n📍 会
+ 议地点: Lisbon\, Portugal\n⏰ 原始截止时间 (AoE): 2023-04-14 23:
+ 59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, 
+ CORE A\, THCPL A\n会议官网: https://2023.splashcon.org/track/splash-20
+ 23-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Lisbon\, Portugal
+URL:https://2023.splashcon.org/track/splash-2023-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2023 截稿日期 [Submission of Revisions Round 2]
+DTSTART;TZID="UTC-12:00":20230818T235959
+DTEND;TZID="UTC-12:00":20230819T000059
+DTSTAMP:20250830T065445Z
+UID:6ac04bcc-aa1e-4209-919b-41ffdc418113
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 22-27\, 2023\n📍 会
+ 议地点: Lisbon\, Portugal\n⏰ 原始截止时间 (AoE): 2023-08-18 23:
+ 59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, 
+ CORE A\, THCPL A\n会议官网: https://2023.splashcon.org/track/splash-20
+ 23-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Lisbon\, Portugal
+URL:https://2023.splashcon.org/track/splash-2023-oopsla
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2024 截稿日期 [Submission Deadline Round 1]
+DTSTART;TZID="UTC-04:00":20231021T075959
+DTEND;TZID="UTC-04:00":20231021T080059
+DTSTAMP:20250830T065445Z
+UID:b36d0876-099d-4353-a7cd-12725798d7bb
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 20-25\, 2024\n📍 会
+ 议地点: Pasadena\, United States\n⏰ 原始截止时间 (UTC-4): 2023-
+ 10-21 07:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\
+ nCCF A\, CORE A\, THCPL A\n会议官网: https://2024.splashcon.org/track/
+ splash-2024-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Pasadena\, United States
+URL:https://2024.splashcon.org/track/splash-2024-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2024 截稿日期 [Submission Deadline Round 2]
+DTSTART;TZID="UTC-04:00":20240406T075959
+DTEND;TZID="UTC-04:00":20240406T080059
+DTSTAMP:20250830T065445Z
+UID:449b36d6-2ee7-4995-a99c-e89c2d66e832
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 20-25\, 2024\n📍 会
+ 议地点: Pasadena\, United States\n⏰ 原始截止时间 (UTC-4): 2024-
+ 04-06 07:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\
+ nCCF A\, CORE A\, THCPL A\n会议官网: https://2024.splashcon.org/track/
+ splash-2024-oopsla\nDBLP索引: https://dblp.org/db/conf/oopsla
+LOCATION:Pasadena\, United States
+URL:https://2024.splashcon.org/track/splash-2024-oopsla
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2025 截稿日期 [Submission Deadline Round 1]
+DTSTART;TZID="UTC-12:00":20241015T075959
+DTEND;TZID="UTC-12:00":20241015T080059
+DTSTAMP:20250830T065445Z
+UID:2dcc941b-1a80-49df-b7a1-cf534b963160
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 12-18\, 2025\n📍 会
+ 议地点: Singapore\n⏰ 原始截止时间 (UTC-12): 2024-10-15 07:59:59
+ \n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE 
+ A\, THCPL A\n会议官网: https://2025.splashcon.org/track/OOPSLA\nDBLP
+ 索引: https://dblp.org/db/conf/oopsla
+LOCATION:Singapore
+URL:https://2025.splashcon.org/track/OOPSLA
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2025 截稿日期 [Submission Deadline Revision R1]
+DTSTART;TZID="UTC-12:00":20250204T075959
+DTEND;TZID="UTC-12:00":20250204T080059
+DTSTAMP:20250830T065445Z
+UID:503bc73b-bf87-42a3-954c-47276baacf16
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 12-18\, 2025\n📍 会
+ 议地点: Singapore\n⏰ 原始截止时间 (UTC-12): 2025-02-04 07:59:59
+ \n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE 
+ A\, THCPL A\n会议官网: https://2025.splashcon.org/track/OOPSLA\nDBLP
+ 索引: https://dblp.org/db/conf/oopsla
+LOCATION:Singapore
+URL:https://2025.splashcon.org/track/OOPSLA
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2025 截稿日期 [Submission Deadline Round 2]
+DTSTART;TZID="UTC-12:00":20250325T235959
+DTEND;TZID="UTC-12:00":20250326T000059
+DTSTAMP:20250830T065445Z
+UID:b9752117-d0f2-4bad-bec0-23418b91741b
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 12-18\, 2025\n📍 会
+ 议地点: Singapore\n⏰ 原始截止时间 (UTC-12): 2025-03-25 23:59:59
+ \n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE 
+ A\, THCPL A\n会议官网: https://2025.splashcon.org/track/OOPSLA\nDBLP
+ 索引: https://dblp.org/db/conf/oopsla
+LOCATION:Singapore
+URL:https://2025.splashcon.org/track/OOPSLA
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2026 截稿日期 [Submission Deadline Round 1]
+DTSTART;TZID="UTC-12:00":20251010T235959
+DTEND;TZID="UTC-12:00":20251011T000059
+DTSTAMP:20250830T065445Z
+UID:015c1a22-3d29-4fe8-854c-73a98b0ac9f6
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 3-9\, 2025\n📍 会议
+ 地点: Oakland\, California\, United States\n⏰ 原始截止时间 (UTC-
+ 12): 2025-10-10 23:59:59\n分类: 软件工程/系统软件/程序设计
+ 语言 (SE)\nCCF A\, CORE A\, THCPL A\n会议官网: https://conf.research
+ r.org/track/splash-2026/oopsla-2026\nDBLP索引: https://dblp.org/db/conf/
+ oopsla
+LOCATION:Oakland\, California\, United States
+URL:https://conf.researchr.org/track/splash-2026/oopsla-2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OOPSLA 2026 截稿日期 [Submission Deadline Round 2]
+DTSTART;TZID="UTC-12:00":20260317T235959
+DTEND;TZID="UTC-12:00":20260318T000059
+DTSTAMP:20250830T065445Z
+UID:c927379e-8220-4da3-8523-d316f22471cf
+DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
+ , and Applications\n🗓️ 会议时间: October 3-9\, 2025\n📍 会议
+ 地点: Oakland\, California\, United States\n⏰ 原始截止时间 (UTC-
+ 12): 2026-03-17 23:59:59\n分类: 软件工程/系统软件/程序设计
+ 语言 (SE)\nCCF A\, CORE A\, THCPL A\n会议官网: https://conf.research
+ r.org/track/splash-2026/oopsla-2026\nDBLP索引: https://dblp.org/db/conf/
+ oopsla
+LOCATION:Oakland\, California\, United States
+URL:https://conf.researchr.org/track/splash-2026/oopsla-2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:OSDI 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20211214T235959
+DTEND;TZID="UTC-12:00":20211215T000059
+DTSTAMP:20250830T065445Z
+UID:eb9550b8-da66-489c-bb07-5b3c173aacf8
+DESCRIPTION:USENIX Symposium on Operating Systems Design and Implementatio
+ n\n🗓️ 会议时间: July 11-13\, 2022\n📍 会议地点: Omni La Cos
+ ta Resort & Spa in Carlsbad\, CA\, USA\n⏰ 原始截止时间 (AoE): 2021
+ -12-14 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)
+ \nCCF A\, CORE A*\, THCPL A\n会议官网: https://www.usenix.org/conferen
+ ce/osdi22\nDBLP索引: https://dblp.org/db/conf/osdi
+LOCATION:Omni La Costa Resort & Spa in Carlsbad\, CA\, USA
+URL:https://www.usenix.org/conference/osdi22
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PLDI 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20201120T235959
+DTEND;TZID="UTC-12:00":20201121T000059
+DTSTAMP:20250830T065445Z
+UID:e6d1508f-d4dc-47d8-9455-aef563d47a40
+DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
+ entation\n🗓️ 会议时间: June 23-25\, 2021\n📍 会议地点: Virt
+ ual\n⏰ 原始截止时间 (AoE): 2020-11-20 23:59:59\n分类: 软件工
+ 程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会
+ 议官网: https://pldi21.sigplan.org/\nDBLP索引: https://dblp.org/db/co
+ nf/pldi
+LOCATION:Virtual
+URL:https://pldi21.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PLDI 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20211119T235959
+DTEND;TZID="UTC-12:00":20211120T000059
+DTSTAMP:20250830T065445Z
+UID:36eb252d-aba1-40b6-b351-5fa0f149888a
+DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
+ entation\n🗓️ 会议时间: June 20-24\, 2022\n📍 会议地点: San 
+ Diego\, California\, United States\n⏰ 原始截止时间 (AoE): 2021-11-
+ 19 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCC
+ F A\, CORE A*\, THCPL A\n会议官网: https://pldi22.sigplan.org/\nDBLP
+ 索引: https://dblp.org/db/conf/pldi
+LOCATION:San Diego\, California\, United States
+URL:https://pldi22.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PLDI 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20221110T235959
+DTEND;TZID="UTC-12:00":20221111T000059
+DTSTAMP:20250830T065445Z
+UID:4a3b5b62-0ae2-4e90-932b-299a5764deb4
+DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
+ entation\n🗓️ 会议时间: June 19-21\, 2023\n📍 会议地点: Orla
+ ndo\, Florida\, United States\n⏰ 原始截止时间 (AoE): 2022-11-10 23
+ :59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\,
+  CORE A*\, THCPL A\n会议官网: https://pldi23.sigplan.org/\nDBLP索引:
+  https://dblp.org/db/conf/pldi
+LOCATION:Orlando\, Florida\, United States
+URL:https://pldi23.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PLDI 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231116T235959
+DTEND;TZID="UTC-12:00":20231117T000059
+DTSTAMP:20250830T065445Z
+UID:7aa7bff4-77ba-47c4-8485-ffe3a51402e0
+DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
+ entation\n🗓️ 会议时间: June 24-28\, 2024\n📍 会议地点: Cope
+ nhagen\, Denmark\n⏰ 原始截止时间 (AoE): 2023-11-16 23:59:59\n分
+ 类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, 
+ THCPL A\n会议官网: https://pldi24.sigplan.org/\nDBLP索引: https://db
+ lp.org/db/conf/pldi
+LOCATION:Copenhagen\, Denmark
+URL:https://pldi24.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PLDI 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241114T235959
+DTEND;TZID="UTC-12:00":20241115T000059
+DTSTAMP:20250830T065445Z
+UID:7286aa69-3edb-4fdc-9f22-a74532f88bfd
+DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
+ entation\n🗓️ 会议时间: June 16-20\, 2025\n📍 会议地点: Seou
+ l\, South Korea\n⏰ 原始截止时间 (AoE): 2024-11-14 23:59:59\n分类
+ : 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THC
+ PL A\n会议官网: https://pldi25.sigplan.org/\nDBLP索引: https://dblp.
+ org/db/conf/pldi
+LOCATION:Seoul\, South Korea
+URL:https://pldi25.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PLDI 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20251113T235959
+DTEND;TZID="UTC-12:00":20251114T000059
+DTSTAMP:20250830T065445Z
+UID:6053208f-4ea8-4af2-8040-d3b852aa7130
+DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
+ entation\n🗓️ 会议时间: June 15-19\, 2026\n📍 会议地点: Boul
+ der\, Colorado\, United States\n⏰ 原始截止时间 (AoE): 2025-11-13 2
+ 3:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\
+ , CORE A*\, THCPL A\n会议官网: https://pldi26.sigplan.org/\nDBLP索引
+ : https://dblp.org/db/conf/pldi
+LOCATION:Boulder\, Colorado\, United States
+URL:https://pldi26.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:POPL 2022 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20210708T235959
+DTEND;TZID="UTC-12:00":20210709T000059
+DTSTAMP:20250830T065445Z
+UID:f75ea4cc-8961-453c-9219-de8085749779
+DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
+ uages\n🗓️ 会议时间: January 16-22\, 2022\n📍 会议地点: West
+ in Philadelphia\n⏰ 原始截止时间 (AoE): 2021-07-08 23:59:59\n分类
+ : 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THC
+ PL A\n会议官网: https://popl22.sigplan.org/\nDBLP索引: https://dblp.
+ org/db/conf/popl
+LOCATION:Westin Philadelphia
+URL:https://popl22.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:POPL 2023 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20220707T235959
+DTEND;TZID="UTC-12:00":20220708T000059
+DTSTAMP:20250830T065445Z
+UID:a06b2e05-8841-47bc-a966-1eb7c443261e
+DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
+ uages\n🗓️ 会议时间: January 15-21\, 2023\n📍 会议地点: Bost
+ on\, Massachusetts\, United States\n⏰ 原始截止时间 (AoE): 2022-07-
+ 07 23:59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCC
+ F A\, CORE A*\, THCPL A\n会议官网: https://popl23.sigplan.org/\nDBLP
+ 索引: https://dblp.org/db/conf/popl
+LOCATION:Boston\, Massachusetts\, United States
+URL:https://popl23.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:POPL 2024 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20230711T235959
+DTEND;TZID="UTC-12:00":20230712T000059
+DTSTAMP:20250830T065445Z
+UID:28913b2e-f090-4634-a4c5-7fbb90954bf7
+DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
+ uages\n🗓️ 会议时间: January 17-19\, 2024\n📍 会议地点: Lond
+ on\, United Kingdom\n⏰ 原始截止时间 (AoE): 2023-07-11 23:59:59\n
+ 分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*
+ \, THCPL A\n会议官网: https://popl24.sigplan.org/\nDBLP索引: https:/
+ /dblp.org/db/conf/popl
+LOCATION:London\, United Kingdom
+URL:https://popl24.sigplan.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:POPL 2025 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20240711T235959
+DTEND;TZID="UTC-12:00":20240712T000059
+DTSTAMP:20250830T065445Z
+UID:a56c9659-7d1f-47d8-bca6-a6d4951589b5
+DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
+ uages\n🗓️ 会议时间: January 19-25\, 2025\n📍 会议地点: Denv
+ er\, Colorado\, United States\n⏰ 原始截止时间 (AoE): 2024-07-11 23
+ :59:59\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\,
+  CORE A*\, THCPL A\n会议官网: https://conf.researchr.org/home/POPL-202
+ 5\nDBLP索引: https://dblp.org/db/conf/popl
+LOCATION:Denver\, Colorado\, United States
+URL:https://conf.researchr.org/home/POPL-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:POPL 2026 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20250710T235959
+DTEND;TZID="UTC-12:00":20250711T000059
+DTSTAMP:20250830T065445Z
+UID:3bcb262a-8142-4a88-be78-8c89e7eba9f8
+DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
+ uages\n🗓️ 会议时间: January 11-17\, 2026\n📍 会议地点: Renn
+ es\, France\n⏰ 原始截止时间 (AoE): 2025-07-10 23:59:59\n分类: 
+ 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL
+  A\n会议官网: https://popl26.sigplan.org/\nDBLP索引: https://dblp.or
+ g/db/conf/popl
+LOCATION:Rennes\, France
+URL:https://popl26.sigplan.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SOSP 2021 截稿日期
+DTSTART;TZID="UTC-08:00":20210507T145959
+DTEND;TZID="UTC-08:00":20210507T150059
+DTSTAMP:20250830T065445Z
+UID:70da696c-a037-4235-9ea7-7b7143079d11
+DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
+ 时间: October 25-28\, 2021\n📍 会议地点: Virtual\n⏰ 原始截止
+ 时间 (UTC-8): 2021-05-07 14:59:59\n分类: 软件工程/系统软件/程
+ 序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://sos
+ p2021.mpi-sws.org/\nDBLP索引: https://dblp.org/db/conf/sosp
+LOCATION:Virtual
+URL:https://sosp2021.mpi-sws.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SOSP 2023 截稿日期 [Deadline to Register Abstracts]
+DTSTART;TZID="UTC-04:00":20230410T235959
+DTEND;TZID="UTC-04:00":20230411T000059
+DTSTAMP:20250830T065445Z
+UID:f6f6881e-0d56-405e-be8e-11d1ff8fff88
+DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
+ 时间: October 23 - 26\, 2023\n📍 会议地点: Koblenz\, Germany\n⏰ 
+ 原始截止时间 (UTC-4): 2023-04-10 23:59:59\n分类: 软件工程/系
+ 统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官网
+ : https://sosp2023.mpi-sws.org/\nDBLP索引: https://dblp.org/db/conf/sosp
+LOCATION:Koblenz\, Germany
+URL:https://sosp2023.mpi-sws.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SOSP 2023 截稿日期 [Submission Deadline (no extensions)]
+DTSTART;TZID="UTC-04:00":20230417T235959
+DTEND;TZID="UTC-04:00":20230418T000059
+DTSTAMP:20250830T065445Z
+UID:cf4b5362-28b3-4971-8b22-c45c741fa1a3
+DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
+ 时间: October 23 - 26\, 2023\n📍 会议地点: Koblenz\, Germany\n⏰ 
+ 原始截止时间 (UTC-4): 2023-04-17 23:59:59\n分类: 软件工程/系
+ 统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n会议官网
+ : https://sosp2023.mpi-sws.org/\nDBLP索引: https://dblp.org/db/conf/sosp
+LOCATION:Koblenz\, Germany
+URL:https://sosp2023.mpi-sws.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SOSP 2024 摘要截稿
+DTSTART;TZID="UTC-08:00":20240412T235959
+DTEND;TZID="UTC-08:00":20240413T000059
+DTSTAMP:20250830T065445Z
+UID:fc3db837-c40c-4c1e-9461-0f9d4bce3ae6
+DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
+ 时间: November 4 - 6\, 2024\n📍 会议地点: Hilton Austin\, Texas\, 
+ USA\n⏰ 原始截止时间 (UTC-8): 2024-04-12 23:59:59\n分类: 软件
+ 工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE A*\, THCPL A\n
+ 会议官网: https://sigops.org/s/conferences/sosp/2024/index.html\nDBLP
+ 索引: https://dblp.org/db/conf/sosp
+LOCATION:Hilton Austin\, Texas\, USA
+URL:https://sigops.org/s/conferences/sosp/2024/index.html
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SOSP 2025 摘要截稿
+DTSTART;TZID="UTC-07:00":20250410T235959
+DTEND;TZID="UTC-07:00":20250411T000059
+DTSTAMP:20250830T065445Z
+UID:95a428ad-6e45-4aae-a9eb-7013ac2a4db0
+DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
+ 时间: October 13 - 16\, 2025\n📍 会议地点: Lotte Hotel World\, Seo
+ ul\, Republic of Korea\n⏰ 原始截止时间 (UTC-7): 2025-04-10 23:59:5
+ 9\n分类: 软件工程/系统软件/程序设计语言 (SE)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://sigops.org/s/conferences/sosp/2025/in
+ dex.html\nDBLP索引: https://dblp.org/db/conf/sosp
+LOCATION:Lotte Hotel World\, Seoul\, Republic of Korea
+URL:https://sigops.org/s/conferences/sosp/2025/index.html
+END:VEVENT
+END:VCALENDAR

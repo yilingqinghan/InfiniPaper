@@ -1,0 +1,906 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CIDR 2024 截稿日期
+DTSTART;TZID="UTC-08:00":20230727T235959
+DTEND;TZID="UTC-08:00":20230728T000059
+DTSTAMP:20250830T065443Z
+UID:7b91533f-e7f4-4265-8e6c-5c176562b211
+DESCRIPTION:International Conference on Innovative Data Systems Research\n
+ 🗓️ 会议时间: Jan 14-17\, 2024\n📍 会议地点: Chaminade\, USA
+ \n⏰ 原始截止时间 (UTC-8): 2023-07-27 23:59:59\n分类: 数据库/
+ 数据挖掘/内容检索 (DB)\nCCF B\, CORE A\n会议官网: https://www.
+ cidrdb.org/cidr2024/\nDBLP索引: https://dblp.org/db/conf/cidr
+LOCATION:Chaminade\, USA
+URL:https://www.cidrdb.org/cidr2024/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CIDR 2025 截稿日期
+DTSTART;TZID="UTC-07:00":20240802T235959
+DTEND;TZID="UTC-07:00":20240803T000059
+DTSTAMP:20250830T065443Z
+UID:f474a6a3-47a2-460e-b05b-eacfbc8ccd78
+DESCRIPTION:International Conference on Innovative Data Systems Research\n
+ 🗓️ 会议时间: Jan 19-22\, 2025\n📍 会议地点: Amsterdam\, The
+  Netherlands\n⏰ 原始截止时间 (UTC-7): 2024-08-02 23:59:59\n分类:
+  数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\n会议官网: h
+ ttps://www.cidrdb.org/cidr2025/\nDBLP索引: https://dblp.org/db/conf/cidr
+LOCATION:Amsterdam\, The Netherlands
+URL:https://www.cidrdb.org/cidr2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIDR 2026 截稿日期
+DTSTART;TZID="UTC-07:00":20250805T235959
+DTEND;TZID="UTC-07:00":20250806T000059
+DTSTAMP:20250830T065443Z
+UID:619f7dad-1d1e-43e3-ad20-9dd1cbd75466
+DESCRIPTION:International Conference on Innovative Data Systems Research\n
+ 🗓️ 会议时间: Jan 18-21\, 2026\n📍 会议地点: Chaminade Resor
+ t & Spa\, Santa Cruz\, California\, USA\n⏰ 原始截止时间 (UTC-7): 2
+ 025-08-05 23:59:59\n分类: 数据库/数据挖掘/内容检索 (DB)\nCCF 
+ B\, CORE A\n会议官网: https://www.cidrdb.org/cidr2026/\nDBLP索引: ht
+ tps://dblp.org/db/conf/cidr
+LOCATION:Chaminade Resort & Spa\, Santa Cruz\, California\, USA
+URL:https://www.cidrdb.org/cidr2026/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CIKM 2020 截稿日期
+DTSTART;TZID="UTC-12:00":20200501T235959
+DTEND;TZID="UTC-12:00":20200502T000059
+DTSTAMP:20250830T065444Z
+UID:20464d99-ba9b-46dc-a813-1d51844b50cd
+DESCRIPTION:ACM International Conference on Information and Knowledge Mana
+ gement\n🗓️ 会议时间: October 19-23\, 2021\n📍 会议地点: Gal
+ way\, Ireland\n⏰ 原始截止时间 (UTC-12): 2020-05-01 23:59:59\n分
+ 类: 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n
+ 会议官网: https://www.cikm2020.org/\nDBLP索引: https://dblp.org/db/c
+ onf/cikm
+LOCATION:Galway\, Ireland
+URL:https://www.cikm2020.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIKM 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20210526T235959
+DTEND;TZID="UTC-12:00":20210527T000059
+DTSTAMP:20250830T065444Z
+UID:24506eb0-05fc-479e-96f6-d5d589130af7
+DESCRIPTION:ACM International Conference on Information and Knowledge Mana
+ gement\n🗓️ 会议时间: November 01-05\, 2021\n📍 会议地点: Qu
+ eensland\, Australia\n⏰ 原始截止时间 (AoE): 2021-05-26 23:59:59\n
+ 分类: 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B
+ \n会议官网: https://www.cikm2021.org/\nDBLP索引: https://dblp.org/db
+ /conf/cikm
+LOCATION:Queensland\, Australia
+URL:https://www.cikm2021.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIKM 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20220512T235959
+DTEND;TZID="UTC-12:00":20220513T000059
+DTSTAMP:20250830T065444Z
+UID:229d0994-95b8-48c5-ae2d-728fa39355fd
+DESCRIPTION:ACM International Conference on Information and Knowledge Mana
+ gement\n🗓️ 会议时间: October 17-22\, 2022\n📍 会议地点: Atl
+ anta\, Georgia\, USA\n⏰ 原始截止时间 (AoE): 2022-05-12 23:59:59\n
+ 分类: 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B
+ \n会议官网: https://www.cikm2022.org/\nDBLP索引: https://dblp.org/db
+ /conf/cikm
+LOCATION:Atlanta\, Georgia\, USA
+URL:https://www.cikm2022.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIKM 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230526T235959
+DTEND;TZID="UTC-12:00":20230527T000059
+DTSTAMP:20250830T065444Z
+UID:9efb174f-49ba-44ef-8199-9582255f6039
+DESCRIPTION:ACM International Conference on Information and Knowledge Mana
+ gement\n🗓️ 会议时间: October 21-25\, 2023\n📍 会议地点: Bir
+ mingham\, UK\n⏰ 原始截止时间 (AoE): 2023-05-26 23:59:59\n分类: 
+ 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议
+ 官网: https://uobevents.eventsair.com/cikm2023/\nDBLP索引: https://dbl
+ p.org/db/conf/cikm
+LOCATION:Birmingham\, UK
+URL:https://uobevents.eventsair.com/cikm2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIKM 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240513T235959
+DTEND;TZID="UTC-12:00":20240514T000059
+DTSTAMP:20250830T065444Z
+UID:f598678f-35e1-47da-8c40-84055e9ff161
+DESCRIPTION:ACM International Conference on Information and Knowledge Mana
+ gement\n🗓️ 会议时间: October 21-25\, 2024\n📍 会议地点: Boi
+ se\, Idaho\, USA\n⏰ 原始截止时间 (AoE): 2024-05-13 23:59:59\n分
+ 类: 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n
+ 会议官网: https://cikm2024.org/\nDBLP索引: https://dblp.org/db/conf/
+ cikm
+LOCATION:Boise\, Idaho\, USA
+URL:https://cikm2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CIKM 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250516T235959
+DTEND;TZID="UTC-12:00":20250517T000059
+DTSTAMP:20250830T065444Z
+UID:7f58b4e7-b8ae-4fa4-8c74-9d8f113497f3
+DESCRIPTION:ACM International Conference on Information and Knowledge Mana
+ gement\n🗓️ 会议时间: November 10-14\, 2025\n📍 会议地点: Co
+ ex\, Seoul\, Korea\n⏰ 原始截止时间 (AoE): 2025-05-16 23:59:59\n分
+ 类: 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n
+ 会议官网: https://cikm2025.org\nDBLP索引: https://dblp.org/db/conf/c
+ ikm
+LOCATION:Coex\, Seoul\, Korea
+URL:https://cikm2025.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DASFAA 2021 截稿日期
+DTSTART;TZID="UTC-07:00":20201028T235959
+DTEND;TZID="UTC-07:00":20201029T000059
+DTSTAMP:20250830T065444Z
+UID:7ad878b4-94f1-45fc-a9ad-38795a8bcf80
+DESCRIPTION:Database Systems for Advanced Applications\n🗓️ 会议时
+ 间: April 11-14\, 2021\n📍 会议地点: Taipei\, China\n⏰ 原始截
+ 止时间 (UTC-7): 2020-10-28 23:59:59\n分类: 数据库/数据挖掘/内
+ 容检索 (DB)\nCCF B\, CORE B\, THCPL B\n会议官网: http://dm.iis.sini
+ ca.edu.tw/DASFAA2021/\nDBLP索引: https://dblp.org/db/conf/dasfaa
+LOCATION:Taipei\, China
+URL:http://dm.iis.sinica.edu.tw/DASFAA2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DASFAA 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20211028T235959
+DTEND;TZID="UTC-12:00":20211029T000059
+DTSTAMP:20250830T065444Z
+UID:a18a2b99-0ba5-47ae-917d-0af95334bfac
+DESCRIPTION:Database Systems for Advanced Applications\n🗓️ 会议时
+ 间: April 11-14\, 2022\n📍 会议地点: Hyderabad\, India\n⏰ 原始
+ 截止时间 (AoE): 2021-10-28 23:59:59\n分类: 数据库/数据挖掘/
+ 内容检索 (DB)\nCCF B\, CORE B\, THCPL B\n会议官网: https://www.das
+ faa2022.org/\nDBLP索引: https://dblp.org/db/conf/dasfaa
+LOCATION:Hyderabad\, India
+URL:https://www.dasfaa2022.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DASFAA 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20221028T235959
+DTEND;TZID="UTC-12:00":20221029T000059
+DTSTAMP:20250830T065444Z
+UID:110aeaa6-4b2f-4fef-9718-20f32000c17b
+DESCRIPTION:Database Systems for Advanced Applications\n🗓️ 会议时
+ 间: April 17-20\, 2023\n📍 会议地点: Tianjin\, China\n⏰ 原始截
+ 止时间 (AoE): 2022-10-28 23:59:59\n分类: 数据库/数据挖掘/内
+ 容检索 (DB)\nCCF B\, CORE B\, THCPL B\n会议官网: http://www.tjudb.c
+ n/dasfaa2023/\nDBLP索引: https://dblp.org/db/conf/dasfaa
+LOCATION:Tianjin\, China
+URL:http://www.tjudb.cn/dasfaa2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DASFAA 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20231215T235959
+DTEND;TZID="UTC-12:00":20231216T000059
+DTSTAMP:20250830T065444Z
+UID:3c43169c-c8ae-43dc-a77f-df806865810a
+DESCRIPTION:Database Systems for Advanced Applications\n🗓️ 会议时
+ 间: July 3-5\, 2024\n📍 会议地点: Gifu\, Japan\n⏰ 原始截止时
+ 间 (AoE): 2023-12-15 23:59:59\n分类: 数据库/数据挖掘/内容检
+ 索 (DB)\nCCF B\, CORE B\, THCPL B\n会议官网: https://www.dasfaa2024.o
+ rg/\nDBLP索引: https://dblp.org/db/conf/dasfaa
+LOCATION:Gifu\, Japan
+URL:https://www.dasfaa2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DASFAA 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241125T235959
+DTEND;TZID="UTC-12:00":20241126T000059
+DTSTAMP:20250830T065444Z
+UID:6cc8f7a7-78ec-42ae-998b-ecb5d8d611cf
+DESCRIPTION:Database Systems for Advanced Applications\n🗓️ 会议时
+ 间: May 25-28\, 2025\n📍 会议地点: Singapore\n⏰ 原始截止时
+ 间 (AoE): 2024-11-25 23:59:59\n分类: 数据库/数据挖掘/内容检
+ 索 (DB)\nCCF B\, CORE B\, THCPL B\n会议官网: https://dasfaa2025.githu
+ b.io\nDBLP索引: https://dblp.org/db/conf/dasfaa
+LOCATION:Singapore
+URL:https://dasfaa2025.github.io
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DASFAA 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20251020T235959
+DTEND;TZID="UTC-12:00":20251021T000059
+DTSTAMP:20250830T065444Z
+UID:4c6fde48-9da6-48fb-9d67-f15896138310
+DESCRIPTION:Database Systems for Advanced Applications\n🗓️ 会议时
+ 间: April 21-24\, 2026\n📍 会议地点: Jeju Island\, South Korea\n⏰
+  原始截止时间 (AoE): 2025-10-20 23:59:59\n分类: 数据库/数据
+ 挖掘/内容检索 (DB)\nCCF B\, CORE B\, THCPL B\n会议官网: https://
+ dasfaa2026.github.io/\nDBLP索引: https://dblp.org/db/conf/dasfaa
+LOCATION:Jeju Island\, South Korea
+URL:https://dasfaa2026.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20211001T235959
+DTEND;TZID="UTC-12:00":20211002T000059
+DTSTAMP:20250830T065444Z
+UID:8a34ad7a-37c2-497d-b2d0-313d93e629b1
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: Mar 29-April 01\, 2022\n📍 会议地点: Edinburgh
+ \, UK\n⏰ 原始截止时间 (AoE): 2021-10-01 23:59:59\n分类: 数据
+ 库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网
+ : https://conferences.inf.ed.ac.uk/edbticdt2022/\nDBLP索引: https://dblp
+ .org/db/conf/edbt
+LOCATION:Edinburgh\, UK
+URL:https://conferences.inf.ed.ac.uk/edbticdt2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20220215T235959
+DTEND;TZID="UTC-12:00":20220216T000059
+DTSTAMP:20250830T065444Z
+UID:b3710c98-7d3d-4b97-a39c-ba8f90561526
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 28-31\, 2023\n📍 会议地点: Ioannina\, Gr
+ eece\n⏰ 原始截止时间 (AoE): 2022-02-15 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttp://edbticdt2023.cs.uoi.gr/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Ioannina\, Greece
+URL:http://edbticdt2023.cs.uoi.gr/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20220601T235959
+DTEND;TZID="UTC-12:00":20220602T000059
+DTSTAMP:20250830T065444Z
+UID:596ac22a-aa60-49d0-b795-850d71215b82
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 28-31\, 2023\n📍 会议地点: Ioannina\, Gr
+ eece\n⏰ 原始截止时间 (AoE): 2022-06-01 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttp://edbticdt2023.cs.uoi.gr/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Ioannina\, Greece
+URL:http://edbticdt2023.cs.uoi.gr/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20220930T235959
+DTEND;TZID="UTC-12:00":20221001T000059
+DTSTAMP:20250830T065444Z
+UID:cd5d5074-d9f6-421c-a862-79577317caff
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 28-31\, 2023\n📍 会议地点: Ioannina\, Gr
+ eece\n⏰ 原始截止时间 (AoE): 2022-09-30 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttp://edbticdt2023.cs.uoi.gr/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Ioannina\, Greece
+URL:http://edbticdt2023.cs.uoi.gr/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20230215T235959
+DTEND;TZID="UTC-12:00":20230216T000059
+DTSTAMP:20250830T065444Z
+UID:e21af64a-f99f-457d-8c33-29d86b363de3
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 25-28\, 2024\n📍 会议地点: Paestum\, Ita
+ ly\n⏰ 原始截止时间 (AoE): 2023-02-15 23:59:59\n分类: 数据库/
+ 数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: ht
+ tps://dastlab.github.io/edbticdt2024/\nDBLP索引: https://dblp.org/db/con
+ f/edbt
+LOCATION:Paestum\, Italy
+URL:https://dastlab.github.io/edbticdt2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20230601T235959
+DTEND;TZID="UTC-12:00":20230602T000059
+DTSTAMP:20250830T065444Z
+UID:0fa31c61-412f-4664-a897-35be0ac9b7fe
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 25-28\, 2024\n📍 会议地点: Paestum\, Ita
+ ly\n⏰ 原始截止时间 (AoE): 2023-06-01 23:59:59\n分类: 数据库/
+ 数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: ht
+ tps://dastlab.github.io/edbticdt2024/\nDBLP索引: https://dblp.org/db/con
+ f/edbt
+LOCATION:Paestum\, Italy
+URL:https://dastlab.github.io/edbticdt2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231003T235959
+DTEND;TZID="UTC-12:00":20231004T000059
+DTSTAMP:20250830T065444Z
+UID:8b127a8a-857c-4864-b9e3-0d187a8b371f
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 25-28\, 2024\n📍 会议地点: Paestum\, Ita
+ ly\n⏰ 原始截止时间 (AoE): 2023-10-03 23:59:59\n分类: 数据库/
+ 数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: ht
+ tps://dastlab.github.io/edbticdt2024/\nDBLP索引: https://dblp.org/db/con
+ f/edbt
+LOCATION:Paestum\, Italy
+URL:https://dastlab.github.io/edbticdt2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20240207T235959
+DTEND;TZID="UTC-12:00":20240208T000059
+DTSTAMP:20250830T065444Z
+UID:f685d5a5-08d2-41d3-869f-fde405832fcc
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 25-28\, 2025\n📍 会议地点: Barcelona\, S
+ pain\n⏰ 原始截止时间 (AoE): 2024-02-07 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttps://edbticdt2025.upc.edu/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Barcelona\, Spain
+URL:https://edbticdt2025.upc.edu/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20240605T235959
+DTEND;TZID="UTC-12:00":20240606T000059
+DTSTAMP:20250830T065444Z
+UID:c7fd6c4a-dc3b-4746-bb45-f6cb14d2085b
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 25-28\, 2025\n📍 会议地点: Barcelona\, S
+ pain\n⏰ 原始截止时间 (AoE): 2024-06-05 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttps://edbticdt2025.upc.edu/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Barcelona\, Spain
+URL:https://edbticdt2025.upc.edu/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241009T235959
+DTEND;TZID="UTC-12:00":20241010T000059
+DTSTAMP:20250830T065444Z
+UID:57b53c76-64f1-4521-b299-3aed98570282
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 25-28\, 2025\n📍 会议地点: Barcelona\, S
+ pain\n⏰ 原始截止时间 (AoE): 2024-10-09 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttps://edbticdt2025.upc.edu/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Barcelona\, Spain
+URL:https://edbticdt2025.upc.edu/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20250205T235959
+DTEND;TZID="UTC-12:00":20250206T000059
+DTSTAMP:20250830T065444Z
+UID:b02ddf2a-3bb5-4e3c-afd5-580c6e3264be
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 24-27\, 2026\n📍 会议地点: Tampere\, Fin
+ land\n⏰ 原始截止时间 (AoE): 2025-02-05 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttps://edbticdt2026.github.io/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Tampere\, Finland
+URL:https://edbticdt2026.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20250604T235959
+DTEND;TZID="UTC-12:00":20250605T000059
+DTSTAMP:20250830T065444Z
+UID:b3cf0705-a389-4001-b170-36a823092d5e
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 24-27\, 2026\n📍 会议地点: Tampere\, Fin
+ land\n⏰ 原始截止时间 (AoE): 2025-06-04 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttps://edbticdt2026.github.io/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Tampere\, Finland
+URL:https://edbticdt2026.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EDBT 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20251008T235959
+DTEND;TZID="UTC-12:00":20251009T000059
+DTSTAMP:20250830T065444Z
+UID:14db010a-d72a-4c1a-a902-8dba807ff3ad
+DESCRIPTION:International Conference on Extending Database Technology\n
+ 🗓️ 会议时间: March 24-27\, 2026\n📍 会议地点: Tampere\, Fin
+ land\n⏰ 原始截止时间 (AoE): 2025-10-08 23:59:59\n分类: 数据库
+ /数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: h
+ ttps://edbticdt2026.github.io/\nDBLP索引: https://dblp.org/db/conf/edbt
+LOCATION:Tampere\, Finland
+URL:https://edbticdt2026.github.io/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICDM 2021 截稿日期
+DTSTART;TZID="UTC+08:00":20210612T145900
+DTEND;TZID="UTC+08:00":20210612T150000
+DTSTAMP:20250830T065444Z
+UID:a9a07d52-1ef1-48c1-9dbb-56b09493cc98
+DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ 会议
+ 时间: December 7-10\, 2021\n📍 会议地点: Auckland\, New Zealand\n
+ ⏰ 原始截止时间 (UTC+8): 2021-06-12 14:59:00\n分类: 数据库/数
+ 据挖掘/内容检索 (DB)\nCCF B\, CORE A*\, THCPL B\n会议官网: http
+ s://icdm2021.auckland.ac.nz/\nDBLP索引: https://dblp.org/db/conf/icdm
+LOCATION:Auckland\, New Zealand
+URL:https://icdm2021.auckland.ac.nz/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDM 2022 截稿日期
+DTSTART;TZID="UTC-07:00":20220610T235900
+DTEND;TZID="UTC-07:00":20220611T000000
+DTSTAMP:20250830T065444Z
+UID:71811f5a-4a13-45bf-87cf-c078b09d8e83
+DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ 会议
+ 时间: November 30 - December 3\n📍 会议地点: Orlando\, FL\, USA\n
+ ⏰ 原始截止时间 (UTC-7): 2022-06-10 23:59:00\n分类: 数据库/数
+ 据挖掘/内容检索 (DB)\nCCF B\, CORE A*\, THCPL B\n会议官网: http
+ s://icdm22.cse.usf.edu/key-dates.html\nDBLP索引: https://dblp.org/db/con
+ f/icdm
+LOCATION:Orlando\, FL\, USA
+URL:https://icdm22.cse.usf.edu/key-dates.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDM 2023 截稿日期
+DTSTART;TZID="UTC+08:00":20230701T235959
+DTEND;TZID="UTC+08:00":20230702T000059
+DTSTAMP:20250830T065444Z
+UID:db34e118-43ce-4fe8-8192-8d94b05612a3
+DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ 会议
+ 时间: December 1-4\, 2023\n📍 会议地点: Shanghai\, China\n⏰ 原
+ 始截止时间 (UTC+8): 2023-07-01 23:59:59\n分类: 数据库/数据挖
+ 掘/内容检索 (DB)\nCCF B\, CORE A*\, THCPL B\n会议官网: http://clo
+ ud-conf.net/icdm2023/index.html\nDBLP索引: https://dblp.org/db/conf/icdm
+LOCATION:Shanghai\, China
+URL:http://cloud-conf.net/icdm2023/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDM 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240614T235959
+DTEND;TZID="UTC-12:00":20240615T000059
+DTSTAMP:20250830T065444Z
+UID:304d46b7-b3d5-476c-ac4a-21d6a86e3750
+DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ 会议
+ 时间: December 9-12\, 2024\n📍 会议地点: Abu Dhabi\, UAE\n⏰ 原
+ 始截止时间 (AoE): 2024-06-14 23:59:59\n分类: 数据库/数据挖掘
+ /内容检索 (DB)\nCCF B\, CORE A*\, THCPL B\n会议官网: https://icdm2
+ 024.org/dates/\nDBLP索引: https://dblp.org/db/conf/icdm
+LOCATION:Abu Dhabi\, UAE
+URL:https://icdm2024.org/dates/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDM 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250606T235959
+DTEND;TZID="UTC-12:00":20250607T000059
+DTSTAMP:20250830T065444Z
+UID:f06eddeb-e8fa-42e8-869d-3fbf4478f5ac
+DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ 会议
+ 时间: November 12-15\, 2025\n📍 会议地点: Washington DC\, USA\n⏰
+  原始截止时间 (AoE): 2025-06-06 23:59:59\n分类: 数据库/数据
+ 挖掘/内容检索 (DB)\nCCF B\, CORE A*\, THCPL B\n会议官网: https:/
+ /www3.cs.stonybrook.edu/~icdm2025/cfp.html\nDBLP索引: https://dblp.org/d
+ b/conf/icdm
+LOCATION:Washington DC\, USA
+URL:https://www3.cs.stonybrook.edu/~icdm2025/cfp.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDT 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20210906T235959
+DTEND;TZID="UTC-12:00":20210907T000059
+DTSTAMP:20250830T065444Z
+UID:b0a6aa84-a87f-4b60-8b2a-1a802b1851d2
+DESCRIPTION:International Conference on Database Theory\n🗓️ 会议时
+ 间: Mar 29-April 01\, 2022\n📍 会议地点: Edinburgh\, UK\n⏰ 原始
+ 截止时间 (AoE): 2021-09-06 23:59:59\n分类: 数据库/数据挖掘/
+ 内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://confere
+ nces.inf.ed.ac.uk/edbticdt2022/\nDBLP索引: https://dblp.org/db/conf/icdt
+LOCATION:Edinburgh\, UK
+URL:https://conferences.inf.ed.ac.uk/edbticdt2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDT 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240311T235959
+DTEND;TZID="UTC-12:00":20240312T000059
+DTSTAMP:20250830T065444Z
+UID:a2d76626-7485-4f80-9278-89ba2e99b9e8
+DESCRIPTION:International Conference on Database Theory\n🗓️ 会议时
+ 间: March 25-28\, 2025\n📍 会议地点: Barcelona\, Spain\n⏰ 原始
+ 截止时间 (AoE): 2024-03-11 23:59:59\n分类: 数据库/数据挖掘/
+ 内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://edbticd
+ t2025.upc.edu/\nDBLP索引: https://dblp.org/db/conf/icdt
+LOCATION:Barcelona\, Spain
+URL:https://edbticdt2025.upc.edu/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDT 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240912T235959
+DTEND;TZID="UTC-12:00":20240913T000059
+DTSTAMP:20250830T065444Z
+UID:dfd184b9-bc9c-49c7-9873-f2f5c0a36335
+DESCRIPTION:International Conference on Database Theory\n🗓️ 会议时
+ 间: March 25-28\, 2025\n📍 会议地点: Barcelona\, Spain\n⏰ 原始
+ 截止时间 (AoE): 2024-09-12 23:59:59\n分类: 数据库/数据挖掘/
+ 内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://edbticd
+ t2025.upc.edu/\nDBLP索引: https://dblp.org/db/conf/icdt
+LOCATION:Barcelona\, Spain
+URL:https://edbticdt2025.upc.edu/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDT 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250313T235959
+DTEND;TZID="UTC-12:00":20250314T000059
+DTSTAMP:20250830T065444Z
+UID:0aa491ea-16c4-4d35-b751-c2f066f0e50b
+DESCRIPTION:International Conference on Database Theory\n🗓️ 会议时
+ 间: March 24-27\, 2026\n📍 会议地点: Tampere\, Finland\n⏰ 原始
+ 截止时间 (AoE): 2025-03-13 23:59:59\n分类: 数据库/数据挖掘/
+ 内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://edbticd
+ t2026.github.io/\nDBLP索引: https://dblp.org/db/conf/icdt
+LOCATION:Tampere\, Finland
+URL:https://edbticdt2026.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDT 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250903T235959
+DTEND;TZID="UTC-12:00":20250904T000059
+DTSTAMP:20250830T065444Z
+UID:65d2d3cd-2364-4b61-98f3-1cef900dd5af
+DESCRIPTION:International Conference on Database Theory\n🗓️ 会议时
+ 间: March 24-27\, 2026\n📍 会议地点: Tampere\, Finland\n⏰ 原始
+ 截止时间 (AoE): 2025-09-03 23:59:59\n分类: 数据库/数据挖掘/
+ 内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://edbticd
+ t2026.github.io/\nDBLP索引: https://dblp.org/db/conf/icdt
+LOCATION:Tampere\, Finland
+URL:https://edbticdt2026.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISWC 2022 截稿日期 [Abstracts Due]
+DTSTART;TZID="UTC-12:00":20220428T235959
+DTEND;TZID="UTC-12:00":20220429T000059
+DTSTAMP:20250830T065444Z
+UID:350225e7-c6e4-4875-b844-138aaea0a251
+DESCRIPTION:International Semantic Web Conference\n🗓️ 会议时间: O
+ ctober 23-27\, 2022\n📍 会议地点: Hangzhou\, China\n⏰ 原始截止
+ 时间 (AoE): 2022-04-28 23:59:59\n分类: 数据库/数据挖掘/内容
+ 检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://iswc2022.sema
+ nticweb.org/\nDBLP索引: https://dblp.org/db/conf/semweb
+LOCATION:Hangzhou\, China
+URL:https://iswc2022.semanticweb.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISWC 2022 截稿日期 [Full Papers Due]
+DTSTART;TZID="UTC-12:00":20220505T235959
+DTEND;TZID="UTC-12:00":20220506T000059
+DTSTAMP:20250830T065444Z
+UID:a4520434-13e3-4110-86aa-51704369e799
+DESCRIPTION:International Semantic Web Conference\n🗓️ 会议时间: O
+ ctober 23-27\, 2022\n📍 会议地点: Hangzhou\, China\n⏰ 原始截止
+ 时间 (AoE): 2022-05-05 23:59:59\n分类: 数据库/数据挖掘/内容
+ 检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://iswc2022.sema
+ nticweb.org/\nDBLP索引: https://dblp.org/db/conf/semweb
+LOCATION:Hangzhou\, China
+URL:https://iswc2022.semanticweb.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISWC 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230502T235959
+DTEND;TZID="UTC-12:00":20230503T000059
+DTSTAMP:20250830T065444Z
+UID:5e3a1052-621e-4a9e-80ae-bcefa97d3230
+DESCRIPTION:International Semantic Web Conference\n🗓️ 会议时间: N
+ ovember 6-10\, 2023\n📍 会议地点: Athens\, Greece\n⏰ 原始截止
+ 时间 (AoE): 2023-05-02 23:59:59\n分类: 数据库/数据挖掘/内容
+ 检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://iswc2023.sema
+ nticweb.org\nDBLP索引: https://dblp.org/db/conf/semweb
+LOCATION:Athens\, Greece
+URL:https://iswc2023.semanticweb.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISWC 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240410T235959
+DTEND;TZID="UTC-12:00":20240411T000059
+DTSTAMP:20250830T065444Z
+UID:0b6568f5-1045-4fbe-b0fc-6db1f9f969e7
+DESCRIPTION:International Semantic Web Conference\n🗓️ 会议时间: N
+ ovember 11-15\, 2024\n📍 会议地点: Baltimore\, USA\n⏰ 原始截止
+ 时间 (AoE): 2024-04-10 23:59:59\n分类: 数据库/数据挖掘/内容
+ 检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://iswc2024.sema
+ nticweb.org/\nDBLP索引: https://dblp.org/db/conf/semweb
+LOCATION:Baltimore\, USA
+URL:https://iswc2024.semanticweb.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISWC 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250506T235959
+DTEND;TZID="UTC-12:00":20250507T000059
+DTSTAMP:20250830T065444Z
+UID:bc6dd297-c152-4f06-9329-9bf40030a676
+DESCRIPTION:International Semantic Web Conference\n🗓️ 会议时间: N
+ ovember 2-6\, 2025\n📍 会议地点: Nara\, Japan\n⏰ 原始截止时
+ 间 (AoE): 2025-05-06 23:59:59\n分类: 数据库/数据挖掘/内容检
+ 索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://iswc2025.semanti
+ cweb.org\nDBLP索引: https://dblp.org/db/conf/semweb
+LOCATION:Nara\, Japan
+URL:https://iswc2025.semanticweb.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2021 摘要截稿
+DTSTART;TZID="UTC-12:00":20210326T235959
+DTEND;TZID="UTC-12:00":20210327T000059
+DTSTAMP:20250830T065444Z
+UID:cfbb65ee-605b-48b8-870f-8baebafc3518
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ 会议时间: Sept
+ ember 13-17\, 2021\n📍 会议地点: Virtual\n⏰ 原始截止时间 (Ao
+ E): 2021-03-26 23:59:59\n分类: 数据库/数据挖掘/内容检索 (DB)\
+ nCCF B\, CORE A\n会议官网: https://2021.ecmlpkdd.org/\nDBLP索引: htt
+ ps://dblp.org/db/conf/pkdd
+LOCATION:Virtual
+URL:https://2021.ecmlpkdd.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20220330T235959
+DTEND;TZID="UTC-12:00":20220331T000059
+DTSTAMP:20250830T065444Z
+UID:a8c6a605-8455-4495-8de4-f964fa820656
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ 会议时间: Sept
+ ember 19-23\, 2022\n📍 会议地点: Grenoble\, France\n⏰ 原始截止
+ 时间 (AoE): 2022-03-30 23:59:59\n分类: 数据库/数据挖掘/内容
+ 检索 (DB)\nCCF B\, CORE A\n会议官网: https://2022.ecmlpkdd.org/index
+ .php/key-dates-deadlines/\nDBLP索引: https://dblp.org/db/conf/pkdd
+LOCATION:Grenoble\, France
+URL:https://2022.ecmlpkdd.org/index.php/key-dates-deadlines/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230326T235959
+DTEND;TZID="UTC-12:00":20230327T000059
+DTSTAMP:20250830T065444Z
+UID:c230c96c-7b98-43eb-a6eb-2d510fb24f8d
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ 会议时间: Sept
+ ember 18-22\, 2023\n📍 会议地点: Turin\, Italy\n⏰ 原始截止时
+ 间 (AoE): 2023-03-26 23:59:59\n分类: 数据库/数据挖掘/内容检
+ 索 (DB)\nCCF B\, CORE A\n会议官网: https://2023.ecmlpkdd.org/submissi
+ ons/key-dates-deadlines/\nDBLP索引: https://dblp.org/db/conf/pkdd
+LOCATION:Turin\, Italy
+URL:https://2023.ecmlpkdd.org/submissions/key-dates-deadlines/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240315T235959
+DTEND;TZID="UTC-12:00":20240316T000059
+DTSTAMP:20250830T065444Z
+UID:0f34a8be-6571-4995-b623-3e544d890870
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ 会议时间: Sept
+ ember 9-13\, 2024\n📍 会议地点: Vilnius\, Lithuania\n⏰ 原始截
+ 止时间 (AoE): 2024-03-15 23:59:59\n分类: 数据库/数据挖掘/内
+ 容检索 (DB)\nCCF B\, CORE A\n会议官网: https://2024.ecmlpkdd.org/su
+ bmissions/key-dates-and-deadlines/\nDBLP索引: https://dblp.org/db/conf/p
+ kdd
+LOCATION:Vilnius\, Lithuania
+URL:https://2024.ecmlpkdd.org/submissions/key-dates-and-deadlines/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECML-PKDD 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250307T235959
+DTEND;TZID="UTC-12:00":20250308T000059
+DTSTAMP:20250830T065444Z
+UID:40683b9c-1d3c-4dd3-b8df-d5beac9e2379
+DESCRIPTION:European Conference on Machine Learning and 25th Principles an
+ d Practice of Knowledge Discovery in Databases\n🗓️ 会议时间: Sept
+ ember 15-19\, 2025\n📍 会议地点: Porto\, Portugal\n⏰ 原始截止
+ 时间 (AoE): 2025-03-07 23:59:59\n分类: 数据库/数据挖掘/内容
+ 检索 (DB)\nCCF B\, CORE A\n会议官网: https://ecmlpkdd.org/2025/\nDBL
+ P索引: https://dblp.org/db/conf/pkdd
+LOCATION:Porto\, Portugal
+URL:https://ecmlpkdd.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PODS 2025 摘要截稿 [FIRST SUBMISSION CYCLE]
+DTSTART;TZID="UTC-07:00":20240531T170000
+DTEND;TZID="UTC-07:00":20240531T170100
+DTSTAMP:20250830T065444Z
+UID:7e2e344d-a462-4ba8-8fb1-5c0ec217684d
+DESCRIPTION:ACM Symposium on Principles of Database Systems\n🗓️ 会
+ 议时间: June 22-27\, 2025\n📍 会议地点: Berlin\, Germany\n⏰ 原
+ 始截止时间 (UTC-7): 2024-05-31 17:00:00\n分类: 数据库/数据挖
+ 掘/内容检索 (DB)\nCCF B\, CORE A*\, THCPL A\n会议官网: https://20
+ 25.sigmod.org/\nDBLP索引: https://dblp.org/db/conf/pods
+LOCATION:Berlin\, Germany
+URL:https://2025.sigmod.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PODS 2025 摘要截稿 [SECOND SUBMISSION CYCLE]
+DTSTART;TZID="UTC-07:00":20241202T170000
+DTEND;TZID="UTC-07:00":20241202T170100
+DTSTAMP:20250830T065444Z
+UID:07ae662c-b7bd-4f0c-8d01-89ee1e37eddc
+DESCRIPTION:ACM Symposium on Principles of Database Systems\n🗓️ 会
+ 议时间: June 22-27\, 2025\n📍 会议地点: Berlin\, Germany\n⏰ 原
+ 始截止时间 (UTC-7): 2024-12-02 17:00:00\n分类: 数据库/数据挖
+ 掘/内容检索 (DB)\nCCF B\, CORE A*\, THCPL A\n会议官网: https://20
+ 25.sigmod.org/\nDBLP索引: https://dblp.org/db/conf/pods
+LOCATION:Berlin\, Germany
+URL:https://2025.sigmod.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RecSys 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230414T235959
+DTEND;TZID="UTC-12:00":20230415T000059
+DTSTAMP:20250830T065444Z
+UID:9ab45103-7258-4606-86f5-3c3be596a1f5
+DESCRIPTION:ACM Conference on Recommender Systems\n🗓️ 会议时间: S
+ eptember 18-22\, 2023\n📍 会议地点: Singapore\n⏰ 原始截止时
+ 间 (AoE): 2023-04-14 23:59:59\n分类: 数据库/数据挖掘/内容检
+ 索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://recsys.acm.org/r
+ ecsys23\nDBLP索引: https://dblp.org/db/conf/recsys
+LOCATION:Singapore
+URL:https://recsys.acm.org/recsys23
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RecSys 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240422T235959
+DTEND;TZID="UTC-12:00":20240423T000059
+DTSTAMP:20250830T065444Z
+UID:2c1f18dc-df79-44c7-aff1-c3409d397d2a
+DESCRIPTION:ACM Conference on Recommender Systems\n🗓️ 会议时间: O
+ ctober 14-18\, 2024\n📍 会议地点: Bari\, Italy\n⏰ 原始截止时
+ 间 (AoE): 2024-04-22 23:59:59\n分类: 数据库/数据挖掘/内容检
+ 索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://recsys.acm.org/r
+ ecsys24\nDBLP索引: https://dblp.org/db/conf/recsys
+LOCATION:Bari\, Italy
+URL:https://recsys.acm.org/recsys24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RecSys 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250401T235959
+DTEND;TZID="UTC-12:00":20250402T000059
+DTSTAMP:20250830T065444Z
+UID:f80e275b-4683-4fb4-81f9-8018a9d3fc1c
+DESCRIPTION:ACM Conference on Recommender Systems\n🗓️ 会议时间: S
+ eptember 22-26\, 2025\n📍 会议地点: Prague\, Czech Republic\n⏰ 原
+ 始截止时间 (AoE): 2025-04-01 23:59:59\n分类: 数据库/数据挖掘
+ /内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://recsys
+ .acm.org/recsys25\nDBLP索引: https://dblp.org/db/conf/recsys
+LOCATION:Prague\, Czech Republic
+URL:https://recsys.acm.org/recsys25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SDM 2024 截稿日期
+DTSTART;TZID="UTC-08:00":20230916T150000
+DTEND;TZID="UTC-08:00":20230916T150100
+DTSTAMP:20250830T065444Z
+UID:926df928-07ba-4358-823a-f5ff747418b2
+DESCRIPTION:SIAM International Conference on Data Mining\n🗓️ 会议
+ 时间: April 18-20\, 2024\n📍 会议地点: Houston\, TX\, USA\n⏰ 原
+ 始截止时间 (UTC-8): 2023-09-16 15:00:00\n分类: 数据库/数据挖
+ 掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https://www
+ .siam.org/conferences/cm/conference/sdm24\nDBLP索引: https://dblp.org/db
+ /conf/sdm
+LOCATION:Houston\, TX\, USA
+URL:https://www.siam.org/conferences/cm/conference/sdm24
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SDM 2025 摘要截稿
+DTSTART;TZID="UTC-08:00":20240927T235959
+DTEND;TZID="UTC-08:00":20240928T000059
+DTSTAMP:20250830T065444Z
+UID:6377c2f5-d6ef-4c79-9fa7-b60040d513e1
+DESCRIPTION:SIAM International Conference on Data Mining\n🗓️ 会议
+ 时间: May 1-3\, 2025\n📍 会议地点: Alexandria\, Virginia\, USA\n
+ ⏰ 原始截止时间 (UTC-8): 2024-09-27 23:59:59\n分类: 数据库/数
+ 据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL B\n会议官网: https
+ ://www.siam.org/conferences-events/siam-conferences/sdm25\nDBLP索引: htt
+ ps://dblp.org/db/conf/sdm
+LOCATION:Alexandria\, Virginia\, USA
+URL:https://www.siam.org/conferences-events/siam-conferences/sdm25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WSDM 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20210809T235959
+DTEND;TZID="UTC-12:00":20210810T000059
+DTSTAMP:20250830T065444Z
+UID:309931d7-6e09-4835-8600-fbe57e76743c
+DESCRIPTION:International Conference on Web Search and Data Mining\n🗓
+ ️ 会议时间: February 21-25\, 2022\n📍 会议地点: Phoenix\, Ariz
+ ona\, USA\n⏰ 原始截止时间 (UTC-12): 2021-08-09 23:59:59\n分类: 
+ 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://www.wsdm-conference.org/2022/\nDBLP索引: https://dblp.or
+ g/db/conf/wsdm
+LOCATION:Phoenix\, Arizona\, USA
+URL:https://www.wsdm-conference.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WSDM 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20220812T235959
+DTEND;TZID="UTC-12:00":20220813T000059
+DTSTAMP:20250830T065444Z
+UID:3da102d8-ce6f-46bf-b651-2d450532b102
+DESCRIPTION:International Conference on Web Search and Data Mining\n🗓
+ ️ 会议时间: February 27 - March 3\, 2023\n📍 会议地点: Singapo
+ re\n⏰ 原始截止时间 (UTC-12): 2022-08-12 23:59:59\n分类: 数据
+ 库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL A\n会议官网
+ : https://www.wsdm-conference.org/2023/\nDBLP索引: https://dblp.org/db/c
+ onf/wsdm
+LOCATION:Singapore
+URL:https://www.wsdm-conference.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WSDM 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20230810T235959
+DTEND;TZID="UTC-12:00":20230811T000059
+DTSTAMP:20250830T065444Z
+UID:d14ea78f-2d93-4773-b161-545297a5610a
+DESCRIPTION:International Conference on Web Search and Data Mining\n🗓
+ ️ 会议时间: March 4 - March 8\, 2024\n📍 会议地点: Mérida\, M
+ éxico\n⏰ 原始截止时间 (UTC-12): 2023-08-10 23:59:59\n分类: 数
+ 据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL A\n会议官
+ 网: https://www.wsdm-conference.org/2024/\nDBLP索引: https://dblp.org/d
+ b/conf/wsdm
+LOCATION:Mérida\, México
+URL:https://www.wsdm-conference.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WSDM 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20240814T235959
+DTEND;TZID="UTC-12:00":20240815T000059
+DTSTAMP:20250830T065444Z
+UID:ebac3c51-5483-41c5-9bac-71af51ec7149
+DESCRIPTION:International Conference on Web Search and Data Mining\n🗓
+ ️ 会议时间: March 10 - March 14\, 2025\n📍 会议地点: Hannover\
+ , Germany\n⏰ 原始截止时间 (UTC-12): 2024-08-14 23:59:59\n分类: 
+ 数据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL A\n会议
+ 官网: https://www.wsdm-conference.org/2025/\nDBLP索引: https://dblp.or
+ g/db/conf/wsdm
+LOCATION:Hannover\, Germany
+URL:https://www.wsdm-conference.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WSDM 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250807T235959
+DTEND;TZID="UTC-12:00":20250808T000059
+DTSTAMP:20250830T065444Z
+UID:81efbd5a-86a8-4105-bf14-5d6328949c3d
+DESCRIPTION:International Conference on Web Search and Data Mining\n🗓
+ ️ 会议时间: February 22 - 26\, 2026\n📍 会议地点: Boise\, Idah
+ o\, USA\n⏰ 原始截止时间 (UTC-12): 2025-08-07 23:59:59\n分类: 数
+ 据库/数据挖掘/内容检索 (DB)\nCCF B\, CORE A\, THCPL A\n会议官
+ 网: https://wsdm-conference.org/2026/\nDBLP索引: https://dblp.org/db/co
+ nf/wsdm
+LOCATION:Boise\, Idaho\, USA
+URL:https://wsdm-conference.org/2026/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,106 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:MICCAI 2023 Deadline [Paper submission deadline]
+DTSTART:20230309T235959Z
+DTEND:20230310T000059Z
+DTSTAMP:20250830T065448Z
+UID:8e518e8b-b8c4-40cc-8c77-4e607dc631d1
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ Date: Oct 8-12\, 2023\n📍 Location: Va
+ ncouver\, Canada\n⏰ Original Deadline (UTC+0): 2023-03-09 23:59:59\nCate
+ gory: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THCPL B\nConference Webs
+ ite: https://conferences.miccai.org/2023/en/\nDBLP Index: https://dblp.org
+ /db/conf/miccai
+LOCATION:Vancouver\, Canada
+URL:https://conferences.miccai.org/2023/en/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:MICCAI 2024 Deadline [Main conference papers]
+DTSTART;TZID="UTC-08:00":20240307T235959
+DTEND;TZID="UTC-08:00":20240308T000059
+DTSTAMP:20250830T065448Z
+UID:770593fe-d75b-491f-a57e-68a67e1cd5eb
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ Date: Oct 6-10\, 2024\n📍 Location: Ma
+ rrakesh\, Morocco\n⏰ Original Deadline (UTC-8): 2024-03-07 23:59:59\nCat
+ egory: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THCPL B\nConference Web
+ site: https://conferences.miccai.org/2024/en/\nDBLP Index: https://dblp.or
+ g/db/conf/miccai
+LOCATION:Marrakesh\, Morocco
+URL:https://conferences.miccai.org/2024/en/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICCAI 2025 Abstract Deadline
+DTSTART;TZID="UTC-08:00":20250213T235900
+DTEND;TZID="UTC-08:00":20250214T000000
+DTSTAMP:20250830T065448Z
+UID:08039ae9-8f9c-4da5-939d-79d14f8361c5
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ Date: Sep 23-27\, 2025\n📍 Location: D
+ aejeon\, Republic of Korea\n⏰ Original Deadline (UTC-8): 2025-02-13 23:5
+ 9:00\nCategory: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THCPL B\nConfe
+ rence Website: https://conferences.miccai.org/2025/en/default.asp\nDBLP In
+ dex: https://dblp.org/db/conf/miccai
+LOCATION:Daejeon\, Republic of Korea
+URL:https://conferences.miccai.org/2025/en/default.asp
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SIGSPATIAL 2023 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20230609T235959
+DTEND;TZID="UTC-07:00":20230610T000059
+DTSTAMP:20250830T065448Z
+UID:6b223147-f23a-4ce3-8e2b-1344ff457883
+DESCRIPTION:ACM SIGSPATIAL International Conference on Advances in Geograp
+ hic Information Systems\n🗓️ Date: November 13-16\, 2023\n📍 Locatio
+ n: Hamburg\, Germany\n⏰ Original Deadline (UTC-7): 2023-06-09 23:59:59\n
+ Category: 交叉/综合/新兴 (MX)\nCCF C\, CORE A\nConference Website: h
+ ttp://sigspatial2023.sigspatial.org/\nDBLP Index: https://dblp.org/db/conf
+ /sigspatial
+LOCATION:Hamburg\, Germany
+URL:http://sigspatial2023.sigspatial.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SIGSPATIAL 2025 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20250523T235959
+DTEND;TZID="UTC-07:00":20250524T000059
+DTSTAMP:20250830T065448Z
+UID:e511b74d-6d25-47b9-879c-86be77f82195
+DESCRIPTION:ACM SIGSPATIAL International Conference on Advances in Geograp
+ hic Information Systems\n🗓️ Date: November 3-6\, 2025\n📍 Location:
+  Minneapolis\, MN\, USA\n⏰ Original Deadline (UTC-7): 2025-05-23 23:59:5
+ 9\nCategory: 交叉/综合/新兴 (MX)\nCCF C\, CORE A\nConference Website
+ : https://sigspatial2025.sigspatial.org/\nDBLP Index: https://dblp.org/db/
+ conf/sigspatial
+LOCATION:Minneapolis\, MN\, USA
+URL:https://sigspatial2025.sigspatial.org/
+END:VEVENT
+END:VCALENDAR

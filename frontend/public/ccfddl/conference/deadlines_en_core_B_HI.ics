@@ -1,0 +1,148 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ECSCW 2025 Deadline [Conference Papers]
+DTSTART;TZID="UTC-12:00":20250225T235959
+DTEND;TZID="UTC-12:00":20250226T000059
+DTSTAMP:20250830T065448Z
+UID:bd2c30de-e037-4c7a-a0fb-ab601d863caf
+DESCRIPTION:European Conference on Computer Supported Cooperative Work\n
+ 🗓️ Date: June 30 - July 4\, 2025\n📍 Location: Newcastle upon Tyne\
+ , UK\n⏰ Original Deadline (AoE): 2025-02-25 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF B\, CORE B\nConference Website: https://ec
+ scw.eusset.eu/2025/\nDBLP Index: https://dblp.org/db/conf/ecscw
+LOCATION:Newcastle upon Tyne\, UK
+URL:https://ecscw.eusset.eu/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECSCW 2026 Deadline [Conference Papers]
+DTSTART;TZID="UTC-12:00":20260306T235959
+DTEND;TZID="UTC-12:00":20260307T000059
+DTSTAMP:20250830T065448Z
+UID:4eeaff91-9fa3-4b2b-a9c3-d74688eeb9ad
+DESCRIPTION:European Conference on Computer Supported Cooperative Work\n
+ 🗓️ Date: 29 June - 3 July\, 2026\n📍 Location: Munich\, Germany\n
+ ⏰ Original Deadline (AoE): 2026-03-06 23:59:59\nCategory: 人机交互
+ 与普适计算 (HI)\nCCF B\, CORE B\nConference Website: https://ecscw.eu
+ sset.eu/2026\nDBLP Index: https://dblp.org/db/conf/ecscw
+LOCATION:Munich\, Germany
+URL:https://ecscw.eusset.eu/2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2025 Deadline [Full Paper First Wave Submissions]
+DTSTART;TZID="UTC-12:00":20230607T235959
+DTEND;TZID="UTC-12:00":20230608T000059
+DTSTAMP:20250830T065448Z
+UID:abf9a065-eeff-4675-8df3-b6f4a0917677
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  Date: January 12-15\, 2025\n📍 Location: Omni Hilton Head Oceanfront Re
+ sort\, Hilton Head Island\, South Carolina\, USA\n⏰ Original Deadline (A
+ oE): 2023-06-07 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF 
+ B\, CORE B\nConference Website: https://group.acm.org/conferences/group25\
+ nDBLP Index: https://dblp.org/db/conf/group
+LOCATION:Omni Hilton Head Oceanfront Resort\, Hilton Head Island\, South C
+ arolina\, USA
+URL:https://group.acm.org/conferences/group25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2025 Abstract Deadline [Full Paper Second Wave Submissions]
+DTSTART;TZID="UTC-12:00":20240501T235959
+DTEND;TZID="UTC-12:00":20240502T000059
+DTSTAMP:20250830T065448Z
+UID:b324ec65-54bb-48d9-b1ce-a9a29a370b9f
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  Date: January 12-15\, 2025\n📍 Location: Omni Hilton Head Oceanfront Re
+ sort\, Hilton Head Island\, South Carolina\, USA\n⏰ Original Deadline (A
+ oE): 2024-05-01 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF 
+ B\, CORE B\nConference Website: https://group.acm.org/conferences/group25\
+ nDBLP Index: https://dblp.org/db/conf/group
+LOCATION:Omni Hilton Head Oceanfront Resort\, Hilton Head Island\, South C
+ arolina\, USA
+URL:https://group.acm.org/conferences/group25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2027 Abstract Deadline [Full Paper First Wave Submissions]
+DTSTART;TZID="UTC-12:00":20250708T235959
+DTEND;TZID="UTC-12:00":20250709T000059
+DTSTAMP:20250830T065448Z
+UID:4e650297-a1de-4132-a5d8-65f216405cb8
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (AoE): 2025-07-08 23
+ :59:59\nCategory: 人机交互与普适计算 (HI)\nCCF B\, CORE B\nConfer
+ ence Website: https://group.acm.org/conferences/group27/\nDBLP Index: http
+ s://dblp.org/db/conf/group
+LOCATION:TBD
+URL:https://group.acm.org/conferences/group27/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+07:00
+TZOFFSETFROM:+0700
+TZOFFSETTO:+0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICMI 2024 Abstract Deadline
+DTSTART;TZID="UTC+07:00":20240426T235959
+DTEND;TZID="UTC+07:00":20240427T000059
+DTSTAMP:20250830T065448Z
+UID:cdf7629d-3317-4817-9bae-786e1fdc8dea
+DESCRIPTION:ACM International Conference on Multimodal Interaction\n🗓
+ ️ Date: Nov 4 - 8\, 2024\n📍 Location: San José\, Costa Rica\n⏰ Ori
+ ginal Deadline (UTC+7): 2024-04-26 23:59:59\nCategory: 人机交互与普
+ 适计算 (HI)\nCCF C\, CORE B\, THCPL B\nConference Website: https://icmi
+ .acm.org/2024/\nDBLP Index: https://dblp.org/db/conf/icmi
+LOCATION:San José\, Costa Rica
+URL:https://icmi.acm.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICMI 2025 Abstract Deadline
+DTSTART;TZID="UTC+07:00":20250425T235959
+DTEND;TZID="UTC+07:00":20250426T000059
+DTSTAMP:20250830T065448Z
+UID:f1773eb6-4d82-4aad-9c75-09f8db79a7b8
+DESCRIPTION:ACM International Conference on Multimodal Interaction\n🗓
+ ️ Date: Oct 13 - 17\, 2025\n📍 Location: Canberra\, Australia\n⏰ Ori
+ ginal Deadline (UTC+7): 2025-04-25 23:59:59\nCategory: 人机交互与普
+ 适计算 (HI)\nCCF C\, CORE B\, THCPL B\nConference Website: https://icmi
+ .acm.org/2025/\nDBLP Index: https://dblp.org/db/conf/icmi
+LOCATION:Canberra\, Australia
+URL:https://icmi.acm.org/2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UIC 2025 Deadline [Conference Papers]
+DTSTART;TZID="UTC-04:00":20250501T235959
+DTEND;TZID="UTC-04:00":20250502T000059
+DTSTAMP:20250830T065448Z
+UID:5ad21a97-fe6a-442d-adae-a4c4ce9226da
+DESCRIPTION:IEEE International Conference on Ubiquitous Intelligence and C
+ omputing\n🗓️ Date: Aug 18 - 22\, 2025\n📍 Location: Calgary\, Alber
+ ta\, Canada\n⏰ Original Deadline (UTC-4): 2025-05-01 23:59:59\nCategory:
+  人机交互与普适计算 (HI)\nCCF C\, CORE B\nConference Website: htt
+ ps://www.ieee-smart-world.org/2025/\nDBLP Index: https://dblp.org/db/conf/
+ uic
+LOCATION:Calgary\, Alberta\, Canada
+URL:https://www.ieee-smart-world.org/2025/
+END:VEVENT
+END:VCALENDAR

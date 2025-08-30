@@ -1,0 +1,446 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:AISTATS 2022 截稿日期
+DTSTART:20211015T115900Z
+DTEND:20211015T120000Z
+DTSTAMP:20250830T065443Z
+UID:85b4cca6-a9e3-4387-a99c-ac3a7e859f62
+DESCRIPTION:International Conference on Artificial Intelligence and Statis
+ tics\n🗓️ 会议时间: March 30 - April 1\, 2022\n📍 会议地点: 
+ Valencia\, Spain\n⏰ 原始截止时间 (UTC+0): 2021-10-15 11:59:00\n分
+ 类: 人工智能 (AI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://ai
+ stats.org/aistats2022/\nDBLP索引: https://dblp.org/db/conf/aistats
+LOCATION:Valencia\, Spain
+URL:https://aistats.org/aistats2022/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:AISTATS 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231016T235959
+DTEND;TZID="UTC-12:00":20231017T000059
+DTSTAMP:20250830T065443Z
+UID:bd63c16c-3206-40d0-95ff-f98370cbc1cf
+DESCRIPTION:International Conference on Artificial Intelligence and Statis
+ tics\n🗓️ 会议时间: May 2-4\, 2024\n📍 会议地点: Valencia\, 
+ Spain\n⏰ 原始截止时间 (UTC-12): 2023-10-16 23:59:59\n分类: 人
+ 工智能 (AI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://aistats.or
+ g/aistats2024/\nDBLP索引: https://dblp.org/db/conf/aistats
+LOCATION:Valencia\, Spain
+URL:https://aistats.org/aistats2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:AISTATS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20241003T235959
+DTEND;TZID="UTC-12:00":20241004T000059
+DTSTAMP:20250830T065443Z
+UID:1daf249b-ca25-44e0-99b5-a37ff48fc6f2
+DESCRIPTION:International Conference on Artificial Intelligence and Statis
+ tics\n🗓️ 会议时间: May 3-5\, 2025\n📍 会议地点: Mai Khao\, 
+ Thailand\n⏰ 原始截止时间 (UTC-12): 2024-10-03 23:59:59\n分类: 
+ 人工智能 (AI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://aistats
+ .org/aistats2025\nDBLP索引: https://dblp.org/db/conf/aistats
+LOCATION:Mai Khao\, Thailand
+URL:https://aistats.org/aistats2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:AISTATS 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250925T235959
+DTEND;TZID="UTC-12:00":20250926T000059
+DTSTAMP:20250830T065443Z
+UID:d127225e-d67a-4a67-a222-53d8a19fdb4c
+DESCRIPTION:International Conference on Artificial Intelligence and Statis
+ tics\n🗓️ 会议时间: May 2-5\, 2026\n📍 会议地点: Morocco\n
+ ⏰ 原始截止时间 (UTC-12): 2025-09-25 23:59:59\n分类: 人工智能
+  (AI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://virtual.aistats.org
+ /Conferences/2026\nDBLP索引: https://dblp.org/db/conf/aistats
+LOCATION:Morocco
+URL:https://virtual.aistats.org/Conferences/2026
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:BMVC 2021 截稿日期
+DTSTART;TZID="UTC-08:00":20210625T235959
+DTEND;TZID="UTC-08:00":20210626T000059
+DTSTAMP:20250830T065443Z
+UID:d2f05667-a9a7-4ee1-bad7-2f0bdca1c5d6
+DESCRIPTION:British Machine Vision Conference\n🗓️ 会议时间: Novem
+ ber 22-25\, 2021\n📍 会议地点: Virtual\n⏰ 原始截止时间 (UTC-
+ 8): 2021-06-25 23:59:59\n分类: 人工智能 (AI)\nCCF C\, CORE A\, THCPL
+  B\n会议官网: https://britishmachinevisionassociation.github.io/bmvc\n
+ DBLP索引: https://dblp.org/db/conf/bmvc
+LOCATION:Virtual
+URL:https://britishmachinevisionassociation.github.io/bmvc
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:BMVC 2024 摘要截稿
+DTSTART;TZID="UTC+08:00":20240427T075959
+DTEND;TZID="UTC+08:00":20240427T080059
+DTSTAMP:20250830T065443Z
+UID:253b72d8-0405-4691-9296-b1249a65e20f
+DESCRIPTION:British Machine Vision Conference\n🗓️ 会议时间: Novem
+ ber 25-28\, 2024\n📍 会议地点: Glasgow\, UK\n⏰ 原始截止时间 
+ (UTC+8): 2024-04-27 07:59:59\n分类: 人工智能 (AI)\nCCF C\, CORE A\, 
+ THCPL B\n会议官网: https://bmvc2024.org/\nDBLP索引: https://dblp.org
+ /db/conf/bmvc
+LOCATION:Glasgow\, UK
+URL:https://bmvc2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BMVC 2025 摘要截稿
+DTSTART:20250513T235959Z
+DTEND:20250514T000059Z
+DTSTAMP:20250830T065443Z
+UID:6830fe6d-08eb-4a71-8815-1ea15e9815d1
+DESCRIPTION:British Machine Vision Conference\n🗓️ 会议时间: Novem
+ ber 24-27\, 2025\n📍 会议地点: Sheffield\, UK\n⏰ 原始截止时
+ 间 (UTC+0): 2025-05-13 23:59:59\n分类: 人工智能 (AI)\nCCF C\, CORE 
+ A\, THCPL B\n会议官网: https://bmvc2025.bmva.org/\nDBLP索引: https:/
+ /dblp.org/db/conf/bmvc
+LOCATION:Sheffield\, UK
+URL:https://bmvc2025.bmva.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECAI 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230502T235959
+DTEND;TZID="UTC-12:00":20230503T000059
+DTSTAMP:20250830T065443Z
+UID:e373d3e4-eac8-4412-ac25-366fef78ab19
+DESCRIPTION:European Conference on Artificial Intelligence\n🗓️ 会议
+ 时间: October 2-5\, 2023\n📍 会议地点: Kraków\, Poland\n⏰ 原
+ 始截止时间 (UTC-12): 2023-05-02 23:59:59\n分类: 人工智能 (AI)\n
+ CCF B\, CORE A\n会议官网: https://ecai2023.eu/\nDBLP索引: https://db
+ lp.org/db/conf/ecai
+LOCATION:Kraków\, Poland
+URL:https://ecai2023.eu/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECAI 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240419T235959
+DTEND;TZID="UTC-12:00":20240420T000059
+DTSTAMP:20250830T065443Z
+UID:403df523-ce6d-4b78-a14d-cf4a739c684a
+DESCRIPTION:European Conference on Artificial Intelligence\n🗓️ 会议
+ 时间: October 19-24\, 2024\n📍 会议地点: Santiago de Compostela\n
+ ⏰ 原始截止时间 (UTC-12): 2024-04-19 23:59:59\n分类: 人工智能
+  (AI)\nCCF B\, CORE A\n会议官网: https://www.ecai2024.eu/\nDBLP索引:
+  https://dblp.org/db/conf/ecai
+LOCATION:Santiago de Compostela
+URL:https://www.ecai2024.eu/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECAI 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250429T235959
+DTEND;TZID="UTC-12:00":20250430T000059
+DTSTAMP:20250830T065443Z
+UID:88aee57a-3a25-4551-acb3-fddd70319007
+DESCRIPTION:European Conference on Artificial Intelligence\n🗓️ 会议
+ 时间: October 25-30\, 2025\n📍 会议地点: Bologna\, ITALY\n⏰ 原
+ 始截止时间 (UTC-12): 2025-04-29 23:59:59\n分类: 人工智能 (AI)\n
+ CCF B\, CORE A\n会议官网: https://ecai2025.org/deadlines/\nDBLP索引:
+  https://dblp.org/db/conf/ecai
+LOCATION:Bologna\, ITALY
+URL:https://ecai2025.org/deadlines/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GECCO 2025 摘要截稿 [Full papers (traditional category) ]
+DTSTART;TZID="UTC-12:00":20250122T235900
+DTEND;TZID="UTC-12:00":20250123T000000
+DTSTAMP:20250830T065443Z
+UID:4acadec9-5ab8-48b8-a2b1-33f3d2f92fb4
+DESCRIPTION:Genetic and Evolutionary Computation Conference\n🗓️ 会
+ 议时间: July 14-18\, 2025\n📍 会议地点: Málaga\, Spain (hybrid)\
+ n⏰ 原始截止时间 (AoE): 2025-01-22 23:59:00\n分类: 人工智能 (
+ AI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://gecco-2025.sigevo.org
+ /HomePage\nDBLP索引: https://dblp.org/db/conf/gecco
+LOCATION:Málaga\, Spain (hybrid)
+URL:https://gecco-2025.sigevo.org/HomePage
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GECCO 2025 截稿日期 [Poster-only papers ]
+DTSTART;TZID="UTC-12:00":20250129T235900
+DTEND;TZID="UTC-12:00":20250130T000000
+DTSTAMP:20250830T065443Z
+UID:9b8e91de-d5a7-45bf-9e02-38603b6d9834
+DESCRIPTION:Genetic and Evolutionary Computation Conference\n🗓️ 会
+ 议时间: July 14-18\, 2025\n📍 会议地点: Málaga\, Spain (hybrid)\
+ n⏰ 原始截止时间 (AoE): 2025-01-29 23:59:00\n分类: 人工智能 (
+ AI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://gecco-2025.sigevo.org
+ /HomePage\nDBLP索引: https://dblp.org/db/conf/gecco
+LOCATION:Málaga\, Spain (hybrid)
+URL:https://gecco-2025.sigevo.org/HomePage
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDAR 2025 摘要截稿
+DTSTART:20250228T235959Z
+DTEND:20250301T000059Z
+DTSTAMP:20250830T065443Z
+UID:dbf009cf-effd-4aae-9618-e46ce15b384b
+DESCRIPTION:International Conference on Document Analysis and Recognition\
+ n🗓️ 会议时间: September 17-21\, 2025\n📍 会议地点: Wuhan\, 
+ China\n⏰ 原始截止时间 (UTC+0): 2025-02-28 23:59:59\n分类: 人工
+ 智能 (AI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://www.icdar2025
+ .com/home\nDBLP索引: https://dblp.org/db/conf/icdar
+LOCATION:Wuhan\, China
+URL:https://www.icdar2025.com/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IROS 2023 截稿日期
+DTSTART;TZID="UTC-08:00":20230301T235959
+DTEND;TZID="UTC-08:00":20230302T000059
+DTSTAMP:20250830T065443Z
+UID:587f8e5d-8f0b-4913-940a-5d6fea29fc75
+DESCRIPTION:IEEE\\RSJ International Conference on Intelligent Robots and S
+ ystems\n🗓️ 会议时间: October 1-5\, 2023\n📍 会议地点: Detro
+ it\, Michigan\, USA\n⏰ 原始截止时间 (UTC-8): 2023-03-01 23:59:59\n
+ 分类: 人工智能 (AI)\nCCF C\, CORE A\, THCPL B\n会议官网: https:/
+ /ieee-iros.org/\nDBLP索引: https://dblp.org/db/conf/iros
+LOCATION:Detroit\, Michigan\, USA
+URL:https://ieee-iros.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IROS 2024 截稿日期
+DTSTART;TZID="UTC-08:00":20240315T235959
+DTEND;TZID="UTC-08:00":20240316T000059
+DTSTAMP:20250830T065443Z
+UID:74de67fe-cc23-497a-af46-50170a6f79d5
+DESCRIPTION:IEEE\\RSJ International Conference on Intelligent Robots and S
+ ystems\n🗓️ 会议时间: October 13-17\, 2024\n📍 会议地点: Abu
+  Dhabi\, UAE\n⏰ 原始截止时间 (UTC-8): 2024-03-15 23:59:59\n分类:
+  人工智能 (AI)\nCCF C\, CORE A\, THCPL B\n会议官网: http://iros202
+ 4-abudhabi.org/\nDBLP索引: https://dblp.org/db/conf/iros
+LOCATION:Abu Dhabi\, UAE
+URL:http://iros2024-abudhabi.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IROS 2025 截稿日期
+DTSTART;TZID="UTC-08:00":20250301T235959
+DTEND;TZID="UTC-08:00":20250302T000059
+DTSTAMP:20250830T065443Z
+UID:3a1fbb22-6bab-42f5-9c66-0c31b06d3231
+DESCRIPTION:IEEE\\RSJ International Conference on Intelligent Robots and S
+ ystems\n🗓️ 会议时间: October 19-25\, 2025\n📍 会议地点: Han
+ gzhou\, China\n⏰ 原始截止时间 (UTC-8): 2025-03-01 23:59:59\n分类
+ : 人工智能 (AI)\nCCF C\, CORE A\, THCPL B\n会议官网: http://www.ir
+ os25.org/\nDBLP索引: https://dblp.org/db/conf/iros
+LOCATION:Hangzhou\, China
+URL:http://www.iros25.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NAACL 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20220115T235959
+DTEND;TZID="UTC-12:00":20220116T000059
+DTSTAMP:20250830T065443Z
+UID:a43c4e71-1fa4-4774-9287-9ea2bbfa241c
+DESCRIPTION:The Annual Conference of the North American Chapter of the Ass
+ ociation for Computational Linguistics\n🗓️ 会议时间: July 10-15\,
+  2022\n📍 会议地点: Washington DC\, USA\n⏰ 原始截止时间 (UTC
+ -12): 2022-01-15 23:59:59\n分类: 人工智能 (AI)\nCCF B\, CORE A\, THC
+ PL B\n会议官网: https://2022.naacl.org/\nDBLP索引: https://dblp.org/
+ db/conf/naacl
+LOCATION:Washington DC\, USA
+URL:https://2022.naacl.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NAACL 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231215T235959
+DTEND;TZID="UTC-12:00":20231216T000059
+DTSTAMP:20250830T065443Z
+UID:fbd9b4e3-309d-484d-801f-5b10da59f8d0
+DESCRIPTION:The Annual Conference of the North American Chapter of the Ass
+ ociation for Computational Linguistics\n🗓️ 会议时间: June 16-21\,
+  2024\n📍 会议地点: Mexico City\, Mexico\n⏰ 原始截止时间 (UT
+ C-12): 2023-12-15 23:59:59\n分类: 人工智能 (AI)\nCCF B\, CORE A\, TH
+ CPL B\n会议官网: https://2024.naacl.org/\nDBLP索引: https://dblp.org
+ /db/conf/naacl
+LOCATION:Mexico City\, Mexico
+URL:https://2024.naacl.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NAACL 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241015T235959
+DTEND;TZID="UTC-12:00":20241016T000059
+DTSTAMP:20250830T065443Z
+UID:e39274cd-aa8d-45e4-9a6c-8a6cab088754
+DESCRIPTION:The Annual Conference of the North American Chapter of the Ass
+ ociation for Computational Linguistics\n🗓️ 会议时间: April 29-May
+  4\, 2025\n📍 会议地点: Albuquerque\, New Mexico\, USA\n⏰ 原始
+ 截止时间 (UTC-12): 2024-10-15 23:59:59\n分类: 人工智能 (AI)\nCCF
+  B\, CORE A\, THCPL B\n会议官网: https://2025.naacl.org/\nDBLP索引: 
+ https://dblp.org/db/conf/naacl
+LOCATION:Albuquerque\, New Mexico\, USA
+URL:https://2025.naacl.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PPSN 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240418T235959
+DTEND;TZID="UTC-12:00":20240419T000059
+DTSTAMP:20250830T065443Z
+UID:a0a20f2b-2e06-49a8-8764-9fc9007b383a
+DESCRIPTION:International Conference on Parallel Problem Solving From Natu
+ re\n🗓️ 会议时间: September 14-18\, 2024\n📍 会议地点: Unive
+ rsity of Applied Sciences Upper Austria\, Softwarepark Hagenberg\, Austria
+ \n⏰ 原始截止时间 (UTC-12): 2024-04-18 23:59:59\n分类: 人工智
+ 能 (AI)\nCCF B\, CORE A\n会议官网: https://ppsn2024.fh-ooe.at/\nDBLP
+ 索引: https://dblp.org/db/conf/ppsn
+LOCATION:University of Applied Sciences Upper Austria\, Softwarepark Hagen
+ berg\, Austria
+URL:https://ppsn2024.fh-ooe.at/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UAI 2021 截稿日期
+DTSTART:20210219T235959Z
+DTEND:20210220T000059Z
+DTSTAMP:20250830T065443Z
+UID:c8580368-612d-4dd7-b50c-2e6d6bf18923
+DESCRIPTION:Conference on Uncertainty in Artificial Intelligence\n🗓️ 
+ 会议时间: July 27-29\, 2021\n📍 会议地点: Virtual\n⏰ 原始截
+ 止时间 (UTC+0): 2021-02-19 23:59:59\n分类: 人工智能 (AI)\nCCF B\,
+  CORE A\, THCPL B\n会议官网: http://auai.org/uai2021/\nDBLP索引: htt
+ ps://dblp.org/db/conf/uai
+LOCATION:Virtual
+URL:http://auai.org/uai2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UAI 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230217T235959
+DTEND;TZID="UTC-12:00":20230218T000059
+DTSTAMP:20250830T065443Z
+UID:e24c1292-6601-4624-b7a2-bcb06d3b1ade
+DESCRIPTION:Conference on Uncertainty in Artificial Intelligence\n🗓️ 
+ 会议时间: August 1-3\, 2023\n📍 会议地点: Pittsburgh\, PA\, USA\
+ n⏰ 原始截止时间 (AoE): 2023-02-17 23:59:59\n分类: 人工智能 (
+ AI)\nCCF B\, CORE A\, THCPL B\n会议官网: http://auai.org/uai2023/\nDBL
+ P索引: https://dblp.org/db/conf/uai
+LOCATION:Pittsburgh\, PA\, USA
+URL:http://auai.org/uai2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UAI 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240209T235959
+DTEND;TZID="UTC-12:00":20240210T000059
+DTSTAMP:20250830T065443Z
+UID:507a20d0-cf20-466c-a9dd-effb72690b1e
+DESCRIPTION:Conference on Uncertainty in Artificial Intelligence\n🗓️ 
+ 会议时间: July 15-19\, 2024\n📍 会议地点: Barcelona\, Spain\n⏰
+  原始截止时间 (AoE): 2024-02-09 23:59:59\n分类: 人工智能 (AI)\
+ nCCF B\, CORE A\, THCPL B\n会议官网: http://auai.org/uai2024/\nDBLP索
+ 引: https://dblp.org/db/conf/uai
+LOCATION:Barcelona\, Spain
+URL:http://auai.org/uai2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UAI 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250210T235959
+DTEND;TZID="UTC-12:00":20250211T000059
+DTSTAMP:20250830T065443Z
+UID:5eada816-f527-4e20-ab53-cf3b83a60dd1
+DESCRIPTION:Conference on Uncertainty in Artificial Intelligence\n🗓️ 
+ 会议时间: July 21-25\, 2025\n📍 会议地点: Rio de Janeiro\, Brazi
+ l\n⏰ 原始截止时间 (AoE): 2025-02-10 23:59:59\n分类: 人工智能
+  (AI)\nCCF B\, CORE A\, THCPL B\n会议官网: https://www.auai.org/uai202
+ 5/\nDBLP索引: https://dblp.org/db/conf/uai
+LOCATION:Rio de Janeiro\, Brazil
+URL:https://www.auai.org/uai2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:WACV 2025 截稿日期 [first round]
+DTSTART;TZID="UTC-07:00":20240715T235959
+DTEND;TZID="UTC-07:00":20240716T000059
+DTSTAMP:20250830T065443Z
+UID:b0bb98fe-2f7b-4c7c-ad63-663b6fcdac8c
+DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
+ n🗓️ 会议时间: February 28 - March 4\, 2025\n📍 会议地点: Tu
+ cson\, Arizona\, USA\n⏰ 原始截止时间 (UTC-7): 2024-07-15 23:59:59\
+ n分类: 人工智能 (AI)\nCORE A\n会议官网: https://wacv2025.thecvf.
+ com/\nDBLP索引: https://dblp.org/db/conf/wacv
+LOCATION:Tucson\, Arizona\, USA
+URL:https://wacv2025.thecvf.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WACV 2025 截稿日期 [second round]
+DTSTART;TZID="UTC-07:00":20240909T235959
+DTEND;TZID="UTC-07:00":20240910T000059
+DTSTAMP:20250830T065443Z
+UID:19725d00-8272-44f7-bf2a-26a3bb3c8d7f
+DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
+ n🗓️ 会议时间: February 28 - March 4\, 2025\n📍 会议地点: Tu
+ cson\, Arizona\, USA\n⏰ 原始截止时间 (UTC-7): 2024-09-09 23:59:59\
+ n分类: 人工智能 (AI)\nCORE A\n会议官网: https://wacv2025.thecvf.
+ com/\nDBLP索引: https://dblp.org/db/conf/wacv
+LOCATION:Tucson\, Arizona\, USA
+URL:https://wacv2025.thecvf.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WACV 2026 摘要截稿 [First round]
+DTSTART;TZID="UTC-12:00":20250711T235900
+DTEND;TZID="UTC-12:00":20250712T000000
+DTSTAMP:20250830T065443Z
+UID:5b71ef75-d1e8-4a52-addb-534f7884b266
+DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
+ n🗓️ 会议时间: Mar 6 - 10\, 2026\n📍 会议地点: Tucson\, Ariz
+ ona\, USA\n⏰ 原始截止时间 (AoE): 2025-07-11 23:59:00\n分类: 人
+ 工智能 (AI)\nCORE A\n会议官网: https://wacv.thecvf.com/\nDBLP索引
+ : https://dblp.org/db/conf/wacv
+LOCATION:Tucson\, Arizona\, USA
+URL:https://wacv.thecvf.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WACV 2026 摘要截稿 [Second round]
+DTSTART;TZID="UTC-12:00":20250912T235900
+DTEND;TZID="UTC-12:00":20250913T000000
+DTSTAMP:20250830T065443Z
+UID:6a08c507-abd5-45a5-a7df-ecc87a71c825
+DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
+ n🗓️ 会议时间: Mar 6 - 10\, 2026\n📍 会议地点: Tucson\, Ariz
+ ona\, USA\n⏰ 原始截止时间 (AoE): 2025-09-12 23:59:00\n分类: 人
+ 工智能 (AI)\nCORE A\n会议官网: https://wacv.thecvf.com/\nDBLP索引
+ : https://dblp.org/db/conf/wacv
+LOCATION:Tucson\, Arizona\, USA
+URL:https://wacv.thecvf.com/
+END:VEVENT
+END:VCALENDAR

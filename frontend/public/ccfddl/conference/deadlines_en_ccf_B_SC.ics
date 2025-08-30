@@ -1,0 +1,1231 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ACSAC 2021 Deadline
+DTSTART;TZID="UTC-12:00":20210914T235959
+DTEND;TZID="UTC-12:00":20210915T000059
+DTSTAMP:20250830T065448Z
+UID:8365cd80-b123-4c70-84ad-514280276e7a
+DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ Date
+ : December 6-10\, 2021\n📍 Location: Online\n⏰ Original Deadline (UTC-
+ 12): 2021-09-14 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CO
+ RE A\, THCPL B\nConference Website: https://www.acsac.org/\nDBLP Index: ht
+ tps://dblp.org/db/conf/acsac
+LOCATION:Online
+URL:https://www.acsac.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACSAC 2023 Deadline
+DTSTART;TZID="UTC-12:00":20230526T235959
+DTEND;TZID="UTC-12:00":20230527T000059
+DTSTAMP:20250830T065448Z
+UID:f63d7bdc-f669-458c-b27a-22b4b9bb4fc3
+DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ Date
+ : December 4-8\, 2023\n📍 Location: Austin\, Texas\, USA\n⏰ Original D
+ eadline (UTC-12): 2023-05-26 23:59:59\nCategory: 网络与信息安全 (SC
+ )\nCCF B\, CORE A\, THCPL B\nConference Website: https://www.acsac.org/\nD
+ BLP Index: https://dblp.org/db/conf/acsac
+LOCATION:Austin\, Texas\, USA
+URL:https://www.acsac.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACSAC 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240528T235959
+DTEND;TZID="UTC-12:00":20240529T000059
+DTSTAMP:20250830T065448Z
+UID:12c7ffdb-ddc3-4d9e-a89d-aef69f30beda
+DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ Date
+ : December 9-13\, 2024\n📍 Location: Waikiki\, Hawaii\, USA\n⏰ Origina
+ l Deadline (UTC-12): 2024-05-28 23:59:59\nCategory: 网络与信息安全 
+ (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://www.acsac.org/
+ \nDBLP Index: https://dblp.org/db/conf/acsac
+LOCATION:Waikiki\, Hawaii\, USA
+URL:https://www.acsac.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACSAC 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250530T235959
+DTEND;TZID="UTC-12:00":20250531T000059
+DTSTAMP:20250830T065448Z
+UID:37dd83f5-98cd-40a8-9768-8112ac2ecb86
+DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ Date
+ : December 9-13\, 2025\n📍 Location: Honolulu\, Hawaii\, USA\n⏰ Origin
+ al Deadline (UTC-12): 2025-05-30 23:59:59\nCategory: 网络与信息安全
+  (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://www.acsac.org
+ /\nDBLP Index: https://dblp.org/db/conf/acsac
+LOCATION:Honolulu\, Hawaii\, USA
+URL:https://www.acsac.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2022 Deadline [Schedule for TCHES Volume 2022/1]
+DTSTART;TZID="UTC-12:00":20210715T235959
+DTEND;TZID="UTC-12:00":20210716T000059
+DTSTAMP:20250830T065448Z
+UID:1ba7a20a-bebc-42eb-b68c-cc0c4865c400
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September \, 2022\n📍 Location: Beijing\, China
+ \n⏰ Original Deadline (AoE): 2021-07-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2022/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Beijing\, China
+URL:https://ches.iacr.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2022 Deadline [Schedule for TCHES Volume 2022/2]
+DTSTART;TZID="UTC-12:00":20211015T235959
+DTEND;TZID="UTC-12:00":20211016T000059
+DTSTAMP:20250830T065448Z
+UID:1b0f71ae-a22a-4277-b1b0-c5f1f46ca443
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September \, 2022\n📍 Location: Beijing\, China
+ \n⏰ Original Deadline (AoE): 2021-10-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2022/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Beijing\, China
+URL:https://ches.iacr.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2022 Deadline [Schedule for TCHES Volume 2022/3]
+DTSTART;TZID="UTC-12:00":20220115T235959
+DTEND;TZID="UTC-12:00":20220116T000059
+DTSTAMP:20250830T065448Z
+UID:87653376-44e0-4249-a48b-1fe80e4132b7
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September \, 2022\n📍 Location: Beijing\, China
+ \n⏰ Original Deadline (AoE): 2022-01-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2022/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Beijing\, China
+URL:https://ches.iacr.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2022 Deadline [Schedule for TCHES Volume 2022/4]
+DTSTART;TZID="UTC-12:00":20220415T235959
+DTEND;TZID="UTC-12:00":20220416T000059
+DTSTAMP:20250830T065448Z
+UID:14d7d592-dabe-4cb2-87ef-1d4e77276471
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September \, 2022\n📍 Location: Beijing\, China
+ \n⏰ Original Deadline (AoE): 2022-04-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2022/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Beijing\, China
+URL:https://ches.iacr.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2023 Deadline [Schedule for TCHES Volume 2023/1]
+DTSTART;TZID="UTC-12:00":20220715T235959
+DTEND;TZID="UTC-12:00":20220716T000059
+DTSTAMP:20250830T065448Z
+UID:27ac0f3c-2705-4159-93cd-cc556a0b2367
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September 10-14\, 2023\n📍 Location: Prague\, C
+ zech Republic\n⏰ Original Deadline (AoE): 2022-07-15 23:59:59\nCategory:
+  网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website:
+  https://ches.iacr.org/2023/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Prague\, Czech Republic
+URL:https://ches.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2023 Deadline [Schedule for TCHES Volume 2023/2]
+DTSTART;TZID="UTC-12:00":20221015T235959
+DTEND;TZID="UTC-12:00":20221016T000059
+DTSTAMP:20250830T065448Z
+UID:2911cf4d-a6d4-4f8b-b950-9097832b1775
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September 10-14\, 2023\n📍 Location: Prague\, C
+ zech Republic\n⏰ Original Deadline (AoE): 2022-10-15 23:59:59\nCategory:
+  网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website:
+  https://ches.iacr.org/2023/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Prague\, Czech Republic
+URL:https://ches.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2023 Deadline [Schedule for TCHES Volume 2023/3]
+DTSTART;TZID="UTC-12:00":20230115T235959
+DTEND;TZID="UTC-12:00":20230116T000059
+DTSTAMP:20250830T065448Z
+UID:5eb3a11f-ab75-4d02-bf75-eae9dd81bee3
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September 10-14\, 2023\n📍 Location: Prague\, C
+ zech Republic\n⏰ Original Deadline (AoE): 2023-01-15 23:59:59\nCategory:
+  网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website:
+  https://ches.iacr.org/2023/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Prague\, Czech Republic
+URL:https://ches.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2023 Deadline [Schedule for TCHES Volume 2023/4]
+DTSTART;TZID="UTC-12:00":20230415T235959
+DTEND;TZID="UTC-12:00":20230416T000059
+DTSTAMP:20250830T065448Z
+UID:d063dcdc-ffde-404a-b108-6c2e76d0b149
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September 10-14\, 2023\n📍 Location: Prague\, C
+ zech Republic\n⏰ Original Deadline (AoE): 2023-04-15 23:59:59\nCategory:
+  网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website:
+  https://ches.iacr.org/2023/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Prague\, Czech Republic
+URL:https://ches.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2024 Deadline [Schedule for TCHES Volume 2024/1]
+DTSTART;TZID="UTC-12:00":20230715T235959
+DTEND;TZID="UTC-12:00":20230716T000059
+DTSTAMP:20250830T065448Z
+UID:ba75e31e-62a0-481f-aafe-87babb1ce7e4
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September\, 2024\n📍 Location: Halifax\, Canada
+ \n⏰ Original Deadline (AoE): 2023-07-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2024/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Halifax\, Canada
+URL:https://ches.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2024 Deadline [Schedule for TCHES Volume 2024/2]
+DTSTART;TZID="UTC-12:00":20231015T235959
+DTEND;TZID="UTC-12:00":20231016T000059
+DTSTAMP:20250830T065448Z
+UID:d6edc08e-1ed5-4846-8a96-29c053cab1c1
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September\, 2024\n📍 Location: Halifax\, Canada
+ \n⏰ Original Deadline (AoE): 2023-10-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2024/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Halifax\, Canada
+URL:https://ches.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2024 Deadline [Schedule for TCHES Volume 2024/3]
+DTSTART;TZID="UTC-12:00":20240115T235959
+DTEND;TZID="UTC-12:00":20240116T000059
+DTSTAMP:20250830T065448Z
+UID:0fa82d60-9ac0-4ef9-a4fa-af796a8c63a2
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September\, 2024\n📍 Location: Halifax\, Canada
+ \n⏰ Original Deadline (AoE): 2024-01-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2024/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Halifax\, Canada
+URL:https://ches.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2024 Deadline [Schedule for TCHES Volume 2024/4]
+DTSTART;TZID="UTC-12:00":20240415T235959
+DTEND;TZID="UTC-12:00":20240416T000059
+DTSTAMP:20250830T065448Z
+UID:cae482f5-6cac-40ca-928c-71d91d8da1f7
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September\, 2024\n📍 Location: Halifax\, Canada
+ \n⏰ Original Deadline (AoE): 2024-04-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2024/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Halifax\, Canada
+URL:https://ches.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2025 Deadline [Schedule for TCHES Volume 2025/1]
+DTSTART;TZID="UTC-12:00":20240715T235959
+DTEND;TZID="UTC-12:00":20240716T000059
+DTSTAMP:20250830T065448Z
+UID:b6a3a3fb-fa14-45c4-b624-95bebf7e84a4
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September 14-18\, 2025\n📍 Location: Kuala Lump
+ ur\, Malaysia\n⏰ Original Deadline (AoE): 2024-07-15 23:59:59\nCategory:
+  网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website:
+  https://ches.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://ches.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2025 Deadline [Schedule for TCHES Volume 2025/2]
+DTSTART;TZID="UTC-12:00":20241015T235959
+DTEND;TZID="UTC-12:00":20241016T000059
+DTSTAMP:20250830T065448Z
+UID:0c300b5d-0187-4ed6-92fa-007cc08134d8
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September 14-18\, 2025\n📍 Location: Kuala Lump
+ ur\, Malaysia\n⏰ Original Deadline (AoE): 2024-10-15 23:59:59\nCategory:
+  网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website:
+  https://ches.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://ches.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2025 Deadline [Schedule for TCHES Volume 2025/3]
+DTSTART;TZID="UTC-12:00":20250115T235959
+DTEND;TZID="UTC-12:00":20250116T000059
+DTSTAMP:20250830T065448Z
+UID:86bcb31e-6eab-4638-81c5-9226dde3f105
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September 14-18\, 2025\n📍 Location: Kuala Lump
+ ur\, Malaysia\n⏰ Original Deadline (AoE): 2025-01-15 23:59:59\nCategory:
+  网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website:
+  https://ches.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://ches.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2025 Deadline [Schedule for TCHES Volume 2025/4]
+DTSTART;TZID="UTC-12:00":20250415T235959
+DTEND;TZID="UTC-12:00":20250416T000059
+DTSTAMP:20250830T065448Z
+UID:907866a7-9667-4d79-a4d3-34a242b90c76
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: September 14-18\, 2025\n📍 Location: Kuala Lump
+ ur\, Malaysia\n⏰ Original Deadline (AoE): 2025-04-15 23:59:59\nCategory:
+  网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website:
+  https://ches.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://ches.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2026 Deadline [Schedule for TCHES Volume 2026/1]
+DTSTART;TZID="UTC-12:00":20250715T235959
+DTEND;TZID="UTC-12:00":20250716T000059
+DTSTAMP:20250830T065448Z
+UID:f937ea1f-3f8f-4c3a-ac35-deb685104421
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: October 11-15\, 2026\n📍 Location: Türkiye\n
+ ⏰ Original Deadline (AoE): 2025-07-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2026/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Türkiye
+URL:https://ches.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2026 Deadline [Schedule for TCHES Volume 2026/2]
+DTSTART;TZID="UTC-12:00":20251015T235959
+DTEND;TZID="UTC-12:00":20251016T000059
+DTSTAMP:20250830T065448Z
+UID:7846c25e-0d8c-48cd-a7a2-490c091aef29
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: October 11-15\, 2026\n📍 Location: Türkiye\n
+ ⏰ Original Deadline (AoE): 2025-10-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2026/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Türkiye
+URL:https://ches.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2026 Deadline [Schedule for TCHES Volume 2026/3]
+DTSTART;TZID="UTC-12:00":20260115T235959
+DTEND;TZID="UTC-12:00":20260116T000059
+DTSTAMP:20250830T065448Z
+UID:fec87f6f-fc47-4ba2-8ffd-58d3315117ab
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: October 11-15\, 2026\n📍 Location: Türkiye\n
+ ⏰ Original Deadline (AoE): 2026-01-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2026/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Türkiye
+URL:https://ches.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHES 2026 Deadline [Schedule for TCHES Volume 2026/4]
+DTSTART;TZID="UTC-12:00":20260415T235959
+DTEND;TZID="UTC-12:00":20260416T000059
+DTSTAMP:20250830T065448Z
+UID:e7dff23b-4c38-401d-aae7-ddbcf9f86bf1
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
+ d Systems\n🗓️ Date: October 11-15\, 2026\n📍 Location: Türkiye\n
+ ⏰ Original Deadline (AoE): 2026-04-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL A\nConference Website: https://ches
+ .iacr.org/2026/\nDBLP Index: https://dblp.org/db/conf/ches
+LOCATION:Türkiye
+URL:https://ches.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2022 Deadline [spring]
+DTSTART;TZID="UTC-12:00":20210514T235959
+DTEND;TZID="UTC-12:00":20210515T000059
+DTSTAMP:20250830T065448Z
+UID:4b8c8a91-874c-49f1-a1fd-46a1b7861f52
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Aug
+ ust\, 2022\n📍 Location: Haifa\, Israel\n⏰ Original Deadline (UTC-12):
+  2021-05-14 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A
+ \, THCPL B\nConference Website: https://www.ieee-security.org/TC/CSF2022/\
+ nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Haifa\, Israel
+URL:https://www.ieee-security.org/TC/CSF2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2022 Deadline [fall]
+DTSTART;TZID="UTC-12:00":20211001T235959
+DTEND;TZID="UTC-12:00":20211002T000059
+DTSTAMP:20250830T065448Z
+UID:61d93715-3c89-4f0e-a7a0-b8860d988178
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Aug
+ ust\, 2022\n📍 Location: Haifa\, Israel\n⏰ Original Deadline (UTC-12):
+  2021-10-01 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A
+ \, THCPL B\nConference Website: https://www.ieee-security.org/TC/CSF2022/\
+ nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Haifa\, Israel
+URL:https://www.ieee-security.org/TC/CSF2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2023 Deadline [spring]
+DTSTART;TZID="UTC-12:00":20220513T235959
+DTEND;TZID="UTC-12:00":20220514T000059
+DTSTAMP:20250830T065448Z
+UID:891d54b5-5247-4f5c-ae2c-32f5274c135a
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y\, 2023\n📍 Location: Dubrovnik\, Croatia\n⏰ Original Deadline (UTC-1
+ 2): 2022-05-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, COR
+ E A\, THCPL B\nConference Website: https://www.ieee-security.org/TC/CSF202
+ 3/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Dubrovnik\, Croatia
+URL:https://www.ieee-security.org/TC/CSF2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2023 Deadline [fall]
+DTSTART;TZID="UTC-12:00":20220930T235959
+DTEND;TZID="UTC-12:00":20221001T000059
+DTSTAMP:20250830T065448Z
+UID:d414399d-f79f-4abb-8c63-0ae64f0c5672
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y\, 2023\n📍 Location: Dubrovnik\, Croatia\n⏰ Original Deadline (UTC-1
+ 2): 2022-09-30 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, COR
+ E A\, THCPL B\nConference Website: https://www.ieee-security.org/TC/CSF202
+ 3/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Dubrovnik\, Croatia
+URL:https://www.ieee-security.org/TC/CSF2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2023 Deadline [winter]
+DTSTART;TZID="UTC-12:00":20230203T235959
+DTEND;TZID="UTC-12:00":20230204T000059
+DTSTAMP:20250830T065448Z
+UID:3d6b2bf5-8506-4a20-984f-8ec09a6c080d
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y\, 2023\n📍 Location: Dubrovnik\, Croatia\n⏰ Original Deadline (UTC-1
+ 2): 2023-02-03 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, COR
+ E A\, THCPL B\nConference Website: https://www.ieee-security.org/TC/CSF202
+ 3/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Dubrovnik\, Croatia
+URL:https://www.ieee-security.org/TC/CSF2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2024 Deadline [spring]
+DTSTART;TZID="UTC-12:00":20230515T235959
+DTEND;TZID="UTC-12:00":20230516T000059
+DTSTAMP:20250830T065448Z
+UID:e7eed4a1-ef2f-45db-855c-8c6abd3a1bef
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y 8-12\, 2024\n📍 Location: Enschede\, The Netherlands\n⏰ Original Dea
+ dline (UTC-12): 2023-05-15 23:59:59\nCategory: 网络与信息安全 (SC)\
+ nCCF B\, CORE A\, THCPL B\nConference Website: https://www.ieee-security.o
+ rg/TC/CSF2024/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Enschede\, The Netherlands
+URL:https://www.ieee-security.org/TC/CSF2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2024 Deadline [fall]
+DTSTART;TZID="UTC-12:00":20230930T235959
+DTEND;TZID="UTC-12:00":20231001T000059
+DTSTAMP:20250830T065448Z
+UID:81c91c3f-4481-4fa7-a652-3aaf663cd291
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y 8-12\, 2024\n📍 Location: Enschede\, The Netherlands\n⏰ Original Dea
+ dline (UTC-12): 2023-09-30 23:59:59\nCategory: 网络与信息安全 (SC)\
+ nCCF B\, CORE A\, THCPL B\nConference Website: https://www.ieee-security.o
+ rg/TC/CSF2024/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Enschede\, The Netherlands
+URL:https://www.ieee-security.org/TC/CSF2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2024 Deadline [winter]
+DTSTART;TZID="UTC-12:00":20240203T235959
+DTEND;TZID="UTC-12:00":20240204T000059
+DTSTAMP:20250830T065448Z
+UID:90b72ec3-2b71-4dc4-91c8-fd9308e82a92
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y 8-12\, 2024\n📍 Location: Enschede\, The Netherlands\n⏰ Original Dea
+ dline (UTC-12): 2024-02-03 23:59:59\nCategory: 网络与信息安全 (SC)\
+ nCCF B\, CORE A\, THCPL B\nConference Website: https://www.ieee-security.o
+ rg/TC/CSF2024/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Enschede\, The Netherlands
+URL:https://www.ieee-security.org/TC/CSF2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2025 Deadline [spring]
+DTSTART;TZID="UTC-12:00":20240528T235959
+DTEND;TZID="UTC-12:00":20240529T000059
+DTSTAMP:20250830T065448Z
+UID:83a68676-21ca-4e68-b6fa-36a294ec040f
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jun
+ e 16-20\, 2025\n📍 Location: Santa Cruz\, CA\, USA\n⏰ Original Deadlin
+ e (UTC-12): 2024-05-28 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
+  B\, CORE A\, THCPL B\nConference Website: https://csf2025.ieee-security.o
+ rg/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Santa Cruz\, CA\, USA
+URL:https://csf2025.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2025 Deadline [fall]
+DTSTART;TZID="UTC-12:00":20241001T235959
+DTEND;TZID="UTC-12:00":20241002T000059
+DTSTAMP:20250830T065448Z
+UID:780829f6-900a-4f16-80c5-73b3b31e7aa6
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jun
+ e 16-20\, 2025\n📍 Location: Santa Cruz\, CA\, USA\n⏰ Original Deadlin
+ e (UTC-12): 2024-10-01 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
+  B\, CORE A\, THCPL B\nConference Website: https://csf2025.ieee-security.o
+ rg/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Santa Cruz\, CA\, USA
+URL:https://csf2025.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2025 Deadline [winter]
+DTSTART;TZID="UTC-12:00":20250204T235959
+DTEND;TZID="UTC-12:00":20250205T000059
+DTSTAMP:20250830T065448Z
+UID:5bd6b1c5-9bfc-41da-80ef-a4f57e97ffb3
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jun
+ e 16-20\, 2025\n📍 Location: Santa Cruz\, CA\, USA\n⏰ Original Deadlin
+ e (UTC-12): 2025-02-04 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
+  B\, CORE A\, THCPL B\nConference Website: https://csf2025.ieee-security.o
+ rg/\nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Santa Cruz\, CA\, USA
+URL:https://csf2025.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2026 Deadline [Summer]
+DTSTART;TZID="UTC-12:00":20250724T235959
+DTEND;TZID="UTC-12:00":20250725T000059
+DTSTAMP:20250830T065448Z
+UID:d1d6f67e-f377-45d3-83ff-5279b117796c
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y 26-29\, 2026\n📍 Location: Lisbon\, Portugal\n⏰ Original Deadline (U
+ TC-12): 2025-07-24 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\,
+  CORE A\, THCPL B\nConference Website: https://csf2026.ieee-security.org/\
+ nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Lisbon\, Portugal
+URL:https://csf2026.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2026 Deadline [Fall]
+DTSTART;TZID="UTC-12:00":20251009T235959
+DTEND;TZID="UTC-12:00":20251010T000059
+DTSTAMP:20250830T065448Z
+UID:8e06b941-9f83-4f68-a01d-e108ed1347ac
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y 26-29\, 2026\n📍 Location: Lisbon\, Portugal\n⏰ Original Deadline (U
+ TC-12): 2025-10-09 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\,
+  CORE A\, THCPL B\nConference Website: https://csf2026.ieee-security.org/\
+ nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Lisbon\, Portugal
+URL:https://csf2026.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSFW 2026 Deadline [Winter]
+DTSTART;TZID="UTC-12:00":20260129T235959
+DTEND;TZID="UTC-12:00":20260130T000059
+DTSTAMP:20250830T065448Z
+UID:0ebb2eaa-0042-458d-94fe-f75aef146b3e
+DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
+ y 26-29\, 2026\n📍 Location: Lisbon\, Portugal\n⏰ Original Deadline (U
+ TC-12): 2026-01-29 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\,
+  CORE A\, THCPL B\nConference Website: https://csf2026.ieee-security.org/\
+ nDBLP Index: https://dblp.org/db/conf/cgisfw
+LOCATION:Lisbon\, Portugal
+URL:https://csf2026.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DSN 2022 Deadline [Abstract submission deadline]
+DTSTART;TZID="UTC-12:00":20211203T235959
+DTEND;TZID="UTC-12:00":20211204T000059
+DTSTAMP:20250830T065448Z
+UID:81946504-1751-499f-977d-8bce0d81ccf6
+DESCRIPTION:International Conference on Dependable Systems and Networks\n
+ 🗓️ Date: June 27-30\, 2022\n📍 Location: Baltimore\, Maryland\, USA
+ \n⏰ Original Deadline (AoE): 2021-12-03 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://dsn2
+ 022.github.io/\nDBLP Index: https://dblp.org/db/conf/dsn
+LOCATION:Baltimore\, Maryland\, USA
+URL:https://dsn2022.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DSN 2022 Deadline [Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20211210T235959
+DTEND;TZID="UTC-12:00":20211211T000059
+DTSTAMP:20250830T065448Z
+UID:fb70dd74-aa1f-4d8f-9894-61e4a7a9b655
+DESCRIPTION:International Conference on Dependable Systems and Networks\n
+ 🗓️ Date: June 27-30\, 2022\n📍 Location: Baltimore\, Maryland\, USA
+ \n⏰ Original Deadline (AoE): 2021-12-10 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://dsn2
+ 022.github.io/\nDBLP Index: https://dblp.org/db/conf/dsn
+LOCATION:Baltimore\, Maryland\, USA
+URL:https://dsn2022.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DSN 2022 Deadline [Notification to authors]
+DTSTART;TZID="UTC-12:00":20220314T235959
+DTEND;TZID="UTC-12:00":20220315T000059
+DTSTAMP:20250830T065448Z
+UID:a4a27eab-bbb9-4eff-88e9-2ec30d880ec4
+DESCRIPTION:International Conference on Dependable Systems and Networks\n
+ 🗓️ Date: June 27-30\, 2022\n📍 Location: Baltimore\, Maryland\, USA
+ \n⏰ Original Deadline (AoE): 2022-03-14 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://dsn2
+ 022.github.io/\nDBLP Index: https://dblp.org/db/conf/dsn
+LOCATION:Baltimore\, Maryland\, USA
+URL:https://dsn2022.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DSN 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20231129T235959
+DTEND;TZID="UTC-12:00":20231130T000059
+DTSTAMP:20250830T065448Z
+UID:ec2ba97b-1d7b-428b-b9a5-722a78f53272
+DESCRIPTION:International Conference on Dependable Systems and Networks\n
+ 🗓️ Date: June 24-27\, 2024\n📍 Location: Brisbane\, Australia\n⏰ 
+ Original Deadline (AoE): 2023-11-29 23:59:59\nCategory: 网络与信息安
+ 全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://dsn2024uq.
+ github.io\nDBLP Index: https://dblp.org/db/conf/dsn
+LOCATION:Brisbane\, Australia
+URL:https://dsn2024uq.github.io
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DSN 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20241127T235959
+DTEND;TZID="UTC-12:00":20241128T000059
+DTSTAMP:20250830T065448Z
+UID:e11af85e-aae9-4d2b-9001-6146a6f912f3
+DESCRIPTION:International Conference on Dependable Systems and Networks\n
+ 🗓️ Date: June 23-26\, 2025\n📍 Location: Naples\, Italy\n⏰ Origin
+ al Deadline (AoE): 2024-11-27 23:59:59\nCategory: 网络与信息安全 (S
+ C)\nCCF B\, CORE A\, THCPL B\nConference Website: https://dsn2025.github.i
+ o/\nDBLP Index: https://dblp.org/db/conf/dsn
+LOCATION:Naples\, Italy
+URL:https://dsn2025.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DSN 2026 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20251127T235959
+DTEND;TZID="UTC-12:00":20251128T000059
+DTSTAMP:20250830T065448Z
+UID:0cd627b7-7e58-4a20-9c78-5696a78e1384
+DESCRIPTION:International Conference on Dependable Systems and Networks\n
+ 🗓️ Date: June 22-25\, 2026\n📍 Location: Charlotte\, USA\n⏰ Origi
+ nal Deadline (AoE): 2025-11-27 23:59:59\nCategory: 网络与信息安全 (
+ SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://dsn2026.github.
+ io\nDBLP Index: https://dblp.org/db/conf/dsn
+LOCATION:Charlotte\, USA
+URL:https://dsn2026.github.io
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+01:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+01:00
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0100
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ESORICS 2022 Deadline [Winter Cycle Title and Abstract]
+DTSTART;TZID="UTC+01:00":20220131T235959
+DTEND;TZID="UTC+01:00":20220201T000059
+DTSTAMP:20250830T065448Z
+UID:b32a4990-4b1f-4ae4-bc15-df4ee7e93cb1
+DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
+ ate: September 26-30\, 2022\n📍 Location: Copenhagen\, Denmark\n⏰ Orig
+ inal Deadline (UTC+1): 2022-01-31 23:59:59\nCategory: 网络与信息安
+ 全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://esorics202
+ 2.compute.dtu.dk/\nDBLP Index: https://dblp.org/db/conf/esorics
+LOCATION:Copenhagen\, Denmark
+URL:https://esorics2022.compute.dtu.dk/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ESORICS 2022 Deadline [Winter Cycle Full Paper Submission]
+DTSTART;TZID="UTC+01:00":20220131T235959
+DTEND;TZID="UTC+01:00":20220201T000059
+DTSTAMP:20250830T065448Z
+UID:b9d46cb2-3653-4363-ad08-561686c80f69
+DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
+ ate: September 26-30\, 2022\n📍 Location: Copenhagen\, Denmark\n⏰ Orig
+ inal Deadline (UTC+1): 2022-01-31 23:59:59\nCategory: 网络与信息安
+ 全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://esorics202
+ 2.compute.dtu.dk/\nDBLP Index: https://dblp.org/db/conf/esorics
+LOCATION:Copenhagen\, Denmark
+URL:https://esorics2022.compute.dtu.dk/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ESORICS 2022 Deadline [Spring Cycle Title and Abstract]
+DTSTART;TZID="UTC+01:00":20220515T235959
+DTEND;TZID="UTC+01:00":20220516T000059
+DTSTAMP:20250830T065448Z
+UID:7e42737f-ab69-4782-aeea-e34629bb95c3
+DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
+ ate: September 26-30\, 2022\n📍 Location: Copenhagen\, Denmark\n⏰ Orig
+ inal Deadline (UTC+1): 2022-05-15 23:59:59\nCategory: 网络与信息安
+ 全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://esorics202
+ 2.compute.dtu.dk/\nDBLP Index: https://dblp.org/db/conf/esorics
+LOCATION:Copenhagen\, Denmark
+URL:https://esorics2022.compute.dtu.dk/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ESORICS 2022 Deadline [Spring Cycle Full Paper Submission]
+DTSTART;TZID="UTC+01:00":20220522T235959
+DTEND;TZID="UTC+01:00":20220523T000059
+DTSTAMP:20250830T065448Z
+UID:ccd5aa15-2f3e-42ef-aa70-45317e6c4466
+DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
+ ate: September 26-30\, 2022\n📍 Location: Copenhagen\, Denmark\n⏰ Orig
+ inal Deadline (UTC+1): 2022-05-22 23:59:59\nCategory: 网络与信息安
+ 全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https://esorics202
+ 2.compute.dtu.dk/\nDBLP Index: https://dblp.org/db/conf/esorics
+LOCATION:Copenhagen\, Denmark
+URL:https://esorics2022.compute.dtu.dk/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ESORICS 2024 Deadline [First Submission deadline]
+DTSTART;TZID="UTC-12:00":20240108T235959
+DTEND;TZID="UTC-12:00":20240109T000059
+DTSTAMP:20250830T065448Z
+UID:b223e4bb-00dc-48c7-b443-93a3dd637177
+DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
+ ate: September 16-20\, 2024\n📍 Location: Bydgoszcz\, Poland\n⏰ Origin
+ al Deadline (AoE): 2024-01-08 23:59:59\nCategory: 网络与信息安全 (S
+ C)\nCCF B\, CORE A\, THCPL B\nConference Website: https://esorics2024.org/
+ \nDBLP Index: https://dblp.org/db/conf/esorics
+LOCATION:Bydgoszcz\, Poland
+URL:https://esorics2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ESORICS 2024 Deadline [Second Submission deadline]
+DTSTART;TZID="UTC-12:00":20240419T235959
+DTEND;TZID="UTC-12:00":20240420T000059
+DTSTAMP:20250830T065448Z
+UID:51a0f0e8-af64-469e-b4d0-315117db9041
+DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
+ ate: September 16-20\, 2024\n📍 Location: Bydgoszcz\, Poland\n⏰ Origin
+ al Deadline (AoE): 2024-04-19 23:59:59\nCategory: 网络与信息安全 (S
+ C)\nCCF B\, CORE A\, THCPL B\nConference Website: https://esorics2024.org/
+ \nDBLP Index: https://dblp.org/db/conf/esorics
+LOCATION:Bydgoszcz\, Poland
+URL:https://esorics2024.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ESORICS 2025 Deadline [First Submission deadline]
+DTSTART;TZID="UTC-12:00":20250110T235959
+DTEND;TZID="UTC-12:00":20250111T000059
+DTSTAMP:20250830T065448Z
+UID:95f7a3f1-79e9-4242-b68c-a33df6bc0242
+DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
+ ate: September 22-26\, 2025\n📍 Location: Toulouse\, France\n⏰ Origina
+ l Deadline (AoE): 2025-01-10 23:59:59\nCategory: 网络与信息安全 (SC
+ )\nCCF B\, CORE A\, THCPL B\nConference Website: https://esorics2025.scien
+ cesconf.org/\nDBLP Index: https://dblp.org/db/conf/esorics
+LOCATION:Toulouse\, France
+URL:https://esorics2025.sciencesconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ESORICS 2025 Deadline [Second Submission deadline]
+DTSTART;TZID="UTC-12:00":20250429T235959
+DTEND;TZID="UTC-12:00":20250430T000059
+DTSTAMP:20250830T065448Z
+UID:50cbc261-a818-4bf4-a0c6-3742f6f2e421
+DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
+ ate: September 22-26\, 2025\n📍 Location: Toulouse\, France\n⏰ Origina
+ l Deadline (AoE): 2025-04-29 23:59:59\nCategory: 网络与信息安全 (SC
+ )\nCCF B\, CORE A\, THCPL B\nConference Website: https://esorics2025.scien
+ cesconf.org/\nDBLP Index: https://dblp.org/db/conf/esorics
+LOCATION:Toulouse\, France
+URL:https://esorics2025.sciencesconf.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:FSE 2023 Deadline [Submission deadline]
+DTSTART:20220301T115959Z
+DTEND:20220301T120059Z
+DTSTAMP:20250830T065448Z
+UID:5139dc8d-62f3-4b13-94b7-b455acdae12c
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 20-24\, 2023\n
+ 📍 Location: Beijing\, China\n⏰ Original Deadline (UTC+0): 2022-03-01 
+ 11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferenc
+ e Website: https://fse.iacr.org/2023/\nDBLP Index: https://dblp.org/db/con
+ f/fse
+LOCATION:Beijing\, China
+URL:https://fse.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2023 Deadline [Submission deadline]
+DTSTART:20220601T115959Z
+DTEND:20220601T120059Z
+DTSTAMP:20250830T065448Z
+UID:36bd3a4d-c33e-4acb-a060-5fc684d8eaad
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 20-24\, 2023\n
+ 📍 Location: Beijing\, China\n⏰ Original Deadline (UTC+0): 2022-06-01 
+ 11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferenc
+ e Website: https://fse.iacr.org/2023/\nDBLP Index: https://dblp.org/db/con
+ f/fse
+LOCATION:Beijing\, China
+URL:https://fse.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2023 Deadline [Submission deadline]
+DTSTART:20220901T115959Z
+DTEND:20220901T120059Z
+DTSTAMP:20250830T065448Z
+UID:0a1c54ea-f064-486b-90ac-45bf7a239979
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 20-24\, 2023\n
+ 📍 Location: Beijing\, China\n⏰ Original Deadline (UTC+0): 2022-09-01 
+ 11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferenc
+ e Website: https://fse.iacr.org/2023/\nDBLP Index: https://dblp.org/db/con
+ f/fse
+LOCATION:Beijing\, China
+URL:https://fse.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2023 Deadline [Submission deadline]
+DTSTART:20221123T115959Z
+DTEND:20221123T120059Z
+DTSTAMP:20250830T065448Z
+UID:318a215e-fc0d-4ae8-b610-692e73012211
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 20-24\, 2023\n
+ 📍 Location: Beijing\, China\n⏰ Original Deadline (UTC+0): 2022-11-23 
+ 11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferenc
+ e Website: https://fse.iacr.org/2023/\nDBLP Index: https://dblp.org/db/con
+ f/fse
+LOCATION:Beijing\, China
+URL:https://fse.iacr.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2024 Deadline [Submission deadline]
+DTSTART:20230301T115959Z
+DTEND:20230301T120059Z
+DTSTAMP:20250830T065448Z
+UID:28f05168-f5bc-47eb-8231-36850120d4b8
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 25-29\, 2024\n
+ 📍 Location: Leuven\, Belgium\n⏰ Original Deadline (UTC+0): 2023-03-01
+  11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferen
+ ce Website: https://fse.iacr.org/2024/\nDBLP Index: https://dblp.org/db/co
+ nf/fse
+LOCATION:Leuven\, Belgium
+URL:https://fse.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2024 Deadline [Submission deadline]
+DTSTART:20230601T115959Z
+DTEND:20230601T120059Z
+DTSTAMP:20250830T065448Z
+UID:ec16cbc3-00ef-406d-b4e4-c23b2fed4723
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 25-29\, 2024\n
+ 📍 Location: Leuven\, Belgium\n⏰ Original Deadline (UTC+0): 2023-06-01
+  11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferen
+ ce Website: https://fse.iacr.org/2024/\nDBLP Index: https://dblp.org/db/co
+ nf/fse
+LOCATION:Leuven\, Belgium
+URL:https://fse.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2024 Deadline [Submission deadline]
+DTSTART:20230901T115959Z
+DTEND:20230901T120059Z
+DTSTAMP:20250830T065448Z
+UID:15a80f6b-b5ff-4dd3-9822-5ebd77f1e55f
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 25-29\, 2024\n
+ 📍 Location: Leuven\, Belgium\n⏰ Original Deadline (UTC+0): 2023-09-01
+  11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferen
+ ce Website: https://fse.iacr.org/2024/\nDBLP Index: https://dblp.org/db/co
+ nf/fse
+LOCATION:Leuven\, Belgium
+URL:https://fse.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2024 Deadline [Submission deadline]
+DTSTART:20231123T115959Z
+DTEND:20231123T120059Z
+DTSTAMP:20250830T065448Z
+UID:b8ffacae-64aa-40f6-9ba7-92d4acb02346
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 25-29\, 2024\n
+ 📍 Location: Leuven\, Belgium\n⏰ Original Deadline (UTC+0): 2023-11-23
+  11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferen
+ ce Website: https://fse.iacr.org/2024/\nDBLP Index: https://dblp.org/db/co
+ nf/fse
+LOCATION:Leuven\, Belgium
+URL:https://fse.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2025 Deadline [ToSC\, Volume 2024\, Issue 2 Submission deadlin
+ e]
+DTSTART;TZID="UTC-12:00":20240301T235959
+DTEND;TZID="UTC-12:00":20240302T000059
+DTSTAMP:20250830T065448Z
+UID:cd52d998-2966-4a85-8225-990147d66d7f
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 17-21\, 2025\n
+ 📍 Location: Rome\, Italy\n⏰ Original Deadline (UTC-12): 2024-03-01 23
+ :59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConference 
+ Website: https://fse.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/
+ fse
+LOCATION:Rome\, Italy
+URL:https://fse.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2025 Deadline [ToSC\, Volume 2024\, Issue 3 Submission deadlin
+ e]
+DTSTART;TZID="UTC-12:00":20240601T235959
+DTEND;TZID="UTC-12:00":20240602T000059
+DTSTAMP:20250830T065448Z
+UID:47e876a6-005b-4b20-aa09-066d9895688e
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 17-21\, 2025\n
+ 📍 Location: Rome\, Italy\n⏰ Original Deadline (UTC-12): 2024-06-01 23
+ :59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConference 
+ Website: https://fse.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/
+ fse
+LOCATION:Rome\, Italy
+URL:https://fse.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2025 Deadline [ToSC\, Volume 2024\, Issue 4 Submission deadlin
+ e]
+DTSTART;TZID="UTC-12:00":20240901T235959
+DTEND;TZID="UTC-12:00":20240902T000059
+DTSTAMP:20250830T065448Z
+UID:cf04f4f4-8f46-4299-bfb8-92fa1b69c8dc
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 17-21\, 2025\n
+ 📍 Location: Rome\, Italy\n⏰ Original Deadline (UTC-12): 2024-09-01 23
+ :59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConference 
+ Website: https://fse.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/
+ fse
+LOCATION:Rome\, Italy
+URL:https://fse.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FSE 2025 Deadline [ToSC\, Volume 2025\, Issue 1 Submission deadlin
+ e]
+DTSTART;TZID="UTC-12:00":20241122T235959
+DTEND;TZID="UTC-12:00":20241123T000059
+DTSTAMP:20250830T065448Z
+UID:dbdac3b4-9612-469f-83a7-a3416d93bf49
+DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 17-21\, 2025\n
+ 📍 Location: Rome\, Italy\n⏰ Original Deadline (UTC-12): 2024-11-22 23
+ :59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConference 
+ Website: https://fse.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/
+ fse
+LOCATION:Rome\, Italy
+URL:https://fse.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PKC 2021 Deadline
+DTSTART;TZID="UTC-12:00":20201113T235959
+DTEND;TZID="UTC-12:00":20201114T000059
+DTSTAMP:20250830T065448Z
+UID:0bec2a67-3281-4d87-9d48-a4e17307968e
+DESCRIPTION:International Conference on Practice and Theory of Public-Key 
+ Cryptography\n🗓️ Date: May 10\, 2021\n📍 Location: Virtual\n⏰ Ori
+ ginal Deadline (UTC-12): 2020-11-13 23:59:59\nCategory: 网络与信息安
+ 全 (SC)\nCCF B\, CORE B\, THCPL B\nConference Website: https://pkc.iacr.o
+ rg/2021/\nDBLP Index: https://dblp.org/db/conf/pkc
+LOCATION:Virtual
+URL:https://pkc.iacr.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PKC 2024 Deadline
+DTSTART;TZID="UTC-12:00":20231001T235959
+DTEND;TZID="UTC-12:00":20231002T000059
+DTSTAMP:20250830T065448Z
+UID:3d606118-7656-424c-b135-1ad68e413565
+DESCRIPTION:International Conference on Practice and Theory of Public-Key 
+ Cryptography\n🗓️ Date: April 15-17\, 2024\n📍 Location: Sydney\, Au
+ stralia\n⏰ Original Deadline (UTC-12): 2023-10-01 23:59:59\nCategory: 
+ 网络与信息安全 (SC)\nCCF B\, CORE B\, THCPL B\nConference Website: 
+ https://pkc.iacr.org/2024/\nDBLP Index: https://dblp.org/db/conf/pkc
+LOCATION:Sydney\, Australia
+URL:https://pkc.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PKC 2025 Deadline
+DTSTART;TZID="UTC-12:00":20241016T235959
+DTEND;TZID="UTC-12:00":20241017T000059
+DTSTAMP:20250830T065448Z
+UID:2cfb240b-de95-4710-9cee-043b0cb2e015
+DESCRIPTION:International Conference on Practice and Theory of Public-Key 
+ Cryptography\n🗓️ Date: May 12-15\, 2025\n📍 Location: Røros\, Norw
+ ay\n⏰ Original Deadline (UTC-12): 2024-10-16 23:59:59\nCategory: 网络
+ 与信息安全 (SC)\nCCF B\, CORE B\, THCPL B\nConference Website: https:
+ //pkc.iacr.org/2025/\nDBLP Index: https://dblp.org/db/conf/pkc
+LOCATION:Røros\, Norway
+URL:https://pkc.iacr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PKC 2026 Deadline
+DTSTART;TZID="UTC-12:00":20251024T235959
+DTEND;TZID="UTC-12:00":20251025T000059
+DTSTAMP:20250830T065448Z
+UID:a00b470e-fb26-495b-a92d-4f6dd2bbefb9
+DESCRIPTION:International Conference on Practice and Theory of Public-Key 
+ Cryptography\n🗓️ Date: May 25-28\, 2026\n📍 Location: West Palm Bea
+ ch\, USA\n⏰ Original Deadline (UTC-12): 2025-10-24 23:59:59\nCategory: 
+ 网络与信息安全 (SC)\nCCF B\, CORE B\, THCPL B\nConference Website: 
+ https://pkc.iacr.org/2026/\nDBLP Index: https://dblp.org/db/conf/pkc
+LOCATION:West Palm Beach\, USA
+URL:https://pkc.iacr.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RAID 2021 Deadline [Paper Submission Deadline]
+DTSTART;TZID="UTC-12:00":20210801T235959
+DTEND;TZID="UTC-12:00":20210802T000059
+DTSTAMP:20250830T065448Z
+UID:05825e73-2514-4d77-be40-255abc3264a6
+DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
+ ion\n🗓️ Date: October 6-8\, 2021\n📍 Location: Donostia / San Sebas
+ tian\, Spain\n⏰ Original Deadline (AoE): 2021-08-01 23:59:59\nCategory: 
+ 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: 
+ https://raid2021.org/\nDBLP Index: https://dblp.org/db/conf/raid
+LOCATION:Donostia / San Sebastian\, Spain
+URL:https://raid2021.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RAID 2023 Deadline
+DTSTART;TZID="UTC-12:00":20230329T235959
+DTEND;TZID="UTC-12:00":20230330T000059
+DTSTAMP:20250830T065448Z
+UID:665e53eb-8f70-4b34-9c27-932034bb60d8
+DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
+ ion\n🗓️ Date: October 16-18\, 2023\n📍 Location: Hong Kong Polytech
+ nic University\, Hong Kong\, China\n⏰ Original Deadline (AoE): 2023-03-2
+ 9 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL B
+ \nConference Website: https://raid2023.org/\nDBLP Index: https://dblp.org/
+ db/conf/raid
+LOCATION:Hong Kong Polytechnic University\, Hong Kong\, China
+URL:https://raid2023.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RAID 2024 Deadline
+DTSTART;TZID="UTC-12:00":20240415T235959
+DTEND;TZID="UTC-12:00":20240416T000059
+DTSTAMP:20250830T065448Z
+UID:15694c11-4893-4dd9-80d5-cf5535b7c97a
+DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
+ ion\n🗓️ Date: September 30 - October 2\, 2024\n📍 Location: Palazzo
+  della Salute\, Padua\, Italy\n⏰ Original Deadline (AoE): 2024-04-15 23:
+ 59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL B\nCon
+ ference Website: https://raid2024.github.io/\nDBLP Index: https://dblp.org
+ /db/conf/raid
+LOCATION:Palazzo della Salute\, Padua\, Italy
+URL:https://raid2024.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RAID 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250424T235959
+DTEND;TZID="UTC-12:00":20250425T000059
+DTSTAMP:20250830T065448Z
+UID:21493f4a-2027-4f77-aee5-26910036d191
+DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
+ ion\n🗓️ Date: October 19-22\, 2025\n📍 Location: Gold Coast\, Austr
+ alia\n⏰ Original Deadline (AoE): 2025-04-24 23:59:59\nCategory: 网络
+ 与信息安全 (SC)\nCCF B\, CORE A\, THCPL B\nConference Website: https:
+ //raid2025.github.io/\nDBLP Index: https://dblp.org/db/conf/raid
+LOCATION:Gold Coast\, Australia
+URL:https://raid2025.github.io/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2021 Deadline [ABSTRACT]
+DTSTART;TZID="UTC-12:00":20210416T235959
+DTEND;TZID="UTC-12:00":20210417T000059
+DTSTAMP:20250830T065448Z
+UID:22593144-3d81-41d8-98f1-badced5fd6c9
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ Date: September 20-23\, 2021\n📍 Location: Virtual\n⏰ Original
+  Deadline (AoE): 2021-04-16 23:59:59\nCategory: 网络与信息安全 (SC)
+ \nCCF B\, CORE B\nConference Website: https://srds-conference.org/\nDBLP I
+ ndex: https://dblp.org/db/conf/srds
+LOCATION:Virtual
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2021 Deadline [FULL PAPER]
+DTSTART;TZID="UTC-12:00":20210423T235959
+DTEND;TZID="UTC-12:00":20210424T000059
+DTSTAMP:20250830T065448Z
+UID:63e27fde-c1fa-4bfb-b3c9-0da8f1682aaa
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ Date: September 20-23\, 2021\n📍 Location: Virtual\n⏰ Original
+  Deadline (AoE): 2021-04-23 23:59:59\nCategory: 网络与信息安全 (SC)
+ \nCCF B\, CORE B\nConference Website: https://srds-conference.org/\nDBLP I
+ ndex: https://dblp.org/db/conf/srds
+LOCATION:Virtual
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2023 Deadline [ABSTRACT]
+DTSTART;TZID="UTC+01:00":20230415T235959
+DTEND;TZID="UTC+01:00":20230416T000059
+DTSTAMP:20250830T065448Z
+UID:488489bf-8ede-4b02-9063-48b94efc2b85
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ Date: September 27-29\, 2023\n📍 Location: Marrakech\, Morocco\n
+ ⏰ Original Deadline (UTC+1): 2023-04-15 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE B\nConference Website: https://srds-conferenc
+ e.org/\nDBLP Index: https://dblp.org/db/conf/srds
+LOCATION:Marrakech\, Morocco
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2023 Deadline [FULL PAPER]
+DTSTART;TZID="UTC+01:00":20230422T235959
+DTEND;TZID="UTC+01:00":20230423T000059
+DTSTAMP:20250830T065448Z
+UID:08bf0e66-7d0f-40b9-8a38-ab9a68574057
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ Date: September 27-29\, 2023\n📍 Location: Marrakech\, Morocco\n
+ ⏰ Original Deadline (UTC+1): 2023-04-22 23:59:59\nCategory: 网络与信
+ 息安全 (SC)\nCCF B\, CORE B\nConference Website: https://srds-conferenc
+ e.org/\nDBLP Index: https://dblp.org/db/conf/srds
+LOCATION:Marrakech\, Morocco
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2024 Deadline [ABSTRACT]
+DTSTART;TZID="UTC-12:00":20240426T235959
+DTEND;TZID="UTC-12:00":20240427T000059
+DTSTAMP:20250830T065448Z
+UID:2094b8c6-35c7-457e-a669-31e60390a616
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ Date: September 30-October 4\, 2024\n📍 Location: Charlotte\, US
+ A\n⏰ Original Deadline (AoE): 2024-04-26 23:59:59\nCategory: 网络与
+ 信息安全 (SC)\nCCF B\, CORE B\nConference Website: https://srds-confer
+ ence.org/\nDBLP Index: https://dblp.org/db/conf/srds
+LOCATION:Charlotte\, USA
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2024 Deadline [FULL PAPER]
+DTSTART;TZID="UTC-12:00":20240503T235959
+DTEND;TZID="UTC-12:00":20240504T000059
+DTSTAMP:20250830T065448Z
+UID:4d66f904-dbcf-4273-ad8b-543e4c27decd
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ Date: September 30-October 4\, 2024\n📍 Location: Charlotte\, US
+ A\n⏰ Original Deadline (AoE): 2024-05-03 23:59:59\nCategory: 网络与
+ 信息安全 (SC)\nCCF B\, CORE B\nConference Website: https://srds-confer
+ ence.org/\nDBLP Index: https://dblp.org/db/conf/srds
+LOCATION:Charlotte\, USA
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2025 Deadline [Abstract Submission]
+DTSTART;TZID="UTC-12:00":20250425T235959
+DTEND;TZID="UTC-12:00":20250426T000059
+DTSTAMP:20250830T065448Z
+UID:a6d2816c-ea39-4dd1-ba16-902d7a4751bf
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ Date: September 29-October 2\, 2025\n📍 Location: Porto\, Portug
+ al\n⏰ Original Deadline (AoE): 2025-04-25 23:59:59\nCategory: 网络与
+ 信息安全 (SC)\nCCF B\, CORE B\nConference Website: https://srds-confer
+ ence.org/\nDBLP Index: https://dblp.org/db/conf/srds
+LOCATION:Porto\, Portugal
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2025 Deadline [Full Paper Submission]
+DTSTART;TZID="UTC-12:00":20250502T235959
+DTEND;TZID="UTC-12:00":20250503T000059
+DTSTAMP:20250830T065448Z
+UID:9a0c3128-3625-4bd9-a55f-67343d382a3d
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ Date: September 29-October 2\, 2025\n📍 Location: Porto\, Portug
+ al\n⏰ Original Deadline (AoE): 2025-05-02 23:59:59\nCategory: 网络与
+ 信息安全 (SC)\nCCF B\, CORE B\nConference Website: https://srds-confer
+ ence.org/\nDBLP Index: https://dblp.org/db/conf/srds
+LOCATION:Porto\, Portugal
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TCC 2021 Deadline
+DTSTART;TZID="UTC-12:00":20210525T210000
+DTEND;TZID="UTC-12:00":20210525T210100
+DTSTAMP:20250830T065448Z
+UID:e924a6eb-e564-464f-b238-74f35a25dfa4
+DESCRIPTION:Theory of Cryptography Conference\n🗓️ Date: Nov 8\, 2021\
+ n📍 Location: Raleigh\, United States\n⏰ Original Deadline (UTC-12): 2
+ 021-05-25 21:00:00\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\,
+  THCPL B\nConference Website: https://tcc.iacr.org/2021/\nDBLP Index: http
+ s://dblp.org/db/conf/tcc
+LOCATION:Raleigh\, United States
+URL:https://tcc.iacr.org/2021/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:TCC 2023 Deadline
+DTSTART;TZID="UTC-04:00":20230601T150000
+DTEND;TZID="UTC-04:00":20230601T150100
+DTSTAMP:20250830T065448Z
+UID:82fd4358-8d1e-435f-a952-c3b56870c94a
+DESCRIPTION:Theory of Cryptography Conference\n🗓️ Date: Nov 29 - Dec 
+ 12\, 2023\n📍 Location: Taipei\, China\n⏰ Original Deadline (UTC-4): 2
+ 023-06-01 15:00:00\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\,
+  THCPL B\nConference Website: https://tcc.iacr.org/2023/\nDBLP Index: http
+ s://dblp.org/db/conf/tcc
+LOCATION:Taipei\, China
+URL:https://tcc.iacr.org/2023/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+02:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+02:00
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:TCC 2024 Deadline
+DTSTART;TZID="UTC+02:00":20240520T195959
+DTEND;TZID="UTC+02:00":20240520T200059
+DTSTAMP:20250830T065448Z
+UID:3d7b6aef-1ce2-43a2-a40c-a98b033f59cd
+DESCRIPTION:Theory of Cryptography Conference\n🗓️ Date: Dec 2 - 6\, 2
+ 024\n📍 Location: Milan\, Italy\n⏰ Original Deadline (UTC+2): 2024-05-
+ 20 19:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL 
+ B\nConference Website: https://tcc.iacr.org/2024/\nDBLP Index: https://dbl
+ p.org/db/conf/tcc
+LOCATION:Milan\, Italy
+URL:https://tcc.iacr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TCC 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250527T235959
+DTEND;TZID="UTC-12:00":20250528T000059
+DTSTAMP:20250830T065448Z
+UID:3b052235-5e29-49c4-962b-885af95fd576
+DESCRIPTION:Theory of Cryptography Conference\n🗓️ Date: December 2-5\
+ , 2025\n📍 Location: Aarhus\, Denmark\n⏰ Original Deadline (AoE): 2025
+ -05-27 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\, TH
+ CPL B\nConference Website: https://tcc.iacr.org/2025/\nDBLP Index: https:/
+ /dblp.org/db/conf/tcc
+LOCATION:Aarhus\, Denmark
+URL:https://tcc.iacr.org/2025/
+END:VEVENT
+END:VCALENDAR

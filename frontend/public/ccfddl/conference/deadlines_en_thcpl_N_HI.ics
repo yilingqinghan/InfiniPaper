@@ -1,0 +1,247 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CollaborateCom 2025 Deadline
+DTSTART;TZID="UTC-08:00":20250501T235959
+DTEND;TZID="UTC-08:00":20250502T000059
+DTSTAMP:20250830T065447Z
+UID:5d52336e-7675-4154-9947-622814f169c7
+DESCRIPTION:International Conference on Collaborative Computing: Networkin
+ g\, Applications and Worksharing\n🗓️ Date: November 15-16\, 2025\n
+ 📍 Location: Shanghai\, China\n⏰ Original Deadline (UTC-8): 2025-05-01
+  23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF C\, CORE C\nCon
+ ference Website: https://collaboratecom.eai-conferences.org/2025/\nDBLP In
+ dex: https://dblp.org/db/conf/colcom
+LOCATION:Shanghai\, China
+URL:https://collaboratecom.eai-conferences.org/2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CSCWD 2022 Deadline
+DTSTART;TZID="UTC-12:00":20211130T235959
+DTEND;TZID="UTC-12:00":20211201T000059
+DTSTAMP:20250830T065447Z
+UID:b6375db9-349b-4243-9b37-96670c625d61
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ Date: May 4-6\, 2022\n📍 Location: Hangzhou\, China
+ \n⏰ Original Deadline (AoE): 2021-11-30 23:59:59\nCategory: 人机交互
+ 与普适计算 (HI)\nCCF C\, CORE C\nConference Website: http://8.131.80.
+ 51/cscwd2022/index.html\nDBLP Index: https://dblp.org/db/conf/cscwd
+LOCATION:Hangzhou\, China
+URL:http://8.131.80.51/cscwd2022/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCWD 2023 Deadline
+DTSTART;TZID="UTC-12:00":20221031T235959
+DTEND;TZID="UTC-12:00":20221101T000059
+DTSTAMP:20250830T065447Z
+UID:b068d5a4-205f-4621-a106-b1525a2b584b
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ Date: May 24-26\, 2023\n📍 Location: Rio de Janeiro
+ \, Brazil\n⏰ Original Deadline (AoE): 2022-10-31 23:59:59\nCategory: 人
+ 机交互与普适计算 (HI)\nCCF C\, CORE C\nConference Website: http://
+ 2023.cscwd.org\nDBLP Index: https://dblp.org/db/conf/cscwd
+LOCATION:Rio de Janeiro\, Brazil
+URL:http://2023.cscwd.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCWD 2025 Deadline
+DTSTART;TZID="UTC-12:00":20241115T235959
+DTEND;TZID="UTC-12:00":20241116T000059
+DTSTAMP:20250830T065447Z
+UID:45b3f357-8caa-4c32-8af3-55d8c69d5ae9
+DESCRIPTION:International Conference on Computer Supported Cooperative Wor
+ k in Design\n🗓️ Date: May 5-7\, 2025\n📍 Location: Compiègne\, Fra
+ nce\n⏰ Original Deadline (AoE): 2024-11-15 23:59:59\nCategory: 人机交
+ 互与普适计算 (HI)\nCCF C\, CORE C\nConference Website: http://2025.c
+ scwd.org\nDBLP Index: https://dblp.org/db/conf/cscwd
+LOCATION:Compiègne\, France
+URL:http://2025.cscwd.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECSCW 2025 Deadline [Conference Papers]
+DTSTART;TZID="UTC-12:00":20250225T235959
+DTEND;TZID="UTC-12:00":20250226T000059
+DTSTAMP:20250830T065447Z
+UID:dfbbfc63-a799-4f0e-99d9-c7a416bce4e4
+DESCRIPTION:European Conference on Computer Supported Cooperative Work\n
+ 🗓️ Date: June 30 - July 4\, 2025\n📍 Location: Newcastle upon Tyne\
+ , UK\n⏰ Original Deadline (AoE): 2025-02-25 23:59:59\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF B\, CORE B\nConference Website: https://ec
+ scw.eusset.eu/2025/\nDBLP Index: https://dblp.org/db/conf/ecscw
+LOCATION:Newcastle upon Tyne\, UK
+URL:https://ecscw.eusset.eu/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ECSCW 2026 Deadline [Conference Papers]
+DTSTART;TZID="UTC-12:00":20260306T235959
+DTEND;TZID="UTC-12:00":20260307T000059
+DTSTAMP:20250830T065447Z
+UID:af3ae11e-7a6d-4484-bbbd-9765d91804b4
+DESCRIPTION:European Conference on Computer Supported Cooperative Work\n
+ 🗓️ Date: 29 June - 3 July\, 2026\n📍 Location: Munich\, Germany\n
+ ⏰ Original Deadline (AoE): 2026-03-06 23:59:59\nCategory: 人机交互
+ 与普适计算 (HI)\nCCF B\, CORE B\nConference Website: https://ecscw.eu
+ sset.eu/2026\nDBLP Index: https://dblp.org/db/conf/ecscw
+LOCATION:Munich\, Germany
+URL:https://ecscw.eusset.eu/2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2025 Deadline [Full Paper First Wave Submissions]
+DTSTART;TZID="UTC-12:00":20230607T235959
+DTEND;TZID="UTC-12:00":20230608T000059
+DTSTAMP:20250830T065447Z
+UID:b7f85bc4-b61a-4ab4-a14a-f399de2d8cef
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  Date: January 12-15\, 2025\n📍 Location: Omni Hilton Head Oceanfront Re
+ sort\, Hilton Head Island\, South Carolina\, USA\n⏰ Original Deadline (A
+ oE): 2023-06-07 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF 
+ B\, CORE B\nConference Website: https://group.acm.org/conferences/group25\
+ nDBLP Index: https://dblp.org/db/conf/group
+LOCATION:Omni Hilton Head Oceanfront Resort\, Hilton Head Island\, South C
+ arolina\, USA
+URL:https://group.acm.org/conferences/group25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2025 Abstract Deadline [Full Paper Second Wave Submissions]
+DTSTART;TZID="UTC-12:00":20240501T235959
+DTEND;TZID="UTC-12:00":20240502T000059
+DTSTAMP:20250830T065447Z
+UID:ba019c4d-18f9-4848-b682-9f66ad9a69be
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  Date: January 12-15\, 2025\n📍 Location: Omni Hilton Head Oceanfront Re
+ sort\, Hilton Head Island\, South Carolina\, USA\n⏰ Original Deadline (A
+ oE): 2024-05-01 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF 
+ B\, CORE B\nConference Website: https://group.acm.org/conferences/group25\
+ nDBLP Index: https://dblp.org/db/conf/group
+LOCATION:Omni Hilton Head Oceanfront Resort\, Hilton Head Island\, South C
+ arolina\, USA
+URL:https://group.acm.org/conferences/group25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GROUP 2027 Abstract Deadline [Full Paper First Wave Submissions]
+DTSTART;TZID="UTC-12:00":20250708T235959
+DTEND;TZID="UTC-12:00":20250709T000059
+DTSTAMP:20250830T065447Z
+UID:dd3b1ce8-d5f5-4871-9745-fb1428984176
+DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
+  Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (AoE): 2025-07-08 23
+ :59:59\nCategory: 人机交互与普适计算 (HI)\nCCF B\, CORE B\nConfer
+ ence Website: https://group.acm.org/conferences/group27/\nDBLP Index: http
+ s://dblp.org/db/conf/group
+LOCATION:TBD
+URL:https://group.acm.org/conferences/group27/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICWSM 2025 Deadline [1st Full-paper Deadline]
+DTSTART;TZID="UTC-12:00":20240515T235959
+DTEND;TZID="UTC-12:00":20240516T000059
+DTSTAMP:20250830T065448Z
+UID:5fa4859c-d7ef-4d55-8f67-d50c455b48fa
+DESCRIPTION:The International AAAI Conference on Web and Social Media\n
+ 🗓️ Date: June 23 - 26\, 2025\n📍 Location: Copenhagen\, Denmark\n
+ ⏰ Original Deadline (AoE): 2024-05-15 23:59:59\nCategory: 人机交互
+ 与普适计算 (HI)\nCCF B\, CORE A\nConference Website: https://www.icws
+ m.org/2025/index.html\nDBLP Index: https://dblp.org/db/conf/icwsm
+LOCATION:Copenhagen\, Denmark
+URL:https://www.icwsm.org/2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICWSM 2025 Deadline [2nd Full-paper Deadline]
+DTSTART;TZID="UTC-12:00":20240915T235959
+DTEND;TZID="UTC-12:00":20240916T000059
+DTSTAMP:20250830T065448Z
+UID:1b1b8eae-a100-4f6d-82a8-45f891ca1ad4
+DESCRIPTION:The International AAAI Conference on Web and Social Media\n
+ 🗓️ Date: June 23 - 26\, 2025\n📍 Location: Copenhagen\, Denmark\n
+ ⏰ Original Deadline (AoE): 2024-09-15 23:59:59\nCategory: 人机交互
+ 与普适计算 (HI)\nCCF B\, CORE A\nConference Website: https://www.icws
+ m.org/2025/index.html\nDBLP Index: https://dblp.org/db/conf/icwsm
+LOCATION:Copenhagen\, Denmark
+URL:https://www.icwsm.org/2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICWSM 2025 Deadline [3rd Full-paper Deadline]
+DTSTART;TZID="UTC-12:00":20250115T235959
+DTEND;TZID="UTC-12:00":20250116T000059
+DTSTAMP:20250830T065448Z
+UID:b4dce34a-8974-46c3-ab67-c68704c47044
+DESCRIPTION:The International AAAI Conference on Web and Social Media\n
+ 🗓️ Date: June 23 - 26\, 2025\n📍 Location: Copenhagen\, Denmark\n
+ ⏰ Original Deadline (AoE): 2025-01-15 23:59:59\nCategory: 人机交互
+ 与普适计算 (HI)\nCCF B\, CORE A\nConference Website: https://www.icws
+ m.org/2025/index.html\nDBLP Index: https://dblp.org/db/conf/icwsm
+LOCATION:Copenhagen\, Denmark
+URL:https://www.icwsm.org/2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISS 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250314T235959
+DTEND;TZID="UTC-12:00":20250315T000059
+DTSTAMP:20250830T065448Z
+UID:e942575d-8cc6-4f51-8b1d-f03b52b50582
+DESCRIPTION:ACM International Conference on Interactive Surfaces and Space
+ s\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (AoE): 202
+ 5-03-14 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF B\nConfe
+ rence Website: https://iss.acm.org/2025/\nDBLP Index: https://dblp.org/db/
+ conf/tabletop
+LOCATION:TBD
+URL:https://iss.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISS 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250725T235959
+DTEND;TZID="UTC-12:00":20250726T000059
+DTSTAMP:20250830T065448Z
+UID:33714f37-f01c-4265-9730-0d15bdf5a8b9
+DESCRIPTION:ACM International Conference on Interactive Surfaces and Space
+ s\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (AoE): 202
+ 5-07-25 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF B\nConfe
+ rence Website: https://iss.acm.org/2025/\nDBLP Index: https://dblp.org/db/
+ conf/tabletop
+LOCATION:TBD
+URL:https://iss.acm.org/2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UIC 2025 Deadline [Conference Papers]
+DTSTART;TZID="UTC-04:00":20250501T235959
+DTEND;TZID="UTC-04:00":20250502T000059
+DTSTAMP:20250830T065448Z
+UID:0e2a3ff9-70e6-4829-bed3-ed53553014d7
+DESCRIPTION:IEEE International Conference on Ubiquitous Intelligence and C
+ omputing\n🗓️ Date: Aug 18 - 22\, 2025\n📍 Location: Calgary\, Alber
+ ta\, Canada\n⏰ Original Deadline (UTC-4): 2025-05-01 23:59:59\nCategory:
+  人机交互与普适计算 (HI)\nCCF C\, CORE B\nConference Website: htt
+ ps://www.ieee-smart-world.org/2025/\nDBLP Index: https://dblp.org/db/conf/
+ uic
+LOCATION:Calgary\, Alberta\, Canada
+URL:https://www.ieee-smart-world.org/2025/
+END:VEVENT
+END:VCALENDAR

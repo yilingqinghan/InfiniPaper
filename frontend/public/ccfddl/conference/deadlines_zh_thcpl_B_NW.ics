@@ -1,0 +1,165 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:GLOBECOM 2023 截稿日期
+DTSTART;TZID="UTC-04:00":20230415T235959
+DTEND;TZID="UTC-04:00":20230416T000059
+DTSTAMP:20250830T065444Z
+UID:e0d0eeda-2910-4ca4-9ff7-9f353c3c5cac
+DESCRIPTION:IEEE Global Communications Conference\n🗓️ 会议时间: D
+ ecember 4-8\, 2023\n📍 会议地点: Kuala Lumpur\, Malaysia\n⏰ 原始
+ 截止时间 (UTC-4): 2023-04-15 23:59:59\n分类: 计算机网络 (NW)\nC
+ CF C\, CORE B\, THCPL B\n会议官网: https://globecom2023.ieee-globecom.
+ org/\nDBLP索引: https://dblp.org/db/conf/globecom
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://globecom2023.ieee-globecom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:GLOBECOM 2025 截稿日期
+DTSTART;TZID="UTC-04:00":20250415T235959
+DTEND;TZID="UTC-04:00":20250416T000059
+DTSTAMP:20250830T065444Z
+UID:99e7ccd6-56bc-4d9e-994b-a08968ed8cd3
+DESCRIPTION:IEEE Global Communications Conference\n🗓️ 会议时间: D
+ ecember 8-12\, 2025\n📍 会议地点: Taipei\, Taiwan\n⏰ 原始截止
+ 时间 (UTC-4): 2025-04-15 23:59:59\n分类: 计算机网络 (NW)\nCCF C\,
+  CORE B\, THCPL B\n会议官网: https://globecom2025.ieee-globecom.org/\n
+ DBLP索引: https://dblp.org/db/conf/globecom
+LOCATION:Taipei\, Taiwan
+URL:https://globecom2025.ieee-globecom.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICC 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241011T235959
+DTEND;TZID="UTC-12:00":20241012T000059
+DTSTAMP:20250830T065444Z
+UID:7d9fab2b-c329-4daa-b734-7ed7a845a372
+DESCRIPTION:IEEE International Conference on Communications\n🗓️ 会
+ 议时间: June 8-12\, 2025\n📍 会议地点: Palais des congrès de Mon
+ tréal in Montreal\, Quebec\, Canada\n⏰ 原始截止时间 (AoE): 2024-1
+ 0-11 23:59:59\n分类: 计算机网络 (NW)\nCCF C\, THCPL B\n会议官网
+ : https://icc2025.ieee-icc.org\nDBLP索引: https://dblp.org/db/conf/icc
+LOCATION:Palais des congrès de Montréal in Montreal\, Quebec\, Canada
+URL:https://icc2025.ieee-icc.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICC 2026 截稿日期
+DTSTART;TZID="UTC-04:00":20250929T235959
+DTEND;TZID="UTC-04:00":20250930T000059
+DTSTAMP:20250830T065444Z
+UID:c31781c9-6781-4f65-a94b-7a443f0bc65b
+DESCRIPTION:IEEE International Conference on Communications\n🗓️ 会
+ 议时间: May 24-28\, 2026\n📍 会议地点: Glasgow\, Scotland\n⏰ 
+ 原始截止时间 (UTC-4): 2025-09-29 23:59:59\n分类: 计算机网络 (
+ NW)\nCCF C\, THCPL B\n会议官网: https://icc2026.ieee-icc.org\nDBLP索
+ 引: https://dblp.org/db/conf/icc
+LOCATION:Glasgow\, Scotland
+URL:https://icc2026.ieee-icc.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IWQoS 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20220201T235959
+DTEND;TZID="UTC-12:00":20220202T000059
+DTSTAMP:20250830T065444Z
+UID:a2fea196-a49c-479d-ac7a-e7283043d184
+DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
+ ️ 会议时间: June 10-12\, 2022\n📍 会议地点: Virtual\n⏰ 原
+ 始截止时间 (UTC-12): 2022-02-01 23:59:59\n分类: 计算机网络 (NW
+ )\nCCF B\, CORE B\, THCPL B\n会议官网: https://iwqos2022.ieee-iwqos.or
+ g/\nDBLP索引: https://dblp.org/db/conf/iwqos
+LOCATION:Virtual
+URL:https://iwqos2022.ieee-iwqos.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IWQoS 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230129T235959
+DTEND;TZID="UTC-12:00":20230130T000059
+DTSTAMP:20250830T065444Z
+UID:f4d08a1a-4d21-4ed5-85e7-a557dddf77f9
+DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
+ ️ 会议时间: June 19-21\, 2023\n📍 会议地点: Orlando\, FL\, USA
+ \n⏰ 原始截止时间 (UTC-12): 2023-01-29 23:59:59\n分类: 计算机
+ 网络 (NW)\nCCF B\, CORE B\, THCPL B\n会议官网: https://iwqos2023.iee
+ e-iwqos.org/\nDBLP索引: https://dblp.org/db/conf/iwqos
+LOCATION:Orlando\, FL\, USA
+URL:https://iwqos2023.ieee-iwqos.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IWQoS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250216T235959
+DTEND;TZID="UTC-12:00":20250217T000059
+DTSTAMP:20250830T065444Z
+UID:73f2d950-f6ba-4127-a7b0-4cd0924c35fe
+DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
+ ️ 会议时间: July 02-04\, 2025\n📍 会议地点: Gold Coast\, Austr
+ alia\n⏰ 原始截止时间 (AoE): 2025-02-16 23:59:59\n分类: 计算机
+ 网络 (NW)\nCCF B\, CORE B\, THCPL B\n会议官网: https://iwqos2025.iee
+ e-iwqos.org/\nDBLP索引: https://dblp.org/db/conf/iwqos
+LOCATION:Gold Coast\, Australia
+URL:https://iwqos2025.ieee-iwqos.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiHoc 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20220225T235959
+DTEND;TZID="UTC-12:00":20220226T000059
+DTSTAMP:20250830T065444Z
+UID:0ee37b8f-79dc-4535-a0f1-8c5ca4f47144
+DESCRIPTION:International Symposium on Mobile Ad Hoc Networking and Comput
+ ing\n🗓️ 会议时间: October 17-22\, 2022\n📍 会议地点: Seoul\
+ , South Korea\n⏰ 原始截止时间 (UTC-12): 2022-02-25 23:59:59\n分
+ 类: 计算机网络 (NW)\nCCF B\, CORE A\, THCPL B\n会议官网: https:/
+ /www.sigmobile.org/mobihoc/2022/\nDBLP索引: https://dblp.org/db/conf/mob
+ ihoc
+LOCATION:Seoul\, South Korea
+URL:https://www.sigmobile.org/mobihoc/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NOSSDAV 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250117T235959
+DTEND;TZID="UTC-12:00":20250118T000059
+DTSTAMP:20250830T065444Z
+UID:ae645c0f-9a3b-4d4a-b6b9-4e97912f3b11
+DESCRIPTION:International Workshop on Network and Operating System Support
+  for Digital Audio and Video\n🗓️ 会议时间: March 31- April 3\, 20
+ 25\n📍 会议地点: Stellenbosch\, South Africa\n⏰ 原始截止时间
+  (AoE): 2025-01-17 23:59:59\n分类: 计算机网络 (NW)\nCCF B\, CORE B\
+ , THCPL B\n会议官网: https://nossdav.org/2025/\nDBLP索引: https://db
+ lp.org/db/conf/nossdav
+LOCATION:Stellenbosch\, South Africa
+URL:https://nossdav.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WoWMoM 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241122T235959
+DTEND;TZID="UTC-12:00":20241123T000059
+DTSTAMP:20250830T065444Z
+UID:d4c3d5a5-3381-4e22-8628-01d5400cb06f
+DESCRIPTION:IEEE International Symposium on a World of Wireless\, Mobile a
+ nd Multimedia Networks\n🗓️ 会议时间: May 27-30\, 2025\n📍 会
+ 议地点: Fort Worth\, Texas\, USA\n⏰ 原始截止时间 (AoE): 2024-11
+ -22 23:59:59\n分类: 计算机网络 (NW)\nCCF C\, CORE B\, THCPL B\n会
+ 议官网: https://wowmomconference.uta.edu/index.html\nDBLP索引: https:
+ //dblp.org/db/conf/wowmom
+LOCATION:Fort Worth\, Texas\, USA
+URL:https://wowmomconference.uta.edu/index.html
+END:VEVENT
+END:VCALENDAR

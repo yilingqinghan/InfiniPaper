@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CONCUR 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250403T235959
+DTEND;TZID="UTC-12:00":20250404T000059
+DTSTAMP:20250830T065447Z
+UID:da3f2d4f-b04d-42fe-84d0-b46aae735d39
+DESCRIPTION:International Conference on Concurrency Theory\n🗓️ Date: 
+ Aug 26-29\, 2025\n📍 Location: Aarhus\, Denmark\n⏰ Original Deadline (
+ AoE): 2025-04-03 23:59:59\nCategory: 计算机科学理论 (CT)\nCCF B\, C
+ ORE A\, THCPL B\nConference Website: https://conferences.au.dk/confest2025
+ /concur\nDBLP Index: https://dblp.org/db/conf/concur
+LOCATION:Aarhus\, Denmark
+URL:https://conferences.au.dk/confest2025/concur
+END:VEVENT
+END:VCALENDAR

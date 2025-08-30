@@ -20,3 +20,15 @@ db-migrate:
 
 export:
 	cd backend && poetry run python -m app.cli.export_data
+
+ccf:
+	MAIN=$$(pwd); \
+	git submodule update --init --remote --rebase; \
+	cd $$MAIN/ccf-deadlines && yarn set version stable && yarn install && \
+	mkdir -p public/conference && cd public/conference && \
+	awk 1 $$(find ../../conference -name '*.yml' -not -path '**/types.yml') > allconf.yml && \
+	awk 1 $$(find ../../accept_rates -name '*.yml') > allacc.yml && \
+	cp ../../conference/types.yml . && cd ../.. && \
+	python cli/ccfddl/convert_to_ical.py && mv *.ics public/conference/ && \
+	NODE_OPTIONS=--openssl-legacy-provider yarn build && \
+	rm -rf $$MAIN/ccfddl && rm -rf $$MAIN/frontend/public/ccfddl && mv $$MAIN/ccf-deadlines/dist $$MAIN/frontend/public/ccfddl

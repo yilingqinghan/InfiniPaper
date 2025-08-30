@@ -1,0 +1,125 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CADE 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250217T235959
+DTEND;TZID="UTC-12:00":20250218T000059
+DTSTAMP:20250830T065447Z
+UID:212ad36f-0b13-4946-ac20-9d4a0c1b9bcb
+DESCRIPTION:The Conference on Automated Deduction (CADE)\n🗓️ Date: Ju
+ ly 28-31\, 2025\n📍 Location: DHBW Stuttgart\, Stuttgart\, Germany\n⏰ 
+ Original Deadline (AoE): 2025-02-17 23:59:59\nCategory: 计算机科学理
+ 论 (CT)\nCCF B\, CORE A\nConference Website: https://www.dhbw-stuttgart.d
+ e/cade-30/\nDBLP Index: https://dblp.org/db/conf/cade
+LOCATION:DHBW Stuttgart\, Stuttgart\, Germany
+URL:https://www.dhbw-stuttgart.de/cade-30/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:COCOON 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250305T235959
+DTEND;TZID="UTC-12:00":20250306T000059
+DTSTAMP:20250830T065447Z
+UID:0d7b4c11-6f6b-442b-af92-fbd9588abf0d
+DESCRIPTION:International Computing and Combinatorics Conference\n🗓️ 
+ Date: August 15-17\, 2025\n📍 Location: Chengdu\, China\n⏰ Original De
+ adline (AoE): 2025-03-05 23:59:59\nCategory: 计算机科学理论 (CT)\nC
+ CF B\nConference Website: https://tcsuestc.com/cocoon2025\nDBLP Index: htt
+ ps://dblp.org/db/conf/cocoon
+LOCATION:Chengdu\, China
+URL:https://tcsuestc.com/cocoon2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FMCAD 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250420T235900
+DTEND;TZID="UTC-12:00":20250421T000000
+DTSTAMP:20250830T065447Z
+UID:61b3c70c-3ebb-49ca-afbc-d883df988684
+DESCRIPTION:Formal Methods in Computer-Aided Design\n🗓️ Date: Oct. 6-
+ 10\, 2025\n📍 Location: Menlo Park\, USA\n⏰ Original Deadline (AoE): 2
+ 025-04-20 23:59:00\nCategory: 计算机科学理论 (CT)\nCCF C\, CORE B\n
+ Conference Website: https://fmcad.forsyte.at/FMCAD25/\nDBLP Index: https:/
+ /dblp.org/db/conf/fmcad
+LOCATION:Menlo Park\, USA
+URL:https://fmcad.forsyte.at/FMCAD25/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICALP 2025 Deadline [Submissions]
+DTSTART;TZID="UTC-12:00":20250208T235959
+DTEND;TZID="UTC-12:00":20250209T000059
+DTSTAMP:20250830T065447Z
+UID:4cd39c75-8a07-41b6-8e89-b9654627d0b9
+DESCRIPTION:EATCS International Colloquium on Automata\, Languages\, and P
+ rogramming\n🗓️ Date: July 8-11\, 2025\n📍 Location: Aarhus\, Denmar
+ k\n⏰ Original Deadline (AoE): 2025-02-08 23:59:59\nCategory: 计算机
+ 科学理论 (CT)\nCCF B\, CORE A\nConference Website: https://conferences
+ .au.dk/icalp2025\nDBLP Index: https://dblp.org/db/conf/icalp
+LOCATION:Aarhus\, Denmark
+URL:https://conferences.au.dk/icalp2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SETTA 2024 Abstract Deadline [deadline is extended from Aug. 23]
+DTSTART;TZID="UTC-12:00":20240816T235959
+DTEND;TZID="UTC-12:00":20240817T000059
+DTSTAMP:20250830T065447Z
+UID:e296ea9f-d709-482d-872d-9d761b19abf8
+DESCRIPTION:Symposium on Dependable Software Engineering: Theories\, Tools
+  and Applications\n🗓️ Date: Nov 26-28\, 2024\n📍 Location: Hong Kon
+ g\, China\n⏰ Original Deadline (AoE): 2024-08-16 23:59:59\nCategory: 计
+ 算机科学理论 (CT)\nCCF C\nConference Website: https://setta2024.cs.c
+ ityu.edu.hk\nDBLP Index: https://dblp.org/db/conf/setta
+LOCATION:Hong Kong\, China
+URL:https://setta2024.cs.cityu.edu.hk
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SETTA 2025 Deadline [Round 1 Paper Submission]
+DTSTART;TZID="UTC-12:00":20250430T235959
+DTEND;TZID="UTC-12:00":20250501T000059
+DTSTAMP:20250830T065447Z
+UID:962cf1f9-290a-4716-9859-ba82e7b5acec
+DESCRIPTION:Symposium on Dependable Software Engineering: Theories\, Tools
+  and Applications\n🗓️ Date: Dec\, 2025\n📍 Location: Oxford\, UK\n
+ ⏰ Original Deadline (AoE): 2025-04-30 23:59:59\nCategory: 计算机科
+ 学理论 (CT)\nCCF C\nConference Website: https://www.setta2025.uk\nDBLP 
+ Index: https://dblp.org/db/conf/setta
+LOCATION:Oxford\, UK
+URL:https://www.setta2025.uk
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SETTA 2025 Deadline [Round 2 Paper Submission]
+DTSTART;TZID="UTC-12:00":20250820T235959
+DTEND;TZID="UTC-12:00":20250821T000059
+DTSTAMP:20250830T065447Z
+UID:96c9cb46-55ec-4cc0-9184-3ea53b8312c6
+DESCRIPTION:Symposium on Dependable Software Engineering: Theories\, Tools
+  and Applications\n🗓️ Date: Dec\, 2025\n📍 Location: Oxford\, UK\n
+ ⏰ Original Deadline (AoE): 2025-08-20 23:59:59\nCategory: 计算机科
+ 学理论 (CT)\nCCF C\nConference Website: https://www.setta2025.uk\nDBLP 
+ Index: https://dblp.org/db/conf/setta
+LOCATION:Oxford\, UK
+URL:https://www.setta2025.uk
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SOCG 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20241106T235900
+DTEND;TZID="UTC-12:00":20241107T000000
+DTSTAMP:20250830T065447Z
+UID:41d7b1c2-ec36-43b9-b233-b3a43a9d1de0
+DESCRIPTION:International Symposium on Computational Geometry\n🗓️ Dat
+ e: June 23-27\, 2025\n📍 Location: Kanazawa\, Japan\n⏰ Original Deadli
+ ne (AoE): 2024-11-06 23:59:00\nCategory: 计算机科学理论 (CT)\nCCF B
+ \, CORE A\nConference Website: https://socg25.github.io/\nDBLP Index: http
+ s://dblp.org/db/conf/compgeom
+LOCATION:Kanazawa\, Japan
+URL:https://socg25.github.io/
+END:VEVENT
+END:VCALENDAR

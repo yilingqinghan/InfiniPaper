@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:FORTE 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240202T235959
+DTEND;TZID="UTC-12:00":20240203T000059
+DTSTAMP:20250830T065444Z
+UID:aeee83aa-d1c8-4873-b61c-fea601eb5f5c
+DESCRIPTION:International Conference on Formal Techniques for (Networked a
+ nd) Distributed Systems\n🗓️ 会议时间: June 17-21\, 2024\n📍 会
+ 议地点: Groningen\, The Netherlands\n⏰ 原始截止时间 (AoE): 2024
+ -02-02 23:59:59\n分类: 计算机网络 (NW)\nCCF C\, CORE C\n会议官
+ 网: https://www.discotec.org/2024/forte\nDBLP索引: https://dblp.org/db/
+ conf/forte
+LOCATION:Groningen\, The Netherlands
+URL:https://www.discotec.org/2024/forte
+END:VEVENT
+END:VCALENDAR

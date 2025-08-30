@@ -1,6 +1,6 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Search, UploadCloud, Tags, BookOpen, Sparkles, TrendingUp, ChevronRight, Wand2, Palette } from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Search, UploadCloud, Tags, BookOpen, Sparkles, TrendingUp, ChevronRight, Wand2, Palette, CalendarClock } from "lucide-react";
 import DirectorySidebar from "@/components/DirectorySidebar";
 import RecentPapers from "@/components/RecentPapers";
 import PaperDetailDialog from "@/components/PaperDetailDialog";
@@ -18,18 +18,22 @@ type Tab = { key: string; label: string; href: string; icon: React.ComponentType
 
 const TABS: Tab[] = [
   { key: "search",  label: "搜索",     href: "/search",  icon: Search,     grad: "from-sky-500 to-cyan-400" },
+  { key: "ccf",     label: "CCF 截止", href: "/ccf",     icon: CalendarClock, grad: "from-sky-500 to-violet-500" },
   { key: "library", label: "论文列表", href: "/library", icon: BookOpen,   grad: "from-indigo-500 to-fuchsia-500" },
   { key: "import",  label: "导入",     href: "/library?import=1", icon: UploadCloud, grad: "from-emerald-500 to-lime-400" },
   { key: "tags",    label: "标签",     href: "/tags",    icon: Tags,       grad: "from-rose-500 to-orange-500" },
   { key: "quality", label: "质量面板", href: "/quality", icon: TrendingUp, grad: "from-violet-500 to-indigo-400" },
 ];
 
-function AuroraBG() {
+function AuroraBG({ enabled = true }: { enabled?: boolean }) {
+  const reduce = useReducedMotion();
+  const pulse = (reduce || !enabled) ? "" : "animate-pulse";
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden">
-      <div className="absolute -top-28 -left-32 w-[520px] h-[520px] bg-gradient-to-br from-indigo-400/40 to-fuchsia-400/30 blur-3xl rounded-full animate-pulse" />
-      <div className="absolute -bottom-24 -right-24 w-[520px] h-[520px] bg-gradient-to-tr from-sky-400/30 to-emerald-400/30 blur-3xl rounded-full animate-pulse [animation-duration:5s]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/3 -translate-y-1/2 w-[700px] h-[700px] bg-[conic-gradient(var(--tw-gradient-stops))] from-transparent via-cyan-300/20 to-transparent blur-3xl rounded-full animate-spin [animation-duration:18s]" />
+    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+      {/* lighter blobs (smaller + less blur + optional animation) */}
+      <div className={`absolute -top-28 -left-32 w-[420px] h-[420px] bg-gradient-to-br from-indigo-400/25 to-fuchsia-400/20 blur-xl rounded-full ${pulse}`} />
+      <div className={`absolute -bottom-24 -right-24 w-[420px] h-[420px] bg-gradient-to-tr from-sky-400/20 to-emerald-400/20 blur-xl rounded-full ${pulse}`} />
+      {/* removed the spinning conic gradient to avoid continuous GPU repaint */}
     </div>
   );
 }
@@ -92,6 +96,17 @@ export default function Home() {
   const [loading, setLoading] = React.useState<boolean>(true);
   const [currentFolder, setCurrentFolder] = React.useState<number | null>(null);
   const [openId, setOpenId] = React.useState<number | null>(null);
+  // site-wide (page-level) motion toggle; default on, persisted in localStorage
+  const [motionOn, setMotionOn] = React.useState<boolean>(true);
+  React.useEffect(() => {
+    try {
+      const saved = typeof window !== 'undefined' ? window.localStorage.getItem('ip_motion_on') : null;
+      if (saved !== null) setMotionOn(saved === '1');
+    } catch {}
+  }, []);
+  React.useEffect(() => {
+    try { if (typeof window !== 'undefined') window.localStorage.setItem('ip_motion_on', motionOn ? '1' : '0'); } catch {}
+  }, [motionOn]);
 
   const load = React.useCallback(async () => {
     setLoading(true);
@@ -112,9 +127,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative">
-        <AuroraBG />
-        <div className="max-w-6xl mx-auto px-6 pt-10 pb-6 space-y-8">
+      <div className={`relative ${motionOn ? '' : 'no-motion'}`}>
+        <AuroraBG enabled={motionOn} />
+        <div className="max-w-[1400px] mx-auto px-6 xl:px-8 pt-10 pb-6 space-y-8">
           {/* HERO */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
@@ -140,7 +155,18 @@ export default function Home() {
                   <StatBadge icon={Palette} text="美观的可视化" />
                   <StatBadge icon={Wand2} text="自动化小助手" />
                 </div>
-                <div className="mt-4">
+                <div className="mt-3 flex items-center gap-4">
+                  <div className="inline-flex items-center gap-2 text-xs text-gray-600 select-none">
+                    <span>动画</span>
+                    <button
+                      onClick={() => setMotionOn(v => !v)}
+                      aria-pressed={motionOn}
+                      className={`relative inline-flex h-6 w-11 items-center rounded-full border transition ${motionOn ? 'bg-indigo-600 border-indigo-600' : 'bg-white border-gray-300'}`}
+                      title={motionOn ? '点击关闭动画' : '点击开启动画'}
+                    >
+                      <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition ${motionOn ? 'translate-x-5' : 'translate-x-1'}`} />
+                    </button>
+                  </div>
                   <FancyTabs />
                 </div>
               </div>
@@ -150,7 +176,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
-                className="w-full md:w-[380px] relative"
+                className="w-full md:w-[340px] xl:w-[360px] relative"
               >
                 <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-sky-400 opacity-60 blur" />
                 <UploadDropzone
@@ -170,7 +196,7 @@ export default function Home() {
 
             {/* marquee of venues */}
             <div className="mt-6 overflow-hidden">
-              <div className="whitespace-nowrap will-change-transform animate-[marquee_26s_linear_infinite] text-xs text-gray-500">
+              <div className={`whitespace-nowrap will-change-transform ${motionOn ? 'marquee' : ''} text-xs text-gray-500`}>
                 {["MICRO","ISCA","PLDI","ASPLOS","DAC","TACO","TODAES","NeurIPS","ICML","CVPR","ICCV","ECCV","VLDB","SIGMOD","WWW","SC","SIGGRAPH"]
                   .concat(["MICRO","ISCA","PLDI","ASPLOS","DAC","TACO","TODAES","NeurIPS","ICML","CVPR","ICCV","ECCV","VLDB","SIGMOD","WWW","SC","SIGGRAPH"])
                   .map((v, i) => (
@@ -197,6 +223,10 @@ export default function Home() {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
+        .marquee { animation: marquee 26s linear infinite; }
+        @media (prefers-reduced-motion: reduce) { .marquee { animation: none !important; } }
+        /* Hard no-motion mode triggered by wrapper class */
+        .no-motion *, .no-motion *::before, .no-motion *::after { animation: none !important; transition: none !important; }
       `}</style>
     </>
   );

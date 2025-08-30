@@ -1,0 +1,246 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ISMAR 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230605T235959
+DTEND;TZID="UTC-12:00":20230606T000059
+DTSTAMP:20250830T065443Z
+UID:281ba519-407a-4c52-ac9b-6080de75fe0c
+DESCRIPTION:International Symposium on Mixed and Augmented Reality\n🗓
+ ️ 会议时间: Oct 16-20\, 2023\n📍 会议地点: Sydney\, Australia\
+ n⏰ 原始截止时间 (AoE): 2023-06-05 23:59:59\n分类: 计算机图
+ 形学与多媒体 (CG)\nCCF B\, CORE A*\, THCPL B\n会议官网: https://
+ ismar23.org/\nDBLP索引: https://dblp.org/db/conf/ismar
+LOCATION:Sydney\, Australia
+URL:https://ismar23.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISMAR 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240503T235959
+DTEND;TZID="UTC-12:00":20240504T000059
+DTSTAMP:20250830T065443Z
+UID:76604bd5-1a6a-452f-9296-6dd33f69c727
+DESCRIPTION:International Symposium on Mixed and Augmented Reality\n🗓
+ ️ 会议时间: Oct 21-25\, 2024\n📍 会议地点: Greater Seattle Are
+ a\, USA\n⏰ 原始截止时间 (AoE): 2024-05-03 23:59:59\n分类: 计算
+ 机图形学与多媒体 (CG)\nCCF B\, CORE A*\, THCPL B\n会议官网: ht
+ tps://ieeeismar.org/\nDBLP索引: https://dblp.org/db/conf/ismar
+LOCATION:Greater Seattle Area\, USA
+URL:https://ieeeismar.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISMAR 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250404T235959
+DTEND;TZID="UTC-12:00":20250405T000059
+DTSTAMP:20250830T065443Z
+UID:e1d1f577-2311-4dc3-8d1e-4f93bd3fd8a5
+DESCRIPTION:International Symposium on Mixed and Augmented Reality\n🗓
+ ️ 会议时间: Oct 8-12\, 2025\n📍 会议地点: Daejeon\, South Kore
+ a\n⏰ 原始截止时间 (AoE): 2025-04-04 23:59:59\n分类: 计算机图
+ 形学与多媒体 (CG)\nCCF B\, CORE A*\, THCPL B\n会议官网: https://
+ www.ieeeismar.net/2025/\nDBLP索引: https://dblp.org/db/conf/ismar
+LOCATION:Daejeon\, South Korea
+URL:https://www.ieeeismar.net/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM MM 2021 摘要截稿
+DTSTART;TZID="UTC-12:00":20210410T235959
+DTEND;TZID="UTC-12:00":20210411T000059
+DTSTAMP:20250830T065443Z
+UID:f1a10167-df71-4220-aa92-fd9af864191d
+DESCRIPTION:ACM International Conference on Multimedia\n🗓️ 会议时
+ 间: October 21-24\, 2021\n📍 会议地点: Chengdu\, China\n⏰ 原始
+ 截止时间 (AoE): 2021-04-10 23:59:59\n分类: 计算机图形学与多
+ 媒体 (CG)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://2021.acmmm.o
+ rg/\nDBLP索引: https://dblp.org/db/conf/mm
+LOCATION:Chengdu\, China
+URL:https://2021.acmmm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM MM 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20220331T235959
+DTEND;TZID="UTC-12:00":20220401T000059
+DTSTAMP:20250830T065443Z
+UID:b5140ffa-6c59-4315-97ef-d8eaf8a7e6d1
+DESCRIPTION:ACM International Conference on Multimedia\n🗓️ 会议时
+ 间: October 10-14\, 2022\n📍 会议地点: Lisbon\, Portugal\n⏰ 原
+ 始截止时间 (UTC-12): 2022-03-31 23:59:59\n分类: 计算机图形学
+ 与多媒体 (CG)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://2022.a
+ cmmm.org/\nDBLP索引: https://dblp.org/db/conf/mm
+LOCATION:Lisbon\, Portugal
+URL:https://2022.acmmm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM MM 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20230423T235959
+DTEND;TZID="UTC-12:00":20230424T000059
+DTSTAMP:20250830T065443Z
+UID:157c8840-cbfd-4d82-93d7-712b36b12087
+DESCRIPTION:ACM International Conference on Multimedia\n🗓️ 会议时
+ 间: October 29-November 02\, 2023\n📍 会议地点: Ottawa\, Ontario\, 
+ Canada\n⏰ 原始截止时间 (UTC-12): 2023-04-23 23:59:59\n分类: 计
+ 算机图形学与多媒体 (CG)\nCCF A\, CORE A*\, THCPL A\n会议官网:
+  https://www.acmmm2023.org/\nDBLP索引: https://dblp.org/db/conf/mm
+LOCATION:Ottawa\, Ontario\, Canada
+URL:https://www.acmmm2023.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM MM 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240408T235959
+DTEND;TZID="UTC-12:00":20240409T000059
+DTSTAMP:20250830T065443Z
+UID:05ea612d-cd2e-43e2-a499-96f490cca565
+DESCRIPTION:ACM International Conference on Multimedia\n🗓️ 会议时
+ 间: October 28-November 01\, 2024\n📍 会议地点: Melbourne\, Austral
+ ia\n⏰ 原始截止时间 (UTC-12): 2024-04-08 23:59:59\n分类: 计算
+ 机图形学与多媒体 (CG)\nCCF A\, CORE A*\, THCPL A\n会议官网: ht
+ tps://2024.acmmm.org/\nDBLP索引: https://dblp.org/db/conf/mm
+LOCATION:Melbourne\, Australia
+URL:https://2024.acmmm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM MM 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250404T235959
+DTEND;TZID="UTC-12:00":20250405T000059
+DTSTAMP:20250830T065443Z
+UID:4baab24d-09a6-4b20-95cb-2e3eb313e356
+DESCRIPTION:ACM International Conference on Multimedia\n🗓️ 会议时
+ 间: October 27-31\, 2025\n📍 会议地点: Dublin\, Ireland\n⏰ 原始
+ 截止时间 (UTC-12): 2025-04-04 23:59:59\n分类: 计算机图形学与
+ 多媒体 (CG)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://acmmm2025
+ .org/\nDBLP索引: https://dblp.org/db/conf/mm
+LOCATION:Dublin\, Ireland
+URL:https://acmmm2025.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ACM SIGGRAPH 2025 摘要截稿
+DTSTART:20250116T220000Z
+DTEND:20250116T220100Z
+DTSTAMP:20250830T065443Z
+UID:5d5a3d8c-d8e8-406e-ac00-a7ae984c5c8f
+DESCRIPTION:ACM SIGGRAPH Annual Conference\n🗓️ 会议时间: August 1
+ 0 - 14\, 2025\n📍 会议地点: Vancouver\, BC\, Canada\n⏰ 原始截
+ 止时间 (UTC+0): 2025-01-16 22:00:00\n分类: 计算机图形学与多
+ 媒体 (CG)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://s2025.siggra
+ ph.org/\nDBLP索引: https://dblp.org/db/conf/siggraph
+LOCATION:Vancouver\, BC\, Canada
+URL:https://s2025.siggraph.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM SIGGRAPH 2024 摘要截稿
+DTSTART:20240123T220000Z
+DTEND:20240123T220100Z
+DTSTAMP:20250830T065443Z
+UID:aa348655-c623-4d54-9957-7ceb50b6fa03
+DESCRIPTION:ACM SIGGRAPH Annual Conference\n🗓️ 会议时间: July 28 
+ - August 1\, 2024\n📍 会议地点: Denver\n⏰ 原始截止时间 (UTC+
+ 0): 2024-01-23 22:00:00\n分类: 计算机图形学与多媒体 (CG)\nCCF 
+ A\, CORE A*\, THCPL A\n会议官网: https://s2024.siggraph.org/\nDBLP索
+ 引: https://dblp.org/db/conf/siggraph
+LOCATION:Denver
+URL:https://s2024.siggraph.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM SIGGRAPH 2023 摘要截稿
+DTSTART:20230124T220000Z
+DTEND:20230124T220100Z
+DTSTAMP:20250830T065443Z
+UID:a78b7c4d-c6f0-46a7-a7df-95ed452653fb
+DESCRIPTION:ACM SIGGRAPH Annual Conference\n🗓️ 会议时间: August 6
+ -10\, 2023\n📍 会议地点: Los Angeles\n⏰ 原始截止时间 (UTC+0)
+ : 2023-01-24 22:00:00\n分类: 计算机图形学与多媒体 (CG)\nCCF A\
+ , CORE A*\, THCPL A\n会议官网: https://s2023.siggraph.org/\nDBLP索引
+ : https://dblp.org/db/conf/siggraph
+LOCATION:Los Angeles
+URL:https://s2023.siggraph.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM SIGGRAPH 2022 摘要截稿
+DTSTART:20220126T220000Z
+DTEND:20220126T220100Z
+DTSTAMP:20250830T065443Z
+UID:9b6d57a8-55f3-48cb-abcd-bf2dc3468b29
+DESCRIPTION:ACM SIGGRAPH Annual Conference\n🗓️ 会议时间: August 7
+ -11\, 2022\n📍 会议地点: Vancouver\n⏰ 原始截止时间 (UTC+0): 
+ 2022-01-26 22:00:00\n分类: 计算机图形学与多媒体 (CG)\nCCF A\, 
+ CORE A*\, THCPL A\n会议官网: https://s2022.siggraph.org/\nDBLP索引: 
+ https://dblp.org/db/conf/siggraph
+LOCATION:Vancouver
+URL:https://s2022.siggraph.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACM SIGGRAPH 2021 摘要截稿
+DTSTART:20210127T220000Z
+DTEND:20210127T220100Z
+DTSTAMP:20250830T065443Z
+UID:ee2f02b4-700d-42dc-b46a-d1181b20b9bb
+DESCRIPTION:ACM SIGGRAPH Annual Conference\n🗓️ 会议时间: August 9
+ -13\, 2021\n📍 会议地点: Virtual\n⏰ 原始截止时间 (UTC+0): 20
+ 21-01-27 22:00:00\n分类: 计算机图形学与多媒体 (CG)\nCCF A\, CO
+ RE A*\, THCPL A\n会议官网: https://s2021.siggraph.org/\nDBLP索引: ht
+ tps://dblp.org/db/conf/siggraph
+LOCATION:Virtual
+URL:https://s2021.siggraph.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IEEE VR 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20230927T235959
+DTEND;TZID="UTC-12:00":20230928T000059
+DTSTAMP:20250830T065443Z
+UID:ebd934a9-8e6c-4c7f-818f-f4061778ffc7
+DESCRIPTION:IEEE Virtual Reality\n🗓️ 会议时间: March 16-20\, 2024
+ \n📍 会议地点: Orlando\, Florida USA\n⏰ 原始截止时间 (AoE): 
+ 2023-09-27 23:59:59\n分类: 计算机图形学与多媒体 (CG)\nCCF A\, 
+ CORE A*\, THCPL A\n会议官网: http://ieeevr.org/2024/\nDBLP索引: http
+ s://dblp.org/db/conf/vr
+LOCATION:Orlando\, Florida USA
+URL:http://ieeevr.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IEEE VR 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240911T235959
+DTEND;TZID="UTC-12:00":20240912T000059
+DTSTAMP:20250830T065443Z
+UID:b80bdf06-e24f-4a0c-a549-5e0d382487b1
+DESCRIPTION:IEEE Virtual Reality\n🗓️ 会议时间: March 8-12\, 2025\
+ n📍 会议地点: Saint-Malo\, France\n⏰ 原始截止时间 (AoE): 202
+ 4-09-11 23:59:59\n分类: 计算机图形学与多媒体 (CG)\nCCF A\, COR
+ E A*\, THCPL A\n会议官网: https://ieeevr.org/2025/\nDBLP索引: https:
+ //dblp.org/db/conf/vr
+LOCATION:Saint-Malo\, France
+URL:https://ieeevr.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IEEE VR 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250905T235959
+DTEND;TZID="UTC-12:00":20250906T000059
+DTSTAMP:20250830T065443Z
+UID:e6e5e71a-3b0f-4561-8ca6-188a3f8e5e11
+DESCRIPTION:IEEE Virtual Reality\n🗓️ 会议时间: March 21 - 25\, 20
+ 26\n📍 会议地点: Daegu\, Korea\n⏰ 原始截止时间 (AoE): 2025-0
+ 9-05 23:59:59\n分类: 计算机图形学与多媒体 (CG)\nCCF A\, CORE A
+ *\, THCPL A\n会议官网: https://ieeevr.org/2026/\nDBLP索引: https://d
+ blp.org/db/conf/vr
+LOCATION:Daegu\, Korea
+URL:https://ieeevr.org/2026/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,191 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:EUSIPCO 2024 Deadline [first round]
+DTSTART;TZID="UTC-08:00":20240314T180000
+DTEND;TZID="UTC-08:00":20240314T180100
+DTSTAMP:20250830T065447Z
+UID:513e3e04-f9f7-4113-8b23-ff3780c778b9
+DESCRIPTION:IEEE Conference on Signal Processing\n🗓️ Date: August 26-
+ 30\, 2024\n📍 Location: LYON\, FRANCE\n⏰ Original Deadline (UTC-8): 20
+ 24-03-14 18:00:00\nCategory: 软件工程/系统软件/程序设计语言 
+ (SE)\nCCF B\nConference Website: https://eusipcolyon.sciencesconf.org/\nDB
+ LP Index: https://dblp.org/db/conf/eusipcolyon
+LOCATION:LYON\, FRANCE
+URL:https://eusipcolyon.sciencesconf.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:EUSIPCO 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250313T235959
+DTEND;TZID="UTC-12:00":20250314T000059
+DTSTAMP:20250830T065447Z
+UID:fdd1d114-2835-492c-94ab-8c59ef997fe9
+DESCRIPTION:IEEE Conference on Signal Processing\n🗓️ Date: September 
+ 8-12\, 2025\n📍 Location: Isola delle Femmine\, Palermo\, Italy\n⏰ Ori
+ ginal Deadline (AoE): 2025-03-13 23:59:59\nCategory: 软件工程/系统
+ 软件/程序设计语言 (SE)\nCCF B\nConference Website: https://eusipco
+ 2025.org/\nDBLP Index: https://dblp.org/db/conf/eusipcolyon
+LOCATION:Isola delle Femmine\, Palermo\, Italy
+URL:https://eusipco2025.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ETAPS 2022 Deadline [Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20211014T235959
+DTEND;TZID="UTC-12:00":20211015T000059
+DTSTAMP:20250830T065447Z
+UID:fbabb9d2-7106-445d-ba18-9db221b5cf7b
+DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
+ n🗓️ Date: April 2-7\, 2022\n📍 Location: Munich\, Germany\n⏰ Orig
+ inal Deadline (AoE): 2021-10-14 23:59:59\nCategory: 软件工程/系统软
+ 件/程序设计语言 (SE)\nCCF B\, THCPL B\nConference Website: https://
+ etaps.org/2022/\nDBLP Index: https://dblp.org/db/conf/etaps
+LOCATION:Munich\, Germany
+URL:https://etaps.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ETAPS 2022 Deadline [Paper final versions]
+DTSTART;TZID="UTC-12:00":20220126T235959
+DTEND;TZID="UTC-12:00":20220127T000059
+DTSTAMP:20250830T065447Z
+UID:3b320d21-938f-4c0b-9e6c-6ac3cb919189
+DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
+ n🗓️ Date: April 2-7\, 2022\n📍 Location: Munich\, Germany\n⏰ Orig
+ inal Deadline (AoE): 2022-01-26 23:59:59\nCategory: 软件工程/系统软
+ 件/程序设计语言 (SE)\nCCF B\, THCPL B\nConference Website: https://
+ etaps.org/2022/\nDBLP Index: https://dblp.org/db/conf/etaps
+LOCATION:Munich\, Germany
+URL:https://etaps.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ETAPS 2026 Deadline [Submission deadline ESOP round 1]
+DTSTART;TZID="UTC-12:00":20250603T235959
+DTEND;TZID="UTC-12:00":20250604T000059
+DTSTAMP:20250830T065447Z
+UID:cee30bb3-4bcd-4cd8-b463-1f7dc93c299e
+DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
+ n🗓️ Date: April 11-16\, 2026\n📍 Location: Torino\, Italy\n⏰ Orig
+ inal Deadline (AoE): 2025-06-03 23:59:59\nCategory: 软件工程/系统软
+ 件/程序设计语言 (SE)\nCCF B\, THCPL B\nConference Website: https://
+ etaps.org/2026\nDBLP Index: https://dblp.org/db/conf/etaps
+LOCATION:Torino\, Italy
+URL:https://etaps.org/2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ETAPS 2026 Deadline [Submission deadline ESOP round 2]
+DTSTART;TZID="UTC-12:00":20251016T235959
+DTEND;TZID="UTC-12:00":20251017T000059
+DTSTAMP:20250830T065447Z
+UID:daa9a856-e9fb-43d3-905f-974950ff57d3
+DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
+ n🗓️ Date: April 11-16\, 2026\n📍 Location: Torino\, Italy\n⏰ Orig
+ inal Deadline (AoE): 2025-10-16 23:59:59\nCategory: 软件工程/系统软
+ 件/程序设计语言 (SE)\nCCF B\, THCPL B\nConference Website: https://
+ etaps.org/2026\nDBLP Index: https://dblp.org/db/conf/etaps
+LOCATION:Torino\, Italy
+URL:https://etaps.org/2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ETAPS 2026 Deadline [TACAS mandatory artifact submission]
+DTSTART;TZID="UTC-12:00":20251030T235959
+DTEND;TZID="UTC-12:00":20251031T000059
+DTSTAMP:20250830T065447Z
+UID:a1c93cb7-9b72-4191-bbcc-f5bbffce4471
+DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
+ n🗓️ Date: April 11-16\, 2026\n📍 Location: Torino\, Italy\n⏰ Orig
+ inal Deadline (AoE): 2025-10-30 23:59:59\nCategory: 软件工程/系统软
+ 件/程序设计语言 (SE)\nCCF B\, THCPL B\nConference Website: https://
+ etaps.org/2026\nDBLP Index: https://dblp.org/db/conf/etaps
+LOCATION:Torino\, Italy
+URL:https://etaps.org/2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ETAPS 2026 Deadline [ESOP\, FASE\, FoSSaCS artifact\, TACAS volunt
+ ary artifact submission]
+DTSTART;TZID="UTC-12:00":20260108T235959
+DTEND;TZID="UTC-12:00":20260109T000059
+DTSTAMP:20250830T065447Z
+UID:ceb68bcb-f2f3-4721-9cdd-aa67e4d0e228
+DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
+ n🗓️ Date: April 11-16\, 2026\n📍 Location: Torino\, Italy\n⏰ Orig
+ inal Deadline (AoE): 2026-01-08 23:59:59\nCategory: 软件工程/系统软
+ 件/程序设计语言 (SE)\nCCF B\, THCPL B\nConference Website: https://
+ etaps.org/2026\nDBLP Index: https://dblp.org/db/conf/etaps
+LOCATION:Torino\, Italy
+URL:https://etaps.org/2026
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Internetware 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250214T235959
+DTEND;TZID="UTC-12:00":20250215T000059
+DTSTAMP:20250830T065447Z
+UID:d6365c21-76d0-4830-bb47-7e4e7e610ae7
+DESCRIPTION:Asia-Pacific Symposium on Internetware\n🗓️ Date: June 20-
+ 22\, 2025\n📍 Location: Trondheim\, Norway\n⏰ Original Deadline (UTC-1
+ 2): 2025-02-14 23:59:59\nCategory: 软件工程/系统软件/程序设计
+ 语言 (SE)\nCCF C\nConference Website: https://conf.researchr.org/home/in
+ ternetware-2025\nDBLP Index: https://dblp.org/db/conf/internetware
+LOCATION:Trondheim\, Norway
+URL:https://conf.researchr.org/home/internetware-2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Internetware 2023 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20230417T235959
+DTEND;TZID="UTC-12:00":20230418T000059
+DTSTAMP:20250830T065447Z
+UID:1087200e-81a3-4c31-9e13-52fcfd9987f2
+DESCRIPTION:Asia-Pacific Symposium on Internetware\n🗓️ Date: August 4
+ -6\, 2023\n📍 Location: Hangzhou\, China\n⏰ Original Deadline (UTC-12)
+ : 2023-04-17 23:59:59\nCategory: 软件工程/系统软件/程序设计语
+ 言 (SE)\nCCF C\nConference Website: https://conf.researchr.org/home/inter
+ netware-2023\nDBLP Index: https://dblp.org/db/conf/internetware
+LOCATION:Hangzhou\, China
+URL:https://conf.researchr.org/home/internetware-2023
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TASE 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240217T235959
+DTEND;TZID="UTC-12:00":20240218T000059
+DTSTAMP:20250830T065447Z
+UID:32c420f3-e037-45b0-96ea-ec8f88dab978
+DESCRIPTION:Theoretical Aspects of Software Engineering\n🗓️ Date: Jul
+ y 29-August 1\, 2024\n📍 Location: Guiyang\, China\n⏰ Original Deadlin
+ e (AoE): 2024-02-17 23:59:59\nCategory: 软件工程/系统软件/程序
+ 设计语言 (SE)\nCCF C\nConference Website: https://tase2024.github.io/i
+ ndex.html\nDBLP Index: https://dblp.org/db/conf/tase
+LOCATION:Guiyang\, China
+URL:https://tase2024.github.io/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TASE 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250215T235959
+DTEND;TZID="UTC-12:00":20250216T000059
+DTSTAMP:20250830T065447Z
+UID:4429ec43-d68b-4af2-8642-2f21328681c0
+DESCRIPTION:Theoretical Aspects of Software Engineering\n🗓️ Date: Jul
+ y 14-16\, 2025\n📍 Location: Limassol\, Cyprus\n⏰ Original Deadline (A
+ oE): 2025-02-15 23:59:59\nCategory: 软件工程/系统软件/程序设计
+ 语言 (SE)\nCCF C\nConference Website: https://cyprusconferences.org/tase
+ 2025/\nDBLP Index: https://dblp.org/db/conf/tase
+LOCATION:Limassol\, Cyprus
+URL:https://cyprusconferences.org/tase2025/
+END:VEVENT
+END:VCALENDAR

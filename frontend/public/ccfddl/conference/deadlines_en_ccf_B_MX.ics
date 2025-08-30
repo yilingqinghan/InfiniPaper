@@ -1,0 +1,250 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:BIBM 2021 Deadline [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20210828T170000
+DTEND;TZID="UTC-05:00":20210828T170100
+DTSTAMP:20250830T065448Z
+UID:fe805612-9e1e-4734-92e4-665afbc5c859
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 9-12\, 2021\n📍 Location: Online\n⏰ Original Dead
+ line (UTC-5): 2021-08-28 17:00:00\nCategory: 交叉/综合/新兴 (MX)\nCC
+ F B\nConference Website: https://ieeebibm.org/BIBM2021/\nDBLP Index: https
+ ://dblp.org/db/conf/bibm
+LOCATION:Online
+URL:https://ieeebibm.org/BIBM2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2022 Deadline [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20220821T170000
+DTEND;TZID="UTC-05:00":20220821T170100
+DTSTAMP:20250830T065448Z
+UID:7d1294a1-6f84-4274-b96a-d25dcb5290de
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 6-9\, 2022\n📍 Location: Las Vegas\, NV\, USA\n⏰ 
+ Original Deadline (UTC-5): 2022-08-21 17:00:00\nCategory: 交叉/综合/
+ 新兴 (MX)\nCCF B\nConference Website: http://ieeebibm.org/BIBM2022/\nDBL
+ P Index: https://dblp.org/db/conf/bibm
+LOCATION:Las Vegas\, NV\, USA
+URL:http://ieeebibm.org/BIBM2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2023 Deadline [Electronic submission of full papers]
+DTSTART;TZID="UTC-05:00":20230815T170000
+DTEND;TZID="UTC-05:00":20230815T170100
+DTSTAMP:20250830T065448Z
+UID:8d8dc486-5e63-48f5-bca5-31dc78844373
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 5-8\, 2023\n📍 Location: Istanbul\, Turkey\n⏰ Ori
+ ginal Deadline (UTC-5): 2023-08-15 17:00:00\nCategory: 交叉/综合/新
+ 兴 (MX)\nCCF B\nConference Website: https://bidma.cpsc.ucalgary.ca/IEEE-B
+ IBM-2023/\nDBLP Index: https://dblp.org/db/conf/bibm
+LOCATION:Istanbul\, Turkey
+URL:https://bidma.cpsc.ucalgary.ca/IEEE-BIBM-2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2024 Deadline [First Round\, papers submitted by the June 20 
+ deadline will be reviewed and notified by Aug 15]
+DTSTART;TZID="UTC-05:00":20240620T170000
+DTEND;TZID="UTC-05:00":20240620T170100
+DTSTAMP:20250830T065448Z
+UID:ed4334c0-05c7-4eab-93b1-9368ed1f3ecb
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 3-6\, 2024\n📍 Location: Lisbon\, Portugal\n⏰ Ori
+ ginal Deadline (UTC-5): 2024-06-20 17:00:00\nCategory: 交叉/综合/新
+ 兴 (MX)\nCCF B\nConference Website: https://ieeebibm.org/BIBM2024/\nDBLP 
+ Index: https://dblp.org/db/conf/bibm
+LOCATION:Lisbon\, Portugal
+URL:https://ieeebibm.org/BIBM2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2024 Deadline [Second Round\, papers submitted by the Aug 16\
+ , 2024 deadline\, will be reviewed and notified by the Oct 16\, 2024]
+DTSTART;TZID="UTC-05:00":20240816T170000
+DTEND;TZID="UTC-05:00":20240816T170100
+DTSTAMP:20250830T065448Z
+UID:d487ec3e-7ca6-4258-8c6c-2b1281d908a3
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 3-6\, 2024\n📍 Location: Lisbon\, Portugal\n⏰ Ori
+ ginal Deadline (UTC-5): 2024-08-16 17:00:00\nCategory: 交叉/综合/新
+ 兴 (MX)\nCCF B\nConference Website: https://ieeebibm.org/BIBM2024/\nDBLP 
+ Index: https://dblp.org/db/conf/bibm
+LOCATION:Lisbon\, Portugal
+URL:https://ieeebibm.org/BIBM2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:BIBM 2025 Deadline
+DTSTART;TZID="UTC-05:00":20250803T170000
+DTEND;TZID="UTC-05:00":20250803T170100
+DTSTAMP:20250830T065448Z
+UID:3aea757d-18c2-445c-b72b-8f65d5eccd3f
+DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
+ e\n🗓️ Date: Dec 15-18\, 2025\n📍 Location: Wuhan\, China\n⏰ Origi
+ nal Deadline (UTC-5): 2025-08-03 17:00:00\nCategory: 交叉/综合/新兴 
+ (MX)\nCCF B\nConference Website: https://ieeebibm.org/BIBM2025/\nDBLP Inde
+ x: https://dblp.org/db/conf/bibm
+LOCATION:Wuhan\, China
+URL:https://ieeebibm.org/BIBM2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CogSci 2023 Deadline
+DTSTART;TZID="UTC+08:00":20230201T235959
+DTEND;TZID="UTC+08:00":20230202T000059
+DTSTAMP:20250830T065448Z
+UID:f4fba7dd-de36-49f5-a905-f1aeeffede1f
+DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ Date:
+  July 26-29\, 2023\n📍 Location: Sydney\, Australia\n⏰ Original Deadli
+ ne (UTC+8): 2023-02-01 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF 
+ B\, CORE B\nConference Website: https://cognitivesciencesociety.org/cogsci
+ -2023/\nDBLP Index: https://dblp.org/db/conf/cogsci
+LOCATION:Sydney\, Australia
+URL:https://cognitivesciencesociety.org/cogsci-2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CogSci 2024 Deadline
+DTSTART;TZID="UTC+08:00":20240201T235959
+DTEND;TZID="UTC+08:00":20240202T000059
+DTSTAMP:20250830T065448Z
+UID:ee2c279f-f588-403b-89f4-0e2921e32033
+DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ Date:
+  July 24-27\, 2024\n📍 Location: Rotterdam\, Netherlands\n⏰ Original D
+ eadline (UTC+8): 2024-02-01 23:59:59\nCategory: 交叉/综合/新兴 (MX)\
+ nCCF B\, CORE B\nConference Website: https://cognitivesciencesociety.org/c
+ ogsci-2024/\nDBLP Index: https://dblp.org/db/conf/cogsci
+LOCATION:Rotterdam\, Netherlands
+URL:https://cognitivesciencesociety.org/cogsci-2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CogSci 2025 Deadline
+DTSTART;TZID="UTC+08:00":20250201T235959
+DTEND;TZID="UTC+08:00":20250202T000059
+DTSTAMP:20250830T065448Z
+UID:7ed37da8-1e4e-474a-a195-204331a1308a
+DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ Date:
+  July 30-August 2\, 2025\n📍 Location: Marriott Marquis\, San Francisco\
+ n⏰ Original Deadline (UTC+8): 2025-02-01 23:59:59\nCategory: 交叉/综
+ 合/新兴 (MX)\nCCF B\, CORE B\nConference Website: https://cognitivescie
+ ncesociety.org/cogsci-2025/\nDBLP Index: https://dblp.org/db/conf/cogsci
+LOCATION:Marriott Marquis\, San Francisco
+URL:https://cognitivesciencesociety.org/cogsci-2025/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:EMSOFT 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250323T235959
+DTEND;TZID="UTC-12:00":20250324T000059
+DTSTAMP:20250830T065448Z
+UID:def482dd-92c3-4044-9261-ccff98bef78b
+DESCRIPTION:International Conference on Embedded Software\n🗓️ Date: S
+ eptember 28 - October 3\, 2025\n📍 Location: TAIPEI\, TAIWAN\n⏰ Origin
+ al Deadline (AoE): 2025-03-23 23:59:59\nCategory: 交叉/综合/新兴 (MX
+ )\nCCF B\, THCPL B\nConference Website: https://esweek.org/emsoft/\nDBLP I
+ ndex: https://dblp.org/db/conf/emsoft
+LOCATION:TAIPEI\, TAIWAN
+URL:https://esweek.org/emsoft/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:MICCAI 2023 Deadline [Paper submission deadline]
+DTSTART:20230309T235959Z
+DTEND:20230310T000059Z
+DTSTAMP:20250830T065448Z
+UID:6c798288-2b78-409c-982f-b7aa9fbf60f2
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ Date: Oct 8-12\, 2023\n📍 Location: Va
+ ncouver\, Canada\n⏰ Original Deadline (UTC+0): 2023-03-09 23:59:59\nCate
+ gory: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THCPL B\nConference Webs
+ ite: https://conferences.miccai.org/2023/en/\nDBLP Index: https://dblp.org
+ /db/conf/miccai
+LOCATION:Vancouver\, Canada
+URL:https://conferences.miccai.org/2023/en/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:MICCAI 2024 Deadline [Main conference papers]
+DTSTART;TZID="UTC-08:00":20240307T235959
+DTEND;TZID="UTC-08:00":20240308T000059
+DTSTAMP:20250830T065448Z
+UID:5b24dc78-264d-4ec3-a5cb-b0a56d391264
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ Date: Oct 6-10\, 2024\n📍 Location: Ma
+ rrakesh\, Morocco\n⏰ Original Deadline (UTC-8): 2024-03-07 23:59:59\nCat
+ egory: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THCPL B\nConference Web
+ site: https://conferences.miccai.org/2024/en/\nDBLP Index: https://dblp.or
+ g/db/conf/miccai
+LOCATION:Marrakesh\, Morocco
+URL:https://conferences.miccai.org/2024/en/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICCAI 2025 Abstract Deadline
+DTSTART;TZID="UTC-08:00":20250213T235900
+DTEND;TZID="UTC-08:00":20250214T000000
+DTSTAMP:20250830T065448Z
+UID:b76d25c1-532a-4dfd-90de-7938c47eb75d
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ Date: Sep 23-27\, 2025\n📍 Location: D
+ aejeon\, Republic of Korea\n⏰ Original Deadline (UTC-8): 2025-02-13 23:5
+ 9:00\nCategory: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THCPL B\nConfe
+ rence Website: https://conferences.miccai.org/2025/en/default.asp\nDBLP In
+ dex: https://dblp.org/db/conf/miccai
+LOCATION:Daejeon\, Republic of Korea
+URL:https://conferences.miccai.org/2025/en/default.asp
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RECOMB 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20241016T235959
+DTEND;TZID="UTC-12:00":20241017T000059
+DTSTAMP:20250830T065448Z
+UID:2bf02967-ca4c-4c06-bfa7-3aac7b16a601
+DESCRIPTION:International Conference on Research inComputational Molecular
+  Biology\n🗓️ Date: April 26-29\, 2025\n📍 Location: Seoul\, Korea\n
+ ⏰ Original Deadline (AoE): 2024-10-16 23:59:59\nCategory: 交叉/综合/
+ 新兴 (MX)\nCCF B\, CORE B\, THCPL A\nConference Website: https://recomb.
+ org/recomb2025/index.html\nDBLP Index: https://dblp.org/db/conf/recomb
+LOCATION:Seoul\, Korea
+URL:https://recomb.org/recomb2025/index.html
+END:VEVENT
+END:VCALENDAR

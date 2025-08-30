@@ -1,0 +1,227 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ASSETS 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250416T235959
+DTEND;TZID="UTC-12:00":20250417T000059
+DTSTAMP:20250830T065444Z
+UID:8d1268e9-c057-40ba-b9b8-cdcc8ae8d82a
+DESCRIPTION:ACM SIGACCESS Conference on Computers and Accessibility\n🗓
+ ️ 会议时间: Oct 26 - 29\, 2025\n📍 会议地点: Denver\, Colorado
+ \n⏰ 原始截止时间 (AoE): 2025-04-16 23:59:59\n分类: 人机交互
+ 与普适计算 (HI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://asse
+ ts25.sigaccess.org/\nDBLP索引: https://dblp.org/db/conf/assets
+LOCATION:Denver\, Colorado
+URL:https://assets25.sigaccess.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2021 截稿日期
+DTSTART;TZID="UTC-12:00":20210415T235959
+DTEND;TZID="UTC-12:00":20210416T000059
+DTSTAMP:20250830T065444Z
+UID:d6084d90-ffbb-44d4-9458-1e541b95d3b6
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ 会议时间: TBD\n📍 会议地点: Virtual\n⏰ 
+ 原始截止时间 (AoE): 2021-04-15 23:59:59\n分类: 人机交互与普
+ 适计算 (HI)\nCCF A\, CORE A\, THCPL A\n会议官网: https://cscw.acm.o
+ rg/2021/\nDBLP索引: https://dblp.org/db/conf/cscw
+LOCATION:Virtual
+URL:https://cscw.acm.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20220115T235959
+DTEND;TZID="UTC-12:00":20220116T000059
+DTSTAMP:20250830T065444Z
+UID:ea53f75a-fe57-47a2-bb06-b93715f7c473
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ 会议时间: January 1\, 2022\n📍 会议地点: T
+ aiwan\n⏰ 原始截止时间 (AoE): 2022-01-15 23:59:59\n分类: 人机
+ 交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\n会议官网: https:
+ //cscw.acm.org/2022/\nDBLP索引: https://dblp.org/db/conf/cscw
+LOCATION:Taiwan
+URL:https://cscw.acm.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230601T235959
+DTEND;TZID="UTC-12:00":20230602T000059
+DTSTAMP:20250830T065444Z
+UID:7056ce12-cc75-49d4-913c-44c61b302b43
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ 会议时间: October 14-18\, 2023\n📍 会议地
+ 点: Minneapolis\, MN\, USA\n⏰ 原始截止时间 (AoE): 2023-06-01 23:5
+ 9:59\n分类: 人机交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\n
+ 会议官网: https://cscw.acm.org/2023/\nDBLP索引: https://dblp.org/db/
+ conf/cscw
+LOCATION:Minneapolis\, MN\, USA
+URL:https://cscw.acm.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240116T235959
+DTEND;TZID="UTC-12:00":20240117T000059
+DTSTAMP:20250830T065444Z
+UID:0c55a7a0-2f4b-400a-bf28-6fd5e3bd8c1d
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ 会议时间: November 9-13\, 2024\n📍 会议地
+ 点: San José\, Costa Rica\n⏰ 原始截止时间 (AoE): 2024-01-16 23:5
+ 9:59\n分类: 人机交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\n
+ 会议官网: https://cscw.acm.org/2024/\nDBLP索引: https://dblp.org/db/
+ conf/cscw
+LOCATION:San José\, Costa Rica
+URL:https://cscw.acm.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2025 截稿日期 [JULY 2024 CYCLE]
+DTSTART;TZID="UTC-12:00":20240702T235959
+DTEND;TZID="UTC-12:00":20240703T000059
+DTSTAMP:20250830T065444Z
+UID:f4f2e9e6-709c-4795-b34f-eb76654027dd
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ 会议时间: October 18-22\, 2025\n📍 会议地
+ 点: Bergen\, Norway\n⏰ 原始截止时间 (AoE): 2024-07-02 23:59:59\n
+ 分类: 人机交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\n会议
+ 官网: https://cscw.acm.org/2025/\nDBLP索引: https://dblp.org/db/conf/c
+ scw
+LOCATION:Bergen\, Norway
+URL:https://cscw.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2025 截稿日期 [OCTOBER 2024 CYCLE]
+DTSTART;TZID="UTC-12:00":20241029T235959
+DTEND;TZID="UTC-12:00":20241030T000059
+DTSTAMP:20250830T065444Z
+UID:b7df81f1-5e84-4a65-a77f-cc66b8cce7fe
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ 会议时间: October 18-22\, 2025\n📍 会议地
+ 点: Bergen\, Norway\n⏰ 原始截止时间 (AoE): 2024-10-29 23:59:59\n
+ 分类: 人机交互与普适计算 (HI)\nCCF A\, CORE A\, THCPL A\n会议
+ 官网: https://cscw.acm.org/2025/\nDBLP索引: https://dblp.org/db/conf/c
+ scw
+LOCATION:Bergen\, Norway
+URL:https://cscw.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CSCW 2026 截稿日期 [MAY 2025 SUBMISSION CYCLE]
+DTSTART;TZID="UTC-12:00":20250513T235959
+DTEND;TZID="UTC-12:00":20250514T000059
+DTSTAMP:20250830T065444Z
+UID:ef4ce45b-dee4-4469-b30a-3a5d715cb979
+DESCRIPTION:ACM Conference on Computer Supported Cooperative Work and Soci
+ al Computing\n🗓️ 会议时间: TBD\n📍 会议地点: USA\n⏰ 原
+ 始截止时间 (AoE): 2025-05-13 23:59:59\n分类: 人机交互与普适
+ 计算 (HI)\nCCF A\, CORE A\, THCPL A\n会议官网: https://cscw.acm.org/
+ 2026/\nDBLP索引: https://dblp.org/db/conf/cscw
+LOCATION:USA
+URL:https://cscw.acm.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DIS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250113T235959
+DTEND;TZID="UTC-12:00":20250114T000059
+DTSTAMP:20250830T065444Z
+UID:8e7ffafd-4f36-4732-8477-89774d6aebe1
+DESCRIPTION:ACM Conference on Designing Interactive Systems\n🗓️ 会
+ 议时间: July 5 - 9\, 2025\n📍 会议地点: Funchal\, Madeira\, Portu
+ gal\n⏰ 原始截止时间 (AoE): 2025-01-13 23:59:59\n分类: 人机交
+ 互与普适计算 (HI)\nCCF C\, CORE A\, THCPL B\n会议官网: https://d
+ is.acm.org/2025/\nDBLP索引: https://dblp.org/db/conf/ACMdis
+LOCATION:Funchal\, Madeira\, Portugal
+URL:https://dis.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICWSM 2025 截稿日期 [1st Full-paper Deadline]
+DTSTART;TZID="UTC-12:00":20240515T235959
+DTEND;TZID="UTC-12:00":20240516T000059
+DTSTAMP:20250830T065444Z
+UID:0952904b-0746-42e8-834c-baab95c59989
+DESCRIPTION:The International AAAI Conference on Web and Social Media\n
+ 🗓️ 会议时间: June 23 - 26\, 2025\n📍 会议地点: Copenhagen\,
+  Denmark\n⏰ 原始截止时间 (AoE): 2024-05-15 23:59:59\n分类: 人
+ 机交互与普适计算 (HI)\nCCF B\, CORE A\n会议官网: https://www.i
+ cwsm.org/2025/index.html\nDBLP索引: https://dblp.org/db/conf/icwsm
+LOCATION:Copenhagen\, Denmark
+URL:https://www.icwsm.org/2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICWSM 2025 截稿日期 [2nd Full-paper Deadline]
+DTSTART;TZID="UTC-12:00":20240915T235959
+DTEND;TZID="UTC-12:00":20240916T000059
+DTSTAMP:20250830T065444Z
+UID:acfddbd5-f2c5-4eeb-99a0-265a185b4289
+DESCRIPTION:The International AAAI Conference on Web and Social Media\n
+ 🗓️ 会议时间: June 23 - 26\, 2025\n📍 会议地点: Copenhagen\,
+  Denmark\n⏰ 原始截止时间 (AoE): 2024-09-15 23:59:59\n分类: 人
+ 机交互与普适计算 (HI)\nCCF B\, CORE A\n会议官网: https://www.i
+ cwsm.org/2025/index.html\nDBLP索引: https://dblp.org/db/conf/icwsm
+LOCATION:Copenhagen\, Denmark
+URL:https://www.icwsm.org/2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICWSM 2025 截稿日期 [3rd Full-paper Deadline]
+DTSTART;TZID="UTC-12:00":20250115T235959
+DTEND;TZID="UTC-12:00":20250116T000059
+DTSTAMP:20250830T065444Z
+UID:759ae897-43d1-4a89-80e8-08335674f922
+DESCRIPTION:The International AAAI Conference on Web and Social Media\n
+ 🗓️ 会议时间: June 23 - 26\, 2025\n📍 会议地点: Copenhagen\,
+  Denmark\n⏰ 原始截止时间 (AoE): 2025-01-15 23:59:59\n分类: 人
+ 机交互与普适计算 (HI)\nCCF B\, CORE A\n会议官网: https://www.i
+ cwsm.org/2025/index.html\nDBLP索引: https://dblp.org/db/conf/icwsm
+LOCATION:Copenhagen\, Denmark
+URL:https://www.icwsm.org/2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IUI 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20231002T235959
+DTEND;TZID="UTC-12:00":20231003T000059
+DTSTAMP:20250830T065444Z
+UID:4a20f344-a01d-4e7b-b397-fd5388de85c7
+DESCRIPTION:ACM Conference on Intelligent User Interfaces\n🗓️ 会议
+ 时间: March 18 - March 21\, 2024\n📍 会议地点: Greenville\, South 
+ Carolina USA\n⏰ 原始截止时间 (AoE): 2023-10-02 23:59:59\n分类: 
+ 人机交互与普适计算 (HI)\nCCF B\, CORE A\, THCPL B\n会议官网: 
+ https://iui.acm.org/2024/\nDBLP索引: https://dblp.org/db/conf/iui
+LOCATION:Greenville\, South Carolina USA
+URL:https://iui.acm.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IUI 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20241002T235959
+DTEND;TZID="UTC-12:00":20241003T000059
+DTSTAMP:20250830T065444Z
+UID:bdb41475-3d28-44bc-839a-c14011535cde
+DESCRIPTION:ACM Conference on Intelligent User Interfaces\n🗓️ 会议
+ 时间: March 24 - March 27\, 2025\n📍 会议地点: Cagliari\, Italy\n
+ ⏰ 原始截止时间 (AoE): 2024-10-02 23:59:59\n分类: 人机交互与
+ 普适计算 (HI)\nCCF B\, CORE A\, THCPL B\n会议官网: https://iui.acm
+ .org/2025/\nDBLP索引: https://dblp.org/db/conf/iui
+LOCATION:Cagliari\, Italy
+URL:https://iui.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IUI 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20251003T235959
+DTEND;TZID="UTC-12:00":20251004T000059
+DTSTAMP:20250830T065444Z
+UID:fc051096-d157-4d4b-a86e-66a64295b43f
+DESCRIPTION:ACM Conference on Intelligent User Interfaces\n🗓️ 会议
+ 时间: March 23 - 26\, 2026\n📍 会议地点: Paphos\, Cyprus\n⏰ 原
+ 始截止时间 (AoE): 2025-10-03 23:59:59\n分类: 人机交互与普适
+ 计算 (HI)\nCCF B\, CORE A\, THCPL B\n会议官网: https://iui.hosting.a
+ cm.org/2026/\nDBLP索引: https://dblp.org/db/conf/iui
+LOCATION:Paphos\, Cyprus
+URL:https://iui.hosting.acm.org/2026/
+END:VEVENT
+END:VCALENDAR

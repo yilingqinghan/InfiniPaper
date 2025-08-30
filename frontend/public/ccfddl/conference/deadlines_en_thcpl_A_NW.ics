@@ -1,0 +1,585 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20231127T235959
+DTEND;TZID="UTC-12:00":20231128T000059
+DTSTAMP:20250830T065448Z
+UID:5873d45d-b5bf-4c65-9941-836d987a5652
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadli
+ ne (AoE): 2023-11-27 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, COR
+ E A\, THCPL A\nConference Website: https://conferences.sigcomm.org/co-next
+ /2025/#!/home\nDBLP Index: https://dblp.org/db/conf/conext
+LOCATION:TBD
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240620T235959
+DTEND;TZID="UTC-12:00":20240621T000059
+DTSTAMP:20250830T065448Z
+UID:64f0ceea-3a82-49d4-ba3c-dafeb267e14a
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadli
+ ne (AoE): 2024-06-20 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, COR
+ E A\, THCPL A\nConference Website: https://conferences.sigcomm.org/co-next
+ /2025/#!/home\nDBLP Index: https://dblp.org/db/conf/conext
+LOCATION:TBD
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 Abstract Deadline [Winter submission]
+DTSTART;TZID="UTC-12:00":20241128T235959
+DTEND;TZID="UTC-12:00":20241129T000059
+DTSTAMP:20250830T065448Z
+UID:c74f35de-0f41-4e4f-ada2-dbcf9648620a
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ Date: Dec 1-4\, 2025\n📍 Location: HKUST\, Hong 
+ Kong\n⏰ Original Deadline (AoE): 2024-11-28 23:59:59\nCategory: 计算
+ 机网络 (NW)\nCCF B\, CORE A\, THCPL A\nConference Website: https://conf
+ erences.sigcomm.org/co-next/2025/#!/home\nDBLP Index: https://dblp.org/db/
+ conf/conext
+LOCATION:HKUST\, Hong Kong
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CoNEXT 2025 Abstract Deadline [June submission]
+DTSTART;TZID="UTC-12:00":20250529T235959
+DTEND;TZID="UTC-12:00":20250530T000059
+DTSTAMP:20250830T065448Z
+UID:01fd5c7c-ec1d-41b0-8bd0-9d191cdc595b
+DESCRIPTION:International Conference on Emerging Networking Experiments an
+ d Technologies\n🗓️ Date: Dec 1-4\, 2025\n📍 Location: HKUST\, Hong 
+ Kong\n⏰ Original Deadline (AoE): 2025-05-29 23:59:59\nCategory: 计算
+ 机网络 (NW)\nCCF B\, CORE A\, THCPL A\nConference Website: https://conf
+ erences.sigcomm.org/co-next/2025/#!/home\nDBLP Index: https://dblp.org/db/
+ conf/conext
+LOCATION:HKUST\, Hong Kong
+URL:https://conferences.sigcomm.org/co-next/2025/#!/home
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICNP 2022 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20220519T200000
+DTEND;TZID="UTC-04:00":20220519T200100
+DTSTAMP:20250830T065448Z
+UID:f3ed0afe-0556-4bd7-baae-cfae639d07b9
+DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
+ te: October 30-November 2\, 2022\n📍 Location: Lexington\, Kentucky\, US
+ A\n⏰ Original Deadline (UTC-4): 2022-05-19 20:00:00\nCategory: 计算机
+ 网络 (NW)\nCCF B\, CORE B\, THCPL A\nConference Website: https://icnp22.
+ cs.ucr.edu/index.html\nDBLP Index: https://dblp.org/db/conf/icnp
+LOCATION:Lexington\, Kentucky\, USA
+URL:https://icnp22.cs.ucr.edu/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICNP 2023 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20230524T200000
+DTEND;TZID="UTC-04:00":20230524T200100
+DTSTAMP:20250830T065448Z
+UID:f94dd58a-8b48-4099-b473-6d1a3f0aa60a
+DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
+ te: October 10-13\, 2023\n📍 Location: Reykjavik\, Iceland\n⏰ Original
+  Deadline (UTC-4): 2023-05-24 20:00:00\nCategory: 计算机网络 (NW)\nCC
+ F B\, CORE B\, THCPL A\nConference Website: https://icnp23.cs.ucr.edu/inde
+ x.html\nDBLP Index: https://dblp.org/db/conf/icnp
+LOCATION:Reykjavik\, Iceland
+URL:https://icnp23.cs.ucr.edu/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICNP 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240517T235959
+DTEND;TZID="UTC-12:00":20240518T000059
+DTSTAMP:20250830T065448Z
+UID:e045d7ca-2919-4e1b-bdc8-09be90d0d3e5
+DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
+ te: October 28-31\, 2024\n📍 Location: Charleroi\, Belgium\n⏰ Original
+  Deadline (AoE): 2024-05-17 23:59:59\nCategory: 计算机网络 (NW)\nCCF 
+ B\, CORE B\, THCPL A\nConference Website: https://icnp24.cs.ucr.edu/index.
+ html\nDBLP Index: https://dblp.org/db/conf/icnp
+LOCATION:Charleroi\, Belgium
+URL:https://icnp24.cs.ucr.edu/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICNP 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250509T235959
+DTEND;TZID="UTC-12:00":20250510T000059
+DTSTAMP:20250830T065448Z
+UID:4bb51dc7-f829-4c4b-ac62-3ccebc1a7d2a
+DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
+ te: September 22-25\, 2025\n📍 Location: Seoul\, South Korea\n⏰ Origin
+ al Deadline (AoE): 2025-05-09 23:59:59\nCategory: 计算机网络 (NW)\nCC
+ F B\, CORE B\, THCPL A\nConference Website: https://ieeeicnp2025.pages.dev
+ /\nDBLP Index: https://dblp.org/db/conf/icnp
+LOCATION:Seoul\, South Korea
+URL:https://ieeeicnp2025.pages.dev/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240508T235959
+DTEND;TZID="UTC-12:00":20240509T000059
+DTSTAMP:20250830T065448Z
+UID:c2143abd-e661-4137-9917-2431c79f7408
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ Date: Nov 4-6\, 2
+ 024\n📍 Location: Madrid\, Spain\n⏰ Original Deadline (AoE): 2024-05-0
+ 8 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CORE A\, THCPL A\nConf
+ erence Website: https://conferences.sigcomm.org/imc/2024/\nDBLP Index: htt
+ ps://dblp.org/db/conf/imc
+LOCATION:Madrid\, Spain
+URL:https://conferences.sigcomm.org/imc/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2025 Abstract Deadline [Fall deadline]
+DTSTART;TZID="UTC-12:00":20241114T235959
+DTEND;TZID="UTC-12:00":20241115T000059
+DTSTAMP:20250830T065448Z
+UID:1b349318-c48c-45da-b4fc-193022548a07
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ Date: Oct 28-31\,
+  2025\n📍 Location: Madison\, Wisconsin\, USA\n⏰ Original Deadline (Ao
+ E): 2024-11-14 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CORE A\, 
+ THCPL A\nConference Website: https://conferences.sigcomm.org/imc/2025/\nDB
+ LP Index: https://dblp.org/db/conf/imc
+LOCATION:Madison\, Wisconsin\, USA
+URL:https://conferences.sigcomm.org/imc/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IMC 2025 Abstract Deadline [Spring deadline]
+DTSTART;TZID="UTC-12:00":20250508T235959
+DTEND;TZID="UTC-12:00":20250509T000059
+DTSTAMP:20250830T065448Z
+UID:406b0e57-3860-4455-95f3-43833255dd2d
+DESCRIPTION:ACM Internet Measurement Conference\n🗓️ Date: Oct 28-31\,
+  2025\n📍 Location: Madison\, Wisconsin\, USA\n⏰ Original Deadline (Ao
+ E): 2025-05-08 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CORE A\, 
+ THCPL A\nConference Website: https://conferences.sigcomm.org/imc/2025/\nDB
+ LP Index: https://dblp.org/db/conf/imc
+LOCATION:Madison\, Wisconsin\, USA
+URL:https://conferences.sigcomm.org/imc/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INFOCOM 2021 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20200808T235959
+DTEND;TZID="UTC-04:00":20200809T000059
+DTSTAMP:20250830T065448Z
+UID:a176591b-60d6-470e-a687-e3c76558d33b
+DESCRIPTION:IEEE International Conference on Computer Communications\n🗓
+ ️ Date: May 10-13\, 2021\n📍 Location: Virtual\n⏰ Original Deadline 
+ (UTC-4): 2020-08-08 23:59:59\nCategory: 计算机网络 (NW)\nCCF A\, CORE
+  A*\, THCPL A\nConference Website: https://infocom2021.ieee-infocom.org/\n
+ DBLP Index: https://dblp.org/db/conf/infocom
+LOCATION:Virtual
+URL:https://infocom2021.ieee-infocom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INFOCOM 2022 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20210724T235959
+DTEND;TZID="UTC-04:00":20210725T000059
+DTSTAMP:20250830T065448Z
+UID:aed5b84f-f3a0-4277-b58e-9ca1d5282093
+DESCRIPTION:IEEE International Conference on Computer Communications\n🗓
+ ️ Date: May 2-5\, 2022\n📍 Location: Virtual\n⏰ Original Deadline (U
+ TC-4): 2021-07-24 23:59:59\nCategory: 计算机网络 (NW)\nCCF A\, CORE A
+ *\, THCPL A\nConference Website: https://infocom2022.ieee-infocom.org/\nDB
+ LP Index: https://dblp.org/db/conf/infocom
+LOCATION:Virtual
+URL:https://infocom2022.ieee-infocom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INFOCOM 2023 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20220725T235959
+DTEND;TZID="UTC-04:00":20220726T000059
+DTSTAMP:20250830T065448Z
+UID:81593fa5-4511-4d06-a6c2-fb403ba1a937
+DESCRIPTION:IEEE International Conference on Computer Communications\n🗓
+ ️ Date: May 17-20\, 2023\n📍 Location: New York\, USA\n⏰ Original De
+ adline (UTC-4): 2022-07-25 23:59:59\nCategory: 计算机网络 (NW)\nCCF A
+ \, CORE A*\, THCPL A\nConference Website: https://infocom2023.ieee-infocom
+ .org/\nDBLP Index: https://dblp.org/db/conf/infocom
+LOCATION:New York\, USA
+URL:https://infocom2023.ieee-infocom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INFOCOM 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20230724T235959
+DTEND;TZID="UTC-12:00":20230725T000059
+DTSTAMP:20250830T065448Z
+UID:ede29af8-5a8a-4073-8a16-74895a6b184d
+DESCRIPTION:IEEE International Conference on Computer Communications\n🗓
+ ️ Date: May 20-23\, 2024\n📍 Location: Vancouver\, Canada\n⏰ Origina
+ l Deadline (AoE): 2023-07-24 23:59:59\nCategory: 计算机网络 (NW)\nCCF
+  A\, CORE A*\, THCPL A\nConference Website: https://infocom2024.ieee-infoc
+ om.org/\nDBLP Index: https://dblp.org/db/conf/infocom
+LOCATION:Vancouver\, Canada
+URL:https://infocom2024.ieee-infocom.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:INFOCOM 2025 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20240724T235959
+DTEND;TZID="UTC-07:00":20240725T000059
+DTSTAMP:20250830T065448Z
+UID:35e0ba6c-ad7d-4164-9ec1-c4874f5279d7
+DESCRIPTION:IEEE International Conference on Computer Communications\n🗓
+ ️ Date: May 19-22\, 2025\n📍 Location: London\, United Kindom\n⏰ Ori
+ ginal Deadline (UTC-7): 2024-07-24 23:59:59\nCategory: 计算机网络 (NW
+ )\nCCF A\, CORE A*\, THCPL A\nConference Website: https://infocom2025.ieee
+ -infocom.org/\nDBLP Index: https://dblp.org/db/conf/infocom
+LOCATION:London\, United Kindom
+URL:https://infocom2025.ieee-infocom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INFOCOM 2026 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250724T235959
+DTEND;TZID="UTC-12:00":20250725T000059
+DTSTAMP:20250830T065448Z
+UID:5d35ba69-0925-4a22-86ba-f025c13d8818
+DESCRIPTION:IEEE International Conference on Computer Communications\n🗓
+ ️ Date: May 18 - 21\, 2026\n📍 Location: Tokyo\, Japan\n⏰ Original D
+ eadline (AoE): 2025-07-24 23:59:59\nCategory: 计算机网络 (NW)\nCCF A\
+ , CORE A*\, THCPL A\nConference Website: https://infocom2026.ieee-infocom.
+ org/\nDBLP Index: https://dblp.org/db/conf/infocom
+LOCATION:Tokyo\, Japan
+URL:https://infocom2026.ieee-infocom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IPSN 2022 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20211022T235959
+DTEND;TZID="UTC-12:00":20211023T000059
+DTSTAMP:20250830T065448Z
+UID:c9c8fa61-12ec-46e1-aa5a-b7740480bd27
+DESCRIPTION:ACM/IEEE International Conference on Information Processing in
+  Sensor Networks\n🗓️ Date: May 4-6\, 2022\n📍 Location: Milan\, Ita
+ ly\n⏰ Original Deadline (UTC-12): 2021-10-22 23:59:59\nCategory: 计算
+ 机网络 (NW)\nCCF B\, CORE A*\, THCPL A\nConference Website: https://ips
+ n.acm.org/2022/\nDBLP Index: https://dblp.org/db/conf/ipsn
+LOCATION:Milan\, Italy
+URL:https://ipsn.acm.org/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiCom 2022 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20210813T235959
+DTEND;TZID="UTC-07:00":20210814T000059
+DTSTAMP:20250830T065448Z
+UID:7c6975b9-3193-4265-b024-19d2a3ac80b0
+DESCRIPTION:ACM Annual International Conference On Mobile Computing And Ne
+ tworking\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (UT
+ C-7): 2021-08-13 23:59:59\nCategory: 计算机网络 (NW)\nCCF A\, CORE A*
+ \, THCPL A\nConference Website: https://www.sigmobile.org/mobicom/2022/\nD
+ BLP Index: https://dblp.org/db/conf/mobicom
+LOCATION:TBD
+URL:https://www.sigmobile.org/mobicom/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiCom 2022 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20220318T235959
+DTEND;TZID="UTC-07:00":20220319T000059
+DTSTAMP:20250830T065448Z
+UID:7a6a2281-0f94-41e5-8a8a-2cf403bc69f1
+DESCRIPTION:ACM Annual International Conference On Mobile Computing And Ne
+ tworking\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (UT
+ C-7): 2022-03-18 23:59:59\nCategory: 计算机网络 (NW)\nCCF A\, CORE A*
+ \, THCPL A\nConference Website: https://www.sigmobile.org/mobicom/2022/\nD
+ BLP Index: https://dblp.org/db/conf/mobicom
+LOCATION:TBD
+URL:https://www.sigmobile.org/mobicom/2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiCom 2023 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20230310T235959
+DTEND;TZID="UTC-07:00":20230311T000059
+DTSTAMP:20250830T065448Z
+UID:6cc114a5-4326-4fb1-bf31-4fd3742c25b6
+DESCRIPTION:ACM Annual International Conference On Mobile Computing And Ne
+ tworking\n🗓️ Date: Oct 2-6\, 2023\n📍 Location: Madrid\, Spain\n⏰
+  Original Deadline (UTC-7): 2023-03-10 23:59:59\nCategory: 计算机网络
+  (NW)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://www.sigmobil
+ e.org/mobicom/2023/\nDBLP Index: https://dblp.org/db/conf/mobicom
+LOCATION:Madrid\, Spain
+URL:https://www.sigmobile.org/mobicom/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiCom 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20230818T235959
+DTEND;TZID="UTC-12:00":20230819T000059
+DTSTAMP:20250830T065448Z
+UID:c9ff68fc-5cba-42ad-b7bc-cedc63e1b2e9
+DESCRIPTION:ACM Annual International Conference On Mobile Computing And Ne
+ tworking\n🗓️ Date: October\, 2024\n📍 Location: Washington\, D.C.\,
+  USA\n⏰ Original Deadline (UTC-12): 2023-08-18 23:59:59\nCategory: 计
+ 算机网络 (NW)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://
+ www.sigmobile.org/mobicom/2024/\nDBLP Index: https://dblp.org/db/conf/mobi
+ com
+LOCATION:Washington\, D.C.\, USA
+URL:https://www.sigmobile.org/mobicom/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiCom 2025 Abstract Deadline [Summer Deadlines]
+DTSTART;TZID="UTC-12:00":20240829T235959
+DTEND;TZID="UTC-12:00":20240830T000059
+DTSTAMP:20250830T065448Z
+UID:564891f8-96a1-4f73-bdc9-dccf062283e6
+DESCRIPTION:ACM Annual International Conference On Mobile Computing And Ne
+ tworking\n🗓️ Date: November\, 2025\n📍 Location: Hong Kong\, China\
+ n⏰ Original Deadline (UTC-12): 2024-08-29 23:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://sigmob
+ ile.org/mobicom/2025/\nDBLP Index: https://dblp.org/db/conf/mobicom
+LOCATION:Hong Kong\, China
+URL:https://sigmobile.org/mobicom/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiCom 2025 Abstract Deadline [Winter Deadlines]
+DTSTART;TZID="UTC-12:00":20250311T235959
+DTEND;TZID="UTC-12:00":20250312T000059
+DTSTAMP:20250830T065448Z
+UID:4dd63b51-66cd-4f91-87da-71d9b563d273
+DESCRIPTION:ACM Annual International Conference On Mobile Computing And Ne
+ tworking\n🗓️ Date: November\, 2025\n📍 Location: Hong Kong\, China\
+ n⏰ Original Deadline (UTC-12): 2025-03-11 23:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://sigmob
+ ile.org/mobicom/2025/\nDBLP Index: https://dblp.org/db/conf/mobicom
+LOCATION:Hong Kong\, China
+URL:https://sigmobile.org/mobicom/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiCom 2026 Abstract Deadline [Summer Deadlines]
+DTSTART;TZID="UTC-12:00":20250827T235959
+DTEND;TZID="UTC-12:00":20250828T000059
+DTSTAMP:20250830T065448Z
+UID:1b705910-b151-49db-ac2a-81f21a1b3aab
+DESCRIPTION:ACM Annual International Conference On Mobile Computing And Ne
+ tworking\n🗓️ Date: November\, 2026\n📍 Location: Austin\, Texas\, U
+ SA\n⏰ Original Deadline (AoE): 2025-08-27 23:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://sigmob
+ ile.org/mobicom/2026/\nDBLP Index: https://dblp.org/db/conf/mobicom
+LOCATION:Austin\, Texas\, USA
+URL:https://sigmobile.org/mobicom/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MobiSys 2022 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20211213T235959
+DTEND;TZID="UTC-12:00":20211214T000059
+DTSTAMP:20250830T065448Z
+UID:a4bccc41-d60a-49cf-b64c-d8e5c0f982f6
+DESCRIPTION:ACM International Conference on Mobile Systems\, Applications\
+ , and Services\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadli
+ ne (UTC-12): 2021-12-13 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, 
+ CORE A\, THCPL A\nConference Website: https://www.sigmobile.org/mobisys/20
+ 22/\nDBLP Index: https://dblp.org/db/conf/mobisys
+LOCATION:TBD
+URL:https://www.sigmobile.org/mobisys/2022/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:NSDI 2022 Abstract Deadline
+DTSTART;TZID="UTC-08:00":20210304T205959
+DTEND;TZID="UTC-08:00":20210304T210059
+DTSTAMP:20250830T065448Z
+UID:b1887b41-d5c0-445e-97b2-ed4d41103c5f
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: April 4-6\, 2022\n📍 Location: RENTON\, USA\n⏰ Origin
+ al Deadline (UTC-8): 2021-03-04 20:59:59\nCategory: 计算机网络 (NW)\n
+ CCF A\, THCPL A\nConference Website: https://www.usenix.org/conference/nsd
+ i22/\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:RENTON\, USA
+URL:https://www.usenix.org/conference/nsdi22/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2022 Abstract Deadline
+DTSTART;TZID="UTC-08:00":20210909T205959
+DTEND;TZID="UTC-08:00":20210909T210059
+DTSTAMP:20250830T065448Z
+UID:d2d7b9ae-e16e-46d0-9219-b454395eaa8f
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: April 4-6\, 2022\n📍 Location: RENTON\, USA\n⏰ Origin
+ al Deadline (UTC-8): 2021-09-09 20:59:59\nCategory: 计算机网络 (NW)\n
+ CCF A\, THCPL A\nConference Website: https://www.usenix.org/conference/nsd
+ i22/\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:RENTON\, USA
+URL:https://www.usenix.org/conference/nsdi22/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:NSDI 2023 Abstract Deadline
+DTSTART;TZID="UTC-05:00":20220413T235959
+DTEND;TZID="UTC-05:00":20220414T000059
+DTSTAMP:20250830T065448Z
+UID:84834dfa-b76e-4091-aaae-c36bae741680
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: April 17-19\, 2023\n📍 Location: BOSTON\, USA\n⏰ Orig
+ inal Deadline (UTC-5): 2022-04-13 23:59:59\nCategory: 计算机网络 (NW)
+ \nCCF A\, THCPL A\nConference Website: https://www.usenix.org/conference/n
+ sdi23/\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:BOSTON\, USA
+URL:https://www.usenix.org/conference/nsdi23/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2023 Abstract Deadline
+DTSTART;TZID="UTC-05:00":20220913T235959
+DTEND;TZID="UTC-05:00":20220914T000059
+DTSTAMP:20250830T065448Z
+UID:6140f55c-c40f-4ec4-9533-ad5bd73f4657
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: April 17-19\, 2023\n📍 Location: BOSTON\, USA\n⏰ Orig
+ inal Deadline (UTC-5): 2022-09-13 23:59:59\nCategory: 计算机网络 (NW)
+ \nCCF A\, THCPL A\nConference Website: https://www.usenix.org/conference/n
+ sdi23/\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:BOSTON\, USA
+URL:https://www.usenix.org/conference/nsdi23/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2024 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20230427T205959
+DTEND;TZID="UTC-07:00":20230427T210059
+DTSTAMP:20250830T065448Z
+UID:a57e4593-d2b2-44bd-be68-130badd4597c
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: April 16-18\, 2024\n📍 Location: Santa Clara\, CA\, USA
+ \n⏰ Original Deadline (UTC-7): 2023-04-27 20:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF A\, THCPL A\nConference Website: https://www.usenix.org/c
+ onference/nsdi24/\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:Santa Clara\, CA\, USA
+URL:https://www.usenix.org/conference/nsdi24/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2024 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20230914T205959
+DTEND;TZID="UTC-07:00":20230914T210059
+DTSTAMP:20250830T065448Z
+UID:aabb088d-8744-4e04-8ef5-c3fb4f465ed3
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: April 16-18\, 2024\n📍 Location: Santa Clara\, CA\, USA
+ \n⏰ Original Deadline (UTC-7): 2023-09-14 20:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF A\, THCPL A\nConference Website: https://www.usenix.org/c
+ onference/nsdi24/\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:Santa Clara\, CA\, USA
+URL:https://www.usenix.org/conference/nsdi24/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2025 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20240430T235959
+DTEND;TZID="UTC-04:00":20240501T000059
+DTSTAMP:20250830T065448Z
+UID:fc5dc7b3-36d6-4641-80da-7a2f8bdd6b2e
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: April 28-30\, 2025\n📍 Location: Philadelphia\, PA\, US
+ A\n⏰ Original Deadline (UTC-4): 2024-04-30 23:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF A\, THCPL A\nConference Website: https://www.usenix.org/c
+ onference/nsdi25\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:Philadelphia\, PA\, USA
+URL:https://www.usenix.org/conference/nsdi25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2025 Abstract Deadline
+DTSTART;TZID="UTC-04:00":20240912T235959
+DTEND;TZID="UTC-04:00":20240913T000059
+DTSTAMP:20250830T065448Z
+UID:7b8ae394-3b5f-4c0a-a76e-896cb014fb4c
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: April 28-30\, 2025\n📍 Location: Philadelphia\, PA\, US
+ A\n⏰ Original Deadline (UTC-4): 2024-09-12 23:59:59\nCategory: 计算机
+ 网络 (NW)\nCCF A\, THCPL A\nConference Website: https://www.usenix.org/c
+ onference/nsdi25\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:Philadelphia\, PA\, USA
+URL:https://www.usenix.org/conference/nsdi25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2026 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20250418T235959
+DTEND;TZID="UTC-07:00":20250419T000059
+DTSTAMP:20250830T065448Z
+UID:9ff6fa8f-305d-403a-933f-a912f34ce182
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: May 4-6\, 2026\n📍 Location: Renton\, WA\, USA\n⏰ Ori
+ ginal Deadline (UTC-7): 2025-04-18 23:59:59\nCategory: 计算机网络 (NW
+ )\nCCF A\, THCPL A\nConference Website: https://www.usenix.org/conference/
+ nsdi26\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:Renton\, WA\, USA
+URL:https://www.usenix.org/conference/nsdi26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2026 Abstract Deadline
+DTSTART;TZID="UTC-07:00":20250911T235959
+DTEND;TZID="UTC-07:00":20250912T000059
+DTSTAMP:20250830T065448Z
+UID:e104661f-4c0a-4cd1-b84d-054fca969f8e
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ Date: May 4-6\, 2026\n📍 Location: Renton\, WA\, USA\n⏰ Ori
+ ginal Deadline (UTC-7): 2025-09-11 23:59:59\nCategory: 计算机网络 (NW
+ )\nCCF A\, THCPL A\nConference Website: https://www.usenix.org/conference/
+ nsdi26\nDBLP Index: https://dblp.org/db/conf/nsdi
+LOCATION:Renton\, WA\, USA
+URL:https://www.usenix.org/conference/nsdi26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SenSys 2026 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250624T235900
+DTEND;TZID="UTC-12:00":20250625T000000
+DTSTAMP:20250830T065448Z
+UID:5901f4a1-be88-4845-b39c-0f94d7907628
+DESCRIPTION:ACM Conference on Embedded Networked Sensor Systems\n🗓️ D
+ ate: May 11-14\, 2026\n📍 Location: Saint-Malo\, France\n⏰ Original De
+ adline (AoE): 2025-06-24 23:59:00\nCategory: 计算机网络 (NW)\nCCF B\,
+  CORE A*\, THCPL A\nConference Website: https://sensys.acm.org/2026/\nDBLP
+  Index: https://dblp.org/db/conf/sensys
+LOCATION:Saint-Malo\, France
+URL:https://sensys.acm.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SIGCOMM 2021 Abstract Deadline
+DTSTART;TZID="UTC-05:00":20210120T165959
+DTEND;TZID="UTC-05:00":20210120T170059
+DTSTAMP:20250830T065448Z
+UID:98f3941b-223e-40ca-b050-9d4507dc746c
+DESCRIPTION:ACM International Conference on Applications\, Technologies\, 
+ Architectures\, and Protocols for Computer Communication\n🗓️ Date: Au
+ gust 23-27\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC-5): 
+ 2021-01-20 16:59:59\nCategory: 计算机网络 (NW)\nCCF A\, CORE A*\, THC
+ PL A\nConference Website: http://conferences.sigcomm.org/sigcomm/2021/\nDB
+ LP Index: https://dblp.org/db/conf/sigcomm
+LOCATION:Virtual
+URL:http://conferences.sigcomm.org/sigcomm/2021/
+END:VEVENT
+END:VCALENDAR

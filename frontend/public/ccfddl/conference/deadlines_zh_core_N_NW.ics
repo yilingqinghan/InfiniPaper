@@ -1,0 +1,329 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:APNet 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240308T235959
+DTEND;TZID="UTC-12:00":20240309T000059
+DTSTAMP:20250830T065444Z
+UID:851ad234-04bd-4342-b420-733dc0b438bb
+DESCRIPTION:Asia-Pacific Workshop on Networking\n🗓️ 会议时间: Aug
+ ust 3-4\, 2024\n📍 会议地点: Sydney\, Australia\, co-located with SI
+ GCOMM'24\n⏰ 原始截止时间 (UTC-12): 2024-03-08 23:59:59\n分类: 
+ 计算机网络 (NW)\nCCF C\n会议官网: https://conferences.sigcomm.org
+ /events/apnet2024/\nDBLP索引: https://dblp.org/db/conf/apnet
+LOCATION:Sydney\, Australia\, co-located with SIGCOMM'24
+URL:https://conferences.sigcomm.org/events/apnet2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APNet 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250306T235959
+DTEND;TZID="UTC-12:00":20250307T000059
+DTSTAMP:20250830T065444Z
+UID:cea3ba29-05f6-4669-b484-61dcc592d114
+DESCRIPTION:Asia-Pacific Workshop on Networking\n🗓️ 会议时间: Aug
+ ust 7-8\, 2025\n📍 会议地点: Shanghai\, China\n⏰ 原始截止时
+ 间 (AoE): 2025-03-06 23:59:59\n分类: 计算机网络 (NW)\nCCF C\n会
+ 议官网: https://conferences.sigcomm.org/events/apnet2025/\nDBLP索引: 
+ https://dblp.org/db/conf/apnet
+LOCATION:Shanghai\, China
+URL:https://conferences.sigcomm.org/events/apnet2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICC 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241011T235959
+DTEND;TZID="UTC-12:00":20241012T000059
+DTSTAMP:20250830T065444Z
+UID:7515e1e8-f0bc-4c27-908b-12f48b22e38f
+DESCRIPTION:IEEE International Conference on Communications\n🗓️ 会
+ 议时间: June 8-12\, 2025\n📍 会议地点: Palais des congrès de Mon
+ tréal in Montreal\, Quebec\, Canada\n⏰ 原始截止时间 (AoE): 2024-1
+ 0-11 23:59:59\n分类: 计算机网络 (NW)\nCCF C\, THCPL B\n会议官网
+ : https://icc2025.ieee-icc.org\nDBLP索引: https://dblp.org/db/conf/icc
+LOCATION:Palais des congrès de Montréal in Montreal\, Quebec\, Canada
+URL:https://icc2025.ieee-icc.org
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-04:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-04:00
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0400
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICC 2026 截稿日期
+DTSTART;TZID="UTC-04:00":20250929T235959
+DTEND;TZID="UTC-04:00":20250930T000059
+DTSTAMP:20250830T065444Z
+UID:19d8f16f-c042-45b9-97e0-dc5efb7613cb
+DESCRIPTION:IEEE International Conference on Communications\n🗓️ 会
+ 议时间: May 24-28\, 2026\n📍 会议地点: Glasgow\, Scotland\n⏰ 
+ 原始截止时间 (UTC-4): 2025-09-29 23:59:59\n分类: 计算机网络 (
+ NW)\nCCF C\, THCPL B\n会议官网: https://icc2026.ieee-icc.org\nDBLP索
+ 引: https://dblp.org/db/conf/icc
+LOCATION:Glasgow\, Scotland
+URL:https://icc2026.ieee-icc.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MMSys 2026 摘要截稿 [Round 1 deadline]
+DTSTART;TZID="UTC-12:00":20250919T235959
+DTEND;TZID="UTC-12:00":20250920T000059
+DTSTAMP:20250830T065444Z
+UID:b4efa873-b79e-4408-88f3-b9260d0c213c
+DESCRIPTION:ACM International Conference on Multimedia Systems\n🗓️ 
+ 会议时间: April 4 - 8\, 2026\n📍 会议地点: Hong Kong SAR\n⏰ 
+ 原始截止时间 (AoE): 2025-09-19 23:59:59\n分类: 计算机网络 (NW
+ )\n会议官网: https://2026.acmmmsys.org\nDBLP索引: https://dblp.org/d
+ b/conf/mmsys
+LOCATION:Hong Kong SAR
+URL:https://2026.acmmmsys.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MSN 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240720T235959
+DTEND;TZID="UTC-12:00":20240721T000059
+DTSTAMP:20250830T065444Z
+UID:e6b0bea0-15ba-49c2-aff7-1d64cf0e8de8
+DESCRIPTION:International Conference on Mobility\, Sensing and Networking\
+ n🗓️ 会议时间: December 20-22\, 2024\n📍 会议地点: Harbin\, 
+ China\n⏰ 原始截止时间 (UTC-12): 2024-07-20 23:59:59\n分类: 计
+ 算机网络 (NW)\nCCF C\n会议官网: https://ieee-msn.org/2024/\nDBLP
+ 索引: https://dblp.org/db/conf/msn
+LOCATION:Harbin\, China
+URL:https://ieee-msn.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MSN 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250915T235959
+DTEND;TZID="UTC-12:00":20250916T000059
+DTSTAMP:20250830T065444Z
+UID:3ac392a0-ebcd-4f7c-b447-9591837b3aab
+DESCRIPTION:International Conference on Mobility\, Sensing and Networking\
+ n🗓️ 会议时间: December 3-6\, 2025\n📍 会议地点: Bandung\, I
+ ndonesia\n⏰ 原始截止时间 (UTC-12): 2025-09-15 23:59:59\n分类: 
+ 计算机网络 (NW)\nCCF C\n会议官网: https://ieee-msn.org/2025\nDBLP
+ 索引: https://dblp.org/db/conf/msn
+LOCATION:Bandung\, Indonesia
+URL:https://ieee-msn.org/2025
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:NSDI 2022 摘要截稿
+DTSTART;TZID="UTC-08:00":20210304T205959
+DTEND;TZID="UTC-08:00":20210304T210059
+DTSTAMP:20250830T065444Z
+UID:bf0750cd-837d-47de-8e8c-4cc32586c040
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: April 4-6\, 2022\n📍 会议地点: RENTON\, USA
+ \n⏰ 原始截止时间 (UTC-8): 2021-03-04 20:59:59\n分类: 计算机
+ 网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.org/confere
+ nce/nsdi22/\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:RENTON\, USA
+URL:https://www.usenix.org/conference/nsdi22/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2022 摘要截稿
+DTSTART;TZID="UTC-08:00":20210909T205959
+DTEND;TZID="UTC-08:00":20210909T210059
+DTSTAMP:20250830T065444Z
+UID:1f7d81f2-7086-4249-9eba-e4b6215b079d
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: April 4-6\, 2022\n📍 会议地点: RENTON\, USA
+ \n⏰ 原始截止时间 (UTC-8): 2021-09-09 20:59:59\n分类: 计算机
+ 网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.org/confere
+ nce/nsdi22/\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:RENTON\, USA
+URL:https://www.usenix.org/conference/nsdi22/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-05:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-05:00
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:NSDI 2023 摘要截稿
+DTSTART;TZID="UTC-05:00":20220413T235959
+DTEND;TZID="UTC-05:00":20220414T000059
+DTSTAMP:20250830T065444Z
+UID:fb6392f9-15bf-4510-becc-09c82b43aefe
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: April 17-19\, 2023\n📍 会议地点: BOSTON\, U
+ SA\n⏰ 原始截止时间 (UTC-5): 2022-04-13 23:59:59\n分类: 计算机
+ 网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.org/confere
+ nce/nsdi23/\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:BOSTON\, USA
+URL:https://www.usenix.org/conference/nsdi23/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2023 摘要截稿
+DTSTART;TZID="UTC-05:00":20220913T235959
+DTEND;TZID="UTC-05:00":20220914T000059
+DTSTAMP:20250830T065444Z
+UID:a18e6f3b-aecb-44ce-9cfd-92c1753a8e7a
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: April 17-19\, 2023\n📍 会议地点: BOSTON\, U
+ SA\n⏰ 原始截止时间 (UTC-5): 2022-09-13 23:59:59\n分类: 计算机
+ 网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.org/confere
+ nce/nsdi23/\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:BOSTON\, USA
+URL:https://www.usenix.org/conference/nsdi23/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-07:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-07:00
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0700
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:NSDI 2024 摘要截稿
+DTSTART;TZID="UTC-07:00":20230427T205959
+DTEND;TZID="UTC-07:00":20230427T210059
+DTSTAMP:20250830T065444Z
+UID:702832b3-ccee-4c8e-a3de-1364300c1112
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: April 16-18\, 2024\n📍 会议地点: Santa Clar
+ a\, CA\, USA\n⏰ 原始截止时间 (UTC-7): 2023-04-27 20:59:59\n分类:
+  计算机网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.o
+ rg/conference/nsdi24/\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:Santa Clara\, CA\, USA
+URL:https://www.usenix.org/conference/nsdi24/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2024 摘要截稿
+DTSTART;TZID="UTC-07:00":20230914T205959
+DTEND;TZID="UTC-07:00":20230914T210059
+DTSTAMP:20250830T065444Z
+UID:7fd27ce2-b4db-4569-a501-289e350fd60f
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: April 16-18\, 2024\n📍 会议地点: Santa Clar
+ a\, CA\, USA\n⏰ 原始截止时间 (UTC-7): 2023-09-14 20:59:59\n分类:
+  计算机网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.o
+ rg/conference/nsdi24/\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:Santa Clara\, CA\, USA
+URL:https://www.usenix.org/conference/nsdi24/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2025 摘要截稿
+DTSTART;TZID="UTC-04:00":20240430T235959
+DTEND;TZID="UTC-04:00":20240501T000059
+DTSTAMP:20250830T065444Z
+UID:5e005573-be9c-4d08-a871-c8b15a98f35d
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: April 28-30\, 2025\n📍 会议地点: Philadelph
+ ia\, PA\, USA\n⏰ 原始截止时间 (UTC-4): 2024-04-30 23:59:59\n分类
+ : 计算机网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.
+ org/conference/nsdi25\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:Philadelphia\, PA\, USA
+URL:https://www.usenix.org/conference/nsdi25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2025 摘要截稿
+DTSTART;TZID="UTC-04:00":20240912T235959
+DTEND;TZID="UTC-04:00":20240913T000059
+DTSTAMP:20250830T065444Z
+UID:3c896d06-b119-485a-bb1e-c0517a6f0559
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: April 28-30\, 2025\n📍 会议地点: Philadelph
+ ia\, PA\, USA\n⏰ 原始截止时间 (UTC-4): 2024-09-12 23:59:59\n分类
+ : 计算机网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.
+ org/conference/nsdi25\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:Philadelphia\, PA\, USA
+URL:https://www.usenix.org/conference/nsdi25
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2026 摘要截稿
+DTSTART;TZID="UTC-07:00":20250418T235959
+DTEND;TZID="UTC-07:00":20250419T000059
+DTSTAMP:20250830T065444Z
+UID:413c3faf-28d7-4a66-875a-cc0fd1884f25
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: May 4-6\, 2026\n📍 会议地点: Renton\, WA\, 
+ USA\n⏰ 原始截止时间 (UTC-7): 2025-04-18 23:59:59\n分类: 计算
+ 机网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.org/conf
+ erence/nsdi26\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:Renton\, WA\, USA
+URL:https://www.usenix.org/conference/nsdi26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSDI 2026 摘要截稿
+DTSTART;TZID="UTC-07:00":20250911T235959
+DTEND;TZID="UTC-07:00":20250912T000059
+DTSTAMP:20250830T065444Z
+UID:bfe0af27-17c0-4359-9c17-026509a94f75
+DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
+ n\n🗓️ 会议时间: May 4-6\, 2026\n📍 会议地点: Renton\, WA\, 
+ USA\n⏰ 原始截止时间 (UTC-7): 2025-09-11 23:59:59\n分类: 计算
+ 机网络 (NW)\nCCF A\, THCPL A\n会议官网: https://www.usenix.org/conf
+ erence/nsdi26\nDBLP索引: https://dblp.org/db/conf/nsdi
+LOCATION:Renton\, WA\, USA
+URL:https://www.usenix.org/conference/nsdi26
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WASA 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250115T235959
+DTEND;TZID="UTC-12:00":20250116T000059
+DTSTAMP:20250830T065444Z
+UID:4aa27a6b-175a-46f9-88dd-b88cbc04a6e9
+DESCRIPTION:International Conference on Wireless Algorithms\, Systems\, an
+ d Applications\n🗓️ 会议时间: June 24-26\, 2025\n📍 会议地点
+ : Tokyo\, Japan\n⏰ 原始截止时间 (AoE): 2025-01-15 23:59:59\n分类
+ : 计算机网络 (NW)\nCCF C\n会议官网: http://wasa-conference.org/WA
+ SA2025/index.html\nDBLP索引: https://dblp.org/db/conf/wasa
+LOCATION:Tokyo\, Japan
+URL:http://wasa-conference.org/WASA2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WCNC 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20240902T235959
+DTEND;TZID="UTC-12:00":20240903T000059
+DTSTAMP:20250830T065444Z
+UID:31ceb6f4-27e7-4314-97e1-112c06fc67ed
+DESCRIPTION:Wireless Communications and Networking Conference\n🗓️ 会
+ 议时间: March 24-27\, 2025\n📍 会议地点: Milan\, Italy\n⏰ 原
+ 始截止时间 (UTC-12): 2024-09-02 23:59:59\n分类: 计算机网络 (NW
+ )\nCCF C\n会议官网: https://wcnc2025.ieee-wcnc.org/\nDBLP索引: https
+ ://dblp.org/db/conf/wcnc
+LOCATION:Milan\, Italy
+URL:https://wcnc2025.ieee-wcnc.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WCNC 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20250914T235959
+DTEND;TZID="UTC-12:00":20250915T000059
+DTSTAMP:20250830T065444Z
+UID:773a2480-a5d8-46d7-a138-5c5d05852356
+DESCRIPTION:Wireless Communications and Networking Conference\n🗓️ 会
+ 议时间: April 13-16\, 2026\n📍 会议地点: Kuala Lumpur\, Malaysia\
+ n⏰ 原始截止时间 (UTC-12): 2025-09-14 23:59:59\n分类: 计算机
+ 网络 (NW)\nCCF C\n会议官网: https://wcnc2026.ieee-wcnc.org/group/21\
+ nDBLP索引: https://dblp.org/db/conf/wcnc
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://wcnc2026.ieee-wcnc.org/group/21
+END:VEVENT
+END:VCALENDAR

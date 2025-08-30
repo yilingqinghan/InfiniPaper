@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:FMCAD 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250420T235900
+DTEND;TZID="UTC-12:00":20250421T000000
+DTSTAMP:20250830T065447Z
+UID:8a9731c0-2846-43bd-845f-f541ad467da6
+DESCRIPTION:Formal Methods in Computer-Aided Design\n🗓️ Date: Oct. 6-
+ 10\, 2025\n📍 Location: Menlo Park\, USA\n⏰ Original Deadline (AoE): 2
+ 025-04-20 23:59:00\nCategory: 计算机科学理论 (CT)\nCCF C\, CORE B\n
+ Conference Website: https://fmcad.forsyte.at/FMCAD25/\nDBLP Index: https:/
+ /dblp.org/db/conf/fmcad
+LOCATION:Menlo Park\, USA
+URL:https://fmcad.forsyte.at/FMCAD25/
+END:VEVENT
+END:VCALENDAR

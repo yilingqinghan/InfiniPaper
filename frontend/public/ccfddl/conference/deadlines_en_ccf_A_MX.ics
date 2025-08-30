@@ -1,0 +1,139 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:RTSS 2022 Deadline
+DTSTART;TZID="UTC-12:00":20220526T235959
+DTEND;TZID="UTC-12:00":20220527T000059
+DTSTAMP:20250830T065448Z
+UID:e0300d16-f271-4ae5-9527-624692189096
+DESCRIPTION:The IEEE Real-Time Systems Symposium\n🗓️ Date: December 5
+ -8\, 2022\n📍 Location: Houston\, USA\n⏰ Original Deadline (AoE): 2022
+ -05-26 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\, CORE A*\, TH
+ CPL B\nConference Website: http://2022.rtss.org/\nDBLP Index: https://dblp
+ .org/db/conf/rtss
+LOCATION:Houston\, USA
+URL:http://2022.rtss.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RTSS 2025 Deadline
+DTSTART;TZID="UTC-12:00":20250522T235959
+DTEND;TZID="UTC-12:00":20250523T000059
+DTSTAMP:20250830T065448Z
+UID:cabc51db-5f8a-442a-a531-8e7c02708cb5
+DESCRIPTION:The IEEE Real-Time Systems Symposium\n🗓️ Date: December 2
+ -5\, 2025\n📍 Location: Boston\, MA\, USA\n⏰ Original Deadline (AoE): 
+ 2025-05-22 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\, CORE A*\
+ , THCPL B\nConference Website: http://2025.rtss.org/\nDBLP Index: https://
+ dblp.org/db/conf/rtss
+LOCATION:Boston\, MA\, USA
+URL:http://2025.rtss.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WINE 2023 Deadline
+DTSTART;TZID="UTC-12:00":20230707T235959
+DTEND;TZID="UTC-12:00":20230708T000059
+DTSTAMP:20250830T065448Z
+UID:6b02b9be-7918-4a9b-a709-40d5b7184b94
+DESCRIPTION:Conference on Web and Internet Economics\n🗓️ Date: Dec 04
+ -08\, 2023\n📍 Location: Shanghai\, China\n⏰ Original Deadline (AoE): 
+ 2023-07-07 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\nConferenc
+ e Website: https://wine2023.shanghaitech.edu.cn/\nDBLP Index: https://dblp
+ .org/db/conf/wine
+LOCATION:Shanghai\, China
+URL:https://wine2023.shanghaitech.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2021 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20201012T235959
+DTEND;TZID="UTC-12:00":20201013T000059
+DTSTAMP:20250830T065448Z
+UID:2d0c488e-f8c3-49e8-9523-539c597acbfa
+DESCRIPTION:International World Wide Web Conferences\n🗓️ Date: April 
+ 19-23\, 2021\n📍 Location: Ljubljana\, Slovenia\n⏰ Original Deadline (
+ AoE): 2020-10-12 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\, CO
+ RE A*\, THCPL A\nConference Website: https://www2021.thewebconf.org/\nDBLP
+  Index: https://dblp.org/db/conf/www
+LOCATION:Ljubljana\, Slovenia
+URL:https://www2021.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2022 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20211014T235959
+DTEND;TZID="UTC-12:00":20211015T000059
+DTSTAMP:20250830T065448Z
+UID:aa1b11a7-113b-4583-9e5b-07449cc479ed
+DESCRIPTION:International World Wide Web Conferences\n🗓️ Date: April 
+ 25-29\, 2022\n📍 Location: Lyon\, France\n⏰ Original Deadline (AoE): 2
+ 021-10-14 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\, CORE A*\,
+  THCPL A\nConference Website: https://www2022.thewebconf.org/\nDBLP Index:
+  https://dblp.org/db/conf/www
+LOCATION:Lyon\, France
+URL:https://www2022.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2023 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20221006T235959
+DTEND;TZID="UTC-12:00":20221007T000059
+DTSTAMP:20250830T065448Z
+UID:9571dc96-24d2-4e19-9915-5f538091f0d2
+DESCRIPTION:International World Wide Web Conferences\n🗓️ Date: May 1-
+ 5\, 2023\n📍 Location: Austin\, Texas\, USA\n⏰ Original Deadline (AoE)
+ : 2022-10-06 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\, CORE A
+ *\, THCPL A\nConference Website: https://www2023.thewebconf.org/\nDBLP Ind
+ ex: https://dblp.org/db/conf/www
+LOCATION:Austin\, Texas\, USA
+URL:https://www2023.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20231005T235959
+DTEND;TZID="UTC-12:00":20231006T000059
+DTSTAMP:20250830T065448Z
+UID:ebc1f8a1-c33d-4d58-bb68-34a7f5ddef2a
+DESCRIPTION:International World Wide Web Conferences\n🗓️ Date: May 13
+ -17\, 2024\n📍 Location: Singapore\n⏰ Original Deadline (AoE): 2023-10
+ -05 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\, CORE A*\, THCPL
+  A\nConference Website: https://www2024.thewebconf.org/\nDBLP Index: https
+ ://dblp.org/db/conf/www
+LOCATION:Singapore
+URL:https://www2024.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20241007T235959
+DTEND;TZID="UTC-12:00":20241008T000059
+DTSTAMP:20250830T065448Z
+UID:85e20b90-6789-4c60-b6f8-9222cfc7671d
+DESCRIPTION:International World Wide Web Conferences\n🗓️ Date: April 
+ 28 - May 2\, 2025\n📍 Location: Sydney\, Australia\n⏰ Original Deadlin
+ e (AoE): 2024-10-07 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\,
+  CORE A*\, THCPL A\nConference Website: https://www2025.thewebconf.org/\nD
+ BLP Index: https://dblp.org/db/conf/www
+LOCATION:Sydney\, Australia
+URL:https://www2025.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2026 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250930T235959
+DTEND;TZID="UTC-12:00":20251001T000059
+DTSTAMP:20250830T065448Z
+UID:7ac5f54b-7808-4538-903d-d36de1cb041f
+DESCRIPTION:International World Wide Web Conferences\n🗓️ Date: April 
+ 13 - 17\, 2026\n📍 Location: Dubaï\, UAE\n⏰ Original Deadline (AoE): 
+ 2025-09-30 23:59:59\nCategory: 交叉/综合/新兴 (MX)\nCCF A\, CORE A*\
+ , THCPL A\nConference Website: https://www2026.thewebconf.org/\nDBLP Index
+ : https://dblp.org/db/conf/www
+LOCATION:Dubaï\, UAE
+URL:https://www2026.thewebconf.org/
+END:VEVENT
+END:VCALENDAR

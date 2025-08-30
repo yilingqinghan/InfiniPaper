@@ -1,0 +1,133 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:Cloud 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250310T230000
+DTEND;TZID="UTC-12:00":20250310T230100
+DTSTAMP:20250830T065444Z
+UID:93003d87-ccbc-48d1-acda-ce7c8b439d94
+DESCRIPTION:IEEE International Conference on Cloud Computing\n🗓️ 会
+ 议时间: July 7-12\, 2025\n📍 会议地点: Helsinki\, Finland\n⏰ 
+ 原始截止时间 (AoE): 2025-03-10 23:00:00\n分类: 交叉/综合/新
+ 兴 (MX)\nCCF C\, CORE B\, THCPL B\n会议官网: https://services.confere
+ nces.computer.org/2025/cloud/\nDBLP索引: https://dblp.org/db/conf/IEEEcl
+ oud
+LOCATION:Helsinki\, Finland
+URL:https://services.conferences.computer.org/2025/cloud/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EMSOFT 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250323T235959
+DTEND;TZID="UTC-12:00":20250324T000059
+DTSTAMP:20250830T065444Z
+UID:3cb2f68b-4901-4dfe-8a66-e7a89ddcf334
+DESCRIPTION:International Conference on Embedded Software\n🗓️ 会议
+ 时间: September 28 - October 3\, 2025\n📍 会议地点: TAIPEI\, TAIWA
+ N\n⏰ 原始截止时间 (AoE): 2025-03-23 23:59:59\n分类: 交叉/综
+ 合/新兴 (MX)\nCCF B\, THCPL B\n会议官网: https://esweek.org/emsoft/
+ \nDBLP索引: https://dblp.org/db/conf/emsoft
+LOCATION:TAIPEI\, TAIWAN
+URL:https://esweek.org/emsoft/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+00:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+00:00
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:MICCAI 2023 截稿日期 [Paper submission deadline]
+DTSTART:20230309T235959Z
+DTEND:20230310T000059Z
+DTSTAMP:20250830T065444Z
+UID:351cfea5-a72d-4da7-86c0-4530573f64f8
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ 会议时间: Oct 8-12\, 2023\n📍 会
+ 议地点: Vancouver\, Canada\n⏰ 原始截止时间 (UTC+0): 2023-03-09 
+ 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THCPL B\n会
+ 议官网: https://conferences.miccai.org/2023/en/\nDBLP索引: https://db
+ lp.org/db/conf/miccai
+LOCATION:Vancouver\, Canada
+URL:https://conferences.miccai.org/2023/en/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:MICCAI 2024 截稿日期 [Main conference papers]
+DTSTART;TZID="UTC-08:00":20240307T235959
+DTEND;TZID="UTC-08:00":20240308T000059
+DTSTAMP:20250830T065444Z
+UID:f419fcbe-e948-4c56-8a97-12fc6e176b98
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ 会议时间: Oct 6-10\, 2024\n📍 会
+ 议地点: Marrakesh\, Morocco\n⏰ 原始截止时间 (UTC-8): 2024-03-07
+  23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THCPL B\n
+ 会议官网: https://conferences.miccai.org/2024/en/\nDBLP索引: https:/
+ /dblp.org/db/conf/miccai
+LOCATION:Marrakesh\, Morocco
+URL:https://conferences.miccai.org/2024/en/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MICCAI 2025 摘要截稿
+DTSTART;TZID="UTC-08:00":20250213T235900
+DTEND;TZID="UTC-08:00":20250214T000000
+DTSTAMP:20250830T065444Z
+UID:45119971-3c72-45a6-9e97-48bfb13d9525
+DESCRIPTION:International Conference on Medical Image Computing and Comput
+ er Assisted Intervention\n🗓️ 会议时间: Sep 23-27\, 2025\n📍 会
+ 议地点: Daejeon\, Republic of Korea\n⏰ 原始截止时间 (UTC-8): 20
+ 25-02-13 23:59:00\n分类: 交叉/综合/新兴 (MX)\nCCF B\, CORE A\, THC
+ PL B\n会议官网: https://conferences.miccai.org/2025/en/default.asp\nDB
+ LP索引: https://dblp.org/db/conf/miccai
+LOCATION:Daejeon\, Republic of Korea
+URL:https://conferences.miccai.org/2025/en/default.asp
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RTSS 2022 截稿日期
+DTSTART;TZID="UTC-12:00":20220526T235959
+DTEND;TZID="UTC-12:00":20220527T000059
+DTSTAMP:20250830T065444Z
+UID:f04bfaa7-e743-4727-8b93-0ffc35635f68
+DESCRIPTION:The IEEE Real-Time Systems Symposium\n🗓️ 会议时间: De
+ cember 5-8\, 2022\n📍 会议地点: Houston\, USA\n⏰ 原始截止时
+ 间 (AoE): 2022-05-26 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF A\,
+  CORE A*\, THCPL B\n会议官网: http://2022.rtss.org/\nDBLP索引: https
+ ://dblp.org/db/conf/rtss
+LOCATION:Houston\, USA
+URL:http://2022.rtss.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:RTSS 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250522T235959
+DTEND;TZID="UTC-12:00":20250523T000059
+DTSTAMP:20250830T065444Z
+UID:f812e51e-e898-4b15-9c5b-367dba77662c
+DESCRIPTION:The IEEE Real-Time Systems Symposium\n🗓️ 会议时间: De
+ cember 2-5\, 2025\n📍 会议地点: Boston\, MA\, USA\n⏰ 原始截止
+ 时间 (AoE): 2025-05-22 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF 
+ A\, CORE A*\, THCPL B\n会议官网: http://2025.rtss.org/\nDBLP索引: ht
+ tps://dblp.org/db/conf/rtss
+LOCATION:Boston\, MA\, USA
+URL:http://2025.rtss.org/
+END:VEVENT
+END:VCALENDAR

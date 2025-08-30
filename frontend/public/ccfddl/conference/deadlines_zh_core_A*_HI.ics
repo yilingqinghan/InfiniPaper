@@ -1,0 +1,153 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CHI 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20230907T235959
+DTEND;TZID="UTC-12:00":20230908T000059
+DTSTAMP:20250830T065444Z
+UID:c71ea891-9300-480d-bb76-54d77b26d1d3
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ 会议时间: May 11 - May 16\, 2024\n📍 会议地点: Honolulu\, Hawaii
+ \, USA\n⏰ 原始截止时间 (AoE): 2023-09-07 23:59:59\n分类: 人机
+ 交互与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\n会议官网: http:
+ //chi2024.acm.org/\nDBLP索引: https://dblp.org/db/conf/chi
+LOCATION:Honolulu\, Hawaii\, USA
+URL:http://chi2024.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHI 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240905T235959
+DTEND;TZID="UTC-12:00":20240906T000059
+DTSTAMP:20250830T065444Z
+UID:81bda8c7-756d-45ae-8638-8e6ffa7b820a
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ 会议时间: April 26 - May 1\, 2025\n📍 会议地点: Yokohama\, Japan
+ \n⏰ 原始截止时间 (AoE): 2024-09-05 23:59:59\n分类: 人机交互
+ 与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://chi
+ 2025.acm.org/\nDBLP索引: https://dblp.org/db/conf/chi
+LOCATION:Yokohama\, Japan
+URL:https://chi2025.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHI 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250904T235959
+DTEND;TZID="UTC-12:00":20250905T000059
+DTSTAMP:20250830T065444Z
+UID:b372ccce-87b9-4d68-a37e-35b692deb66a
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ 会议时间: April 13 - 17\, 2026\n📍 会议地点: Centre de Convencio
+ ns Internacional de Barcelona\, Barcelona\, Spain\n⏰ 原始截止时间 
+ (AoE): 2025-09-04 23:59:59\n分类: 人机交互与普适计算 (HI)\nCCF 
+ A\, CORE A*\, THCPL A\n会议官网: https://chi2026.acm.org/\nDBLP索引:
+  https://dblp.org/db/conf/chi
+LOCATION:Centre de Convencions Internacional de Barcelona\, Barcelona\, Sp
+ ain
+URL:https://chi2026.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PerCom 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240929T235900
+DTEND;TZID="UTC-12:00":20240930T000000
+DTSTAMP:20250830T065444Z
+UID:d65d8f84-f653-4fab-8489-2e4fb0162e13
+DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
+ nications\n🗓️ 会议时间: March 17 - 21\, 2025\n📍 会议地点: 
+ Walter E. Washington Convention Center\, Washington DC\, USA\n⏰ 原始
+ 截止时间 (AoE): 2024-09-29 23:59:00\n分类: 人机交互与普适计
+ 算 (HI)\nCCF B\, CORE A*\, THCPL B\n会议官网: https://percom.org/\nDB
+ LP索引: https://dblp.org/db/conf/percom
+LOCATION:Walter E. Washington Convention Center\, Washington DC\, USA
+URL:https://percom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PerCom 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250912T235900
+DTEND;TZID="UTC-12:00":20250913T000000
+DTSTAMP:20250830T065444Z
+UID:039f56d9-8e40-40ae-b400-6d25e88f20d9
+DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
+ nications\n🗓️ 会议时间: March 16 - 20\, 2026\n📍 会议地点: 
+ Pisa\, Italy\n⏰ 原始截止时间 (AoE): 2025-09-12 23:59:00\n分类: 
+ 人机交互与普适计算 (HI)\nCCF B\, CORE A*\, THCPL B\n会议官网:
+  https://percom.org/\nDBLP索引: https://dblp.org/db/conf/percom
+LOCATION:Pisa\, Italy
+URL:https://percom.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UIST 2024 截稿日期 [abstract deadline]
+DTSTART;TZID="UTC-08:00":20240327T170000
+DTEND;TZID="UTC-08:00":20240327T170100
+DTSTAMP:20250830T065444Z
+UID:c2038351-5d66-44c3-abed-0b9843b2658d
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ 会议时间: October 13-16\, 2024\n📍 会议地点: Pittsburgh\, Pe
+ nnsylvania\, USA\n⏰ 原始截止时间 (UTC-8): 2024-03-27 17:00:00\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\n会议
+ 官网: https://uist.acm.org/2024\nDBLP索引: https://dblp.org/db/conf/ui
+ st
+LOCATION:Pittsburgh\, Pennsylvania\, USA
+URL:https://uist.acm.org/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2024 截稿日期 [paper deadline]
+DTSTART;TZID="UTC-08:00":20240403T170000
+DTEND;TZID="UTC-08:00":20240403T170100
+DTSTAMP:20250830T065444Z
+UID:be4ac78d-209b-4e70-859d-3d2d53be5d50
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ 会议时间: October 13-16\, 2024\n📍 会议地点: Pittsburgh\, Pe
+ nnsylvania\, USA\n⏰ 原始截止时间 (UTC-8): 2024-04-03 17:00:00\n分
+ 类: 人机交互与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\n会议
+ 官网: https://uist.acm.org/2024\nDBLP索引: https://dblp.org/db/conf/ui
+ st
+LOCATION:Pittsburgh\, Pennsylvania\, USA
+URL:https://uist.acm.org/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2025 截稿日期 [abstract deadline]
+DTSTART;TZID="UTC-08:00":20250402T170000
+DTEND;TZID="UTC-08:00":20250402T170100
+DTSTAMP:20250830T065444Z
+UID:f8d966b3-4d6e-430f-9028-3acdfd25699c
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ 会议时间: Sep 28 - Oct 1\, 2025\n📍 会议地点: Busan\, Korea\
+ n⏰ 原始截止时间 (UTC-8): 2025-04-02 17:00:00\n分类: 人机交互
+ 与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://uis
+ t.acm.org/2025/\nDBLP索引: https://dblp.org/db/conf/uist
+LOCATION:Busan\, Korea
+URL:https://uist.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2025 截稿日期 [paper deadline]
+DTSTART;TZID="UTC-08:00":20250409T170000
+DTEND;TZID="UTC-08:00":20250409T170100
+DTSTAMP:20250830T065444Z
+UID:44405a51-a500-415a-ba3a-d521e468396e
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ 会议时间: Sep 28 - Oct 1\, 2025\n📍 会议地点: Busan\, Korea\
+ n⏰ 原始截止时间 (UTC-8): 2025-04-09 17:00:00\n分类: 人机交互
+ 与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://uis
+ t.acm.org/2025/\nDBLP索引: https://dblp.org/db/conf/uist
+LOCATION:Busan\, Korea
+URL:https://uist.acm.org/2025/
+END:VEVENT
+END:VCALENDAR

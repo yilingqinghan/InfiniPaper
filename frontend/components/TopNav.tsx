@@ -3,13 +3,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Search, BookOpen, UploadCloud, Tags, TrendingUp, Sparkles
+  Search, BookOpen, UploadCloud, Tags, TrendingUp, Sparkles, CalendarClock
 } from "lucide-react";
 
 type Item = { href: string; label: string; icon: React.ComponentType<any>; grad: string; key: string };
 
 const NAV_ITEMS: Item[] = [
   { key: "search",  label: "搜索",     href: "/search",  icon: Search,     grad: "from-sky-500 to-cyan-400" },
+  { key: "ccf",     label: "CCF 截止", href: "/ccf",     icon: CalendarClock, grad: "from-sky-500 to-violet-500" },
   { key: "library", label: "论文列表", href: "/library", icon: BookOpen,   grad: "from-indigo-500 to-fuchsia-500" },
   { key: "import",  label: "导入",     href: "/library?import=1", icon: UploadCloud, grad: "from-emerald-500 to-lime-400" },
   { key: "tags",    label: "标签",     href: "/tags",    icon: Tags,       grad: "from-rose-500 to-orange-500" },

@@ -1,0 +1,844 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ACISP 2021 截稿日期 [Paper submission Deadline]
+DTSTART;TZID="UTC-12:00":20210225T235959
+DTEND;TZID="UTC-12:00":20210226T000059
+DTSTAMP:20250830T065444Z
+UID:0ec50abe-36a7-43db-bbe7-f87883218a3f
+DESCRIPTION:Australasia Conference on Information Security and Privacy\n
+ 🗓️ 会议时间: December 1-3\, 2021\n📍 会议地点: Perth\, Aust
+ ralia\n⏰ 原始截止时间 (AoE): 2021-02-25 23:59:59\n分类: 网络
+ 与信息安全 (SC)\nCCF C\n会议官网: https://data61dsslab.github.io/
+ acisp2021/\nDBLP索引: https://dblp.org/db/conf/acisp
+LOCATION:Perth\, Australia
+URL:https://data61dsslab.github.io/acisp2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACISP 2024 截稿日期 [1st round Deadline]
+DTSTART;TZID="UTC-12:00":20231106T235959
+DTEND;TZID="UTC-12:00":20231107T000059
+DTSTAMP:20250830T065444Z
+UID:29725a8a-a441-41cf-9911-3f941a2509ad
+DESCRIPTION:Australasia Conference on Information Security and Privacy\n
+ 🗓️ 会议时间: July 15-17\, 2024\n📍 会议地点: Australia\n⏰
+  原始截止时间 (AoE): 2023-11-06 23:59:59\n分类: 网络与信息安
+ 全 (SC)\nCCF C\n会议官网: https://www.acisp24.com/\nDBLP索引: https
+ ://dblp.org/db/conf/acisp
+LOCATION:Australia
+URL:https://www.acisp24.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACISP 2024 截稿日期 [2nd round Deadline]
+DTSTART;TZID="UTC-12:00":20240219T235959
+DTEND;TZID="UTC-12:00":20240220T000059
+DTSTAMP:20250830T065444Z
+UID:a9373123-9a20-438c-9111-70efb42febc7
+DESCRIPTION:Australasia Conference on Information Security and Privacy\n
+ 🗓️ 会议时间: July 15-17\, 2024\n📍 会议地点: Australia\n⏰
+  原始截止时间 (AoE): 2024-02-19 23:59:59\n分类: 网络与信息安
+ 全 (SC)\nCCF C\n会议官网: https://www.acisp24.com/\nDBLP索引: https
+ ://dblp.org/db/conf/acisp
+LOCATION:Australia
+URL:https://www.acisp24.com/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACISP 2025 截稿日期 [1st round Deadline]
+DTSTART;TZID="UTC-12:00":20241106T235959
+DTEND;TZID="UTC-12:00":20241107T000059
+DTSTAMP:20250830T065444Z
+UID:e834e494-62e0-43cd-ad6f-99a4d94e691c
+DESCRIPTION:Australasia Conference on Information Security and Privacy\n
+ 🗓️ 会议时间: July 14-16\, 2025\n📍 会议地点: Wollongong\, A
+ ustralia\n⏰ 原始截止时间 (AoE): 2024-11-06 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF C\n会议官网: https://uow-ic2.github.io/ac
+ isp2025/\nDBLP索引: https://dblp.org/db/conf/acisp
+LOCATION:Wollongong\, Australia
+URL:https://uow-ic2.github.io/acisp2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ACISP 2025 截稿日期 [2nd round Deadline]
+DTSTART;TZID="UTC-12:00":20250219T235959
+DTEND;TZID="UTC-12:00":20250220T000059
+DTSTAMP:20250830T065444Z
+UID:d6887852-bde0-481b-a534-3ffcb942f5ce
+DESCRIPTION:Australasia Conference on Information Security and Privacy\n
+ 🗓️ 会议时间: July 14-16\, 2025\n📍 会议地点: Wollongong\, A
+ ustralia\n⏰ 原始截止时间 (AoE): 2025-02-19 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF C\n会议官网: https://uow-ic2.github.io/ac
+ isp2025/\nDBLP索引: https://dblp.org/db/conf/acisp
+LOCATION:Wollongong\, Australia
+URL:https://uow-ic2.github.io/acisp2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DFRWS 2022 截稿日期 [Paper submission deadline]
+DTSTART;TZID="UTC-12:00":20211003T235959
+DTEND;TZID="UTC-12:00":20211004T000059
+DTSTAMP:20250830T065444Z
+UID:cf1a347b-638e-463b-bd7b-d3b2967e8bc3
+DESCRIPTION:Digital Forensic Research Workshop\n🗓️ 会议时间: Marc
+ h 28-31 \, 2022\n📍 会议地点: Online and Physical (Location TBC)\n
+ ⏰ 原始截止时间 (AoE): 2021-10-03 23:59:59\n分类: 网络与信息
+ 安全 (SC)\nCCF C\n会议官网: https://dfrws.org/conferences/dfrws-eu-2
+ 022/\nDBLP索引: https://dblp.org/db/conf/dfrws
+LOCATION:Online and Physical (Location TBC)
+URL:https://dfrws.org/conferences/dfrws-eu-2022/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DFRWS 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20240920T235959
+DTEND;TZID="UTC-12:00":20240921T000059
+DTSTAMP:20250830T065444Z
+UID:1e3f178c-7a33-40b6-8634-d0c470de1700
+DESCRIPTION:Digital Forensic Research Workshop\n🗓️ 会议时间: Apri
+ l 1-4\, 2025\n📍 会议地点: Brno\, Czech Republic\n⏰ 原始截止
+ 时间 (AoE): 2024-09-20 23:59:59\n分类: 网络与信息安全 (SC)\nCCF
+  C\n会议官网: https://dfrws.org/conferences/dfrws-eu-2025/\nDBLP索引
+ : https://dblp.org/db/conf/dfrws
+LOCATION:Brno\, Czech Republic
+URL:https://dfrws.org/conferences/dfrws-eu-2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DFRWS 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250919T235959
+DTEND;TZID="UTC-12:00":20250920T000059
+DTSTAMP:20250830T065444Z
+UID:fc916430-0e3a-4dc0-9c37-599e8958d9b9
+DESCRIPTION:Digital Forensic Research Workshop\n🗓️ 会议时间: Marc
+ h 24-27\, 2026\n📍 会议地点: Linköping\, Sweden\n⏰ 原始截止
+ 时间 (AoE): 2025-09-19 23:59:59\n分类: 网络与信息安全 (SC)\nCCF
+  C\n会议官网: https://dfrws.org/conferences/dfrws-eu-2026/\nDBLP索引
+ : https://dblp.org/db/conf/dfrws
+LOCATION:Linköping\, Sweden
+URL:https://dfrws.org/conferences/dfrws-eu-2026/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroS&P 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231102T235959
+DTEND;TZID="UTC-12:00":20231103T000059
+DTSTAMP:20250830T065444Z
+UID:cc03326b-2dfd-408c-b6aa-6531f574d5a4
+DESCRIPTION:IEEE European Symposium on Security and Privacy\n🗓️ 会
+ 议时间: July 8-12\, 2024\n📍 会议地点: Vienna\, Austria\n⏰ 原
+ 始截止时间 (UTC-12): 2023-11-02 23:59:59\n分类: 网络与信息安
+ 全 (SC)\nCCF C\n会议官网: https://eurosp2024.ieee-security.org/\nDBLP
+ 索引: https://dblp.org/db/conf/eurosp
+LOCATION:Vienna\, Austria
+URL:https://eurosp2024.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroS&P 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20241024T235959
+DTEND;TZID="UTC-12:00":20241025T000059
+DTSTAMP:20250830T065444Z
+UID:d0fb7a55-cb95-402d-83c6-905ca7ab5aee
+DESCRIPTION:IEEE European Symposium on Security and Privacy\n🗓️ 会
+ 议时间: June 30-July 4\, 2025\n📍 会议地点: Venice\, Italy\n⏰ 
+ 原始截止时间 (UTC-12): 2024-10-24 23:59:59\n分类: 网络与信息
+ 安全 (SC)\nCCF C\n会议官网: https://eurosp2025.ieee-security.org/\nD
+ BLP索引: https://dblp.org/db/conf/eurosp
+LOCATION:Venice\, Italy
+URL:https://eurosp2025.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:EuroS&P 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20251120T235959
+DTEND;TZID="UTC-12:00":20251121T000059
+DTSTAMP:20250830T065444Z
+UID:527caa9b-a936-4a1c-a8b8-c829139e6f59
+DESCRIPTION:IEEE European Symposium on Security and Privacy\n🗓️ 会
+ 议时间: July 6 - 10\, 2026\n📍 会议地点: Lisbon\, Portugal\n⏰ 
+ 原始截止时间 (UTC-12): 2025-11-20 23:59:59\n分类: 网络与信息
+ 安全 (SC)\nCCF C\n会议官网: https://eurosp2026.ieee-security.org/\nD
+ BLP索引: https://dblp.org/db/conf/eurosp
+LOCATION:Lisbon\, Portugal
+URL:https://eurosp2026.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:HotSec 2021 截稿日期 [Extended]
+DTSTART;TZID="UTC-12:00":20211012T235959
+DTEND;TZID="UTC-12:00":20211013T000059
+DTSTAMP:20250830T065444Z
+UID:5867b32e-9b5e-4256-8a2e-52c12b9815d8
+DESCRIPTION:USENIX Workshop on Hot Topics in Security\n🗓️ 会议时
+ 间: Extended\n📍 会议地点: Vancouver\, British Columbia\, Canada\n
+ ⏰ 原始截止时间 (AoE): 2021-10-12 23:59:59\n分类: 网络与信息
+ 安全 (SC)\nCCF C\n会议官网: https://www.usenix.org/conferences/bynam
+ e/158\nDBLP索引: https://dblp.org/db/conf/events
+LOCATION:Vancouver\, British Columbia\, Canada
+URL:https://www.usenix.org/conferences/byname/158
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDF2C 2021 截稿日期 [Main Track Full Paper Submission deadlin
+ e]
+DTSTART;TZID="UTC-12:00":20210616T235959
+DTEND;TZID="UTC-12:00":20210617T000059
+DTSTAMP:20250830T065444Z
+UID:48f043f3-4f8d-48dc-9bda-cfb4bd4f6d54
+DESCRIPTION:International Conference on Digital Forensics & Cyber Crime\n
+ 🗓️ 会议时间: December 7-9\, 2021\n📍 会议地点: Singapore\, 
+ Singapore\n⏰ 原始截止时间 (UTC-12): 2021-06-16 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF C\n会议官网: https://icdf2c.eai-confer
+ ences.org/2021/\nDBLP索引: https://dblp.org/db/conf/icdf2c
+LOCATION:Singapore\, Singapore
+URL:https://icdf2c.eai-conferences.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDF2C 2021 截稿日期 [Late Track Full Paper Submission deadlin
+ e]
+DTSTART;TZID="UTC-12:00":20210726T235959
+DTEND;TZID="UTC-12:00":20210727T000059
+DTSTAMP:20250830T065444Z
+UID:12f6588c-6041-4897-a06c-9d93451ad3cb
+DESCRIPTION:International Conference on Digital Forensics & Cyber Crime\n
+ 🗓️ 会议时间: December 7-9\, 2021\n📍 会议地点: Singapore\, 
+ Singapore\n⏰ 原始截止时间 (UTC-12): 2021-07-26 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF C\n会议官网: https://icdf2c.eai-confer
+ ences.org/2021/\nDBLP索引: https://dblp.org/db/conf/icdf2c
+LOCATION:Singapore\, Singapore
+URL:https://icdf2c.eai-conferences.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDF2C 2024 截稿日期 [Full Paper Submission deadline]
+DTSTART;TZID="UTC-12:00":20240430T235959
+DTEND;TZID="UTC-12:00":20240501T000059
+DTSTAMP:20250830T065444Z
+UID:36f7a8ef-3012-4733-bd3b-2c93380845b5
+DESCRIPTION:International Conference on Digital Forensics & Cyber Crime\n
+ 🗓️ 会议时间: October 9-10\, 2024\n📍 会议地点: Dubrovnik\, 
+ Croatia\n⏰ 原始截止时间 (UTC-12): 2024-04-30 23:59:59\n分类: 网
+ 络与信息安全 (SC)\nCCF C\n会议官网: https://icdf2c.eai-conferenc
+ es.org/2024/\nDBLP索引: https://dblp.org/db/conf/icdf2c
+LOCATION:Dubrovnik\, Croatia
+URL:https://icdf2c.eai-conferences.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICDF2C 2025 截稿日期 [Full Paper Submission deadline]
+DTSTART;TZID="UTC-12:00":20250531T235959
+DTEND;TZID="UTC-12:00":20250601T000059
+DTSTAMP:20250830T065444Z
+UID:a791cc89-68de-4af3-865f-b4522a8ab2d5
+DESCRIPTION:International Conference on Digital Forensics & Cyber Crime\n
+ 🗓️ 会议时间: November 17-19\, 2025\n📍 会议地点: Miami\, Fl
+ orida\, USA\n⏰ 原始截止时间 (UTC-12): 2025-05-31 23:59:59\n分类:
+  网络与信息安全 (SC)\nCCF C\n会议官网: https://icdf2c.eai-confe
+ rences.org/2025/\nDBLP索引: https://dblp.org/db/conf/icdf2c
+LOCATION:Miami\, Florida\, USA
+URL:https://icdf2c.eai-conferences.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2021 截稿日期 [Paper Submission deadline]
+DTSTART;TZID="UTC-12:00":20210522T235959
+DTEND;TZID="UTC-12:00":20210523T000059
+DTSTAMP:20250830T065444Z
+UID:987f1635-95c2-4b63-9cce-4950b5a3d60d
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ 会议时间: September 17-19\, 2021\n📍 会议地点: Ch
+ ongqing\, China\n⏰ 原始截止时间 (AoE): 2021-05-22 23:59:59\n分类
+ : 网络与信息安全 (SC)\nCCF C\, CORE C\n会议官网: https://icics.
+ cn/\nDBLP索引: https://dblp.org/db/conf/icics
+LOCATION:Chongqing\, China
+URL:https://icics.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230330T235959
+DTEND;TZID="UTC-12:00":20230331T000059
+DTSTAMP:20250830T065444Z
+UID:e56393b4-5e3d-4951-9687-1eebfc7e9e42
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ 会议时间: November 18-20\, 2023\n📍 会议地点: Nan
+ kai University\, Tianjin\, China\n⏰ 原始截止时间 (AoE): 2023-03-30
+  23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE C\n会议官
+ 网: https://icics23.nankai.edu.cn/\nDBLP索引: https://dblp.org/db/conf/
+ icics
+LOCATION:Nankai University\, Tianjin\, China
+URL:https://icics23.nankai.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2024 截稿日期 [First Cycle]
+DTSTART;TZID="UTC-12:00":20240216T235959
+DTEND;TZID="UTC-12:00":20240217T000059
+DTSTAMP:20250830T065444Z
+UID:7182cf30-8c8c-4918-a63e-f6c4ce43ea0b
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ 会议时间: August 26-28\, 2024\n📍 会议地点: Mytil
+ ene\, Greece\n⏰ 原始截止时间 (AoE): 2024-02-16 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF C\, CORE C\n会议官网: http://icics2024
+ .aegean.gr/\nDBLP索引: https://dblp.org/db/conf/icics
+LOCATION:Mytilene\, Greece
+URL:http://icics2024.aegean.gr/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2024 截稿日期 [Second Cycle]
+DTSTART;TZID="UTC-12:00":20240419T235959
+DTEND;TZID="UTC-12:00":20240420T000059
+DTSTAMP:20250830T065444Z
+UID:ba9d6369-fe6d-4361-ab1a-1f35e9c9d204
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ 会议时间: August 26-28\, 2024\n📍 会议地点: Mytil
+ ene\, Greece\n⏰ 原始截止时间 (AoE): 2024-04-19 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF C\, CORE C\n会议官网: http://icics2024
+ .aegean.gr/\nDBLP索引: https://dblp.org/db/conf/icics
+LOCATION:Mytilene\, Greece
+URL:http://icics2024.aegean.gr/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+08:00
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:ICICS 2025 截稿日期 [First round]
+DTSTART;TZID="UTC+08:00":20250228T235959
+DTEND;TZID="UTC+08:00":20250301T000059
+DTSTAMP:20250830T065444Z
+UID:402bc84e-5262-4908-ba71-5f51a958ac9c
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ 会议时间: October 29-31\, 2025\n📍 会议地点: Nanj
+ ing\, China\n⏰ 原始截止时间 (UTC+8): 2025-02-28 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF C\, CORE C\n会议官网: https://www.icic
+ s2025.org/\nDBLP索引: https://dblp.org/db/conf/icics
+LOCATION:Nanjing\, China
+URL:https://www.icics2025.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ICICS 2025 截稿日期 [Second round]
+DTSTART;TZID="UTC+08:00":20250523T235959
+DTEND;TZID="UTC+08:00":20250524T000059
+DTSTAMP:20250830T065444Z
+UID:5be251d8-d727-42e9-81f5-1947a747dc12
+DESCRIPTION:International Conference on Information and Communications Sec
+ urity\n🗓️ 会议时间: October 29-31\, 2025\n📍 会议地点: Nanj
+ ing\, China\n⏰ 原始截止时间 (UTC+8): 2025-05-23 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF C\, CORE C\n会议官网: https://www.icic
+ s2025.org/\nDBLP索引: https://dblp.org/db/conf/icics
+LOCATION:Nanjing\, China
+URL:https://www.icics2025.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IFIP WG 11.9 2022 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20211015T235959
+DTEND;TZID="UTC-12:00":20211016T000059
+DTSTAMP:20250830T065444Z
+UID:df8cdf2d-f3e6-4f10-a0d5-8d72600ed9de
+DESCRIPTION:IFIP WG 11.9 International Conference on Digital Forensics\n
+ 🗓️ 会议时间: January 3 - 5\, 2022\n📍 会议地点: New Delhi\,
+  India\n⏰ 原始截止时间 (AoE): 2021-10-15 23:59:59\n分类: 网络
+ 与信息安全 (SC)\nCCF C\n会议官网: http://www.ifip119.org/Conferen
+ ces/\nDBLP索引: https://dblp.org/db/conf/NO DBLP
+LOCATION:New Delhi\, India
+URL:http://www.ifip119.org/Conferences/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:IFIP WG 11.9 2026 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20250930T235959
+DTEND;TZID="UTC-12:00":20251001T000059
+DTSTAMP:20250830T065444Z
+UID:5f8d6bbc-1445-42a3-adab-b3c6d750d07a
+DESCRIPTION:IFIP WG 11.9 International Conference on Digital Forensics\n
+ 🗓️ 会议时间: January 5 - 6\, 2026\n📍 会议地点: New Delhi\,
+  India\n⏰ 原始截止时间 (AoE): 2025-09-30 23:59:59\n分类: 网络
+ 与信息安全 (SC)\nCCF C\n会议官网: http://www.ifip119.org/Conferen
+ ces/\nDBLP索引: https://dblp.org/db/conf/NO DBLP
+LOCATION:New Delhi\, India
+URL:http://www.ifip119.org/Conferences/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INDOCRYPT 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230901T235959
+DTEND;TZID="UTC-12:00":20230902T000059
+DTSTAMP:20250830T065444Z
+UID:8e21f619-0ae1-4cd6-bbd6-6a5a6c3d93a5
+DESCRIPTION:International Conference on Cryptology in India\n🗓️ 会
+ 议时间: December 10-13\, 2023\n📍 会议地点: BITS Pilani Goa\, Ind
+ ia\n⏰ 原始截止时间 (UTC-12): 2023-09-01 23:59:59\n分类: 网络
+ 与信息安全 (SC)\n会议官网: https://crsind.in/indocrypt2023/\nDBLP
+ 索引: https://dblp.org/db/conf/indocrypt
+LOCATION:BITS Pilani Goa\, India
+URL:https://crsind.in/indocrypt2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INDOCRYPT 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250901T235959
+DTEND;TZID="UTC-12:00":20250902T000059
+DTSTAMP:20250830T065444Z
+UID:807b3db2-a0dc-4e19-a168-3ee3187f478d
+DESCRIPTION:International Conference on Cryptology in India\n🗓️ 会
+ 议时间: December 14-17\, 2025\n📍 会议地点: IIIT Bhubaneswar\, Od
+ isha\, India\n⏰ 原始截止时间 (UTC-12): 2025-09-01 23:59:59\n分类
+ : 网络与信息安全 (SC)\n会议官网: https://www.indocrypt2025.in/\
+ nDBLP索引: https://dblp.org/db/conf/indocrypt
+LOCATION:IIIT Bhubaneswar\, Odisha\, India
+URL:https://www.indocrypt2025.in/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:INSCRYPT 2025 截稿日期 [1st Round]
+DTSTART;TZID="UTC-08:00":20250415T235959
+DTEND;TZID="UTC-08:00":20250416T000059
+DTSTAMP:20250830T065444Z
+UID:797e814b-3777-4cf6-b384-ab0a50b39805
+DESCRIPTION:International Conference on Information Security and Cryptolog
+ y\n🗓️ 会议时间: October 19-21\, 2025\n📍 会议地点: Xi'an\, 
+ China\n⏰ 原始截止时间 (UTC-8): 2025-04-15 23:59:59\n分类: 网络
+ 与信息安全 (SC)\nCCF C\n会议官网: https://inscrypt2025.xidian.edu
+ .cn/\nDBLP索引: https://dblp.org/db/conf/cisc
+LOCATION:Xi'an\, China
+URL:https://inscrypt2025.xidian.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:INSCRYPT 2025 截稿日期 [2nd Round]
+DTSTART;TZID="UTC-08:00":20250630T235959
+DTEND;TZID="UTC-08:00":20250701T000059
+DTSTAMP:20250830T065444Z
+UID:770cbdab-6d43-4e68-8085-0a50c69a3749
+DESCRIPTION:International Conference on Information Security and Cryptolog
+ y\n🗓️ 会议时间: October 19-21\, 2025\n📍 会议地点: Xi'an\, 
+ China\n⏰ 原始截止时间 (UTC-8): 2025-06-30 23:59:59\n分类: 网络
+ 与信息安全 (SC)\nCCF C\n会议官网: https://inscrypt2025.xidian.edu
+ .cn/\nDBLP索引: https://dblp.org/db/conf/cisc
+LOCATION:Xi'an\, China
+URL:https://inscrypt2025.xidian.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISC 2021 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20210723T235959
+DTEND;TZID="UTC-12:00":20210724T000059
+DTSTAMP:20250830T065445Z
+UID:7e5c1a61-b2aa-4a8f-9414-dcd8e82efc90
+DESCRIPTION:Information Security Conference\n🗓️ 会议时间: Novembe
+ r 9 - 13\, 2021\n📍 会议地点: Bali\, Indonesia\n⏰ 原始截止时
+ 间 (UTC-12): 2021-07-23 23:59:59\n分类: 网络与信息安全 (SC)\nCCF
+  C\n会议官网: https://isc2021.petra.ac.id/\nDBLP索引: https://dblp.o
+ rg/db/conf/isw
+LOCATION:Bali\, Indonesia
+URL:https://isc2021.petra.ac.id/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISC 2024 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20240613T235959
+DTEND;TZID="UTC-12:00":20240614T000059
+DTSTAMP:20250830T065445Z
+UID:fb084fbf-ed0a-44d2-96f4-3a4ce33e9208
+DESCRIPTION:Information Security Conference\n🗓️ 会议时间: Oct 23 
+ - 25\, 2024\n📍 会议地点: VA\, USA\n⏰ 原始截止时间 (AoE): 20
+ 24-06-13 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\n会议官网
+ : https://isc24.cs.gmu.edu/\nDBLP索引: https://dblp.org/db/conf/isw
+LOCATION:VA\, USA
+URL:https://isc24.cs.gmu.edu/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ISC 2025 截稿日期 [Submission Deadline]
+DTSTART;TZID="UTC-12:00":20250604T235959
+DTEND;TZID="UTC-12:00":20250605T000059
+DTSTAMP:20250830T065445Z
+UID:604419eb-25b3-4df0-a17e-78d22fa7b2db
+DESCRIPTION:Information Security Conference\n🗓️ 会议时间: October
+  20-22\, 2025\n📍 会议地点: Seoul\, South Korea\n⏰ 原始截止时
+ 间 (AoE): 2025-06-04 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\
+ n会议官网: https://isc25.skku.edu/\nDBLP索引: https://dblp.org/db/co
+ nf/isw
+LOCATION:Seoul\, South Korea
+URL:https://isc25.skku.edu/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-11:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-11:00
+TZOFFSETFROM:-1100
+TZOFFSETTO:-1100
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:NSPW 2021 截稿日期 [Submission deadline]
+DTSTART;TZID="UTC-11:00":20210604T235959
+DTEND;TZID="UTC-11:00":20210605T000059
+DTSTAMP:20250830T065445Z
+UID:633f16c9-fd89-467e-9066-8e3649e7b1de
+DESCRIPTION:New Security Paradigms Workshop\n🗓️ 会议时间: October
+  25-28\, 2021\n📍 会议地点: Virtual\n⏰ 原始截止时间 (UTC-11)
+ : 2021-06-04 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE C\
+ n会议官网: https://www.nspw.org/2021\nDBLP索引: https://dblp.org/db/
+ conf/nspw
+LOCATION:Virtual
+URL:https://www.nspw.org/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSPW 2021 截稿日期 [Final version]
+DTSTART;TZID="UTC-11:00":20211124T235959
+DTEND;TZID="UTC-11:00":20211125T000059
+DTSTAMP:20250830T065445Z
+UID:5a1817ef-b103-4120-92db-2a6adabd0335
+DESCRIPTION:New Security Paradigms Workshop\n🗓️ 会议时间: October
+  25-28\, 2021\n📍 会议地点: Virtual\n⏰ 原始截止时间 (UTC-11)
+ : 2021-11-24 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE C\
+ n会议官网: https://www.nspw.org/2021\nDBLP索引: https://dblp.org/db/
+ conf/nspw
+LOCATION:Virtual
+URL:https://www.nspw.org/2021
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSPW 2024 截稿日期
+DTSTART;TZID="UTC-11:00":20240412T235900
+DTEND;TZID="UTC-11:00":20240413T000000
+DTSTAMP:20250830T065445Z
+UID:233359f5-9eba-442d-bff9-5b878098ac6f
+DESCRIPTION:New Security Paradigms Workshop\n🗓️ 会议时间: Septemb
+ er 16-18\, 2024\n📍 会议地点: Bedford\, PA USA\n⏰ 原始截止时
+ 间 (UTC-11): 2024-04-12 23:59:00\n分类: 网络与信息安全 (SC)\nCCF
+  C\, CORE C\n会议官网: https://www.nspw.org/2024/cfp\nDBLP索引: http
+ s://dblp.org/db/conf/nspw
+LOCATION:Bedford\, PA USA
+URL:https://www.nspw.org/2024/cfp
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:NSPW 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250411T235959
+DTEND;TZID="UTC-12:00":20250412T000059
+DTSTAMP:20250830T065445Z
+UID:a0404aa5-afcf-4711-9541-dedd00ef7f8c
+DESCRIPTION:New Security Paradigms Workshop\n🗓️ 会议时间: August 
+ 24-27\, 2025\n📍 会议地点: Aerzen\, Germany\n⏰ 原始截止时间 
+ (AoE): 2025-04-11 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CO
+ RE C\n会议官网: https://www.nspw.org/2025\nDBLP索引: https://dblp.or
+ g/db/conf/nspw
+LOCATION:Aerzen\, Germany
+URL:https://www.nspw.org/2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SACMAT 2021 截稿日期 [Paper Submission Deadline]
+DTSTART;TZID="UTC-12:00":20210225T235959
+DTEND;TZID="UTC-12:00":20210226T000059
+DTSTAMP:20250830T065445Z
+UID:9bc13efd-05a2-4fd9-8e2e-4738bf71ef1b
+DESCRIPTION:ACM Symposium on Access Control Models and Technologies\n🗓
+ ️ 会议时间: June 16-18\, 2021\n📍 会议地点: Virtual\n⏰ 原
+ 始截止时间 (AoE): 2021-02-25 23:59:59\n分类: 网络与信息安全 
+ (SC)\nCCF C\, CORE C\n会议官网: http://sacmat.dista.uninsubria.it/2021
+ /\nDBLP索引: https://dblp.org/db/conf/sacmat
+LOCATION:Virtual
+URL:http://sacmat.dista.uninsubria.it/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SACMAT 2025 截稿日期 [Paper Submission Deadline]
+DTSTART;TZID="UTC-12:00":20250324T235959
+DTEND;TZID="UTC-12:00":20250325T000059
+DTSTAMP:20250830T065445Z
+UID:f945e2b4-2182-4aed-b7ef-5e8783fdb59e
+DESCRIPTION:ACM Symposium on Access Control Models and Technologies\n🗓
+ ️ 会议时间: July 8-10\, 2025\n📍 会议地点: Stony Brook\, NY\, 
+ USA\n⏰ 原始截止时间 (AoE): 2025-03-24 23:59:59\n分类: 网络与
+ 信息安全 (SC)\nCCF C\, CORE C\n会议官网: https://www.sacmat.org/20
+ 25/index.php\nDBLP索引: https://dblp.org/db/conf/sacmat
+LOCATION:Stony Brook\, NY\, USA
+URL:https://www.sacmat.org/2025/index.php
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SATML 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20250924T235959
+DTEND;TZID="UTC-12:00":20250925T000059
+DTSTAMP:20250830T065445Z
+UID:ac416c94-6472-4872-a828-2eb9db0da4db
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\n
+ 🗓️ 会议时间: March 23-25\, 2026\n📍 会议地点: Munich\, Germ
+ any\n⏰ 原始截止时间 (UTC-12): 2025-09-24 23:59:59\n分类: 网络
+ 与信息安全 (SC)\n会议官网: https://www.satml.org\nDBLP索引: htt
+ ps://dblp.org/db/conf/satml
+LOCATION:Munich\, Germany
+URL:https://www.satml.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SATML 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20240927T235959
+DTEND;TZID="UTC-12:00":20240928T000059
+DTSTAMP:20250830T065445Z
+UID:4cdd7287-879a-43b6-bd6f-bd0f48fb1075
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\n
+ 🗓️ 会议时间: April 9-11\, 2025\n📍 会议地点: Copenhagen\, D
+ enmark\n⏰ 原始截止时间 (UTC-12): 2024-09-27 23:59:59\n分类: 网
+ 络与信息安全 (SC)\n会议官网: https://satml.org/2025/\nDBLP索引
+ : https://dblp.org/db/conf/satml
+LOCATION:Copenhagen\, Denmark
+URL:https://satml.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SATML 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20231011T235959
+DTEND;TZID="UTC-12:00":20231012T000059
+DTSTAMP:20250830T065445Z
+UID:7bb16773-1ff3-449c-b53d-a5be4c240c85
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\n
+ 🗓️ 会议时间: April 9-11\, 2024\n📍 会议地点: Toronto\, Cana
+ da\n⏰ 原始截止时间 (UTC-12): 2023-10-11 23:59:59\n分类: 网络
+ 与信息安全 (SC)\n会议官网: https://satml.org/2024/\nDBLP索引: h
+ ttps://dblp.org/db/conf/satml
+LOCATION:Toronto\, Canada
+URL:https://satml.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SATML 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20220901T235959
+DTEND;TZID="UTC-12:00":20220902T000059
+DTSTAMP:20250830T065445Z
+UID:054ed3de-d755-48ee-a9f6-702628dbbfc7
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\n
+ 🗓️ 会议时间: February 8-10\, 2023\n📍 会议地点: Raleigh\, N
+ orth Carolina\, USA\n⏰ 原始截止时间 (UTC-12): 2022-09-01 23:59:59\
+ n分类: 网络与信息安全 (SC)\n会议官网: https://satml.org/2023/
+ \nDBLP索引: https://dblp.org/db/conf/satml
+LOCATION:Raleigh\, North Carolina\, USA
+URL:https://satml.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2021 截稿日期 [Main Track Full Paper Submission dea
+ dline]
+DTSTART;TZID="UTC-12:00":20210331T235959
+DTEND;TZID="UTC-12:00":20210401T000059
+DTSTAMP:20250830T065445Z
+UID:5aa945ff-9fd0-41c2-bd0d-c60cd6c26013
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ 会议时间: September 6-9\, 2021\n📍 会议地
+ 点: Canterbury\, Great Britain(online)\n⏰ 原始截止时间 (AoE): 202
+ 1-03-31 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE C\n会
+ 议官网: https://securecomm.eai-conferences.org/2021/\nDBLP索引: https
+ ://dblp.org/db/conf/securecomm
+LOCATION:Canterbury\, Great Britain(online)
+URL:https://securecomm.eai-conferences.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2021 截稿日期 [Late Track Full Paper Submission dea
+ dline]
+DTSTART;TZID="UTC-12:00":20210504T235959
+DTEND;TZID="UTC-12:00":20210505T000059
+DTSTAMP:20250830T065445Z
+UID:2e71bb1f-05ab-474a-88f2-6fa88bd9927b
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ 会议时间: September 6-9\, 2021\n📍 会议地
+ 点: Canterbury\, Great Britain(online)\n⏰ 原始截止时间 (AoE): 202
+ 1-05-04 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE C\n会
+ 议官网: https://securecomm.eai-conferences.org/2021/\nDBLP索引: https
+ ://dblp.org/db/conf/securecomm
+LOCATION:Canterbury\, Great Britain(online)
+URL:https://securecomm.eai-conferences.org/2021/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2023 截稿日期
+DTSTART;TZID="UTC-12:00":20230506T235959
+DTEND;TZID="UTC-12:00":20230507T000059
+DTSTAMP:20250830T065445Z
+UID:ec3afdc3-f8fc-4a57-8500-ddd2df3372de
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ 会议时间: October 19-21\, 2023\n📍 会议地
+ 点: Hong Kong SAR\, Hong Kong\n⏰ 原始截止时间 (AoE): 2023-05-06 2
+ 3:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE C\n会议官网:
+  https://securecomm.eai-conferences.org/2023/\nDBLP索引: https://dblp.or
+ g/db/conf/securecomm
+LOCATION:Hong Kong SAR\, Hong Kong
+URL:https://securecomm.eai-conferences.org/2023/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240510T235959
+DTEND;TZID="UTC-12:00":20240511T000059
+DTSTAMP:20250830T065445Z
+UID:3b1023ea-eb45-4f57-8341-d4c4386ecbec
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ 会议时间: October 28-30\, 2024\n📍 会议地
+ 点: Dubai\, United Arab Emirates\n⏰ 原始截止时间 (AoE): 2024-05-1
+ 0 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE C\n会议官
+ 网: https://securecomm.eai-conferences.org/2024/\nDBLP索引: https://dbl
+ p.org/db/conf/securecomm
+LOCATION:Dubai\, United Arab Emirates
+URL:https://securecomm.eai-conferences.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SecureComm 2025 截稿日期 [Full Paper Submission deadline]
+DTSTART;TZID="UTC-12:00":20250301T235959
+DTEND;TZID="UTC-12:00":20250302T000059
+DTSTAMP:20250830T065445Z
+UID:dcba198c-f833-457e-a3fa-f55ef8c94d93
+DESCRIPTION:International Conference on Security and Privacy in Communicat
+ ion Networks\n🗓️ 会议时间: July 4-6\, 2025\n📍 会议地点: Xi
+ angtan\, China\n⏰ 原始截止时间 (AoE): 2025-03-01 23:59:59\n分类:
+  网络与信息安全 (SC)\nCCF C\, CORE C\n会议官网: https://securec
+ omm.eai-conferences.org/2025/\nDBLP索引: https://dblp.org/db/conf/secure
+ comm
+LOCATION:Xiangtan\, China
+URL:https://securecomm.eai-conferences.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2021 截稿日期 [ABSTRACT]
+DTSTART;TZID="UTC-12:00":20210416T235959
+DTEND;TZID="UTC-12:00":20210417T000059
+DTSTAMP:20250830T065445Z
+UID:b03c5272-4fe3-4610-babb-0069e9707b29
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ 会议时间: September 20-23\, 2021\n📍 会议地点: Virtual\n
+ ⏰ 原始截止时间 (AoE): 2021-04-16 23:59:59\n分类: 网络与信息
+ 安全 (SC)\nCCF B\, CORE B\n会议官网: https://srds-conference.org/\nD
+ BLP索引: https://dblp.org/db/conf/srds
+LOCATION:Virtual
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2021 截稿日期 [FULL PAPER]
+DTSTART;TZID="UTC-12:00":20210423T235959
+DTEND;TZID="UTC-12:00":20210424T000059
+DTSTAMP:20250830T065445Z
+UID:6da3a4a4-e50a-41c9-9c46-a5477fa12919
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ 会议时间: September 20-23\, 2021\n📍 会议地点: Virtual\n
+ ⏰ 原始截止时间 (AoE): 2021-04-23 23:59:59\n分类: 网络与信息
+ 安全 (SC)\nCCF B\, CORE B\n会议官网: https://srds-conference.org/\nD
+ BLP索引: https://dblp.org/db/conf/srds
+LOCATION:Virtual
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC+01:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC+01:00
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0100
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:SRDS 2023 截稿日期 [ABSTRACT]
+DTSTART;TZID="UTC+01:00":20230415T235959
+DTEND;TZID="UTC+01:00":20230416T000059
+DTSTAMP:20250830T065445Z
+UID:39524338-bc78-44c2-89e5-a0690bb707eb
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ 会议时间: September 27-29\, 2023\n📍 会议地点: Marrakech
+ \, Morocco\n⏰ 原始截止时间 (UTC+1): 2023-04-15 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE B\n会议官网: https://srds-con
+ ference.org/\nDBLP索引: https://dblp.org/db/conf/srds
+LOCATION:Marrakech\, Morocco
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2023 截稿日期 [FULL PAPER]
+DTSTART;TZID="UTC+01:00":20230422T235959
+DTEND;TZID="UTC+01:00":20230423T000059
+DTSTAMP:20250830T065445Z
+UID:e00c5349-b030-47fa-b261-872fc9a495e4
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ 会议时间: September 27-29\, 2023\n📍 会议地点: Marrakech
+ \, Morocco\n⏰ 原始截止时间 (UTC+1): 2023-04-22 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE B\n会议官网: https://srds-con
+ ference.org/\nDBLP索引: https://dblp.org/db/conf/srds
+LOCATION:Marrakech\, Morocco
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2024 截稿日期 [ABSTRACT]
+DTSTART;TZID="UTC-12:00":20240426T235959
+DTEND;TZID="UTC-12:00":20240427T000059
+DTSTAMP:20250830T065445Z
+UID:5270eaa4-daf3-4616-b95e-a251f917cf54
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ 会议时间: September 30-October 4\, 2024\n📍 会议地点: Ch
+ arlotte\, USA\n⏰ 原始截止时间 (AoE): 2024-04-26 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE B\n会议官网: https://srds-con
+ ference.org/\nDBLP索引: https://dblp.org/db/conf/srds
+LOCATION:Charlotte\, USA
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2024 截稿日期 [FULL PAPER]
+DTSTART;TZID="UTC-12:00":20240503T235959
+DTEND;TZID="UTC-12:00":20240504T000059
+DTSTAMP:20250830T065445Z
+UID:155315a0-af23-4cf9-acde-a7c38faec228
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ 会议时间: September 30-October 4\, 2024\n📍 会议地点: Ch
+ arlotte\, USA\n⏰ 原始截止时间 (AoE): 2024-05-03 23:59:59\n分类: 
+ 网络与信息安全 (SC)\nCCF B\, CORE B\n会议官网: https://srds-con
+ ference.org/\nDBLP索引: https://dblp.org/db/conf/srds
+LOCATION:Charlotte\, USA
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2025 截稿日期 [Abstract Submission]
+DTSTART;TZID="UTC-12:00":20250425T235959
+DTEND;TZID="UTC-12:00":20250426T000059
+DTSTAMP:20250830T065445Z
+UID:276fad52-d71b-4396-b1a5-e0af564eb639
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ 会议时间: September 29-October 2\, 2025\n📍 会议地点: Po
+ rto\, Portugal\n⏰ 原始截止时间 (AoE): 2025-04-25 23:59:59\n分类:
+  网络与信息安全 (SC)\nCCF B\, CORE B\n会议官网: https://srds-co
+ nference.org/\nDBLP索引: https://dblp.org/db/conf/srds
+LOCATION:Porto\, Portugal
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:SRDS 2025 截稿日期 [Full Paper Submission]
+DTSTART;TZID="UTC-12:00":20250502T235959
+DTEND;TZID="UTC-12:00":20250503T000059
+DTSTAMP:20250830T065445Z
+UID:d0efb121-70ec-41f3-bee7-2abce89c531f
+DESCRIPTION:IEEE International Symposium on Reliable Distributed Systems\n
+ 🗓️ 会议时间: September 29-October 2\, 2025\n📍 会议地点: Po
+ rto\, Portugal\n⏰ 原始截止时间 (AoE): 2025-05-02 23:59:59\n分类:
+  网络与信息安全 (SC)\nCCF B\, CORE B\n会议官网: https://srds-co
+ nference.org/\nDBLP索引: https://dblp.org/db/conf/srds
+LOCATION:Porto\, Portugal
+URL:https://srds-conference.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TrustCom 2021 截稿日期 [Paper Submission Deadline]
+DTSTART;TZID="UTC+08:00":20210430T235959
+DTEND;TZID="UTC+08:00":20210501T000059
+DTSTAMP:20250830T065445Z
+UID:1e1db761-219f-4955-ac89-28b653d5e69d
+DESCRIPTION:IEEE International Conference on Trust\, Security and Privacy 
+ in Computing and Communications\n🗓️ 会议时间: To be announced\n
+ 📍 会议地点: Shenyang\, China\n⏰ 原始截止时间 (UTC+8): 2021-
+ 04-30 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE B\n会议
+ 官网: https://trustcom2021.sau.edu.cn/\nDBLP索引: https://dblp.org/db/
+ conf/trustcom
+LOCATION:Shenyang\, China
+URL:https://trustcom2021.sau.edu.cn/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TrustCom 2025 截稿日期
+DTSTART;TZID="UTC+08:00":20250801T235959
+DTEND;TZID="UTC+08:00":20250802T000059
+DTSTAMP:20250830T065445Z
+UID:dd037f86-9080-4dd0-bf8e-ed094170c4b7
+DESCRIPTION:IEEE International Conference on Trust\, Security and Privacy 
+ in Computing and Communications\n🗓️ 会议时间: November 14 - 17\, 
+ 2025\n📍 会议地点: Guiyang\, China\n⏰ 原始截止时间 (UTC+8): 
+ 2025-08-01 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE B\n
+ 会议官网: https://ieee-aiplus-2025.org/\nDBLP索引: https://dblp.org/
+ db/conf/trustcom
+LOCATION:Guiyang\, China
+URL:https://ieee-aiplus-2025.org/
+END:VEVENT
+END:VCALENDAR

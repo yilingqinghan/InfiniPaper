@@ -1,0 +1,140 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:APNet 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240308T235959
+DTEND;TZID="UTC-12:00":20240309T000059
+DTSTAMP:20250830T065444Z
+UID:051cf832-24fc-4801-8999-e651fd225f6d
+DESCRIPTION:Asia-Pacific Workshop on Networking\n🗓️ 会议时间: Aug
+ ust 3-4\, 2024\n📍 会议地点: Sydney\, Australia\, co-located with SI
+ GCOMM'24\n⏰ 原始截止时间 (UTC-12): 2024-03-08 23:59:59\n分类: 
+ 计算机网络 (NW)\nCCF C\n会议官网: https://conferences.sigcomm.org
+ /events/apnet2024/\nDBLP索引: https://dblp.org/db/conf/apnet
+LOCATION:Sydney\, Australia\, co-located with SIGCOMM'24
+URL:https://conferences.sigcomm.org/events/apnet2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:APNet 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20250306T235959
+DTEND;TZID="UTC-12:00":20250307T000059
+DTSTAMP:20250830T065444Z
+UID:2b894d4a-2467-4077-b320-bc13ccd9308e
+DESCRIPTION:Asia-Pacific Workshop on Networking\n🗓️ 会议时间: Aug
+ ust 7-8\, 2025\n📍 会议地点: Shanghai\, China\n⏰ 原始截止时
+ 间 (AoE): 2025-03-06 23:59:59\n分类: 计算机网络 (NW)\nCCF C\n会
+ 议官网: https://conferences.sigcomm.org/events/apnet2025/\nDBLP索引: 
+ https://dblp.org/db/conf/apnet
+LOCATION:Shanghai\, China
+URL:https://conferences.sigcomm.org/events/apnet2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:FORTE 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20240202T235959
+DTEND;TZID="UTC-12:00":20240203T000059
+DTSTAMP:20250830T065444Z
+UID:1361b55a-e831-429e-8942-a62d12095fcf
+DESCRIPTION:International Conference on Formal Techniques for (Networked a
+ nd) Distributed Systems\n🗓️ 会议时间: June 17-21\, 2024\n📍 会
+ 议地点: Groningen\, The Netherlands\n⏰ 原始截止时间 (AoE): 2024
+ -02-02 23:59:59\n分类: 计算机网络 (NW)\nCCF C\, CORE C\n会议官
+ 网: https://www.discotec.org/2024/forte\nDBLP索引: https://dblp.org/db/
+ conf/forte
+LOCATION:Groningen\, The Netherlands
+URL:https://www.discotec.org/2024/forte
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MMSys 2026 摘要截稿 [Round 1 deadline]
+DTSTART;TZID="UTC-12:00":20250919T235959
+DTEND;TZID="UTC-12:00":20250920T000059
+DTSTAMP:20250830T065444Z
+UID:33d2b867-83fd-4677-97ba-3c3100cef5c1
+DESCRIPTION:ACM International Conference on Multimedia Systems\n🗓️ 
+ 会议时间: April 4 - 8\, 2026\n📍 会议地点: Hong Kong SAR\n⏰ 
+ 原始截止时间 (AoE): 2025-09-19 23:59:59\n分类: 计算机网络 (NW
+ )\n会议官网: https://2026.acmmmsys.org\nDBLP索引: https://dblp.org/d
+ b/conf/mmsys
+LOCATION:Hong Kong SAR
+URL:https://2026.acmmmsys.org
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MSN 2024 截稿日期
+DTSTART;TZID="UTC-12:00":20240720T235959
+DTEND;TZID="UTC-12:00":20240721T000059
+DTSTAMP:20250830T065444Z
+UID:905bf2e7-f1c5-4086-a50f-6b5b49aee289
+DESCRIPTION:International Conference on Mobility\, Sensing and Networking\
+ n🗓️ 会议时间: December 20-22\, 2024\n📍 会议地点: Harbin\, 
+ China\n⏰ 原始截止时间 (UTC-12): 2024-07-20 23:59:59\n分类: 计
+ 算机网络 (NW)\nCCF C\n会议官网: https://ieee-msn.org/2024/\nDBLP
+ 索引: https://dblp.org/db/conf/msn
+LOCATION:Harbin\, China
+URL:https://ieee-msn.org/2024/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MSN 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250915T235959
+DTEND;TZID="UTC-12:00":20250916T000059
+DTSTAMP:20250830T065444Z
+UID:ecc9495b-6c53-4cb4-a237-bfba9a1d4fd7
+DESCRIPTION:International Conference on Mobility\, Sensing and Networking\
+ n🗓️ 会议时间: December 3-6\, 2025\n📍 会议地点: Bandung\, I
+ ndonesia\n⏰ 原始截止时间 (UTC-12): 2025-09-15 23:59:59\n分类: 
+ 计算机网络 (NW)\nCCF C\n会议官网: https://ieee-msn.org/2025\nDBLP
+ 索引: https://dblp.org/db/conf/msn
+LOCATION:Bandung\, Indonesia
+URL:https://ieee-msn.org/2025
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WASA 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20250115T235959
+DTEND;TZID="UTC-12:00":20250116T000059
+DTSTAMP:20250830T065444Z
+UID:27cac301-a22f-4d46-b33b-b44604ebb4c7
+DESCRIPTION:International Conference on Wireless Algorithms\, Systems\, an
+ d Applications\n🗓️ 会议时间: June 24-26\, 2025\n📍 会议地点
+ : Tokyo\, Japan\n⏰ 原始截止时间 (AoE): 2025-01-15 23:59:59\n分类
+ : 计算机网络 (NW)\nCCF C\n会议官网: http://wasa-conference.org/WA
+ SA2025/index.html\nDBLP索引: https://dblp.org/db/conf/wasa
+LOCATION:Tokyo\, Japan
+URL:http://wasa-conference.org/WASA2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WCNC 2025 截稿日期
+DTSTART;TZID="UTC-12:00":20240902T235959
+DTEND;TZID="UTC-12:00":20240903T000059
+DTSTAMP:20250830T065444Z
+UID:a210668e-c3db-4b96-b54d-0f079a23fff6
+DESCRIPTION:Wireless Communications and Networking Conference\n🗓️ 会
+ 议时间: March 24-27\, 2025\n📍 会议地点: Milan\, Italy\n⏰ 原
+ 始截止时间 (UTC-12): 2024-09-02 23:59:59\n分类: 计算机网络 (NW
+ )\nCCF C\n会议官网: https://wcnc2025.ieee-wcnc.org/\nDBLP索引: https
+ ://dblp.org/db/conf/wcnc
+LOCATION:Milan\, Italy
+URL:https://wcnc2025.ieee-wcnc.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WCNC 2026 截稿日期
+DTSTART;TZID="UTC-12:00":20250914T235959
+DTEND;TZID="UTC-12:00":20250915T000059
+DTSTAMP:20250830T065444Z
+UID:9427be9a-0eb7-4174-81b0-061ba395edef
+DESCRIPTION:Wireless Communications and Networking Conference\n🗓️ 会
+ 议时间: April 13-16\, 2026\n📍 会议地点: Kuala Lumpur\, Malaysia\
+ n⏰ 原始截止时间 (UTC-12): 2025-09-14 23:59:59\n分类: 计算机
+ 网络 (NW)\nCCF C\n会议官网: https://wcnc2026.ieee-wcnc.org/group/21\
+ nDBLP索引: https://dblp.org/db/conf/wcnc
+LOCATION:Kuala Lumpur\, Malaysia
+URL:https://wcnc2026.ieee-wcnc.org/group/21
+END:VEVENT
+END:VCALENDAR

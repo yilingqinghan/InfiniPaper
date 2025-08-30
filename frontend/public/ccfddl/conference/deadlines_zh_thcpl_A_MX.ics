@@ -1,0 +1,112 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:RECOMB 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20241016T235959
+DTEND;TZID="UTC-12:00":20241017T000059
+DTSTAMP:20250830T065444Z
+UID:85fabcbd-ac10-4624-b91b-ba90e1d36e06
+DESCRIPTION:International Conference on Research inComputational Molecular
+  Biology\n🗓️ 会议时间: April 26-29\, 2025\n📍 会议地点: Seo
+ ul\, Korea\n⏰ 原始截止时间 (AoE): 2024-10-16 23:59:59\n分类: 交
+ 叉/综合/新兴 (MX)\nCCF B\, CORE B\, THCPL A\n会议官网: https://re
+ comb.org/recomb2025/index.html\nDBLP索引: https://dblp.org/db/conf/recom
+ b
+LOCATION:Seoul\, Korea
+URL:https://recomb.org/recomb2025/index.html
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2021 摘要截稿
+DTSTART;TZID="UTC-12:00":20201012T235959
+DTEND;TZID="UTC-12:00":20201013T000059
+DTSTAMP:20250830T065444Z
+UID:7e8c8cef-eb47-4cc6-8ca7-ea0983278e03
+DESCRIPTION:International World Wide Web Conferences\n🗓️ 会议时间
+ : April 19-23\, 2021\n📍 会议地点: Ljubljana\, Slovenia\n⏰ 原始
+ 截止时间 (AoE): 2020-10-12 23:59:59\n分类: 交叉/综合/新兴 (MX)
+ \nCCF A\, CORE A*\, THCPL A\n会议官网: https://www2021.thewebconf.org/
+ \nDBLP索引: https://dblp.org/db/conf/www
+LOCATION:Ljubljana\, Slovenia
+URL:https://www2021.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2022 摘要截稿
+DTSTART;TZID="UTC-12:00":20211014T235959
+DTEND;TZID="UTC-12:00":20211015T000059
+DTSTAMP:20250830T065444Z
+UID:6e4bdd04-ba4a-4eb0-adc5-aedcc514f4fa
+DESCRIPTION:International World Wide Web Conferences\n🗓️ 会议时间
+ : April 25-29\, 2022\n📍 会议地点: Lyon\, France\n⏰ 原始截止
+ 时间 (AoE): 2021-10-14 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF 
+ A\, CORE A*\, THCPL A\n会议官网: https://www2022.thewebconf.org/\nDBLP
+ 索引: https://dblp.org/db/conf/www
+LOCATION:Lyon\, France
+URL:https://www2022.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2023 摘要截稿
+DTSTART;TZID="UTC-12:00":20221006T235959
+DTEND;TZID="UTC-12:00":20221007T000059
+DTSTAMP:20250830T065444Z
+UID:a74e2b21-168c-4b55-85ee-7fcd62bdfc7a
+DESCRIPTION:International World Wide Web Conferences\n🗓️ 会议时间
+ : May 1-5\, 2023\n📍 会议地点: Austin\, Texas\, USA\n⏰ 原始截
+ 止时间 (AoE): 2022-10-06 23:59:59\n分类: 交叉/综合/新兴 (MX)\nC
+ CF A\, CORE A*\, THCPL A\n会议官网: https://www2023.thewebconf.org/\nD
+ BLP索引: https://dblp.org/db/conf/www
+LOCATION:Austin\, Texas\, USA
+URL:https://www2023.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2024 摘要截稿
+DTSTART;TZID="UTC-12:00":20231005T235959
+DTEND;TZID="UTC-12:00":20231006T000059
+DTSTAMP:20250830T065444Z
+UID:47fe348c-f54c-419d-9aa6-9951b36ddbef
+DESCRIPTION:International World Wide Web Conferences\n🗓️ 会议时间
+ : May 13-17\, 2024\n📍 会议地点: Singapore\n⏰ 原始截止时间 (
+ AoE): 2023-10-05 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF A\, CORE
+  A*\, THCPL A\n会议官网: https://www2024.thewebconf.org/\nDBLP索引: 
+ https://dblp.org/db/conf/www
+LOCATION:Singapore
+URL:https://www2024.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2025 摘要截稿
+DTSTART;TZID="UTC-12:00":20241007T235959
+DTEND;TZID="UTC-12:00":20241008T000059
+DTSTAMP:20250830T065444Z
+UID:e007872d-16da-4b03-9aa9-ab2ba80fa940
+DESCRIPTION:International World Wide Web Conferences\n🗓️ 会议时间
+ : April 28 - May 2\, 2025\n📍 会议地点: Sydney\, Australia\n⏰ 原
+ 始截止时间 (AoE): 2024-10-07 23:59:59\n分类: 交叉/综合/新兴 (
+ MX)\nCCF A\, CORE A*\, THCPL A\n会议官网: https://www2025.thewebconf.o
+ rg/\nDBLP索引: https://dblp.org/db/conf/www
+LOCATION:Sydney\, Australia
+URL:https://www2025.thewebconf.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WWW 2026 摘要截稿
+DTSTART;TZID="UTC-12:00":20250930T235959
+DTEND;TZID="UTC-12:00":20251001T000059
+DTSTAMP:20250830T065444Z
+UID:15be1e04-da20-4f9f-8939-919ceaf54328
+DESCRIPTION:International World Wide Web Conferences\n🗓️ 会议时间
+ : April 13 - 17\, 2026\n📍 会议地点: Dubaï\, UAE\n⏰ 原始截止
+ 时间 (AoE): 2025-09-30 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF 
+ A\, CORE A*\, THCPL A\n会议官网: https://www2026.thewebconf.org/\nDBLP
+ 索引: https://dblp.org/db/conf/www
+LOCATION:Dubaï\, UAE
+URL:https://www2026.thewebconf.org/
+END:VEVENT
+END:VCALENDAR

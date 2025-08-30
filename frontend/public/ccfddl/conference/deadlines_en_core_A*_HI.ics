@@ -1,0 +1,151 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//会议截止日历//ccfddl.com//
+BEGIN:VTIMEZONE
+TZID:UTC-12:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-12:00
+TZOFFSETFROM:-1200
+TZOFFSETTO:-1200
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:CHI 2024 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20230907T235959
+DTEND;TZID="UTC-12:00":20230908T000059
+DTSTAMP:20250830T065447Z
+UID:1b3a1a41-3fce-4010-b951-1d949e0cedb5
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ Date: May 11 - May 16\, 2024\n📍 Location: Honolulu\, Hawaii\, USA\n⏰ 
+ Original Deadline (AoE): 2023-09-07 23:59:59\nCategory: 人机交互与普
+ 适计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website: http://chi2
+ 024.acm.org/\nDBLP Index: https://dblp.org/db/conf/chi
+LOCATION:Honolulu\, Hawaii\, USA
+URL:http://chi2024.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHI 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240905T235959
+DTEND;TZID="UTC-12:00":20240906T000059
+DTSTAMP:20250830T065447Z
+UID:98fbfc5b-e875-490f-9d3e-4abca1ee9085
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ Date: April 26 - May 1\, 2025\n📍 Location: Yokohama\, Japan\n⏰ Origin
+ al Deadline (AoE): 2024-09-05 23:59:59\nCategory: 人机交互与普适计
+ 算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://chi2025.a
+ cm.org/\nDBLP Index: https://dblp.org/db/conf/chi
+LOCATION:Yokohama\, Japan
+URL:https://chi2025.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:CHI 2026 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250904T235959
+DTEND;TZID="UTC-12:00":20250905T000059
+DTSTAMP:20250830T065447Z
+UID:994229a9-d4d7-4652-96ca-1a277f5af993
+DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
+ Date: April 13 - 17\, 2026\n📍 Location: Centre de Convencions Internaci
+ onal de Barcelona\, Barcelona\, Spain\n⏰ Original Deadline (AoE): 2025-0
+ 9-04 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF A\, CORE A*
+ \, THCPL A\nConference Website: https://chi2026.acm.org/\nDBLP Index: http
+ s://dblp.org/db/conf/chi
+LOCATION:Centre de Convencions Internacional de Barcelona\, Barcelona\, Sp
+ ain
+URL:https://chi2026.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PerCom 2025 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20240929T235900
+DTEND;TZID="UTC-12:00":20240930T000000
+DTSTAMP:20250830T065447Z
+UID:e4c0026c-3980-408b-81a0-4464e41737f8
+DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
+ nications\n🗓️ Date: March 17 - 21\, 2025\n📍 Location: Walter E. Wa
+ shington Convention Center\, Washington DC\, USA\n⏰ Original Deadline (A
+ oE): 2024-09-29 23:59:00\nCategory: 人机交互与普适计算 (HI)\nCCF 
+ B\, CORE A*\, THCPL B\nConference Website: https://percom.org/\nDBLP Index
+ : https://dblp.org/db/conf/percom
+LOCATION:Walter E. Washington Convention Center\, Washington DC\, USA
+URL:https://percom.org/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:PerCom 2026 Abstract Deadline
+DTSTART;TZID="UTC-12:00":20250912T235900
+DTEND;TZID="UTC-12:00":20250913T000000
+DTSTAMP:20250830T065447Z
+UID:7444c293-fb37-4108-bc18-e758696e644b
+DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
+ nications\n🗓️ Date: March 16 - 20\, 2026\n📍 Location: Pisa\, Italy
+ \n⏰ Original Deadline (AoE): 2025-09-12 23:59:00\nCategory: 人机交互
+ 与普适计算 (HI)\nCCF B\, CORE A*\, THCPL B\nConference Website: https
+ ://percom.org/\nDBLP Index: https://dblp.org/db/conf/percom
+LOCATION:Pisa\, Italy
+URL:https://percom.org/
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:UTC-08:00
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZNAME:UTC-08:00
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0800
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:UIST 2024 Deadline [abstract deadline]
+DTSTART;TZID="UTC-08:00":20240327T170000
+DTEND;TZID="UTC-08:00":20240327T170100
+DTSTAMP:20250830T065447Z
+UID:ade309aa-43fe-4b5b-89d1-4775f6263346
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ Date: October 13-16\, 2024\n📍 Location: Pittsburgh\, Pennsylvania\,
+  USA\n⏰ Original Deadline (UTC-8): 2024-03-27 17:00:00\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website:
+  https://uist.acm.org/2024\nDBLP Index: https://dblp.org/db/conf/uist
+LOCATION:Pittsburgh\, Pennsylvania\, USA
+URL:https://uist.acm.org/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2024 Deadline [paper deadline]
+DTSTART;TZID="UTC-08:00":20240403T170000
+DTEND;TZID="UTC-08:00":20240403T170100
+DTSTAMP:20250830T065447Z
+UID:d5f4ee6a-cdd0-4710-9833-70335c6cf82b
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ Date: October 13-16\, 2024\n📍 Location: Pittsburgh\, Pennsylvania\,
+  USA\n⏰ Original Deadline (UTC-8): 2024-04-03 17:00:00\nCategory: 人机
+ 交互与普适计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website:
+  https://uist.acm.org/2024\nDBLP Index: https://dblp.org/db/conf/uist
+LOCATION:Pittsburgh\, Pennsylvania\, USA
+URL:https://uist.acm.org/2024
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2025 Deadline [abstract deadline]
+DTSTART;TZID="UTC-08:00":20250402T170000
+DTEND;TZID="UTC-08:00":20250402T170100
+DTSTAMP:20250830T065447Z
+UID:ca13956c-1acc-4b90-a3a7-a0dfef99d07a
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ Date: Sep 28 - Oct 1\, 2025\n📍 Location: Busan\, Korea\n⏰ Origina
+ l Deadline (UTC-8): 2025-04-02 17:00:00\nCategory: 人机交互与普适
+ 计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://uist.a
+ cm.org/2025/\nDBLP Index: https://dblp.org/db/conf/uist
+LOCATION:Busan\, Korea
+URL:https://uist.acm.org/2025/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UIST 2025 Deadline [paper deadline]
+DTSTART;TZID="UTC-08:00":20250409T170000
+DTEND;TZID="UTC-08:00":20250409T170100
+DTSTAMP:20250830T065447Z
+UID:11dbacc9-5e98-4611-9339-d05efc7e196b
+DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
+ ️ Date: Sep 28 - Oct 1\, 2025\n📍 Location: Busan\, Korea\n⏰ Origina
+ l Deadline (UTC-8): 2025-04-09 17:00:00\nCategory: 人机交互与普适
+ 计算 (HI)\nCCF A\, CORE A*\, THCPL A\nConference Website: https://uist.a
+ cm.org/2025/\nDBLP Index: https://dblp.org/db/conf/uist
+LOCATION:Busan\, Korea
+URL:https://uist.acm.org/2025/
+END:VEVENT
+END:VCALENDAR
