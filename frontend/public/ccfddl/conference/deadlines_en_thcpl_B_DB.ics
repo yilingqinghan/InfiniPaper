@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:CIKM 2020 Deadline
 DTSTART;TZID="UTC-12:00":20200501T235959
 DTEND;TZID="UTC-12:00":20200502T000059
-DTSTAMP:20250830T095004Z
-UID:01f09684-b24d-40d9-beef-f1f055513bb6
+DTSTAMP:20250830T121554Z
+UID:c3dba6af-5c50-43a6-9166-91c3ce46eaf7
 DESCRIPTION:ACM International Conference on Information and Knowledge Mana
  gement\n🗓️ Date: October 19-23\, 2021\n📍 Location: Galway\, Irelan
  d\n⏰ Original Deadline (UTC-12): 2020-05-01 23:59:59\nCategory: 数据
@@ -29,8 +29,8 @@ BEGIN:VEVENT
 SUMMARY:CIKM 2021 Deadline
 DTSTART;TZID="UTC-12:00":20210526T235959
 DTEND;TZID="UTC-12:00":20210527T000059
-DTSTAMP:20250830T095004Z
-UID:aad557ef-5d62-4b92-834f-c080795a932e
+DTSTAMP:20250830T121554Z
+UID:20a1de9a-f751-4bdb-aa67-e743025c2312
 DESCRIPTION:ACM International Conference on Information and Knowledge Mana
  gement\n🗓️ Date: November 01-05\, 2021\n📍 Location: Queensland\, A
  ustralia\n⏰ Original Deadline (AoE): 2021-05-26 23:59:59\nCategory: 数
@@ -44,8 +44,8 @@ BEGIN:VEVENT
 SUMMARY:CIKM 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20220512T235959
 DTEND;TZID="UTC-12:00":20220513T000059
-DTSTAMP:20250830T095004Z
-UID:997b60e7-eb43-4a2d-8552-d2ff9c59ac02
+DTSTAMP:20250830T121554Z
+UID:aa482d8d-9a4c-469e-9480-cc87643a6950
 DESCRIPTION:ACM International Conference on Information and Knowledge Mana
  gement\n🗓️ Date: October 17-22\, 2022\n📍 Location: Atlanta\, Georg
  ia\, USA\n⏰ Original Deadline (AoE): 2022-05-12 23:59:59\nCategory: 数
@@ -59,8 +59,8 @@ BEGIN:VEVENT
 SUMMARY:CIKM 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230526T235959
 DTEND;TZID="UTC-12:00":20230527T000059
-DTSTAMP:20250830T095004Z
-UID:abdb47ad-ee47-46e4-ab5d-d9e28ec69bca
+DTSTAMP:20250830T121554Z
+UID:ef0d5d4b-6c53-476a-9d1a-e86243df0e38
 DESCRIPTION:ACM International Conference on Information and Knowledge Mana
  gement\n🗓️ Date: October 21-25\, 2023\n📍 Location: Birmingham\, UK
  \n⏰ Original Deadline (AoE): 2023-05-26 23:59:59\nCategory: 数据库/
@@ -74,8 +74,8 @@ BEGIN:VEVENT
 SUMMARY:CIKM 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240513T235959
 DTEND;TZID="UTC-12:00":20240514T000059
-DTSTAMP:20250830T095004Z
-UID:84423852-1670-4a29-be56-6eeb6c83b0b7
+DTSTAMP:20250830T121554Z
+UID:50bccef3-d4d6-4f87-b75f-e6558e799a63
 DESCRIPTION:ACM International Conference on Information and Knowledge Mana
  gement\n🗓️ Date: October 21-25\, 2024\n📍 Location: Boise\, Idaho\,
   USA\n⏰ Original Deadline (AoE): 2024-05-13 23:59:59\nCategory: 数据
@@ -88,8 +88,8 @@ BEGIN:VEVENT
 SUMMARY:CIKM 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250516T235959
 DTEND;TZID="UTC-12:00":20250517T000059
-DTSTAMP:20250830T095004Z
-UID:1feb316e-1368-4443-a315-9d00730f9847
+DTSTAMP:20250830T121554Z
+UID:bd5fd243-9f23-4082-959c-737b94e2d0ed
 DESCRIPTION:ACM International Conference on Information and Knowledge Mana
  gement\n🗓️ Date: November 10-14\, 2025\n📍 Location: Coex\, Seoul\,
   Korea\n⏰ Original Deadline (AoE): 2025-05-16 23:59:59\nCategory: 数据
@@ -111,8 +111,8 @@ BEGIN:VEVENT
 SUMMARY:DASFAA 2021 Deadline
 DTSTART;TZID="UTC-07:00":20201028T235959
 DTEND;TZID="UTC-07:00":20201029T000059
-DTSTAMP:20250830T095004Z
-UID:24ff3fed-d5b6-4677-9b25-54bb8d929118
+DTSTAMP:20250830T121554Z
+UID:52dff9a1-37a2-49d1-aac4-f9a60d5ade64
 DESCRIPTION:Database Systems for Advanced Applications\n🗓️ Date: Apri
  l 11-14\, 2021\n📍 Location: Taipei\, China\n⏰ Original Deadline (UTC-
  7): 2020-10-28 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB
@@ -125,8 +125,8 @@ BEGIN:VEVENT
 SUMMARY:DASFAA 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20211028T235959
 DTEND;TZID="UTC-12:00":20211029T000059
-DTSTAMP:20250830T095004Z
-UID:69c02606-35ee-4a25-8308-23d78e6f0615
+DTSTAMP:20250830T121554Z
+UID:32bfba3e-846a-4e5c-85b2-af45a671cae5
 DESCRIPTION:Database Systems for Advanced Applications\n🗓️ Date: Apri
  l 11-14\, 2022\n📍 Location: Hyderabad\, India\n⏰ Original Deadline (A
  oE): 2021-10-28 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (D
@@ -139,8 +139,8 @@ BEGIN:VEVENT
 SUMMARY:DASFAA 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20221028T235959
 DTEND;TZID="UTC-12:00":20221029T000059
-DTSTAMP:20250830T095004Z
-UID:869cfa53-2d17-41f9-907e-099b9f4654fa
+DTSTAMP:20250830T121554Z
+UID:dc6b2c74-723a-40a8-9776-00447a587984
 DESCRIPTION:Database Systems for Advanced Applications\n🗓️ Date: Apri
  l 17-20\, 2023\n📍 Location: Tianjin\, China\n⏰ Original Deadline (AoE
  ): 2022-10-28 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)
@@ -153,8 +153,8 @@ BEGIN:VEVENT
 SUMMARY:DASFAA 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20231215T235959
 DTEND;TZID="UTC-12:00":20231216T000059
-DTSTAMP:20250830T095004Z
-UID:8738cc8c-a3a2-41c5-a572-ccaf16528936
+DTSTAMP:20250830T121554Z
+UID:48e0b59e-931c-45b2-be1c-7e396c5564b5
 DESCRIPTION:Database Systems for Advanced Applications\n🗓️ Date: July
   3-5\, 2024\n📍 Location: Gifu\, Japan\n⏰ Original Deadline (AoE): 202
  3-12-15 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nCCF 
@@ -167,8 +167,8 @@ BEGIN:VEVENT
 SUMMARY:DASFAA 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241125T235959
 DTEND;TZID="UTC-12:00":20241126T000059
-DTSTAMP:20250830T095004Z
-UID:4b6a2f86-7511-48b6-bb11-a1d6c130d62f
+DTSTAMP:20250830T121554Z
+UID:4f0ef18f-7b43-4601-9860-73ec4184acac
 DESCRIPTION:Database Systems for Advanced Applications\n🗓️ Date: May 
  25-28\, 2025\n📍 Location: Singapore\n⏰ Original Deadline (AoE): 2024-
  11-25 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nCCF B\
@@ -181,8 +181,8 @@ BEGIN:VEVENT
 SUMMARY:DASFAA 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20251020T235959
 DTEND;TZID="UTC-12:00":20251021T000059
-DTSTAMP:20250830T095004Z
-UID:3dc9fe9f-2e92-4665-a55f-a7a51d21f46f
+DTSTAMP:20250830T121554Z
+UID:ba18643a-a5f0-4e25-812f-a2445b9ebb6d
 DESCRIPTION:Database Systems for Advanced Applications\n🗓️ Date: Apri
  l 21-24\, 2026\n📍 Location: Jeju Island\, South Korea\n⏰ Original Dea
  dline (AoE): 2025-10-20 23:59:59\nCategory: 数据库/数据挖掘/内容
@@ -195,8 +195,8 @@ BEGIN:VEVENT
 SUMMARY:ECIR 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20241002T235959
 DTEND;TZID="UTC-12:00":20241003T000059
-DTSTAMP:20250830T095004Z
-UID:394cd9fa-1acc-49e9-ad6b-c89e3fccd5d1
+DTSTAMP:20250830T121554Z
+UID:66188c50-4e01-45d8-925a-f3dfb40f1082
 DESCRIPTION:European Conference on Information Retrieval\n🗓️ Date: Ap
  ril 06 - April 10\, 2025\n📍 Location: Lucca\, Italy\n⏰ Original Deadl
  ine (UTC-12): 2024-10-02 23:59:59\nCategory: 数据库/数据挖掘/内容
@@ -209,8 +209,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2022 Deadline
 DTSTART;TZID="UTC-12:00":20211001T235959
 DTEND;TZID="UTC-12:00":20211002T000059
-DTSTAMP:20250830T095004Z
-UID:de8b71a8-e126-4693-a260-7455bc7f9a4d
+DTSTAMP:20250830T121554Z
+UID:b4c77192-d275-45b6-8432-ffd151a711a6
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: Mar 29-April 01\, 2022\n📍 Location: Edinburgh\, UK\n⏰ O
  riginal Deadline (AoE): 2021-10-01 23:59:59\nCategory: 数据库/数据挖
@@ -224,8 +224,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2023 Deadline
 DTSTART;TZID="UTC-12:00":20220215T235959
 DTEND;TZID="UTC-12:00":20220216T000059
-DTSTAMP:20250830T095004Z
-UID:6c934883-7312-4ec4-982e-0a27ddca88d0
+DTSTAMP:20250830T121554Z
+UID:9abeec9a-e024-4173-86c9-744f27e5f330
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 28-31\, 2023\n📍 Location: Ioannina\, Greece\n⏰ Or
  iginal Deadline (AoE): 2022-02-15 23:59:59\nCategory: 数据库/数据挖
@@ -238,8 +238,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2023 Deadline
 DTSTART;TZID="UTC-12:00":20220601T235959
 DTEND;TZID="UTC-12:00":20220602T000059
-DTSTAMP:20250830T095004Z
-UID:5e2ae5d1-b212-49f0-a734-faf1530fe2a7
+DTSTAMP:20250830T121554Z
+UID:592c92e3-8cd7-4b2f-b3c9-22caf80c6e97
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 28-31\, 2023\n📍 Location: Ioannina\, Greece\n⏰ Or
  iginal Deadline (AoE): 2022-06-01 23:59:59\nCategory: 数据库/数据挖
@@ -252,8 +252,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2023 Deadline
 DTSTART;TZID="UTC-12:00":20220930T235959
 DTEND;TZID="UTC-12:00":20221001T000059
-DTSTAMP:20250830T095004Z
-UID:24da5be7-e746-4762-ad75-7740bd09c4c5
+DTSTAMP:20250830T121554Z
+UID:18c4d9de-efcd-42d1-9ba1-bab6256bed12
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 28-31\, 2023\n📍 Location: Ioannina\, Greece\n⏰ Or
  iginal Deadline (AoE): 2022-09-30 23:59:59\nCategory: 数据库/数据挖
@@ -266,8 +266,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2024 Deadline
 DTSTART;TZID="UTC-12:00":20230215T235959
 DTEND;TZID="UTC-12:00":20230216T000059
-DTSTAMP:20250830T095004Z
-UID:f83382ed-0018-4e99-9fd1-3691421cc747
+DTSTAMP:20250830T121554Z
+UID:f2dcb465-fbf8-4f8e-bd16-a66f018005f9
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 25-28\, 2024\n📍 Location: Paestum\, Italy\n⏰ Orig
  inal Deadline (AoE): 2023-02-15 23:59:59\nCategory: 数据库/数据挖掘
@@ -280,8 +280,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2024 Deadline
 DTSTART;TZID="UTC-12:00":20230601T235959
 DTEND;TZID="UTC-12:00":20230602T000059
-DTSTAMP:20250830T095004Z
-UID:fdca7352-8841-4be7-8f4d-1d21f744c063
+DTSTAMP:20250830T121554Z
+UID:f32715e3-0904-4509-aee4-eef82d3ff108
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 25-28\, 2024\n📍 Location: Paestum\, Italy\n⏰ Orig
  inal Deadline (AoE): 2023-06-01 23:59:59\nCategory: 数据库/数据挖掘
@@ -294,8 +294,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2024 Deadline
 DTSTART;TZID="UTC-12:00":20231003T235959
 DTEND;TZID="UTC-12:00":20231004T000059
-DTSTAMP:20250830T095004Z
-UID:2aeb87a5-5425-4f94-9da7-e31482479691
+DTSTAMP:20250830T121554Z
+UID:d3e8ebf7-8ebd-40a5-9292-26948c728e58
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 25-28\, 2024\n📍 Location: Paestum\, Italy\n⏰ Orig
  inal Deadline (AoE): 2023-10-03 23:59:59\nCategory: 数据库/数据挖掘
@@ -308,8 +308,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2025 Deadline
 DTSTART;TZID="UTC-12:00":20240207T235959
 DTEND;TZID="UTC-12:00":20240208T000059
-DTSTAMP:20250830T095004Z
-UID:8e1d00b3-36a6-4946-8867-7cbfdd245fbc
+DTSTAMP:20250830T121554Z
+UID:6b927400-1d8c-4e0f-8b05-7a659c516c84
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 25-28\, 2025\n📍 Location: Barcelona\, Spain\n⏰ Or
  iginal Deadline (AoE): 2024-02-07 23:59:59\nCategory: 数据库/数据挖
@@ -322,8 +322,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2025 Deadline
 DTSTART;TZID="UTC-12:00":20240605T235959
 DTEND;TZID="UTC-12:00":20240606T000059
-DTSTAMP:20250830T095004Z
-UID:2c5bf187-6822-4fd6-b5f8-7ed1cd7b2f73
+DTSTAMP:20250830T121554Z
+UID:bfe4f920-a8c3-47ad-af60-4173592ea837
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 25-28\, 2025\n📍 Location: Barcelona\, Spain\n⏰ Or
  iginal Deadline (AoE): 2024-06-05 23:59:59\nCategory: 数据库/数据挖
@@ -336,8 +336,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241009T235959
 DTEND;TZID="UTC-12:00":20241010T000059
-DTSTAMP:20250830T095004Z
-UID:ff61a1cf-4f75-4dc8-898c-584222fac04f
+DTSTAMP:20250830T121554Z
+UID:d830d10f-0f97-4069-b468-1e6a56c70699
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 25-28\, 2025\n📍 Location: Barcelona\, Spain\n⏰ Or
  iginal Deadline (AoE): 2024-10-09 23:59:59\nCategory: 数据库/数据挖
@@ -350,8 +350,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2026 Deadline
 DTSTART;TZID="UTC-12:00":20250205T235959
 DTEND;TZID="UTC-12:00":20250206T000059
-DTSTAMP:20250830T095004Z
-UID:a3a99aa9-1f5d-426d-983a-847298851824
+DTSTAMP:20250830T121554Z
+UID:ff72b872-1cfa-4a93-b0dc-cd97d6c3111c
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 24-27\, 2026\n📍 Location: Tampere\, Finland\n⏰ Or
  iginal Deadline (AoE): 2025-02-05 23:59:59\nCategory: 数据库/数据挖
@@ -364,8 +364,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2026 Deadline
 DTSTART;TZID="UTC-12:00":20250604T235959
 DTEND;TZID="UTC-12:00":20250605T000059
-DTSTAMP:20250830T095004Z
-UID:96180499-862b-417e-92e5-b9304873795c
+DTSTAMP:20250830T121554Z
+UID:902d0a12-fc5f-498a-a296-bfc345e142a7
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 24-27\, 2026\n📍 Location: Tampere\, Finland\n⏰ Or
  iginal Deadline (AoE): 2025-06-04 23:59:59\nCategory: 数据库/数据挖
@@ -378,8 +378,8 @@ BEGIN:VEVENT
 SUMMARY:EDBT 2026 Deadline
 DTSTART;TZID="UTC-12:00":20251008T235959
 DTEND;TZID="UTC-12:00":20251009T000059
-DTSTAMP:20250830T095004Z
-UID:c7d84032-6e89-4c0a-a15d-376d88d6bf01
+DTSTAMP:20250830T121554Z
+UID:b470af56-8952-4afd-a932-0548eb3f859d
 DESCRIPTION:International Conference on Extending Database Technology\n
  🗓️ Date: March 24-27\, 2026\n📍 Location: Tampere\, Finland\n⏰ Or
  iginal Deadline (AoE): 2025-10-08 23:59:59\nCategory: 数据库/数据挖
@@ -401,8 +401,8 @@ BEGIN:VEVENT
 SUMMARY:ICDM 2021 Deadline
 DTSTART;TZID="UTC+08:00":20210612T145900
 DTEND;TZID="UTC+08:00":20210612T150000
-DTSTAMP:20250830T095004Z
-UID:22c1e453-464d-441a-b95f-39d460732093
+DTSTAMP:20250830T121554Z
+UID:5c170dde-3f17-4b13-8751-24a14444e99b
 DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ Date: De
  cember 7-10\, 2021\n📍 Location: Auckland\, New Zealand\n⏰ Original De
  adline (UTC+8): 2021-06-12 14:59:00\nCategory: 数据库/数据挖掘/内
@@ -415,8 +415,8 @@ BEGIN:VEVENT
 SUMMARY:ICDM 2022 Deadline
 DTSTART;TZID="UTC-07:00":20220610T235900
 DTEND;TZID="UTC-07:00":20220611T000000
-DTSTAMP:20250830T095004Z
-UID:06ea296f-94b4-4117-8f91-d5e0e63a0ccb
+DTSTAMP:20250830T121554Z
+UID:fafc9d25-9351-4170-bafa-c3379aec9d7b
 DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ Date: No
  vember 30 - December 3\n📍 Location: Orlando\, FL\, USA\n⏰ Original De
  adline (UTC-7): 2022-06-10 23:59:00\nCategory: 数据库/数据挖掘/内
@@ -429,8 +429,8 @@ BEGIN:VEVENT
 SUMMARY:ICDM 2023 Deadline
 DTSTART;TZID="UTC+08:00":20230701T235959
 DTEND;TZID="UTC+08:00":20230702T000059
-DTSTAMP:20250830T095004Z
-UID:daaa02d5-610b-4675-9920-1e593057bc87
+DTSTAMP:20250830T121554Z
+UID:151399da-cdc8-4112-96e3-85e3f1c80d07
 DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ Date: De
  cember 1-4\, 2023\n📍 Location: Shanghai\, China\n⏰ Original Deadline 
  (UTC+8): 2023-07-01 23:59:59\nCategory: 数据库/数据挖掘/内容检
@@ -443,8 +443,8 @@ BEGIN:VEVENT
 SUMMARY:ICDM 2024 Deadline
 DTSTART;TZID="UTC-12:00":20240614T235959
 DTEND;TZID="UTC-12:00":20240615T000059
-DTSTAMP:20250830T095004Z
-UID:c63325f8-6440-4aa7-9a97-0c799c656a63
+DTSTAMP:20250830T121554Z
+UID:03dea444-1ca5-498a-9c5f-35e59bf612b2
 DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ Date: De
  cember 9-12\, 2024\n📍 Location: Abu Dhabi\, UAE\n⏰ Original Deadline 
  (AoE): 2024-06-14 23:59:59\nCategory: 数据库/数据挖掘/内容检索 
@@ -457,8 +457,8 @@ BEGIN:VEVENT
 SUMMARY:ICDM 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250606T235959
 DTEND;TZID="UTC-12:00":20250607T000059
-DTSTAMP:20250830T095004Z
-UID:d782e16e-2918-4006-b8a7-64310528d77c
+DTSTAMP:20250830T121554Z
+UID:822b8722-c84a-40f3-8af6-be2abe6ffaba
 DESCRIPTION:IEEE International Conference on Data Mining\n🗓️ Date: No
  vember 12-15\, 2025\n📍 Location: Washington DC\, USA\n⏰ Original Dead
  line (AoE): 2025-06-06 23:59:59\nCategory: 数据库/数据挖掘/内容
@@ -472,8 +472,8 @@ BEGIN:VEVENT
 SUMMARY:ICDT 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20210906T235959
 DTEND;TZID="UTC-12:00":20210907T000059
-DTSTAMP:20250830T095004Z
-UID:bcc5b861-ccc3-4f9e-9715-e1dc07bc31ae
+DTSTAMP:20250830T121554Z
+UID:dbb295b4-c6f7-41fa-9772-159ceecff6af
 DESCRIPTION:International Conference on Database Theory\n🗓️ Date: Mar
   29-April 01\, 2022\n📍 Location: Edinburgh\, UK\n⏰ Original Deadline 
  (AoE): 2021-09-06 23:59:59\nCategory: 数据库/数据挖掘/内容检索 
@@ -486,8 +486,8 @@ BEGIN:VEVENT
 SUMMARY:ICDT 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240311T235959
 DTEND;TZID="UTC-12:00":20240312T000059
-DTSTAMP:20250830T095004Z
-UID:b7022501-a0ef-45e0-81ed-7551dda459cc
+DTSTAMP:20250830T121554Z
+UID:6e51d9c2-2209-4793-90fa-e4ee56c0cca6
 DESCRIPTION:International Conference on Database Theory\n🗓️ Date: Mar
  ch 25-28\, 2025\n📍 Location: Barcelona\, Spain\n⏰ Original Deadline (
  AoE): 2024-03-11 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (
@@ -500,8 +500,8 @@ BEGIN:VEVENT
 SUMMARY:ICDT 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240912T235959
 DTEND;TZID="UTC-12:00":20240913T000059
-DTSTAMP:20250830T095004Z
-UID:1ebba152-e279-4192-96fe-00222bf94ca3
+DTSTAMP:20250830T121554Z
+UID:c4f3a0f2-d749-41bf-9c45-c89568656d4c
 DESCRIPTION:International Conference on Database Theory\n🗓️ Date: Mar
  ch 25-28\, 2025\n📍 Location: Barcelona\, Spain\n⏰ Original Deadline (
  AoE): 2024-09-12 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (
@@ -514,8 +514,8 @@ BEGIN:VEVENT
 SUMMARY:ICDT 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250313T235959
 DTEND;TZID="UTC-12:00":20250314T000059
-DTSTAMP:20250830T095004Z
-UID:d3d4f41c-b1da-4ef7-9b69-54ef3ea70ace
+DTSTAMP:20250830T121554Z
+UID:1a782c90-475c-4ccf-8e54-e446158510d8
 DESCRIPTION:International Conference on Database Theory\n🗓️ Date: Mar
  ch 24-27\, 2026\n📍 Location: Tampere\, Finland\n⏰ Original Deadline (
  AoE): 2025-03-13 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (
@@ -528,8 +528,8 @@ BEGIN:VEVENT
 SUMMARY:ICDT 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250903T235959
 DTEND;TZID="UTC-12:00":20250904T000059
-DTSTAMP:20250830T095004Z
-UID:06cb20bc-06a2-4cc6-a866-bd95139d52fd
+DTSTAMP:20250830T121554Z
+UID:61791faa-2230-48a2-86f3-e23dac0eb299
 DESCRIPTION:International Conference on Database Theory\n🗓️ Date: Mar
  ch 24-27\, 2026\n📍 Location: Tampere\, Finland\n⏰ Original Deadline (
  AoE): 2025-09-03 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (
@@ -542,8 +542,8 @@ BEGIN:VEVENT
 SUMMARY:ISWC 2022 Deadline [Abstracts Due]
 DTSTART;TZID="UTC-12:00":20220428T235959
 DTEND;TZID="UTC-12:00":20220429T000059
-DTSTAMP:20250830T095004Z
-UID:3432c670-5ee9-4dc1-893a-510c2c805846
+DTSTAMP:20250830T121554Z
+UID:d28114e3-6cd5-4a3b-bb5a-7042b3fa1b1d
 DESCRIPTION:International Semantic Web Conference\n🗓️ Date: October 2
  3-27\, 2022\n📍 Location: Hangzhou\, China\n⏰ Original Deadline (AoE):
   2022-04-28 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\n
@@ -556,8 +556,8 @@ BEGIN:VEVENT
 SUMMARY:ISWC 2022 Deadline [Full Papers Due]
 DTSTART;TZID="UTC-12:00":20220505T235959
 DTEND;TZID="UTC-12:00":20220506T000059
-DTSTAMP:20250830T095004Z
-UID:8bc136a1-576c-42c7-b5f0-326b2725550d
+DTSTAMP:20250830T121554Z
+UID:69ec5678-c6d2-4435-8314-8fa11e40a324
 DESCRIPTION:International Semantic Web Conference\n🗓️ Date: October 2
  3-27\, 2022\n📍 Location: Hangzhou\, China\n⏰ Original Deadline (AoE):
   2022-05-05 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\n
@@ -570,8 +570,8 @@ BEGIN:VEVENT
 SUMMARY:ISWC 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230502T235959
 DTEND;TZID="UTC-12:00":20230503T000059
-DTSTAMP:20250830T095004Z
-UID:8738f69e-d9d0-4321-9a4c-1dd1f54cc805
+DTSTAMP:20250830T121554Z
+UID:729fcec0-d0ec-42cc-862f-25e3b869d729
 DESCRIPTION:International Semantic Web Conference\n🗓️ Date: November 
  6-10\, 2023\n📍 Location: Athens\, Greece\n⏰ Original Deadline (AoE): 
  2023-05-02 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nC
@@ -584,8 +584,8 @@ BEGIN:VEVENT
 SUMMARY:ISWC 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240410T235959
 DTEND;TZID="UTC-12:00":20240411T000059
-DTSTAMP:20250830T095004Z
-UID:b32c3696-a1e9-4616-9c56-cbea41a5bfaa
+DTSTAMP:20250830T121554Z
+UID:8e97d36a-8296-48cc-b9b3-cf9cc554599a
 DESCRIPTION:International Semantic Web Conference\n🗓️ Date: November 
  11-15\, 2024\n📍 Location: Baltimore\, USA\n⏰ Original Deadline (AoE):
   2024-04-10 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\n
@@ -598,8 +598,8 @@ BEGIN:VEVENT
 SUMMARY:ISWC 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250506T235959
 DTEND;TZID="UTC-12:00":20250507T000059
-DTSTAMP:20250830T095004Z
-UID:53eb26b9-c580-4e81-b7fa-74dbb5b6b7b5
+DTSTAMP:20250830T121554Z
+UID:277001ed-5e89-473c-a6e5-f3bca51ef42d
 DESCRIPTION:International Semantic Web Conference\n🗓️ Date: November 
  2-6\, 2025\n📍 Location: Nara\, Japan\n⏰ Original Deadline (AoE): 2025
  -05-06 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nCCF B
@@ -612,8 +612,8 @@ BEGIN:VEVENT
 SUMMARY:RecSys 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230414T235959
 DTEND;TZID="UTC-12:00":20230415T000059
-DTSTAMP:20250830T095004Z
-UID:011bcfe2-a2d0-48c0-b74c-5c46a8d26633
+DTSTAMP:20250830T121554Z
+UID:cd2c0f02-2de1-467f-b504-cd5bbfee587f
 DESCRIPTION:ACM Conference on Recommender Systems\n🗓️ Date: September
   18-22\, 2023\n📍 Location: Singapore\n⏰ Original Deadline (AoE): 2023
  -04-14 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nCCF B
@@ -626,8 +626,8 @@ BEGIN:VEVENT
 SUMMARY:RecSys 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240422T235959
 DTEND;TZID="UTC-12:00":20240423T000059
-DTSTAMP:20250830T095004Z
-UID:d498d05d-f40f-45aa-bf9c-063b9c1a20b2
+DTSTAMP:20250830T121554Z
+UID:a0f97a63-70d3-40c2-b540-d0fe5d136d48
 DESCRIPTION:ACM Conference on Recommender Systems\n🗓️ Date: October 1
  4-18\, 2024\n📍 Location: Bari\, Italy\n⏰ Original Deadline (AoE): 202
  4-04-22 23:59:59\nCategory: 数据库/数据挖掘/内容检索 (DB)\nCCF 
@@ -640,8 +640,8 @@ BEGIN:VEVENT
 SUMMARY:RecSys 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250401T235959
 DTEND;TZID="UTC-12:00":20250402T000059
-DTSTAMP:20250830T095004Z
-UID:92a0f0d0-593d-48c9-9f02-1ee879389124
+DTSTAMP:20250830T121554Z
+UID:489f2eea-9e75-4800-a5c6-f59754dc2a6e
 DESCRIPTION:ACM Conference on Recommender Systems\n🗓️ Date: September
   22-26\, 2025\n📍 Location: Prague\, Czech Republic\n⏰ Original Deadli
  ne (AoE): 2025-04-01 23:59:59\nCategory: 数据库/数据挖掘/内容检
@@ -663,8 +663,8 @@ BEGIN:VEVENT
 SUMMARY:SDM 2024 Deadline
 DTSTART;TZID="UTC-08:00":20230916T150000
 DTEND;TZID="UTC-08:00":20230916T150100
-DTSTAMP:20250830T095004Z
-UID:474d67a5-e5ee-49ea-9c68-d4cf029e1b5b
+DTSTAMP:20250830T121554Z
+UID:1379a76d-030d-448f-992c-7e3a2d312a18
 DESCRIPTION:SIAM International Conference on Data Mining\n🗓️ Date: Ap
  ril 18-20\, 2024\n📍 Location: Houston\, TX\, USA\n⏰ Original Deadline
   (UTC-8): 2023-09-16 15:00:00\nCategory: 数据库/数据挖掘/内容检
@@ -678,8 +678,8 @@ BEGIN:VEVENT
 SUMMARY:SDM 2025 Abstract Deadline
 DTSTART;TZID="UTC-08:00":20240927T235959
 DTEND;TZID="UTC-08:00":20240928T000059
-DTSTAMP:20250830T095004Z
-UID:40f3f33b-2b92-4a8c-8dce-5d9f27184d74
+DTSTAMP:20250830T121554Z
+UID:f8713a36-ce47-43c0-bab2-ea57b3e3f2fd
 DESCRIPTION:SIAM International Conference on Data Mining\n🗓️ Date: Ma
  y 1-3\, 2025\n📍 Location: Alexandria\, Virginia\, USA\n⏰ Original Dea
  dline (UTC-8): 2024-09-27 23:59:59\nCategory: 数据库/数据挖掘/内

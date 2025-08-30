@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2022 Deadline [Abstract Submission]
 DTSTART;TZID="UTC-12:00":20220429T235959
 DTEND;TZID="UTC-12:00":20220430T000059
-DTSTAMP:20250830T095006Z
-UID:3b34de57-c24a-4a30-9163-06e1f50e9164
+DTSTAMP:20250830T121555Z
+UID:80b7ba40-1224-41e2-95b7-974a8543b751
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ Date: September 26- October 01\, 2022\n📍 Location: Ann Arbor\, 
  Michigan\, United States\n⏰ Original Deadline (AoE): 2022-04-29 23:59:59
@@ -29,8 +29,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2022 Deadline [Paper Submission]
 DTSTART;TZID="UTC-12:00":20220506T235959
 DTEND;TZID="UTC-12:00":20220507T000059
-DTSTAMP:20250830T095006Z
-UID:7e75bf7b-a597-4ed7-92d2-e4dfbaef323f
+DTSTAMP:20250830T121555Z
+UID:04d2f671-7783-4ec0-96fd-a6a8befe0757
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ Date: September 26- October 01\, 2022\n📍 Location: Ann Arbor\, 
  Michigan\, United States\n⏰ Original Deadline (AoE): 2022-05-06 23:59:59
@@ -44,8 +44,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230428T235959
 DTEND;TZID="UTC-12:00":20230429T000059
-DTSTAMP:20250830T095006Z
-UID:6fae7e48-55a1-4dec-b055-abfab8e57de7
+DTSTAMP:20250830T121555Z
+UID:474ef054-401f-4b31-9b7f-c192ce47d36d
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ Date: September 11-15\, 2023\n📍 Location: Kirchberg\, Luxembour
  g\n⏰ Original Deadline (AoE): 2023-04-28 23:59:59\nCategory: 软件工
@@ -59,8 +59,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240531T235959
 DTEND;TZID="UTC-12:00":20240601T000059
-DTSTAMP:20250830T095006Z
-UID:2c01b00c-a94a-419a-b36b-cb55a7249a6b
+DTSTAMP:20250830T121555Z
+UID:e0fecfbc-9ee0-41a8-b81c-031c46d766bb
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ Date: October 27- November 01\, 2024\n📍 Location: Sacramento\, 
  California\, United States\n⏰ Original Deadline (AoE): 2024-05-31 23:59:
@@ -74,8 +74,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250530T235959
 DTEND;TZID="UTC-12:00":20250531T000059
-DTSTAMP:20250830T095006Z
-UID:f34ebb37-276b-4448-aa67-579cd6ecfcd9
+DTSTAMP:20250830T121555Z
+UID:9ae09740-80cf-4c31-83b0-019dca942580
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ Date: November 16 - November 20\, 2025\n📍 Location: Seoul\, Sou
  th Korea\n⏰ Original Deadline (AoE): 2025-05-30 23:59:59\nCategory: 软
@@ -89,8 +89,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2022 Deadline [paper registration deadline]
 DTSTART;TZID="UTC-12:00":20220310T235959
 DTEND;TZID="UTC-12:00":20220311T000059
-DTSTAMP:20250830T095006Z
-UID:b1805235-5c30-4a44-bf0c-efd54cfa40a0
+DTSTAMP:20250830T121555Z
+UID:a9ba6e17-8530-4cef-84b5-496a342f4cc7
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ Date: November 14-18\, 2022\n📍 Location: Singapore\n
  ⏰ Original Deadline (AoE): 2022-03-10 23:59:59\nCategory: 软件工程/
@@ -104,8 +104,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2022 Deadline [full paper submission deadline]
 DTSTART;TZID="UTC-12:00":20220317T235959
 DTEND;TZID="UTC-12:00":20220318T000059
-DTSTAMP:20250830T095006Z
-UID:2cb2d507-62e0-4780-8803-54fe8ae3e691
+DTSTAMP:20250830T121555Z
+UID:466502b0-b015-4df5-a833-0729416b47fe
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ Date: November 14-18\, 2022\n📍 Location: Singapore\n
  ⏰ Original Deadline (AoE): 2022-03-17 23:59:59\nCategory: 软件工程/
@@ -119,8 +119,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2023 Deadline [paper registration deadline]
 DTSTART;TZID="UTC-12:00":20230126T235959
 DTEND;TZID="UTC-12:00":20230127T000059
-DTSTAMP:20250830T095006Z
-UID:91e77ef7-3a9f-44f9-b2f8-41d3841704cb
+DTSTAMP:20250830T121555Z
+UID:add23bad-5d13-4890-9dca-2238e46f2f04
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ Date: November 11-17\, 2023\n📍 Location: United Stat
  es\n⏰ Original Deadline (AoE): 2023-01-26 23:59:59\nCategory: 软件工
@@ -134,8 +134,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2023 Deadline [full paper submission deadline]
 DTSTART;TZID="UTC-12:00":20230202T235959
 DTEND;TZID="UTC-12:00":20230203T000059
-DTSTAMP:20250830T095006Z
-UID:a337a1ad-b403-45c6-9551-c471c8a4761b
+DTSTAMP:20250830T121555Z
+UID:597b9ca0-3bab-4de0-b7fa-f5e65b7f12fe
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ Date: November 11-17\, 2023\n📍 Location: United Stat
  es\n⏰ Original Deadline (AoE): 2023-02-02 23:59:59\nCategory: 软件工
@@ -149,8 +149,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230921T235959
 DTEND;TZID="UTC-12:00":20230922T000059
-DTSTAMP:20250830T095006Z
-UID:498f4861-7239-4535-918d-38ed95f94993
+DTSTAMP:20250830T121555Z
+UID:e2ad1010-ae09-4bc0-87d1-e9e4577d1b83
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ Date: July 15-19\, 2024\n📍 Location: Porto de Galina
  s\, Brazil\n⏰ Original Deadline (AoE): 2023-09-21 23:59:59\nCategory: 
@@ -164,8 +164,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240905T235959
 DTEND;TZID="UTC-12:00":20240906T000059
-DTSTAMP:20250830T095006Z
-UID:4aae9f06-e848-4749-8e21-4afc1a330378
+DTSTAMP:20250830T121555Z
+UID:5dc6c884-7473-4184-ac9c-7e1323db34cb
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ Date: June 23-27\, 2025\n📍 Location: Trondheim\, Nor
  way\n⏰ Original Deadline (AoE): 2024-09-05 23:59:59\nCategory: 软件工
@@ -179,8 +179,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250904T235959
 DTEND;TZID="UTC-12:00":20250905T000059
-DTSTAMP:20250830T095006Z
-UID:96f7f607-8abf-4be1-8ae5-908d0e0def72
+DTSTAMP:20250830T121555Z
+UID:2b330d3c-7dca-4a45-b0d7-5bd9bc3d6b46
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ Date: July 6-10\, 2026\n📍 Location: Montréal\, Cana
  da\n⏰ Original Deadline (AoE): 2025-09-04 23:59:59\nCategory: 软件工
@@ -194,8 +194,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20210827T235959
 DTEND;TZID="UTC-12:00":20210828T000059
-DTSTAMP:20250830T095006Z
-UID:ce048307-6148-4fea-8362-8889f2a498d5
+DTSTAMP:20250830T121555Z
+UID:7280769d-4ffb-4216-a3dd-3bf3f350678f
 DESCRIPTION:International Conference on Software Engineering\n🗓️ Date
  : May 21-29\, 2022\n📍 Location: Pittsburgh\, PA\, USA\n⏰ Original Dea
  dline (AoE): 2021-08-27 23:59:59\nCategory: 软件工程/系统软件/程
@@ -209,8 +209,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2023 Deadline
 DTSTART;TZID="UTC-12:00":20220901T235959
 DTEND;TZID="UTC-12:00":20220902T000059
-DTSTAMP:20250830T095006Z
-UID:092938e5-0783-4ccd-a489-51e009c34fa2
+DTSTAMP:20250830T121555Z
+UID:dce81476-b0a2-4093-8e72-77a438b1304f
 DESCRIPTION:International Conference on Software Engineering\n🗓️ Date
  : May 14-20\, 2023\n📍 Location: Melbourne\, Australia\n⏰ Original Dea
  dline (AoE): 2022-09-01 23:59:59\nCategory: 软件工程/系统软件/程
@@ -225,8 +225,8 @@ SUMMARY:ICSE 2024 Deadline [Technical Papers First round submission deadli
  ne]
 DTSTART;TZID="UTC-12:00":20230329T235959
 DTEND;TZID="UTC-12:00":20230330T000059
-DTSTAMP:20250830T095006Z
-UID:37b4a14a-8c94-4b89-8325-f245889a0e93
+DTSTAMP:20250830T121555Z
+UID:bd7b5358-28f9-468b-9a9e-64af1f31309d
 DESCRIPTION:International Conference on Software Engineering\n🗓️ Date
  : April 12-21\, 2024\n📍 Location: Lisbon\, Portugal\n⏰ Original Deadl
  ine (AoE): 2023-03-29 23:59:59\nCategory: 软件工程/系统软件/程序
@@ -241,8 +241,8 @@ SUMMARY:ICSE 2024 Deadline [Technical Papers Second round submission deadl
  ine]
 DTSTART;TZID="UTC-12:00":20230801T235959
 DTEND;TZID="UTC-12:00":20230802T000059
-DTSTAMP:20250830T095006Z
-UID:31b605a5-449f-4480-9374-8ebb79efa520
+DTSTAMP:20250830T121555Z
+UID:239f6e01-4b8f-4431-a7fa-e51336f34716
 DESCRIPTION:International Conference on Software Engineering\n🗓️ Date
  : April 12-21\, 2024\n📍 Location: Lisbon\, Portugal\n⏰ Original Deadl
  ine (AoE): 2023-08-01 23:59:59\nCategory: 软件工程/系统软件/程序
@@ -256,8 +256,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2025 Abstract Deadline [First Cycle: Submission]
 DTSTART;TZID="UTC-12:00":20240315T235959
 DTEND;TZID="UTC-12:00":20240316T000059
-DTSTAMP:20250830T095006Z
-UID:31cdfd17-644f-4c1d-a7e2-aa218667c117
+DTSTAMP:20250830T121555Z
+UID:88465d90-d6a2-49a4-a4a3-e3737e13fbd1
 DESCRIPTION:International Conference on Software Engineering\n🗓️ Date
  : April 26- May 04\, 2025\n📍 Location: Ottawa\, Ontario\, Canada\n⏰ O
  riginal Deadline (AoE): 2024-03-15 23:59:59\nCategory: 软件工程/系统
@@ -271,8 +271,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2025 Abstract Deadline [Second Cycle: Submission]
 DTSTART;TZID="UTC-12:00":20240726T235959
 DTEND;TZID="UTC-12:00":20240727T000059
-DTSTAMP:20250830T095006Z
-UID:6118e590-457b-4a82-bb2f-e9730d973b4f
+DTSTAMP:20250830T121555Z
+UID:48c3ca1f-599b-47d3-b35c-b5cb0bbc1c13
 DESCRIPTION:International Conference on Software Engineering\n🗓️ Date
  : April 26- May 04\, 2025\n📍 Location: Ottawa\, Ontario\, Canada\n⏰ O
  riginal Deadline (AoE): 2024-07-26 23:59:59\nCategory: 软件工程/系统
@@ -286,8 +286,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2026 Abstract Deadline [First Cycle: Submission]
 DTSTART;TZID="UTC-12:00":20250307T235959
 DTEND;TZID="UTC-12:00":20250308T000059
-DTSTAMP:20250830T095006Z
-UID:76a96581-0251-4097-81b7-732df549709a
+DTSTAMP:20250830T121555Z
+UID:47cdeeca-9504-4a7b-8a56-51e4617a88a2
 DESCRIPTION:International Conference on Software Engineering\n🗓️ Date
  : April 12-18\, 2026\n📍 Location: Rio De Janeiro\, Brazil\n⏰ Original
   Deadline (AoE): 2025-03-07 23:59:59\nCategory: 软件工程/系统软件/
@@ -301,8 +301,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2026 Abstract Deadline [Second Cycle: Submission]
 DTSTART;TZID="UTC-12:00":20250711T235959
 DTEND;TZID="UTC-12:00":20250712T000059
-DTSTAMP:20250830T095006Z
-UID:5bd2dec1-b1b7-4d57-9ff6-aaf84f0d4f15
+DTSTAMP:20250830T121555Z
+UID:feeec9a0-2e37-49c9-b956-87b10e406893
 DESCRIPTION:International Conference on Software Engineering\n🗓️ Date
  : April 12-18\, 2026\n📍 Location: Rio De Janeiro\, Brazil\n⏰ Original
   Deadline (AoE): 2025-07-11 23:59:59\nCategory: 软件工程/系统软件/
@@ -316,8 +316,8 @@ BEGIN:VEVENT
 SUMMARY:ISSTA 2022 Deadline [Technical Papers due]
 DTSTART;TZID="UTC-12:00":20220128T235959
 DTEND;TZID="UTC-12:00":20220129T000059
-DTSTAMP:20250830T095006Z
-UID:400d3fa9-4ab9-436d-8a01-8aec4c16b33b
+DTSTAMP:20250830T121555Z
+UID:7b24bc21-3ac0-4df2-8096-2c25d680fb39
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ Date: July 18-22\, 2022\n📍 Location: Daejeon\, South Ko
  rea\n⏰ Original Deadline (AoE): 2022-01-28 23:59:59\nCategory: 软件工
@@ -331,8 +331,8 @@ BEGIN:VEVENT
 SUMMARY:ISSTA 2022 Deadline [Workshops Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220131T235959
 DTEND;TZID="UTC-12:00":20220201T000059
-DTSTAMP:20250830T095006Z
-UID:a0dd4534-b0ca-4e88-8fec-dcecd99f3396
+DTSTAMP:20250830T121555Z
+UID:19822d27-94b4-4c4c-903b-1948b9207e3b
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ Date: July 18-22\, 2022\n📍 Location: Daejeon\, South Ko
  rea\n⏰ Original Deadline (AoE): 2022-01-31 23:59:59\nCategory: 软件工
@@ -347,8 +347,8 @@ SUMMARY:ISSTA 2023 Deadline [Technical Papers First round submission deadl
  ine]
 DTSTART;TZID="UTC-12:00":20221110T235959
 DTEND;TZID="UTC-12:00":20221111T000059
-DTSTAMP:20250830T095006Z
-UID:dbe00d1e-3aea-4c47-b87d-fa3658bc6cb2
+DTSTAMP:20250830T121555Z
+UID:ec11e988-7d4a-4c76-b989-0a5c58b085e7
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ Date: July 17-21\, 2023\n📍 Location: Seattle\, United S
  tates\n⏰ Original Deadline (AoE): 2022-11-10 23:59:59\nCategory: 软件
@@ -363,8 +363,8 @@ SUMMARY:ISSTA 2023 Deadline [Technical Papers Second round submission dead
  line]
 DTSTART;TZID="UTC-12:00":20230216T235959
 DTEND;TZID="UTC-12:00":20230217T000059
-DTSTAMP:20250830T095006Z
-UID:5ee3d539-176d-4f9b-b72a-0ff09c2d7775
+DTSTAMP:20250830T121555Z
+UID:1f5765e8-a2f3-4950-a829-3c09dd5e54ee
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ Date: July 17-21\, 2023\n📍 Location: Seattle\, United S
  tates\n⏰ Original Deadline (AoE): 2023-02-16 23:59:59\nCategory: 软件
@@ -379,8 +379,8 @@ SUMMARY:ISSTA 2024 Deadline [Technical Papers Submission deadline (Round 1
  )]
 DTSTART;TZID="UTC-12:00":20231215T235959
 DTEND;TZID="UTC-12:00":20231216T000059
-DTSTAMP:20250830T095006Z
-UID:89da7453-0a0a-4b5f-b4cb-25a0f185aa65
+DTSTAMP:20250830T121555Z
+UID:81be9139-894b-4798-a5b5-a7aa910aece1
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ Date: September 16-20\, 2024\n📍 Location: Vienna\, Aust
  ria\n⏰ Original Deadline (AoE): 2023-12-15 23:59:59\nCategory: 软件工
@@ -395,8 +395,8 @@ SUMMARY:ISSTA 2024 Deadline [Technical Papers Submission deadline (Round 2
  )]
 DTSTART;TZID="UTC-12:00":20240412T235959
 DTEND;TZID="UTC-12:00":20240413T000059
-DTSTAMP:20250830T095006Z
-UID:f89f5805-6325-48dc-9553-d554824cdc93
+DTSTAMP:20250830T121555Z
+UID:13c3c0e5-005c-4319-9388-ffe6f00940db
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ Date: September 16-20\, 2024\n📍 Location: Vienna\, Aust
  ria\n⏰ Original Deadline (AoE): 2024-04-12 23:59:59\nCategory: 软件工
@@ -410,8 +410,8 @@ BEGIN:VEVENT
 SUMMARY:ISSTA 2025 Deadline [Research Papers Full Paper Submission]
 DTSTART;TZID="UTC-12:00":20241031T235959
 DTEND;TZID="UTC-12:00":20241101T000059
-DTSTAMP:20250830T095006Z
-UID:c2a27de2-7e40-4725-b4f6-3ee6c0c63ae1
+DTSTAMP:20250830T121555Z
+UID:8430cd7e-da2a-49a4-83c0-08a49d06d5c6
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ Date: June 25-28\, 2025\n📍 Location: Trondheim\, Norway
  \n⏰ Original Deadline (AoE): 2024-10-31 23:59:59\nCategory: 软件工程
@@ -425,8 +425,8 @@ BEGIN:VEVENT
 SUMMARY:ISSTA 2026 Deadline
 DTSTART;TZID="UTC-12:00":20260129T235959
 DTEND;TZID="UTC-12:00":20260130T000059
-DTSTAMP:20250830T095006Z
-UID:dd60d413-02d1-4b5c-9743-c553ffc18400
+DTSTAMP:20250830T121555Z
+UID:7d37180e-c4fc-4373-9a08-50849b844ebf
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ Date: October 3-9\, 2026\n📍 Location: Oakland\, Califor
  nia\, United States\n⏰ Original Deadline (AoE): 2026-01-29 23:59:59\nCat
@@ -440,8 +440,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2022 Deadline [Submission Deadline Round 1]
 DTSTART;TZID="UTC-12:00":20211012T235959
 DTEND;TZID="UTC-12:00":20211013T000059
-DTSTAMP:20250830T095006Z
-UID:36ee0d0b-9b9c-49d7-a948-29dc36a71f93
+DTSTAMP:20250830T121555Z
+UID:f7e5169f-8313-4a64-9562-8a7fb9bdf4b0
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: November 14-19\, 2022\n📍 Location: Au
  ckland\, New Zealand\n⏰ Original Deadline (AoE): 2021-10-12 23:59:59\nCa
@@ -455,8 +455,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2022 Deadline [Submission of Revisions Round 1]
 DTSTART;TZID="UTC-12:00":20220211T235959
 DTEND;TZID="UTC-12:00":20220212T000059
-DTSTAMP:20250830T095006Z
-UID:9d8b88f1-fa50-4851-98f7-129d23f670d6
+DTSTAMP:20250830T121555Z
+UID:1ec12336-35f3-4cf6-9332-89a89f178780
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: November 14-19\, 2022\n📍 Location: Au
  ckland\, New Zealand\n⏰ Original Deadline (AoE): 2022-02-11 23:59:59\nCa
@@ -470,8 +470,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2022 Deadline [Submission Deadline Round 2]
 DTSTART;TZID="UTC-12:00":20220415T235959
 DTEND;TZID="UTC-12:00":20220416T000059
-DTSTAMP:20250830T095006Z
-UID:f80cb8f8-5ef3-4a73-9c0c-39f702107d32
+DTSTAMP:20250830T121555Z
+UID:fdf4bcb0-23a4-4fa8-9216-a239007610b8
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: November 14-19\, 2022\n📍 Location: Au
  ckland\, New Zealand\n⏰ Original Deadline (AoE): 2022-04-15 23:59:59\nCa
@@ -485,8 +485,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2022 Deadline [Submission of Revisions Round 2]
 DTSTART;TZID="UTC-12:00":20220815T235959
 DTEND;TZID="UTC-12:00":20220816T000059
-DTSTAMP:20250830T095006Z
-UID:81135ff5-a52e-455f-bc1c-02b9050f709f
+DTSTAMP:20250830T121555Z
+UID:6f385a0a-9d59-4389-b70d-8521a988fede
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: November 14-19\, 2022\n📍 Location: Au
  ckland\, New Zealand\n⏰ Original Deadline (AoE): 2022-08-15 23:59:59\nCa
@@ -500,8 +500,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2023 Deadline [Submission Deadline Round 1]
 DTSTART;TZID="UTC-12:00":20221028T235959
 DTEND;TZID="UTC-12:00":20221029T000059
-DTSTAMP:20250830T095006Z
-UID:601f6a69-4e7c-49e7-97cc-cbbf275ef06e
+DTSTAMP:20250830T121555Z
+UID:1b230b4d-0801-4e11-a4da-34ebbf60ebd6
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 22-27\, 2023\n📍 Location: Lis
  bon\, Portugal\n⏰ Original Deadline (AoE): 2022-10-28 23:59:59\nCategory
@@ -515,8 +515,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2023 Deadline [Submission of Revisions Round 1]
 DTSTART;TZID="UTC-12:00":20230224T235959
 DTEND;TZID="UTC-12:00":20230225T000059
-DTSTAMP:20250830T095006Z
-UID:8ed98821-4a2f-44f0-9d61-16fb9585c722
+DTSTAMP:20250830T121555Z
+UID:d8ec528b-abdb-45ab-abc6-b2845d732c83
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 22-27\, 2023\n📍 Location: Lis
  bon\, Portugal\n⏰ Original Deadline (AoE): 2023-02-24 23:59:59\nCategory
@@ -530,8 +530,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2023 Deadline [Submission Deadline Round 2]
 DTSTART;TZID="UTC-12:00":20230414T235959
 DTEND;TZID="UTC-12:00":20230415T000059
-DTSTAMP:20250830T095006Z
-UID:4bf90f74-f3dc-414b-ae0c-13dec186d0ee
+DTSTAMP:20250830T121555Z
+UID:348f9f76-7b68-484d-ba4c-9fe48adf9b55
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 22-27\, 2023\n📍 Location: Lis
  bon\, Portugal\n⏰ Original Deadline (AoE): 2023-04-14 23:59:59\nCategory
@@ -545,8 +545,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2023 Deadline [Submission of Revisions Round 2]
 DTSTART;TZID="UTC-12:00":20230818T235959
 DTEND;TZID="UTC-12:00":20230819T000059
-DTSTAMP:20250830T095006Z
-UID:2b9a22c8-425a-4155-95e5-2a50d1cd7b1c
+DTSTAMP:20250830T121555Z
+UID:fc757261-332d-4db5-b358-eefbd064aa61
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 22-27\, 2023\n📍 Location: Lis
  bon\, Portugal\n⏰ Original Deadline (AoE): 2023-08-18 23:59:59\nCategory
@@ -569,8 +569,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2024 Deadline [Submission Deadline Round 1]
 DTSTART;TZID="UTC-04:00":20231021T075959
 DTEND;TZID="UTC-04:00":20231021T080059
-DTSTAMP:20250830T095006Z
-UID:937f7fca-3115-4ec0-9eed-bb17275617aa
+DTSTAMP:20250830T121555Z
+UID:1a16eea4-4b1b-4792-8ab4-b5cbd88cd536
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 20-25\, 2024\n📍 Location: Pas
  adena\, United States\n⏰ Original Deadline (UTC-4): 2023-10-21 07:59:59\
@@ -584,8 +584,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2024 Deadline [Submission Deadline Round 2]
 DTSTART;TZID="UTC-04:00":20240406T075959
 DTEND;TZID="UTC-04:00":20240406T080059
-DTSTAMP:20250830T095006Z
-UID:aa77e814-02a2-4db6-a9dd-a38b0fb9c14c
+DTSTAMP:20250830T121555Z
+UID:fc0eb180-a873-4761-aef1-4e107051f2cc
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 20-25\, 2024\n📍 Location: Pas
  adena\, United States\n⏰ Original Deadline (UTC-4): 2024-04-06 07:59:59\
@@ -599,8 +599,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2025 Deadline [Submission Deadline Round 1]
 DTSTART;TZID="UTC-12:00":20241015T075959
 DTEND;TZID="UTC-12:00":20241015T080059
-DTSTAMP:20250830T095006Z
-UID:b462133d-7f86-4f3e-92df-f1786bdf8ca3
+DTSTAMP:20250830T121555Z
+UID:2ebcfe23-b2b6-462f-bd36-0cb0d9677566
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 12-18\, 2025\n📍 Location: Sin
  gapore\n⏰ Original Deadline (UTC-12): 2024-10-15 07:59:59\nCategory: 软
@@ -614,8 +614,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2025 Deadline [Submission Deadline Revision R1]
 DTSTART;TZID="UTC-12:00":20250204T075959
 DTEND;TZID="UTC-12:00":20250204T080059
-DTSTAMP:20250830T095006Z
-UID:2dd39eab-00d2-4834-ac65-936b5a1f1f40
+DTSTAMP:20250830T121555Z
+UID:8ee7d9ad-4c96-4f68-aa59-c526b09c142c
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 12-18\, 2025\n📍 Location: Sin
  gapore\n⏰ Original Deadline (UTC-12): 2025-02-04 07:59:59\nCategory: 软
@@ -629,8 +629,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2025 Deadline [Submission Deadline Round 2]
 DTSTART;TZID="UTC-12:00":20250325T235959
 DTEND;TZID="UTC-12:00":20250326T000059
-DTSTAMP:20250830T095006Z
-UID:bbf60da2-319a-425a-a691-724a69f82f60
+DTSTAMP:20250830T121555Z
+UID:40e9abcd-ee95-4b5e-b253-e8e0e2154506
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 12-18\, 2025\n📍 Location: Sin
  gapore\n⏰ Original Deadline (UTC-12): 2025-03-25 23:59:59\nCategory: 软
@@ -644,8 +644,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2026 Deadline [Submission Deadline Round 1]
 DTSTART;TZID="UTC-12:00":20251010T235959
 DTEND;TZID="UTC-12:00":20251011T000059
-DTSTAMP:20250830T095006Z
-UID:8d58a5d8-9e24-4f62-be59-4a64f3415ce1
+DTSTAMP:20250830T121555Z
+UID:0e4e86cb-0d07-4006-b69b-7a315d6f8318
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 3-9\, 2025\n📍 Location: Oakla
  nd\, California\, United States\n⏰ Original Deadline (UTC-12): 2025-10-1
@@ -659,8 +659,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2026 Deadline [Submission Deadline Round 2]
 DTSTART;TZID="UTC-12:00":20260317T235959
 DTEND;TZID="UTC-12:00":20260318T000059
-DTSTAMP:20250830T095006Z
-UID:0231aa20-92ab-455c-adf9-42d5b8970840
+DTSTAMP:20250830T121555Z
+UID:2527f3b7-5874-47d1-8602-e4105166ecd2
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ Date: October 3-9\, 2025\n📍 Location: Oakla
  nd\, California\, United States\n⏰ Original Deadline (UTC-12): 2026-03-1
@@ -674,8 +674,8 @@ BEGIN:VEVENT
 SUMMARY:OSDI 2022 Deadline
 DTSTART;TZID="UTC-12:00":20211214T235959
 DTEND;TZID="UTC-12:00":20211215T000059
-DTSTAMP:20250830T095006Z
-UID:e35b7036-0d48-4c1f-af49-0552201187f6
+DTSTAMP:20250830T121555Z
+UID:c27d1d5c-fdf9-44f5-a23b-264f3869e4c9
 DESCRIPTION:USENIX Symposium on Operating Systems Design and Implementatio
  n\n🗓️ Date: July 11-13\, 2022\n📍 Location: Omni La Costa Resort & 
  Spa in Carlsbad\, CA\, USA\n⏰ Original Deadline (AoE): 2021-12-14 23:59:
@@ -689,8 +689,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2021 Deadline
 DTSTART;TZID="UTC-12:00":20201120T235959
 DTEND;TZID="UTC-12:00":20201121T000059
-DTSTAMP:20250830T095006Z
-UID:77150f4f-2cc0-4968-bba7-688ed43dbdf7
+DTSTAMP:20250830T121555Z
+UID:7519d0a7-3198-41c0-a6d5-9955ae447e15
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ Date: June 23-25\, 2021\n📍 Location: Virtual\n⏰ Ori
  ginal Deadline (AoE): 2020-11-20 23:59:59\nCategory: 软件工程/系统
@@ -704,8 +704,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2022 Deadline
 DTSTART;TZID="UTC-12:00":20211119T235959
 DTEND;TZID="UTC-12:00":20211120T000059
-DTSTAMP:20250830T095006Z
-UID:099d4c13-995e-4c92-ba00-03c07d2eb786
+DTSTAMP:20250830T121555Z
+UID:3120b494-03ed-4a44-a3ca-75bb7bbb620d
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ Date: June 20-24\, 2022\n📍 Location: San Diego\, Cali
  fornia\, United States\n⏰ Original Deadline (AoE): 2021-11-19 23:59:59\n
@@ -719,8 +719,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2023 Deadline
 DTSTART;TZID="UTC-12:00":20221110T235959
 DTEND;TZID="UTC-12:00":20221111T000059
-DTSTAMP:20250830T095006Z
-UID:a1791db5-73d1-4aa4-b663-b3bb919a1a21
+DTSTAMP:20250830T121555Z
+UID:9767039b-04f8-43f4-a604-62c5de9854ef
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ Date: June 19-21\, 2023\n📍 Location: Orlando\, Florid
  a\, United States\n⏰ Original Deadline (AoE): 2022-11-10 23:59:59\nCateg
@@ -734,8 +734,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2024 Deadline
 DTSTART;TZID="UTC-12:00":20231116T235959
 DTEND;TZID="UTC-12:00":20231117T000059
-DTSTAMP:20250830T095006Z
-UID:d7f2062c-f3de-4785-928e-0f60a62d93ab
+DTSTAMP:20250830T121555Z
+UID:58833fc8-c18f-492d-8023-785e1f77f3a5
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ Date: June 24-28\, 2024\n📍 Location: Copenhagen\, Den
  mark\n⏰ Original Deadline (AoE): 2023-11-16 23:59:59\nCategory: 软件
@@ -749,8 +749,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241114T235959
 DTEND;TZID="UTC-12:00":20241115T000059
-DTSTAMP:20250830T095006Z
-UID:806fd64d-2d22-4cff-90b6-56b9c444a071
+DTSTAMP:20250830T121555Z
+UID:93a48337-70e0-47dc-82f3-23bd77b1e424
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ Date: June 16-20\, 2025\n📍 Location: Seoul\, South Ko
  rea\n⏰ Original Deadline (AoE): 2024-11-14 23:59:59\nCategory: 软件工
@@ -764,8 +764,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2026 Deadline
 DTSTART;TZID="UTC-12:00":20251113T235959
 DTEND;TZID="UTC-12:00":20251114T000059
-DTSTAMP:20250830T095006Z
-UID:5d71aca6-291d-4c6d-aed5-db9163ede624
+DTSTAMP:20250830T121555Z
+UID:75b0fbe4-21c4-4e1b-94df-69d636a94c91
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ Date: June 15-19\, 2026\n📍 Location: Boulder\, Colora
  do\, United States\n⏰ Original Deadline (AoE): 2025-11-13 23:59:59\nCate
@@ -779,8 +779,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2022 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210708T235959
 DTEND;TZID="UTC-12:00":20210709T000059
-DTSTAMP:20250830T095006Z
-UID:46b270c5-1834-4979-a04a-cf41e0a7ea4d
+DTSTAMP:20250830T121555Z
+UID:cdc487a0-3e05-4263-ae66-d26a68a2c35e
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ Date: January 16-22\, 2022\n📍 Location: Westin Philadelp
  hia\n⏰ Original Deadline (AoE): 2021-07-08 23:59:59\nCategory: 软件工
@@ -794,8 +794,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2023 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220707T235959
 DTEND;TZID="UTC-12:00":20220708T000059
-DTSTAMP:20250830T095006Z
-UID:db62e0a1-fd4b-4448-90ea-95f366f8dbe5
+DTSTAMP:20250830T121555Z
+UID:706063ff-542c-47c9-b2ce-b63d9d9aee93
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ Date: January 15-21\, 2023\n📍 Location: Boston\, Massach
  usetts\, United States\n⏰ Original Deadline (AoE): 2022-07-07 23:59:59\n
@@ -809,8 +809,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2024 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20230711T235959
 DTEND;TZID="UTC-12:00":20230712T000059
-DTSTAMP:20250830T095006Z
-UID:29de138f-54c5-4e9a-a08c-d78c528bc9e5
+DTSTAMP:20250830T121555Z
+UID:ef30fabb-ca3f-49c5-836f-553fb1f091d8
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ Date: January 17-19\, 2024\n📍 Location: London\, United 
  Kingdom\n⏰ Original Deadline (AoE): 2023-07-11 23:59:59\nCategory: 软
@@ -824,8 +824,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2025 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240711T235959
 DTEND;TZID="UTC-12:00":20240712T000059
-DTSTAMP:20250830T095006Z
-UID:48e6e0dc-de07-4bcb-a2fc-00aa9624c6c6
+DTSTAMP:20250830T121555Z
+UID:e7cfcd8f-b0ad-400f-980e-c29ef1b6e387
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ Date: January 19-25\, 2025\n📍 Location: Denver\, Colorad
  o\, United States\n⏰ Original Deadline (AoE): 2024-07-11 23:59:59\nCateg
@@ -839,8 +839,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2026 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250710T235959
 DTEND;TZID="UTC-12:00":20250711T000059
-DTSTAMP:20250830T095006Z
-UID:b3da88f8-2bb2-4bdf-a10b-ec04ce5696c4
+DTSTAMP:20250830T121555Z
+UID:ede5a168-792a-40e4-9326-459798bb387a
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ Date: January 11-17\, 2026\n📍 Location: Rennes\, France\
  n⏰ Original Deadline (AoE): 2025-07-10 23:59:59\nCategory: 软件工程/
@@ -863,8 +863,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2021 Deadline
 DTSTART;TZID="UTC-08:00":20210507T145959
 DTEND;TZID="UTC-08:00":20210507T150059
-DTSTAMP:20250830T095006Z
-UID:99e1d3b0-14a7-40c2-acbc-6df84bd0332e
+DTSTAMP:20250830T121555Z
+UID:aeb4c565-f536-4960-86a2-20edf02619ee
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ Date: O
  ctober 25-28\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC-8)
  : 2021-05-07 14:59:59\nCategory: 软件工程/系统软件/程序设计语
@@ -877,8 +877,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2023 Deadline [Deadline to Register Abstracts]
 DTSTART;TZID="UTC-04:00":20230410T235959
 DTEND;TZID="UTC-04:00":20230411T000059
-DTSTAMP:20250830T095006Z
-UID:3e82a074-936b-4b88-b147-bba38378f4a2
+DTSTAMP:20250830T121555Z
+UID:00ffa94c-ccbe-4104-94ce-1f94dbd8b750
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ Date: O
  ctober 23 - 26\, 2023\n📍 Location: Koblenz\, Germany\n⏰ Original Dead
  line (UTC-4): 2023-04-10 23:59:59\nCategory: 软件工程/系统软件/程
@@ -891,8 +891,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2023 Deadline [Submission Deadline (no extensions)]
 DTSTART;TZID="UTC-04:00":20230417T235959
 DTEND;TZID="UTC-04:00":20230418T000059
-DTSTAMP:20250830T095006Z
-UID:52197c15-7f3a-4fb8-9ce6-78b3550d66ca
+DTSTAMP:20250830T121555Z
+UID:aced40e2-c05e-4126-949d-6f218a83da39
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ Date: O
  ctober 23 - 26\, 2023\n📍 Location: Koblenz\, Germany\n⏰ Original Dead
  line (UTC-4): 2023-04-17 23:59:59\nCategory: 软件工程/系统软件/程
@@ -905,8 +905,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2024 Abstract Deadline
 DTSTART;TZID="UTC-08:00":20240412T235959
 DTEND;TZID="UTC-08:00":20240413T000059
-DTSTAMP:20250830T095006Z
-UID:4431ad2a-56e3-48e6-9807-80c7a02c8957
+DTSTAMP:20250830T121555Z
+UID:cb71db8a-c7b0-4fd7-93f7-e015bf060796
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ Date: N
  ovember 4 - 6\, 2024\n📍 Location: Hilton Austin\, Texas\, USA\n⏰ Orig
  inal Deadline (UTC-8): 2024-04-12 23:59:59\nCategory: 软件工程/系统
@@ -929,8 +929,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2025 Abstract Deadline
 DTSTART;TZID="UTC-07:00":20250410T235959
 DTEND;TZID="UTC-07:00":20250411T000059
-DTSTAMP:20250830T095006Z
-UID:7635de18-bd88-423d-a4d2-eddbb599373e
+DTSTAMP:20250830T121555Z
+UID:f43fbb71-7f35-4412-9301-b693ce6bfa4f
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ Date: O
  ctober 13 - 16\, 2025\n📍 Location: Lotte Hotel World\, Seoul\, Republic
   of Korea\n⏰ Original Deadline (UTC-7): 2025-04-10 23:59:59\nCategory: 

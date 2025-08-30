@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:CHI 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230907T235959
 DTEND;TZID="UTC-12:00":20230908T000059
-DTSTAMP:20250830T095005Z
-UID:0ef3297d-2057-4314-ad1f-5d3ff051f7f5
+DTSTAMP:20250830T121555Z
+UID:3ada2567-a485-44f2-96e1-c69401bb3d08
 DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
  Date: May 11 - May 16\, 2024\n📍 Location: Honolulu\, Hawaii\, USA\n⏰ 
  Original Deadline (AoE): 2023-09-07 23:59:59\nCategory: 人机交互与普
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:CHI 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240905T235959
 DTEND;TZID="UTC-12:00":20240906T000059
-DTSTAMP:20250830T095005Z
-UID:04ddc2ea-7b44-4e8f-9c24-4a9324ee8705
+DTSTAMP:20250830T121555Z
+UID:2431edbc-1b9a-4213-bec5-8ae9f820997a
 DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
  Date: April 26 - May 1\, 2025\n📍 Location: Yokohama\, Japan\n⏰ Origin
  al Deadline (AoE): 2024-09-05 23:59:59\nCategory: 人机交互与普适计
@@ -42,8 +42,8 @@ BEGIN:VEVENT
 SUMMARY:CHI 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250904T235959
 DTEND;TZID="UTC-12:00":20250905T000059
-DTSTAMP:20250830T095005Z
-UID:cf7b94c6-47e9-4d4f-90de-3844ae0c55e8
+DTSTAMP:20250830T121555Z
+UID:a02bddb3-1a96-4974-8b83-14d66bc68152
 DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
  Date: April 13 - 17\, 2026\n📍 Location: Centre de Convencions Internaci
  onal de Barcelona\, Barcelona\, Spain\n⏰ Original Deadline (AoE): 2025-0
@@ -58,8 +58,8 @@ BEGIN:VEVENT
 SUMMARY:PerCom 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240929T235900
 DTEND;TZID="UTC-12:00":20240930T000000
-DTSTAMP:20250830T095005Z
-UID:f44c0fbe-bf55-4b81-a7ea-c0b17f772d15
+DTSTAMP:20250830T121555Z
+UID:0959f7bf-1fa7-4a1a-b75f-c013d6492458
 DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
  nications\n🗓️ Date: March 17 - 21\, 2025\n📍 Location: Walter E. Wa
  shington Convention Center\, Washington DC\, USA\n⏰ Original Deadline (A
@@ -73,8 +73,8 @@ BEGIN:VEVENT
 SUMMARY:PerCom 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250912T235900
 DTEND;TZID="UTC-12:00":20250913T000000
-DTSTAMP:20250830T095005Z
-UID:6f58931f-7d43-4c9e-a60b-738e9aea16bf
+DTSTAMP:20250830T121555Z
+UID:e9a6c870-b2ae-49d7-9993-fb6039345f9b
 DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
  nications\n🗓️ Date: March 16 - 20\, 2026\n📍 Location: Pisa\, Italy
  \n⏰ Original Deadline (AoE): 2025-09-12 23:59:00\nCategory: 人机交互
@@ -96,8 +96,8 @@ BEGIN:VEVENT
 SUMMARY:UIST 2024 Deadline [abstract deadline]
 DTSTART;TZID="UTC-08:00":20240327T170000
 DTEND;TZID="UTC-08:00":20240327T170100
-DTSTAMP:20250830T095005Z
-UID:8927ef0a-3d83-44f6-b2b0-3aed44ae1c60
+DTSTAMP:20250830T121555Z
+UID:542ace48-531a-4172-8346-33df8fe14b5e
 DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
  ️ Date: October 13-16\, 2024\n📍 Location: Pittsburgh\, Pennsylvania\,
   USA\n⏰ Original Deadline (UTC-8): 2024-03-27 17:00:00\nCategory: 人机
@@ -110,8 +110,8 @@ BEGIN:VEVENT
 SUMMARY:UIST 2024 Deadline [paper deadline]
 DTSTART;TZID="UTC-08:00":20240403T170000
 DTEND;TZID="UTC-08:00":20240403T170100
-DTSTAMP:20250830T095005Z
-UID:f25f8cf7-1539-401f-8a8a-2840d8c4b1f1
+DTSTAMP:20250830T121555Z
+UID:c45a08c8-b851-4188-bdff-6c1f9ee8891d
 DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
  ️ Date: October 13-16\, 2024\n📍 Location: Pittsburgh\, Pennsylvania\,
   USA\n⏰ Original Deadline (UTC-8): 2024-04-03 17:00:00\nCategory: 人机
@@ -124,8 +124,8 @@ BEGIN:VEVENT
 SUMMARY:UIST 2025 Deadline [abstract deadline]
 DTSTART;TZID="UTC-08:00":20250402T170000
 DTEND;TZID="UTC-08:00":20250402T170100
-DTSTAMP:20250830T095005Z
-UID:eba73fce-4630-4b84-8a32-d6c1f9eae08f
+DTSTAMP:20250830T121555Z
+UID:00c6097d-7278-4d07-a49d-da58af74e672
 DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
  ️ Date: Sep 28 - Oct 1\, 2025\n📍 Location: Busan\, Korea\n⏰ Origina
  l Deadline (UTC-8): 2025-04-02 17:00:00\nCategory: 人机交互与普适
@@ -138,8 +138,8 @@ BEGIN:VEVENT
 SUMMARY:UIST 2025 Deadline [paper deadline]
 DTSTART;TZID="UTC-08:00":20250409T170000
 DTEND;TZID="UTC-08:00":20250409T170100
-DTSTAMP:20250830T095005Z
-UID:c374dbbb-7187-41eb-bddc-d1e65701b0ff
+DTSTAMP:20250830T121555Z
+UID:b1656945-dd96-4790-a485-518eb9e15941
 DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
  ️ Date: Sep 28 - Oct 1\, 2025\n📍 Location: Busan\, Korea\n⏰ Origina
  l Deadline (UTC-8): 2025-04-09 17:00:00\nCategory: 人机交互与普适

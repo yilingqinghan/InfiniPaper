@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:ASSETS 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250416T235959
 DTEND;TZID="UTC-12:00":20250417T000059
-DTSTAMP:20250830T095001Z
-UID:79c14040-82a6-4244-8cf6-a717d2be8a42
+DTSTAMP:20250830T121551Z
+UID:9dbf7dba-8797-43d5-baa2-5edfb7463db7
 DESCRIPTION:ACM SIGACCESS Conference on Computers and Accessibility\n🗓
  ️ 会议时间: Oct 26 - 29\, 2025\n📍 会议地点: Denver\, Colorado
  \n⏰ 原始截止时间 (AoE): 2025-04-16 23:59:59\n分类: 人机交互
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:DIS 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250113T235959
 DTEND;TZID="UTC-12:00":20250114T000059
-DTSTAMP:20250830T095001Z
-UID:73b679f1-8deb-4234-9e54-a2642a0ee70d
+DTSTAMP:20250830T121551Z
+UID:39209fc2-0945-4507-9d18-4d7b496ab51e
 DESCRIPTION:ACM Conference on Designing Interactive Systems\n🗓️ 会
  议时间: July 5 - 9\, 2025\n📍 会议地点: Funchal\, Madeira\, Portu
  gal\n⏰ 原始截止时间 (AoE): 2025-01-13 23:59:59\n分类: 人机交
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:ICMI 2024 摘要截稿
 DTSTART;TZID="UTC+07:00":20240426T235959
 DTEND;TZID="UTC+07:00":20240427T000059
-DTSTAMP:20250830T095001Z
-UID:b34a4ba2-0765-4ae3-8864-b626e710d7f1
+DTSTAMP:20250830T121551Z
+UID:02c83c89-88be-46ea-8e27-1c19b70eac49
 DESCRIPTION:ACM International Conference on Multimodal Interaction\n🗓
  ️ 会议时间: Nov 4 - 8\, 2024\n📍 会议地点: San José\, Costa R
  ica\n⏰ 原始截止时间 (UTC+7): 2024-04-26 23:59:59\n分类: 人机
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:ICMI 2025 摘要截稿
 DTSTART;TZID="UTC+07:00":20250425T235959
 DTEND;TZID="UTC+07:00":20250426T000059
-DTSTAMP:20250830T095001Z
-UID:8906dccf-9430-4fad-941c-e6cb613206b9
+DTSTAMP:20250830T121551Z
+UID:27d95033-5cf2-4a07-b05d-35bd3892390f
 DESCRIPTION:ACM International Conference on Multimodal Interaction\n🗓
  ️ 会议时间: Oct 13 - 17\, 2025\n📍 会议地点: Canberra\, Austra
  lia\n⏰ 原始截止时间 (UTC+7): 2025-04-25 23:59:59\n分类: 人机
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:IUI 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20231002T235959
 DTEND;TZID="UTC-12:00":20231003T000059
-DTSTAMP:20250830T095001Z
-UID:e697b6f6-d453-490c-8db5-c6e8b0d5fa32
+DTSTAMP:20250830T121551Z
+UID:ff0f85e3-7df9-4e96-be3d-305098d38a91
 DESCRIPTION:ACM Conference on Intelligent User Interfaces\n🗓️ 会议
  时间: March 18 - March 21\, 2024\n📍 会议地点: Greenville\, South 
  Carolina USA\n⏰ 原始截止时间 (AoE): 2023-10-02 23:59:59\n分类: 
@@ -93,8 +93,8 @@ BEGIN:VEVENT
 SUMMARY:IUI 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20241002T235959
 DTEND;TZID="UTC-12:00":20241003T000059
-DTSTAMP:20250830T095001Z
-UID:c83eb94f-0873-4b31-b246-74320d056f53
+DTSTAMP:20250830T121551Z
+UID:983c9a97-5b31-4ebe-8d4f-63ed20b2df63
 DESCRIPTION:ACM Conference on Intelligent User Interfaces\n🗓️ 会议
  时间: March 24 - March 27\, 2025\n📍 会议地点: Cagliari\, Italy\n
  ⏰ 原始截止时间 (AoE): 2024-10-02 23:59:59\n分类: 人机交互与
@@ -107,8 +107,8 @@ BEGIN:VEVENT
 SUMMARY:IUI 2026 摘要截稿
 DTSTART;TZID="UTC-12:00":20251003T235959
 DTEND;TZID="UTC-12:00":20251004T000059
-DTSTAMP:20250830T095001Z
-UID:563d509b-8dee-4d91-b6a0-03a67a928bfa
+DTSTAMP:20250830T121551Z
+UID:d50e4059-a745-4fc4-a77e-edc13b0bfe73
 DESCRIPTION:ACM Conference on Intelligent User Interfaces\n🗓️ 会议
  时间: March 23 - 26\, 2026\n📍 会议地点: Paphos\, Cyprus\n⏰ 原
  始截止时间 (AoE): 2025-10-03 23:59:59\n分类: 人机交互与普适
@@ -121,8 +121,8 @@ BEGIN:VEVENT
 SUMMARY:PerCom 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20240929T235900
 DTEND;TZID="UTC-12:00":20240930T000000
-DTSTAMP:20250830T095002Z
-UID:f9cb7097-6034-439d-a503-5ea6f3a5b72f
+DTSTAMP:20250830T121551Z
+UID:a01e3443-d660-457c-8da0-2ee5af517c0c
 DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
  nications\n🗓️ 会议时间: March 17 - 21\, 2025\n📍 会议地点: 
  Walter E. Washington Convention Center\, Washington DC\, USA\n⏰ 原始
@@ -136,8 +136,8 @@ BEGIN:VEVENT
 SUMMARY:PerCom 2026 摘要截稿
 DTSTART;TZID="UTC-12:00":20250912T235900
 DTEND;TZID="UTC-12:00":20250913T000000
-DTSTAMP:20250830T095002Z
-UID:803304fa-1f98-4d1c-8b32-acc13e3a423a
+DTSTAMP:20250830T121551Z
+UID:c055bf8c-c406-49ac-a8d0-986a1600ce04
 DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
  nications\n🗓️ 会议时间: March 16 - 20\, 2026\n📍 会议地点: 
  Pisa\, Italy\n⏰ 原始截止时间 (AoE): 2025-09-12 23:59:00\n分类: 

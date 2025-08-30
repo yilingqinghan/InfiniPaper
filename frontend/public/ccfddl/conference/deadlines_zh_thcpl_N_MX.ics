@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:APBC 2025 截稿日期
 DTSTART:20250615T235959Z
 DTEND:20250616T000059Z
-DTSTAMP:20250830T095002Z
-UID:ee33252a-7208-445c-a8a6-202994de3d24
+DTSTAMP:20250830T121552Z
+UID:3d080806-1e81-4f43-b7b5-6664c5658b40
 DESCRIPTION:Asia Pacific Bioinformatics Conference\n🗓️ 会议时间: 
  September 19-22\, 2025\n📍 会议地点: Nanjing， China\n⏰ 原始截
  止时间 (UTC+0): 2025-06-15 23:59:59\n分类: 交叉/综合/新兴 (MX)\
@@ -37,8 +37,8 @@ BEGIN:VEVENT
 SUMMARY:BIBM 2021 截稿日期 [Electronic submission of full papers]
 DTSTART;TZID="UTC-05:00":20210828T170000
 DTEND;TZID="UTC-05:00":20210828T170100
-DTSTAMP:20250830T095002Z
-UID:25e0d3da-717c-4f79-a0f3-8f56ca775f75
+DTSTAMP:20250830T121552Z
+UID:fae75c90-8b63-48ae-b2f8-c2d596fdf746
 DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
  e\n🗓️ 会议时间: Dec 9-12\, 2021\n📍 会议地点: Online\n⏰ 
  原始截止时间 (UTC-5): 2021-08-28 17:00:00\n分类: 交叉/综合/新
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:BIBM 2022 截稿日期 [Electronic submission of full papers]
 DTSTART;TZID="UTC-05:00":20220821T170000
 DTEND;TZID="UTC-05:00":20220821T170100
-DTSTAMP:20250830T095002Z
-UID:130e6928-9f50-46a8-9b4a-9cce30f784d7
+DTSTAMP:20250830T121552Z
+UID:b1f4f219-3cf3-4448-a211-6c5e47d7ea42
 DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
  e\n🗓️ 会议时间: Dec 6-9\, 2022\n📍 会议地点: Las Vegas\, NV
  \, USA\n⏰ 原始截止时间 (UTC-5): 2022-08-21 17:00:00\n分类: 交
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:BIBM 2023 截稿日期 [Electronic submission of full papers]
 DTSTART;TZID="UTC-05:00":20230815T170000
 DTEND;TZID="UTC-05:00":20230815T170100
-DTSTAMP:20250830T095002Z
-UID:73cfeab0-2e3c-46d0-b2c2-4e0a9f290f19
+DTSTAMP:20250830T121552Z
+UID:53e199f7-23fe-4d7e-bbb5-05f4805cd448
 DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
  e\n🗓️ 会议时间: Dec 5-8\, 2023\n📍 会议地点: Istanbul\, Tur
  key\n⏰ 原始截止时间 (UTC-5): 2023-08-15 17:00:00\n分类: 交叉/
@@ -80,8 +80,8 @@ SUMMARY:BIBM 2024 截稿日期 [First Round\, papers submitted by the June
   20 deadline will be reviewed and notified by Aug 15]
 DTSTART;TZID="UTC-05:00":20240620T170000
 DTEND;TZID="UTC-05:00":20240620T170100
-DTSTAMP:20250830T095002Z
-UID:bc15a048-2956-489b-a9c7-6a13f8e82a6a
+DTSTAMP:20250830T121552Z
+UID:0271e82c-1d4c-4afe-8739-cc1e62cc2a3a
 DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
  e\n🗓️ 会议时间: Dec 3-6\, 2024\n📍 会议地点: Lisbon\, Portu
  gal\n⏰ 原始截止时间 (UTC-5): 2024-06-20 17:00:00\n分类: 交叉/
@@ -95,8 +95,8 @@ SUMMARY:BIBM 2024 截稿日期 [Second Round\, papers submitted by the Aug
   16\, 2024 deadline\, will be reviewed and notified by the Oct 16\, 2024]
 DTSTART;TZID="UTC-05:00":20240816T170000
 DTEND;TZID="UTC-05:00":20240816T170100
-DTSTAMP:20250830T095002Z
-UID:79423e31-50e9-4b70-82ad-2719e54845af
+DTSTAMP:20250830T121552Z
+UID:e3e695ef-badc-449a-a4dc-68c7550e3ac1
 DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
  e\n🗓️ 会议时间: Dec 3-6\, 2024\n📍 会议地点: Lisbon\, Portu
  gal\n⏰ 原始截止时间 (UTC-5): 2024-08-16 17:00:00\n分类: 交叉/
@@ -109,8 +109,8 @@ BEGIN:VEVENT
 SUMMARY:BIBM 2025 截稿日期
 DTSTART;TZID="UTC-05:00":20250803T170000
 DTEND;TZID="UTC-05:00":20250803T170100
-DTSTAMP:20250830T095002Z
-UID:098d299a-2e74-4506-b4fc-9412ed184d33
+DTSTAMP:20250830T121552Z
+UID:f2bc40c3-9081-4b39-88b0-b101dc1c1b8f
 DESCRIPTION:IEEE International Conference on Bioinformatics and Biomedicin
  e\n🗓️ 会议时间: Dec 15-18\, 2025\n📍 会议地点: Wuhan\, Chin
  a\n⏰ 原始截止时间 (UTC-5): 2025-08-03 17:00:00\n分类: 交叉/综
@@ -132,8 +132,8 @@ BEGIN:VEVENT
 SUMMARY:BigData 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250829T235959
 DTEND;TZID="UTC-12:00":20250830T000059
-DTSTAMP:20250830T095002Z
-UID:ceb4ad1e-188d-4273-8175-aff858ad9835
+DTSTAMP:20250830T121552Z
+UID:ff23b47b-714a-4496-a61e-6496746dab5b
 DESCRIPTION:IEEE International Conference on Big Data\n🗓️ 会议时
  间: December 8-11\, 2025\n📍 会议地点: Macau SAR\, China\n⏰ 原
  始截止时间 (AoE): 2025-08-29 23:59:59\n分类: 交叉/综合/新兴 (
@@ -155,8 +155,8 @@ BEGIN:VEVENT
 SUMMARY:CogSci 2023 截稿日期
 DTSTART;TZID="UTC+08:00":20230201T235959
 DTEND;TZID="UTC+08:00":20230202T000059
-DTSTAMP:20250830T095002Z
-UID:8a52b0dc-2901-4dd1-8e39-7d94b8f99f5f
+DTSTAMP:20250830T121552Z
+UID:a5f51e92-5ac7-43fd-bc94-9b6549903836
 DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ 会
  议时间: July 26-29\, 2023\n📍 会议地点: Sydney\, Australia\n⏰ 
  原始截止时间 (UTC+8): 2023-02-01 23:59:59\n分类: 交叉/综合/新
@@ -169,8 +169,8 @@ BEGIN:VEVENT
 SUMMARY:CogSci 2024 截稿日期
 DTSTART;TZID="UTC+08:00":20240201T235959
 DTEND;TZID="UTC+08:00":20240202T000059
-DTSTAMP:20250830T095002Z
-UID:47139b7d-36e8-424c-99c1-6c0d4fec1b4c
+DTSTAMP:20250830T121552Z
+UID:f7948a48-7514-4712-9390-a69a4ee776eb
 DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ 会
  议时间: July 24-27\, 2024\n📍 会议地点: Rotterdam\, Netherlands\n
  ⏰ 原始截止时间 (UTC+8): 2024-02-01 23:59:59\n分类: 交叉/综合
@@ -183,8 +183,8 @@ BEGIN:VEVENT
 SUMMARY:CogSci 2025 截稿日期
 DTSTART;TZID="UTC+08:00":20250201T235959
 DTEND;TZID="UTC+08:00":20250202T000059
-DTSTAMP:20250830T095002Z
-UID:4c44edb7-aff4-430e-8d03-1e12b4ac39fc
+DTSTAMP:20250830T121552Z
+UID:9a6db5f5-d923-4cfc-b331-6fe27da5bb87
 DESCRIPTION:Annual Meeting of the Cognitive Science Society\n🗓️ 会
  议时间: July 30-August 2\, 2025\n📍 会议地点: Marriott Marquis\, 
  San Francisco\n⏰ 原始截止时间 (UTC+8): 2025-02-01 23:59:59\n分类
@@ -198,8 +198,8 @@ BEGIN:VEVENT
 SUMMARY:ICIC 2024 截稿日期
 DTSTART;TZID="UTC+08:00":20240411T120000
 DTEND;TZID="UTC+08:00":20240411T120100
-DTSTAMP:20250830T095002Z
-UID:55fa1887-5d24-4864-aa85-f62f4ccab473
+DTSTAMP:20250830T121552Z
+UID:bec98ac6-b508-42cc-9b16-f55b0fe48ba2
 DESCRIPTION:International Conference on Intelligent Computing\n🗓️ 会
  议时间: August 5-8\, 2024\n📍 会议地点: Tianjin\, China\n⏰ 原
  始截止时间 (UTC+8): 2024-04-11 12:00:00\n分类: 交叉/综合/新兴
@@ -212,8 +212,8 @@ BEGIN:VEVENT
 SUMMARY:ICIC 2025 截稿日期
 DTSTART;TZID="UTC+08:00":20250410T115959
 DTEND;TZID="UTC+08:00":20250410T120059
-DTSTAMP:20250830T095002Z
-UID:3e7bbfcc-43c4-436a-8a88-6d163c70d217
+DTSTAMP:20250830T121552Z
+UID:8b049754-91d3-4ecf-b5fa-59b9fda7381a
 DESCRIPTION:International Conference on Intelligent Computing\n🗓️ 会
  议时间: July 26-29\, 2025\n📍 会议地点: Ningbo\, China\n⏰ 原
  始截止时间 (UTC+8): 2025-04-10 11:59:59\n分类: 交叉/综合/新兴
@@ -226,8 +226,8 @@ BEGIN:VEVENT
 SUMMARY:ISBRA 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250401T235959
 DTEND;TZID="UTC-12:00":20250402T000059
-DTSTAMP:20250830T095002Z
-UID:edeb04ad-557a-43f4-9dc1-42c7441e2668
+DTSTAMP:20250830T121552Z
+UID:81a8ac04-19da-4986-9615-1b74e42f8efc
 DESCRIPTION:International Symposium on Bioinformatics Research and Applica
  tions\n🗓️ 会议时间: August 3-5\, 2025\n📍 会议地点: Helsink
  i\, Finland\n⏰ 原始截止时间 (AoE): 2025-04-01 23:59:59\n分类: 
@@ -240,8 +240,8 @@ BEGIN:VEVENT
 SUMMARY:MLSys 2021 截稿日期
 DTSTART;TZID="UTC-12:00":20201011T235959
 DTEND;TZID="UTC-12:00":20201012T000059
-DTSTAMP:20250830T095002Z
-UID:9d33014d-2fca-42a4-baf7-b387188ab2e8
+DTSTAMP:20250830T121552Z
+UID:fda76fca-7c6a-42b9-a5c6-269ad9fa1398
 DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
  间: April 5-9\, 2021\n📍 会议地点: virtual\n⏰ 原始截止时间 
  (AoE): 2020-10-11 23:59:59\n分类: 交叉/综合/新兴 (MX)\n会议官
@@ -254,8 +254,8 @@ BEGIN:VEVENT
 SUMMARY:MLSys 2022 截稿日期
 DTSTART;TZID="UTC-12:00":20211015T200000
 DTEND;TZID="UTC-12:00":20211015T200100
-DTSTAMP:20250830T095002Z
-UID:53b680a7-e618-4fc2-b2b8-205f6307436e
+DTSTAMP:20250830T121552Z
+UID:22c68546-5a44-418e-af85-794a225f7869
 DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
  间: August 29-September 1\, 2022\n📍 会议地点: Santa Clara\, USA\n
  ⏰ 原始截止时间 (AoE): 2021-10-15 20:00:00\n分类: 交叉/综合/
@@ -268,8 +268,8 @@ BEGIN:VEVENT
 SUMMARY:MLSys 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20221028T200000
 DTEND;TZID="UTC-12:00":20221028T200100
-DTSTAMP:20250830T095002Z
-UID:0a77470e-b6d9-4aff-b6f8-f4ba298ef1fe
+DTSTAMP:20250830T121552Z
+UID:d094e89b-f22a-49d4-993d-d34b3738c9b4
 DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
  间: June 5-8\, 2023\n📍 会议地点: Miami\, USA\n⏰ 原始截止时
  间 (AoE): 2022-10-28 20:00:00\n分类: 交叉/综合/新兴 (MX)\n会议
@@ -282,8 +282,8 @@ BEGIN:VEVENT
 SUMMARY:MLSys 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20231027T040000
 DTEND;TZID="UTC-12:00":20231027T040100
-DTSTAMP:20250830T095002Z
-UID:12776b42-28f3-437a-beec-9599a771b896
+DTSTAMP:20250830T121552Z
+UID:0b9e325c-eeba-4755-8d59-756e387090c1
 DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
  间: May 12-16\, 2024\n📍 会议地点: Santa Clara\, USA\n⏰ 原始截
  止时间 (AoE): 2023-10-27 04:00:00\n分类: 交叉/综合/新兴 (MX)\n
@@ -296,8 +296,8 @@ BEGIN:VEVENT
 SUMMARY:MLSys 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20241024T200000
 DTEND;TZID="UTC-12:00":20241024T200100
-DTSTAMP:20250830T095002Z
-UID:2d546ce5-2e43-4123-8a91-0806634f9b7c
+DTSTAMP:20250830T121552Z
+UID:d50f35b0-8e88-4c0e-bad7-9bd39d9349f3
 DESCRIPTION:Conference on Machine Learning and Systems\n🗓️ 会议时
  间: May 13-16\, 2025\n📍 会议地点: Santa Clara\, USA\n⏰ 原始截
  止时间 (AoE): 2024-10-24 20:00:00\n分类: 交叉/综合/新兴 (MX)\n
@@ -319,8 +319,8 @@ BEGIN:VEVENT
 SUMMARY:SIGSPATIAL 2023 摘要截稿
 DTSTART;TZID="UTC-07:00":20230609T235959
 DTEND;TZID="UTC-07:00":20230610T000059
-DTSTAMP:20250830T095002Z
-UID:fe81c39b-e5b3-4b5b-aee4-48c54496917a
+DTSTAMP:20250830T121552Z
+UID:5ed447ac-6125-4d73-9210-c5ff7cf9ea89
 DESCRIPTION:ACM SIGSPATIAL International Conference on Advances in Geograp
  hic Information Systems\n🗓️ 会议时间: November 13-16\, 2023\n📍
   会议地点: Hamburg\, Germany\n⏰ 原始截止时间 (UTC-7): 2023-06-
@@ -334,8 +334,8 @@ BEGIN:VEVENT
 SUMMARY:SIGSPATIAL 2025 摘要截稿
 DTSTART;TZID="UTC-07:00":20250523T235959
 DTEND;TZID="UTC-07:00":20250524T000059
-DTSTAMP:20250830T095002Z
-UID:aa4c1e75-dda6-4988-bee4-ea58095277c1
+DTSTAMP:20250830T121552Z
+UID:8ab7cb11-3a1a-41f1-b0d7-f2255be09730
 DESCRIPTION:ACM SIGSPATIAL International Conference on Advances in Geograp
  hic Information Systems\n🗓️ 会议时间: November 3-6\, 2025\n📍 
  会议地点: Minneapolis\, MN\, USA\n⏰ 原始截止时间 (UTC-7): 2025
@@ -358,8 +358,8 @@ BEGIN:VEVENT
 SUMMARY:SMC 2023 截稿日期
 DTSTART;TZID="UTC-08:00":20230330T235959
 DTEND;TZID="UTC-08:00":20230331T000059
-DTSTAMP:20250830T095002Z
-UID:12874535-7c3c-4421-a0fd-5dc89394767b
+DTSTAMP:20250830T121552Z
+UID:52b850df-96e4-4bb6-9625-72a201927160
 DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
  cs\n🗓️ 会议时间: October 1-4\, 2023\n📍 会议地点: HYATT MAU
  I\, HAWAII\, USA\n⏰ 原始截止时间 (UTC-8): 2023-03-30 23:59:59\n分
@@ -372,8 +372,8 @@ BEGIN:VEVENT
 SUMMARY:SMC 2024 截稿日期
 DTSTART;TZID="UTC+08:00":20240408T235959
 DTEND;TZID="UTC+08:00":20240409T000059
-DTSTAMP:20250830T095002Z
-UID:8b442dfa-03aa-4f1c-9163-78aed555896e
+DTSTAMP:20250830T121552Z
+UID:cc40a7fd-1af0-4eb4-906e-8d713473e82b
 DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
  cs\n🗓️ 会议时间: October 7-10\, 2024\n📍 会议地点: Borneo C
  onvention Centre Kuching\, Sarawak\, Malaysia\n⏰ 原始截止时间 (UTC
@@ -387,8 +387,8 @@ BEGIN:VEVENT
 SUMMARY:SMC 2025 截稿日期
 DTSTART;TZID="UTC+08:00":20250504T235959
 DTEND;TZID="UTC+08:00":20250505T000059
-DTSTAMP:20250830T095002Z
-UID:3673ca33-bab2-4f69-baeb-fbaa63286e22
+DTSTAMP:20250830T121552Z
+UID:9affcc80-c5b4-4711-9c93-c9b60f9855c8
 DESCRIPTION:IEEE International Conference on Systems\, Man\, and Cyberneti
  cs\n🗓️ 会议时间: October 5-8\, 2025\n📍 会议地点: Vienna\, 
  Austria\n⏰ 原始截止时间 (UTC+8): 2025-05-04 23:59:59\n分类: 交
@@ -401,8 +401,8 @@ BEGIN:VEVENT
 SUMMARY:WINE 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20230707T235959
 DTEND;TZID="UTC-12:00":20230708T000059
-DTSTAMP:20250830T095002Z
-UID:23b39965-35b8-40fa-a63e-dc154551e3b8
+DTSTAMP:20250830T121552Z
+UID:e078654b-96af-4085-a47f-cbff30022ff9
 DESCRIPTION:Conference on Web and Internet Economics\n🗓️ 会议时间
  : Dec 04-08\, 2023\n📍 会议地点: Shanghai\, China\n⏰ 原始截止
  时间 (AoE): 2023-07-07 23:59:59\n分类: 交叉/综合/新兴 (MX)\nCCF 

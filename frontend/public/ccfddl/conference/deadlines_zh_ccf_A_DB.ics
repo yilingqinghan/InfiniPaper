@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2021 截稿日期
 DTSTART;TZID="UTC-12:00":20201001T235959
 DTEND;TZID="UTC-12:00":20201002T000059
-DTSTAMP:20250830T095001Z
-UID:35d6c861-5752-44a4-89a6-8058e1585713
+DTSTAMP:20250830T121551Z
+UID:d98c01b9-1e6f-485e-be4a-8b8d8cb476ac
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: April 19-22\, 2021\n📍 会议地点: Virtual\n⏰ 原始截
  止时间 (AoE): 2020-10-01 23:59:59\n分类: 数据库/数据挖掘/内
@@ -37,8 +37,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2022 截稿日期 [first round]
 DTSTART;TZID="UTC-08:00":20210721T235959
 DTEND;TZID="UTC-08:00":20210722T000059
-DTSTAMP:20250830T095001Z
-UID:f311335c-3ffe-48fd-ade2-062a30e64900
+DTSTAMP:20250830T121551Z
+UID:dadb92fb-7259-4b02-a71b-4aba2a54458c
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: May 9-12\, 2022\n📍 会议地点: Kuala Lumpur\, Malaysia\n
  ⏰ 原始截止时间 (UTC-8): 2021-07-21 23:59:59\n分类: 数据库/数
@@ -52,8 +52,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2022 截稿日期 [second round]
 DTSTART;TZID="UTC-08:00":20211117T235959
 DTEND;TZID="UTC-08:00":20211118T000059
-DTSTAMP:20250830T095001Z
-UID:225f81e0-85d1-4b0c-b338-8f0f734579f6
+DTSTAMP:20250830T121551Z
+UID:355edb6e-8c50-4b54-8401-a8ac484a7fe2
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: May 9-12\, 2022\n📍 会议地点: Kuala Lumpur\, Malaysia\n
  ⏰ 原始截止时间 (UTC-8): 2021-11-17 23:59:59\n分类: 数据库/数
@@ -67,8 +67,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2023 截稿日期 [first round]
 DTSTART;TZID="UTC-08:00":20220425T235959
 DTEND;TZID="UTC-08:00":20220426T000059
-DTSTAMP:20250830T095001Z
-UID:131f6a26-d0c6-4b73-94cd-6449470b1604
+DTSTAMP:20250830T121551Z
+UID:c31c263b-31b5-4716-86d1-9839688e2f92
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: April 3-7\, 2023\n📍 会议地点: Anaheim\, California\, USA
  \n⏰ 原始截止时间 (UTC-8): 2022-04-25 23:59:59\n分类: 数据库/
@@ -81,8 +81,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2023 截稿日期 [second round]
 DTSTART;TZID="UTC-08:00":20220708T235959
 DTEND;TZID="UTC-08:00":20220709T000059
-DTSTAMP:20250830T095001Z
-UID:ad676f49-b30a-4561-b0c8-7129d25bd534
+DTSTAMP:20250830T121551Z
+UID:213e58e8-9632-475e-acec-6e4555f942d6
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: April 3-7\, 2023\n📍 会议地点: Anaheim\, California\, USA
  \n⏰ 原始截止时间 (UTC-8): 2022-07-08 23:59:59\n分类: 数据库/
@@ -95,8 +95,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2023 截稿日期 [third round]
 DTSTART;TZID="UTC-08:00":20221008T235959
 DTEND;TZID="UTC-08:00":20221009T000059
-DTSTAMP:20250830T095001Z
-UID:58903e1b-53e7-42c5-be6b-fd487b882428
+DTSTAMP:20250830T121551Z
+UID:9ea9e5e0-b6bc-45a9-a8ef-c39e1f62106b
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: April 3-7\, 2023\n📍 会议地点: Anaheim\, California\, USA
  \n⏰ 原始截止时间 (UTC-8): 2022-10-08 23:59:59\n分类: 数据库/
@@ -109,8 +109,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2024 截稿日期 [first round]
 DTSTART;TZID="UTC-12:00":20230728T235959
 DTEND;TZID="UTC-12:00":20230729T000059
-DTSTAMP:20250830T095001Z
-UID:0d172eed-b9a3-46af-aa1a-6d54116495ca
+DTSTAMP:20250830T121551Z
+UID:1c168136-8a1d-4195-b0f6-e0b9a01d43e4
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: April 16-19\, 2024\n📍 会议地点: Utrecht\, Netherlands\n
  ⏰ 原始截止时间 (AoE): 2023-07-28 23:59:59\n分类: 数据库/数
@@ -123,8 +123,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2024 截稿日期 [second round]
 DTSTART;TZID="UTC-12:00":20231203T235959
 DTEND;TZID="UTC-12:00":20231204T000059
-DTSTAMP:20250830T095001Z
-UID:b8c8c105-b8ac-4f3a-8881-8cc8de8a8e09
+DTSTAMP:20250830T121551Z
+UID:6642422d-5ab3-48dd-8d6a-bc96447c139f
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: April 16-19\, 2024\n📍 会议地点: Utrecht\, Netherlands\n
  ⏰ 原始截止时间 (AoE): 2023-12-03 23:59:59\n分类: 数据库/数
@@ -137,8 +137,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2025 截稿日期 [first round]
 DTSTART;TZID="UTC-12:00":20240802T235959
 DTEND;TZID="UTC-12:00":20240803T000059
-DTSTAMP:20250830T095001Z
-UID:f8b5a5ef-1f8f-44ef-92c8-77f1840c69cf
+DTSTAMP:20250830T121551Z
+UID:ea6b203d-6b54-4a58-b0cb-703d961f5b51
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: May 19-23\, 2025\n📍 会议地点: Hong Kong\, China\n⏰ 原
  始截止时间 (AoE): 2024-08-02 23:59:59\n分类: 数据库/数据挖掘
@@ -151,8 +151,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2025 截稿日期 [second round]
 DTSTART;TZID="UTC-12:00":20241125T235959
 DTEND;TZID="UTC-12:00":20241126T000059
-DTSTAMP:20250830T095001Z
-UID:2ca56119-1750-481b-945f-9e15c42f267a
+DTSTAMP:20250830T121551Z
+UID:a6089d0a-9f1f-4a79-91ca-e6dfe0de5673
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: May 19-23\, 2025\n📍 会议地点: Hong Kong\, China\n⏰ 原
  始截止时间 (AoE): 2024-11-25 23:59:59\n分类: 数据库/数据挖掘
@@ -174,8 +174,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2026 截稿日期 [first round]
 DTSTART;TZID="UTC-07:00":20250618T170000
 DTEND;TZID="UTC-07:00":20250618T170100
-DTSTAMP:20250830T095001Z
-UID:f3e00fc2-89e9-497d-b6a7-d55ad3491f81
+DTSTAMP:20250830T121551Z
+UID:4885f34a-7dfc-42e9-9cf3-5c58f64d2f98
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: May 4-8\, 2026\n📍 会议地点: Montréal\, Canada\n⏰ 原
  始截止时间 (UTC-7): 2025-06-18 17:00:00\n分类: 数据库/数据挖
@@ -188,8 +188,8 @@ BEGIN:VEVENT
 SUMMARY:ICDE 2026 截稿日期 [second round]
 DTSTART;TZID="UTC-07:00":20251027T170000
 DTEND;TZID="UTC-07:00":20251027T170100
-DTSTAMP:20250830T095001Z
-UID:4c1bdf31-71e7-49ba-8fa5-fecdc13778d4
+DTSTAMP:20250830T121551Z
+UID:f96050be-7045-4567-aa14-da1632195178
 DESCRIPTION:IEEE International Conference on Data Engineering\n🗓️ 会
  议时间: May 4-8\, 2026\n📍 会议地点: Montréal\, Canada\n⏰ 原
  始截止时间 (UTC-7): 2025-10-27 17:00:00\n分类: 数据库/数据挖
@@ -202,8 +202,8 @@ BEGIN:VEVENT
 SUMMARY:SIGIR 2021 摘要截稿
 DTSTART;TZID="UTC-12:00":20210202T235959
 DTEND;TZID="UTC-12:00":20210203T000059
-DTSTAMP:20250830T095001Z
-UID:2c372445-9a66-4bc1-918a-4fa0c63f7288
+DTSTAMP:20250830T121551Z
+UID:ae653aa1-ed52-4c76-8bc2-ee282fb6f855
 DESCRIPTION:International Conference on Research on Development in Informa
  tion Retrieval\n🗓️ 会议时间: July 11-15\, 2021\n📍 会议地点
  : Virtual\n⏰ 原始截止时间 (AoE): 2021-02-02 23:59:59\n分类: 数
@@ -217,8 +217,8 @@ BEGIN:VEVENT
 SUMMARY:SIGIR 2022 摘要截稿
 DTSTART;TZID="UTC-12:00":20220121T235959
 DTEND;TZID="UTC-12:00":20220122T000059
-DTSTAMP:20250830T095001Z
-UID:0909e3cf-2c3a-45a0-b617-527e0146067c
+DTSTAMP:20250830T121551Z
+UID:6965a2df-23f5-4e6f-ac77-c0054fa131a9
 DESCRIPTION:International Conference on Research on Development in Informa
  tion Retrieval\n🗓️ 会议时间: July 11-15\, 2022\n📍 会议地点
  : Madrid\n⏰ 原始截止时间 (AoE): 2022-01-21 23:59:59\n分类: 数
@@ -232,8 +232,8 @@ BEGIN:VEVENT
 SUMMARY:SIGIR 2023 摘要截稿
 DTSTART;TZID="UTC-12:00":20230124T235959
 DTEND;TZID="UTC-12:00":20230125T000059
-DTSTAMP:20250830T095001Z
-UID:e998ae24-818b-48a3-bdca-ef87789a72f1
+DTSTAMP:20250830T121551Z
+UID:708e200a-372f-46c2-b605-85333d2a83b3
 DESCRIPTION:International Conference on Research on Development in Informa
  tion Retrieval\n🗓️ 会议时间: July 23-27\, 2023\n📍 会议地点
  : Taipei\, Taiwan\n⏰ 原始截止时间 (AoE): 2023-01-24 23:59:59\n分
@@ -247,8 +247,8 @@ BEGIN:VEVENT
 SUMMARY:SIGIR 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20240119T235959
 DTEND;TZID="UTC-12:00":20240120T000059
-DTSTAMP:20250830T095001Z
-UID:753397e2-99cf-4b2c-b2a7-89799df3a267
+DTSTAMP:20250830T121551Z
+UID:ab0a548b-dc5c-4ca6-8493-962cf6352d87
 DESCRIPTION:International Conference on Research on Development in Informa
  tion Retrieval\n🗓️ 会议时间: July 14-18\, 2024\n📍 会议地点
  : Washington D.C.\, USA\n⏰ 原始截止时间 (AoE): 2024-01-19 23:59:59
@@ -262,8 +262,8 @@ BEGIN:VEVENT
 SUMMARY:SIGIR 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250116T235959
 DTEND;TZID="UTC-12:00":20250117T000059
-DTSTAMP:20250830T095001Z
-UID:4579931b-0d79-4376-a525-c1fa9d161a92
+DTSTAMP:20250830T121551Z
+UID:66a7f93f-3665-42d8-83cf-428530dbf6f4
 DESCRIPTION:International Conference on Research on Development in Informa
  tion Retrieval\n🗓️ 会议时间: July 13-18\, 2025\n📍 会议地点
  : Padova\, Italy\n⏰ 原始截止时间 (AoE): 2025-01-16 23:59:59\n分
@@ -277,8 +277,8 @@ BEGIN:VEVENT
 SUMMARY:SIGKDD 2021 截稿日期
 DTSTART;TZID="UTC-12:00":20210208T235959
 DTEND;TZID="UTC-12:00":20210209T000059
-DTSTAMP:20250830T095001Z
-UID:821dadd5-691e-41b3-b775-4a0b7b271464
+DTSTAMP:20250830T121551Z
+UID:ee8cd615-1439-47eb-b01a-62157d0db759
 DESCRIPTION:ACM Knowledge Discovery and Data Mining\n🗓️ 会议时间:
   August 14-18\, 2021\n📍 会议地点: Singapore\n⏰ 原始截止时间
   (AoE): 2021-02-08 23:59:59\n分类: 数据库/数据挖掘/内容检索 (
@@ -291,8 +291,8 @@ BEGIN:VEVENT
 SUMMARY:SIGKDD 2022 截稿日期
 DTSTART;TZID="UTC-12:00":20220210T235959
 DTEND;TZID="UTC-12:00":20220211T000059
-DTSTAMP:20250830T095001Z
-UID:81cf331f-be4e-4e5d-869e-864105a48c9e
+DTSTAMP:20250830T121551Z
+UID:c3980f52-817f-4eb2-a5da-96cd4556271f
 DESCRIPTION:ACM Knowledge Discovery and Data Mining\n🗓️ 会议时间:
   August 14-18\, 2022\n📍 会议地点: Washington DC Convention Center\,
   USA\n⏰ 原始截止时间 (AoE): 2022-02-10 23:59:59\n分类: 数据库
@@ -305,8 +305,8 @@ BEGIN:VEVENT
 SUMMARY:SIGKDD 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20230202T235959
 DTEND;TZID="UTC-12:00":20230203T000059
-DTSTAMP:20250830T095001Z
-UID:16b784e9-fee0-4aa5-bf16-d2d9685a28d9
+DTSTAMP:20250830T121551Z
+UID:41b5269b-3192-443c-a7ab-f741037994f2
 DESCRIPTION:ACM Knowledge Discovery and Data Mining\n🗓️ 会议时间:
   August 6-10\, 2023\n📍 会议地点: Long Beach Convention & Entertainm
  ent Center\, USA\n⏰ 原始截止时间 (AoE): 2023-02-02 23:59:59\n分
@@ -320,8 +320,8 @@ BEGIN:VEVENT
 SUMMARY:SIGKDD 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20240201T235959
 DTEND;TZID="UTC-12:00":20240202T000059
-DTSTAMP:20250830T095001Z
-UID:64a78e58-8831-4d84-b842-d7521f872129
+DTSTAMP:20250830T121551Z
+UID:9452544a-4da4-4bed-84c7-99a2c30ea5ec
 DESCRIPTION:ACM Knowledge Discovery and Data Mining\n🗓️ 会议时间:
   August 25-29\, 2024\n📍 会议地点: Barcelona\, Spain\n⏰ 原始截
  止时间 (AoE): 2024-02-01 23:59:59\n分类: 数据库/数据挖掘/内
@@ -335,8 +335,8 @@ BEGIN:VEVENT
 SUMMARY:SIGKDD 2025 摘要截稿 [1st round of 2 total rounds]
 DTSTART;TZID="UTC-12:00":20240801T235959
 DTEND;TZID="UTC-12:00":20240802T000059
-DTSTAMP:20250830T095001Z
-UID:ccc5978a-ca27-4e23-a0d7-32edaee60a4e
+DTSTAMP:20250830T121551Z
+UID:346b50a2-1969-4a04-8618-41d11a88f10a
 DESCRIPTION:ACM Knowledge Discovery and Data Mining\n🗓️ 会议时间:
   August 3-7\, 2025\n📍 会议地点: Toronto\, ON\, Canada\n⏰ 原始
  截止时间 (AoE): 2024-08-01 23:59:59\n分类: 数据库/数据挖掘/
@@ -349,8 +349,8 @@ BEGIN:VEVENT
 SUMMARY:SIGKDD 2025 摘要截稿 [2nd round of 2 total rounds]
 DTSTART;TZID="UTC-12:00":20250203T235959
 DTEND;TZID="UTC-12:00":20250204T000059
-DTSTAMP:20250830T095001Z
-UID:7083192f-1b02-478b-84ae-296548ee90a1
+DTSTAMP:20250830T121551Z
+UID:d85d53b0-1bcd-4217-83fd-6437e575117c
 DESCRIPTION:ACM Knowledge Discovery and Data Mining\n🗓️ 会议时间:
   August 3-7\, 2025\n📍 会议地点: Toronto\, ON\, Canada\n⏰ 原始
  截止时间 (AoE): 2025-02-03 23:59:59\n分类: 数据库/数据挖掘/
@@ -363,8 +363,8 @@ BEGIN:VEVENT
 SUMMARY:SIGKDD 2026 摘要截稿 [1st round of 2 total rounds]
 DTSTART;TZID="UTC-12:00":20250724T235959
 DTEND;TZID="UTC-12:00":20250725T000059
-DTSTAMP:20250830T095001Z
-UID:49733118-4a3f-4c33-a63a-966723bc328e
+DTSTAMP:20250830T121551Z
+UID:73106ab5-214e-47d2-8472-32339e6f84bb
 DESCRIPTION:ACM Knowledge Discovery and Data Mining\n🗓️ 会议时间:
   TBD\n📍 会议地点: TBD\, Korea\n⏰ 原始截止时间 (AoE): 2025-0
  7-24 23:59:59\n分类: 数据库/数据挖掘/内容检索 (DB)\nCCF A\, C
@@ -377,8 +377,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2021 截稿日期 [second round]
 DTSTART;TZID="UTC-08:00":20200922T170000
 DTEND;TZID="UTC-08:00":20200922T170100
-DTSTAMP:20250830T095001Z
-UID:d9d15527-fe09-4bd1-8a53-68f50f39b683
+DTSTAMP:20250830T121551Z
+UID:b780395f-71fa-4b3f-b725-353afd7dcf14
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 20-25\, 2021\n📍 会议地点: Xi'an\, China\n⏰ 原始截止时间 
  (UTC-8): 2020-09-22 17:00:00\n分类: 数据库/数据挖掘/内容检索 
@@ -391,8 +391,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2022 截稿日期 [first round]
 DTSTART;TZID="UTC-08:00":20210702T170000
 DTEND;TZID="UTC-08:00":20210702T170100
-DTSTAMP:20250830T095001Z
-UID:725f5a48-cbc8-4383-9630-9048e502abe2
+DTSTAMP:20250830T121551Z
+UID:0b54865a-6fbe-4651-8308-899ad4507f7a
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 12-17\, 2022\n📍 会议地点: Philadelphia\, PA\, USA\n⏰ 原始截
  止时间 (UTC-8): 2021-07-02 17:00:00\n分类: 数据库/数据挖掘/内
@@ -405,8 +405,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2022 截稿日期 [second round]
 DTSTART;TZID="UTC-08:00":20210915T170000
 DTEND;TZID="UTC-08:00":20210915T170100
-DTSTAMP:20250830T095001Z
-UID:6fcffd7d-c920-444a-8b3b-b8d2e98f14ce
+DTSTAMP:20250830T121551Z
+UID:649af82c-1b4d-4894-b896-c3993a8717f0
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 12-17\, 2022\n📍 会议地点: Philadelphia\, PA\, USA\n⏰ 原始截
  止时间 (UTC-8): 2021-09-15 17:00:00\n分类: 数据库/数据挖掘/内
@@ -419,8 +419,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2023 截稿日期 [first round]
 DTSTART;TZID="UTC-08:00":20220415T235900
 DTEND;TZID="UTC-08:00":20220416T000000
-DTSTAMP:20250830T095001Z
-UID:4c261634-adb2-4c7a-a39c-5bec994d4244
+DTSTAMP:20250830T121551Z
+UID:79e5ef32-3b74-468e-8c69-78b0a0ad2ce8
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 18-23\, 2022\n📍 会议地点: Seattle\, WA\, USA\n⏰ 原始截止
  时间 (UTC-8): 2022-04-15 23:59:00\n分类: 数据库/数据挖掘/内容
@@ -433,8 +433,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2023 截稿日期 [second round]
 DTSTART;TZID="UTC-08:00":20220715T235900
 DTEND;TZID="UTC-08:00":20220716T000000
-DTSTAMP:20250830T095001Z
-UID:67aca14f-c241-4008-9c12-d7b3560d3b43
+DTSTAMP:20250830T121551Z
+UID:dad52fef-d2e5-49df-b952-64da7b77cc02
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 18-23\, 2022\n📍 会议地点: Seattle\, WA\, USA\n⏰ 原始截止
  时间 (UTC-8): 2022-07-15 23:59:00\n分类: 数据库/数据挖掘/内容
@@ -447,8 +447,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2023 截稿日期 [third round]
 DTSTART;TZID="UTC-08:00":20221015T235900
 DTEND;TZID="UTC-08:00":20221016T000000
-DTSTAMP:20250830T095001Z
-UID:b36e3914-9e4e-4358-89cd-05de8cab8dd2
+DTSTAMP:20250830T121551Z
+UID:326cd7bf-ca70-4f6a-8009-e3f2778a851d
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 18-23\, 2022\n📍 会议地点: Seattle\, WA\, USA\n⏰ 原始截止
  时间 (UTC-8): 2022-10-15 23:59:00\n分类: 数据库/数据挖掘/内容
@@ -461,8 +461,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2024 截稿日期 [round 1]
 DTSTART;TZID="UTC-07:00":20230115T235900
 DTEND;TZID="UTC-07:00":20230116T000000
-DTSTAMP:20250830T095001Z
-UID:f9983dc2-e7cb-469e-bc18-a95fb586af5f
+DTSTAMP:20250830T121551Z
+UID:1ae3f758-6fce-4e68-a1e4-7b276035334f
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 11-16\, 2024\n📍 会议地点: Santiago\, Chile\n⏰ 原始截止时
  间 (UTC-7): 2023-01-15 23:59:00\n分类: 数据库/数据挖掘/内容检
@@ -475,8 +475,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2024 截稿日期 [round 2]
 DTSTART;TZID="UTC-07:00":20230415T235900
 DTEND;TZID="UTC-07:00":20230416T000000
-DTSTAMP:20250830T095001Z
-UID:123468da-bdd8-402a-99e8-6a606d78114c
+DTSTAMP:20250830T121551Z
+UID:1bba2fae-3b41-449b-adc2-81b17f3d7c2e
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 11-16\, 2024\n📍 会议地点: Santiago\, Chile\n⏰ 原始截止时
  间 (UTC-7): 2023-04-15 23:59:00\n分类: 数据库/数据挖掘/内容检
@@ -489,8 +489,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2024 截稿日期 [round 3]
 DTSTART;TZID="UTC-07:00":20230715T235900
 DTEND;TZID="UTC-07:00":20230716T000000
-DTSTAMP:20250830T095001Z
-UID:f2826c24-ba4a-4e6a-80bb-fc207f6496fb
+DTSTAMP:20250830T121551Z
+UID:1871dfc4-5484-4336-95cb-25880f010529
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 11-16\, 2024\n📍 会议地点: Santiago\, Chile\n⏰ 原始截止时
  间 (UTC-7): 2023-07-15 23:59:00\n分类: 数据库/数据挖掘/内容检
@@ -503,8 +503,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2024 截稿日期 [round 4]
 DTSTART;TZID="UTC-07:00":20231015T235900
 DTEND;TZID="UTC-07:00":20231016T000000
-DTSTAMP:20250830T095001Z
-UID:57bb2a1a-f8fd-42b1-9362-d1946e5ce609
+DTSTAMP:20250830T121551Z
+UID:c7555464-d8a3-4b7c-8324-0fbbb32cb16a
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 11-16\, 2024\n📍 会议地点: Santiago\, Chile\n⏰ 原始截止时
  间 (UTC-7): 2023-10-15 23:59:00\n分类: 数据库/数据挖掘/内容检
@@ -517,8 +517,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2025 摘要截稿 [round 1]
 DTSTART;TZID="UTC-12:00":20240110T235900
 DTEND;TZID="UTC-12:00":20240111T000000
-DTSTAMP:20250830T095001Z
-UID:2363d872-3df7-4aa7-a330-9b423685c8d4
+DTSTAMP:20250830T121551Z
+UID:9ca4a7c4-a3ad-41d2-bacc-e6fe99483522
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 22-27\, 2025\n📍 会议地点: Berlin\, Germany\n⏰ 原始截止时
  间 (AoE): 2024-01-10 23:59:00\n分类: 数据库/数据挖掘/内容检
@@ -531,8 +531,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2025 摘要截稿 [round 2]
 DTSTART;TZID="UTC-12:00":20240410T235900
 DTEND;TZID="UTC-12:00":20240411T000000
-DTSTAMP:20250830T095001Z
-UID:408e35c5-96fd-4185-bb76-97733a939af8
+DTSTAMP:20250830T121551Z
+UID:16968d88-b0e8-4f49-bf8a-1105567487b2
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 22-27\, 2025\n📍 会议地点: Berlin\, Germany\n⏰ 原始截止时
  间 (AoE): 2024-04-10 23:59:00\n分类: 数据库/数据挖掘/内容检
@@ -545,8 +545,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2025 摘要截稿 [round 3]
 DTSTART;TZID="UTC-12:00":20240710T235900
 DTEND;TZID="UTC-12:00":20240711T000000
-DTSTAMP:20250830T095001Z
-UID:a932e735-9222-4bd7-b91e-e0d71dbd26f6
+DTSTAMP:20250830T121551Z
+UID:3c3b34f1-16a9-4ed2-8e40-e6d72a81ebc9
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 22-27\, 2025\n📍 会议地点: Berlin\, Germany\n⏰ 原始截止时
  间 (AoE): 2024-07-10 23:59:00\n分类: 数据库/数据挖掘/内容检
@@ -559,8 +559,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2025 摘要截稿 [round 4]
 DTSTART;TZID="UTC-12:00":20241010T235900
 DTEND;TZID="UTC-12:00":20241011T000000
-DTSTAMP:20250830T095001Z
-UID:092c4b97-f00e-4d30-9a91-1c6a52b46936
+DTSTAMP:20250830T121551Z
+UID:b45310f1-87ff-46b6-8790-67f6340c34b8
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ju
  ne 22-27\, 2025\n📍 会议地点: Berlin\, Germany\n⏰ 原始截止时
  间 (AoE): 2024-10-10 23:59:00\n分类: 数据库/数据挖掘/内容检
@@ -573,8 +573,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2026 摘要截稿 [round 1]
 DTSTART;TZID="UTC-12:00":20250110T235900
 DTEND;TZID="UTC-12:00":20250111T000000
-DTSTAMP:20250830T095001Z
-UID:bd3af4f2-2aee-4b57-b634-2327b6bbc512
+DTSTAMP:20250830T121551Z
+UID:294dee20-27e4-4e62-ab4a-d21882511fe0
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ma
  y 31-June 5\, 2026\n📍 会议地点: Bangalore\, India\n⏰ 原始截止
  时间 (AoE): 2025-01-10 23:59:00\n分类: 数据库/数据挖掘/内容
@@ -587,8 +587,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2026 摘要截稿 [round 2]
 DTSTART;TZID="UTC-12:00":20250410T235900
 DTEND;TZID="UTC-12:00":20250411T000000
-DTSTAMP:20250830T095001Z
-UID:2cd54b59-1882-4eea-b09b-d35fa4d1c131
+DTSTAMP:20250830T121551Z
+UID:d45b74c7-f905-4fe0-9634-b054dcbc19a9
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ma
  y 31-June 5\, 2026\n📍 会议地点: Bangalore\, India\n⏰ 原始截止
  时间 (AoE): 2025-04-10 23:59:00\n分类: 数据库/数据挖掘/内容
@@ -601,8 +601,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2026 摘要截稿 [round 3]
 DTSTART;TZID="UTC-12:00":20250710T235900
 DTEND;TZID="UTC-12:00":20250711T000000
-DTSTAMP:20250830T095001Z
-UID:0b3cfbd5-0c8f-40c7-ba1b-f6ddf7db71b5
+DTSTAMP:20250830T121551Z
+UID:49b5a410-5ae8-4b65-a4ca-fd341ad9d71f
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ma
  y 31-June 5\, 2026\n📍 会议地点: Bangalore\, India\n⏰ 原始截止
  时间 (AoE): 2025-07-10 23:59:00\n分类: 数据库/数据挖掘/内容
@@ -615,8 +615,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMOD 2026 摘要截稿 [round 4]
 DTSTART;TZID="UTC-12:00":20251010T235900
 DTEND;TZID="UTC-12:00":20251011T000000
-DTSTAMP:20250830T095001Z
-UID:f5e78702-ce54-4de6-a425-ebe7f4268315
+DTSTAMP:20250830T121551Z
+UID:f672fd25-e373-4be8-85cb-8462e17d01d8
 DESCRIPTION:ACM Conference on Management of Data\n🗓️ 会议时间: Ma
  y 31-June 5\, 2026\n📍 会议地点: Bangalore\, India\n⏰ 原始截止
  时间 (AoE): 2025-10-10 23:59:00\n分类: 数据库/数据挖掘/内容
@@ -629,8 +629,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20200401T170000
 DTEND;TZID="UTC-07:00":20200401T170100
-DTSTAMP:20250830T095001Z
-UID:f93b4ce5-7e86-4c11-ba05-081121aa3417
+DTSTAMP:20250830T121551Z
+UID:32ab4bdb-c797-4881-ad96-50bbed8e263d
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-04-01 17:00:00\n分类: 数据库/数
@@ -643,8 +643,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20200501T170000
 DTEND;TZID="UTC-07:00":20200501T170100
-DTSTAMP:20250830T095001Z
-UID:b1ee0b0a-8d28-4409-adf5-34b0a237ab2b
+DTSTAMP:20250830T121551Z
+UID:c0769b35-0494-4004-bc7f-c281cb3d7470
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-05-01 17:00:00\n分类: 数据库/数
@@ -657,8 +657,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20200601T170000
 DTEND;TZID="UTC-07:00":20200601T170100
-DTSTAMP:20250830T095001Z
-UID:c91a281f-0d08-4940-8c79-5c6f85eeb2c5
+DTSTAMP:20250830T121551Z
+UID:caec585c-330e-4dcf-8259-a9aabf670f82
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-06-01 17:00:00\n分类: 数据库/数
@@ -671,8 +671,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20200701T170000
 DTEND;TZID="UTC-07:00":20200701T170100
-DTSTAMP:20250830T095001Z
-UID:948f4bf1-77ff-4ecc-92fb-b4be419001cf
+DTSTAMP:20250830T121551Z
+UID:11e3bd01-7ac1-421c-b48b-7d5304ac71f7
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-07-01 17:00:00\n分类: 数据库/数
@@ -685,8 +685,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20200801T170000
 DTEND;TZID="UTC-07:00":20200801T170100
-DTSTAMP:20250830T095001Z
-UID:5dad420f-a871-4b35-9b9d-ccc66560a8c9
+DTSTAMP:20250830T121551Z
+UID:f22aaeff-67e8-4602-bbd8-e8378feb6726
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-08-01 17:00:00\n分类: 数据库/数
@@ -699,8 +699,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20200901T170000
 DTEND;TZID="UTC-07:00":20200901T170100
-DTSTAMP:20250830T095001Z
-UID:bea17413-3fcd-47f6-bbfc-7035aaea7206
+DTSTAMP:20250830T121551Z
+UID:d9aa7f01-76c8-448c-9e07-9a42e4ef80fa
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-09-01 17:00:00\n分类: 数据库/数
@@ -713,8 +713,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20201001T170000
 DTEND;TZID="UTC-07:00":20201001T170100
-DTSTAMP:20250830T095001Z
-UID:74e9849e-7360-498f-ba79-c21fae442b5f
+DTSTAMP:20250830T121551Z
+UID:09053481-351f-4467-a915-1d1a03a9ceaa
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-10-01 17:00:00\n分类: 数据库/数
@@ -727,8 +727,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20201101T170000
 DTEND;TZID="UTC-07:00":20201101T170100
-DTSTAMP:20250830T095001Z
-UID:6ea9ed6f-073e-4d82-b67e-6737c64545d3
+DTSTAMP:20250830T121551Z
+UID:f782cf7d-d485-4b98-996e-ae738be47a3e
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-11-01 17:00:00\n分类: 数据库/数
@@ -741,8 +741,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20201201T170000
 DTEND;TZID="UTC-07:00":20201201T170100
-DTSTAMP:20250830T095001Z
-UID:0203bebf-87bf-4454-9ad8-bf9a90333774
+DTSTAMP:20250830T121551Z
+UID:26397935-c57b-4f92-8265-60b3706be474
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2020-12-01 17:00:00\n分类: 数据库/数
@@ -755,8 +755,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20210101T170000
 DTEND;TZID="UTC-07:00":20210101T170100
-DTSTAMP:20250830T095001Z
-UID:511f4068-0597-4dc6-ac52-95bc2783bd57
+DTSTAMP:20250830T121551Z
+UID:969a2ea0-f156-4d7b-a47c-d9ebcc8157b3
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2021-01-01 17:00:00\n分类: 数据库/数
@@ -769,8 +769,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20210201T170000
 DTEND;TZID="UTC-07:00":20210201T170100
-DTSTAMP:20250830T095001Z
-UID:bb99cc4e-9c16-4b6c-ac9c-2be4c4e1eed8
+DTSTAMP:20250830T121551Z
+UID:e940e3b4-18aa-4626-bcdf-5f2c81b83006
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2021-02-01 17:00:00\n分类: 数据库/数
@@ -783,8 +783,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2021 截稿日期
 DTSTART;TZID="UTC-07:00":20210301T170000
 DTEND;TZID="UTC-07:00":20210301T170100
-DTSTAMP:20250830T095001Z
-UID:7aaa32d7-1606-4afa-a42f-b61b11563907
+DTSTAMP:20250830T121551Z
+UID:f4af1529-de0a-4994-a466-a6bd2717ae6d
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 16-20\, 2021\n📍 会议地点: Copenhagen\, Denmark\n
  ⏰ 原始截止时间 (UTC-7): 2021-03-01 17:00:00\n分类: 数据库/数
@@ -797,8 +797,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20210401T170000
 DTEND;TZID="UTC-07:00":20210401T170100
-DTSTAMP:20250830T095001Z
-UID:c16a793a-2627-43f8-b30a-67f8040ca7fb
+DTSTAMP:20250830T121551Z
+UID:d73e4310-edb8-4625-9ed8-093c363a9a08
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-04-01 17:00:00\n分类: 数据库/数
@@ -811,8 +811,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20210501T170000
 DTEND;TZID="UTC-07:00":20210501T170100
-DTSTAMP:20250830T095001Z
-UID:cc13e1a3-d1ca-46fb-a77b-defc59bfb115
+DTSTAMP:20250830T121551Z
+UID:0e869413-92b5-4f09-a1b7-da95965e911a
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-05-01 17:00:00\n分类: 数据库/数
@@ -825,8 +825,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20210601T170000
 DTEND;TZID="UTC-07:00":20210601T170100
-DTSTAMP:20250830T095001Z
-UID:aeaf7033-0f07-4d1f-93ed-0e180adc9215
+DTSTAMP:20250830T121551Z
+UID:97f76f31-334f-4b36-b77a-2ea1cf850a94
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-06-01 17:00:00\n分类: 数据库/数
@@ -839,8 +839,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20210701T170000
 DTEND;TZID="UTC-07:00":20210701T170100
-DTSTAMP:20250830T095001Z
-UID:9ed4d7a2-d585-40de-a19d-77f4514a28c8
+DTSTAMP:20250830T121551Z
+UID:57dbcc23-a665-4612-b949-b6624c41e49b
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-07-01 17:00:00\n分类: 数据库/数
@@ -853,8 +853,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20210801T170000
 DTEND;TZID="UTC-07:00":20210801T170100
-DTSTAMP:20250830T095001Z
-UID:0abeb6a6-3c27-43d3-89a2-172ec8270f80
+DTSTAMP:20250830T121551Z
+UID:c1746dd4-bcf2-453a-8093-9cacc2687704
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-08-01 17:00:00\n分类: 数据库/数
@@ -867,8 +867,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20210901T170000
 DTEND;TZID="UTC-07:00":20210901T170100
-DTSTAMP:20250830T095001Z
-UID:827f8712-b438-4164-a092-8841667fcbf6
+DTSTAMP:20250830T121551Z
+UID:72ab57a2-f196-417f-86f5-c4b9cb3eae2e
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-09-01 17:00:00\n分类: 数据库/数
@@ -881,8 +881,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20211001T170000
 DTEND;TZID="UTC-07:00":20211001T170100
-DTSTAMP:20250830T095001Z
-UID:db923fdf-7b36-42b9-bfaa-b284e8b10303
+DTSTAMP:20250830T121551Z
+UID:c2e937a9-3821-461c-8507-36a96e1d2509
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-10-01 17:00:00\n分类: 数据库/数
@@ -895,8 +895,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20211101T170000
 DTEND;TZID="UTC-07:00":20211101T170100
-DTSTAMP:20250830T095001Z
-UID:50b5c890-b54d-40b3-94a2-a649c4685b72
+DTSTAMP:20250830T121551Z
+UID:3ea403bd-5048-4544-b11c-d471388e6cbf
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-11-01 17:00:00\n分类: 数据库/数
@@ -909,8 +909,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20211201T170000
 DTEND;TZID="UTC-07:00":20211201T170100
-DTSTAMP:20250830T095001Z
-UID:d9a3fe11-7e1d-4649-b37e-b819b1d01087
+DTSTAMP:20250830T121551Z
+UID:879f84f0-3e80-44cc-acbd-dfd72e739efc
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2021-12-01 17:00:00\n分类: 数据库/数
@@ -923,8 +923,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20220101T170000
 DTEND;TZID="UTC-07:00":20220101T170100
-DTSTAMP:20250830T095001Z
-UID:a75449f8-b5ab-45fa-b9c1-b366981cce5b
+DTSTAMP:20250830T121551Z
+UID:5bd82727-bb16-477a-8980-d2d813272918
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2022-01-01 17:00:00\n分类: 数据库/数
@@ -937,8 +937,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20220201T170000
 DTEND;TZID="UTC-07:00":20220201T170100
-DTSTAMP:20250830T095001Z
-UID:12906725-2eab-4e1d-8fc7-3c838be28eac
+DTSTAMP:20250830T121551Z
+UID:953b2738-b70a-45c8-95e0-64b133d00d01
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2022-02-01 17:00:00\n分类: 数据库/数
@@ -951,8 +951,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2022 截稿日期
 DTSTART;TZID="UTC-07:00":20220301T170000
 DTEND;TZID="UTC-07:00":20220301T170100
-DTSTAMP:20250830T095001Z
-UID:2c4d322e-e750-4a69-976c-0b041cd6dfdc
+DTSTAMP:20250830T121551Z
+UID:da4a6e89-219a-400b-9c28-bd620db7b704
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 05-09\, 2022\n📍 会议地点: Sydney\, Australia\n
  ⏰ 原始截止时间 (UTC-7): 2022-03-01 17:00:00\n分类: 数据库/数
@@ -965,8 +965,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20220401T170000
 DTEND;TZID="UTC-07:00":20220401T170100
-DTSTAMP:20250830T095001Z
-UID:b85419ea-1f7d-4acf-87f2-d01e68bbdd9d
+DTSTAMP:20250830T121551Z
+UID:ad497558-db15-4afc-95dd-4d0a82d5755f
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-04-01 17:00:00\n分类: 数
@@ -980,8 +980,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20220501T170000
 DTEND;TZID="UTC-07:00":20220501T170100
-DTSTAMP:20250830T095001Z
-UID:0c794ac6-2ad8-443e-a8f9-4050f5f8381f
+DTSTAMP:20250830T121551Z
+UID:9990114c-9ebc-4f33-85b9-65c452b36537
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-05-01 17:00:00\n分类: 数
@@ -995,8 +995,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20220601T170000
 DTEND;TZID="UTC-07:00":20220601T170100
-DTSTAMP:20250830T095001Z
-UID:21098f9a-4da1-4807-bd5f-34cfe7103634
+DTSTAMP:20250830T121551Z
+UID:948d7830-2626-46f1-91b6-a582eb245e34
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-06-01 17:00:00\n分类: 数
@@ -1010,8 +1010,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20220701T170000
 DTEND;TZID="UTC-07:00":20220701T170100
-DTSTAMP:20250830T095001Z
-UID:428823e8-4000-42ff-b28b-636a39b01247
+DTSTAMP:20250830T121551Z
+UID:bc0ead9d-9b0f-4a41-8104-6e228d24b98e
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-07-01 17:00:00\n分类: 数
@@ -1025,8 +1025,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20220801T170000
 DTEND;TZID="UTC-07:00":20220801T170100
-DTSTAMP:20250830T095001Z
-UID:0e1dd25b-46c9-4056-a931-42ddd98dc62e
+DTSTAMP:20250830T121551Z
+UID:292fbdae-a6e1-443f-90ee-3229f1a2a302
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-08-01 17:00:00\n分类: 数
@@ -1040,8 +1040,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20220901T170000
 DTEND;TZID="UTC-07:00":20220901T170100
-DTSTAMP:20250830T095001Z
-UID:d5cfaa9c-e2ed-419b-b9f9-ceb33d0b7024
+DTSTAMP:20250830T121551Z
+UID:75fa0c2b-7b62-4b7a-8dbe-b3355244a8e2
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-09-01 17:00:00\n分类: 数
@@ -1055,8 +1055,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20221001T170000
 DTEND;TZID="UTC-07:00":20221001T170100
-DTSTAMP:20250830T095001Z
-UID:72db9e56-31de-4996-9205-7bf9417de21b
+DTSTAMP:20250830T121551Z
+UID:773f4ea5-ca83-4174-8c57-590b4e6f724d
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-10-01 17:00:00\n分类: 数
@@ -1070,8 +1070,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20221101T170000
 DTEND;TZID="UTC-07:00":20221101T170100
-DTSTAMP:20250830T095001Z
-UID:25dca538-5c18-4260-930f-d31ac92f43db
+DTSTAMP:20250830T121551Z
+UID:7728092c-ef5c-4ed3-9398-6e5031ac25b5
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-11-01 17:00:00\n分类: 数
@@ -1085,8 +1085,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20221201T170000
 DTEND;TZID="UTC-07:00":20221201T170100
-DTSTAMP:20250830T095001Z
-UID:ff0f365a-14bd-404f-9868-61481b6fc429
+DTSTAMP:20250830T121551Z
+UID:94fa5cf9-cae0-4534-8b12-72af57bf0a8b
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2022-12-01 17:00:00\n分类: 数
@@ -1100,8 +1100,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20230101T170000
 DTEND;TZID="UTC-07:00":20230101T170100
-DTSTAMP:20250830T095001Z
-UID:089f4efe-a20b-43ba-9ee7-96c09d32a339
+DTSTAMP:20250830T121551Z
+UID:d36ae6b8-135d-40a1-a95a-ab5e739a1205
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2023-01-01 17:00:00\n分类: 数
@@ -1115,8 +1115,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20230201T170000
 DTEND;TZID="UTC-07:00":20230201T170100
-DTSTAMP:20250830T095001Z
-UID:16d113ef-8425-449d-8606-bc9dcb049ff8
+DTSTAMP:20250830T121551Z
+UID:c66bf39c-0c22-4e29-9675-296f75222a1d
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2023-02-01 17:00:00\n分类: 数
@@ -1130,8 +1130,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2023 截稿日期
 DTSTART;TZID="UTC-07:00":20230301T170000
 DTEND;TZID="UTC-07:00":20230301T170100
-DTSTAMP:20250830T095001Z
-UID:85239444-56fc-44cf-98ff-b571c24cf423
+DTSTAMP:20250830T121551Z
+UID:fadf3064-7846-474c-a8ed-3f12353a68d1
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 28 - September 01\, 2023\n📍 会议地点: Vancouver\,
   Canada\n⏰ 原始截止时间 (UTC-7): 2023-03-01 17:00:00\n分类: 数
@@ -1145,8 +1145,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20230401T170000
 DTEND;TZID="UTC-07:00":20230401T170100
-DTSTAMP:20250830T095001Z
-UID:5158e5da-8639-4393-8f19-ccf4eb02c136
+DTSTAMP:20250830T121551Z
+UID:018e41ab-10ec-4f40-86bd-4f722bebcd62
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-04-01 17:00:00\n分类: 数
@@ -1160,8 +1160,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20230501T170000
 DTEND;TZID="UTC-07:00":20230501T170100
-DTSTAMP:20250830T095001Z
-UID:07b0ce4c-49f5-4b2e-be42-7c9508407d14
+DTSTAMP:20250830T121551Z
+UID:877e83c0-8c89-436c-a078-544cb6bb9387
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-05-01 17:00:00\n分类: 数
@@ -1175,8 +1175,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20230601T170000
 DTEND;TZID="UTC-07:00":20230601T170100
-DTSTAMP:20250830T095001Z
-UID:307c666c-d813-46a7-b1be-914b111b6728
+DTSTAMP:20250830T121551Z
+UID:b3df64f4-140d-4a42-bc6f-b9abac29082b
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-06-01 17:00:00\n分类: 数
@@ -1190,8 +1190,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20230701T170000
 DTEND;TZID="UTC-07:00":20230701T170100
-DTSTAMP:20250830T095001Z
-UID:a488344b-fcf5-4b8c-901e-73d1d307dec3
+DTSTAMP:20250830T121551Z
+UID:ae893678-8fa2-42f3-b0c5-191aaff67903
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-07-01 17:00:00\n分类: 数
@@ -1205,8 +1205,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20230801T170000
 DTEND;TZID="UTC-07:00":20230801T170100
-DTSTAMP:20250830T095001Z
-UID:0b83c527-6dd3-4963-ba24-a845b0b350b6
+DTSTAMP:20250830T121551Z
+UID:f1f993f8-cc7b-42e3-a4a9-a09c5c21f466
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-08-01 17:00:00\n分类: 数
@@ -1220,8 +1220,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20230901T170000
 DTEND;TZID="UTC-07:00":20230901T170100
-DTSTAMP:20250830T095001Z
-UID:0d738a46-9bf5-4c7a-bdf3-64e7e13b2bd4
+DTSTAMP:20250830T121551Z
+UID:f674036d-8e0f-47d7-b0ed-1edb28625b46
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-09-01 17:00:00\n分类: 数
@@ -1235,8 +1235,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20231001T170000
 DTEND;TZID="UTC-07:00":20231001T170100
-DTSTAMP:20250830T095001Z
-UID:745ef143-fa33-4c28-a586-33b64851bc93
+DTSTAMP:20250830T121551Z
+UID:5330299a-8a31-47d1-9221-b067a3d3ede0
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-10-01 17:00:00\n分类: 数
@@ -1250,8 +1250,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20231101T170000
 DTEND;TZID="UTC-07:00":20231101T170100
-DTSTAMP:20250830T095001Z
-UID:6f73dd97-8e88-4d2a-ac3b-367bd666a6b8
+DTSTAMP:20250830T121551Z
+UID:6dbb72a4-5ad1-4013-8378-0d3b30cb85d0
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-11-01 17:00:00\n分类: 数
@@ -1265,8 +1265,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20231201T170000
 DTEND;TZID="UTC-07:00":20231201T170100
-DTSTAMP:20250830T095001Z
-UID:0f257d4c-16b6-4902-8294-d74bd80e0777
+DTSTAMP:20250830T121551Z
+UID:87b86e97-4f1a-4c94-ac1b-a318d0cc1779
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2023-12-01 17:00:00\n分类: 数
@@ -1280,8 +1280,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20240101T170000
 DTEND;TZID="UTC-07:00":20240101T170100
-DTSTAMP:20250830T095001Z
-UID:21ed50bf-80db-41b2-b8cb-39a208a4b704
+DTSTAMP:20250830T121551Z
+UID:38b5b315-0965-4409-b4bc-0db4b19a378d
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2024-01-01 17:00:00\n分类: 数
@@ -1295,8 +1295,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20240201T170000
 DTEND;TZID="UTC-07:00":20240201T170100
-DTSTAMP:20250830T095001Z
-UID:6d9e1bb0-4384-43ad-ab09-73035d525aed
+DTSTAMP:20250830T121551Z
+UID:c722e20b-d367-4ef2-a05d-8b6473f73ea9
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2024-02-01 17:00:00\n分类: 数
@@ -1310,8 +1310,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2024 截稿日期
 DTSTART;TZID="UTC-07:00":20240301T170000
 DTEND;TZID="UTC-07:00":20240301T170100
-DTSTAMP:20250830T095001Z
-UID:04aac5e8-bf65-40df-b1b5-3f718c29d1a8
+DTSTAMP:20250830T121551Z
+UID:e26b7005-2912-44e6-b85c-3f1d41a012ef
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 25-29\, 2024\n📍 会议地点: Guangzhou\, China (and 
  hybrid)\n⏰ 原始截止时间 (UTC-7): 2024-03-01 17:00:00\n分类: 数
@@ -1325,8 +1325,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20240401T170000
 DTEND;TZID="UTC-07:00":20240401T170100
-DTSTAMP:20250830T095001Z
-UID:799ee59c-37e5-4d91-b95c-d2b1fc2e98d4
+DTSTAMP:20250830T121551Z
+UID:beaa54de-913d-47a7-9146-bc5df5537b75
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-04-01 17:00:00\n分类: 数据库/
@@ -1339,8 +1339,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20240501T170000
 DTEND;TZID="UTC-07:00":20240501T170100
-DTSTAMP:20250830T095001Z
-UID:c092e0e8-31eb-4183-b5e3-d76b798f73da
+DTSTAMP:20250830T121551Z
+UID:247d5117-73e9-4aba-a942-2584d3b17055
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-05-01 17:00:00\n分类: 数据库/
@@ -1353,8 +1353,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20240601T170000
 DTEND;TZID="UTC-07:00":20240601T170100
-DTSTAMP:20250830T095001Z
-UID:1a6f1f45-1f66-4754-b38c-6e83dfde1577
+DTSTAMP:20250830T121551Z
+UID:a80883bf-47c1-448b-a0f0-4d99a1e79e04
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-06-01 17:00:00\n分类: 数据库/
@@ -1367,8 +1367,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20240701T170000
 DTEND;TZID="UTC-07:00":20240701T170100
-DTSTAMP:20250830T095001Z
-UID:a2ed275a-b357-46b1-95f2-861888285327
+DTSTAMP:20250830T121551Z
+UID:e123effa-0ed3-4e5a-9809-9a25b2cc27b5
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-07-01 17:00:00\n分类: 数据库/
@@ -1381,8 +1381,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20240801T170000
 DTEND;TZID="UTC-07:00":20240801T170100
-DTSTAMP:20250830T095001Z
-UID:73d60949-7815-4def-bba1-ebc2db3cc023
+DTSTAMP:20250830T121551Z
+UID:53c42a30-b33f-490b-87c1-6c4db51b343b
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-08-01 17:00:00\n分类: 数据库/
@@ -1395,8 +1395,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20240901T170000
 DTEND;TZID="UTC-07:00":20240901T170100
-DTSTAMP:20250830T095001Z
-UID:4c9ac41d-2061-40d0-9cfb-606e0deb47ae
+DTSTAMP:20250830T121551Z
+UID:fb53b11d-f114-42ec-a89e-9578ca948756
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-09-01 17:00:00\n分类: 数据库/
@@ -1409,8 +1409,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20241001T170000
 DTEND;TZID="UTC-07:00":20241001T170100
-DTSTAMP:20250830T095001Z
-UID:1cb44f2b-30ed-4c11-9c47-8420d228f33d
+DTSTAMP:20250830T121551Z
+UID:9129c782-0197-41c9-8998-d4d798a43d87
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-10-01 17:00:00\n分类: 数据库/
@@ -1423,8 +1423,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20241101T170000
 DTEND;TZID="UTC-07:00":20241101T170100
-DTSTAMP:20250830T095001Z
-UID:d0c35eb5-a67b-4caf-a5d6-8201e5915124
+DTSTAMP:20250830T121551Z
+UID:64d03544-da1b-4eac-a138-64e6bfe155b6
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-11-01 17:00:00\n分类: 数据库/
@@ -1437,8 +1437,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20241201T170000
 DTEND;TZID="UTC-07:00":20241201T170100
-DTSTAMP:20250830T095001Z
-UID:99c74d43-d4d7-457c-b7a7-d5f623c6ddcf
+DTSTAMP:20250830T121551Z
+UID:99c85842-f16c-448a-afc5-8a00e1602c00
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2024-12-01 17:00:00\n分类: 数据库/
@@ -1451,8 +1451,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20250101T170000
 DTEND;TZID="UTC-07:00":20250101T170100
-DTSTAMP:20250830T095001Z
-UID:48c7d7b1-ba73-49db-af17-ae13a6c30f73
+DTSTAMP:20250830T121551Z
+UID:93588a8b-a8bb-496f-859e-a75afae47799
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2025-01-01 17:00:00\n分类: 数据库/
@@ -1465,8 +1465,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20250201T170000
 DTEND;TZID="UTC-07:00":20250201T170100
-DTSTAMP:20250830T095001Z
-UID:7828a4f5-d573-478b-bd48-e106ac176d5b
+DTSTAMP:20250830T121551Z
+UID:e70cfcdf-cb26-47b7-8869-9754c58156f5
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2025-02-01 17:00:00\n分类: 数据库/
@@ -1479,8 +1479,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20250301T170000
 DTEND;TZID="UTC-07:00":20250301T170100
-DTSTAMP:20250830T095001Z
-UID:f9b16eba-1ea9-4046-93ec-c10cff17a318
+DTSTAMP:20250830T121551Z
+UID:a7050009-bd71-4217-8a0f-b101a375d50a
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: September 1-5\, 2025\n📍 会议地点: London\, United Kingdo
  m\n⏰ 原始截止时间 (UTC-7): 2025-03-01 17:00:00\n分类: 数据库/
@@ -1493,8 +1493,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20250401T170000
 DTEND;TZID="UTC-07:00":20250401T170100
-DTSTAMP:20250830T095001Z
-UID:7000250e-fe2d-4b3b-92c3-8b9c01d5583f
+DTSTAMP:20250830T121551Z
+UID:f8308986-6feb-4395-bd66-4b940aea2386
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-04-01 17:00:00\n分类: 数据
@@ -1507,8 +1507,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20250501T170000
 DTEND;TZID="UTC-07:00":20250501T170100
-DTSTAMP:20250830T095001Z
-UID:7e0aab27-a2c6-4d2d-98f9-da2e46c04899
+DTSTAMP:20250830T121551Z
+UID:827edee5-2f67-434c-b0ca-2934d2802bc9
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-05-01 17:00:00\n分类: 数据
@@ -1521,8 +1521,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20250601T170000
 DTEND;TZID="UTC-07:00":20250601T170100
-DTSTAMP:20250830T095001Z
-UID:8a6c243f-2835-44fd-a33c-0c1c92be0df9
+DTSTAMP:20250830T121551Z
+UID:f3085453-282a-432d-8745-653c3b749b26
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-06-01 17:00:00\n分类: 数据
@@ -1535,8 +1535,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20250701T170000
 DTEND;TZID="UTC-07:00":20250701T170100
-DTSTAMP:20250830T095001Z
-UID:5bbdc762-0f86-4904-9d3f-4ad27ababa25
+DTSTAMP:20250830T121551Z
+UID:7ace9dc3-387e-495c-9d26-2a3a0e3b0fc3
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-07-01 17:00:00\n分类: 数据
@@ -1549,8 +1549,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20250801T170000
 DTEND;TZID="UTC-07:00":20250801T170100
-DTSTAMP:20250830T095001Z
-UID:01a1f06d-a915-4524-acae-99f8be29e99c
+DTSTAMP:20250830T121551Z
+UID:e989187a-9565-45af-95e1-986dd7f3dabd
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-08-01 17:00:00\n分类: 数据
@@ -1563,8 +1563,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20250901T170000
 DTEND;TZID="UTC-07:00":20250901T170100
-DTSTAMP:20250830T095001Z
-UID:f42aa8a9-904c-4dee-a89d-fb8eba63c183
+DTSTAMP:20250830T121551Z
+UID:1094191e-6b0e-4977-a348-9b363b62b909
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-09-01 17:00:00\n分类: 数据
@@ -1577,8 +1577,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20251001T170000
 DTEND;TZID="UTC-07:00":20251001T170100
-DTSTAMP:20250830T095001Z
-UID:077e3888-8620-46d7-a6fc-70fec537cd93
+DTSTAMP:20250830T121551Z
+UID:b3a1d120-bbac-4761-9690-f8b9ff54e645
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-10-01 17:00:00\n分类: 数据
@@ -1591,8 +1591,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20251101T170000
 DTEND;TZID="UTC-07:00":20251101T170100
-DTSTAMP:20250830T095001Z
-UID:bf6bf6fa-2fbc-4c99-8367-c5b9ec6a3869
+DTSTAMP:20250830T121551Z
+UID:641b148a-d9a8-4e40-a5df-a03d38b3b4fd
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-11-01 17:00:00\n分类: 数据
@@ -1605,8 +1605,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20251201T170000
 DTEND;TZID="UTC-07:00":20251201T170100
-DTSTAMP:20250830T095001Z
-UID:cb8ff9a7-a6d1-49fe-81e2-cbbe7f6c5838
+DTSTAMP:20250830T121551Z
+UID:bfd10c67-dd7f-4a35-9147-afa81489de30
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2025-12-01 17:00:00\n分类: 数据
@@ -1619,8 +1619,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20260101T170000
 DTEND;TZID="UTC-07:00":20260101T170100
-DTSTAMP:20250830T095001Z
-UID:17b15e17-caba-4f93-b504-c7ae50e99f79
+DTSTAMP:20250830T121551Z
+UID:8cbff0e0-a2fc-44f3-bccb-3f3c78dc6cdc
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2026-01-01 17:00:00\n分类: 数据
@@ -1633,8 +1633,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20260201T170000
 DTEND;TZID="UTC-07:00":20260201T170100
-DTSTAMP:20250830T095001Z
-UID:0c8d2f25-608e-43a5-9c51-78eb9ea30256
+DTSTAMP:20250830T121551Z
+UID:9053046c-4ca8-4df0-967c-fba57272fc9e
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2026-02-01 17:00:00\n分类: 数据
@@ -1647,8 +1647,8 @@ BEGIN:VEVENT
 SUMMARY:VLDB 2026 截稿日期
 DTSTART;TZID="UTC-07:00":20260301T170000
 DTEND;TZID="UTC-07:00":20260301T170100
-DTSTAMP:20250830T095001Z
-UID:0fa8d5b9-1d49-44dd-9f56-9bdf1debaf3b
+DTSTAMP:20250830T121551Z
+UID:01076d43-76f4-47b1-867b-c2f7e886a3bd
 DESCRIPTION:International Conference on Very Large Data Bases\n🗓️ 会
  议时间: August 31 - September 4\, 2026\n📍 会议地点: Boston\, MA\
  , USA\n⏰ 原始截止时间 (UTC-7): 2026-03-01 17:00:00\n分类: 数据

@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:GLOBECOM 2023 Deadline
 DTSTART;TZID="UTC-04:00":20230415T235959
 DTEND;TZID="UTC-04:00":20230416T000059
-DTSTAMP:20250830T095005Z
-UID:3cc14df4-7e7c-441e-8a8f-291d3dcdba22
+DTSTAMP:20250830T121555Z
+UID:8cdc7932-2f8c-426b-b975-015f41508af9
 DESCRIPTION:IEEE Global Communications Conference\n🗓️ Date: December 
  4-8\, 2023\n📍 Location: Kuala Lumpur\, Malaysia\n⏰ Original Deadline 
  (UTC-4): 2023-04-15 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\, CORE
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:GLOBECOM 2025 Deadline
 DTSTART;TZID="UTC-04:00":20250415T235959
 DTEND;TZID="UTC-04:00":20250416T000059
-DTSTAMP:20250830T095005Z
-UID:4b83d2a8-dbab-49cf-8070-eeddd6f8be19
+DTSTAMP:20250830T121555Z
+UID:a5f95edf-a9c1-409b-a261-2016e8353d11
 DESCRIPTION:IEEE Global Communications Conference\n🗓️ Date: December 
  8-12\, 2025\n📍 Location: Taipei\, Taiwan\n⏰ Original Deadline (UTC-4)
  : 2025-04-15 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\, CORE B\, TH
@@ -42,8 +42,8 @@ BEGIN:VEVENT
 SUMMARY:ICNP 2022 Abstract Deadline
 DTSTART;TZID="UTC-04:00":20220519T200000
 DTEND;TZID="UTC-04:00":20220519T200100
-DTSTAMP:20250830T095005Z
-UID:9a8bfe9c-9530-4581-86c0-d3948d29b051
+DTSTAMP:20250830T121555Z
+UID:e1b2f179-e3dd-41ba-9537-cb6f5968cbb0
 DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
  te: October 30-November 2\, 2022\n📍 Location: Lexington\, Kentucky\, US
  A\n⏰ Original Deadline (UTC-4): 2022-05-19 20:00:00\nCategory: 计算机
@@ -56,8 +56,8 @@ BEGIN:VEVENT
 SUMMARY:ICNP 2023 Abstract Deadline
 DTSTART;TZID="UTC-04:00":20230524T200000
 DTEND;TZID="UTC-04:00":20230524T200100
-DTSTAMP:20250830T095005Z
-UID:db1a83a4-5084-45ae-8f0c-b7ef8c454a5f
+DTSTAMP:20250830T121555Z
+UID:a377b298-a566-4704-a5ac-662054ec527a
 DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
  te: October 10-13\, 2023\n📍 Location: Reykjavik\, Iceland\n⏰ Original
   Deadline (UTC-4): 2023-05-24 20:00:00\nCategory: 计算机网络 (NW)\nCC
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:ICNP 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240517T235959
 DTEND;TZID="UTC-12:00":20240518T000059
-DTSTAMP:20250830T095005Z
-UID:e4804dec-5605-4a05-9fbc-261dee5ccce0
+DTSTAMP:20250830T121555Z
+UID:bfc7b270-7eec-4c96-b60d-417ba584e30a
 DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
  te: October 28-31\, 2024\n📍 Location: Charleroi\, Belgium\n⏰ Original
   Deadline (AoE): 2024-05-17 23:59:59\nCategory: 计算机网络 (NW)\nCCF 
@@ -93,8 +93,8 @@ BEGIN:VEVENT
 SUMMARY:ICNP 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250509T235959
 DTEND;TZID="UTC-12:00":20250510T000059
-DTSTAMP:20250830T095005Z
-UID:5845c370-ae38-40de-b20d-0340201be41d
+DTSTAMP:20250830T121555Z
+UID:2c570bd8-3a7a-4f43-8ee3-4e24bd75fdaf
 DESCRIPTION:IEEE International Conference on Network Protocols\n🗓️ Da
  te: September 22-25\, 2025\n📍 Location: Seoul\, South Korea\n⏰ Origin
  al Deadline (AoE): 2025-05-09 23:59:59\nCategory: 计算机网络 (NW)\nCC
@@ -107,8 +107,8 @@ BEGIN:VEVENT
 SUMMARY:IWQoS 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20220201T235959
 DTEND;TZID="UTC-12:00":20220202T000059
-DTSTAMP:20250830T095005Z
-UID:d40c981f-d163-4b46-84c1-e422b699d320
+DTSTAMP:20250830T121555Z
+UID:579d2578-4b1f-4bb8-863a-a742d4a4eddc
 DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
  ️ Date: June 10-12\, 2022\n📍 Location: Virtual\n⏰ Original Deadline
   (UTC-12): 2022-02-01 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CO
@@ -121,8 +121,8 @@ BEGIN:VEVENT
 SUMMARY:IWQoS 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230129T235959
 DTEND;TZID="UTC-12:00":20230130T000059
-DTSTAMP:20250830T095005Z
-UID:0a3c0c86-e8ee-4fd5-b65f-1e8a74449a1a
+DTSTAMP:20250830T121555Z
+UID:a10b804c-ddc4-443f-866c-c4156396e8a1
 DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
  ️ Date: June 19-21\, 2023\n📍 Location: Orlando\, FL\, USA\n⏰ Origin
  al Deadline (UTC-12): 2023-01-29 23:59:59\nCategory: 计算机网络 (NW)\
@@ -135,8 +135,8 @@ BEGIN:VEVENT
 SUMMARY:IWQoS 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250216T235959
 DTEND;TZID="UTC-12:00":20250217T000059
-DTSTAMP:20250830T095005Z
-UID:136aa70e-b43f-4a42-9180-1480379dc800
+DTSTAMP:20250830T121555Z
+UID:74bd28cc-2d69-4e50-a8d0-44031f89ac3b
 DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
  ️ Date: July 02-04\, 2025\n📍 Location: Gold Coast\, Australia\n⏰ Or
  iginal Deadline (AoE): 2025-02-16 23:59:59\nCategory: 计算机网络 (NW)
@@ -149,8 +149,8 @@ BEGIN:VEVENT
 SUMMARY:NOSSDAV 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250117T235959
 DTEND;TZID="UTC-12:00":20250118T000059
-DTSTAMP:20250830T095005Z
-UID:6a6c2af0-b6e7-4a8f-992d-df8a20043a3b
+DTSTAMP:20250830T121555Z
+UID:41aeeb50-fd3f-4b7f-98df-9e99ac93adff
 DESCRIPTION:International Workshop on Network and Operating System Support
   for Digital Audio and Video\n🗓️ Date: March 31- April 3\, 2025\n📍
   Location: Stellenbosch\, South Africa\n⏰ Original Deadline (AoE): 2025-
@@ -164,8 +164,8 @@ BEGIN:VEVENT
 SUMMARY:WoWMoM 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241122T235959
 DTEND;TZID="UTC-12:00":20241123T000059
-DTSTAMP:20250830T095005Z
-UID:d49abca1-1b3e-4a11-adec-63cfab459a73
+DTSTAMP:20250830T121555Z
+UID:1d0ebafd-8c16-4c03-8a9b-bb17732bb84f
 DESCRIPTION:IEEE International Symposium on a World of Wireless\, Mobile a
  nd Multimedia Networks\n🗓️ Date: May 27-30\, 2025\n📍 Location: For
  t Worth\, Texas\, USA\n⏰ Original Deadline (AoE): 2024-11-22 23:59:59\nC

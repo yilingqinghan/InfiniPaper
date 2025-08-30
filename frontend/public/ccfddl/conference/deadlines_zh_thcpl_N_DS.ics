@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:GLSVLSI 2025 截稿日期
 DTSTART;TZID="UTC-05:00":20250317T235900
 DTEND;TZID="UTC-05:00":20250318T000000
-DTSTAMP:20250830T095001Z
-UID:aee491fb-c885-49d6-a6d6-9d7dec27ae09
+DTSTAMP:20250830T121551Z
+UID:5ac0cd20-8645-4e36-b0d0-fe67af041349
 DESCRIPTION:Great Lakes Symposium on VLSI\n🗓️ 会议时间: June 30-J
  uly 2\, 2025\n📍 会议地点: New Orleans\, LA\, USA\n⏰ 原始截止
  时间 (UTC-5): 2025-03-17 23:59:00\n分类: 计算机体系结构/并行
@@ -37,8 +37,8 @@ BEGIN:VEVENT
 SUMMARY:APSys 2024 摘要截稿 [call for papers]
 DTSTART;TZID="UTC-12:00":20240425T235900
 DTEND;TZID="UTC-12:00":20240426T000000
-DTSTAMP:20250830T095001Z
-UID:e10aaa08-e2c2-4aa7-8718-e2096a32283d
+DTSTAMP:20250830T121551Z
+UID:f39f5840-4f68-4967-b42b-624837e36145
 DESCRIPTION:ACM SIGOPS Asia-Pacific Workshop on Systems\n🗓️ 会议时
  间: September 4-5\, 2024\n📍 会议地点: Kyoto\, Japan\n⏰ 原始截
  止时间 (AoE): 2024-04-25 23:59:00\n分类: 计算机体系结构/并行
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:APSys 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250529T235900
 DTEND;TZID="UTC-12:00":20250530T000000
-DTSTAMP:20250830T095001Z
-UID:7e0fa932-9215-41d7-824b-b488f0d1eece
+DTSTAMP:20250830T121551Z
+UID:03578d75-8ca8-4677-9b76-adafcd9c8214
 DESCRIPTION:ACM SIGOPS Asia-Pacific Workshop on Systems\n🗓️ 会议时
  间: October 12-13\, 2025\n📍 会议地点: Seoul\, South Korea\n⏰ 原
  始截止时间 (AoE): 2025-05-29 23:59:00\n分类: 计算机体系结构/
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:CF 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20240108T235959
 DTEND;TZID="UTC-12:00":20240109T000059
-DTSTAMP:20250830T095001Z
-UID:464aff2d-56bd-4813-924b-4ba4e2ef7b17
+DTSTAMP:20250830T121551Z
+UID:da699bea-e025-4f43-af7c-8f9e4c9dc51e
 DESCRIPTION:ACM International Conference on Computing Frontiers\n🗓️ 
  会议时间: May 7-9\, 2024\n📍 会议地点: Ischia\, Italy\n⏰ 原
  始截止时间 (AoE): 2024-01-08 23:59:59\n分类: 计算机体系结构/
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:ETS 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20231208T235959
 DTEND;TZID="UTC-12:00":20231209T000059
-DTSTAMP:20250830T095001Z
-UID:2e28b4c7-4d66-4d19-a35d-42eab16c78d8
+DTSTAMP:20250830T121551Z
+UID:8c0a58e4-8f86-4ca5-8410-23c8a768aed0
 DESCRIPTION:IEEE European Test Symposium\n🗓️ 会议时间: May 20-24\
  , 2024\n📍 会议地点: The Hague\, Netherlands\n⏰ 原始截止时间
   (AoE): 2023-12-08 23:59:59\n分类: 计算机体系结构/并行与分布
@@ -93,8 +93,8 @@ BEGIN:VEVENT
 SUMMARY:Euro-Par 2023 摘要截稿
 DTSTART;TZID="UTC-12:00":20230217T235959
 DTEND;TZID="UTC-12:00":20230218T000059
-DTSTAMP:20250830T095001Z
-UID:dead4191-adfa-4104-8e5a-5c7985295526
+DTSTAMP:20250830T121551Z
+UID:e2453ba4-5463-4325-ab5e-b7a6a5011c35
 DESCRIPTION:European Conference on Parallel and Distributed Computing\n
  🗓️ 会议时间: August 28-September 1\, 2023\n📍 会议地点: Lim
  assol\, Cyprus\n⏰ 原始截止时间 (AoE): 2023-02-17 23:59:59\n分类:
@@ -108,8 +108,8 @@ BEGIN:VEVENT
 SUMMARY:Euro-Par 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20240315T235959
 DTEND;TZID="UTC-12:00":20240316T000059
-DTSTAMP:20250830T095001Z
-UID:8661cdb6-7548-41d7-9d6d-cd0430de12d5
+DTSTAMP:20250830T121551Z
+UID:49b4b793-e758-4937-9d12-e754222b4b84
 DESCRIPTION:European Conference on Parallel and Distributed Computing\n
  🗓️ 会议时间: August 28-30\, 2023\n📍 会议地点: Madrid\, Spa
  in\n⏰ 原始截止时间 (AoE): 2024-03-15 23:59:59\n分类: 计算机
@@ -123,8 +123,8 @@ BEGIN:VEVENT
 SUMMARY:Euro-Par 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250303T235959
 DTEND;TZID="UTC-12:00":20250304T000059
-DTSTAMP:20250830T095001Z
-UID:c4d655a2-7075-403b-b173-0a28159193aa
+DTSTAMP:20250830T121551Z
+UID:223b10b7-7fbd-4566-99f5-af06f180cd02
 DESCRIPTION:European Conference on Parallel and Distributed Computing\n
  🗓️ 会议时间: August 25-29\, 2025\n📍 会议地点: Dresden\, Ge
  rmany\n⏰ 原始截止时间 (AoE): 2025-03-03 23:59:59\n分类: 计算
@@ -138,8 +138,8 @@ BEGIN:VEVENT
 SUMMARY:FCCM 2022 截稿日期 [abstract deadline]
 DTSTART;TZID="UTC-12:00":20220103T235959
 DTEND;TZID="UTC-12:00":20220104T000059
-DTSTAMP:20250830T095001Z
-UID:0835c294-1859-4de4-b8b9-de505585f4b3
+DTSTAMP:20250830T121551Z
+UID:56d051b4-ea04-417e-8cf9-c07ef901d3b1
 DESCRIPTION:IEEE Symposium on Field-Programmable Custom Computing Machines
  \n🗓️ 会议时间: May 15-18\, 2022\n📍 会议地点: New York City
  \, USA\n⏰ 原始截止时间 (AoE): 2022-01-03 23:59:59\n分类: 计算
@@ -153,8 +153,8 @@ BEGIN:VEVENT
 SUMMARY:FCCM 2022 截稿日期 [full paper deadline]
 DTSTART;TZID="UTC-12:00":20220110T235959
 DTEND;TZID="UTC-12:00":20220111T000059
-DTSTAMP:20250830T095001Z
-UID:6e4c80ae-ca16-4209-a3b9-03521fc9a34e
+DTSTAMP:20250830T121551Z
+UID:5995fb4d-a973-474d-aade-52e645eb61ec
 DESCRIPTION:IEEE Symposium on Field-Programmable Custom Computing Machines
  \n🗓️ 会议时间: May 15-18\, 2022\n📍 会议地点: New York City
  \, USA\n⏰ 原始截止时间 (AoE): 2022-01-10 23:59:59\n分类: 计算
@@ -168,8 +168,8 @@ BEGIN:VEVENT
 SUMMARY:FCCM 2024 截稿日期 [abstract deadline]
 DTSTART;TZID="UTC-12:00":20240109T235959
 DTEND;TZID="UTC-12:00":20240110T000059
-DTSTAMP:20250830T095001Z
-UID:3f76c70e-ea02-4276-8daf-9d45b38f8dd8
+DTSTAMP:20250830T121551Z
+UID:9ed651c9-ffd0-4cb0-a3b4-d6ee76ed35c3
 DESCRIPTION:IEEE Symposium on Field-Programmable Custom Computing Machines
  \n🗓️ 会议时间: May 5-8\, 2024\n📍 会议地点: Orlando\, USA\n
  ⏰ 原始截止时间 (AoE): 2024-01-09 23:59:59\n分类: 计算机体系
@@ -182,8 +182,8 @@ BEGIN:VEVENT
 SUMMARY:FCCM 2024 截稿日期 [full paper deadline]
 DTSTART;TZID="UTC-12:00":20240115T235959
 DTEND;TZID="UTC-12:00":20240116T000059
-DTSTAMP:20250830T095001Z
-UID:c4bd7169-0e8d-4f77-b178-7ac320eaa217
+DTSTAMP:20250830T121551Z
+UID:af5d07df-7499-49fa-a197-f41d5fcea2ef
 DESCRIPTION:IEEE Symposium on Field-Programmable Custom Computing Machines
  \n🗓️ 会议时间: May 5-8\, 2024\n📍 会议地点: Orlando\, USA\n
  ⏰ 原始截止时间 (AoE): 2024-01-15 23:59:59\n分类: 计算机体系
@@ -196,8 +196,8 @@ BEGIN:VEVENT
 SUMMARY:FCCM 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250110T235959
 DTEND;TZID="UTC-12:00":20250111T000059
-DTSTAMP:20250830T095001Z
-UID:f0169ae2-7a14-4e21-8c86-2e81e4558912
+DTSTAMP:20250830T121551Z
+UID:b1ef9ccf-6a04-44f2-9eb8-9e8690de77da
 DESCRIPTION:IEEE Symposium on Field-Programmable Custom Computing Machines
  \n🗓️ 会议时间: May 4-7\, 2025\n📍 会议地点: Fayetteville\, 
  Arkansas\, USA\n⏰ 原始截止时间 (AoE): 2025-01-10 23:59:59\n分类:
@@ -211,8 +211,8 @@ BEGIN:VEVENT
 SUMMARY:FPT 2024 截稿日期 [Title and Abstract Due (Conference Track)]
 DTSTART;TZID="UTC-12:00":20240714T235959
 DTEND;TZID="UTC-12:00":20240715T000059
-DTSTAMP:20250830T095001Z
-UID:14e0c561-fc82-46a2-8b64-c3f6c73d729a
+DTSTAMP:20250830T121551Z
+UID:9562891d-0671-437b-a88b-67852c07bf6b
 DESCRIPTION:International Conference on Field Programmable Technology\n
  🗓️ 会议时间: December 10 - December 12\, 2024\n📍 会议地点:
   Sydney\, Australia\n⏰ 原始截止时间 (AoE): 2024-07-14 23:59:59\n
@@ -226,8 +226,8 @@ BEGIN:VEVENT
 SUMMARY:FPT 2024 截稿日期 [Submission Due (Conference Track)]
 DTSTART;TZID="UTC-12:00":20240721T235959
 DTEND;TZID="UTC-12:00":20240722T000059
-DTSTAMP:20250830T095001Z
-UID:0211a563-fa1c-4a45-8b09-68fbff9db293
+DTSTAMP:20250830T121551Z
+UID:9389f54e-f35b-4fc4-87eb-25dac94c056c
 DESCRIPTION:International Conference on Field Programmable Technology\n
  🗓️ 会议时间: December 10 - December 12\, 2024\n📍 会议地点:
   Sydney\, Australia\n⏰ 原始截止时间 (AoE): 2024-07-21 23:59:59\n
@@ -241,8 +241,8 @@ BEGIN:VEVENT
 SUMMARY:HPCC 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250518T235959
 DTEND;TZID="UTC-12:00":20250519T000059
-DTSTAMP:20250830T095001Z
-UID:946211e0-41f2-4f8e-b847-e686ae6277e2
+DTSTAMP:20250830T121551Z
+UID:b771ba56-74b0-487d-8d8a-8e277dc6a3f4
 DESCRIPTION:IEEE International Conference on High Performance Computing an
  d Communications\n🗓️ 会议时间: August 13-15\, 2025\n📍 会议
  地点: Exeter\, UK\n⏰ 原始截止时间 (AoE): 2025-05-18 23:59:59\n
@@ -265,8 +265,8 @@ BEGIN:VEVENT
 SUMMARY:ICA3PP 2022 截稿日期 [first round]
 DTSTART;TZID="UTC-08:00":20210530T170000
 DTEND;TZID="UTC-08:00":20210530T170100
-DTSTAMP:20250830T095001Z
-UID:12798f11-68bf-4d28-870a-ba2f5bc67322
+DTSTAMP:20250830T121551Z
+UID:4502cfa1-8893-4978-b981-b2c9c8131662
 DESCRIPTION:International Conference on Algorithms and Architectures for P
  arallel Processing\n🗓️ 会议时间: October 10-12\, 2022\n📍 会
  议地点: Copenhagen\, Denmark\n⏰ 原始截止时间 (UTC-8): 2021-05-3
@@ -280,8 +280,8 @@ BEGIN:VEVENT
 SUMMARY:ICA3PP 2022 截稿日期 [second round]
 DTSTART;TZID="UTC-08:00":20210630T170000
 DTEND;TZID="UTC-08:00":20210630T170100
-DTSTAMP:20250830T095001Z
-UID:14338bf7-33f9-4430-af89-64323bd6bade
+DTSTAMP:20250830T121551Z
+UID:f2ffbd45-3583-45f6-9cf8-80f27b2476b7
 DESCRIPTION:International Conference on Algorithms and Architectures for P
  arallel Processing\n🗓️ 会议时间: October 10-12\, 2022\n📍 会
  议地点: Copenhagen\, Denmark\n⏰ 原始截止时间 (UTC-8): 2021-06-3
@@ -295,8 +295,8 @@ BEGIN:VEVENT
 SUMMARY:ICA3PP 2023 截稿日期 [Paper Submission Due]
 DTSTART;TZID="UTC-08:00":20230530T235900
 DTEND;TZID="UTC-08:00":20230531T000000
-DTSTAMP:20250830T095001Z
-UID:2efbaf48-abe7-47ae-8609-b4534c7d5c60
+DTSTAMP:20250830T121551Z
+UID:a0c83d82-56bb-421c-9937-017f9bfc6824
 DESCRIPTION:International Conference on Algorithms and Architectures for P
  arallel Processing\n🗓️ 会议时间: October 20-22\, 2022\n📍 会
  议地点: Tianjin\, China\n⏰ 原始截止时间 (UTC-8): 2023-05-30 23:
@@ -310,8 +310,8 @@ BEGIN:VEVENT
 SUMMARY:ICA3PP 2025 截稿日期 [Paper Submission Due]
 DTSTART;TZID="UTC-08:00":20250630T235900
 DTEND;TZID="UTC-08:00":20250701T000000
-DTSTAMP:20250830T095001Z
-UID:1306efeb-da70-4603-bdc7-892089ee9bf0
+DTSTAMP:20250830T121551Z
+UID:30f06131-4a46-49e3-add6-4df697ad3efb
 DESCRIPTION:International Conference on Algorithms and Architectures for P
  arallel Processing\n🗓️ 会议时间: October 30- November 2\, 2025\n
  📍 会议地点: Zhengzhou\, Henan\, China\n⏰ 原始截止时间 (UTC-
@@ -334,8 +334,8 @@ BEGIN:VEVENT
 SUMMARY:ICPADS 2025 截稿日期
 DTSTART;TZID="UTC+08:00":20250831T180000
 DTEND;TZID="UTC+08:00":20250831T180100
-DTSTAMP:20250830T095001Z
-UID:85129da1-3918-4b3a-aa28-dfe951e95279
+DTSTAMP:20250830T121551Z
+UID:22e37118-a2c8-46e7-a6de-9137603ed5e9
 DESCRIPTION:IEEE International Conference on Parallel and Distributed Syst
  ems\n🗓️ 会议时间: December 14-18\, 2025\n📍 会议地点: Hefei
  \, China\n⏰ 原始截止时间 (UTC+8): 2025-08-31 18:00:00\n分类: 计
@@ -349,8 +349,8 @@ BEGIN:VEVENT
 SUMMARY:ISPA 2021 截稿日期
 DTSTART;TZID="UTC-12:00":20210709T235959
 DTEND;TZID="UTC-12:00":20210710T000059
-DTSTAMP:20250830T095001Z
-UID:51a9b6d8-2e1c-46d9-bcfd-310d75606939
+DTSTAMP:20250830T121551Z
+UID:7be298fe-a60b-4980-b98f-1583ff330612
 DESCRIPTION:IEEE International Symposium on Parallel and Distributed Proce
  ssing with Applications\n🗓️ 会议时间: September 30-October 3\, 20
  21\n📍 会议地点: New York\, USA\n⏰ 原始截止时间 (AoE): 2021-
@@ -364,8 +364,8 @@ BEGIN:VEVENT
 SUMMARY:NETYS 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20240229T235900
 DTEND;TZID="UTC-12:00":20240301T000000
-DTSTAMP:20250830T095001Z
-UID:d80002cb-2153-4173-9982-2ad190b10d9a
+DTSTAMP:20250830T121551Z
+UID:3c6f0e52-5a48-48ac-851d-164176eae588
 DESCRIPTION:The International Conference on Networked Systems\n🗓️ 会
  议时间: May 29-31\, 2024\n📍 会议地点: Rabat\, Morocco\n⏰ 原
  始截止时间 (AoE): 2024-02-29 23:59:00\n分类: 计算机体系结构/
@@ -387,8 +387,8 @@ BEGIN:VEVENT
 SUMMARY:PDCAT 2025 截稿日期
 DTSTART;TZID="UTC+10:00":20250815T235900
 DTEND;TZID="UTC+10:00":20250816T000000
-DTSTAMP:20250830T095001Z
-UID:47cf4a68-abbc-45cb-a925-bb607f2bae11
+DTSTAMP:20250830T121551Z
+UID:371dbc98-3e44-40d8-aa34-dc7fac85d415
 DESCRIPTION:International Conference on Parallel and Distributed Computing
  \, Applications and Technologies\n🗓️ 会议时间: November 22-Novemb
  er 24\, 2025\n📍 会议地点: Gold Coast\, Australia\n⏰ 原始截止
@@ -411,8 +411,8 @@ BEGIN:VEVENT
 SUMMARY:SYSTOR 2024 截稿日期 [Full and Short Papers Track]
 DTSTART;TZID="UTC+01:00":20240313T235959
 DTEND;TZID="UTC+01:00":20240314T000059
-DTSTAMP:20250830T095001Z
-UID:38aa406e-7a74-4df0-8592-c93b2af605a8
+DTSTAMP:20250830T121551Z
+UID:ae196a76-2462-4f46-823c-a9d0af63fe07
 DESCRIPTION:The ACM International Systems and Storage Conference\n🗓️ 
  会议时间: June 17-19\, 2024\n📍 会议地点: Tel Aviv\, Israel\n⏰
   原始截止时间 (UTC+1): 2024-03-13 23:59:59\n分类: 计算机体系
@@ -425,8 +425,8 @@ BEGIN:VEVENT
 SUMMARY:SYSTOR 2024 截稿日期 [Highlight Papers Track]
 DTSTART;TZID="UTC+01:00":20240403T235959
 DTEND;TZID="UTC+01:00":20240404T000059
-DTSTAMP:20250830T095001Z
-UID:ee84c69e-5646-446a-bb72-53674bc111fb
+DTSTAMP:20250830T121551Z
+UID:4feaab33-f5b4-4258-bdcc-095d6bd65586
 DESCRIPTION:The ACM International Systems and Storage Conference\n🗓️ 
  会议时间: June 17-19\, 2024\n📍 会议地点: Tel Aviv\, Israel\n⏰
   原始截止时间 (UTC+1): 2024-04-03 23:59:59\n分类: 计算机体系
@@ -439,8 +439,8 @@ BEGIN:VEVENT
 SUMMARY:SYSTOR 2024 截稿日期 [Posters with Extended Abstract Track]
 DTSTART;TZID="UTC+01:00":20240411T225959
 DTEND;TZID="UTC+01:00":20240411T230059
-DTSTAMP:20250830T095001Z
-UID:930ef68b-9329-496a-86ec-038543ce6155
+DTSTAMP:20250830T121551Z
+UID:2a163830-30a4-43be-ad6f-52c7fefbfa55
 DESCRIPTION:The ACM International Systems and Storage Conference\n🗓️ 
  会议时间: June 17-19\, 2024\n📍 会议地点: Tel Aviv\, Israel\n⏰
   原始截止时间 (UTC+1): 2024-04-11 22:59:59\n分类: 计算机体系
@@ -453,8 +453,8 @@ BEGIN:VEVENT
 SUMMARY:SYSTOR 2025 截稿日期 [Full and Short Papers Track]
 DTSTART;TZID="UTC-12:00":20250522T235959
 DTEND;TZID="UTC-12:00":20250523T000059
-DTSTAMP:20250830T095001Z
-UID:39296343-06a9-4a5e-9617-f418c14d4e62
+DTSTAMP:20250830T121551Z
+UID:b7cefb33-c0c4-4123-a39b-e31edf45cf01
 DESCRIPTION:The ACM International Systems and Storage Conference\n🗓️ 
  会议时间: September 8-9\, 2025\n📍 会议地点: IBM Haifa\, Israel\
  n⏰ 原始截止时间 (AoE): 2025-05-22 23:59:59\n分类: 计算机体
@@ -467,8 +467,8 @@ BEGIN:VEVENT
 SUMMARY:SYSTOR 2025 截稿日期 [Posters with Extended Abstract Track]
 DTSTART;TZID="UTC-12:00":20250703T225959
 DTEND;TZID="UTC-12:00":20250703T230059
-DTSTAMP:20250830T095001Z
-UID:42dc9ed2-2387-41ed-b522-0d45d9cabf21
+DTSTAMP:20250830T121551Z
+UID:b8f4c906-8a15-4e6a-b3c6-900b14dca513
 DESCRIPTION:The ACM International Systems and Storage Conference\n🗓️ 
  会议时间: September 8-9\, 2025\n📍 会议地点: IBM Haifa\, Israel\
  n⏰ 原始截止时间 (AoE): 2025-07-03 22:59:59\n分类: 计算机体
