@@ -199,7 +199,16 @@ function venueTier(abbr: string | null): 0 | 1 | 2 {
 /** 本地可视化配置：给标签指定颜色/优先级符号（不改后端表结构） */
 type TagViz = Record<string, { color?: string; prio?: string }>;
 const VIZ_KEY = "tag-viz";
-const DEFAULT_COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#06b6d4", "#84cc16", "#ec4899", "#0ea5e9", "#a3a3a3"];
+const DEFAULT_COLORS = [
+    "#2563eb","#3b82f6","#60a5fa",   // blue
+    "#0ea5e9","#06b6d4","#22d3ee",   // cyan
+    "#14b8a6","#2dd4bf",             // teal
+    "#10b981","#34d399","#84cc16",   // green / lime
+    "#f59e0b","#f97316","#fb923c",   // amber / orange
+    "#ef4444","#f43f5e","#ec4899",   // red / pink
+    "#8b5cf6","#a78bfa","#6366f1",   // violet / indigo
+    "#6b7280","#a3a3a3"              // neutral
+];
 const PRIO_CHOICES = ["⭐️", "🔥", "📌", "👀", "✅", "⏳", "❗️", "💡", "📝", "🔬"];
 
 function loadViz(): TagViz { try { return JSON.parse(localStorage.getItem(VIZ_KEY) || "{}"); } catch { return {}; } }
@@ -209,6 +218,16 @@ function getTagPrio(name: string) { return loadViz()[name]?.prio; }
 function setTagColor(name: string, color?: string) { const v = loadViz(); v[name] = { ...(v[name] || {}), color }; saveViz(v); }
 function setTagPrio(name: string, prio?: string) { const v = loadViz(); v[name] = { ...(v[name] || {}), prio }; saveViz(v); }
 
+// hex -> rgba with alpha for subtle tinted backgrounds
+function hexWithAlpha(hex: string, alpha: number) {
+    const h = hex.replace('#', '');
+    const full = h.length === 3 ? h.split('').map(c => c + c).join('') : h;
+    const int = parseInt(full, 16);
+    const r = (int >> 16) & 255, g = (int >> 8) & 255, b = int & 255;
+    const a = Math.max(0, Math.min(1, alpha));
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+
 /* --------------------------- left: folders --------------------------- */
 function FolderItem({
     folder, depth, active, onClick, onCreateChild
@@ -217,15 +236,21 @@ function FolderItem({
 }) {
     const { isOver, setNodeRef } = useDroppable({ id: `folder:${folder.id}` });
     const pad = 6 + depth * 12;
+    const col = folder.color || "#94a3b8";
+    const bgCol = active ? hexWithAlpha(col, 0.16) : (isOver ? hexWithAlpha(col, 0.12) : undefined);
+    const bdCol = active ? hexWithAlpha(col, 0.45) : hexWithAlpha(col, 0.25);
     return (
         <div ref={setNodeRef}>
             <div
                 onClick={onClick}
-                className="px-2 py-1.5 rounded-lg cursor-pointer transition border select-none flex items-center justify-between"
-                style={{ paddingLeft: pad }}
+                className="px-1.5 py-1 rounded-md cursor-pointer transition border select-none flex items-center justify-between"
+                style={{ paddingLeft: pad, boxShadow: `inset 3px 0 0 0 ${col}` }}
             >
-                <div className={`${active ? "bg-blue-50/70 border border-blue-200" : "hover:bg-gray-50"} flex-1 px-1 py-0.5 rounded-lg ${isOver ? "ring-2 ring-blue-400" : ""}`}>
-                    <span className="inline-block w-2 h-2 rounded-full mr-2 align-middle" style={{ background: folder.color || "#94a3b8" }} />
+                <div
+                    className={`flex-1 px-1 py-[2px] rounded-md border ${isOver ? "ring-2 ring-blue-400" : ""}`}
+                    style={{ background: bgCol, borderColor: bdCol }}
+                >
+                    <span className="inline-block rounded-full mr-2 align-middle" style={{ background: col, width: 6, height: 6 }} />
                     <span className="text-sm align-middle">{folder.name}</span>
                 </div>
                 <button
@@ -716,7 +741,7 @@ function FolderTreeNode({
             <FolderItem folder={node} depth={depth} active={activeId === node.id}
                 onClick={() => onPick(node.id)} onCreateChild={onCreateChild} />
             {node.children && node.children.length > 0 && (
-                <div className="space-y-1 mt-1">
+                <div className="space-y-[2px] mt-0.5">
                     {node.children.map(ch => (
                         <FolderTreeNode key={ch.id} node={ch} depth={depth + 1} activeId={activeId}
                             onPick={onPick} onCreateChild={onCreateChild} />
