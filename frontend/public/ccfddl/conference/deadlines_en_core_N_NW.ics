@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:APNet 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240308T235959
 DTEND;TZID="UTC-12:00":20240309T000059
-DTSTAMP:20250830T065448Z
-UID:d1b1dfdd-a4a2-480f-a02d-f3bbb62a3dec
+DTSTAMP:20250830T095005Z
+UID:5b15f607-1548-4ab3-8ae9-31f8e58e63b9
 DESCRIPTION:Asia-Pacific Workshop on Networking\n🗓️ Date: August 3-4\
  , 2024\n📍 Location: Sydney\, Australia\, co-located with SIGCOMM'24\n
  ⏰ Original Deadline (UTC-12): 2024-03-08 23:59:59\nCategory: 计算机
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:APNet 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250306T235959
 DTEND;TZID="UTC-12:00":20250307T000059
-DTSTAMP:20250830T065448Z
-UID:21fad8e8-1194-4d40-b345-800baf10b2a2
+DTSTAMP:20250830T095005Z
+UID:d215513e-6595-465f-bcac-772ef4a53830
 DESCRIPTION:Asia-Pacific Workshop on Networking\n🗓️ Date: August 7-8\
  , 2025\n📍 Location: Shanghai\, China\n⏰ Original Deadline (AoE): 2025
  -03-06 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\nConference Website
@@ -42,8 +42,8 @@ BEGIN:VEVENT
 SUMMARY:ICC 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241011T235959
 DTEND;TZID="UTC-12:00":20241012T000059
-DTSTAMP:20250830T065448Z
-UID:e574a992-a717-4db7-8e40-926c565197ac
+DTSTAMP:20250830T095005Z
+UID:cdf2e2a4-cc68-4dd9-a829-a6e329e37097
 DESCRIPTION:IEEE International Conference on Communications\n🗓️ Date:
   June 8-12\, 2025\n📍 Location: Palais des congrès de Montréal in Mont
  real\, Quebec\, Canada\n⏰ Original Deadline (AoE): 2024-10-11 23:59:59\n
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:ICC 2026 Deadline
 DTSTART;TZID="UTC-04:00":20250929T235959
 DTEND;TZID="UTC-04:00":20250930T000059
-DTSTAMP:20250830T065448Z
-UID:8be3d1ea-fefb-47ae-ad31-6f139265b98d
+DTSTAMP:20250830T095005Z
+UID:b4564c71-d559-425e-b1f7-7f1bf8d0fb17
 DESCRIPTION:IEEE International Conference on Communications\n🗓️ Date:
   May 24-28\, 2026\n📍 Location: Glasgow\, Scotland\n⏰ Original Deadlin
  e (UTC-4): 2025-09-29 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\, TH
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:MMSys 2026 Abstract Deadline [Round 1 deadline]
 DTSTART;TZID="UTC-12:00":20250919T235959
 DTEND;TZID="UTC-12:00":20250920T000059
-DTSTAMP:20250830T065448Z
-UID:83bcaa66-a9e0-4f94-9ea5-31fcd171514e
+DTSTAMP:20250830T095005Z
+UID:6824c900-851c-40b9-8559-23541b6fe20f
 DESCRIPTION:ACM International Conference on Multimedia Systems\n🗓️ Da
  te: April 4 - 8\, 2026\n📍 Location: Hong Kong SAR\n⏰ Original Deadlin
  e (AoE): 2025-09-19 23:59:59\nCategory: 计算机网络 (NW)\nConference W
@@ -93,8 +93,8 @@ BEGIN:VEVENT
 SUMMARY:MSN 2024 Deadline
 DTSTART;TZID="UTC-12:00":20240720T235959
 DTEND;TZID="UTC-12:00":20240721T000059
-DTSTAMP:20250830T065448Z
-UID:95505f07-58ee-43a6-b520-7b2c4449a40b
+DTSTAMP:20250830T095005Z
+UID:c75df176-a5b0-46bf-b415-6030a89349d4
 DESCRIPTION:International Conference on Mobility\, Sensing and Networking\
  n🗓️ Date: December 20-22\, 2024\n📍 Location: Harbin\, China\n⏰ O
  riginal Deadline (UTC-12): 2024-07-20 23:59:59\nCategory: 计算机网络 
@@ -107,8 +107,8 @@ BEGIN:VEVENT
 SUMMARY:MSN 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250915T235959
 DTEND;TZID="UTC-12:00":20250916T000059
-DTSTAMP:20250830T065448Z
-UID:f4b9a460-933f-4181-bd0e-36c928c765da
+DTSTAMP:20250830T095005Z
+UID:cb6e4e24-2f83-4c23-937d-e2d3ec65fd88
 DESCRIPTION:International Conference on Mobility\, Sensing and Networking\
  n🗓️ Date: December 3-6\, 2025\n📍 Location: Bandung\, Indonesia\n
  ⏰ Original Deadline (UTC-12): 2025-09-15 23:59:59\nCategory: 计算机
@@ -130,8 +130,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2022 Abstract Deadline
 DTSTART;TZID="UTC-08:00":20210304T205959
 DTEND;TZID="UTC-08:00":20210304T210059
-DTSTAMP:20250830T065448Z
-UID:550e941d-fbcb-4ff8-b4cf-8367c804d8fc
+DTSTAMP:20250830T095005Z
+UID:c461080e-8060-4ae4-8a25-e7b99a01c99a
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: April 4-6\, 2022\n📍 Location: RENTON\, USA\n⏰ Origin
  al Deadline (UTC-8): 2021-03-04 20:59:59\nCategory: 计算机网络 (NW)\n
@@ -144,8 +144,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2022 Abstract Deadline
 DTSTART;TZID="UTC-08:00":20210909T205959
 DTEND;TZID="UTC-08:00":20210909T210059
-DTSTAMP:20250830T065448Z
-UID:887544f2-e4ed-4e87-a408-79d762b2487f
+DTSTAMP:20250830T095005Z
+UID:6adc140b-0ec1-4b09-b87f-c735c5b3ba22
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: April 4-6\, 2022\n📍 Location: RENTON\, USA\n⏰ Origin
  al Deadline (UTC-8): 2021-09-09 20:59:59\nCategory: 计算机网络 (NW)\n
@@ -167,8 +167,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2023 Abstract Deadline
 DTSTART;TZID="UTC-05:00":20220413T235959
 DTEND;TZID="UTC-05:00":20220414T000059
-DTSTAMP:20250830T065448Z
-UID:6d01dd52-e501-40c6-bec5-96070566d9d5
+DTSTAMP:20250830T095005Z
+UID:d8bfa081-9b47-41c0-9255-92273fc5d8ec
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: April 17-19\, 2023\n📍 Location: BOSTON\, USA\n⏰ Orig
  inal Deadline (UTC-5): 2022-04-13 23:59:59\nCategory: 计算机网络 (NW)
@@ -181,8 +181,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2023 Abstract Deadline
 DTSTART;TZID="UTC-05:00":20220913T235959
 DTEND;TZID="UTC-05:00":20220914T000059
-DTSTAMP:20250830T065448Z
-UID:217b163d-3471-4b41-b7e9-6183d733249b
+DTSTAMP:20250830T095005Z
+UID:ac5bfc5c-5d9a-41b3-8b51-769d962f2fe2
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: April 17-19\, 2023\n📍 Location: BOSTON\, USA\n⏰ Orig
  inal Deadline (UTC-5): 2022-09-13 23:59:59\nCategory: 计算机网络 (NW)
@@ -204,8 +204,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2024 Abstract Deadline
 DTSTART;TZID="UTC-07:00":20230427T205959
 DTEND;TZID="UTC-07:00":20230427T210059
-DTSTAMP:20250830T065448Z
-UID:23cb594e-1bf9-46e4-89cf-efea5516817c
+DTSTAMP:20250830T095005Z
+UID:0ab2c412-d0e5-4deb-bf6c-d7a4e8330982
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: April 16-18\, 2024\n📍 Location: Santa Clara\, CA\, USA
  \n⏰ Original Deadline (UTC-7): 2023-04-27 20:59:59\nCategory: 计算机
@@ -218,8 +218,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2024 Abstract Deadline
 DTSTART;TZID="UTC-07:00":20230914T205959
 DTEND;TZID="UTC-07:00":20230914T210059
-DTSTAMP:20250830T065448Z
-UID:658fc7cb-8308-467d-86e9-4445f56001a0
+DTSTAMP:20250830T095005Z
+UID:bad6cd94-30a5-4dce-b1fc-f523daa14ca9
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: April 16-18\, 2024\n📍 Location: Santa Clara\, CA\, USA
  \n⏰ Original Deadline (UTC-7): 2023-09-14 20:59:59\nCategory: 计算机
@@ -232,8 +232,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2025 Abstract Deadline
 DTSTART;TZID="UTC-04:00":20240430T235959
 DTEND;TZID="UTC-04:00":20240501T000059
-DTSTAMP:20250830T065448Z
-UID:57bf1096-fa25-4d1a-9b73-437997176502
+DTSTAMP:20250830T095005Z
+UID:08155c0d-6482-49ce-a408-cbe434ed1e2c
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: April 28-30\, 2025\n📍 Location: Philadelphia\, PA\, US
  A\n⏰ Original Deadline (UTC-4): 2024-04-30 23:59:59\nCategory: 计算机
@@ -246,8 +246,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2025 Abstract Deadline
 DTSTART;TZID="UTC-04:00":20240912T235959
 DTEND;TZID="UTC-04:00":20240913T000059
-DTSTAMP:20250830T065448Z
-UID:e3fa5a55-2767-43d6-a546-7669b903a099
+DTSTAMP:20250830T095005Z
+UID:958666d2-6d6d-46c5-8e3a-3b63b436b799
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: April 28-30\, 2025\n📍 Location: Philadelphia\, PA\, US
  A\n⏰ Original Deadline (UTC-4): 2024-09-12 23:59:59\nCategory: 计算机
@@ -260,8 +260,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2026 Abstract Deadline
 DTSTART;TZID="UTC-07:00":20250418T235959
 DTEND;TZID="UTC-07:00":20250419T000059
-DTSTAMP:20250830T065448Z
-UID:20a6932f-c410-424c-94c0-27c408321b12
+DTSTAMP:20250830T095005Z
+UID:19e38693-1673-4ab1-ab68-58455200c2bf
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: May 4-6\, 2026\n📍 Location: Renton\, WA\, USA\n⏰ Ori
  ginal Deadline (UTC-7): 2025-04-18 23:59:59\nCategory: 计算机网络 (NW
@@ -274,8 +274,8 @@ BEGIN:VEVENT
 SUMMARY:NSDI 2026 Abstract Deadline
 DTSTART;TZID="UTC-07:00":20250911T235959
 DTEND;TZID="UTC-07:00":20250912T000059
-DTSTAMP:20250830T065448Z
-UID:0839311c-0525-4882-b447-bc5ef3e77b93
+DTSTAMP:20250830T095005Z
+UID:967f0de9-e025-4c5f-a9bc-5a1a7aa2f4c7
 DESCRIPTION:USENIX Symposium on Networked Systems Design and Implementatio
  n\n🗓️ Date: May 4-6\, 2026\n📍 Location: Renton\, WA\, USA\n⏰ Ori
  ginal Deadline (UTC-7): 2025-09-11 23:59:59\nCategory: 计算机网络 (NW
@@ -288,8 +288,8 @@ BEGIN:VEVENT
 SUMMARY:WASA 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250115T235959
 DTEND;TZID="UTC-12:00":20250116T000059
-DTSTAMP:20250830T065448Z
-UID:5bea438b-2f83-47c2-9932-f5296af3e1c8
+DTSTAMP:20250830T095005Z
+UID:7c81222d-b5d0-4e52-ad0b-e9a5691d51c2
 DESCRIPTION:International Conference on Wireless Algorithms\, Systems\, an
  d Applications\n🗓️ Date: June 24-26\, 2025\n📍 Location: Tokyo\, Ja
  pan\n⏰ Original Deadline (AoE): 2025-01-15 23:59:59\nCategory: 计算机
@@ -302,8 +302,8 @@ BEGIN:VEVENT
 SUMMARY:WCNC 2025 Deadline
 DTSTART;TZID="UTC-12:00":20240902T235959
 DTEND;TZID="UTC-12:00":20240903T000059
-DTSTAMP:20250830T065448Z
-UID:8acf5aa3-ed75-4737-9f4b-9e3da573ed7d
+DTSTAMP:20250830T095005Z
+UID:c9a3f86f-2f6d-419d-b3ca-37100c31b96c
 DESCRIPTION:Wireless Communications and Networking Conference\n🗓️ Dat
  e: March 24-27\, 2025\n📍 Location: Milan\, Italy\n⏰ Original Deadline
   (UTC-12): 2024-09-02 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\nCon
@@ -316,8 +316,8 @@ BEGIN:VEVENT
 SUMMARY:WCNC 2026 Deadline
 DTSTART;TZID="UTC-12:00":20250914T235959
 DTEND;TZID="UTC-12:00":20250915T000059
-DTSTAMP:20250830T065448Z
-UID:affa6186-040a-46be-b399-ab56d560372f
+DTSTAMP:20250830T095005Z
+UID:a18be6c8-62c2-475e-a3ec-74b296ea97d7
 DESCRIPTION:Wireless Communications and Networking Conference\n🗓️ Dat
  e: April 13-16\, 2026\n📍 Location: Kuala Lumpur\, Malaysia\n⏰ Origina
  l Deadline (UTC-12): 2025-09-14 23:59:59\nCategory: 计算机网络 (NW)\n

@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:CAV 2022 Deadline
 DTSTART;TZID="UTC-12:00":20220121T235959
 DTEND;TZID="UTC-12:00":20220122T000059
-DTSTAMP:20250830T065447Z
-UID:52eaea71-5a03-4507-aa10-a43852d6ef7c
+DTSTAMP:20250830T095004Z
+UID:b397de3f-d492-437c-8eee-c3e8f75836d1
 DESCRIPTION:International Conference on Computer-Aided Verification\n🗓
  ️ Date: Aug 7-10\, 2022\n📍 Location: Technion\, Haifa\, Israel\n⏰ O
  riginal Deadline (AoE): 2022-01-21 23:59:59\nCategory: 计算机科学理
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:CAV 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250131T235959
 DTEND;TZID="UTC-12:00":20250201T000059
-DTSTAMP:20250830T065447Z
-UID:41bb6495-6334-471c-92b1-69bd7efc55a5
+DTSTAMP:20250830T095004Z
+UID:0f69f4cb-b52c-417e-a5a0-2c1cc1153339
 DESCRIPTION:International Conference on Computer-Aided Verification\n🗓
  ️ Date: July 21-25\, 2025\n📍 Location: Zagreb\, Croatia\n⏰ Original
   Deadline (AoE): 2025-01-31 23:59:59\nCategory: 计算机科学理论 (CT)
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:FOCS 2024 Deadline
 DTSTART;TZID="UTC-05:00":20240404T200000
 DTEND;TZID="UTC-05:00":20240404T200100
-DTSTAMP:20250830T065447Z
-UID:5a7f7669-0c6c-4eb0-8771-1128c264242c
+DTSTAMP:20250830T095004Z
+UID:27373ab6-989e-4869-8450-9d56bf379bd1
 DESCRIPTION:IEEE Symposium on Foundations of Computer Science\n🗓️ Dat
  e: October 27-30\, 2024\n📍 Location: Chicago\, IL\, USA\n⏰ Original D
  eadline (UTC-5): 2024-04-04 20:00:00\nCategory: 计算机科学理论 (CT)
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:FOCS 2025 Deadline
 DTSTART;TZID="UTC-05:00":20250403T200000
 DTEND;TZID="UTC-05:00":20250403T200100
-DTSTAMP:20250830T065447Z
-UID:0281f2ee-d5d8-4431-867c-b56b701b29b2
+DTSTAMP:20250830T095004Z
+UID:8554dda8-077e-4735-86ce-f8224115ddb5
 DESCRIPTION:IEEE Symposium on Foundations of Computer Science\n🗓️ Dat
  e: December 14-17\, 2025\n📍 Location: Sydney\, Australia\n⏰ Original 
  Deadline (UTC-5): 2025-04-03 20:00:00\nCategory: 计算机科学理论 (CT
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:LICS 2023 Deadline
 DTSTART;TZID="UTC-12:00":20230123T235959
 DTEND;TZID="UTC-12:00":20230124T000059
-DTSTAMP:20250830T065447Z
-UID:e55d7bc0-7b63-482a-8149-1608ebf0c02b
+DTSTAMP:20250830T095004Z
+UID:22d048c1-f577-43fb-b166-0366ebadc6f6
 DESCRIPTION:IEEE Symposium on Logic in Computer Science\n🗓️ Date: Jun
  e 26-29\, 2023\n📍 Location: Boston University\, USA\n⏰ Original Deadl
  ine (AoE): 2023-01-23 23:59:59\nCategory: 计算机科学理论 (CT)\nCCF 
@@ -93,8 +93,8 @@ BEGIN:VEVENT
 SUMMARY:SODA 2025 Deadline
 DTSTART;TZID="UTC-12:00":20240705T235959
 DTEND;TZID="UTC-12:00":20240706T000059
-DTSTAMP:20250830T065447Z
-UID:8b55fbcd-39f7-4e4a-bda7-952d866e92d1
+DTSTAMP:20250830T095004Z
+UID:47767a5f-cdee-46ce-96a7-1e599c2a9577
 DESCRIPTION:ACM-SIAM Symposium on Discrete Algorithms\n🗓️ Date: Janua
  ry 12-15\, 2025\n📍 Location: New Orleans\, Louisiana\, USA\n⏰ Origina
  l Deadline (UTC-12): 2024-07-05 23:59:59\nCategory: 计算机科学理论 
@@ -108,8 +108,8 @@ BEGIN:VEVENT
 SUMMARY:SODA 2026 Deadline
 DTSTART;TZID="UTC-12:00":20250714T235959
 DTEND;TZID="UTC-12:00":20250715T000059
-DTSTAMP:20250830T065447Z
-UID:43377470-197d-41bb-9459-475a4d66e537
+DTSTAMP:20250830T095004Z
+UID:b73bf7cb-cf66-4288-9d77-032516bf8b9b
 DESCRIPTION:ACM-SIAM Symposium on Discrete Algorithms\n🗓️ Date: Janua
  ry 11-14\, 2026\n📍 Location: Hyatt Regency Vancouver\, Vancouver\, Cana
  da\n⏰ Original Deadline (UTC-12): 2025-07-14 23:59:59\nCategory: 计算
@@ -123,8 +123,8 @@ BEGIN:VEVENT
 SUMMARY:STOC 2021 Deadline
 DTSTART;TZID="UTC-05:00":20201106T115959
 DTEND;TZID="UTC-05:00":20201106T120059
-DTSTAMP:20250830T065447Z
-UID:ea810966-3628-4dc8-8ec9-b194b291cbcc
+DTSTAMP:20250830T095004Z
+UID:fd8c15dd-81e4-4454-b78c-f643b9171bd8
 DESCRIPTION:ACM Symposium on the Theory of Computing\n🗓️ Date: June 2
  1-25\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC-5): 2020-1
  1-06 11:59:59\nCategory: 计算机科学理论 (CT)\nCCF A\, CORE A*\, THC
@@ -137,8 +137,8 @@ BEGIN:VEVENT
 SUMMARY:STOC 2025 Deadline
 DTSTART;TZID="UTC-05:00":20241104T195959
 DTEND;TZID="UTC-05:00":20241104T200059
-DTSTAMP:20250830T065447Z
-UID:4d5834dd-b3ea-4029-9ae4-a2bbd80d5327
+DTSTAMP:20250830T095004Z
+UID:10bdc727-c0fc-4f3d-a3a7-5349b778afd0
 DESCRIPTION:ACM Symposium on the Theory of Computing\n🗓️ Date: June 2
  3-27\, 2025\n📍 Location: Prague\, Czech Republic\n⏰ Original Deadline
   (UTC-5): 2024-11-04 19:59:59\nCategory: 计算机科学理论 (CT)\nCCF A

@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2021 Deadline
 DTSTART;TZID="UTC-12:00":20200821T235959
 DTEND;TZID="UTC-12:00":20200822T000059
-DTSTAMP:20250830T065447Z
-UID:9904811b-c613-46fb-b5a4-d491e82b59b5
+DTSTAMP:20250830T095005Z
+UID:dfed64fe-97a9-45ce-9706-25c132931b1f
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: April 19-23\, 2021\n
  📍 Location: Virtual\n⏰ Original Deadline (AoE): 2020-08-21 23:59:59\n
@@ -29,8 +29,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2022 Deadline
 DTSTART;TZID="UTC-12:00":20210806T235959
 DTEND;TZID="UTC-12:00":20210807T000059
-DTSTAMP:20250830T065447Z
-UID:39685e09-ade4-4843-88cf-2e37b0a0342e
+DTSTAMP:20250830T095005Z
+UID:24a08905-8e09-4bfa-93c3-da3371e169cb
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: Feb 28-March 4\, 2022\n
  📍 Location: Virtual\n⏰ Original Deadline (AoE): 2021-08-06 23:59:59\n
@@ -53,8 +53,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2023 Deadline [Spring Registration Deadline]
 DTSTART;TZID="UTC-04:00":20220324T175959
 DTEND;TZID="UTC-04:00":20220324T180059
-DTSTAMP:20250830T065447Z
-UID:ce784747-1a3f-4f7b-8c42-91fa1edc5e51
+DTSTAMP:20250830T095005Z
+UID:b4cbcac9-4b3c-47b2-a524-e070f56e5d11
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March 25-March 29\, 202
  3\n📍 Location: Vancouver\, Canada\n⏰ Original Deadline (UTC-4): 2022-
@@ -69,8 +69,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2023 Deadline [Spring Submission Deadline]
 DTSTART;TZID="UTC-04:00":20220331T175959
 DTEND;TZID="UTC-04:00":20220331T180059
-DTSTAMP:20250830T065447Z
-UID:60e6cb92-767c-4e4d-97fc-8fd47bf7d7f3
+DTSTAMP:20250830T095005Z
+UID:703c01e9-c387-48bb-ba83-b1d3b1e4d47c
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March 25-March 29\, 202
  3\n📍 Location: Vancouver\, Canada\n⏰ Original Deadline (UTC-4): 2022-
@@ -85,8 +85,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2023 Deadline [Summber Registration Deadline]
 DTSTART;TZID="UTC-04:00":20220630T175959
 DTEND;TZID="UTC-04:00":20220630T180059
-DTSTAMP:20250830T065447Z
-UID:0278c842-95bd-4df7-9d00-12a71cb52212
+DTSTAMP:20250830T095005Z
+UID:603ee6de-b100-47ee-8ca1-b7647c3b9a8b
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March 25-March 29\, 202
  3\n📍 Location: Vancouver\, Canada\n⏰ Original Deadline (UTC-4): 2022-
@@ -101,8 +101,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2023 Deadline [Summer Submission Deadline]
 DTSTART;TZID="UTC-04:00":20220707T175959
 DTEND;TZID="UTC-04:00":20220707T180059
-DTSTAMP:20250830T065447Z
-UID:6c19b9f3-979c-4ba7-b5dd-d6e809b1fd24
+DTSTAMP:20250830T095005Z
+UID:dd861286-91eb-4927-81b5-d29b4491008a
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March 25-March 29\, 202
  3\n📍 Location: Vancouver\, Canada\n⏰ Original Deadline (UTC-4): 2022-
@@ -117,8 +117,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2023 Deadline [Fall Registration Deadline]
 DTSTART;TZID="UTC-04:00":20221013T175959
 DTEND;TZID="UTC-04:00":20221013T180059
-DTSTAMP:20250830T065447Z
-UID:e3798fe3-a2ea-4337-ad0a-1c8c1647c154
+DTSTAMP:20250830T095005Z
+UID:739cc0e8-7233-47ed-8774-de52c3f11c8b
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March 25-March 29\, 202
  3\n📍 Location: Vancouver\, Canada\n⏰ Original Deadline (UTC-4): 2022-
@@ -133,8 +133,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2023 Deadline [Fall Submission Deadline]
 DTSTART;TZID="UTC-04:00":20221020T175959
 DTEND;TZID="UTC-04:00":20221020T180059
-DTSTAMP:20250830T065447Z
-UID:f76d9dea-0871-47b1-9b86-29447a03629f
+DTSTAMP:20250830T095005Z
+UID:6d6c71cd-1c3f-4fd4-85ed-e79b30c2b323
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March 25-March 29\, 202
  3\n📍 Location: Vancouver\, Canada\n⏰ Original Deadline (UTC-4): 2022-
@@ -158,8 +158,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2024 Deadline [Spring Registration Deadline]
 DTSTART;TZID="UTC+08:00":20230414T025959
 DTEND;TZID="UTC+08:00":20230414T030059
-DTSTAMP:20250830T065447Z
-UID:5c3187a0-1a6d-44bb-b536-d559ca359639
+DTSTAMP:20250830T095005Z
+UID:117984ba-a44b-4717-a58d-af6eac38a8ff
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: April\, 2024\n📍 Loca
  tion: California\, U.S.A.\n⏰ Original Deadline (UTC+8): 2023-04-14 02:59
@@ -173,8 +173,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2024 Deadline [Spring Submission Deadline]
 DTSTART;TZID="UTC+08:00":20230421T025959
 DTEND;TZID="UTC+08:00":20230421T030059
-DTSTAMP:20250830T065447Z
-UID:4aee9d9d-dcdf-4e7b-a7f1-4c6632c504c0
+DTSTAMP:20250830T095005Z
+UID:f139fe71-844b-4461-a4c3-ac529c389c17
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: April\, 2024\n📍 Loca
  tion: California\, U.S.A.\n⏰ Original Deadline (UTC+8): 2023-04-21 02:59
@@ -188,8 +188,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2024 Deadline [Summber Registration Deadline]
 DTSTART;TZID="UTC+08:00":20230804T025959
 DTEND;TZID="UTC+08:00":20230804T030059
-DTSTAMP:20250830T065447Z
-UID:21987fed-367c-479a-acd2-574fe03cbf58
+DTSTAMP:20250830T095005Z
+UID:64e18360-ea26-42e0-847e-75a78c1eb9ce
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: April\, 2024\n📍 Loca
  tion: California\, U.S.A.\n⏰ Original Deadline (UTC+8): 2023-08-04 02:59
@@ -203,8 +203,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2024 Deadline [Summer Submission Deadline]
 DTSTART;TZID="UTC+08:00":20230811T025959
 DTEND;TZID="UTC+08:00":20230811T030059
-DTSTAMP:20250830T065447Z
-UID:280c6cc1-22a3-49dd-96ad-0dd301301f58
+DTSTAMP:20250830T095005Z
+UID:afd8e3e8-f591-4c07-9064-de2c99bf1646
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: April\, 2024\n📍 Loca
  tion: California\, U.S.A.\n⏰ Original Deadline (UTC+8): 2023-08-11 02:59
@@ -218,8 +218,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2024 Deadline [Fall Registration Deadline]
 DTSTART;TZID="UTC+08:00":20231124T025959
 DTEND;TZID="UTC+08:00":20231124T030059
-DTSTAMP:20250830T065447Z
-UID:840e8516-9bb8-4513-ab9d-9fd8806ac571
+DTSTAMP:20250830T095005Z
+UID:394241b0-4abb-496d-b7e8-cc2b8d9f717c
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: April\, 2024\n📍 Loca
  tion: California\, U.S.A.\n⏰ Original Deadline (UTC+8): 2023-11-24 02:59
@@ -233,8 +233,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2024 Deadline [Fall Submission Deadline]
 DTSTART;TZID="UTC+08:00":20231201T025959
 DTEND;TZID="UTC+08:00":20231201T030059
-DTSTAMP:20250830T065447Z
-UID:65325662-e26a-428e-a1fa-e883fef83ed6
+DTSTAMP:20250830T095005Z
+UID:26859e0f-65c4-4988-a815-1ac14b886875
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: April\, 2024\n📍 Loca
  tion: California\, U.S.A.\n⏰ Original Deadline (UTC+8): 2023-12-01 02:59
@@ -248,8 +248,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2025 Abstract Deadline [Spring Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240223T235959
 DTEND;TZID="UTC-12:00":20240224T000059
-DTSTAMP:20250830T065447Z
-UID:e6cdc6a4-7d0b-4b7e-b3f4-7b8d9c8243ed
+DTSTAMP:20250830T095005Z
+UID:81a0121a-8113-417a-b888-9b0e0c5028e5
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March-April\, 2025\n
  📍 Location: Rotterdam\, Netherland.\n⏰ Original Deadline (AoE): 2024-
@@ -264,8 +264,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2025 Abstract Deadline [Summer Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240617T235959
 DTEND;TZID="UTC-12:00":20240618T000059
-DTSTAMP:20250830T065447Z
-UID:d91c12c2-a83b-42b6-880b-a71452446a0d
+DTSTAMP:20250830T095005Z
+UID:fb0fa208-a76d-4192-a033-f6ac8d257a2c
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March-April\, 2025\n
  📍 Location: Rotterdam\, Netherland.\n⏰ Original Deadline (AoE): 2024-
@@ -280,8 +280,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2025 Abstract Deadline [Fall Submission Deadline]
 DTSTART;TZID="UTC-12:00":20241011T235959
 DTEND;TZID="UTC-12:00":20241012T000059
-DTSTAMP:20250830T065447Z
-UID:49653828-923d-419d-b087-932380163754
+DTSTAMP:20250830T095005Z
+UID:52562df2-432f-47fb-ac05-683ba6d74549
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March-April\, 2025\n
  📍 Location: Rotterdam\, Netherland.\n⏰ Original Deadline (AoE): 2024-
@@ -296,8 +296,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2026 Abstract Deadline [Spring Submission Deadline]
 DTSTART;TZID="UTC-04:00":20250305T235959
 DTEND;TZID="UTC-04:00":20250306T000059
-DTSTAMP:20250830T065447Z
-UID:4167a2f8-c8f4-4793-91cf-46c42660f97e
+DTSTAMP:20250830T095005Z
+UID:7140aceb-bb7f-4931-88a2-9b340c5078f5
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March 22-26\, 2026\n
  📍 Location: Pittsburgh\, PA\, USA\n⏰ Original Deadline (UTC-4): 2025-
@@ -312,8 +312,8 @@ BEGIN:VEVENT
 SUMMARY:ASPLOS 2026 Abstract Deadline [Summer Submission Deadline]
 DTSTART;TZID="UTC-04:00":20250813T235959
 DTEND;TZID="UTC-04:00":20250814T000059
-DTSTAMP:20250830T065447Z
-UID:ff5a8991-ea18-4738-bd73-c34fbf1816f1
+DTSTAMP:20250830T095005Z
+UID:cd8f52af-14ac-46a6-8e7a-d61422c8d3aa
 DESCRIPTION:International Conference on Architectural Support for Programm
  ing Languages and Operating Systems\n🗓️ Date: March 22-26\, 2026\n
  📍 Location: Pittsburgh\, PA\, USA\n⏰ Original Deadline (UTC-4): 2025-
@@ -337,8 +337,8 @@ BEGIN:VEVENT
 SUMMARY:DCC 2025 Deadline
 DTSTART;TZID="UTC-08:00":20241011T235959
 DTEND;TZID="UTC-08:00":20241012T000059
-DTSTAMP:20250830T065447Z
-UID:83b87012-8812-40b9-aa45-d6657d0b9218
+DTSTAMP:20250830T095005Z
+UID:37f603f8-e5dd-420e-b0d0-f5f094fde04c
 DESCRIPTION:Data Compression Conference\n🗓️ Date: March 18-21\, 2025\
  n📍 Location: Snowbird\, Utah\, U.S.\n⏰ Original Deadline (UTC-8): 202
  4-10-11 23:59:59\nCategory: 计算机体系结构/并行与分布计算/
@@ -360,8 +360,8 @@ BEGIN:VEVENT
 SUMMARY:HPCA 2022 Deadline [abstract deadline]
 DTSTART:20210723T235959Z
 DTEND:20210724T000059Z
-DTSTAMP:20250830T065447Z
-UID:8513db92-0952-402c-890b-7d826bd3dfc0
+DTSTAMP:20250830T095005Z
+UID:38e4f92b-c28a-44ca-9c0f-c9904ff3d274
 DESCRIPTION:IEEE International Symposium on High-Performance Computer Arch
  itecture\n🗓️ Date: Feb 12-16\, 2022\n📍 Location: Seoul\, South Kor
  ea\n⏰ Original Deadline (UTC+0): 2021-07-23 23:59:59\nCategory: 计算
@@ -375,8 +375,8 @@ BEGIN:VEVENT
 SUMMARY:HPCA 2022 Deadline [full paper deadline]
 DTSTART:20210730T235959Z
 DTEND:20210731T000059Z
-DTSTAMP:20250830T065447Z
-UID:9e4a9e88-20c7-4f1a-8e9f-534e58d87721
+DTSTAMP:20250830T095005Z
+UID:5708f767-45e9-46e6-84cc-38d1fa3ab1fe
 DESCRIPTION:IEEE International Symposium on High-Performance Computer Arch
  itecture\n🗓️ Date: Feb 12-16\, 2022\n📍 Location: Seoul\, South Kor
  ea\n⏰ Original Deadline (UTC+0): 2021-07-30 23:59:59\nCategory: 计算
@@ -399,8 +399,8 @@ BEGIN:VEVENT
 SUMMARY:HPCA 2024 Deadline [abstract deadline]
 DTSTART;TZID="UTC-07:00":20230728T235959
 DTEND;TZID="UTC-07:00":20230729T000059
-DTSTAMP:20250830T065447Z
-UID:151a678c-6b6a-483b-94a0-878517d6c123
+DTSTAMP:20250830T095005Z
+UID:b1841554-e171-4ac6-8362-99cdcd8f7530
 DESCRIPTION:IEEE International Symposium on High-Performance Computer Arch
  itecture\n🗓️ Date: March 2-6\, 2024\n📍 Location: Edinburgh\, Scotl
  and\, UK\n⏰ Original Deadline (UTC-7): 2023-07-28 23:59:59\nCategory: 
@@ -414,8 +414,8 @@ BEGIN:VEVENT
 SUMMARY:HPCA 2024 Deadline [full paper deadline]
 DTSTART;TZID="UTC-07:00":20230804T235959
 DTEND;TZID="UTC-07:00":20230805T000059
-DTSTAMP:20250830T065447Z
-UID:bfefa455-db71-4282-a5d6-13296760ee1e
+DTSTAMP:20250830T095005Z
+UID:9828f918-d80e-4fdb-b126-d34b1e2ac200
 DESCRIPTION:IEEE International Symposium on High-Performance Computer Arch
  itecture\n🗓️ Date: March 2-6\, 2024\n📍 Location: Edinburgh\, Scotl
  and\, UK\n⏰ Original Deadline (UTC-7): 2023-08-04 23:59:59\nCategory: 
@@ -429,8 +429,8 @@ BEGIN:VEVENT
 SUMMARY:ISCA 2022 Deadline [abstract deadline]
 DTSTART;TZID="UTC-12:00":20211116T235959
 DTEND;TZID="UTC-12:00":20211117T000059
-DTSTAMP:20250830T065447Z
-UID:192a7b71-70a1-46f6-ad73-ff0083a6f7dc
+DTSTAMP:20250830T095005Z
+UID:79b0848b-b888-4075-96e2-c1c0e4617c11
 DESCRIPTION:International Symposium on Computer Architecture\n🗓️ Date
  : June 11-15\, 2022\n📍 Location: New York City\, USA\n⏰ Original Dead
  line (AoE): 2021-11-16 23:59:59\nCategory: 计算机体系结构/并行与
@@ -444,8 +444,8 @@ BEGIN:VEVENT
 SUMMARY:ISCA 2022 Deadline [full paper deadline]
 DTSTART;TZID="UTC-12:00":20211123T235959
 DTEND;TZID="UTC-12:00":20211124T000059
-DTSTAMP:20250830T065447Z
-UID:1cf06974-b4d9-4d90-9869-0633eb245487
+DTSTAMP:20250830T095005Z
+UID:a1f0a02c-5b3d-4a2a-8e90-90fab06d3d4c
 DESCRIPTION:International Symposium on Computer Architecture\n🗓️ Date
  : June 11-15\, 2022\n📍 Location: New York City\, USA\n⏰ Original Dead
  line (AoE): 2021-11-23 23:59:59\nCategory: 计算机体系结构/并行与
@@ -459,8 +459,8 @@ BEGIN:VEVENT
 SUMMARY:ISCA 2023 Deadline [abstract deadline]
 DTSTART;TZID="UTC-12:00":20221114T235959
 DTEND;TZID="UTC-12:00":20221115T000059
-DTSTAMP:20250830T065447Z
-UID:f23e8023-be64-48f3-9fa4-449c38d14fa9
+DTSTAMP:20250830T095005Z
+UID:ad1274e1-25ab-4c1e-9cf6-8903c627cef8
 DESCRIPTION:International Symposium on Computer Architecture\n🗓️ Date
  : June 17-23\, 2023\n📍 Location: Orlando\, FL\, USA\n⏰ Original Deadl
  ine (AoE): 2022-11-14 23:59:59\nCategory: 计算机体系结构/并行与
@@ -474,8 +474,8 @@ BEGIN:VEVENT
 SUMMARY:ISCA 2023 Deadline [full paper deadline]
 DTSTART;TZID="UTC-12:00":20221121T235959
 DTEND;TZID="UTC-12:00":20221122T000059
-DTSTAMP:20250830T065447Z
-UID:d083921c-45ef-42a8-8398-76f421b672c7
+DTSTAMP:20250830T095005Z
+UID:09a65fbc-3f19-40af-8aec-63d961f2b472
 DESCRIPTION:International Symposium on Computer Architecture\n🗓️ Date
  : June 17-23\, 2023\n📍 Location: Orlando\, FL\, USA\n⏰ Original Deadl
  ine (AoE): 2022-11-21 23:59:59\nCategory: 计算机体系结构/并行与
@@ -489,8 +489,8 @@ BEGIN:VEVENT
 SUMMARY:ISCA 2024 Deadline [abstract deadline]
 DTSTART;TZID="UTC-12:00":20231114T235959
 DTEND;TZID="UTC-12:00":20231115T000059
-DTSTAMP:20250830T065447Z
-UID:acc6cfef-b08e-46c7-b5b8-62ad08641e0b
+DTSTAMP:20250830T095005Z
+UID:6fc335c6-c228-4981-9af0-9c8568397b82
 DESCRIPTION:International Symposium on Computer Architecture\n🗓️ Date
  : June 29-July 3\, 2024\n📍 Location: Buenos Aires\, Argentina\n⏰ Orig
  inal Deadline (AoE): 2023-11-14 23:59:59\nCategory: 计算机体系结构/
@@ -504,8 +504,8 @@ BEGIN:VEVENT
 SUMMARY:ISCA 2024 Deadline [full paper deadline]
 DTSTART;TZID="UTC-12:00":20231121T235959
 DTEND;TZID="UTC-12:00":20231122T000059
-DTSTAMP:20250830T065447Z
-UID:296acf00-5c26-4f77-b84a-6e34ad61fe6e
+DTSTAMP:20250830T095005Z
+UID:9cac71d6-15a9-4efb-9e59-5970e57203fe
 DESCRIPTION:International Symposium on Computer Architecture\n🗓️ Date
  : June 29-July 3\, 2024\n📍 Location: Buenos Aires\, Argentina\n⏰ Orig
  inal Deadline (AoE): 2023-11-21 23:59:59\nCategory: 计算机体系结构/
@@ -519,8 +519,8 @@ BEGIN:VEVENT
 SUMMARY:ISCA 2025 Deadline [abstract deadline]
 DTSTART;TZID="UTC-12:00":20241115T235959
 DTEND;TZID="UTC-12:00":20241116T000059
-DTSTAMP:20250830T065447Z
-UID:f64c8c52-5332-41f8-80a7-3daf698b1b23
+DTSTAMP:20250830T095005Z
+UID:4586e711-ec00-4902-9c4c-cbd73de49ef9
 DESCRIPTION:International Symposium on Computer Architecture\n🗓️ Date
  : June 21-25\, 2025\n📍 Location: Tokyo\, Japan\n⏰ Original Deadline (
  AoE): 2024-11-15 23:59:59\nCategory: 计算机体系结构/并行与分布
@@ -533,8 +533,8 @@ BEGIN:VEVENT
 SUMMARY:ISCA 2025 Deadline [full paper deadline]
 DTSTART;TZID="UTC-12:00":20241122T235959
 DTEND;TZID="UTC-12:00":20241123T000059
-DTSTAMP:20250830T065447Z
-UID:4438f3a1-28cc-4dd9-bcb8-98e78565a95b
+DTSTAMP:20250830T095005Z
+UID:10d2b771-0fee-40ac-a9f4-06db7a025223
 DESCRIPTION:International Symposium on Computer Architecture\n🗓️ Date
  : June 21-25\, 2025\n📍 Location: Tokyo\, Japan\n⏰ Original Deadline (
  AoE): 2024-11-22 23:59:59\nCategory: 计算机体系结构/并行与分布
@@ -547,8 +547,8 @@ BEGIN:VEVENT
 SUMMARY:PODC 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240211T235959
 DTEND;TZID="UTC-12:00":20240212T000059
-DTSTAMP:20250830T065447Z
-UID:c6b6df88-2f6e-4a2e-ab76-d351edbbb620
+DTSTAMP:20250830T095005Z
+UID:07cbda5d-d6a5-4ba8-9c83-6503dc594372
 DESCRIPTION:ACM Symposium on Principles of Distributed Computing\n🗓️ 
  Date: June 17-21\, 2024\n📍 Location: Nantes\, France\n⏰ Original Dead
  line (AoE): 2024-02-11 23:59:59\nCategory: 计算机体系结构/并行与
@@ -562,8 +562,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMETRICS 2025 Abstract Deadline [summer round]
 DTSTART;TZID="UTC-12:00":20240731T235900
 DTEND;TZID="UTC-12:00":20240801T000000
-DTSTAMP:20250830T065447Z
-UID:bc053c1f-98d3-4664-92fe-3f215d021b14
+DTSTAMP:20250830T095005Z
+UID:1078eee6-b366-4d71-8b25-5ff5e7c8e001
 DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\n🗓
  ️ Date: June 9-13\, 2025\n📍 Location: Stony Brook\, New York\, USA\n
  ⏰ Original Deadline (AoE): 2024-07-31 23:59:00\nCategory: 计算机体
@@ -577,8 +577,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMETRICS 2025 Abstract Deadline [fall round]
 DTSTART;TZID="UTC-12:00":20241002T235900
 DTEND;TZID="UTC-12:00":20241003T000000
-DTSTAMP:20250830T065447Z
-UID:8be95172-968b-448e-a4b8-ed7e2e332a94
+DTSTAMP:20250830T095005Z
+UID:e66be9b4-7ea9-45a2-adb3-e8b120e793d0
 DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\n🗓
  ️ Date: June 9-13\, 2025\n📍 Location: Stony Brook\, New York\, USA\n
  ⏰ Original Deadline (AoE): 2024-10-02 23:59:00\nCategory: 计算机体
@@ -592,8 +592,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMETRICS 2025 Abstract Deadline [winter round]
 DTSTART;TZID="UTC-12:00":20250115T235900
 DTEND;TZID="UTC-12:00":20250116T000000
-DTSTAMP:20250830T065447Z
-UID:11c2e985-a65b-4e27-8118-0010d0c1bf82
+DTSTAMP:20250830T095005Z
+UID:00c030dc-33ad-46f5-8178-df1321335e9d
 DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\n🗓
  ️ Date: June 9-13\, 2025\n📍 Location: Stony Brook\, New York\, USA\n
  ⏰ Original Deadline (AoE): 2025-01-15 23:59:00\nCategory: 计算机体
@@ -607,8 +607,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMETRICS 2026 Abstract Deadline [summer round]
 DTSTART;TZID="UTC-12:00":20250722T235900
 DTEND;TZID="UTC-12:00":20250723T000000
-DTSTAMP:20250830T065447Z
-UID:ecc7c280-73a1-41b6-b453-83ba94047d62
+DTSTAMP:20250830T095005Z
+UID:aa00ab8b-b0df-4bb0-8677-0820916242e8
 DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\n🗓
  ️ Date: June 8-12\, 2026\n📍 Location: Ann Arbor\, Michigan\, USA\n⏰
   Original Deadline (AoE): 2025-07-22 23:59:00\nCategory: 计算机体系
@@ -622,8 +622,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMETRICS 2026 Abstract Deadline [fall round]
 DTSTART;TZID="UTC-12:00":20251007T235900
 DTEND;TZID="UTC-12:00":20251008T000000
-DTSTAMP:20250830T065447Z
-UID:9c625b42-211e-4c92-a11f-8fa96f0b2e3f
+DTSTAMP:20250830T095005Z
+UID:2741f9c8-40c9-4f0d-ae9f-067056bbb3dd
 DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\n🗓
  ️ Date: June 8-12\, 2026\n📍 Location: Ann Arbor\, Michigan\, USA\n⏰
   Original Deadline (AoE): 2025-10-07 23:59:00\nCategory: 计算机体系
@@ -637,8 +637,8 @@ BEGIN:VEVENT
 SUMMARY:SIGMETRICS 2026 Abstract Deadline [winter round]
 DTSTART;TZID="UTC-12:00":20260106T235900
 DTEND;TZID="UTC-12:00":20260107T000000
-DTSTAMP:20250830T065447Z
-UID:7b074334-6560-4604-8760-0958dcebf31b
+DTSTAMP:20250830T095005Z
+UID:7622b5f3-8263-4e9c-b306-d071502c5d6a
 DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\n🗓
  ️ Date: June 8-12\, 2026\n📍 Location: Ann Arbor\, Michigan\, USA\n⏰
   Original Deadline (AoE): 2026-01-06 23:59:00\nCategory: 计算机体系

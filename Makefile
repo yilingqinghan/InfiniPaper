@@ -35,5 +35,6 @@ ccf:
 
 run:
 	@echo "Starting the local environment..."
+	@make ccf &
 	@make backend &
 	@make frontend

@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:GLOBECOM 2023 Deadline
 DTSTART;TZID="UTC-04:00":20230415T235959
 DTEND;TZID="UTC-04:00":20230416T000059
-DTSTAMP:20250830T065448Z
-UID:ae7b16c2-b046-441b-84bf-3af1cdca9971
+DTSTAMP:20250830T095005Z
+UID:692115ac-c0fa-48d0-9471-95e64158ec4c
 DESCRIPTION:IEEE Global Communications Conference\n🗓️ Date: December 
  4-8\, 2023\n📍 Location: Kuala Lumpur\, Malaysia\n⏰ Original Deadline 
  (UTC-4): 2023-04-15 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\, CORE
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:GLOBECOM 2025 Deadline
 DTSTART;TZID="UTC-04:00":20250415T235959
 DTEND;TZID="UTC-04:00":20250416T000059
-DTSTAMP:20250830T065448Z
-UID:584c5860-a423-4776-93a6-42e8a4249b0b
+DTSTAMP:20250830T095005Z
+UID:1d43c61a-4404-411d-b922-263c1dba9227
 DESCRIPTION:IEEE Global Communications Conference\n🗓️ Date: December 
  8-12\, 2025\n📍 Location: Taipei\, Taiwan\n⏰ Original Deadline (UTC-4)
  : 2025-04-15 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\, CORE B\, TH
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:ICC 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241011T235959
 DTEND;TZID="UTC-12:00":20241012T000059
-DTSTAMP:20250830T065448Z
-UID:134d7ba7-1b3a-470b-b27e-802ac657c187
+DTSTAMP:20250830T095005Z
+UID:7f2f82fb-7b85-4a7b-b4e9-ad209601ac49
 DESCRIPTION:IEEE International Conference on Communications\n🗓️ Date:
   June 8-12\, 2025\n📍 Location: Palais des congrès de Montréal in Mont
  real\, Quebec\, Canada\n⏰ Original Deadline (AoE): 2024-10-11 23:59:59\n
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:ICC 2026 Deadline
 DTSTART;TZID="UTC-04:00":20250929T235959
 DTEND;TZID="UTC-04:00":20250930T000059
-DTSTAMP:20250830T065448Z
-UID:91ed4f9a-1bc1-4adc-b1bf-dd590c240a97
+DTSTAMP:20250830T095005Z
+UID:3c2ab02c-1cd5-4ee5-a7b8-24124f9ad569
 DESCRIPTION:IEEE International Conference on Communications\n🗓️ Date:
   May 24-28\, 2026\n📍 Location: Glasgow\, Scotland\n⏰ Original Deadlin
  e (UTC-4): 2025-09-29 23:59:59\nCategory: 计算机网络 (NW)\nCCF C\, TH
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:IWQoS 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20220201T235959
 DTEND;TZID="UTC-12:00":20220202T000059
-DTSTAMP:20250830T065448Z
-UID:516556b5-a817-42af-ad4a-1b15e210dc44
+DTSTAMP:20250830T095005Z
+UID:bfa11e8a-ef0d-48f5-b139-dcef7930932f
 DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
  ️ Date: June 10-12\, 2022\n📍 Location: Virtual\n⏰ Original Deadline
   (UTC-12): 2022-02-01 23:59:59\nCategory: 计算机网络 (NW)\nCCF B\, CO
@@ -93,8 +93,8 @@ BEGIN:VEVENT
 SUMMARY:IWQoS 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230129T235959
 DTEND;TZID="UTC-12:00":20230130T000059
-DTSTAMP:20250830T065448Z
-UID:4417bd38-8948-43a8-982d-97b00a0f6f3a
+DTSTAMP:20250830T095005Z
+UID:a6ef57fe-7ead-4b84-8f6a-44352585ce91
 DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
  ️ Date: June 19-21\, 2023\n📍 Location: Orlando\, FL\, USA\n⏰ Origin
  al Deadline (UTC-12): 2023-01-29 23:59:59\nCategory: 计算机网络 (NW)\
@@ -107,8 +107,8 @@ BEGIN:VEVENT
 SUMMARY:IWQoS 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250216T235959
 DTEND;TZID="UTC-12:00":20250217T000059
-DTSTAMP:20250830T065448Z
-UID:2698d648-8c88-4e58-8254-38fb94a24042
+DTSTAMP:20250830T095005Z
+UID:74f31e1b-27cb-4a4b-832c-ae2741c286ee
 DESCRIPTION:IEEE/ACM International Symposium on Quality of Service\n🗓
  ️ Date: July 02-04\, 2025\n📍 Location: Gold Coast\, Australia\n⏰ Or
  iginal Deadline (AoE): 2025-02-16 23:59:59\nCategory: 计算机网络 (NW)
@@ -121,8 +121,8 @@ BEGIN:VEVENT
 SUMMARY:MobiHoc 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20220225T235959
 DTEND;TZID="UTC-12:00":20220226T000059
-DTSTAMP:20250830T065448Z
-UID:b059e2b3-c2e2-4993-bc74-0fb9a3bf8138
+DTSTAMP:20250830T095005Z
+UID:900253e3-9c20-4004-b480-2514968d5cc9
 DESCRIPTION:International Symposium on Mobile Ad Hoc Networking and Comput
  ing\n🗓️ Date: October 17-22\, 2022\n📍 Location: Seoul\, South Kore
  a\n⏰ Original Deadline (UTC-12): 2022-02-25 23:59:59\nCategory: 计算
@@ -135,8 +135,8 @@ BEGIN:VEVENT
 SUMMARY:NOSSDAV 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250117T235959
 DTEND;TZID="UTC-12:00":20250118T000059
-DTSTAMP:20250830T065448Z
-UID:8b8c6a82-c5fc-4fb4-a7a4-f86c9445e634
+DTSTAMP:20250830T095005Z
+UID:f5c78ed8-6b39-411b-9c56-f2c7c6374239
 DESCRIPTION:International Workshop on Network and Operating System Support
   for Digital Audio and Video\n🗓️ Date: March 31- April 3\, 2025\n📍
   Location: Stellenbosch\, South Africa\n⏰ Original Deadline (AoE): 2025-
@@ -150,8 +150,8 @@ BEGIN:VEVENT
 SUMMARY:WoWMoM 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241122T235959
 DTEND;TZID="UTC-12:00":20241123T000059
-DTSTAMP:20250830T065448Z
-UID:a1acc1bd-da6d-4e46-9e31-94dbc8a2d900
+DTSTAMP:20250830T095005Z
+UID:b20e56d4-1635-410d-bacb-0f7158a368bb
 DESCRIPTION:IEEE International Symposium on a World of Wireless\, Mobile a
  nd Multimedia Networks\n🗓️ Date: May 27-30\, 2025\n📍 Location: For
  t Worth\, Texas\, USA\n⏰ Original Deadline (AoE): 2024-11-22 23:59:59\nC
