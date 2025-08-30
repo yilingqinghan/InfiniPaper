@@ -33,7 +33,7 @@ function buildTree(rows: Folder[]): FolderNode[] {
     return roots;
 }
 type Paper = {
-    id: number; title: string; year?: number | null; venue?: string | null;
+    id: number; title: string; abstract?: string | null; year?: number | null; venue?: string | null;
     doi?: string | null; pdf_url?: string | null;
     authors?: { id?: number; name?: string; affiliation?: string | null }[];
     tag_ids?: number[];
@@ -122,6 +122,64 @@ function FolderItem({
         </div>
     );
 }
+function AbstractNotePanel({ paper }: { paper: Paper | null }) {
+    const [note, setNote] = React.useState(""); const [editingAbs, setEditingAbs] = React.useState(false);
+    const [absDraft, setAbsDraft] = React.useState("");
+  
+    React.useEffect(() => {
+      if (!paper) { setNote(""); setAbsDraft(""); setEditingAbs(false); return; }
+      setAbsDraft(paper.abstract || "");
+      (async () => {
+        try {
+          const r = await j<{ paper_id: number; content: string }>(`${apiBase}/api/v1/papers/${paper.id}/note`);
+          setNote(r?.content || "");
+        } catch { setNote(""); }
+      })();
+    }, [paper?.id]);
+  
+    return (
+      <div className="rounded-2xl border bg-white overflow-hidden">
+        <div className="px-3 py-2 border-b bg-gradient-to-r from-amber-50 to-yellow-50 text-sm font-medium">摘要 / 笔记</div>
+        <div className="p-3 space-y-3">
+          {/* 摘要 */}
+          <div>
+            <div className="text-xs text-gray-500 mb-1">摘要</div>
+            {!editingAbs ? (
+              <div className="text-sm leading-6 text-gray-800 whitespace-pre-wrap">{absDraft || <span className="text-gray-400">（暂无摘要）</span>}</div>
+            ) : (
+              <textarea value={absDraft} onChange={e => setAbsDraft(e.target.value)} rows={6} className="w-full text-sm border rounded-md p-2" />
+            )}
+            <div className="mt-2 flex gap-2">
+              {!editingAbs ? (
+                <button className="text-xs px-2 py-1 rounded border" onClick={() => setEditingAbs(true)}>编辑摘要</button>
+              ) : (
+                <>
+                  <button className="text-xs px-2 py-1 rounded border" onClick={() => setEditingAbs(false)}>取消</button>
+                  <button className="text-xs px-2 py-1 rounded border bg-blue-50" onClick={async () => {
+                    if (!paper) return;
+                    await j(`${apiBase}/api/v1/papers/${paper.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ abstract: absDraft }) });
+                    setEditingAbs(false); Swal.fire({ toast: true, icon: "success", title: "摘要已更新", timer: 1000, showConfirmButton: false, position: "top" });
+                  }}>保存摘要</button>
+                </>
+              )}
+            </div>
+          </div>
+          {/* 笔记 */}
+          <div>
+            <div className="text-xs text-gray-500 mb-1">笔记</div>
+            <textarea value={note} onChange={e => setNote(e.target.value)} className="w-full text-sm border rounded-md p-2" rows={6} placeholder="写点读书笔记…" />
+            <div className="mt-2">
+              <button className="text-xs px-2 py-1 rounded border bg-green-50" onClick={async () => {
+                if (!paper) return;
+                await j(`${apiBase}/api/v1/papers/${paper.id}/note`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ content: note }) });
+                Swal.fire({ toast: true, icon: "success", title: "笔记已保存", timer: 1000, showConfirmButton: false, position: "top" });
+              }}>保存笔记</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
 /* --------------------------- drag handle --------------------------- */
 function DragHandle({ id }: { id: number }) {
@@ -255,8 +313,8 @@ function Detail({ openId, onClose }: { openId: number | null; onClose: () => voi
 
 /* --------------------------- quick tag panel --------------------------- */
 function QuickTagPanel({
-    paper, allTags, onApply, onRefreshAll, onVizChange,
-}: { paper: Paper | null; allTags: Tag[]; onApply: (names: string[]) => Promise<void>; onRefreshAll: () => void; onVizChange: () => void }) {
+    paper, allTags, onApply, onRefreshAll, onVizChange, compact = false,
+}: { paper: Paper | null; allTags: Tag[]; onApply: (names: string[]) => Promise<void>; onRefreshAll: () => void; onVizChange: () => void; compact?: boolean }) {
     const [input, setInput] = React.useState("");
     const [sel, setSel] = React.useState<string[]>([]);
     const [paletteOpenFor, setPaletteOpenFor] = React.useState<string | null>(null);
@@ -317,9 +375,11 @@ function QuickTagPanel({
     }, [allTags, sel, input]);
 
     const canApply = !!paper && (sel.length > 0 || input.trim().length > 0);
-
+    const outerCls = compact
+        ? "rounded-2xl border bg-white flex flex-col overflow-hidden max-h-[260px]"
+        : "rounded-2xl border bg-white h-full flex flex-col overflow-hidden";
     return (
-        <div className="rounded-2xl border bg-white h-full flex flex-col overflow-hidden">
+        <div className={outerCls}>
             <div className="px-3 py-2 border-b bg-gradient-to-r from-indigo-50 to-blue-50 flex items-center gap-2">
                 <div className="ml-auto">
                     <button className="text-[11px] px-2 py-[2px] rounded border hover:bg-white"
@@ -569,6 +629,22 @@ export default function Library() {
     const [yearAsc, setYearAsc] = React.useState<boolean>(false);
     const [filterTagNames, setFilterTagNames] = React.useState<string[]>([]);
 
+    const [search, setSearch] = React.useState<string>("");
+    const [venueFilter, setVenueFilter] = React.useState<string>("");
+    const yearNow = new Date().getFullYear();
+    const [minYear, setMinYear] = React.useState<number>(1990);
+    const [maxYear, setMaxYear] = React.useState<number>(yearNow);
+    const [yearMin, setYearMin] = React.useState<number>(1990);
+    const [yearMax, setYearMax] = React.useState<number>(yearNow);
+
+    React.useEffect(() => {
+        if (!papers.length) return;
+        const ys = papers.map(p => p.year || yearNow);
+        const lo = Math.min(...ys, 1990), hi = Math.max(...ys, yearNow);
+        setMinYear(lo); setMaxYear(hi);
+        setYearMin(lo); setYearMax(hi);
+      }, [papers.length]);
+
     const loadFolders = React.useCallback(async () => {
         try { setFolders(await j<Folder[]>(`${apiBase}/api/v1/folders/`)); } catch { setFolders([]); }
     }, []);
@@ -577,14 +653,49 @@ export default function Library() {
     }, []);
     const loadPapers = React.useCallback(async () => {
         try {
-            const url = new URL(`${apiBase}/api/v1/papers/`);
-            url.searchParams.set("dedup", "true");
-            if (activeFolderId != null) url.searchParams.set("folder_id", String(activeFolderId));
-            setPapers(await j<Paper[]>(url.toString()));
+          const url = new URL(`${apiBase}/api/v1/papers/`);
+          url.searchParams.set("dedup", "true");
+          if (activeFolderId != null) url.searchParams.set("folder_id", String(activeFolderId));
+          if (search) url.searchParams.set("q", search);
+          if (venueFilter) url.searchParams.set("venue", venueFilter);
+          if (yearMin != null) url.searchParams.set("year_min", String(yearMin));
+          if (yearMax != null) url.searchParams.set("year_max", String(yearMax));
+          setPapers(await j<Paper[]>(url.toString()));
         } catch { setPapers([]); }
-    }, [activeFolderId]);
+      }, [activeFolderId, search, venueFilter, yearMin, yearMax]);
 
     const refreshAll = React.useCallback(async () => { await loadTags(); await loadPapers(); }, [loadTags, loadPapers]);
+
+    const editMeta = async () => {
+        if (!selectedId) return;
+        const p = papers.find(x => x.id === selectedId);
+        const { value: ok } = await Swal.fire({
+          title: "编辑元信息",
+          html: `
+            <input id="title" class="swal2-input" placeholder="标题" value="${(p?.title||"").replace(/"/g,"&quot;")}" />
+            <input id="venue" class="swal2-input" placeholder="期刊/会议" value="${(p?.venue||"").replace(/"/g,"&quot;")}" />
+            <input id="year"  class="swal2-input" type="number" placeholder="年份" value="${p?.year||""}" />
+            <input id="doi"   class="swal2-input" placeholder="DOI" value="${(p?.doi||"").replace(/"/g,"&quot;")}" />
+          `,
+          showCancelButton: true,
+          preConfirm: async () => {
+            const title = (document.getElementById('title') as HTMLInputElement).value.trim();
+            const venue = (document.getElementById('venue') as HTMLInputElement).value.trim();
+            const yearRaw= (document.getElementById('year') as HTMLInputElement).value.trim();
+            const doi   = (document.getElementById('doi') as HTMLInputElement).value.trim();
+            const payload: any = {};
+            if (title) payload.title = title;
+            if (venue) payload.venue = venue;
+            if (yearRaw) payload.year = Number(yearRaw);
+            if (doi) payload.doi = doi;
+            await j(`${apiBase}/api/v1/papers/${selectedId}`, {
+              method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload)
+            });
+            return true;
+          }
+        });
+        if (ok) { await refreshAll(); toast("已更新元信息"); }
+      };
 
     React.useEffect(() => { loadFolders(); loadTags(); }, [loadFolders, loadTags]);
     React.useEffect(() => { loadPapers(); }, [loadPapers]);
@@ -745,6 +856,7 @@ export default function Library() {
     return (
         <DndContext sensors={sensors} onDragEnd={onDragEnd}>
             {/* 宽度 90% + 渐变背景 */}
+            
             <div className="mx-auto w-[90%] py-6 bg-gradient-to-b from-white via-slate-50 to-white rounded-2xl">
                 <div className="flex items-center justify-between mb-4">
                     <div className="text-xl font-semibold flex items-center gap-2">
@@ -756,11 +868,79 @@ export default function Library() {
                             <input type="file" multiple className="hidden" onChange={e => onUpload(e.target.files)} />
                         </label>
                     </div>
+                    <div className="flex items-center gap-2">
+                    <button
+                            className="ml-2 text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50"
+                            onClick={async () => {
+                              const { value: form } = await Swal.fire({
+                                title: "通过 DOI 添加",
+                                html: `
+                                  <div class="space-y-2 text-left">
+                                    <input id="doi" class="swal2-input" placeholder="DOI（必填）" />
+                                    <input id="title" class="swal2-input" placeholder="标题（可选，解析失败才会用到）" />
+                                    <input id="venue" class="swal2-input" placeholder="期刊/会议（可选）" />
+                                    <input id="year"  class="swal2-input" type="number" placeholder="年份（可选）" />
+                                    <textarea id="abs" class="swal2-textarea" placeholder="摘要（可选）"></textarea>
+                                  </div>`,
+                                focusConfirm: false, showCancelButton: true,
+                                preConfirm: () => {
+                                  const doi = (document.getElementById('doi') as HTMLInputElement).value.trim();
+                                  if (!doi) { Swal.showValidationMessage("DOI 不能为空"); return false; }
+                                  const title = (document.getElementById('title') as HTMLInputElement).value.trim();
+                                  const venue = (document.getElementById('venue') as HTMLInputElement).value.trim();
+                                  const yearRaw = (document.getElementById('year') as HTMLInputElement).value.trim();
+                                  const abstract = (document.getElementById('abs') as HTMLTextAreaElement).value.trim();
+                                  const year = yearRaw ? Number(yearRaw) : undefined;
+                                  return { doi, title: title || undefined, venue: venue || undefined, year, abstract: abstract || undefined };
+                                }
+                              });
+                              if (!form) return;
+
+                              // 显示“解析中”，不要等待弹窗 Promise（避免卡住）
+                              Swal.fire({ title: "正在解析 DOI…", didOpen: () => Swal.showLoading(), allowOutsideClick: false });
+                              try {
+                                // 1) 请求后端严格解析 + 入库（解析失败将返回 424，不会入库）
+                                const created = await j<Paper>(`${apiBase}/api/v1/papers/create`, {
+                                  method: "POST",
+                                  headers: { "Content-Type": "application/json" },
+                                  body: JSON.stringify(form),
+                                });
+
+                                // 2) 若当前在某个目录下，归档进去
+                                if (created?.id != null && activeFolderId != null) {
+                                  await j(`${apiBase}/api/v1/folders/${activeFolderId}/assign`, {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify({ paper_ids: [created.id] })
+                                  });
+                                }
+
+                                // 3) 刷新并选中新建项
+                                await loadPapers();
+                                setSelectedId(created.id);
+                                Swal.close();
+                                toast("已解析并入库");
+                              } catch (e: any) {
+                                // 424 / 网络错误等：弹窗提示错误信息（后端 detail 会包含失败原因）
+                                Swal.close();
+                                Swal.fire({
+                                  icon: "error",
+                                  title: "添加失败",
+                                  text: String(e?.message || e),
+                                });
+                              }
+                            }}
+
+                          >
+                          通过 DOI 添加
+                          </button>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-[240px,1fr,360px] gap-4">
-                    {/* 左侧：仅目录（不混入标签） */}
-                    <div className="rounded-2xl border bg-white p-3">
+                <div className="grid grid-cols-1 md:grid-cols-[300px,1fr,360px] gap-4">
+                    {/* 左侧：目录 + 标签（标签位于目录下方） */}
+                    <div className="space-y-4">
+                      <div className="rounded-2xl border bg-white p-3">
                         <div className="flex items-center justify-between mb-2">
                             <div className="text-xs text-gray-600">目录</div>
                             <div className="flex items-center gap-1">
@@ -782,6 +962,16 @@ export default function Library() {
                             ))}
                         </div>
                         <div className="text-[11px] text-gray-500 mt-3">提示：拖拽<strong>把手</strong>或在论文上<strong>右键</strong>选择目录。</div>
+                      </div>
+                      <QuickTagPanel
+                          paper={selectedId ? papers.find(p => p.id === selectedId) || null : null}
+                          allTags={tags}
+                          onApply={applyTags}
+                          onRefreshAll={refreshAll}
+                          onVizChange={() => setVizNonce(x => x + 1)}
+                        //   compact
+                      />
+                      {/* 标签面板（缩短高度版） */}
                     </div>
 
                     {/* 中间：表格 */}
@@ -790,8 +980,25 @@ export default function Library() {
                         <div className="flex items-center justify-between px-3 py-2 border-b bg-gray-50">
                             <div className="flex items-center gap-3 text-sm">
                                 <button onClick={() => setYearAsc(v => !v)} className="px-2 py-1 rounded-md border hover:bg-white">
-                                    年份排序 {yearAsc ? <ChevronUp className="w-4 h-4 inline" /> : <ChevronDown className="w-4 h-4 inline" />}
+                                年份排序 {yearAsc ? <ChevronUp className="w-4 h-4 inline" /> : <ChevronDown className="w-4 h-4 inline" />}
                                 </button>
+                                <input
+                                placeholder="搜索标题 / DOI / 期刊（回车）"
+                                className="px-2 py-1 rounded-md border"
+                                onKeyDown={async (e) => { if (e.key === "Enter") { setSearch((e.target as HTMLInputElement).value.trim()); await loadPapers(); } }}
+                                />
+                                <input
+                                placeholder="期刊/会议（回车筛选）"
+                                className="px-2 py-1 rounded-md border"
+                                onKeyDown={async (e) => { if (e.key === "Enter") { setVenueFilter((e.target as HTMLInputElement).value.trim()); await loadPapers(); } }}
+                                />
+                                <div className="flex items-center gap-2">
+                                <span className="text-xs text-gray-500">年份：</span>
+                                <input type="range" min={minYear} max={maxYear} value={yearMin} onChange={e => setYearMin(Number(e.target.value))} />
+                                <input type="range" min={minYear} max={maxYear} value={yearMax} onChange={e => setYearMax(Number(e.target.value))} />
+                                <span className="text-xs text-gray-600">{yearMin} - {yearMax}</span>
+                                <button className="text-xs px-2 py-1 rounded border" onClick={loadPapers}>应用</button>
+                                </div>
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="text-xs text-gray-500">按标签筛选：</div>
@@ -854,12 +1061,14 @@ export default function Library() {
                         </div>
                     </div>
 
-                    {/* 右侧：预览 / 标签 / 词云 */}
+                    {/* 右侧：预览 / 摘要 / 词云 */}
                     <div className="space-y-4">
                         {/* 悬停预览 */}
                         <div className="rounded-2xl border bg-white overflow-hidden h-[220px]">
                             <div className="px-3 py-2 border-b bg-gradient-to-r from-sky-50 to-indigo-50 flex items-center gap-2">
-                                <Eye className="w-4 h-4 text-sky-600" /><div className="text-sm font-medium">PDF 预览</div>
+                                <Eye className="w-4 h-4 text-sky-600" />
+                                <div className="text-sm font-medium">PDF 预览</div>
+                                {selectedId && <button className="ml-auto text-xs px-2 py-1 rounded border" onClick={editMeta}>编辑元信息</button>}
                             </div>
                             {hoverPreviewId
                                 ? (() => {
@@ -872,16 +1081,7 @@ export default function Library() {
                                 })()
                                 : <div className="h-[180px] flex items-center justify-center text-sm text-gray-400">将鼠标悬停在某行以预览 PDF</div>}
                         </div>
-
-                        {/* 标签面板 */}
-                        <QuickTagPanel
-                            paper={selectedId ? papers.find(p => p.id === selectedId) || null : null}
-                            allTags={tags}
-                            onApply={applyTags}
-                            onRefreshAll={refreshAll}
-                            onVizChange={() => setVizNonce(x => x + 1)}
-                        />
-
+                        <AbstractNotePanel paper={selectedId ? papers.find(p => p.id === selectedId) || null : null} />
                         {/* 词云 */}
                         <WordCloudPanel papers={displayPapers} tags={tags} />
                     </div>
