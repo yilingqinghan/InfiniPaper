@@ -138,7 +138,6 @@ function TagFilterDropdown({
 import React from "react";
 import ReactDOM from "react-dom";
 
-import * as Dialog from "@radix-ui/react-dialog";
 import {
     UploadCloud, Plus, Pencil, Trash2, ChevronUp, ChevronDown, ChevronRight,
     GripVertical, Eye, Tag as TagIcon, Folder as FolderIcon, Share2
@@ -152,6 +151,7 @@ import { CSS } from "@dnd-kit/utilities";
 import AuthorFilterDropdown from "@/components/AuthorFilterDropdown";
 import PaperGraphDialog from "@/components/PaperGraphDialog";
 import AuthorGraphDialog from "@/components/AuthorGraphDialog";
+import Detail from "@/components/DetailDialog";
 
 const Swal = withReactContent(SwalCore);
 const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
@@ -160,6 +160,12 @@ const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 type Tag = { id: number; name: string; color?: string | null };
 type Folder = { id: number; name: string; color?: string | null; parent_id?: number | null; priority?: number | null };
 type FolderNode = Folder & { children?: FolderNode[] };
+type Paper = {
+    id: number; title: string; abstract?: string | null; year?: number | null; venue?: string | null;
+    doi?: string | null; pdf_url?: string | null;
+    authors?: { id?: number; name?: string; affiliation?: string | null }[];
+    tag_ids?: number[];
+};
 function buildTree(rows: Folder[]): FolderNode[] {
     const map = new Map<number, FolderNode>();
     const roots: FolderNode[] = [];
@@ -173,12 +179,7 @@ function buildTree(rows: Folder[]): FolderNode[] {
     });
     return roots;
 }
-type Paper = {
-    id: number; title: string; abstract?: string | null; year?: number | null; venue?: string | null;
-    doi?: string | null; pdf_url?: string | null;
-    authors?: { id?: number; name?: string; affiliation?: string | null }[];
-    tag_ids?: number[];
-};
+
 
 /* --------------------------- helpers --------------------------- */
 // --- helpers: Fetch BibTeX via DOI only ---
@@ -228,7 +229,6 @@ async function loadFolderPapersAll(folderId: number, includeChildren = false): P
     return [];
   }
 
-/** venue 缩写映射 */
 /** venue 缩写映射 */
 const VENUE_ABBR: [RegExp, string][] = [
     // 编译与体系结构领域（CCF A/B 类）
@@ -690,38 +690,6 @@ function PaperRow({
             </td>
             <td className="px-2 py-1.5 w-[60px]">{p.pdf_url ? "有" : "-"}</td>
         </tr>
-    );
-}
-
-/* --------------------------- detail dialog --------------------------- */
-function Detail({ openId, onClose }: { openId: number | null; onClose: () => void }) {
-    const [data, setData] = React.useState<Paper | null>(null);
-    React.useEffect(() => {
-        (async () => {
-            if (!openId) { setData(null); return; }
-            const r = await fetch(`${apiBase}/api/v1/papers/${openId}`); setData(r.ok ? await r.json() : null);
-        })();
-    }, [openId]);
-    return (
-        <Dialog.Root open={!!openId} onOpenChange={v => !v && onClose()}>
-            <Dialog.Portal>
-                <Dialog.Overlay className="fixed inset-0 bg-black/30" />
-                <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] max-w-[95vw] max-h-[80vh] overflow-auto rounded-2xl bg-white p-6 shadow-xl">
-                    {!data ? <div className="text-sm text-gray-500">加载中…</div> : (
-                        <div className="space-y-3">
-                            <div className="text-lg font-semibold">{data.title}</div>
-                            <div className="text-xs text-gray-500">{data.venue || "—"} · {data.year || "—"} {data.doi ? `· DOI: ${data.doi}` : ""}</div>
-                            {data.authors?.length ? <div className="text-sm text-gray-700">
-                                作者：{data.authors.map(a => a?.name).filter(Boolean).join(", ")}
-                            </div> : null}
-                            <div className="text-right">
-                                <button className="text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50" onClick={onClose}>关闭</button>
-                            </div>
-                        </div>
-                    )}
-                </Dialog.Content>
-            </Dialog.Portal>
-        </Dialog.Root>
     );
 }
 
