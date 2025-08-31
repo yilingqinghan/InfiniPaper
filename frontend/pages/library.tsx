@@ -339,10 +339,10 @@ function numberLabelByDepth(depth: number, index: number): string {
 
 /* --------------------------- left: folders --------------------------- */
 function FolderItem({
-    folder, depth, active, onClick, onCreateChild, hasChildren, collapsed, onToggle, count = 0, numLabel
+    folder, depth, active, onClick, onCreateChild, hasChildren, collapsed, onToggle, count = 0, numLabel, onFolderContextMenu
 }: {
     folder: Folder; depth: number; active: boolean; onClick: () => void; onCreateChild: (parentId: number) => void;
-    hasChildren: boolean; collapsed: boolean; onToggle: () => void; count?: number; numLabel?: string;
+    hasChildren: boolean; collapsed: boolean; onToggle: () => void; count?: number; numLabel?: string; onFolderContextMenu?: (e: React.MouseEvent, folder: Folder) => void;
 }) {
     const { isOver, setNodeRef } = useDroppable({ id: `folder:${folder.id}` });
     const pad = 4 + depth * 10; // 更紧凑
@@ -356,6 +356,7 @@ function FolderItem({
         <div ref={setNodeRef}>
             <div
                 onClick={onClick}
+                onContextMenu={(e) => { e.preventDefault(); e.stopPropagation(); onFolderContextMenu?.(e, folder); }}
                 className="px-1 py-[2px] rounded-md cursor-pointer transition border select-none flex items-center justify-between min-h-[30px]"
                 style={{ paddingLeft: pad }}   // 去掉旧的 inset 左侧色条，改用内部矩形条
             >
@@ -936,11 +937,12 @@ function WordCloudPanel({ papers, tags }: { papers: Paper[]; tags: Tag[] }) {
 }
 
 function FolderTreeNode({
-    node, depth, index, activeId, onPick, onCreateChild, collapsedSet, toggle, counts
-}: {
+    node, depth, index, activeId, onPick, onCreateChild, collapsedSet, toggle, counts, onFolderContextMenu
+} : {
     node: FolderNode; depth: number; index: number; activeId: number | null;
     onPick: (id: number) => void; onCreateChild: (parentId: number) => void;
     collapsedSet: Set<number>; toggle: (id: number) => void; counts: Record<number, number>;
+    onFolderContextMenu?: (e: React.MouseEvent, folder: Folder) => void;
 }) {
     const hasChildren = !!(node.children && node.children.length > 0);
     const isCollapsed = collapsedSet.has(node.id);
@@ -958,12 +960,15 @@ function FolderTreeNode({
                 onToggle={() => toggle(node.id)}
                 count={counts[node.id] || 0}
                 numLabel={numLabel}
+                onFolderContextMenu={onFolderContextMenu}
             />
             {hasChildren && !isCollapsed && (
                 <div className="space-y-[2px] mt-0.5">
                     {node.children!.map((ch, i) => (
                         <FolderTreeNode key={ch.id} node={ch} depth={depth + 1} index={i + 1} activeId={activeId}
-                            onPick={onPick} onCreateChild={onCreateChild} collapsedSet={collapsedSet} toggle={toggle} counts={counts} />
+                            onPick={onPick} onCreateChild={onCreateChild} collapsedSet={collapsedSet} toggle={toggle} counts={counts}
+                            onFolderContextMenu={onFolderContextMenu}
+                        />
                     ))}
                 </div>
             )}
@@ -1112,9 +1117,120 @@ function VenueAbbrDropdown({ value, onChange }: { value: string[]; onChange: (ab
   }
 /* --------------------------- main page --------------------------- */
 export default function Library() {
-    const sensors = useSensors(useSensor(PointerSensor));
-
+    // 左侧目录右键菜单（导出功能）
+    const [folderCtx, setFolderCtx] = React.useState<{ visible: boolean; x: number; y: number; folderId: number | null }>({ visible: false, x: 0, y: 0, folderId: null });
+    const openFolderCtx = (x: number, y: number, folderId: number | null) => setFolderCtx({ visible: true, x, y, folderId });
+    React.useEffect(() => {
+      const hide = () => setFolderCtx(s => ({ ...s, visible: false }));
+      window.addEventListener("click", hide);
+      window.addEventListener("scroll", hide, true);
+      return () => { window.removeEventListener("click", hide); window.removeEventListener("scroll", hide, true); };
+    }, []);
     const [folders, setFolders] = React.useState<Folder[]>([]);
+    const [tags, setTags] = React.useState<Tag[]>([]);
+    // 递归收集子目录 id
+    const folderChildrenMap = React.useMemo(() => {
+      const m = new Map<number, number[]>();
+      folders.forEach(f => m.set(f.id, []));
+      folders.forEach(f => { if (f.parent_id) { const arr = m.get(f.parent_id) || []; arr.push(f.id); m.set(f.parent_id, arr); } });
+      return m;
+    }, [folders]);
+    const getDescendantIds = React.useCallback((rootId: number): number[] => {
+      const res: number[] = [];
+      const stack = [rootId];
+      while (stack.length) {
+        const id = stack.pop()!;
+        const kids = folderChildrenMap.get(id) || [];
+        for (const k of kids) { res.push(k); stack.push(k); }
+      }
+      return res;
+    }, [folderChildrenMap]);
+
+    // 拉取某目录（含子目录）下的论文集合
+    const fetchPapersForFolders = React.useCallback(async (folderId: number | null): Promise<Paper[]> => {
+      if (folderId == null) {
+        return await j<Paper[]>(`${apiBase}/api/v1/papers/?dedup=true`);
+      }
+      const ids = [folderId, ...getDescendantIds(folderId)];
+      const lists = await Promise.all(ids.map(id => j<Paper[]>(`${apiBase}/api/v1/papers/?dedup=true&folder_id=${id}`)));
+      const map = new Map<number, Paper>();
+      lists.flat().forEach(p => map.set(p.id, p));
+      return Array.from(map.values());
+    }, [getDescendantIds]);
+
+    // 下载辅助
+    const downloadTextFile = (filename: string, text: string) => {
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = filename; document.body.appendChild(a); a.click();
+      setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 0);
+    };
+    const sleep = (ms: number) => new Promise(res => setTimeout(res, ms));
+    const safeName = (s: string) => (s || '').replace(/[\\/:*?"<>|]/g, '_').slice(0, 120);
+    const firstAuthorSurname = (p: Paper) => { const n = p.authors?.[0]?.name || ''; const parts = n.trim().split(/\s+/); return parts.length ? parts[parts.length - 1] : ''; };
+    const pdfFileName = (p: Paper) => {
+      const y = p.year || 'noyear';
+      const ab = abbrevVenue(p.venue) || (p.venue ? p.venue.replace(/\s+/g, '') : 'nov');
+      const sur = firstAuthorSurname(p) || 'anon';
+      const title = safeName((p.title || 'paper').split(/\s+/).slice(0, 8).join('_'));
+      return `${y}_${sur}_${ab}_${title}.pdf`;
+    };
+
+    // 导出：BibTeX（.tex）
+    const exportBibTeXOfFolder = React.useCallback(async (folderId: number | null) => {
+      const papers = await fetchPapersForFolders(folderId);
+      const entries: string[] = []; const errs: string[] = [];
+      for (const p of papers) {
+        try { const tex = await fetchBibTeXByDOI(p.doi || undefined); entries.push(tex.trim()); }
+        catch (e: any) { errs.push(`${p.title || 'Untitled'}: ${String(e?.message || e)}`); }
+      }
+      if (!entries.length) {
+        await Swal.fire({ icon: 'error', title: '没有可导出的 BibTeX', text: errs.length ? `全部失败：${errs.slice(0, 3).join('；')}…` : '该目录下没有包含 DOI 的论文。' });
+        return;
+      }
+      const folderName = folderId == null ? 'all' : (folders.find(f => f.id === folderId)?.name || 'folder');
+      const content = [`% Exported ${new Date().toISOString()}`, `% Folder: ${folderName} (含子目录)`, '', ...entries].join('\n\n');
+      downloadTextFile(`${folderName}_bibtex.tex`, content);
+      if (errs.length) await Swal.fire({ icon: 'warning', title: '部分导出失败', text: `成功 ${entries.length} 条，失败 ${errs.length} 条（多为缺少 DOI 或网络错误）。` });
+      else toast('BibTeX 已导出');
+    }, [fetchPapersForFolders, folders]);
+
+    // 导出：Excel（CSV）
+    const csvEscape = (s?: string | null) => { const v = s ?? ''; return /[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v; };
+    const exportCSVOfFolder = React.useCallback(async (folderId: number | null) => {
+      const papers = await fetchPapersForFolders(folderId);
+      if (!papers.length) { await Swal.fire({ icon: 'info', title: '没有可导出的数据' }); return; }
+      const header = ['Title', 'Authors', 'Year', 'Venue', 'DOI', 'PDF URL', 'Tags'];
+      const nameById = (id: number) => tags.find(t => t.id === id)?.name || '';
+      const rows = papers.map(p => {
+        const authors = (p.authors || []).map(a => a?.name).filter(Boolean).join('; ');
+        const tagsStr = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean).join('; ');
+        return [p.title || '', authors, String(p.year || ''), p.venue || '', p.doi || '', p.pdf_url || '', tagsStr];
+      });
+      const lines = [header, ...rows].map(r => r.map(csvEscape).join(',')).join('\n');
+      downloadTextFile(`papers_${folderId ?? 'all'}.csv`, lines);
+      toast('CSV 已导出（Excel 可直接打开）');
+    }, [fetchPapersForFolders, tags]);
+
+    // 导出：Markdown
+    const exportMarkdownOfFolder = React.useCallback(async (folderId: number | null) => {
+      const papers = await fetchPapersForFolders(folderId);
+      const nameById = (id: number) => tags.find(t => t.id === id)?.name || '';
+      const folderName = folderId == null ? '全部' : (folders.find(f => f.id === folderId)?.name || '目录');
+      const lines: string[] = [`# ${folderName} · 文献导出`, '', `共 ${papers.length} 篇`, ''];
+      for (const p of papers) {
+        const authors = (p.authors || []).map(a => a?.name).filter(Boolean).join(', ');
+        const tagsStr = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean).join(', ');
+        const venueYear = [p.venue || '', p.year || ''].filter(Boolean).join(', ');
+        const titleMd = p.pdf_url ? `[${p.title}](${p.pdf_url})` : (p.title || '无标题');
+        const doiMd = p.doi ? ` DOI: ${p.doi}` : '';
+        const tagsMd = tagsStr ? ` _(${tagsStr})_` : '';
+        lines.push(`- ${titleMd} — ${authors}${venueYear ? ` · ${venueYear}` : ''}.${doiMd}${tagsMd}`);
+      }
+      downloadTextFile(`${folderName}_papers.md`, lines.join('\n'));
+      toast('Markdown 已导出');
+    }, [fetchPapersForFolders, folders, tags]);
+    const sensors = useSensors(useSensor(PointerSensor));
     const [collapsed, setCollapsed] = React.useState<Set<number>>(new Set());
     const toggleCollapse = (id: number) =>
         setCollapsed(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
@@ -1155,7 +1271,6 @@ export default function Library() {
 
     const [vizNonce, setVizNonce] = React.useState(0);
 
-    const [tags, setTags] = React.useState<Tag[]>([]);
     const tagMap = React.useMemo(() => new Map(tags.map(t => [t.id, t])), [tags]);
 
     const [yearAsc, setYearAsc] = React.useState<boolean>(false);
@@ -1494,10 +1609,13 @@ export default function Library() {
                                 <button onClick={deleteFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Trash2 className="w-3.5 h-3.5" /></button>
                             </div>
                         </div>
-                        <div className={`px-2 py-1 rounded-md cursor-pointer mb-1 text-[14px] flex items-center justify-between ${activeFolderId == null ? "bg-blue-50/70 border border-blue-200" : "hover:bg-gray-50"}`}
-                            onClick={() => { setActiveFolderId(null); setSelectedId(null); }}>
-                            <span>全部</span>
-                            <span className="text-[11px] px-1.5 py-[1px] rounded border bg-gray-50 text-gray-700 min-w-[1.5rem] text-center">{allCount}</span>
+                        <div
+                          className={`px-2 py-1 rounded-md cursor-pointer mb-1 text-[14px] flex items-center justify-between ${activeFolderId == null ? "bg-blue-50/70 border border-blue-200" : "hover:bg-gray-50"}`}
+                          onClick={() => { setActiveFolderId(null); setSelectedId(null); }}
+                          onContextMenu={(e) => { e.preventDefault(); openFolderCtx(e.clientX, e.clientY, null); }}
+                        >
+                          <span>全部</span>
+                          <span className="text-[11px] px-1.5 py-[1px] rounded border bg-gray-50 text-gray-700 min-w-[1.5rem] text-center">{allCount}</span>
                         </div>
                         <div className="space-y-1">
                         {tree.map((node, i) => (
@@ -1507,9 +1625,21 @@ export default function Library() {
                                 collapsedSet={collapsed}
                                 toggle={toggleCollapse}
                                 counts={folderCounts}
+                                onFolderContextMenu={(e, f) => openFolderCtx(e.clientX, e.clientY, f.id)}
                             />
                         ))}
                         </div>
+      {/* 目录右键菜单 */}
+      {folderCtx.visible && (
+        <div
+          className="fixed z-50 bg-white border shadow-lg rounded-md text-sm"
+          style={{ left: folderCtx.x, top: folderCtx.y, minWidth: 260 }}
+        >
+          <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportBibTeXOfFolder(folderCtx.folderId); }}>导出 BibTeX 为 .tex（含子目录）</button>
+          <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportCSVOfFolder(folderCtx.folderId); }}>导出为 Excel（CSV）</button>
+          <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportMarkdownOfFolder(folderCtx.folderId); }}>导出为 Markdown</button>
+        </div>
+      )}
                         <div className="text-[11px] text-gray-500 mt-3">提示：拖拽<strong>把手</strong>或在论文上<strong>右键</strong>选择目录。</div>
                       </div>
                       <QuickTagPanel

@@ -1,4 +1,4 @@
-- 一键导出论文数据库为csv、markdown、Bibtex并统一命名
+- 右键导出论文数据库为csv、markdown、Bibtex并统一命名
 - 阅读统计：天/周热力图（导入的文件数量）
 - 作者关系网!
 - MinerU本地部署+本地AI总结
