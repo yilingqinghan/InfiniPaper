@@ -134,7 +134,6 @@ function TagFilterDropdown({
       </div>
     );
   }
-// frontend/pages/library.tsx
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -154,6 +153,9 @@ import AuthorGraphDialog from "@/components/AuthorGraphDialog";
 import Detail from "@/components/DetailDialog";
 import AbstractNotePanel from "@/components/AbstractNodePanel";
 import VenueAbbrDropdown from "@/components/VenueAbbrDropdown";
+import YearDualSlider from "@/components/YearDualSlider";
+import {getTagPrio, getTagColor, isOpenSourceTag, QuickTagPanel} from "@/components/QuickTagPanel";
+
 
 const Swal = withReactContent(SwalCore);
 const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
@@ -181,8 +183,6 @@ function buildTree(rows: Folder[]): FolderNode[] {
     });
     return roots;
 }
-
-
 /* --------------------------- helpers --------------------------- */
 // --- helpers: Fetch BibTeX via DOI only ---
 async function fetchBibTeXByDOI(doi?: string): Promise<string> {
@@ -329,32 +329,6 @@ function venueTier(abbr: string | null): 0 | 1 | 2 {
     if (!abbr) return 0;
     return TOP_TIER.has(abbr) ? 1 : 2;
 }
-
-/** 本地可视化配置：给标签指定颜色/优先级符号（不改后端表结构） */
-type TagViz = Record<string, { color?: string; prio?: string }>;
-const VIZ_KEY = "tag-viz";
-const DEFAULT_COLORS = [
-    "#2563eb","#3b82f6","#60a5fa",   // blue
-    "#0ea5e9","#06b6d4","#22d3ee",   // cyan
-    "#14b8a6","#2dd4bf",             // teal
-    "#10b981","#34d399","#84cc16",   // green / lime
-    "#f59e0b","#f97316","#fb923c",   // amber / orange
-    "#ef4444","#f43f5e","#ec4899",   // red / pink
-    "#8b5cf6","#a78bfa","#6366f1",   // violet / indigo
-    "#6b7280","#a3a3a3"              // neutral
-];
-const PRIO_CHOICES = ["⭐️", "🔥", "📌", "👀", "✅", "⏳", "❗️", "💡", "📝", "🔬"];
-
-function loadViz(): TagViz { try { return JSON.parse(localStorage.getItem(VIZ_KEY) || "{}"); } catch { return {}; } }
-function saveViz(v: TagViz) { localStorage.setItem(VIZ_KEY, JSON.stringify(v)); }
-function getTagColor(name: string) { return loadViz()[name]?.color; }
-function getTagPrio(name: string) { return loadViz()[name]?.prio; }
-function setTagColor(name: string, color?: string) { const v = loadViz(); v[name] = { ...(v[name] || {}), color }; saveViz(v); }
-function setTagPrio(name: string, prio?: string) { const v = loadViz(); v[name] = { ...(v[name] || {}), prio }; saveViz(v); }
-
-// 特殊标签：开源（深色底、白字）
-const OPEN_SOURCE_TAGS = new Set(["开源", "Open Source"]);
-function isOpenSourceTag(name: string) { return OPEN_SOURCE_TAGS.has(name.trim()); }
 
 // hex -> rgba with alpha for subtle tinted backgrounds
 function hexWithAlpha(hex: string, alpha: number) {
@@ -504,7 +478,6 @@ function DragHandle({ id }: { id: number }) {
     );
 }
 
-
 /* --------------------------- row --------------------------- */
 function PaperRow({
     p, onOpen, onSelect, onPreviewHover, onContextMenu, tagMap, selected, showVenueCol, vizNonce,
@@ -636,225 +609,6 @@ function PaperRow({
     );
 }
 
-/* --------------------------- quick tag panel --------------------------- */
-function QuickTagPanel({
-    paper, allTags, onApply, onRefreshAll, onVizChange, compact = false,
-}: { paper: Paper | null; allTags: Tag[]; onApply: (names: string[]) => Promise<void>; onRefreshAll: () => void; onVizChange: () => void; compact?: boolean }) {
-    const [input, setInput] = React.useState("");
-    const [sel, setSel] = React.useState<string[]>([]);
-    const [paletteOpenFor, setPaletteOpenFor] = React.useState<string | null>(null);
-    const [manage, setManage] = React.useState(false);
-
-    // 同步当前论文的标签名
-    React.useEffect(() => {
-        if (!paper) { setSel([]); setInput(""); return; }
-        const names = (paper.tag_ids || [])
-            .map(id => allTags.find(t => t.id === id)?.name)
-            .filter((x): x is string => !!x);
-        setSel(names);
-        setInput("");
-    }, [paper, allTags]);
-
-    // 仅从当前论文移除一个标签（不会全局删除）
-    const removeOne = async (name: string) => {
-        const next = sel.filter(x => x !== name);
-        setSel(next);
-        await onApply(next);
-        onVizChange();
-    };
-
-    // 给当前论文添加一个标签（不存在的可通过输入框回车创建）
-    const addOne = async (name: string) => {
-        const v = name.trim();
-        if (!v || sel.includes(v)) return;
-        const next = [...sel, v];
-        setSel(next);
-        await onApply(next);
-        onVizChange();
-    };
-
-    // 全局删除某个标签（从所有论文移除，并删除该标签）
-    const deleteGlobal = async (name: string) => {
-        const id = allTags.find(t => t.name === name)?.id;
-        if (!id) return;
-        const ok = (await Swal.fire({
-            title: `删除标签「${name}」？`,
-            text: "将从所有论文移除该标签，且标签本身会被删除。",
-            showCancelButton: true,
-            confirmButtonText: "删除",
-        })).isConfirmed;
-        if (!ok) return;
-        await fetch(`${apiBase}/api/v1/tags/${id}`, { method: "DELETE" });
-        setSel(s => s.filter(x => x !== name));
-        await onRefreshAll();
-        onVizChange();
-    };
-
-    // 过滤出未选中的标签作为候选
-    const suggestions = React.useMemo(() => {
-        const q = input.trim().toLowerCase();
-        return allTags
-            .filter(t => !sel.includes(t.name))
-            .filter(t => !q || t.name.toLowerCase().includes(q))
-            .slice(0, 60);
-    }, [allTags, sel, input]);
-
-    const canApply = !!paper && (sel.length > 0 || input.trim().length > 0);
-    const outerCls = compact
-        ? "rounded-2xl border bg-white flex flex-col overflow-hidden max-h-[260px]"
-        : "rounded-2xl border bg-white h-full flex flex-col overflow-hidden  max-h-[500px]";
-    return (
-        <div className={outerCls}>
-            <div className="px-3 py-2 border-b bg-gradient-to-r from-indigo-50 to-blue-50 flex items-center gap-2">
-                <div className="ml-auto">
-                    <button className="text-[11px] px-2 py-[2px] rounded border hover:bg-white"
-                        onClick={() => setManage(m => !m)}>
-                        {manage ? "完成" : "管理"}
-                    </button>
-                </div>
-                <TagIcon className="w-4 h-4 text-indigo-600" /><div className="text-sm font-medium">标签</div>
-            </div>
-
-            {!paper ? (
-                <div className="flex-1 text-sm text-gray-500 flex items-center justify-center px-4 text-center">
-                    选中一篇论文后，可在这里管理标签。点击气泡上的「×」仅从当前论文移除；在“管理”模式下可全局删除标签。
-                </div>
-            ) : (
-                <div className="flex-1 overflow-auto p-3 space-y-3">
-                    {/* 当前标签（可直接移除/设色/设优先级） */}
-                    <div>
-                        <div className="text-xs text-gray-500 mb-1">当前标签</div>
-                        <div className="flex flex-wrap gap-2">
-                            {sel.length ? sel.map(name => {
-                                const color = getTagColor(name);
-                                const prio = getTagPrio(name);
-                                return (
-                                    <span
-                                        key={name}
-                                        className={`text-[11px] px-2 py-[3px] inline-flex items-center gap-1 border ${isOpenSourceTag(name) ? "rounded-md bg-gray-900 border-gray-900 text-white" : "rounded-full"}`}
-                                        style={isOpenSourceTag(name) ? undefined : { borderColor: color || "#cbd5e1" }}
-                                    >
-                                        <button
-                                            className="w-2.5 h-2.5 rounded-full border"
-                                            style={{ background: color || "transparent" }}
-                                            title="设置颜色"
-                                            onClick={() => setPaletteOpenFor(prev => prev === name ? null : name)}
-                                        />
-                                        <button
-                                            className="ml-0.5 text-[12px] leading-none"
-                                            title="设置优先级"
-                                            onClick={async () => {
-                                                const { value } = await Swal.fire({
-                                                    title: `选择优先级（${name}）`,
-                                                    input: "select",
-                                                    inputOptions: PRIO_CHOICES.reduce((m, emo) => { (m as any)[emo] = emo; return m; }, {} as any),
-                                                    inputPlaceholder: "无",
-                                                    showCancelButton: true
-                                                });
-                                                if (value) { setTagPrio(name, value); } else { setTagPrio(name, undefined); }
-                                                onVizChange();
-                                                (document.activeElement as HTMLElement)?.blur?.();
-                                            }}
-                                        >
-                                            {prio || "☆"}
-                                        </button>
-                                        <span>{name}</span>
-                                        <button
-                                            className="ml-1 px-1 leading-none rounded hover:bg-gray-100"
-                                            title="仅从当前论文移除"
-                                            onClick={() => removeOne(name)}
-                                        >
-                                            ×
-                                        </button>
-                                        {manage && (
-                                            <button
-                                                className="ml-1 text-[11px] px-1 rounded hover:bg-red-50 text-red-600 border"
-                                                title="全局删除该标签"
-                                                onClick={() => deleteGlobal(name)}
-                                            >删</button>
-                                        )}
-
-                                        {/* 颜色调板 */}
-                                        {paletteOpenFor === name && (
-                                            <div className="absolute z-50 mt-6 p-2 bg-white rounded-md shadow border grid grid-cols-5 gap-2"
-                                                onMouseLeave={() => setPaletteOpenFor(null)}>
-                                                {DEFAULT_COLORS.map(c => (
-                                                    <button key={c} className="w-5 h-5 rounded-full border" style={{ background: c }}
-                                                        onClick={() => { setTagColor(name, c); setPaletteOpenFor(null); onVizChange(); }} />
-                                                ))}
-                                                <button className="col-span-5 text-xs text-gray-500 mt-1 underline"
-                                                    onClick={() => { setTagColor(name, undefined); setPaletteOpenFor(null); onVizChange(); }}>
-                                                    清除颜色
-                                                </button>
-                                            </div>
-                                        )}
-                                    </span>
-                                );
-                            }) : <span className="text-[11px] text-gray-400">暂无</span>}
-                        </div>
-                    </div>
-
-                    {/* 添加标签 */}
-                    <div>
-                        <div className="text-xs text-gray-500 mb-1">添加标签</div>
-                        <div className="flex items-center gap-2">
-                            <input
-                                value={input}
-                                onChange={e => setInput(e.target.value)}
-                                placeholder="输入后回车，或从下方选择"
-                                onKeyDown={async e => {
-                                    if (e.key === "Enter" && input.trim()) {
-                                        await addOne(input.trim());
-                                        setInput("");
-                                    }
-                                }}
-                                className="flex-1 text-sm px-2 py-1.5 rounded-md border outline-none focus:ring-2 ring-blue-200"
-                            />
-                            <button
-                                onClick={async () => { if (input.trim()) { await addOne(input.trim()); setInput(""); } }}
-                                disabled={!canApply}
-                                className="text-sm px-3 py-1.5 rounded-md border hover:bg-gray-50 disabled:opacity-50"
-                            >
-                                添加
-                            </button>
-                        </div>
-
-                        <div className="mt-2">
-                            <div className="text-xs text-gray-500 mb-1">可选</div>
-                            <div className="flex flex-wrap gap-2">
-                                {suggestions.map(t => {
-                                    const color = getTagColor(t.name);
-                                    const prio = getTagPrio(t.name);
-                                    return (
-                                        <div
-                                            key={t.id}
-                                            className={`px-2 py-1 border flex items-center gap-2 text-[12px] ${isOpenSourceTag(t.name) ? "rounded-md bg-gray-900 border-gray-900 text-white" : "rounded-lg hover:bg-gray-50"}`}
-                                        >
-                                            <span className="w-2.5 h-2.5 rounded-full border inline-block" style={{ background: color || "transparent" }} />
-                                            {prio ? <span className="text-xs">{prio}</span> : null}
-                                            <button className="underline decoration-dotted" onClick={() => addOne(t.name)} title="添加到当前论文">
-                                                {t.name}
-                                            </button>
-                                            {manage && (
-                                                <button
-                                                    className="ml-1 text-[11px] px-1 rounded hover:bg-red-50 text-red-600 border"
-                                                    title="全局删除该标签"
-                                                    onClick={() => deleteGlobal(t.name)}
-                                                >删</button>
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                                {!suggestions.length && <span className="text-[11px] text-gray-400">没有更多候选</span>}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
 /* --------------------------- word cloud --------------------------- */
 function hashHue(s: string) { let h = 0; for (let i = 0; i < s.length; i++) { h = (h * 31 + s.charCodeAt(i)) >>> 0; } return h % 360; }
 const STOP = new Set(["the", "and", "for", "with", "from", "that", "this", "are", "was", "were", "into", "their", "your", "our", "you", "his", "her", "its", "they", "them", "in", "of", "to", "on", "by", "as", "is", "be", "we", "a", "an", "at", "or", "it", "using", "based", "via", "over", "under", "between", "towards", "toward", "towards"]);
@@ -911,164 +665,6 @@ function WordCloudPanel({ papers, tags }: { papers: Paper[]; tags: Tag[] }) {
         </div>
     );
 }
-/* --------------------------- author graph panel --------------------------- */
-function AuthorGraphPanel({ papers, focus }: { papers: Paper[]; focus: string[] }) {
-    const wrapRef = React.useRef<HTMLDivElement | null>(null);
-    const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
-    const [size, setSize] = React.useState({ w: 0, h: 320 });
-  
-    type EdgeT = { source: string; target: string; weight: number };
-  
-    // 构建作者-合作者图；若 focus 非空 => 只取选中作者及其一阶邻居；否则取 Top80（按 论文数+度数）
-    const data = React.useMemo(() => {
-      const count = new Map<string, number>();
-      const adj = new Map<string, Map<string, number>>();
-  
-      for (const p of papers) {
-        const names = Array.from(new Set((p.authors || []).map(a => a?.name).filter(Boolean))) as string[];
-        for (const n of names) count.set(n, (count.get(n) || 0) + 1);
-        for (let i = 0; i < names.length; i++) {
-          for (let j = i + 1; j < names.length; j++) {
-            const a = names[i]!, b = names[j]!;
-            if (!adj.has(a)) adj.set(a, new Map());
-            if (!adj.has(b)) adj.set(b, new Map());
-            adj.get(a)!.set(b, (adj.get(a)!.get(b) || 0) + 1);
-            adj.get(b)!.set(a, (adj.get(b)!.get(a) || 0) + 1);
-          }
-        }
-      }
-  
-      let nodes = Array.from(count.entries()).map(([id, c]) => ({ id, count: c }));
-      const edges: EdgeT[] = [];
-      const focusSet = new Set(focus);
-  
-      if (focus.length) {
-        const keep = new Set<string>();
-        focus.forEach(f => keep.add(f));
-        focus.forEach(f => {
-          const m = adj.get(f);
-          if (m) m.forEach((_w, nb) => keep.add(nb));
-        });
-        nodes = nodes.filter(n => keep.has(n.id));
-      } else {
-        const deg = (id: string) => (adj.get(id)?.size || 0);
-        nodes.sort((a, b) => (b.count + deg(b.id)) - (a.count + deg(a.id)));
-        nodes = nodes.slice(0, 80);
-      }
-  
-      const nodeSet = new Set(nodes.map(n => n.id));
-      adj.forEach((m, a) => {
-        if (!nodeSet.has(a)) return;
-        m.forEach((w, b) => {
-          if (!nodeSet.has(b) || a > b) return; // 去重
-          edges.push({ source: a, target: b, weight: w });
-        });
-      });
-  
-      return { nodes, edges };
-    }, [papers, focus]);
-  
-    // 自适应容器宽度
-    React.useEffect(() => {
-      const el = wrapRef.current; if (!el) return;
-      const update = () => {
-        const rect = el.getBoundingClientRect();
-        setSize({ w: Math.max(260, rect.width), h: 320 });
-      };
-      update();
-      window.addEventListener('resize', update);
-      return () => window.removeEventListener('resize', update);
-    }, []);
-  
-    // 轻量力导向布局 + 绘制
-    React.useEffect(() => {
-      const canvas = canvasRef.current; if (!canvas) return;
-      const dpr = Math.max(1, Math.floor(window.devicePixelRatio || 1));
-      canvas.width = Math.floor(size.w * dpr);
-      canvas.height = Math.floor(size.h * dpr);
-      canvas.style.width = `${size.w}px`;
-      canvas.style.height = `${size.h}px`;
-      const ctx = canvas.getContext('2d'); if (!ctx) return;
-      ctx.resetTransform(); ctx.scale(dpr, dpr);
-  
-      const N = data.nodes.length;
-      if (!N) { ctx.clearRect(0, 0, size.w, size.h); return; }
-  
-      const nodes = data.nodes.map((n, i) => ({
-        id: n.id, count: n.count,
-        x: (size.w / 2) + 120 * Math.cos(2 * Math.PI * i / Math.max(1, N)),
-        y: (size.h / 2) + 120 * Math.sin(2 * Math.PI * i / Math.max(1, N)),
-        vx: 0, vy: 0,
-      }));
-      const idx = new Map(nodes.map((n, i) => [n.id, i] as const));
-      const edges = data.edges.map(e => ({ s: idx.get(e.source)!, t: idx.get(e.target)!, w: e.weight }));
-  
-      const maxCount = Math.max(...nodes.map(n => n.count)) || 1;
-      const radius = (c: number) => 6 + 14 * (c / maxCount);
-      const isFocus = (name: string) => focus.includes(name);
-  
-      const ITER = 420;
-      for (let it = 0; it < ITER; it++) {
-        // 斥力
-        for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
-          const a = nodes[i], b = nodes[j];
-          let dx = a.x - b.x, dy = a.y - b.y; const dist = Math.hypot(dx, dy) + 0.01;
-          const k = 120; const rep = (k * k) / dist; // FR 模型
-          const rx = (dx / dist) * rep, ry = (dy / dist) * rep;
-          a.vx += rx; a.vy += ry; b.vx -= rx; b.vy -= ry;
-        }
-        // 引力（沿边）
-        for (const e of edges) {
-          const a = nodes[e.s], b = nodes[e.t];
-          let dx = a.x - b.x, dy = a.y - b.y; const dist = Math.hypot(dx, dy) + 0.01;
-          const att = (dist * dist) / 1400 * Math.log(1 + e.w);
-          const ax = (dx / dist) * att, ay = (dy / dist) * att;
-          a.vx -= ax; a.vy -= ay; b.vx += ax; b.vy += ay;
-        }
-        // 积分 + 阻尼 + 边界
-        for (const n of nodes) {
-          n.x += n.vx * 0.01; n.y += n.vy * 0.01;
-          n.vx *= 0.6; n.vy *= 0.6;
-          n.x = Math.max(18, Math.min(size.w - 18, n.x));
-          n.y = Math.max(18, Math.min(size.h - 18, n.y));
-        }
-      }
-  
-      // 绘制
-      ctx.clearRect(0, 0, size.w, size.h);
-      for (const e of edges) {
-        const a = nodes[e.s], b = nodes[e.t];
-        ctx.save();
-        ctx.globalAlpha = Math.min(0.15 + Math.log(1 + e.w) * 0.2, 0.9);
-        ctx.strokeStyle = 'rgba(100,116,139,0.6)';
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-        ctx.restore();
-      }
-      for (const n of nodes) {
-        const r = radius(n.count);
-        ctx.beginPath();
-        ctx.fillStyle = isFocus(n.id) ? '#1E90FF' : '#64748b';
-        ctx.arc(n.x, n.y, r, 0, Math.PI * 2); ctx.fill();
-        // label
-        ctx.fillStyle = '#111827';
-        ctx.font = '11px system-ui, -apple-system, Segoe UI, Roboto';
-        ctx.textAlign = 'center';
-        const label = n.id.length > 14 ? n.id.slice(0, 13) + '…' : n.id;
-        ctx.fillText(label, n.x, n.y - r - 2);
-      }
-    }, [data, size, focus]);
-  
-    return (
-      <div className="rounded-2xl border bg-white overflow-hidden" ref={wrapRef}>
-        <div className="px-3 py-2 border-b bg-gradient-to-r from-sky-50 to-blue-50 text-sm font-medium flex items-center justify-between">
-          <span>作者关系网</span>
-          <span className="text-xs text-gray-500">{focus.length ? `聚焦：${focus.join('、')}` : '显示 Top 合作者（最多 80 人）'}</span>
-        </div>
-        <div className="p-2"><canvas ref={canvasRef} /></div>
-      </div>
-    );
-  }
 
 function FolderTreeNode({
     node, depth, index, activeId, onPick, onCreateChild, collapsedSet, toggle, counts, onFolderContextMenu
@@ -1106,59 +702,6 @@ function FolderTreeNode({
                     ))}
                 </div>
             )}
-        </div>
-    );
-}
-
-/* --------------------------- dual year slider (non-linear) --------------------------- */
-function YearDualSlider({
-    start, end, value, onChange,
-}: { start: number; end: number; value: [number, number]; onChange: (a: number, b: number) => void }) {
-    const [a, b] = value;
-    const clamp = (x: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, x));
-    // 非线性映射（反向）：p ∈ [0,1] -> year = start + (end-start) * sqrt(p)
-    // 目的：靠近“现在(end)”更细腻，靠近早年(start)更稀疏
-    const pctToYear = (p: number) => Math.round(start + (end - start) * Math.sqrt(p));
-    const yearToPct = (y: number) => {
-        const r = Math.max(1, (end - start));
-        const t = clamp((y - start) / r, 0, 1);
-        return t * t; // 反变换：p = ((y-start)/range)^2
-    };
-    const pMin = Math.round(yearToPct(a) * 100);
-    const pMax = Math.round(yearToPct(b) * 100);
-
-    const handleMin = (p: number) => {
-        const y = clamp(pctToYear(p / 100), start, b);
-        onChange(y, b);
-    };
-    const handleMax = (p: number) => {
-        const y = clamp(pctToYear(p / 100), a, end);
-        onChange(a, y);
-    };
-
-    const trackSel = `linear-gradient(to right, transparent ${pMin}%, #60a5fa ${pMin}%, #60a5fa ${pMax}%, transparent ${pMax}%)`;
-
-    return (
-        <div className="relative w-[260px] h-6">
-            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1.5 rounded bg-slate-200" />
-            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1.5 rounded pointer-events-none" style={{ background: trackSel }} />
-
-            <input
-            type="range" min={0} max={100} value={pMin}
-            onChange={(e) => handleMin(Number(e.currentTarget.value))}
-            className="absolute inset-0 w-full appearance-none bg-transparent pointer-events-none z-20
-                        [&::-webkit-slider-runnable-track]:bg-transparent [&::-moz-range-track]:bg-transparent
-                        [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:pointer-events-auto
-                        [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:pointer-events-auto"
-            />
-            <input
-            type="range" min={0} max={100} value={pMax}
-            onChange={(e) => handleMax(Number(e.currentTarget.value))}
-            className="absolute inset-0 w-full appearance-none bg-transparent pointer-events-none z-30
-                        [&::-webkit-slider-runnable-track]:bg-transparent [&::-moz-range-track]:bg-transparent
-                        [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:pointer-events-auto
-                        [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:pointer-events-auto"
-            />
         </div>
     );
 }
@@ -1906,7 +1449,6 @@ export default function Library() {
                         <AbstractNotePanel paper={selectedId ? papers.find(p => p.id === selectedId) || null : null} />
                         {/* 词云 */}
                         <WordCloudPanel papers={displayPapers} tags={tags} />
-                        {/* <AuthorGraphPanel papers={displayPapers} focus={filterAuthors} /> */}
                     </div>
                 </div>
 

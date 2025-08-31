@@ -8,7 +8,7 @@ type Paper = {
     authors?: { id?: number; name?: string; affiliation?: string | null }[];
     tag_ids?: number[];
   };
-const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
+  const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 function AbstractNotePanel({ paper }: { paper: Paper | null }) {
     const [note, setNote] = React.useState(""); const [editingAbs, setEditingAbs] = React.useState(false);
     const [absDraft, setAbsDraft] = React.useState("");
