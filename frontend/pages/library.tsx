@@ -1599,6 +1599,8 @@ function VenueAbbrDropdown({ value, onChange }: { value: string[]; onChange: (ab
 export default function Library() {
     // 左侧目录右键菜单（导出功能）
     const [folderCtx, setFolderCtx] = React.useState<{ visible: boolean; x: number; y: number; folderId: number | null }>({ visible: false, x: 0, y: 0, folderId: null });
+    // 顶部筛选栏：第二排（高级筛选）折叠开关
+    const [advFilterOpen, setAdvFilterOpen] = React.useState(true);
     const openFolderCtx = (x: number, y: number, folderId: number | null) => setFolderCtx({ visible: true, x, y, folderId });
     React.useEffect(() => {
       const hide = () => setFolderCtx(s => ({ ...s, visible: false }));
@@ -2148,17 +2150,17 @@ export default function Library() {
                             />
                         ))}
                         </div>
-      {/* 目录右键菜单 */}
-      {folderCtx.visible && (
-        <div
-          className="fixed z-50 bg-white border shadow-lg rounded-md text-sm"
-          style={{ left: folderCtx.x, top: folderCtx.y, minWidth: 260 }}
-        >
-          <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportBibTeXOfFolder(folderCtx.folderId); }}>导出 BibTeX 为 .tex（含子目录）</button>
-          <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportCSVOfFolder(folderCtx.folderId); }}>导出为 Excel（CSV）</button>
-          <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportMarkdownOfFolder(folderCtx.folderId); }}>导出为 Markdown</button>
-        </div>
-      )}
+                        {/* 目录右键菜单 */}
+                        {folderCtx.visible && (
+                            <div
+                            className="fixed z-50 bg-white border shadow-lg rounded-md text-sm"
+                            style={{ left: folderCtx.x, top: folderCtx.y, minWidth: 260 }}
+                            >
+                            <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportBibTeXOfFolder(folderCtx.folderId); }}>导出 BibTeX 为 .tex（含子目录）</button>
+                            <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportCSVOfFolder(folderCtx.folderId); }}>导出为 Excel（CSV）</button>
+                            <button className="w-full text-left px-3 py-2 hover:bg-gray-50" onClick={async () => { setFolderCtx(s => ({ ...s, visible: false })); await exportMarkdownOfFolder(folderCtx.folderId); }}>导出为 Markdown</button>
+                            </div>
+                        )}
                         <div className="text-[11px] text-gray-500 mt-3">提示：拖拽<strong>把手</strong>或在论文上<strong>右键</strong>选择目录。</div>
                       </div>
                       <QuickTagPanel
@@ -2175,44 +2177,60 @@ export default function Library() {
                     {/* 中间：表格 */}
                     <div className="rounded-2xl border bg-white overflow-hidden">
                         {/* 顶部工具行（标签筛选留在顶部，不占用左侧目录区） */}
-                        <div className="flex items-center justify-between px-3 py-2 border-b bg-gray-50">
-                        <div className="flex items-center gap-3 text-sm">
+                        <div className="px-3 py-2 border-b bg-gray-50">
+                          {/* 一体式可换行容器：第一排（基础筛选） + 第二排（高级筛选） */}
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+                            {/* 基础筛选（第一排） */}
                             <button onClick={() => setYearAsc(v => !v)} className="px-2 py-1 rounded-md border hover:bg-white">
-                                年份排序 {yearAsc ? <ChevronUp className="w-4 h-4 inline" /> : <ChevronDown className="w-4 h-4 inline" />}
+                              年份排序 {yearAsc ? <ChevronUp className="w-4 h-4 inline" /> : <ChevronDown className="w-4 h-4 inline" />}
                             </button>
                             <input
-                                value={search}
-                                onChange={(e) => setSearch(e.target.value)}
-                                placeholder="搜索标题 / DOI / 期刊（即时）"
-                                className="px-2 py-1 rounded-md border"
+                              value={search}
+                              onChange={(e) => setSearch(e.target.value)}
+                              placeholder="搜索标题 / DOI / 期刊（即时）"
+                              className="px-2 py-1 rounded-md border"
                             />
-                            <div className="flex items-center gap-2">
-                                <span className="text-xs text-gray-500">年份：</span>
-                                <YearDualSlider
-                                    start={minYear}
-                                    end={maxYear}
-                                    value={[yearMin, yearMax]}
-                                    onChange={(a, b) => { setYearMin(a); setYearMax(b); }}
-                                />
-                                <span className="text-xs text-gray-600">{yearMin} - {yearMax}</span>
-                                <button className="text-xs px-2 py-1 rounded border" onClick={loadPapers}>应用</button>
-                                </div>
-                            </div>
-                        <div className="flex items-center gap-2">
-                            <VenueAbbrDropdown value={filterVenueAbbrs} onChange={setFilterVenueAbbrs} />
-                            <TagFilterDropdown tags={tags} value={filterTagNames} onChange={setFilterTagNames} />
-                            <AuthorFilterDropdown authors={allAuthors} value={filterAuthors} onChange={setFilterAuthors} />
+                            <span className="text-xs text-gray-500">年份：</span>
+                            <YearDualSlider
+                              start={minYear}
+                              end={maxYear}
+                              value={[yearMin, yearMax]}
+                              onChange={(a, b) => { setYearMin(a); setYearMax(b); }}
+                            />
+                            <span className="text-xs text-gray-600">{yearMin} - {yearMax}</span>
+                            <button className="text-xs px-2 py-1 rounded border" onClick={loadPapers}>应用</button>
+
+                            {/* 折叠按钮：固定在第一排最右侧 */}
                             <button
-                        type="button"
-                        onClick={openAuthorGraph}
-                        className="ml-2 inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border bg-white hover:bg-gray-50 disabled:opacity-50"
-                        disabled={!filterAuthors.length}
-                        title="查看所选作者的合作者关系网"
-                        >
-                        <Share2 className="w-3.5 h-3.5" />
-                        关系网
-                        </button>
-                        </div>
+                              type="button"
+                              onClick={() => setAdvFilterOpen(v => !v)}
+                              className="ml-auto shrink-0 inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border bg-white hover:bg-gray-50"
+                              title={advFilterOpen ? "隐藏筛选栏" : "展开筛选栏"}
+                            >
+                              {advFilterOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                            </button>
+
+                            {/* 高级筛选（第二排，整行显示，可折叠 + 动画） */}
+                            <div
+                              className={`basis-full overflow-hidden transform-gpu transition-[max-height,opacity,transform] duration-300 ease-out origin-top ${advFilterOpen ? 'max-h-[260px] opacity-100 scale-y-100' : 'max-h-0 opacity-0 scale-y-95'}`}
+                            >
+                              <div className="flex flex-wrap items-center gap-2 mt-1">
+                                <VenueAbbrDropdown value={filterVenueAbbrs} onChange={setFilterVenueAbbrs} />
+                                <TagFilterDropdown tags={tags} value={filterTagNames} onChange={setFilterTagNames} />
+                                <AuthorFilterDropdown authors={allAuthors} value={filterAuthors} onChange={setFilterAuthors} />
+                                <button
+                                  type="button"
+                                  onClick={openAuthorGraph}
+                                  className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border bg-white hover:bg-gray-50 disabled:opacity-50"
+                                  disabled={!filterAuthors.length}
+                                  title="查看所选作者的合作者关系网"
+                                >
+                                  <Share2 className="w-3.5 h-3.5" />
+                                  关系网
+                                </button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
 
                         <div className="max-h-[74vh] overflow-auto">
@@ -2276,7 +2294,7 @@ export default function Library() {
                         <AbstractNotePanel paper={selectedId ? papers.find(p => p.id === selectedId) || null : null} />
                         {/* 词云 */}
                         <WordCloudPanel papers={displayPapers} tags={tags} />
-                        <AuthorGraphPanel papers={displayPapers} focus={filterAuthors} />
+                        {/* <AuthorGraphPanel papers={displayPapers} focus={filterAuthors} /> */}
                     </div>
                 </div>
 
