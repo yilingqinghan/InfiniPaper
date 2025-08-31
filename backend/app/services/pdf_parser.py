@@ -3,10 +3,43 @@ import os, re
 from typing import Dict, Any, Optional, List
 import httpx
 from loguru import logger
-
 from .external_enrich import (
-    DOI_RE, merge_meta, fetch_crossref_by_doi, fetch_crossref_by_title, fetch_openalex
+    DOI_RE, merge_meta,
+    fetch_crossref_by_doi, fetch_crossref_by_title,
+    fetch_openalex, fetch_arxiv_by_id, fetch_semanticscholar_by_arxiv,
 )
+DOI_CLEAN_RE = re.compile(r"(10\.\d{4,9}/[^\s\"<>]+)", re.I)
+ARXIV_INLINE_RE = re.compile(r"arxiv\s*:\s*([0-9]{4}\.[0-9]{4,5})(v\d+)?", re.I)
+ARXIV_LEGACY_RE = re.compile(r"([a-z\-]+/\d{7})", re.I)  # e.g. cs/9901001
+
+def _normalize_doi(raw: Optional[str]) -> Optional[str]:
+    if not raw:
+        return None
+    raw = raw.strip()
+    m = DOI_CLEAN_RE.search(raw)
+    if not m:
+        return None
+    doi = m.group(1)
+    # 去掉常见结尾标点（含中英文）
+    doi = doi.rstrip('.,;:)]}>\u3002\uff0c\uff1a')
+    # PDF 粘连：正确 DOI 末尾（通常是数字）后紧跟单词（如 ACMReference）
+    m2 = re.match(r"^(.*?\d)([A-Za-z]{3,})$", doi)
+    if m2:
+        doi = m2.group(1)
+    return doi
+
+def _guess_arxiv_id(text: str, filename: str) -> Optional[str]:
+    m = ARXIV_INLINE_RE.search(text or "")
+    if m:
+        return m.group(1)
+    base = os.path.splitext(os.path.basename(filename))[0]
+    m = re.search(r"(\d{4}\.\d{4,5})(v\d+)?", base)
+    if m:
+        return m.group(1)
+    m = ARXIV_LEGACY_RE.search(base)
+    if m:
+        return m.group(1)
+    return None
 
 def _extract_text_first_pages(file_path: str, max_pages: int = 5) -> str:
     try:
@@ -96,21 +129,55 @@ async def parse_pdf_metadata(file_path: str) -> Dict[str, Any]:
         logger.warning(f"GROBID failed: {e}")
 
     text = _extract_text_first_pages(file_path, 5)
+    head = text or ""
+    # 避免扫到参考文献 DOI：仅取“References/ACM Reference Format”之前的内容
+    cut = re.search(r"\n\s*(references|acm reference format)\b", head, re.I)
+    if cut:
+        head = head[:cut.start()]
+    head = head[:4000]  # 再限制头部长度，规避版式拼接
 
-    # 2) DOI -> Crossref + OpenAlex
-    doi_match = DOI_RE.search(text or "")
-    if doi_match:
-        cr = await fetch_crossref_by_doi(doi_match.group(0))
-        oa = await fetch_openalex(doi=doi_match.group(0))
+    # 2) DOI -> Crossref + OpenAlex（带清洗）
+    doi_match = DOI_RE.search(head) if head else None
+    doi_clean = _normalize_doi(doi_match.group(0)) if doi_match else None
+    if doi_clean:
+        cr = await fetch_crossref_by_doi(doi_clean)
+        oa = await fetch_openalex(doi=doi_clean)
         got = merge_meta(got, cr, oa)
 
-    # 3) 按标题搜索
-    if not got.get("doi"):
+    # 2.5) arXiv 兜底：没有可靠 DOI，则标记 venue=arXiv（提示用）
+    arxiv_id = _guess_arxiv_id(text or "", file_path)
+    if not got.get("doi") and arxiv_id and not got.get("venue"):
+        got["venue"] = "arXiv"
+
+    # 新增：用 arXiv id 拉 OpenAlex 元数据
+    if not got.get("doi") and arxiv_id:
+        try:
+            oa3 = await fetch_openalex(arxiv_id=arxiv_id)
+            got = merge_meta(got, oa3)
+        except Exception as e:
+            logger.warning(f"OpenAlex by arXiv failed: {e}")
+    
+    # 还不行再兜底：Semantic Scholar by arXiv
+    if not got.get("doi") and arxiv_id and (not got.get("title") or not (got.get("authors") or [])):
+        try:
+            ss = await fetch_semanticscholar_by_arxiv(arxiv_id)
+            got = merge_meta(got, ss)
+        except Exception as e:
+            logger.warning(f"Semantic Scholar by arXiv failed: {e}")
+
+    # 3) 按标题搜索（若识别为 arXiv 且无 DOI，就不要按标题去 Crossref/OpenAlex 猜，避免错绑）
+    if not got.get("doi") and not arxiv_id:
         title_guess = got.get("title") or None
         if not title_guess:
-            lines = [ln.strip() for ln in (text or "").splitlines() if ln.strip()]
-            for ln in lines[:15]:
-                if len(ln) > 8 and len(ln.split()) >= 3 and not ln.lower().startswith("abstract"):
+            lines = [ln.strip() for ln in (head or "").splitlines() if ln.strip()]
+            for ln in lines[:20]:
+                low = ln.lower()
+                if (len(ln) > 8 and len(ln.split()) >= 3
+                    and not low.startswith("abstract")
+                    and "acm reference" not in low
+                    and "permission" not in low
+                    and "copyright" not in low
+                    and not low.startswith("keywords")):
                     title_guess = ln
                     break
         if title_guess:

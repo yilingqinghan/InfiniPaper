@@ -58,6 +58,14 @@ def _venue_abbr(name: str | None) -> str | None:
         if pat.search(name): return abbr
     return None    
 
+# 识别 arXiv ID（仅用于弱提示/兜底，不发起网络请求）
+def _guess_arxiv_id_from_filename(name: str) -> str | None:
+    m = _re.search(r"(\d{4}\.\d{4,5})(v\d+)?", name)
+    if m: return m.group(1)
+    m = _re.search(r"([a-z\-]+/\d{7})", name, _re.I)  # legacy: cs/9901001
+    if m: return m.group(1)
+    return None
+
 def _paper_payload(session: SessionDep, paper_id: int) -> Dict[str, Any]:
     paper = session.get(Paper, paper_id)
     if not paper:
@@ -450,6 +458,34 @@ async def _upload_one(
         "venue": venue or meta.get("venue"),
         "pdf_url": pdf_url,
     }
+
+    # PDF 提取的 DOI 容易误抓到参考文献里的 DOI；仅在与标题匹配时才信任，并用 DOI 反查补全字段
+    norm_doi = (data.get("doi") or "").strip()
+    if norm_doi:
+        try:
+            resolved = await fetch_by_doi(norm_doi)
+            rt = (resolved.get("title") or "")
+            mt = (data.get("title") or "")
+            nt_r = _norm_title(rt)
+            nt_m = _norm_title(mt)
+            match_ok = bool(nt_r and nt_m and (nt_r in nt_m or nt_m in nt_r))
+            if not match_ok:
+                logger.warning(f"[upload] dropping DOI from PDF ({norm_doi}) – title mismatch: parsed='{mt}' vs resolved='{rt}'")
+                norm_doi = ""
+            else:
+                # 反查成功：缺啥补啥（前端显式/解析优先级已在 create API 统一）
+                if not data.get("title") and resolved.get("title"):   data["title"] = resolved["title"]
+                if not data.get("year") and resolved.get("year") is not None: data["year"] = resolved["year"]
+                if not data.get("venue") and resolved.get("venue"):   data["venue"] = resolved["venue"]
+        except Exception as e:
+            logger.warning(f"[upload] DOI resolve failed for '{norm_doi}': {e}")
+
+    # 如果疑似 arXiv 且没有可靠 DOI，则把 venue 标成 arXiv（非破坏性，用于前端筛选与视觉提示）
+    if not norm_doi:
+        if (data.get("venue") and "arxiv" in (data.get("venue") or "").lower()) or _guess_arxiv_id_from_filename(dest.name):
+            data["venue"] = data.get("venue") or "arXiv"
+
+    data["doi"] = norm_doi or None
 
     existing = None
     if data.get("doi"):
