@@ -285,6 +285,10 @@ function getTagPrio(name: string) { return loadViz()[name]?.prio; }
 function setTagColor(name: string, color?: string) { const v = loadViz(); v[name] = { ...(v[name] || {}), color }; saveViz(v); }
 function setTagPrio(name: string, prio?: string) { const v = loadViz(); v[name] = { ...(v[name] || {}), prio }; saveViz(v); }
 
+// 特殊标签：开源（深色底、白字）
+const OPEN_SOURCE_TAGS = new Set(["开源", "Open Source"]);
+function isOpenSourceTag(name: string) { return OPEN_SOURCE_TAGS.has(name.trim()); }
+
 // hex -> rgba with alpha for subtle tinted backgrounds
 function hexWithAlpha(hex: string, alpha: number) {
     const h = hex.replace('#', '');
@@ -528,6 +532,16 @@ function PaperRow({
                     {colored.length ? colored.map(t => {
                         const color = getTagColor(t.name) || "#3b82f6";
                         const prio = getTagPrio(t.name);
+                        if (isOpenSourceTag(t.name)) {
+                            return (
+                                <span key={t.id}
+                                    className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white"
+                                    title={t.name}
+                                >
+                                    {t.name}
+                                </span>
+                            );
+                        }
                         return (
                             <span key={t.id}
                                 className="text-[11px] px-2 py-[2px] rounded-full border inline-flex items-center gap-1"
@@ -544,10 +558,16 @@ function PaperRow({
             <td className="px-2 py-1.5 w-[18%]">
                 <div className="flex flex-wrap gap-1">
                     {plain.length ? plain.map(t => (
-                        <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1" title={t.name}>
-                            <span className="w-2 h-2 rounded-full bg-gray-400 inline-block" />
-                            {t.name}
-                        </span>
+                        isOpenSourceTag(t.name) ? (
+                            <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white" title={t.name}>
+                                {t.name}
+                            </span>
+                        ) : (
+                            <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1" title={t.name}>
+                                <span className="w-2 h-2 rounded-full bg-gray-400 inline-block" />
+                                {t.name}
+                            </span>
+                        )
                     )) : <span className="text-[11px] text-gray-400">—</span>}
                 </div>
             </td>
@@ -681,9 +701,10 @@ function QuickTagPanel({
                                 const color = getTagColor(name);
                                 const prio = getTagPrio(name);
                                 return (
-                                    <span key={name}
-                                        className="text-[11px] px-2 py-[3px] rounded-full border inline-flex items-center gap-1"
-                                        style={{ borderColor: color || "#cbd5e1" }}
+                                    <span
+                                        key={name}
+                                        className={`text-[11px] px-2 py-[3px] inline-flex items-center gap-1 border ${isOpenSourceTag(name) ? "rounded-md bg-gray-900 border-gray-900 text-white" : "rounded-full"}`}
+                                        style={isOpenSourceTag(name) ? undefined : { borderColor: color || "#cbd5e1" }}
                                     >
                                         <button
                                             className="w-2.5 h-2.5 rounded-full border"
@@ -777,8 +798,9 @@ function QuickTagPanel({
                                     const color = getTagColor(t.name);
                                     const prio = getTagPrio(t.name);
                                     return (
-                                        <div key={t.id}
-                                            className="px-2 py-1 rounded-lg border flex items-center gap-2 text-[12px] hover:bg-gray-50"
+                                        <div
+                                            key={t.id}
+                                            className={`px-2 py-1 border flex items-center gap-2 text-[12px] ${isOpenSourceTag(t.name) ? "rounded-md bg-gray-900 border-gray-900 text-white" : "rounded-lg hover:bg-gray-50"}`}
                                         >
                                             <span className="w-2.5 h-2.5 rounded-full border inline-block" style={{ background: color || "transparent" }} />
                                             {prio ? <span className="text-xs">{prio}</span> : null}
