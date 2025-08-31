@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:CollaborateCom 2025 Deadline
 DTSTART;TZID="UTC-08:00":20250501T235959
 DTEND;TZID="UTC-08:00":20250502T000059
-DTSTAMP:20250831T045659Z
-UID:99a0e26c-4265-410c-8dc2-29f8e2fb0f57
+DTSTAMP:20250831T142719Z
+UID:db3ff011-f715-4345-a66b-882888e98344
 DESCRIPTION:International Conference on Collaborative Computing: Networkin
  g\, Applications and Worksharing\n🗓️ Date: November 15-16\, 2025\n
  📍 Location: Shanghai\, China\n⏰ Original Deadline (UTC-8): 2025-05-01
@@ -38,8 +38,8 @@ BEGIN:VEVENT
 SUMMARY:CSCWD 2022 Deadline
 DTSTART;TZID="UTC-12:00":20211130T235959
 DTEND;TZID="UTC-12:00":20211201T000059
-DTSTAMP:20250831T045659Z
-UID:3003496c-2c79-4fa4-a879-8b596ad2a8e5
+DTSTAMP:20250831T142719Z
+UID:18fb1de1-979e-46fc-ad75-27a903050dc1
 DESCRIPTION:International Conference on Computer Supported Cooperative Wor
  k in Design\n🗓️ Date: May 4-6\, 2022\n📍 Location: Hangzhou\, China
  \n⏰ Original Deadline (AoE): 2021-11-30 23:59:59\nCategory: 人机交互
@@ -52,8 +52,8 @@ BEGIN:VEVENT
 SUMMARY:CSCWD 2023 Deadline
 DTSTART;TZID="UTC-12:00":20221031T235959
 DTEND;TZID="UTC-12:00":20221101T000059
-DTSTAMP:20250831T045659Z
-UID:73063064-0e41-4ebc-8c50-225e521500dc
+DTSTAMP:20250831T142719Z
+UID:16aaea56-b134-44b4-a34c-c758e1cccb03
 DESCRIPTION:International Conference on Computer Supported Cooperative Wor
  k in Design\n🗓️ Date: May 24-26\, 2023\n📍 Location: Rio de Janeiro
  \, Brazil\n⏰ Original Deadline (AoE): 2022-10-31 23:59:59\nCategory: 人
@@ -66,8 +66,8 @@ BEGIN:VEVENT
 SUMMARY:CSCWD 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241115T235959
 DTEND;TZID="UTC-12:00":20241116T000059
-DTSTAMP:20250831T045659Z
-UID:ee693b72-5f4b-4c91-a5fa-e7e3d0893fe0
+DTSTAMP:20250831T142719Z
+UID:e1c68ffc-dc65-4428-acd4-2339b3d2e3e6
 DESCRIPTION:International Conference on Computer Supported Cooperative Wor
  k in Design\n🗓️ Date: May 5-7\, 2025\n📍 Location: Compiègne\, Fra
  nce\n⏰ Original Deadline (AoE): 2024-11-15 23:59:59\nCategory: 人机交
@@ -80,8 +80,8 @@ BEGIN:VEVENT
 SUMMARY:ECSCW 2025 Deadline [Conference Papers]
 DTSTART;TZID="UTC-12:00":20250225T235959
 DTEND;TZID="UTC-12:00":20250226T000059
-DTSTAMP:20250831T045659Z
-UID:4a29a2a1-7fa2-4627-9e37-44dcf20fe3ff
+DTSTAMP:20250831T142719Z
+UID:eea51c6c-65f8-4c84-9719-49c524442c62
 DESCRIPTION:European Conference on Computer Supported Cooperative Work\n
  🗓️ Date: June 30 - July 4\, 2025\n📍 Location: Newcastle upon Tyne\
  , UK\n⏰ Original Deadline (AoE): 2025-02-25 23:59:59\nCategory: 人机
@@ -94,8 +94,8 @@ BEGIN:VEVENT
 SUMMARY:ECSCW 2026 Deadline [Conference Papers]
 DTSTART;TZID="UTC-12:00":20260306T235959
 DTEND;TZID="UTC-12:00":20260307T000059
-DTSTAMP:20250831T045659Z
-UID:e000e806-455a-428d-98e9-66c65b9a542b
+DTSTAMP:20250831T142719Z
+UID:0ff4451e-20c0-43f3-b04d-6c3f5457b83d
 DESCRIPTION:European Conference on Computer Supported Cooperative Work\n
  🗓️ Date: 29 June - 3 July\, 2026\n📍 Location: Munich\, Germany\n
  ⏰ Original Deadline (AoE): 2026-03-06 23:59:59\nCategory: 人机交互
@@ -108,8 +108,8 @@ BEGIN:VEVENT
 SUMMARY:GROUP 2025 Deadline [Full Paper First Wave Submissions]
 DTSTART;TZID="UTC-12:00":20230607T235959
 DTEND;TZID="UTC-12:00":20230608T000059
-DTSTAMP:20250831T045659Z
-UID:67973662-5326-47d6-992e-dab98cb07302
+DTSTAMP:20250831T142719Z
+UID:f25ec4f3-19ad-4c29-b9d5-7d7c5bea99e2
 DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
   Date: January 12-15\, 2025\n📍 Location: Omni Hilton Head Oceanfront Re
  sort\, Hilton Head Island\, South Carolina\, USA\n⏰ Original Deadline (A
@@ -124,8 +124,8 @@ BEGIN:VEVENT
 SUMMARY:GROUP 2025 Abstract Deadline [Full Paper Second Wave Submissions]
 DTSTART;TZID="UTC-12:00":20240501T235959
 DTEND;TZID="UTC-12:00":20240502T000059
-DTSTAMP:20250831T045659Z
-UID:91f8ad3f-4dcd-4c13-af75-ab07c7bc658d
+DTSTAMP:20250831T142719Z
+UID:a8e3a322-b09d-4ea0-86a8-b0248f12b5b2
 DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
   Date: January 12-15\, 2025\n📍 Location: Omni Hilton Head Oceanfront Re
  sort\, Hilton Head Island\, South Carolina\, USA\n⏰ Original Deadline (A
@@ -140,8 +140,8 @@ BEGIN:VEVENT
 SUMMARY:GROUP 2027 Abstract Deadline [Full Paper First Wave Submissions]
 DTSTART;TZID="UTC-12:00":20250708T235959
 DTEND;TZID="UTC-12:00":20250709T000059
-DTSTAMP:20250831T045659Z
-UID:d96d05e8-c22f-4123-a129-828f4cb2d9e1
+DTSTAMP:20250831T142719Z
+UID:5a03a6d5-41d1-4da6-a5be-b6c7dde2135c
 DESCRIPTION:ACM International Conference on Supporting Group Work\n🗓️
   Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (AoE): 2025-07-08 23
  :59:59\nCategory: 人机交互与普适计算 (HI)\nCCF B\, CORE B\nConfer
@@ -154,8 +154,8 @@ BEGIN:VEVENT
 SUMMARY:ICWSM 2025 Deadline [1st Full-paper Deadline]
 DTSTART;TZID="UTC-12:00":20240515T235959
 DTEND;TZID="UTC-12:00":20240516T000059
-DTSTAMP:20250831T045659Z
-UID:47856741-a060-49c1-89e5-abfbd47e25d3
+DTSTAMP:20250831T142719Z
+UID:5d961f13-1d8d-4c6d-8f38-61323c1f8be9
 DESCRIPTION:The International AAAI Conference on Web and Social Media\n
  🗓️ Date: June 23 - 26\, 2025\n📍 Location: Copenhagen\, Denmark\n
  ⏰ Original Deadline (AoE): 2024-05-15 23:59:59\nCategory: 人机交互
@@ -168,8 +168,8 @@ BEGIN:VEVENT
 SUMMARY:ICWSM 2025 Deadline [2nd Full-paper Deadline]
 DTSTART;TZID="UTC-12:00":20240915T235959
 DTEND;TZID="UTC-12:00":20240916T000059
-DTSTAMP:20250831T045659Z
-UID:97f838a4-e64e-4e03-83fd-46d078c5a5f2
+DTSTAMP:20250831T142719Z
+UID:5e14486f-5c2e-4d21-8d3c-2dec4d95c82b
 DESCRIPTION:The International AAAI Conference on Web and Social Media\n
  🗓️ Date: June 23 - 26\, 2025\n📍 Location: Copenhagen\, Denmark\n
  ⏰ Original Deadline (AoE): 2024-09-15 23:59:59\nCategory: 人机交互
@@ -182,8 +182,8 @@ BEGIN:VEVENT
 SUMMARY:ICWSM 2025 Deadline [3rd Full-paper Deadline]
 DTSTART;TZID="UTC-12:00":20250115T235959
 DTEND;TZID="UTC-12:00":20250116T000059
-DTSTAMP:20250831T045659Z
-UID:3a7d686b-a15f-4bc0-bbd6-feddec560612
+DTSTAMP:20250831T142719Z
+UID:6f99947a-63ee-4d7c-bf9d-f70b2aeb3798
 DESCRIPTION:The International AAAI Conference on Web and Social Media\n
  🗓️ Date: June 23 - 26\, 2025\n📍 Location: Copenhagen\, Denmark\n
  ⏰ Original Deadline (AoE): 2025-01-15 23:59:59\nCategory: 人机交互
@@ -196,8 +196,8 @@ BEGIN:VEVENT
 SUMMARY:ISS 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250314T235959
 DTEND;TZID="UTC-12:00":20250315T000059
-DTSTAMP:20250831T045659Z
-UID:e27af0c8-16ca-46a5-8fa9-5a157156ccda
+DTSTAMP:20250831T142719Z
+UID:94ebf61f-814a-463c-914c-dbb010d77a0b
 DESCRIPTION:ACM International Conference on Interactive Surfaces and Space
  s\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (AoE): 202
  5-03-14 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF B\nConfe
@@ -210,8 +210,8 @@ BEGIN:VEVENT
 SUMMARY:ISS 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250725T235959
 DTEND;TZID="UTC-12:00":20250726T000059
-DTSTAMP:20250831T045659Z
-UID:27e8fcbb-5369-46f6-b00a-d1fb01296112
+DTSTAMP:20250831T142719Z
+UID:3df4972a-d8ed-4b72-868c-1e67df0e6688
 DESCRIPTION:ACM International Conference on Interactive Surfaces and Space
  s\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (AoE): 202
  5-07-25 23:59:59\nCategory: 人机交互与普适计算 (HI)\nCCF B\nConfe
@@ -233,8 +233,8 @@ BEGIN:VEVENT
 SUMMARY:UIC 2025 Deadline [Conference Papers]
 DTSTART;TZID="UTC-04:00":20250501T235959
 DTEND;TZID="UTC-04:00":20250502T000059
-DTSTAMP:20250831T045659Z
-UID:b25a56b9-36b6-4961-9ad4-d6694ea6c6ef
+DTSTAMP:20250831T142719Z
+UID:5ee300fc-b075-49bb-93ad-a4293ab6757b
 DESCRIPTION:IEEE International Conference on Ubiquitous Intelligence and C
  omputing\n🗓️ Date: Aug 18 - 22\, 2025\n📍 Location: Calgary\, Alber
  ta\, Canada\n⏰ Original Deadline (UTC-4): 2025-05-01 23:59:59\nCategory:

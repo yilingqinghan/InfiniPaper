@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:CHI 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20230907T235959
 DTEND;TZID="UTC-12:00":20230908T000059
-DTSTAMP:20250831T045655Z
-UID:0aa09447-4b45-4bca-af9f-a83f4b6669d5
+DTSTAMP:20250831T142716Z
+UID:a8b75512-e9ef-43ff-adc4-0e5c1c9a8e69
 DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
  会议时间: May 11 - May 16\, 2024\n📍 会议地点: Honolulu\, Hawaii
  \, USA\n⏰ 原始截止时间 (AoE): 2023-09-07 23:59:59\n分类: 人机
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:CHI 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20240905T235959
 DTEND;TZID="UTC-12:00":20240906T000059
-DTSTAMP:20250831T045655Z
-UID:ff00defe-f723-4c51-9537-7c0647fc4270
+DTSTAMP:20250831T142716Z
+UID:7b488334-3ff2-4fda-9749-d2a9a206a2ea
 DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
  会议时间: April 26 - May 1\, 2025\n📍 会议地点: Yokohama\, Japan
  \n⏰ 原始截止时间 (AoE): 2024-09-05 23:59:59\n分类: 人机交互
@@ -42,8 +42,8 @@ BEGIN:VEVENT
 SUMMARY:CHI 2026 摘要截稿
 DTSTART;TZID="UTC-12:00":20250904T235959
 DTEND;TZID="UTC-12:00":20250905T000059
-DTSTAMP:20250831T045655Z
-UID:b826579a-04be-43e3-a652-dadfad646ee1
+DTSTAMP:20250831T142716Z
+UID:5db9627c-3729-41d5-82ae-1f057bd48bf6
 DESCRIPTION:ACM Conference on Human Factors in Computing Systems\n🗓️ 
  会议时间: April 13 - 17\, 2026\n📍 会议地点: Centre de Convencio
  ns Internacional de Barcelona\, Barcelona\, Spain\n⏰ 原始截止时间 
@@ -58,8 +58,8 @@ BEGIN:VEVENT
 SUMMARY:PerCom 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20240929T235900
 DTEND;TZID="UTC-12:00":20240930T000000
-DTSTAMP:20250831T045655Z
-UID:35e5a968-c38b-44dd-b5a4-2afec5d32f56
+DTSTAMP:20250831T142716Z
+UID:14dcdc08-5890-47cf-a0f9-53bc9bda498f
 DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
  nications\n🗓️ 会议时间: March 17 - 21\, 2025\n📍 会议地点: 
  Walter E. Washington Convention Center\, Washington DC\, USA\n⏰ 原始
@@ -73,8 +73,8 @@ BEGIN:VEVENT
 SUMMARY:PerCom 2026 摘要截稿
 DTSTART;TZID="UTC-12:00":20250912T235900
 DTEND;TZID="UTC-12:00":20250913T000000
-DTSTAMP:20250831T045655Z
-UID:f779e4a7-e989-4919-aca8-759ca8aeda06
+DTSTAMP:20250831T142716Z
+UID:2893bccb-710b-4403-ab56-c7daf813d096
 DESCRIPTION:IEEE International Conference on Pervasive Computing and Commu
  nications\n🗓️ 会议时间: March 16 - 20\, 2026\n📍 会议地点: 
  Pisa\, Italy\n⏰ 原始截止时间 (AoE): 2025-09-12 23:59:00\n分类: 
@@ -96,8 +96,8 @@ BEGIN:VEVENT
 SUMMARY:UIST 2024 截稿日期 [abstract deadline]
 DTSTART;TZID="UTC-08:00":20240327T170000
 DTEND;TZID="UTC-08:00":20240327T170100
-DTSTAMP:20250831T045655Z
-UID:0ae076c5-0948-43ba-b0d2-8e4f52d2498d
+DTSTAMP:20250831T142716Z
+UID:d0a1bc14-3d4b-4463-a3c1-de5eb9334c17
 DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
  ️ 会议时间: October 13-16\, 2024\n📍 会议地点: Pittsburgh\, Pe
  nnsylvania\, USA\n⏰ 原始截止时间 (UTC-8): 2024-03-27 17:00:00\n分
@@ -111,8 +111,8 @@ BEGIN:VEVENT
 SUMMARY:UIST 2024 截稿日期 [paper deadline]
 DTSTART;TZID="UTC-08:00":20240403T170000
 DTEND;TZID="UTC-08:00":20240403T170100
-DTSTAMP:20250831T045655Z
-UID:fe42984d-fbd4-4db3-b84f-a0ab48bb8eeb
+DTSTAMP:20250831T142716Z
+UID:0ebca770-e8f9-4a63-86c5-82674b285b47
 DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
  ️ 会议时间: October 13-16\, 2024\n📍 会议地点: Pittsburgh\, Pe
  nnsylvania\, USA\n⏰ 原始截止时间 (UTC-8): 2024-04-03 17:00:00\n分
@@ -126,8 +126,8 @@ BEGIN:VEVENT
 SUMMARY:UIST 2025 截稿日期 [abstract deadline]
 DTSTART;TZID="UTC-08:00":20250402T170000
 DTEND;TZID="UTC-08:00":20250402T170100
-DTSTAMP:20250831T045655Z
-UID:99af8f5e-bd7d-477c-bb61-7646ffd65c52
+DTSTAMP:20250831T142716Z
+UID:9ed7404a-e50c-4d0d-a02c-f74c8e2336e8
 DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
  ️ 会议时间: Sep 28 - Oct 1\, 2025\n📍 会议地点: Busan\, Korea\
  n⏰ 原始截止时间 (UTC-8): 2025-04-02 17:00:00\n分类: 人机交互
@@ -140,8 +140,8 @@ BEGIN:VEVENT
 SUMMARY:UIST 2025 截稿日期 [paper deadline]
 DTSTART;TZID="UTC-08:00":20250409T170000
 DTEND;TZID="UTC-08:00":20250409T170100
-DTSTAMP:20250831T045655Z
-UID:d9366781-4f65-402b-9547-383990ee8c10
+DTSTAMP:20250831T142716Z
+UID:63ff1355-cad8-4b07-8d8f-af8df43e051b
 DESCRIPTION:ACM Symposium on User Interface Software and Technology\n🗓
  ️ 会议时间: Sep 28 - Oct 1\, 2025\n📍 会议地点: Busan\, Korea\
  n⏰ 原始截止时间 (UTC-8): 2025-04-09 17:00:00\n分类: 人机交互

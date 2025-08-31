@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:CEC 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250115T235959
 DTEND;TZID="UTC-12:00":20250116T000059
-DTSTAMP:20250831T045654Z
-UID:e052f8f7-fea0-4e78-9614-78f61153fd42
+DTSTAMP:20250831T142715Z
+UID:629ea4cf-1672-4672-a478-bd2f70949a9f
 DESCRIPTION:IEEE Congress on Evolutionary Computation\n🗓️ 会议时
  间: June 8-12\, 2025\n📍 会议地点: Hangzhou\, China\n⏰ 原始截
  止时间 (UTC-12): 2025-01-15 23:59:59\n分类: 人工智能 (AI)\nCORE B
@@ -37,8 +37,8 @@ BEGIN:VEVENT
 SUMMARY:CICAI 2023 截稿日期
 DTSTART;TZID="UTC+08:00":20230630T235959
 DTEND;TZID="UTC+08:00":20230701T000059
-DTSTAMP:20250831T045654Z
-UID:0d7d09a8-95a1-44d1-a0c7-70a4a964fd2b
+DTSTAMP:20250831T142715Z
+UID:8ede6234-a390-42d4-aa50-762bd41b23af
 DESCRIPTION:CAAI International Conference on Artificial Intelligence\n🗓
  ️ 会议时间: July 22-23\, 2023\n📍 会议地点: Fuzhou\, China\n
  ⏰ 原始截止时间 (UTC+8): 2023-06-30 23:59:59\n分类: 人工智能 
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:COLM 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20240322T235959
 DTEND;TZID="UTC-12:00":20240323T000059
-DTSTAMP:20250831T045654Z
-UID:261ff01a-5ef3-4db5-8fc1-0b26b83b44c7
+DTSTAMP:20250831T142715Z
+UID:397de7c5-62e9-4cde-8ba0-8e480bcf0479
 DESCRIPTION:Conference on Language Modeling\n🗓️ 会议时间: October
   7-9\, 2024\n📍 会议地点: Philadelphia\, Pennsylvania\, United State
  s\n⏰ 原始截止时间 (AoE): 2024-03-22 23:59:59\n分类: 人工智能
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:COLM 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250322T235959
 DTEND;TZID="UTC-12:00":20250323T000059
-DTSTAMP:20250831T045654Z
-UID:19377ed5-db7c-4c54-9f32-cedc80de8ab6
+DTSTAMP:20250831T142715Z
+UID:9e2602bc-7943-43ef-937a-7181febb7bc0
 DESCRIPTION:Conference on Language Modeling\n🗓️ 会议时间: October
   7-9\, 2025\n📍 会议地点: Palais des Congrès Montreal\, Canada\n⏰
   原始截止时间 (AoE): 2025-03-22 23:59:59\n分类: 人工智能 (AI)\
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:CoRL 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20240606T235959
 DTEND;TZID="UTC-12:00":20240607T000059
-DTSTAMP:20250831T045654Z
-UID:beeab73d-d459-4c26-8ded-030c372db7c1
+DTSTAMP:20250831T142715Z
+UID:0df88d9b-09d8-4970-b9fd-9c5f954efa3e
 DESCRIPTION:The Conference on Robot Learning\n🗓️ 会议时间: Novemb
  er 6-9\, 2024\n📍 会议地点: Munich\, Germany\n⏰ 原始截止时间
   (AoE): 2024-06-06 23:59:59\n分类: 人工智能 (AI)\n会议官网: http
@@ -92,8 +92,8 @@ BEGIN:VEVENT
 SUMMARY:CoRL 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250430T235959
 DTEND;TZID="UTC-12:00":20250501T000059
-DTSTAMP:20250831T045654Z
-UID:bf6343c3-b1a1-4a46-a3a5-637f22def2d1
+DTSTAMP:20250831T142715Z
+UID:b9cf670a-39d8-4839-8c7c-27b5e8e01d7d
 DESCRIPTION:The Conference on Robot Learning\n🗓️ 会议时间: Septem
  ber 27-30\, 2025\n📍 会议地点: Seoul\, Korea\n⏰ 原始截止时间
   (AoE): 2025-04-30 23:59:59\n分类: 人工智能 (AI)\n会议官网: http
@@ -105,8 +105,8 @@ BEGIN:VEVENT
 SUMMARY:CPAL 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20241125T235959
 DTEND;TZID="UTC-12:00":20241126T000059
-DTSTAMP:20250831T045654Z
-UID:bc21eb9d-d77c-4b00-add4-ece9e1d2db27
+DTSTAMP:20250831T142715Z
+UID:51321119-c01a-4eef-9e24-8c1413ddfbd1
 DESCRIPTION:The Conference on Parsimony and Learning\n🗓️ 会议时间
  : March 24-27\, 2025\n📍 会议地点: California\, USA\n⏰ 原始截
  止时间 (AoE): 2024-11-25 23:59:59\n分类: 人工智能 (AI)\n会议官
@@ -127,8 +127,8 @@ BEGIN:VEVENT
 SUMMARY:ESANN 2025 摘要截稿
 DTSTART;TZID="UTC-08:00":20241120T000000
 DTEND;TZID="UTC-08:00":20241120T000100
-DTSTAMP:20250831T045654Z
-UID:45fb4b60-b3e1-44f2-95a7-3fc59b76ced6
+DTSTAMP:20250831T142715Z
+UID:ae6d4248-1900-417f-8aa1-6effbf435a2c
 DESCRIPTION:European Symposium on Artificial Neural Networks\, Computation
  al Intelligence and Machine Learning\n🗓️ 会议时间: April 23 - Apr
  il 25\, 2025\n📍 会议地点: Bruges\, Belgium\n⏰ 原始截止时间 
@@ -142,8 +142,8 @@ SUMMARY:ICLR 2022 摘要截稿 [Mandatory abstract deadline on Sep 29\, 20
  21.]
 DTSTART;TZID="UTC-12:00":20210929T120000
 DTEND;TZID="UTC-12:00":20210929T120100
-DTSTAMP:20250831T045654Z
-UID:c1781859-8ba5-435a-a9a9-69a57401e36c
+DTSTAMP:20250831T142715Z
+UID:9fd5b299-78c2-4958-abc1-07346ae8d1eb
 DESCRIPTION:International Conference on Learning Representations\n🗓️ 
  会议时间: April 25-29\, 2022\n📍 会议地点: Virtual conference\n
  ⏰ 原始截止时间 (UTC-12): 2021-09-29 12:00:00\n分类: 人工智能
@@ -157,8 +157,8 @@ SUMMARY:ICLR 2023 摘要截稿 [Mandatory abstract deadline on Sep. 11\, 2
  022.]
 DTSTART;TZID="UTC-12:00":20220921T235959
 DTEND;TZID="UTC-12:00":20220922T000059
-DTSTAMP:20250831T045654Z
-UID:87d6bde7-4e2a-445a-968c-0451cde48333
+DTSTAMP:20250831T142715Z
+UID:bbbf6af2-e616-4d37-abc5-4e40518a086a
 DESCRIPTION:International Conference on Learning Representations\n🗓️ 
  会议时间: May 01-05\, 2023\n📍 会议地点: Kigali\, Rwanda\n⏰ 
  原始截止时间 (UTC-12): 2022-09-21 23:59:59\n分类: 人工智能 (AI
@@ -172,8 +172,8 @@ SUMMARY:ICLR 2024 摘要截稿 [Mandatory abstract deadline on Sep. 21\, 2
  023.]
 DTSTART;TZID="UTC-12:00":20230921T235959
 DTEND;TZID="UTC-12:00":20230922T000059
-DTSTAMP:20250831T045654Z
-UID:b087f7a4-fac3-4f8d-8e54-983dbef86c62
+DTSTAMP:20250831T142715Z
+UID:414587a2-3839-419d-bef3-1ff7ae153f6f
 DESCRIPTION:International Conference on Learning Representations\n🗓️ 
  会议时间: May 07-11\, 2024\n📍 会议地点: Vienna\, Austria\n⏰ 
  原始截止时间 (UTC-12): 2023-09-21 23:59:59\n分类: 人工智能 (AI
@@ -186,8 +186,8 @@ BEGIN:VEVENT
 SUMMARY:ICLR 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20240927T235959
 DTEND;TZID="UTC-12:00":20240928T000059
-DTSTAMP:20250831T045654Z
-UID:64279992-6c38-4df9-82ec-188c3cfd138c
+DTSTAMP:20250831T142715Z
+UID:99a644f4-1054-4473-81bc-d0b36c65424d
 DESCRIPTION:International Conference on Learning Representations\n🗓️ 
  会议时间: April 24-28\, 2025\n📍 会议地点: Singapore\n⏰ 原始
  截止时间 (UTC-12): 2024-09-27 23:59:59\n分类: 人工智能 (AI)\nCOR
@@ -200,8 +200,8 @@ BEGIN:VEVENT
 SUMMARY:ICLR 2026 摘要截稿
 DTSTART;TZID="UTC-12:00":20250919T235959
 DTEND;TZID="UTC-12:00":20250920T000059
-DTSTAMP:20250831T045654Z
-UID:405e478d-317d-4ccc-93ab-fe0fa3bbc279
+DTSTAMP:20250831T142715Z
+UID:e8f0c553-e764-4b4f-8d3b-c501183cc154
 DESCRIPTION:International Conference on Learning Representations\n🗓️ 
  会议时间: May 01-05\, 2026\n📍 会议地点: Brazil\n⏰ 原始截
  止时间 (AoE): 2025-09-19 23:59:59\n分类: 人工智能 (AI)\nCORE A*\,
@@ -214,8 +214,8 @@ BEGIN:VEVENT
 SUMMARY:IJCNLP 2025 截稿日期 [ACL Rolling Review]
 DTSTART;TZID="UTC-12:00":20250728T235959
 DTEND;TZID="UTC-12:00":20250729T000059
-DTSTAMP:20250831T045654Z
-UID:d7decc40-fb52-4e46-a16f-70482dbc21c4
+DTSTAMP:20250831T142715Z
+UID:0471cd50-c169-4461-a283-d85784f21f81
 DESCRIPTION:International Joint Conference on Natural Language Processing\
  n🗓️ 会议时间: Dec 20-24\, 2025\n📍 会议地点: Mumbai\, India
  \n⏰ 原始截止时间 (UTC-12): 2025-07-28 23:59:59\n分类: 人工智
@@ -228,8 +228,8 @@ BEGIN:VEVENT
 SUMMARY:LOG 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250822T235959
 DTEND;TZID="UTC-12:00":20250823T000059
-DTSTAMP:20250831T045654Z
-UID:b0445fb2-13ee-4850-a906-7587c1c68cac
+DTSTAMP:20250831T142715Z
+UID:e51f171e-edf6-4ad6-82d6-635ef2205f91
 DESCRIPTION:Learning on Graphs Conference\n🗓️ 会议时间: December 
  10-12\, 2025\n📍 会议地点: Arizona State University\, Phoenix\, USA\
  n⏰ 原始截止时间 (AoE): 2025-08-22 23:59:59\n分类: 人工智能 (
@@ -242,8 +242,8 @@ BEGIN:VEVENT
 SUMMARY:RSS 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20230203T235959
 DTEND;TZID="UTC-12:00":20230204T000059
-DTSTAMP:20250831T045654Z
-UID:f11d4047-0799-4f92-91ea-a29285b96502
+DTSTAMP:20250831T142715Z
+UID:144da894-b4c1-4ea8-b713-976136b0c187
 DESCRIPTION:Robotics Science and Systems\n🗓️ 会议时间: July 10-14
  \, 2023\n📍 会议地点: Daegu\, Republic of Korea\n⏰ 原始截止时
  间 (AoE): 2023-02-03 23:59:59\n分类: 人工智能 (AI)\nCORE A*\, THCPL
@@ -256,8 +256,8 @@ BEGIN:VEVENT
 SUMMARY:RSS 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20240202T235900
 DTEND;TZID="UTC-12:00":20240203T000000
-DTSTAMP:20250831T045654Z
-UID:0cf37e3c-5b98-4e9d-9465-7e932b519688
+DTSTAMP:20250831T142715Z
+UID:cc83ad2e-d12a-41fe-9762-daf64435ef1f
 DESCRIPTION:Robotics Science and Systems\n🗓️ 会议时间: July 15-19
  \, 2024\n📍 会议地点: Delft\, Netherlands\n⏰ 原始截止时间 (A
  oE): 2024-02-02 23:59:00\n分类: 人工智能 (AI)\nCORE A*\, THCPL A\n
@@ -270,8 +270,8 @@ BEGIN:VEVENT
 SUMMARY:RSS 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250117T235900
 DTEND;TZID="UTC-12:00":20250118T000000
-DTSTAMP:20250831T045654Z
-UID:aa8b982e-1e73-4511-9624-413d66b332bf
+DTSTAMP:20250831T142715Z
+UID:4a289c31-29b3-4973-8117-74939de510a8
 DESCRIPTION:Robotics Science and Systems\n🗓️ 会议时间: June 21-25
  \, 2025\n📍 会议地点: Los Angeles\, California\, USA\n⏰ 原始截
  止时间 (AoE): 2025-01-17 23:59:00\n分类: 人工智能 (AI)\nCORE A*\,
@@ -293,8 +293,8 @@ BEGIN:VEVENT
 SUMMARY:WACV 2025 截稿日期 [first round]
 DTSTART;TZID="UTC-07:00":20240715T235959
 DTEND;TZID="UTC-07:00":20240716T000059
-DTSTAMP:20250831T045654Z
-UID:d099d0ff-59f5-49f2-9fd1-789779fa4c2d
+DTSTAMP:20250831T142715Z
+UID:d2cbf2f9-ebf0-4560-bd39-a2939603bfe7
 DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
  n🗓️ 会议时间: February 28 - March 4\, 2025\n📍 会议地点: Tu
  cson\, Arizona\, USA\n⏰ 原始截止时间 (UTC-7): 2024-07-15 23:59:59\
@@ -307,8 +307,8 @@ BEGIN:VEVENT
 SUMMARY:WACV 2025 截稿日期 [second round]
 DTSTART;TZID="UTC-07:00":20240909T235959
 DTEND;TZID="UTC-07:00":20240910T000059
-DTSTAMP:20250831T045654Z
-UID:7ae14b11-8e76-4ecc-ac91-5a7b5d942de2
+DTSTAMP:20250831T142715Z
+UID:6214d506-e51d-465c-b9ff-1a0463e26217
 DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
  n🗓️ 会议时间: February 28 - March 4\, 2025\n📍 会议地点: Tu
  cson\, Arizona\, USA\n⏰ 原始截止时间 (UTC-7): 2024-09-09 23:59:59\
@@ -321,8 +321,8 @@ BEGIN:VEVENT
 SUMMARY:WACV 2026 摘要截稿 [First round]
 DTSTART;TZID="UTC-12:00":20250711T235900
 DTEND;TZID="UTC-12:00":20250712T000000
-DTSTAMP:20250831T045654Z
-UID:9a5a24fe-0c60-47c9-9dc8-c3866d5a1dea
+DTSTAMP:20250831T142715Z
+UID:fe49a260-25d3-45a9-88ba-9b34734dfb29
 DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
  n🗓️ 会议时间: Mar 6 - 10\, 2026\n📍 会议地点: Tucson\, Ariz
  ona\, USA\n⏰ 原始截止时间 (AoE): 2025-07-11 23:59:00\n分类: 人
@@ -335,8 +335,8 @@ BEGIN:VEVENT
 SUMMARY:WACV 2026 摘要截稿 [Second round]
 DTSTART;TZID="UTC-12:00":20250912T235900
 DTEND;TZID="UTC-12:00":20250913T000000
-DTSTAMP:20250831T045654Z
-UID:79ba0c7b-8b53-44c6-b302-76a9a1c2de6c
+DTSTAMP:20250831T142715Z
+UID:edfae2c5-2b65-4e63-9215-6a080f8cd69e
 DESCRIPTION:IEEE/CVF Winter Conference on Applications of Computer Vision\
  n🗓️ 会议时间: Mar 6 - 10\, 2026\n📍 会议地点: Tucson\, Ariz
  ona\, USA\n⏰ 原始截止时间 (AoE): 2025-09-12 23:59:00\n分类: 人

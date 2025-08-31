@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:USENIX ATC 2021 Deadline
 DTSTART;TZID="UTC-12:00":20210112T235959
 DTEND;TZID="UTC-12:00":20210113T000059
-DTSTAMP:20250831T045659Z
-UID:53c0a647-5cdb-4721-93ff-f1898f803608
+DTSTAMP:20250831T142719Z
+UID:cfb1473f-e5b4-4678-a10e-381465f1313c
 DESCRIPTION:USENIX Annual Technical Conference\n🗓️ Date: July 14-16\,
   2021\n📍 Location: SANTA CLARA\, USA\n⏰ Original Deadline (AoE): 2021
  -01-12 23:59:59\nCategory: 计算机体系结构/并行与分布计算/存
@@ -37,8 +37,8 @@ BEGIN:VEVENT
 SUMMARY:USENIX ATC 2022 Deadline
 DTSTART:20220113T235959Z
 DTEND:20220114T000059Z
-DTSTAMP:20250831T045659Z
-UID:29ed6d11-df63-4cca-89c9-d9354d1bf752
+DTSTAMP:20250831T142719Z
+UID:ae0d5d72-e708-4275-aedf-27e9a60f428d
 DESCRIPTION:USENIX Annual Technical Conference\n🗓️ Date: July 11-13\,
   2022\n📍 Location: Omni La Costa Resort & Spa in Carlsbad\, CA\, USA\n
  ⏰ Original Deadline (UTC+0): 2022-01-13 23:59:59\nCategory: 计算机体
@@ -52,8 +52,8 @@ BEGIN:VEVENT
 SUMMARY:USENIX ATC 2023 Abstract Deadline
 DTSTART:20230105T235959Z
 DTEND:20230106T000059Z
-DTSTAMP:20250831T045659Z
-UID:5be18613-3de8-47c6-8477-ef1b534c756c
+DTSTAMP:20250831T142719Z
+UID:dd548fb9-5821-4da2-a536-8d6f27fe1dc1
 DESCRIPTION:USENIX Annual Technical Conference\n🗓️ Date: July 10-12\,
   2023\n📍 Location: BOSTON\, MA\, USA\n⏰ Original Deadline (UTC+0): 20
  23-01-05 23:59:59\nCategory: 计算机体系结构/并行与分布计算/
@@ -67,8 +67,8 @@ BEGIN:VEVENT
 SUMMARY:USENIX ATC 2024 Abstract Deadline
 DTSTART:20240109T235959Z
 DTEND:20240110T000059Z
-DTSTAMP:20250831T045659Z
-UID:e7bae91e-5240-4813-ae6c-af447a317e1b
+DTSTAMP:20250831T142719Z
+UID:3c497e9f-cfce-44c3-9629-b78b0538b6c7
 DESCRIPTION:USENIX Annual Technical Conference\n🗓️ Date: July 10-12\,
   2024\n📍 Location: Santa Clara\, CA\, USA\n⏰ Original Deadline (UTC+0
  ): 2024-01-09 23:59:59\nCategory: 计算机体系结构/并行与分布计
@@ -82,8 +82,8 @@ BEGIN:VEVENT
 SUMMARY:USENIX ATC 2025 Abstract Deadline
 DTSTART:20250107T235959Z
 DTEND:20250108T000059Z
-DTSTAMP:20250831T045659Z
-UID:05ff2db4-9f79-4a38-87fd-88222b6c9ddf
+DTSTAMP:20250831T142719Z
+UID:53be90d3-3e19-489f-9313-9434c7d45acb
 DESCRIPTION:USENIX Annual Technical Conference\n🗓️ Date: July 7-9\, 2
  025\n📍 Location: Boston\, MA\, USA\n⏰ Original Deadline (UTC+0): 2025
  -01-07 23:59:59\nCategory: 计算机体系结构/并行与分布计算/存
@@ -96,8 +96,8 @@ BEGIN:VEVENT
 SUMMARY:IEEE/ACM CGO 2025 Deadline
 DTSTART;TZID="UTC-12:00":20240530T235959
 DTEND;TZID="UTC-12:00":20240531T000059
-DTSTAMP:20250831T045659Z
-UID:e0a3c863-5f3e-483a-900f-0e1d39b80309
+DTSTAMP:20250831T142719Z
+UID:92a3a8f1-0bdb-486c-a670-f5fcca2fe6bf
 DESCRIPTION:The International Symposium on Code Generation and Optimizatio
  n\n🗓️ Date: TBD\n📍 Location: TBD\n⏰ Original Deadline (AoE): 202
  4-05-30 23:59:59\nCategory: 计算机体系结构/并行与分布计算/
@@ -110,8 +110,8 @@ BEGIN:VEVENT
 SUMMARY:IEEE/ACM CGO 2024 Deadline
 DTSTART;TZID="UTC-12:00":20230519T235959
 DTEND;TZID="UTC-12:00":20230520T000059
-DTSTAMP:20250831T045659Z
-UID:f8fd134c-cab5-42b1-a685-e59f49f548fa
+DTSTAMP:20250831T142719Z
+UID:a254eeee-6d9e-4cbe-8300-e7d8caf3292a
 DESCRIPTION:The International Symposium on Code Generation and Optimizatio
  n\n🗓️ Date: March 2-6\, 2024\n📍 Location: Edinburgh\, United Kingd
  om\n⏰ Original Deadline (AoE): 2023-05-19 23:59:59\nCategory: 计算机
@@ -125,8 +125,8 @@ BEGIN:VEVENT
 SUMMARY:IEEE/ACM CGO 2026 Deadline [First Submission]
 DTSTART;TZID="UTC-12:00":20250529T235959
 DTEND;TZID="UTC-12:00":20250530T000059
-DTSTAMP:20250831T045659Z
-UID:241aaefc-1d93-42c9-8baf-e3792d17332b
+DTSTAMP:20250831T142719Z
+UID:89a69805-9db6-4249-b486-518a8a42bed5
 DESCRIPTION:The International Symposium on Code Generation and Optimizatio
  n\n🗓️ Date: TBD\n📍 Location: Sydney\, Australia\n⏰ Original Dead
  line (AoE): 2025-05-29 23:59:59\nCategory: 计算机体系结构/并行与
@@ -140,8 +140,8 @@ BEGIN:VEVENT
 SUMMARY:IEEE/ACM CGO 2026 Deadline [Second Submission]
 DTSTART;TZID="UTC-12:00":20250911T235959
 DTEND;TZID="UTC-12:00":20250912T000059
-DTSTAMP:20250831T045659Z
-UID:f8945e60-802f-42a5-a93e-208ac60e25e9
+DTSTAMP:20250831T142719Z
+UID:fa61239c-867b-478c-ab3f-6e6496645aca
 DESCRIPTION:The International Symposium on Code Generation and Optimizatio
  n\n🗓️ Date: TBD\n📍 Location: Sydney\, Australia\n⏰ Original Dead
  line (AoE): 2025-09-11 23:59:59\nCategory: 计算机体系结构/并行与
@@ -164,8 +164,8 @@ BEGIN:VEVENT
 SUMMARY:DAC 2022 Deadline [abstract deadline]
 DTSTART;TZID="UTC-08:00":20211115T170000
 DTEND;TZID="UTC-08:00":20211115T170100
-DTSTAMP:20250831T045659Z
-UID:b4e02956-63b2-45ef-8f8a-d48154c15ce3
+DTSTAMP:20250831T142719Z
+UID:160b358c-0041-4c5a-8151-6c16dc8dbbe4
 DESCRIPTION:Design Automation Conference\n🗓️ Date: July 10-14\, 2022\
  n📍 Location: San Francisco\, CA\n⏰ Original Deadline (UTC-8): 2021-11
  -15 17:00:00\nCategory: 计算机体系结构/并行与分布计算/存储
@@ -178,8 +178,8 @@ BEGIN:VEVENT
 SUMMARY:DAC 2022 Deadline [full paper deadline]
 DTSTART;TZID="UTC-08:00":20211122T170000
 DTEND;TZID="UTC-08:00":20211122T170100
-DTSTAMP:20250831T045659Z
-UID:075fc5fd-0d04-4e3d-af7a-7d9a9df6cff9
+DTSTAMP:20250831T142719Z
+UID:922de264-be6d-4f62-b814-85cb7db1fca4
 DESCRIPTION:Design Automation Conference\n🗓️ Date: July 10-14\, 2022\
  n📍 Location: San Francisco\, CA\n⏰ Original Deadline (UTC-8): 2021-11
  -22 17:00:00\nCategory: 计算机体系结构/并行与分布计算/存储
@@ -192,8 +192,8 @@ BEGIN:VEVENT
 SUMMARY:DAC 2023 Deadline [abstract deadline]
 DTSTART;TZID="UTC-08:00":20221114T170000
 DTEND;TZID="UTC-08:00":20221114T170100
-DTSTAMP:20250831T045659Z
-UID:18c0a1e8-fc6c-438c-83e5-32e6876ddcf4
+DTSTAMP:20250831T142719Z
+UID:0535c88a-7fbb-47a0-a2cd-a91ccf47d97c
 DESCRIPTION:Design Automation Conference\n🗓️ Date: July 9-13\, 2023\n
  📍 Location: San Francisco\, CA\n⏰ Original Deadline (UTC-8): 2022-11-
  14 17:00:00\nCategory: 计算机体系结构/并行与分布计算/存储
@@ -207,8 +207,8 @@ BEGIN:VEVENT
 SUMMARY:DAC 2023 Deadline [full paper deadline]
 DTSTART;TZID="UTC-08:00":20221121T170000
 DTEND;TZID="UTC-08:00":20221121T170100
-DTSTAMP:20250831T045659Z
-UID:2c7893b8-bc87-471e-8051-1c95b54ad61c
+DTSTAMP:20250831T142719Z
+UID:0bfa5e45-2a6e-4a67-aa33-3843b539426d
 DESCRIPTION:Design Automation Conference\n🗓️ Date: July 9-13\, 2023\n
  📍 Location: San Francisco\, CA\n⏰ Original Deadline (UTC-8): 2022-11-
  21 17:00:00\nCategory: 计算机体系结构/并行与分布计算/存储
@@ -222,8 +222,8 @@ BEGIN:VEVENT
 SUMMARY:DAC 2024 Abstract Deadline
 DTSTART;TZID="UTC-08:00":20231113T170000
 DTEND;TZID="UTC-08:00":20231113T170100
-DTSTAMP:20250831T045659Z
-UID:4f55f535-17f1-4058-9dec-a4149b174184
+DTSTAMP:20250831T142719Z
+UID:a03bf490-7f10-438f-98e8-cf5380e74f22
 DESCRIPTION:Design Automation Conference\n🗓️ Date: June 23-27\, 2024\
  n📍 Location: San Francisco\, CA\n⏰ Original Deadline (UTC-8): 2023-11
  -13 17:00:00\nCategory: 计算机体系结构/并行与分布计算/存储
@@ -237,8 +237,8 @@ BEGIN:VEVENT
 SUMMARY:DAC 2025 Abstract Deadline
 DTSTART;TZID="UTC-08:00":20241112T170000
 DTEND;TZID="UTC-08:00":20241112T170100
-DTSTAMP:20250831T045659Z
-UID:ed4e2d1e-99a2-4e16-8491-6b83d5d19856
+DTSTAMP:20250831T142719Z
+UID:aa7a5027-c2c1-48e1-8d40-b6086d2c13de
 DESCRIPTION:Design Automation Conference\n🗓️ Date: June 22-25\, 2025\
  n📍 Location: San Francisco\, CA\n⏰ Original Deadline (UTC-8): 2024-11
  -12 17:00:00\nCategory: 计算机体系结构/并行与分布计算/存储
@@ -252,8 +252,8 @@ BEGIN:VEVENT
 SUMMARY:EuroSys 2021 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20201001T235959
 DTEND;TZID="UTC-12:00":20201002T000059
-DTSTAMP:20250831T045659Z
-UID:9ee72525-b601-42c1-9355-49aca3816362
+DTSTAMP:20250831T142719Z
+UID:5e330b82-3b2f-43ea-ad65-71188d270dda
 DESCRIPTION:European Conference on Computer Systems\n🗓️ Date: April 2
  6-29\, 2021\n📍 Location: Edinburgh\, UK\n⏰ Original Deadline (AoE): 2
  020-10-01 23:59:59\nCategory: 计算机体系结构/并行与分布计算/
@@ -266,8 +266,8 @@ BEGIN:VEVENT
 SUMMARY:EuroSys 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20211001T235959
 DTEND;TZID="UTC-12:00":20211002T000059
-DTSTAMP:20250831T045659Z
-UID:368f75f3-d840-4d2c-a040-b67838f2df1f
+DTSTAMP:20250831T142719Z
+UID:f8a61c05-2c34-4861-b281-34ba383695ff
 DESCRIPTION:European Conference on Computer Systems\n🗓️ Date: April 5
  -8\, 2022\n📍 Location: Rennes\, France\n⏰ Original Deadline (AoE): 20
  21-10-01 23:59:59\nCategory: 计算机体系结构/并行与分布计算/
@@ -280,8 +280,8 @@ BEGIN:VEVENT
 SUMMARY:EuroSys 2023 Abstract Deadline [Spring Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220510T235959
 DTEND;TZID="UTC-12:00":20220511T000059
-DTSTAMP:20250831T045659Z
-UID:29a20edd-d2e9-4696-a4cf-3228584c2337
+DTSTAMP:20250831T142719Z
+UID:acd9dd06-c471-4788-a6ae-f32ba53c5fc6
 DESCRIPTION:European Conference on Computer Systems\n🗓️ Date: May 9-1
  2\, 2023\n📍 Location: Rome\, Italy\n⏰ Original Deadline (AoE): 2022-0
  5-10 23:59:59\nCategory: 计算机体系结构/并行与分布计算/存
@@ -294,8 +294,8 @@ BEGIN:VEVENT
 SUMMARY:EuroSys 2023 Abstract Deadline [Fall Submission Deadline]
 DTSTART;TZID="UTC-12:00":20221011T235959
 DTEND;TZID="UTC-12:00":20221012T000059
-DTSTAMP:20250831T045659Z
-UID:f17da373-5d4d-42e8-ba50-c86317a40341
+DTSTAMP:20250831T142719Z
+UID:477b007b-f464-4063-80d2-06454be66698
 DESCRIPTION:European Conference on Computer Systems\n🗓️ Date: May 9-1
  2\, 2023\n📍 Location: Rome\, Italy\n⏰ Original Deadline (AoE): 2022-1
  0-11 23:59:59\nCategory: 计算机体系结构/并行与分布计算/存
@@ -308,8 +308,8 @@ BEGIN:VEVENT
 SUMMARY:EuroSys 2025 Abstract Deadline [Spring Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240514T235959
 DTEND;TZID="UTC-12:00":20240515T000059
-DTSTAMP:20250831T045659Z
-UID:26e60ff0-1f88-4b2d-8684-25204386eda5
+DTSTAMP:20250831T142719Z
+UID:097657e4-423c-429d-bca3-d98ed09a2384
 DESCRIPTION:European Conference on Computer Systems\n🗓️ Date: March-A
  pril\, 2025\n📍 Location: Rotterdam\, The Netherlands.\n⏰ Original Dea
  dline (AoE): 2024-05-14 23:59:59\nCategory: 计算机体系结构/并行
@@ -323,8 +323,8 @@ BEGIN:VEVENT
 SUMMARY:EuroSys 2025 Abstract Deadline [Fall Submission Deadline]
 DTSTART;TZID="UTC-12:00":20241015T235959
 DTEND;TZID="UTC-12:00":20241016T000059
-DTSTAMP:20250831T045659Z
-UID:068469ff-4a95-4e1b-a845-9680fe7f82b9
+DTSTAMP:20250831T142719Z
+UID:4c0e79eb-0785-4bf7-892d-b6a5aec21888
 DESCRIPTION:European Conference on Computer Systems\n🗓️ Date: March-A
  pril\, 2025\n📍 Location: Rotterdam\, The Netherlands.\n⏰ Original Dea
  dline (AoE): 2024-10-15 23:59:59\nCategory: 计算机体系结构/并行
@@ -338,8 +338,8 @@ BEGIN:VEVENT
 SUMMARY:EuroSys 2026 Abstract Deadline [Spring Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250508T235959
 DTEND;TZID="UTC-12:00":20250509T000059
-DTSTAMP:20250831T045659Z
-UID:f9782030-7e8a-437d-bac1-0bb94e2cd77a
+DTSTAMP:20250831T142719Z
+UID:6bc30de0-c903-4393-878c-b701aac1a2df
 DESCRIPTION:European Conference on Computer Systems\n🗓️ Date: April 1
  3-16\, 2026\n📍 Location: Edinburgh\, UK\n⏰ Original Deadline (AoE): 2
  025-05-08 23:59:59\nCategory: 计算机体系结构/并行与分布计算/
@@ -352,8 +352,8 @@ BEGIN:VEVENT
 SUMMARY:EuroSys 2026 Abstract Deadline [Fall Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250918T235959
 DTEND;TZID="UTC-12:00":20250919T000059
-DTSTAMP:20250831T045659Z
-UID:fe77497a-64db-4e5b-b275-26674e9d2efa
+DTSTAMP:20250831T142719Z
+UID:9e568ec3-f20a-4a23-ab99-559f27573e7c
 DESCRIPTION:European Conference on Computer Systems\n🗓️ Date: April 1
  3-16\, 2026\n📍 Location: Edinburgh\, UK\n⏰ Original Deadline (AoE): 2
  025-09-18 23:59:59\nCategory: 计算机体系结构/并行与分布计算/
@@ -375,8 +375,8 @@ BEGIN:VEVENT
 SUMMARY:FAST 2021 Deadline
 DTSTART;TZID="UTC-07:00":20200924T235959
 DTEND;TZID="UTC-07:00":20200925T000059
-DTSTAMP:20250831T045659Z
-UID:0f64de4e-5067-4228-8528-12f12dffa0ea
+DTSTAMP:20250831T142719Z
+UID:42cba3aa-a597-449d-b7a6-325425441a61
 DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ Da
  te: February 23-25\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (
  UTC-7): 2020-09-24 23:59:59\nCategory: 计算机体系结构/并行与分
@@ -390,8 +390,8 @@ BEGIN:VEVENT
 SUMMARY:FAST 2022 Deadline
 DTSTART;TZID="UTC-07:00":20210923T235959
 DTEND;TZID="UTC-07:00":20210924T000059
-DTSTAMP:20250831T045659Z
-UID:407370af-07f5-44a7-bcaa-23bac7ba13de
+DTSTAMP:20250831T142719Z
+UID:f66d3918-954b-490e-bb6b-ec5c82f23133
 DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ Da
  te: February 21-24\, 2022\n📍 Location: SANTA CLARA\, CA\, USA\n⏰ Orig
  inal Deadline (UTC-7): 2021-09-23 23:59:59\nCategory: 计算机体系结
@@ -405,8 +405,8 @@ BEGIN:VEVENT
 SUMMARY:FAST 2023 Deadline
 DTSTART;TZID="UTC-07:00":20220922T235959
 DTEND;TZID="UTC-07:00":20220923T000059
-DTSTAMP:20250831T045659Z
-UID:790b9cdb-5b69-4bce-b2c3-4cf1122872bc
+DTSTAMP:20250831T142719Z
+UID:53d8d9d5-f584-4fba-b305-bfb0bdf30ecd
 DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ Da
  te: FEBRUARY 20-23\, 2023\n📍 Location: SANTA CLARA\, CA\, USA\n⏰ Orig
  inal Deadline (UTC-7): 2022-09-22 23:59:59\nCategory: 计算机体系结
@@ -420,8 +420,8 @@ BEGIN:VEVENT
 SUMMARY:FAST 2024 Deadline
 DTSTART;TZID="UTC-07:00":20230921T235959
 DTEND;TZID="UTC-07:00":20230922T000059
-DTSTAMP:20250831T045659Z
-UID:87dc3b49-8518-4138-9eea-56288955f66a
+DTSTAMP:20250831T142719Z
+UID:73c9f47d-d71f-4bbe-9bd4-82f63af0fdcd
 DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ Da
  te: FEBRUARY 27-29\, 2024\n📍 Location: SANTA CLARA\, CA\, USA\n⏰ Orig
  inal Deadline (UTC-7): 2023-09-21 23:59:59\nCategory: 计算机体系结
@@ -435,8 +435,8 @@ BEGIN:VEVENT
 SUMMARY:FAST 2025 Deadline
 DTSTART;TZID="UTC-07:00":20240917T235959
 DTEND;TZID="UTC-07:00":20240918T000059
-DTSTAMP:20250831T045659Z
-UID:ef625e65-254a-4525-a355-71288b754cc0
+DTSTAMP:20250831T142719Z
+UID:d121721e-0c64-43a8-b7e4-e17182d83e5a
 DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ Da
  te: FEBRUARY 25-27\, 2025\n📍 Location: SANTA CLARA\, CA\, USA\n⏰ Orig
  inal Deadline (UTC-7): 2024-09-17 23:59:59\nCategory: 计算机体系结
@@ -450,8 +450,8 @@ BEGIN:VEVENT
 SUMMARY:FAST 2026 Deadline [Spring deadline]
 DTSTART;TZID="UTC-12:00":20250318T235900
 DTEND;TZID="UTC-12:00":20250319T000000
-DTSTAMP:20250831T045659Z
-UID:b16de28a-3732-4360-8940-55eadc10c9c6
+DTSTAMP:20250831T142719Z
+UID:5f68593e-434f-4d02-8cf1-3ff96c6f19f8
 DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ Da
  te: FEBRUARY 24-26\, 2026\n📍 Location: SANTA CLARA\, CA\, USA\n⏰ Orig
  inal Deadline (AoE): 2025-03-18 23:59:00\nCategory: 计算机体系结构/
@@ -465,8 +465,8 @@ BEGIN:VEVENT
 SUMMARY:FAST 2026 Deadline [Fall deadline]
 DTSTART;TZID="UTC-12:00":20250916T235900
 DTEND;TZID="UTC-12:00":20250917T000000
-DTSTAMP:20250831T045659Z
-UID:c0db8737-8247-40d3-8d2f-1ac673a00b0c
+DTSTAMP:20250831T142719Z
+UID:c49ac9f4-0a5f-41c9-a1ef-6b713c1ad548
 DESCRIPTION:USENIX Conference on File and Storage Technologies\n🗓️ Da
  te: FEBRUARY 24-26\, 2026\n📍 Location: SANTA CLARA\, CA\, USA\n⏰ Orig
  inal Deadline (AoE): 2025-09-16 23:59:00\nCategory: 计算机体系结构/
@@ -480,8 +480,8 @@ BEGIN:VEVENT
 SUMMARY:ICCAD 2022 Deadline [Abstract Deadline]
 DTSTART;TZID="UTC-12:00":20220516T235959
 DTEND;TZID="UTC-12:00":20220517T000059
-DTSTAMP:20250831T045659Z
-UID:ffe4932f-351a-4e49-b751-c6389bd46607
+DTSTAMP:20250831T142719Z
+UID:74226597-78a8-4234-bc6b-7fa4ea64694c
 DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
  🗓️ Date: Oct 29 - Nov 3\, 2022\n📍 Location: San Diego\, CA\, USA\n
  ⏰ Original Deadline (UTC-12): 2022-05-16 23:59:59\nCategory: 计算机
@@ -495,8 +495,8 @@ BEGIN:VEVENT
 SUMMARY:ICCAD 2022 Deadline [Full Paper Deadline]
 DTSTART;TZID="UTC-12:00":20220523T235959
 DTEND;TZID="UTC-12:00":20220524T000059
-DTSTAMP:20250831T045659Z
-UID:4ff0f764-7a57-4449-ba75-81b19e13c932
+DTSTAMP:20250831T142719Z
+UID:921748c2-6383-4365-938b-4d7f2d1e8d64
 DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
  🗓️ Date: Oct 29 - Nov 3\, 2022\n📍 Location: San Diego\, CA\, USA\n
  ⏰ Original Deadline (UTC-12): 2022-05-23 23:59:59\nCategory: 计算机
@@ -510,8 +510,8 @@ BEGIN:VEVENT
 SUMMARY:ICCAD 2023 Deadline [Abstract Deadline]
 DTSTART;TZID="UTC-12:00":20230515T235959
 DTEND;TZID="UTC-12:00":20230516T000059
-DTSTAMP:20250831T045659Z
-UID:cd84a89f-f75e-4a34-a5d0-d6a83839fbbb
+DTSTAMP:20250831T142719Z
+UID:8f466c73-873d-4a80-b642-78973d53b25f
 DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
  🗓️ Date: Oct 29 - Nov 2\, 2023\n📍 Location: San Diego\, CA\, USA\n
  ⏰ Original Deadline (UTC-12): 2023-05-15 23:59:59\nCategory: 计算机
@@ -525,8 +525,8 @@ BEGIN:VEVENT
 SUMMARY:ICCAD 2023 Deadline [Full Paper Deadline]
 DTSTART;TZID="UTC-12:00":20230522T235959
 DTEND;TZID="UTC-12:00":20230523T000059
-DTSTAMP:20250831T045659Z
-UID:818aad0a-4ea0-4a25-b676-932e68960b11
+DTSTAMP:20250831T142719Z
+UID:1f4e44d9-8df8-4595-9585-60d5fddef9d1
 DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
  🗓️ Date: Oct 29 - Nov 2\, 2023\n📍 Location: San Diego\, CA\, USA\n
  ⏰ Original Deadline (UTC-12): 2023-05-22 23:59:59\nCategory: 计算机
@@ -540,8 +540,8 @@ BEGIN:VEVENT
 SUMMARY:ICCAD 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240428T235959
 DTEND;TZID="UTC-12:00":20240429T000059
-DTSTAMP:20250831T045659Z
-UID:259fde8c-a381-4598-83f8-6506f76f6183
+DTSTAMP:20250831T142719Z
+UID:5819d3d5-4d22-45a0-9aa5-5e6428e0508c
 DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
  🗓️ Date: October 27 - 31\, 2024\n📍 Location: New Jersey\, USA\n⏰
   Original Deadline (UTC-12): 2024-04-28 23:59:59\nCategory: 计算机体
@@ -555,8 +555,8 @@ BEGIN:VEVENT
 SUMMARY:ICCAD 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250414T235959
 DTEND;TZID="UTC-12:00":20250415T000059
-DTSTAMP:20250831T045659Z
-UID:e30f3db9-2947-4109-a22d-06021653ff57
+DTSTAMP:20250831T142719Z
+UID:1723cb8f-33fb-4adc-bbb8-50cb0b4720f4
 DESCRIPTION:IEEE/ACM International Conference on Computer-Aided Design\n
  🗓️ Date: October 26 - 30\, 2025\n📍 Location: MUNICH\, GERMANY\n⏰
   Original Deadline (UTC-12): 2025-04-14 23:59:59\nCategory: 计算机体
@@ -570,8 +570,8 @@ BEGIN:VEVENT
 SUMMARY:ICDCS 2020 Abstract Deadline
 DTSTART;TZID="UTC-07:00":20200106T235959
 DTEND;TZID="UTC-07:00":20200107T000059
-DTSTAMP:20250831T045659Z
-UID:b5d4ded4-019f-4c1a-b347-258f2fe71ea9
+DTSTAMP:20250831T142719Z
+UID:8b7a3972-0772-4cf7-ae35-1d21f604cdf4
 DESCRIPTION:IEEE International Conference on Distributed Computing Systems
  \n🗓️ Date: July 8-10\, 2020\n📍 Location: Singapore\n⏰ Original D
  eadline (UTC-7): 2020-01-06 23:59:59\nCategory: 计算机体系结构/并
@@ -594,8 +594,8 @@ BEGIN:VEVENT
 SUMMARY:ICDCS 2021 Abstract Deadline
 DTSTART;TZID="UTC-05:00":20210106T235959
 DTEND;TZID="UTC-05:00":20210107T000059
-DTSTAMP:20250831T045659Z
-UID:58b08fe2-ce7e-4629-b0b0-307cc6c670c2
+DTSTAMP:20250831T142719Z
+UID:5c07e1e4-4478-496b-a9a2-fb69936048b3
 DESCRIPTION:IEEE International Conference on Distributed Computing Systems
  \n🗓️ Date: July 7-10\, 2021\n📍 Location: Virtual\n⏰ Original Dea
  dline (UTC-5): 2021-01-06 23:59:59\nCategory: 计算机体系结构/并行
@@ -608,8 +608,8 @@ BEGIN:VEVENT
 SUMMARY:ICDCS 2022 Abstract Deadline
 DTSTART;TZID="UTC-05:00":20220124T235959
 DTEND;TZID="UTC-05:00":20220125T000059
-DTSTAMP:20250831T045659Z
-UID:470135f3-c6f9-4d3c-86bf-f2ecf3a2d41d
+DTSTAMP:20250831T142719Z
+UID:7430fcf6-f565-4efe-9994-fdcce7e9fd1c
 DESCRIPTION:IEEE International Conference on Distributed Computing Systems
  \n🗓️ Date: July 10-13\, 2022\n📍 Location: Bologna\, Italy\n⏰ Ori
  ginal Deadline (UTC-5): 2022-01-24 23:59:59\nCategory: 计算机体系结
@@ -623,8 +623,8 @@ BEGIN:VEVENT
 SUMMARY:ICDCS 2023 Abstract Deadline
 DTSTART;TZID="UTC-05:00":20230114T235959
 DTEND;TZID="UTC-05:00":20230115T000059
-DTSTAMP:20250831T045659Z
-UID:b1574762-32d7-4ce5-b815-41a1c0f8245d
+DTSTAMP:20250831T142719Z
+UID:e5fc0db9-434d-4b0f-9385-885ac33f1fea
 DESCRIPTION:IEEE International Conference on Distributed Computing Systems
  \n🗓️ Date: July 18-21\, 2023\n📍 Location: Hong Kong\, China\n⏰ O
  riginal Deadline (UTC-5): 2023-01-14 23:59:59\nCategory: 计算机体系
@@ -638,8 +638,8 @@ BEGIN:VEVENT
 SUMMARY:ICDCS 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240112T235959
 DTEND;TZID="UTC-12:00":20240113T000059
-DTSTAMP:20250831T045659Z
-UID:37960602-3882-48ea-9b27-3d4ce493b902
+DTSTAMP:20250831T142719Z
+UID:75bc8236-9965-4326-b26a-1483396a9322
 DESCRIPTION:IEEE International Conference on Distributed Computing Systems
  \n🗓️ Date: July 16-19\, 2024\n📍 Location: New Jersey\, USA\n⏰ Or
  iginal Deadline (UTC-12): 2024-01-12 23:59:59\nCategory: 计算机体系
@@ -653,8 +653,8 @@ BEGIN:VEVENT
 SUMMARY:ICDCS 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20241204T235959
 DTEND;TZID="UTC-12:00":20241205T000059
-DTSTAMP:20250831T045659Z
-UID:1018f5e6-3ced-4598-b78d-9a118e70adfe
+DTSTAMP:20250831T142719Z
+UID:796ad03d-5c98-4f80-a6f7-215ef0f4e10e
 DESCRIPTION:IEEE International Conference on Distributed Computing Systems
  \n🗓️ Date: July 21-23\, 2025\n📍 Location: Glasgow\, Scotland\, UK\
  n⏰ Original Deadline (UTC-12): 2024-12-04 23:59:59\nCategory: 计算机
@@ -668,8 +668,8 @@ BEGIN:VEVENT
 SUMMARY:ICDCS 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20251205T235959
 DTEND;TZID="UTC-12:00":20251206T000059
-DTSTAMP:20250831T045659Z
-UID:41731bbd-969c-4be0-9a98-65879e60f840
+DTSTAMP:20250831T142719Z
+UID:11015aec-c107-4919-b2e0-a5be1bf87a01
 DESCRIPTION:IEEE International Conference on Distributed Computing Systems
  \n🗓️ Date: TBD\n📍 Location: South Korea\n⏰ Original Deadline (Ao
  E): 2025-12-05 23:59:59\nCategory: 计算机体系结构/并行与分布
@@ -682,8 +682,8 @@ BEGIN:VEVENT
 SUMMARY:ICS 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240111T235959
 DTEND;TZID="UTC-12:00":20240112T000059
-DTSTAMP:20250831T045659Z
-UID:6d3ca65a-8c96-4183-9752-f1fa5a36539f
+DTSTAMP:20250831T142719Z
+UID:a8aab374-77a5-4226-9401-0c69ebad5733
 DESCRIPTION:ACM International Conference on Supercomputing\n🗓️ Date: 
  June 4-7\, 2024\n📍 Location: Kyoto University\, Kyoto\, Japan\n⏰ Orig
  inal Deadline (AoE): 2024-01-11 23:59:59\nCategory: 计算机体系结构/
@@ -697,8 +697,8 @@ BEGIN:VEVENT
 SUMMARY:ICS 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250113T235959
 DTEND;TZID="UTC-12:00":20250114T000059
-DTSTAMP:20250831T045659Z
-UID:29547d49-d639-4141-bc31-3856375521bf
+DTSTAMP:20250831T142719Z
+UID:abebac8c-5514-4808-bb42-bf41e7cfa802
 DESCRIPTION:ACM International Conference on Supercomputing\n🗓️ Date: 
  June 9-11\, 2025\n📍 Location: Salt Lake City\, U.S.A.\n⏰ Original Dea
  dline (AoE): 2025-01-13 23:59:59\nCategory: 计算机体系结构/并行
@@ -712,8 +712,8 @@ BEGIN:VEVENT
 SUMMARY:IPDPS 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20211001T235959
 DTEND;TZID="UTC-12:00":20211002T000059
-DTSTAMP:20250831T045659Z
-UID:c2d3cb29-1790-41d4-bb02-3cbd250fb92d
+DTSTAMP:20250831T142719Z
+UID:0fb34ddf-9e4b-49fb-afd0-aae8e248bf36
 DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
  um\n🗓️ Date: May 30-June 3\, 2022\n📍 Location: Lyon\, France\n⏰ 
  Original Deadline (AoE): 2021-10-01 23:59:59\nCategory: 计算机体系结
@@ -727,8 +727,8 @@ BEGIN:VEVENT
 SUMMARY:IPDPS 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20220929T235959
 DTEND;TZID="UTC-12:00":20220930T000059
-DTSTAMP:20250831T045659Z
-UID:47f4d310-29c7-4279-80fb-5081c4804a3b
+DTSTAMP:20250831T142719Z
+UID:076846a6-1497-4c63-b8a9-700c0a3016b5
 DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
  um\n🗓️ Date: May 15-19\, 2023\n📍 Location: St. Petersburg\, Florid
  a USA\n⏰ Original Deadline (AoE): 2022-09-29 23:59:59\nCategory: 计算
@@ -742,8 +742,8 @@ BEGIN:VEVENT
 SUMMARY:IPDPS 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230928T235959
 DTEND;TZID="UTC-12:00":20230929T000059
-DTSTAMP:20250831T045659Z
-UID:c9ba6a67-f980-4411-aca2-55fe45b2654e
+DTSTAMP:20250831T142719Z
+UID:15fdae74-fefd-4e01-a38b-29757498e3af
 DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
  um\n🗓️ Date: May 27-31\, 2024\n📍 Location: San Francisco\, Califor
  nia USA\n⏰ Original Deadline (AoE): 2023-09-28 23:59:59\nCategory: 计
@@ -757,8 +757,8 @@ BEGIN:VEVENT
 SUMMARY:IPDPS 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20241003T235959
 DTEND;TZID="UTC-12:00":20241004T000059
-DTSTAMP:20250831T045659Z
-UID:3f0fe6c6-571f-48c9-a165-d3715d759a7f
+DTSTAMP:20250831T142719Z
+UID:a427accc-526f-42d7-9706-6c7d1b029708
 DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
  um\n🗓️ Date: June 3-7\, 2025\n📍 Location: Politecnico di Milano\, 
  Milan\, Italy\n⏰ Original Deadline (AoE): 2024-10-03 23:59:59\nCategory:
@@ -772,8 +772,8 @@ BEGIN:VEVENT
 SUMMARY:IPDPS 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20251002T235959
 DTEND;TZID="UTC-12:00":20251003T000059
-DTSTAMP:20250831T045659Z
-UID:72fff9c4-9f16-4cb4-bc04-97a4a6146481
+DTSTAMP:20250831T142719Z
+UID:91537ca7-23d4-4e4a-9df5-8b2f699169b4
 DESCRIPTION:IEEE International Parallel and Distributed Processing Symposi
  um\n🗓️ Date: May 25-29\, 2026\n📍 Location: New Orleans\, USA\n⏰ 
  Original Deadline (AoE): 2025-10-02 23:59:59\nCategory: 计算机体系结
@@ -787,8 +787,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2021 Deadline [abstract deadline]
 DTSTART;TZID="UTC-07:00":20210409T235959
 DTEND;TZID="UTC-07:00":20210410T000059
-DTSTAMP:20250831T045659Z
-UID:9584fba3-ffd9-449f-b989-b91711faa31e
+DTSTAMP:20250831T142719Z
+UID:98388950-7cc1-4c2e-9280-651c17777d5c
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: Oct 18-22\, 2021\n📍 Location: Athens\, Greece\n⏰ Original Dead
  line (UTC-7): 2021-04-09 23:59:59\nCategory: 计算机体系结构/并行
@@ -802,8 +802,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2021 Deadline [full paper deadline]
 DTSTART;TZID="UTC-07:00":20210416T235959
 DTEND;TZID="UTC-07:00":20210417T000059
-DTSTAMP:20250831T045659Z
-UID:8f4ec8be-963f-41f6-956d-74f0e0cd24d9
+DTSTAMP:20250831T142719Z
+UID:d2e358ea-99de-4c8d-a518-6d5ade9fc953
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: Oct 18-22\, 2021\n📍 Location: Athens\, Greece\n⏰ Original Dead
  line (UTC-7): 2021-04-16 23:59:59\nCategory: 计算机体系结构/并行
@@ -817,8 +817,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2022 Deadline [Abstract Deadline]
 DTSTART;TZID="UTC-07:00":20220414T115959
 DTEND;TZID="UTC-07:00":20220414T120059
-DTSTAMP:20250831T045659Z
-UID:a1961f9d-790a-44e4-910a-d4e99314a015
+DTSTAMP:20250831T142719Z
+UID:3182ca2b-3ff1-441d-9043-8b2fd5b9bd3e
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: Oct\, 2022\n📍 Location: Chicago\, Illinois\, USA\n⏰ Original D
  eadline (UTC-7): 2022-04-14 11:59:59\nCategory: 计算机体系结构/并
@@ -832,8 +832,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2022 Deadline [Full Paper Deadline]
 DTSTART;TZID="UTC-07:00":20220421T115959
 DTEND;TZID="UTC-07:00":20220421T120059
-DTSTAMP:20250831T045659Z
-UID:b2f08e3c-2551-4685-9391-2ce349a1ef2c
+DTSTAMP:20250831T142719Z
+UID:16423292-6cd0-46c1-a1ca-941f1adf4bb0
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: Oct\, 2022\n📍 Location: Chicago\, Illinois\, USA\n⏰ Original D
  eadline (UTC-7): 2022-04-21 11:59:59\nCategory: 计算机体系结构/并
@@ -847,8 +847,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2023 Deadline [Abstract Deadline]
 DTSTART;TZID="UTC-07:00":20230421T115959
 DTEND;TZID="UTC-07:00":20230421T120059
-DTSTAMP:20250831T045659Z
-UID:ec532efc-aa9c-484d-bd2a-c92d0c068476
+DTSTAMP:20250831T142719Z
+UID:d378da12-8028-482b-bd1f-6f601eaa6b65
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: Oct\, 2023\n📍 Location: Toronto\, Canada\n⏰ Original Deadline 
  (UTC-7): 2023-04-21 11:59:59\nCategory: 计算机体系结构/并行与分
@@ -862,8 +862,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2023 Deadline [Full Paper Deadline]
 DTSTART;TZID="UTC-07:00":20230428T115959
 DTEND;TZID="UTC-07:00":20230428T120059
-DTSTAMP:20250831T045659Z
-UID:27b1231d-cb45-45b1-a177-4844cfb70067
+DTSTAMP:20250831T142719Z
+UID:9bf03b5a-ac9f-4c51-8af8-1d1b9d23ab39
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: Oct\, 2023\n📍 Location: Toronto\, Canada\n⏰ Original Deadline 
  (UTC-7): 2023-04-28 11:59:59\nCategory: 计算机体系结构/并行与分
@@ -877,8 +877,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2024 Deadline [Abstract Deadline]
 DTSTART;TZID="UTC-05:00":20240411T115959
 DTEND;TZID="UTC-05:00":20240411T120059
-DTSTAMP:20250831T045659Z
-UID:ec2fa296-7ca3-48ea-b5ce-92587d99009c
+DTSTAMP:20250831T142719Z
+UID:69b52033-89b1-4071-9702-1dedc5f8efcd
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: November 2-6\, 2024\n📍 Location: Austin\, Texas\, USA\n⏰ Origi
  nal Deadline (UTC-5): 2024-04-11 11:59:59\nCategory: 计算机体系结构
@@ -892,8 +892,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2024 Deadline [Full Paper Deadline]
 DTSTART;TZID="UTC-05:00":20240418T115959
 DTEND;TZID="UTC-05:00":20240418T120059
-DTSTAMP:20250831T045659Z
-UID:76b5a12a-6c1f-41b4-b0f6-ef3df25a6d84
+DTSTAMP:20250831T142719Z
+UID:2c4709f6-da67-4970-8ef9-7027355cfc9d
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: November 2-6\, 2024\n📍 Location: Austin\, Texas\, USA\n⏰ Origi
  nal Deadline (UTC-5): 2024-04-18 11:59:59\nCategory: 计算机体系结构
@@ -916,8 +916,8 @@ BEGIN:VEVENT
 SUMMARY:MICRO 2025 Abstract Deadline
 DTSTART;TZID="UTC-04:00":20250404T235959
 DTEND;TZID="UTC-04:00":20250405T000059
-DTSTAMP:20250831T045659Z
-UID:bf2960aa-dafd-4562-9bc0-c1d14236d678
+DTSTAMP:20250831T142719Z
+UID:058c47ce-14ff-491f-bbae-639a7d8be8c4
 DESCRIPTION:IEEE/ACM International Symposium on Microarchitecture\n🗓️
   Date: October 18-22\, 2025\n📍 Location: Seoul\, Korea\n⏰ Original De
  adline (UTC-4): 2025-04-04 23:59:59\nCategory: 计算机体系结构/并
@@ -931,8 +931,8 @@ BEGIN:VEVENT
 SUMMARY:RTAS 2024 Deadline [Submission Deadline (firm)]
 DTSTART;TZID="UTC-12:00":20231031T115959
 DTEND;TZID="UTC-12:00":20231031T120059
-DTSTAMP:20250831T045659Z
-UID:bad3aa08-858b-4a4e-87dc-495cc5ceb70c
+DTSTAMP:20250831T142719Z
+UID:a3b9e781-74ba-4415-af1a-ebe0c1d93856
 DESCRIPTION:IEEE Real-Time and Embedded Technology and Applications Sympos
  ium\n🗓️ Date: May 13-16\, 2024\n📍 Location: Hong Kong\, China\n⏰
   Original Deadline (AoE): 2023-10-31 11:59:59\nCategory: 计算机体系
@@ -946,8 +946,8 @@ BEGIN:VEVENT
 SUMMARY:SC 2022 Deadline
 DTSTART;TZID="UTC-12:00":20220401T235900
 DTEND;TZID="UTC-12:00":20220402T000000
-DTSTAMP:20250831T045659Z
-UID:b8722a6a-ff08-4912-8f48-ef3f8cd9ed15
+DTSTAMP:20250831T142719Z
+UID:22f14cae-91d0-4960-b315-ca38b7ef16ae
 DESCRIPTION:International Conference for High Performance Computing\, Netw
  orking\, Storage\, and Analysis\n🗓️ Date: November 13-18\, 2022\n📍
   Location: Dallas\, Texas\, USA\n⏰ Original Deadline (AoE): 2022-04-01 2
@@ -961,8 +961,8 @@ BEGIN:VEVENT
 SUMMARY:SC 2023 Deadline
 DTSTART;TZID="UTC-12:00":20230406T235900
 DTEND;TZID="UTC-12:00":20230407T000000
-DTSTAMP:20250831T045659Z
-UID:ba66536b-e44a-4816-b331-6063c783f5c2
+DTSTAMP:20250831T142719Z
+UID:8e0a79b8-443e-47d8-86eb-80cd01639709
 DESCRIPTION:International Conference for High Performance Computing\, Netw
  orking\, Storage\, and Analysis\n🗓️ Date: November 12-17\, 2023\n📍
   Location: DENVER\, CO\, USA\n⏰ Original Deadline (AoE): 2023-04-06 23:5
@@ -976,8 +976,8 @@ BEGIN:VEVENT
 SUMMARY:SC 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240326T235959
 DTEND;TZID="UTC-12:00":20240327T000059
-DTSTAMP:20250831T045659Z
-UID:fce448ea-cdf3-464e-b85e-b018bcc6f0ff
+DTSTAMP:20250831T142719Z
+UID:89ef3a11-1d62-4550-993e-02922876134f
 DESCRIPTION:International Conference for High Performance Computing\, Netw
  orking\, Storage\, and Analysis\n🗓️ Date: November 17-22\, 2024\n📍
   Location: ATLANTA\, GA\, USA\n⏰ Original Deadline (AoE): 2024-03-26 23:
@@ -991,8 +991,8 @@ BEGIN:VEVENT
 SUMMARY:SC 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250407T235959
 DTEND;TZID="UTC-12:00":20250408T000059
-DTSTAMP:20250831T045659Z
-UID:ccf0ff6e-cb3c-4cde-8800-a0be31cd728a
+DTSTAMP:20250831T142719Z
+UID:0c9bcb2b-3751-444d-bb97-d2abedc9e29f
 DESCRIPTION:International Conference for High Performance Computing\, Netw
  orking\, Storage\, and Analysis\n🗓️ Date: November 16-21\, 2025\n📍
   Location: St. louis\, Missouri\, USA\n⏰ Original Deadline (AoE): 2025-0

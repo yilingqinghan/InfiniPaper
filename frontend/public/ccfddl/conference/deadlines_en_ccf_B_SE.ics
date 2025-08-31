@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:EUSIPCO 2024 Deadline [first round]
 DTSTART;TZID="UTC-08:00":20240314T180000
 DTEND;TZID="UTC-08:00":20240314T180100
-DTSTAMP:20250831T045658Z
-UID:0335207d-632a-4081-a1d7-a845c15bddb6
+DTSTAMP:20250831T142719Z
+UID:44b7c8b6-f800-41a0-82d0-ae79e1834f5e
 DESCRIPTION:IEEE Conference on Signal Processing\n🗓️ Date: August 26-
  30\, 2024\n📍 Location: LYON\, FRANCE\n⏰ Original Deadline (UTC-8): 20
  24-03-14 18:00:00\nCategory: 软件工程/系统软件/程序设计语言 
@@ -37,8 +37,8 @@ BEGIN:VEVENT
 SUMMARY:EUSIPCO 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250313T235959
 DTEND;TZID="UTC-12:00":20250314T000059
-DTSTAMP:20250831T045658Z
-UID:f8ef27bd-57e0-4ba4-8728-43be93828f5b
+DTSTAMP:20250831T142719Z
+UID:7ab00d3a-35f1-4bd4-86c0-c33542f47845
 DESCRIPTION:IEEE Conference on Signal Processing\n🗓️ Date: September 
  8-12\, 2025\n📍 Location: Isola delle Femmine\, Palermo\, Italy\n⏰ Ori
  ginal Deadline (AoE): 2025-03-13 23:59:59\nCategory: 软件工程/系统
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:CAiSE 2022 Deadline [Abstract Submission]
 DTSTART;TZID="UTC-12:00":20211122T235959
 DTEND;TZID="UTC-12:00":20211123T000059
-DTSTAMP:20250831T045658Z
-UID:3dbf72cb-7ea7-4571-982c-9a54922ff6ca
+DTSTAMP:20250831T142719Z
+UID:248a5e24-f808-427d-8202-eca44c10bf1b
 DESCRIPTION:International Conference on Advanced Information Systems Engin
  eering\n🗓️ Date: June 06-10\, 2022\n📍 Location: Leuven\n⏰ Origin
  al Deadline (AoE): 2021-11-22 23:59:59\nCategory: 软件工程/系统软
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:CAiSE 2022 Deadline [Paper Submission]
 DTSTART;TZID="UTC-12:00":20211129T235959
 DTEND;TZID="UTC-12:00":20211130T000059
-DTSTAMP:20250831T045658Z
-UID:1e050fbd-d877-4815-87b0-4992a5966a48
+DTSTAMP:20250831T142719Z
+UID:d21b3595-a0ab-4e2b-8beb-2cc9b1cacde6
 DESCRIPTION:International Conference on Advanced Information Systems Engin
  eering\n🗓️ Date: June 06-10\, 2022\n📍 Location: Leuven\n⏰ Origin
  al Deadline (AoE): 2021-11-29 23:59:59\nCategory: 软件工程/系统软
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:CAiSE 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20241122T235959
 DTEND;TZID="UTC-12:00":20241123T000059
-DTSTAMP:20250831T045658Z
-UID:51f4c114-0364-4547-b503-55f3f79b2280
+DTSTAMP:20250831T142719Z
+UID:0d923e1b-8a13-4842-ab53-7751efc4f261
 DESCRIPTION:International Conference on Advanced Information Systems Engin
  eering\n🗓️ Date: June 16-20\, 2025\n📍 Location: Vienna\, Austria\n
  ⏰ Original Deadline (AoE): 2024-11-22 23:59:59\nCategory: 软件工程/
@@ -94,8 +94,8 @@ BEGIN:VEVENT
 SUMMARY:CP 2022 Deadline [Full Paper Submission]
 DTSTART;TZID="UTC-12:00":20220225T235959
 DTEND;TZID="UTC-12:00":20220226T000059
-DTSTAMP:20250831T045658Z
-UID:41455831-3403-49ff-a97f-53ec8e027d18
+DTSTAMP:20250831T142719Z
+UID:ee4498f2-974e-4692-b8ff-4b72cf83cc4a
 DESCRIPTION:International Conference on Principles and Practice of Constra
  int Programming\n🗓️ Date: July 31-August 8\, 2022\n📍 Location: HAI
  FA\, ISRAEL\n⏰ Original Deadline (AoE): 2022-02-25 23:59:59\nCategory: 
@@ -109,8 +109,8 @@ BEGIN:VEVENT
 SUMMARY:CP 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250320T225959
 DTEND;TZID="UTC-12:00":20250320T230059
-DTSTAMP:20250831T045658Z
-UID:e7b60da8-9e38-4ffd-b797-14a59274deea
+DTSTAMP:20250831T142719Z
+UID:6e7f902d-d254-4961-ad88-239ff9c12e51
 DESCRIPTION:International Conference on Principles and Practice of Constra
  int Programming\n🗓️ Date: August 10-15\, 2025\n📍 Location: Glasgow
  \, Scotland\n⏰ Original Deadline (AoE): 2025-03-20 22:59:59\nCategory: 
@@ -124,8 +124,8 @@ BEGIN:VEVENT
 SUMMARY:ECOOP 2022 Deadline [Submission R1]
 DTSTART;TZID="UTC-12:00":20211201T235959
 DTEND;TZID="UTC-12:00":20211202T000059
-DTSTAMP:20250831T045658Z
-UID:d22a3ec1-aaaa-48a3-9421-d88b110583c0
+DTSTAMP:20250831T142719Z
+UID:12d574db-87eb-4075-a135-0e8673d3fb55
 DESCRIPTION:European Conference on Object-Oriented Programming\n🗓️ Da
  te: June 6-10\, 2022\n📍 Location: Berlin\, Germany\n⏰ Original Deadli
  ne (AoE): 2021-12-01 23:59:59\nCategory: 软件工程/系统软件/程序
@@ -138,8 +138,8 @@ BEGIN:VEVENT
 SUMMARY:ECOOP 2022 Deadline [Submission R2]
 DTSTART;TZID="UTC-12:00":20220301T235959
 DTEND;TZID="UTC-12:00":20220302T000059
-DTSTAMP:20250831T045658Z
-UID:a6ac2073-2d8c-4afb-bc5d-d2f18e13aa08
+DTSTAMP:20250831T142719Z
+UID:34a8cf6f-bf38-487f-a0bf-6ccf0b2d49f5
 DESCRIPTION:European Conference on Object-Oriented Programming\n🗓️ Da
  te: June 6-10\, 2022\n📍 Location: Berlin\, Germany\n⏰ Original Deadli
  ne (AoE): 2022-03-01 23:59:59\nCategory: 软件工程/系统软件/程序
@@ -152,8 +152,8 @@ BEGIN:VEVENT
 SUMMARY:ECOOP 2025 Deadline [Submission R1]
 DTSTART;TZID="UTC-12:00":20250106T235959
 DTEND;TZID="UTC-12:00":20250107T000059
-DTSTAMP:20250831T045658Z
-UID:ab618bbb-ff10-400c-bfe1-cfdfc6c2cc0c
+DTSTAMP:20250831T142719Z
+UID:3e635f44-70b8-42d0-8be6-ee254e6cbe1c
 DESCRIPTION:European Conference on Object-Oriented Programming\n🗓️ Da
  te: June 30 - July 4\, 2025\n📍 Location: Bergen\, Norway\n⏰ Original 
  Deadline (AoE): 2025-01-06 23:59:59\nCategory: 软件工程/系统软件/
@@ -166,8 +166,8 @@ BEGIN:VEVENT
 SUMMARY:ECOOP 2025 Deadline [Submission R2]
 DTSTART;TZID="UTC-12:00":20250305T235959
 DTEND;TZID="UTC-12:00":20250306T000059
-DTSTAMP:20250831T045658Z
-UID:9ac1063a-6e8e-4b98-8dfc-f05fa560a3b2
+DTSTAMP:20250831T142719Z
+UID:715959a0-81b6-45cc-b972-32af7424e3f8
 DESCRIPTION:European Conference on Object-Oriented Programming\n🗓️ Da
  te: June 30 - July 4\, 2025\n📍 Location: Bergen\, Norway\n⏰ Original 
  Deadline (AoE): 2025-03-05 23:59:59\nCategory: 软件工程/系统软件/
@@ -180,8 +180,8 @@ BEGIN:VEVENT
 SUMMARY:ESEM 2022 Deadline [Abstract]
 DTSTART;TZID="UTC-12:00":20220425T235959
 DTEND;TZID="UTC-12:00":20220426T000059
-DTSTAMP:20250831T045658Z
-UID:737c561c-eb97-4492-925d-3e58a7ff8684
+DTSTAMP:20250831T142719Z
+UID:2d27c017-07ed-4b32-994f-2bc3e1fbd0cf
 DESCRIPTION:International Symposium on Empirical Software Engineering and 
  Measurement\n🗓️ Date: September 19-23\, 2022\n📍 Location: Helsinki
  \, Finland\n⏰ Original Deadline (AoE): 2022-04-25 23:59:59\nCategory: 
@@ -195,8 +195,8 @@ BEGIN:VEVENT
 SUMMARY:ESEM 2022 Deadline [Submission]
 DTSTART;TZID="UTC-12:00":20220502T235959
 DTEND;TZID="UTC-12:00":20220503T000059
-DTSTAMP:20250831T045658Z
-UID:0062a992-fd7a-4f00-8996-4e2bdd95caa7
+DTSTAMP:20250831T142719Z
+UID:de1318cb-17af-4855-aa94-157f94495dfd
 DESCRIPTION:International Symposium on Empirical Software Engineering and 
  Measurement\n🗓️ Date: September 19-23\, 2022\n📍 Location: Helsinki
  \, Finland\n⏰ Original Deadline (AoE): 2022-05-02 23:59:59\nCategory: 
@@ -210,8 +210,8 @@ BEGIN:VEVENT
 SUMMARY:ESEM 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250418T235959
 DTEND;TZID="UTC-12:00":20250419T000059
-DTSTAMP:20250831T045658Z
-UID:f7cef338-723e-46c4-a1d1-9e146e5521ec
+DTSTAMP:20250831T142719Z
+UID:c4c651de-3d36-4818-9da3-d3bd262f99a2
 DESCRIPTION:International Symposium on Empirical Software Engineering and 
  Measurement\n🗓️ Date: September 29 - October 3\, 2025\n📍 Location:
   Honolulu\, Hawai\, USA\n⏰ Original Deadline (AoE): 2025-04-18 23:59:59\
@@ -225,8 +225,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2022 Deadline [Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20211014T235959
 DTEND;TZID="UTC-12:00":20211015T000059
-DTSTAMP:20250831T045658Z
-UID:5c083c7c-fc69-442d-b4bc-fd14648b3caa
+DTSTAMP:20250831T142719Z
+UID:d96a6c68-0aed-4fde-a129-f71167e1ec11
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ Date: April 2-7\, 2022\n📍 Location: Munich\, Germany\n⏰ Orig
  inal Deadline (AoE): 2021-10-14 23:59:59\nCategory: 软件工程/系统软
@@ -239,8 +239,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2022 Deadline [Paper final versions]
 DTSTART;TZID="UTC-12:00":20220126T235959
 DTEND;TZID="UTC-12:00":20220127T000059
-DTSTAMP:20250831T045658Z
-UID:651de403-69c0-4af3-9dc2-364a7e1bff1d
+DTSTAMP:20250831T142719Z
+UID:ef67eb0c-69db-482f-bf67-edaf94aa5b5c
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ Date: April 2-7\, 2022\n📍 Location: Munich\, Germany\n⏰ Orig
  inal Deadline (AoE): 2022-01-26 23:59:59\nCategory: 软件工程/系统软
@@ -253,8 +253,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2026 Deadline [Submission deadline ESOP round 1]
 DTSTART;TZID="UTC-12:00":20250603T235959
 DTEND;TZID="UTC-12:00":20250604T000059
-DTSTAMP:20250831T045658Z
-UID:50fbaa26-0d03-4b27-b929-88c063998c76
+DTSTAMP:20250831T142719Z
+UID:30ba7183-4167-41af-9afe-444ba73d0210
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ Date: April 11-16\, 2026\n📍 Location: Torino\, Italy\n⏰ Orig
  inal Deadline (AoE): 2025-06-03 23:59:59\nCategory: 软件工程/系统软
@@ -267,8 +267,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2026 Deadline [Submission deadline ESOP round 2]
 DTSTART;TZID="UTC-12:00":20251016T235959
 DTEND;TZID="UTC-12:00":20251017T000059
-DTSTAMP:20250831T045658Z
-UID:652e7937-fe70-4a0c-8314-8ad440ede95b
+DTSTAMP:20250831T142719Z
+UID:c0774720-ad3c-4c53-978b-17378886be18
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ Date: April 11-16\, 2026\n📍 Location: Torino\, Italy\n⏰ Orig
  inal Deadline (AoE): 2025-10-16 23:59:59\nCategory: 软件工程/系统软
@@ -281,8 +281,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2026 Deadline [TACAS mandatory artifact submission]
 DTSTART;TZID="UTC-12:00":20251030T235959
 DTEND;TZID="UTC-12:00":20251031T000059
-DTSTAMP:20250831T045658Z
-UID:6b4f52ad-eed9-486c-a68c-aaa10ebb5d12
+DTSTAMP:20250831T142719Z
+UID:87a706d3-0e35-417b-9bdd-08102f352052
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ Date: April 11-16\, 2026\n📍 Location: Torino\, Italy\n⏰ Orig
  inal Deadline (AoE): 2025-10-30 23:59:59\nCategory: 软件工程/系统软
@@ -296,8 +296,8 @@ SUMMARY:ETAPS 2026 Deadline [ESOP\, FASE\, FoSSaCS artifact\, TACAS volunt
  ary artifact submission]
 DTSTART;TZID="UTC-12:00":20260108T235959
 DTEND;TZID="UTC-12:00":20260109T000059
-DTSTAMP:20250831T045658Z
-UID:70da1224-302c-46de-858b-597a69a752ab
+DTSTAMP:20250831T142719Z
+UID:857c028c-ce2d-47f8-94a8-3c026d9acb58
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ Date: April 11-16\, 2026\n📍 Location: Torino\, Italy\n⏰ Orig
  inal Deadline (AoE): 2026-01-08 23:59:59\nCategory: 软件工程/系统软
@@ -310,8 +310,8 @@ BEGIN:VEVENT
 SUMMARY:HotOS 2021 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210203T235959
 DTEND;TZID="UTC-12:00":20210204T000059
-DTSTAMP:20250831T045658Z
-UID:3878ab6f-68ce-44a5-9e14-7404fa947b4f
+DTSTAMP:20250831T142719Z
+UID:fa1142d0-b43d-42d9-bb88-3585615d5730
 DESCRIPTION:USENIX Workshop on Hot Topics in Operating Systems\n🗓️ Da
  te: May 31-Jun 02\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (A
  oE): 2021-02-03 23:59:59\nCategory: 软件工程/系统软件/程序设计
@@ -324,8 +324,8 @@ BEGIN:VEVENT
 SUMMARY:HotOS 2025 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250115T235959
 DTEND;TZID="UTC-12:00":20250116T000059
-DTSTAMP:20250831T045658Z
-UID:c4a39eb9-18ee-43aa-9d40-5ff6821ef3ea
+DTSTAMP:20250831T142719Z
+UID:5839f685-c3f2-4b70-a108-349078079d46
 DESCRIPTION:USENIX Workshop on Hot Topics in Operating Systems\n🗓️ Da
  te: May 14-16\, 2025\n📍 Location: Banff\, Alberta\, Canada\n⏰ Origina
  l Deadline (AoE): 2025-01-15 23:59:59\nCategory: 软件工程/系统软件
@@ -339,8 +339,8 @@ BEGIN:VEVENT
 SUMMARY:ICFP 2022 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210302T235959
 DTEND;TZID="UTC-12:00":20210303T000059
-DTSTAMP:20250831T045658Z
-UID:d857a388-46fd-4cd0-a983-ed7ef2d745f1
+DTSTAMP:20250831T142719Z
+UID:8e51226b-f3cf-43b2-a2fd-99b06dce08a1
 DESCRIPTION:International Conference on Function Programming\n🗓️ Date
  : September 11-16\, 2022\n📍 Location: Ljubljana\, Slovenia\n⏰ Origina
  l Deadline (AoE): 2021-03-02 23:59:59\nCategory: 软件工程/系统软件
@@ -353,8 +353,8 @@ BEGIN:VEVENT
 SUMMARY:ICFP 2022 Deadline [Submission of revised papers]
 DTSTART;TZID="UTC-12:00":20210616T235959
 DTEND;TZID="UTC-12:00":20210617T000059
-DTSTAMP:20250831T045658Z
-UID:26059a5c-535a-4ace-8615-d3bdb4d67db8
+DTSTAMP:20250831T142719Z
+UID:e4fc136e-9a3b-4a14-9baf-92a848815712
 DESCRIPTION:International Conference on Function Programming\n🗓️ Date
  : September 11-16\, 2022\n📍 Location: Ljubljana\, Slovenia\n⏰ Origina
  l Deadline (AoE): 2021-06-16 23:59:59\nCategory: 软件工程/系统软件
@@ -367,8 +367,8 @@ BEGIN:VEVENT
 SUMMARY:ICFP 2025 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250227T235959
 DTEND;TZID="UTC-12:00":20250228T000059
-DTSTAMP:20250831T045658Z
-UID:0ba00e1e-db73-4430-addf-c3fa7901a78f
+DTSTAMP:20250831T142719Z
+UID:b5c4b137-d161-419c-a126-2b63366abb8f
 DESCRIPTION:International Conference on Function Programming\n🗓️ Date
  : October 12-18\, 2025\n📍 Location: Singapore\n⏰ Original Deadline (A
  oE): 2025-02-27 23:59:59\nCategory: 软件工程/系统软件/程序设计
@@ -381,8 +381,8 @@ BEGIN:VEVENT
 SUMMARY:ICFP 2025 Deadline [Submission of revised papers]
 DTSTART;TZID="UTC-12:00":20250612T235959
 DTEND;TZID="UTC-12:00":20250613T000059
-DTSTAMP:20250831T045658Z
-UID:18ebcb2c-427a-4f41-8666-3d9b41a1a3ca
+DTSTAMP:20250831T142719Z
+UID:e0f9bc16-a76c-49dc-94ee-c3531f634e5b
 DESCRIPTION:International Conference on Function Programming\n🗓️ Date
  : October 12-18\, 2025\n📍 Location: Singapore\n⏰ Original Deadline (A
  oE): 2025-06-12 23:59:59\nCategory: 软件工程/系统软件/程序设计
@@ -395,8 +395,8 @@ BEGIN:VEVENT
 SUMMARY:ICPC 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20220113T235959
 DTEND;TZID="UTC-12:00":20220114T000059
-DTSTAMP:20250831T045658Z
-UID:a9246549-add7-4914-9bad-569a45b96811
+DTSTAMP:20250831T142719Z
+UID:5fd8076f-8c22-4625-b0da-37c138b2ee0c
 DESCRIPTION:IEEE International Conference on Program Comprehension\n🗓
  ️ Date: May 21-22\, 2022\n📍 Location: Pittsburgh\, Pennsylvania\, Uni
  ted States\n⏰ Original Deadline (AoE): 2022-01-13 23:59:59\nCategory: 
@@ -410,8 +410,8 @@ BEGIN:VEVENT
 SUMMARY:ICPC 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20231030T235959
 DTEND;TZID="UTC-12:00":20231031T000059
-DTSTAMP:20250831T045658Z
-UID:809b0db2-aff1-4119-b7f9-d9ace408b1f4
+DTSTAMP:20250831T142719Z
+UID:c846e371-88fe-41ca-a1e8-44b0714fe0f9
 DESCRIPTION:IEEE International Conference on Program Comprehension\n🗓
  ️ Date: April 14-20\, 2024\n📍 Location: Lisbon\, Portugal\n⏰ Origin
  al Deadline (AoE): 2023-10-30 23:59:59\nCategory: 软件工程/系统软
@@ -425,8 +425,8 @@ BEGIN:VEVENT
 SUMMARY:ICPC 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20241106T235959
 DTEND;TZID="UTC-12:00":20241107T000059
-DTSTAMP:20250831T045658Z
-UID:58949d41-f904-4854-b116-dc95f55d3f6b
+DTSTAMP:20250831T142719Z
+UID:6cce87c0-b023-4a82-bc79-335067cf2b31
 DESCRIPTION:IEEE International Conference on Program Comprehension\n🗓
  ️ Date: April 27-28\, 2025\n📍 Location: Ottawa\, Canada\n⏰ Original
   Deadline (AoE): 2024-11-06 23:59:59\nCategory: 软件工程/系统软件/
@@ -440,8 +440,8 @@ BEGIN:VEVENT
 SUMMARY:ICPC 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20251019T235959
 DTEND;TZID="UTC-12:00":20251020T000059
-DTSTAMP:20250831T045658Z
-UID:a0a2efc7-a8b4-4a21-a7df-72e855f5a5da
+DTSTAMP:20250831T142719Z
+UID:983fe166-8c73-45be-99c3-f27c03750d44
 DESCRIPTION:IEEE International Conference on Program Comprehension\n🗓
  ️ Date: April 12-13\, 2026\n📍 Location: Rio de Janeiro\, Brazil\n⏰ 
  Original Deadline (AoE): 2025-10-19 23:59:59\nCategory: 软件工程/系
@@ -455,8 +455,8 @@ BEGIN:VEVENT
 SUMMARY:ICSME 2022 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20220325T235959
 DTEND;TZID="UTC-12:00":20220326T000059
-DTSTAMP:20250831T045658Z
-UID:97f80834-0334-4ac8-a075-62897bd25d64
+DTSTAMP:20250831T142719Z
+UID:2f17664f-17bd-45d1-be53-8401965c2cee
 DESCRIPTION:International Conference on Software Maintenance and Evolution
  \n🗓️ Date: October 03-07\, 2022\n📍 Location: Limassol\, Cyprus\n
  ⏰ Original Deadline (AoE): 2022-03-25 23:59:59\nCategory: 软件工程/
@@ -470,8 +470,8 @@ BEGIN:VEVENT
 SUMMARY:ICSME 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230420T235959
 DTEND;TZID="UTC-12:00":20230421T000059
-DTSTAMP:20250831T045658Z
-UID:ead562de-0c5b-4277-b6a0-25470097dc0b
+DTSTAMP:20250831T142719Z
+UID:372ddfe2-a031-4ba4-8ba2-2b9012e443e3
 DESCRIPTION:International Conference on Software Maintenance and Evolution
  \n🗓️ Date: October 01-06\, 2023\n📍 Location: Bogota\, Colombia\n
  ⏰ Original Deadline (AoE): 2023-04-20 23:59:59\nCategory: 软件工程/
@@ -485,8 +485,8 @@ BEGIN:VEVENT
 SUMMARY:ICSME 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20240404T235959
 DTEND;TZID="UTC-12:00":20240405T000059
-DTSTAMP:20250831T045658Z
-UID:0764fc74-1488-4066-8555-6eb59a834889
+DTSTAMP:20250831T142719Z
+UID:4e366a0c-0e4f-4bde-8fb1-f5ac60bbed40
 DESCRIPTION:International Conference on Software Maintenance and Evolution
  \n🗓️ Date: October 06-11\, 2024\n📍 Location: Flagstaff\, Arizona\,
   USA\n⏰ Original Deadline (AoE): 2024-04-04 23:59:59\nCategory: 软件
@@ -500,8 +500,8 @@ BEGIN:VEVENT
 SUMMARY:ICSME 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250306T235959
 DTEND;TZID="UTC-12:00":20250307T000059
-DTSTAMP:20250831T045658Z
-UID:29c6b021-c623-4772-bfb1-073cfcaeb08e
+DTSTAMP:20250831T142719Z
+UID:25dcdd75-1cec-4ea4-b10e-63be65ce33fa
 DESCRIPTION:International Conference on Software Maintenance and Evolution
  \n🗓️ Date: September 07-12\, 2025\n📍 Location: Auckland\, New Zeal
  and\n⏰ Original Deadline (AoE): 2025-03-06 23:59:59\nCategory: 软件工
@@ -516,8 +516,8 @@ SUMMARY:ICSOC 2022 Deadline [Abstracts/Full-Text Paper Submission Deadline
  ]
 DTSTART;TZID="UTC-12:00":20220301T235959
 DTEND;TZID="UTC-12:00":20220302T000059
-DTSTAMP:20250831T045658Z
-UID:558b481e-d618-46d8-a05e-9add609c50ec
+DTSTAMP:20250831T142719Z
+UID:2791975c-dc07-44e2-90e6-439edec97967
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ Date: May 26-27\, 2022\n📍 Location: Barcelona\, Spain\n⏰ Original
   Deadline (AoE): 2022-03-01 23:59:59\nCategory: 软件工程/系统软件/
@@ -531,8 +531,8 @@ SUMMARY:ICSOC 2022 Deadline [Final Paper (Camera Ready) Submission & Early
   Bird Registration Deadline]
 DTSTART;TZID="UTC-12:00":20220423T235959
 DTEND;TZID="UTC-12:00":20220424T000059
-DTSTAMP:20250831T045658Z
-UID:1dde36a5-3464-40ed-b33c-1eeae157240f
+DTSTAMP:20250831T142719Z
+UID:998b8a5a-0494-4f3d-bb88-383a54a3b379
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ Date: May 26-27\, 2022\n📍 Location: Barcelona\, Spain\n⏰ Original
   Deadline (AoE): 2022-04-23 23:59:59\nCategory: 软件工程/系统软件/
@@ -545,8 +545,8 @@ BEGIN:VEVENT
 SUMMARY:ICSOC 2025 Deadline [Early paper submissions]
 DTSTART;TZID="UTC-12:00":20250509T235959
 DTEND;TZID="UTC-12:00":20250510T000059
-DTSTAMP:20250831T045658Z
-UID:d3470bf1-eb2b-459e-bc4e-d9cb24e15b89
+DTSTAMP:20250831T142719Z
+UID:995966ec-3f55-4cbb-9615-360cde372210
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ Date: December 1-4\, 2025\n📍 Location: Shenzhen\, China\n⏰ Origin
  al Deadline (AoE): 2025-05-09 23:59:59\nCategory: 软件工程/系统软
@@ -559,8 +559,8 @@ BEGIN:VEVENT
 SUMMARY:ICSOC 2025 Deadline [Regular paper abstract submissions]
 DTSTART;TZID="UTC-12:00":20250707T235959
 DTEND;TZID="UTC-12:00":20250708T000059
-DTSTAMP:20250831T045658Z
-UID:3c451e0f-25bc-46a3-8061-8c1c832db3d7
+DTSTAMP:20250831T142719Z
+UID:0b66b996-8d3d-4a33-be92-b6585b009fe3
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ Date: December 1-4\, 2025\n📍 Location: Shenzhen\, China\n⏰ Origin
  al Deadline (AoE): 2025-07-07 23:59:59\nCategory: 软件工程/系统软
@@ -573,8 +573,8 @@ BEGIN:VEVENT
 SUMMARY:ICSOC 2025 Deadline [Regular paper submissions]
 DTSTART;TZID="UTC-12:00":20250714T235959
 DTEND;TZID="UTC-12:00":20250715T000059
-DTSTAMP:20250831T045658Z
-UID:3b5bdf78-a7fe-4d7e-acf0-10ad247cd643
+DTSTAMP:20250831T142719Z
+UID:975e218e-bfd9-427b-ae82-17e0d4af91b7
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ Date: December 1-4\, 2025\n📍 Location: Shenzhen\, China\n⏰ Origin
  al Deadline (AoE): 2025-07-14 23:59:59\nCategory: 软件工程/系统软
@@ -587,8 +587,8 @@ BEGIN:VEVENT
 SUMMARY:ICWS 2022 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20220915T235959
 DTEND;TZID="UTC-12:00":20220916T000059
-DTSTAMP:20250831T045658Z
-UID:b80f00d9-bea5-4e28-9d4d-17ee670f5830
+DTSTAMP:20250831T142719Z
+UID:11b9271e-4097-4752-b9e7-df4d5e2cdd95
 DESCRIPTION:IEEE International Conference on Web Services (Research Track)
  \n🗓️ Date: December 10-14\, 2022\n📍 Location: Honolulu\, Hawaii\, 
  USA\n⏰ Original Deadline (AoE): 2022-09-15 23:59:59\nCategory: 软件工
@@ -602,8 +602,8 @@ BEGIN:VEVENT
 SUMMARY:ICWS 2023 Deadline
 DTSTART;TZID="UTC-12:00":20230325T235959
 DTEND;TZID="UTC-12:00":20230326T000059
-DTSTAMP:20250831T045658Z
-UID:0548117d-3a70-4526-9ae7-7ee6b7206316
+DTSTAMP:20250831T142719Z
+UID:239265f9-7e1c-4c34-bdec-7fc811b9097e
 DESCRIPTION:IEEE International Conference on Web Services (Research Track)
  \n🗓️ Date: July 2-8\, 2023\n📍 Location: CHICAGO\, ILLINOIS USA\n
  ⏰ Original Deadline (AoE): 2023-03-25 23:59:59\nCategory: 软件工程/
@@ -617,8 +617,8 @@ BEGIN:VEVENT
 SUMMARY:ICWS 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20250224T235959
 DTEND;TZID="UTC-12:00":20250225T000059
-DTSTAMP:20250831T045658Z
-UID:ab97d2af-5d99-4839-8abd-8b00ed6465b7
+DTSTAMP:20250831T142719Z
+UID:667ef7d0-ae2e-4cc8-8400-d30320d03b1b
 DESCRIPTION:IEEE International Conference on Web Services (Research Track)
  \n🗓️ Date: July 7-12\, 2025\n📍 Location: Helsinki\, Finland\n⏰ O
  riginal Deadline (AoE): 2025-02-24 23:59:59\nCategory: 软件工程/系统
@@ -632,8 +632,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2023 Deadline [Abstract submission]
 DTSTART;TZID="UTC-12:00":20230522T235959
 DTEND;TZID="UTC-12:00":20230523T000059
-DTSTAMP:20250831T045658Z
-UID:75eba147-161c-48cd-b02f-e2a30f19dc81
+DTSTAMP:20250831T142719Z
+UID:1779e9b8-ad94-4781-bf3c-c8bbf98ca81a
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ Date: October 9-12\, 2023\n📍 Location: Florence\, Italy\n⏰ Or
  iginal Deadline (AoE): 2023-05-22 23:59:59\nCategory: 软件工程/系统
@@ -647,8 +647,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2023 Deadline [Full paper submission]
 DTSTART;TZID="UTC-12:00":20210601T235959
 DTEND;TZID="UTC-12:00":20210602T000059
-DTSTAMP:20250831T045658Z
-UID:a2c13ecc-4de5-4cab-a59e-7f8d65e6b75e
+DTSTAMP:20250831T142719Z
+UID:e415fd11-0d9b-4e3e-b26e-9b94b090df45
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ Date: October 9-12\, 2023\n📍 Location: Florence\, Italy\n⏰ Or
  iginal Deadline (AoE): 2021-06-01 23:59:59\nCategory: 软件工程/系统
@@ -662,8 +662,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2024 Deadline [Research Track Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20240515T235959
 DTEND;TZID="UTC-12:00":20240516T000059
-DTSTAMP:20250831T045658Z
-UID:2d191db8-485a-4003-aaf0-de14d5771f95
+DTSTAMP:20250831T142719Z
+UID:0350c027-6b8e-4dfe-9140-f28e869c6ff3
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ Date: October 28-31\, 2024\n📍 Location: Tsukuba\, Japan\n⏰ Or
  iginal Deadline (AoE): 2024-05-15 23:59:59\nCategory: 软件工程/系统
@@ -677,8 +677,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2025 Deadline [Abstract submission - Research Track]
 DTSTART;TZID="UTC-12:00":20250428T235959
 DTEND;TZID="UTC-12:00":20250429T000059
-DTSTAMP:20250831T045658Z
-UID:f8b49e8a-475d-43f4-b04a-34bfb12eef2f
+DTSTAMP:20250831T142719Z
+UID:7a84c5eb-47fa-4037-81ae-4bbb07721d9f
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ Date: October 21st-24th\, 2025\n📍 Location: São Paulo\, Brazil
  \n⏰ Original Deadline (AoE): 2025-04-28 23:59:59\nCategory: 软件工程
@@ -692,8 +692,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2025 Deadline [Paper submission - Research Track]
 DTSTART;TZID="UTC-12:00":20250505T235959
 DTEND;TZID="UTC-12:00":20250506T000059
-DTSTAMP:20250831T045658Z
-UID:f98e41b8-1a9c-4ad3-87b1-46cd1c020c48
+DTSTAMP:20250831T142719Z
+UID:32777eca-b819-4017-be50-32332c133e85
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ Date: October 21st-24th\, 2025\n📍 Location: São Paulo\, Brazil
  \n⏰ Original Deadline (AoE): 2025-05-05 23:59:59\nCategory: 软件工程
@@ -707,8 +707,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2021 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210308T235959
 DTEND;TZID="UTC-12:00":20210309T000059
-DTSTAMP:20250831T045658Z
-UID:7c8c5f87-1ca5-4288-9ff4-002554f847c1
+DTSTAMP:20250831T142719Z
+UID:35920c6c-3937-437d-94c5-3f2c69df68ec
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ Date: June 20-26\, 2021\n📍 Location: Virtua
  l\n⏰ Original Deadline (AoE): 2021-03-08 23:59:59\nCategory: 软件工
@@ -722,8 +722,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2021 Deadline [Final Copy Deadline]
 DTSTART;TZID="UTC-12:00":20210505T235959
 DTEND;TZID="UTC-12:00":20210506T000059
-DTSTAMP:20250831T045658Z
-UID:f9bb489a-049e-48ec-95cc-8b9af4b782a3
+DTSTAMP:20250831T142719Z
+UID:9a2e0028-6145-49d5-b6b3-8b02030ef654
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ Date: June 20-26\, 2021\n📍 Location: Virtua
  l\n⏰ Original Deadline (AoE): 2021-05-05 23:59:59\nCategory: 软件工
@@ -737,8 +737,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2023 Deadline
 DTSTART;TZID="UTC-12:00":20230316T235959
 DTEND;TZID="UTC-12:00":20230317T000059
-DTSTAMP:20250831T045658Z
-UID:1cb4414c-1819-4926-8fc5-9b2910f65c6e
+DTSTAMP:20250831T142719Z
+UID:d3b28d37-6d9a-4ab8-981f-f51609678d31
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ Date: June 17-21\, 2023\n📍 Location: Orland
  o\, Florida\, United States\n⏰ Original Deadline (AoE): 2023-03-16 23:59
@@ -752,8 +752,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2024 Deadline [Abstract submission]
 DTSTART;TZID="UTC-12:00":20240216T235959
 DTEND;TZID="UTC-12:00":20240217T000059
-DTSTAMP:20250831T045658Z
-UID:5ae84c30-54ad-4e00-b52e-f293f0ae055b
+DTSTAMP:20250831T142719Z
+UID:d787fda1-7716-4b4e-a7ee-7041ecdeb75a
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ Date: June 24\, 2024\n📍 Location: Copenhage
  n\, Denmark\n⏰ Original Deadline (AoE): 2024-02-16 23:59:59\nCategory: 
@@ -767,8 +767,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2024 Deadline [Paper submission]
 DTSTART;TZID="UTC-12:00":20240223T235959
 DTEND;TZID="UTC-12:00":20240224T000059
-DTSTAMP:20250831T045658Z
-UID:81973640-b7c6-41ef-bb02-726efacaa26d
+DTSTAMP:20250831T142719Z
+UID:867ce8e8-2a00-4c8a-95d5-318e6f8d01aa
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ Date: June 24\, 2024\n📍 Location: Copenhage
  n\, Denmark\n⏰ Original Deadline (AoE): 2024-02-23 23:59:59\nCategory: 
@@ -782,8 +782,8 @@ BEGIN:VEVENT
 SUMMARY:Middleware 2022 Deadline [Submission R1]
 DTSTART;TZID="UTC-12:00":20211120T235959
 DTEND;TZID="UTC-12:00":20211121T000059
-DTSTAMP:20250831T045658Z
-UID:3cb947e7-3a7b-4fdd-8f30-5110ea1d4caf
+DTSTAMP:20250831T142719Z
+UID:de86b658-2fad-4842-8321-4e4961d2889e
 DESCRIPTION:International Middleware Conference\n🗓️ Date: November 7-
  11\, 2022\n📍 Location: Fairmont Le Château Frontenac\, Québec City\, 
  Québec\, Canada\n⏰ Original Deadline (AoE): 2021-11-20 23:59:59\nCatego
@@ -797,8 +797,8 @@ BEGIN:VEVENT
 SUMMARY:Middleware 2022 Deadline [Submission R2]
 DTSTART;TZID="UTC-12:00":20220315T235959
 DTEND;TZID="UTC-12:00":20220316T000059
-DTSTAMP:20250831T045658Z
-UID:f6e8b3c8-110a-486e-89d5-11c767407354
+DTSTAMP:20250831T142719Z
+UID:00070dfa-42a9-46d0-b13d-f70c8b599448
 DESCRIPTION:International Middleware Conference\n🗓️ Date: November 7-
  11\, 2022\n📍 Location: Fairmont Le Château Frontenac\, Québec City\, 
  Québec\, Canada\n⏰ Original Deadline (AoE): 2022-03-15 23:59:59\nCatego
@@ -812,8 +812,8 @@ BEGIN:VEVENT
 SUMMARY:MoDELS 2022 Deadline
 DTSTART;TZID="UTC-12:00":20220518T235959
 DTEND;TZID="UTC-12:00":20220519T000059
-DTSTAMP:20250831T045658Z
-UID:22ca0095-7094-4a9e-9e2e-9c8c656301f2
+DTSTAMP:20250831T142719Z
+UID:66f7aa27-a608-47b8-9157-550efab35d6c
 DESCRIPTION:International Conference on Model Driven Engineering Languages
   and Systems\n🗓️ Date: October 23-28\, 2022\n📍 Location: Montréal
  \, Canada\n⏰ Original Deadline (AoE): 2022-05-18 23:59:59\nCategory: 软
@@ -827,8 +827,8 @@ BEGIN:VEVENT
 SUMMARY:RE 2022 Deadline [Abstract Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220217T235959
 DTEND;TZID="UTC-12:00":20220218T000059
-DTSTAMP:20250831T045658Z
-UID:81fa54ef-5a9d-476f-9383-600df9380dc0
+DTSTAMP:20250831T142719Z
+UID:3951a9c1-71ed-4edf-9281-ce799513ae38
 DESCRIPTION:IEEE International Requirements Engineering Conference\n🗓
  ️ Date: August 15-19\, 2022\n📍 Location: Melbourne\, Australia\n⏰ O
  riginal Deadline (AoE): 2022-02-17 23:59:59\nCategory: 软件工程/系统
@@ -841,8 +841,8 @@ BEGIN:VEVENT
 SUMMARY:RE 2022 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220224T235959
 DTEND;TZID="UTC-12:00":20220225T000059
-DTSTAMP:20250831T045658Z
-UID:326b05eb-8b66-4710-965f-6a0ac8c71b41
+DTSTAMP:20250831T142719Z
+UID:04438771-6b7e-4f76-8a98-39ee53a0fb90
 DESCRIPTION:IEEE International Requirements Engineering Conference\n🗓
  ️ Date: August 15-19\, 2022\n📍 Location: Melbourne\, Australia\n⏰ O
  riginal Deadline (AoE): 2022-02-24 23:59:59\nCategory: 软件工程/系统
@@ -855,8 +855,8 @@ BEGIN:VEVENT
 SUMMARY:RE 2023 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20230310T235959
 DTEND;TZID="UTC-12:00":20230311T000059
-DTSTAMP:20250831T045658Z
-UID:35053a0a-6356-4333-834e-efa25fb3fccf
+DTSTAMP:20250831T142719Z
+UID:a9e681cd-909d-4399-a0c4-41da9102fdec
 DESCRIPTION:IEEE International Requirements Engineering Conference\n🗓
  ️ Date: September 4-8\, 2023\n📍 Location: Hannover\, Germany\n⏰ Ori
  ginal Deadline (AoE): 2023-03-10 23:59:59\nCategory: 软件工程/系统
@@ -870,8 +870,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2022 Deadline [abstract submission deadline]
 DTSTART;TZID="UTC-12:00":20211014T235959
 DTEND;TZID="UTC-12:00":20211015T000059
-DTSTAMP:20250831T045658Z
-UID:6b4a4e73-3cc5-4620-a0d7-897555763a15
+DTSTAMP:20250831T142719Z
+UID:5b3a9e5c-f366-41a7-a46d-e15068944ace
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ Date: March 15-18\, 2022\n📍 Location: Unive
  rsity of Hawaii in Honolulu\, Hawaii\n⏰ Original Deadline (AoE): 2021-10
@@ -885,8 +885,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2022 Deadline [full paper submission deadline]
 DTSTART;TZID="UTC-12:00":20211021T235959
 DTEND;TZID="UTC-12:00":20211022T000059
-DTSTAMP:20250831T045658Z
-UID:9c1ce660-48d9-4fd2-86c9-bd3f82496ae5
+DTSTAMP:20250831T142719Z
+UID:d30ceb00-4211-4f0b-8ed2-be7b0945a43e
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ Date: March 15-18\, 2022\n📍 Location: Unive
  rsity of Hawaii in Honolulu\, Hawaii\n⏰ Original Deadline (AoE): 2021-10
@@ -900,8 +900,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2024 Abstract Deadline [Research Papers Paper Submission]
 DTSTART;TZID="UTC-12:00":20231013T235959
 DTEND;TZID="UTC-12:00":20231014T000059
-DTSTAMP:20250831T045658Z
-UID:57535f03-c5cf-4503-896f-236961cb0ec6
+DTSTAMP:20250831T142719Z
+UID:23eb9a99-ff47-434b-b9d1-6cfc55e74239
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ Date: March 12-15\, 2024\n📍 Location: Rovan
  iemi\, Finland\n⏰ Original Deadline (AoE): 2023-10-13 23:59:59\nCategory
@@ -915,8 +915,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2025 Abstract Deadline [Research Papers Paper Submission]
 DTSTART;TZID="UTC-12:00":20241004T235959
 DTEND;TZID="UTC-12:00":20241005T000059
-DTSTAMP:20250831T045658Z
-UID:eb2925fe-1cad-4d7a-8225-d4d4f6177a3f
+DTSTAMP:20250831T142719Z
+UID:03799865-180c-47f4-8e51-f7495d85ebb0
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ Date: March 4-7\, 2025\n📍 Location: Montré
  al\, Québec\, Canada\n⏰ Original Deadline (AoE): 2024-10-04 23:59:59\nC
@@ -931,8 +931,8 @@ SUMMARY:SANER 2026 Deadline [Research Track Abstract submission (mandatory
  )]
 DTSTART;TZID="UTC-12:00":20251009T235959
 DTEND;TZID="UTC-12:00":20251010T000059
-DTSTAMP:20250831T045658Z
-UID:e2b5acbf-d67c-4e38-a42f-6ffa4cc5e626
+DTSTAMP:20250831T142719Z
+UID:a0dc8c3e-90a1-46f9-a954-adf45c48151f
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ Date: March 17-20\, 2026\n📍 Location: Limas
  sol\, Cyprus\n⏰ Original Deadline (AoE): 2025-10-09 23:59:59\nCategory: 
@@ -946,8 +946,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2026 Deadline [Research Track Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20241016T235959
 DTEND;TZID="UTC-12:00":20241017T000059
-DTSTAMP:20250831T045658Z
-UID:cd324e84-0153-47b0-89c1-84fbc6b81a47
+DTSTAMP:20250831T142719Z
+UID:dcd65299-b63c-4ce6-a094-624bff9f2613
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ Date: March 17-20\, 2026\n📍 Location: Limas
  sol\, Cyprus\n⏰ Original Deadline (AoE): 2024-10-16 23:59:59\nCategory: 
@@ -961,8 +961,8 @@ BEGIN:VEVENT
 SUMMARY:SAS 2022 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20220504T235959
 DTEND;TZID="UTC-12:00":20220505T000059
-DTSTAMP:20250831T045658Z
-UID:cfd62a7b-e651-4328-8a7d-94e2a1b7223f
+DTSTAMP:20250831T142719Z
+UID:9bf7a21c-00f3-4321-8951-22d51780eca0
 DESCRIPTION:International Static Analysis Symposium\n🗓️ Date: Decembe
  r 5-7\, 2022\n📍 Location: Auckland\, New Zealand\n⏰ Original Deadline
   (AoE): 2022-05-04 23:59:59\nCategory: 软件工程/系统软件/程序设
@@ -975,8 +975,8 @@ BEGIN:VEVENT
 SUMMARY:SAS 2025 Deadline [Paper Submission]
 DTSTART;TZID="UTC-12:00":20250504T235959
 DTEND;TZID="UTC-12:00":20250505T000059
-DTSTAMP:20250831T045658Z
-UID:d1b31d6b-8ba3-46fc-b262-9f4288a8c4f6
+DTSTAMP:20250831T142719Z
+UID:7805093c-b9f3-49bb-8251-2aeae6a59047
 DESCRIPTION:International Static Analysis Symposium\n🗓️ Date: October
   12-18\, 2025\n📍 Location: Singapore\n⏰ Original Deadline (AoE): 2025
  -05-04 23:59:59\nCategory: 软件工程/系统软件/程序设计语言 (S
@@ -989,8 +989,8 @@ BEGIN:VEVENT
 SUMMARY:VMCAI 2022 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20210909T235959
 DTEND;TZID="UTC-12:00":20210910T000059
-DTSTAMP:20250831T045658Z
-UID:6950431d-2836-45e4-9e91-1ef7c1797835
+DTSTAMP:20250831T142719Z
+UID:b923d5a6-1868-4695-89f6-fe6f772a7a10
 DESCRIPTION:International Conference on Verification\, Model Checking\, an
  d Abstract Interpretation\n🗓️ Date: January 16-28\, 2022\n📍 Locati
  on: Philadelphia\, Pennsylvania\, United States\n⏰ Original Deadline (Ao

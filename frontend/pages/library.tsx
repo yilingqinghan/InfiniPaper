@@ -211,7 +211,7 @@ function FolderItem({
                 }}
                 title="仅本文件夹的引用关系网"
                 >
-                🎾
+                ▒
             </button>
                 </div>
             </div>
@@ -257,11 +257,14 @@ function PaperRow({
     const plain = allTags.filter(t => !getTagColor(t.name));
     const abbr = abbrevVenue(p.venue);
     const tier = venueTier(abbr);
+
     const chipClass =
         tier === 1
             ? "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-rose-50 border-rose-200 text-rose-700"
+            : tier === 3
+            ? "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-blue-700 border-blue-800 text-white"
             : "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-indigo-50 border-indigo-200 text-indigo-700";
-
+    
     return (
         <tr
             className={`border-t ${selected ? "bg-blue-50/60" : "odd:bg-white even:bg-slate-50/40 hover:bg-gray-50"} cursor-pointer select-none`}
@@ -625,6 +628,8 @@ export default function Library() {
     const [papers, setPapers] = React.useState<Paper[]>([]);
     const [openId, setOpenId] = React.useState<number | null>(null);
     const [selectedId, setSelectedId] = React.useState<number | null>(null);
+    const [page, setPage] = React.useState(1);
+    const [pageSize, setPageSize] = React.useState(50);
 
     const [hoverPreviewId, setHoverPreviewId] = React.useState<number | null>(null);
     const [ctx, setCtx] = React.useState<{ x: number; y: number; visible: boolean; payload?: Paper }>({ x: 0, y: 0, visible: false });
@@ -879,6 +884,18 @@ export default function Library() {
       });
     }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags]);
 
+    // 本地分页数据
+    const total = displayPapers.length;
+    const totalPages = React.useMemo(() => Math.max(1, Math.ceil(total / pageSize)), [total, pageSize]);
+    const pageData = React.useMemo(() => {
+      const start = (page - 1) * pageSize;
+      return displayPapers.slice(start, start + pageSize);
+    }, [displayPapers, page, pageSize]);
+
+    // 当筛选变化或总页数变化时，重置/纠正页码
+    React.useEffect(() => { if (page > totalPages) setPage(totalPages); }, [totalPages]);
+    React.useEffect(() => { setPage(1); }, [search, filterVenueAbbrs, filterAuthors, filterTagNames, yearMin, yearMax, activeFolderId]);
+
     // “期刊/会议”列：若全部能映射缩写，则隐藏
     const showVenueCol = React.useMemo(() => {
       if (!displayPapers.length) return true;
@@ -890,20 +907,20 @@ export default function Library() {
     React.useEffect(() => {
         const h = (e: KeyboardEvent) => {
             if (["INPUT", "TEXTAREA"].includes((e.target as any)?.tagName)) return;
-            if (!displayPapers.length) return;
-            const idx = selectedId == null ? -1 : displayPapers.findIndex(p => p.id === selectedId);
+            if (!pageData.length) return;
+            const idx = selectedId == null ? -1 : pageData.findIndex(p => p.id === selectedId);
             if (e.key === "ArrowDown") {
-                const next = displayPapers[Math.min(displayPapers.length - 1, Math.max(0, idx + 1))];
+                const next = pageData[Math.min(pageData.length - 1, Math.max(0, idx + 1))];
                 if (next) setSelectedId(next.id);
             } else if (e.key === "ArrowUp") {
-                const prev = displayPapers[Math.max(0, Math.max(0, idx - 1))];
+                const prev = pageData[Math.max(0, Math.max(0, idx - 1))];
                 if (prev) setSelectedId(prev.id);
             } else if (e.key === "Enter") {
                 if (selectedId != null) setOpenId(selectedId);
             }
         };
         window.addEventListener("keydown", h); return () => window.removeEventListener("keydown", h);
-    }, [displayPapers, selectedId]);
+    }, [pageData, selectedId]);
     // ✅ 仅本文件夹的引用网（兼容多字段名 + 提前检查 DOI）
     React.useEffect(() => {
         const handler = (ev: Event) => {
@@ -1174,7 +1191,7 @@ export default function Library() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {displayPapers.map(p => (
+                                    {pageData.map(p => (
                                         <PaperRow key={p.id}
                                             p={p}
                                             onOpen={id => setOpenId(id)}
@@ -1194,6 +1211,33 @@ export default function Library() {
                                     )}
                                 </tbody>
                             </table>
+                        </div>
+                        {/* 分页条 */}
+                        <div className="flex items-center gap-2 px-3 py-2 border-t bg-gray-50 text-sm">
+                          <span>共 {total} 篇</span>
+                          <span className="ml-2 text-xs text-gray-500">每页</span>
+                          <select
+                            value={pageSize}
+                            onChange={(e) => { setPage(1); setPageSize(Number(e.target.value)); }}
+                            className="border rounded px-2 py-1"
+                          >
+                            {[20, 50, 100, 200].map(n => (
+                              <option key={n} value={n}>{n}</option>
+                            ))}
+                          </select>
+                          <div className="ml-auto flex items-center gap-2">
+                            <button
+                              disabled={page <= 1}
+                              onClick={() => setPage(p => Math.max(1, p - 1))}
+                              className="px-2 py-1 border rounded disabled:opacity-50"
+                            >上一页</button>
+                            <span>{page} / {totalPages}</span>
+                            <button
+                              disabled={page >= totalPages}
+                              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                              className="px-2 py-1 border rounded disabled:opacity-50"
+                            >下一页</button>
+                          </div>
                         </div>
                     </div>
 

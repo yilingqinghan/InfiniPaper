@@ -81,6 +81,7 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(proceedings of the acm on programming languages|(^|\W)pacmpl(\W|$))/i, "PACMPL"],
     [/(object-oriented programming, systems, languages, and applications|(^|\W)oopsla(\W|$))/i, "OOPSLA"],
     [/(Research and Development inInformation Retrieval|(^|\W)sigir(\W|$))/i, "SIGIR"],
+    [/(arxiv|(^|\W)arxiv(\W|$))/i, "预印"],
 ];
 
 export function abbrevVenue(venue?: string | null): string | null {
@@ -91,7 +92,9 @@ export function abbrevVenue(venue?: string | null): string | null {
 
 /** 顶尖会议/期刊缩写定义（Tier1） */
 const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS"]);
-export function venueTier(abbr: string | null): 0 | 1 | 2 {
+const preprint = new Set(["预印"]);
+export function venueTier(abbr: string | null): 0 | 1 | 2 | 3 {
     if (!abbr) return 0;
+    if (preprint.has(abbr)) return 3;
     return TOP_TIER.has(abbr) ? 1 : 2;
 }

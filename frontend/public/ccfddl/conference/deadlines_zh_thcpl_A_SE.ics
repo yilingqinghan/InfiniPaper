@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2022 截稿日期 [Abstract Submission]
 DTSTART;TZID="UTC-12:00":20220429T235959
 DTEND;TZID="UTC-12:00":20220430T000059
-DTSTAMP:20250831T045656Z
-UID:516ecfcb-9360-43ed-93c2-f5856a46de3b
+DTSTAMP:20250831T142716Z
+UID:6791b79c-a6b0-4259-83c7-8c69253001a4
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ 会议时间: September 26- October 01\, 2022\n📍 会议地点: 
  Ann Arbor\, Michigan\, United States\n⏰ 原始截止时间 (AoE): 2022-0
@@ -29,8 +29,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2022 截稿日期 [Paper Submission]
 DTSTART;TZID="UTC-12:00":20220506T235959
 DTEND;TZID="UTC-12:00":20220507T000059
-DTSTAMP:20250831T045656Z
-UID:7d1a628e-5051-444f-87d3-a186d6befd39
+DTSTAMP:20250831T142716Z
+UID:178e4d81-17bd-4bad-9eef-2ada5a4262d5
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ 会议时间: September 26- October 01\, 2022\n📍 会议地点: 
  Ann Arbor\, Michigan\, United States\n⏰ 原始截止时间 (AoE): 2022-0
@@ -44,8 +44,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2023 摘要截稿
 DTSTART;TZID="UTC-12:00":20230428T235959
 DTEND;TZID="UTC-12:00":20230429T000059
-DTSTAMP:20250831T045656Z
-UID:0e9f483f-9162-4563-8955-7117be6a51dd
+DTSTAMP:20250831T142716Z
+UID:96c6a364-7b30-457a-9e74-6f2661286a5a
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ 会议时间: September 11-15\, 2023\n📍 会议地点: Kirchberg
  \, Luxembourg\n⏰ 原始截止时间 (AoE): 2023-04-28 23:59:59\n分类: 
@@ -59,8 +59,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20240531T235959
 DTEND;TZID="UTC-12:00":20240601T000059
-DTSTAMP:20250831T045656Z
-UID:6cbd381e-e849-4b9a-b598-14ab43492b3e
+DTSTAMP:20250831T142716Z
+UID:af171210-725b-4a5c-84f9-0a3d51b26030
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ 会议时间: October 27- November 01\, 2024\n📍 会议地点: S
  acramento\, California\, United States\n⏰ 原始截止时间 (AoE): 2024
@@ -74,8 +74,8 @@ BEGIN:VEVENT
 SUMMARY:ASE 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250530T235959
 DTEND;TZID="UTC-12:00":20250531T000059
-DTSTAMP:20250831T045656Z
-UID:ab9ad753-5956-47a2-a7ce-8235f82ba749
+DTSTAMP:20250831T142716Z
+UID:7bd4499c-fc7c-4bf1-aefd-ecae9b6cd2af
 DESCRIPTION:International Conference on Automated Software Engineering\n
  🗓️ 会议时间: November 16 - November 20\, 2025\n📍 会议地点:
   Seoul\, South Korea\n⏰ 原始截止时间 (AoE): 2025-05-30 23:59:59\n
@@ -89,8 +89,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2022 截稿日期 [paper registration deadline]
 DTSTART;TZID="UTC-12:00":20220310T235959
 DTEND;TZID="UTC-12:00":20220311T000059
-DTSTAMP:20250831T045656Z
-UID:c21968e6-1f26-4470-b100-6f150e383cde
+DTSTAMP:20250831T142716Z
+UID:e4885712-981e-48db-93f8-6752ae8c72d4
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ 会议时间: November 14-18\, 2022\n📍 会议地点:
   Singapore\n⏰ 原始截止时间 (AoE): 2022-03-10 23:59:59\n分类: 软
@@ -104,8 +104,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2022 截稿日期 [full paper submission deadline]
 DTSTART;TZID="UTC-12:00":20220317T235959
 DTEND;TZID="UTC-12:00":20220318T000059
-DTSTAMP:20250831T045656Z
-UID:2e33cd9b-a4cf-4aca-9246-6e06c9fe8b4c
+DTSTAMP:20250831T142716Z
+UID:39eb88ed-3867-4b93-a2b9-e31c34f9d17e
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ 会议时间: November 14-18\, 2022\n📍 会议地点:
   Singapore\n⏰ 原始截止时间 (AoE): 2022-03-17 23:59:59\n分类: 软
@@ -119,8 +119,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2023 截稿日期 [paper registration deadline]
 DTSTART;TZID="UTC-12:00":20230126T235959
 DTEND;TZID="UTC-12:00":20230127T000059
-DTSTAMP:20250831T045656Z
-UID:3e0e43a0-b079-4bef-9803-4fa0ff1fcf93
+DTSTAMP:20250831T142716Z
+UID:81a8754b-4f12-4207-aca7-fcbca5efddc8
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ 会议时间: November 11-17\, 2023\n📍 会议地点:
   United States\n⏰ 原始截止时间 (AoE): 2023-01-26 23:59:59\n分类:
@@ -134,8 +134,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2023 截稿日期 [full paper submission deadline]
 DTSTART;TZID="UTC-12:00":20230202T235959
 DTEND;TZID="UTC-12:00":20230203T000059
-DTSTAMP:20250831T045656Z
-UID:c239f3c5-c81a-4940-b711-d13683e70bc1
+DTSTAMP:20250831T142716Z
+UID:67b3feb2-d154-4b69-970e-6aef5e0d23d1
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ 会议时间: November 11-17\, 2023\n📍 会议地点:
   United States\n⏰ 原始截止时间 (AoE): 2023-02-02 23:59:59\n分类:
@@ -149,8 +149,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20230921T235959
 DTEND;TZID="UTC-12:00":20230922T000059
-DTSTAMP:20250831T045656Z
-UID:65969514-7c7f-4256-9f21-c5dd63ff7996
+DTSTAMP:20250831T142716Z
+UID:5b49e2ca-ed0a-43cb-a0e7-b7acf2743734
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ 会议时间: July 15-19\, 2024\n📍 会议地点: Por
  to de Galinas\, Brazil\n⏰ 原始截止时间 (AoE): 2023-09-21 23:59:59\
@@ -164,8 +164,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20240905T235959
 DTEND;TZID="UTC-12:00":20240906T000059
-DTSTAMP:20250831T045656Z
-UID:d10e1727-541d-4063-9e4a-be021e83dfff
+DTSTAMP:20250831T142716Z
+UID:75713537-3aad-493e-9318-d0ed52a932a0
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ 会议时间: June 23-27\, 2025\n📍 会议地点: Tro
  ndheim\, Norway\n⏰ 原始截止时间 (AoE): 2024-09-05 23:59:59\n分类
@@ -179,8 +179,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2026 摘要截稿
 DTSTART;TZID="UTC-12:00":20250904T235959
 DTEND;TZID="UTC-12:00":20250905T000059
-DTSTAMP:20250831T045656Z
-UID:e5ae2a0d-3522-470d-8a0e-2b135dfa9579
+DTSTAMP:20250831T142716Z
+UID:6519425f-01d9-469e-839e-5cad72723402
 DESCRIPTION:ACM International Conference on the Foundations of Software En
  gineering\n🗓️ 会议时间: July 6-10\, 2026\n📍 会议地点: Mont
  réal\, Canada\n⏰ 原始截止时间 (AoE): 2025-09-04 23:59:59\n分类:
@@ -194,8 +194,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2022 摘要截稿
 DTSTART;TZID="UTC-12:00":20210827T235959
 DTEND;TZID="UTC-12:00":20210828T000059
-DTSTAMP:20250831T045656Z
-UID:3e58f452-917b-42bc-9e2f-8ed8b8558f1e
+DTSTAMP:20250831T142716Z
+UID:4649d438-c5d2-4c12-911f-7e2392b12d00
 DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
  议时间: May 21-29\, 2022\n📍 会议地点: Pittsburgh\, PA\, USA\n⏰
   原始截止时间 (AoE): 2021-08-27 23:59:59\n分类: 软件工程/系
@@ -209,8 +209,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20220901T235959
 DTEND;TZID="UTC-12:00":20220902T000059
-DTSTAMP:20250831T045656Z
-UID:e065e79b-6f74-4812-bb8a-b788c438d8e6
+DTSTAMP:20250831T142716Z
+UID:47d5e03f-7bbf-468a-9cff-dff73d92d573
 DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
  议时间: May 14-20\, 2023\n📍 会议地点: Melbourne\, Australia\n⏰
   原始截止时间 (AoE): 2022-09-01 23:59:59\n分类: 软件工程/系
@@ -225,8 +225,8 @@ SUMMARY:ICSE 2024 截稿日期 [Technical Papers First round submission de
  adline]
 DTSTART;TZID="UTC-12:00":20230329T235959
 DTEND;TZID="UTC-12:00":20230330T000059
-DTSTAMP:20250831T045656Z
-UID:d8379e91-77bd-4588-b9b2-4c40d389df74
+DTSTAMP:20250831T142716Z
+UID:6f3ac301-963e-466f-87c2-6894e0c370a5
 DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
  议时间: April 12-21\, 2024\n📍 会议地点: Lisbon\, Portugal\n⏰ 
  原始截止时间 (AoE): 2023-03-29 23:59:59\n分类: 软件工程/系统
@@ -241,8 +241,8 @@ SUMMARY:ICSE 2024 截稿日期 [Technical Papers Second round submission d
  eadline]
 DTSTART;TZID="UTC-12:00":20230801T235959
 DTEND;TZID="UTC-12:00":20230802T000059
-DTSTAMP:20250831T045656Z
-UID:94374c15-2093-42eb-a512-4e4f13ba14c3
+DTSTAMP:20250831T142716Z
+UID:5b93d9ae-6b60-4aea-8640-45225e581817
 DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
  议时间: April 12-21\, 2024\n📍 会议地点: Lisbon\, Portugal\n⏰ 
  原始截止时间 (AoE): 2023-08-01 23:59:59\n分类: 软件工程/系统
@@ -256,8 +256,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2025 摘要截稿 [First Cycle: Submission]
 DTSTART;TZID="UTC-12:00":20240315T235959
 DTEND;TZID="UTC-12:00":20240316T000059
-DTSTAMP:20250831T045656Z
-UID:42cdb112-5cd2-4463-873a-2c8f88a566a1
+DTSTAMP:20250831T142716Z
+UID:fa839252-02c7-47f0-9dc9-cdc98a4b3399
 DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
  议时间: April 26- May 04\, 2025\n📍 会议地点: Ottawa\, Ontario\, 
  Canada\n⏰ 原始截止时间 (AoE): 2024-03-15 23:59:59\n分类: 软件
@@ -271,8 +271,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2025 摘要截稿 [Second Cycle: Submission]
 DTSTART;TZID="UTC-12:00":20240726T235959
 DTEND;TZID="UTC-12:00":20240727T000059
-DTSTAMP:20250831T045656Z
-UID:5ceea6ea-f9c2-4ac9-a7d5-20fa158bf936
+DTSTAMP:20250831T142716Z
+UID:8a69970f-e440-4074-9951-b48511f5ee69
 DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
  议时间: April 26- May 04\, 2025\n📍 会议地点: Ottawa\, Ontario\, 
  Canada\n⏰ 原始截止时间 (AoE): 2024-07-26 23:59:59\n分类: 软件
@@ -286,8 +286,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2026 摘要截稿 [First Cycle: Submission]
 DTSTART;TZID="UTC-12:00":20250307T235959
 DTEND;TZID="UTC-12:00":20250308T000059
-DTSTAMP:20250831T045656Z
-UID:082101b3-c3f9-4243-ae61-eac119a6acfd
+DTSTAMP:20250831T142716Z
+UID:4b5f5c98-0768-4006-bb23-2b9ec49d14c4
 DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
  议时间: April 12-18\, 2026\n📍 会议地点: Rio De Janeiro\, Brazil\
  n⏰ 原始截止时间 (AoE): 2025-03-07 23:59:59\n分类: 软件工程/
@@ -301,8 +301,8 @@ BEGIN:VEVENT
 SUMMARY:ICSE 2026 摘要截稿 [Second Cycle: Submission]
 DTSTART;TZID="UTC-12:00":20250711T235959
 DTEND;TZID="UTC-12:00":20250712T000059
-DTSTAMP:20250831T045656Z
-UID:d35e3f86-f823-4a76-a671-5c987ffd56db
+DTSTAMP:20250831T142716Z
+UID:001a0aa5-1893-41fa-b668-0d4edc631026
 DESCRIPTION:International Conference on Software Engineering\n🗓️ 会
  议时间: April 12-18\, 2026\n📍 会议地点: Rio De Janeiro\, Brazil\
  n⏰ 原始截止时间 (AoE): 2025-07-11 23:59:59\n分类: 软件工程/
@@ -316,8 +316,8 @@ BEGIN:VEVENT
 SUMMARY:ISSTA 2022 截稿日期 [Technical Papers due]
 DTSTART;TZID="UTC-12:00":20220128T235959
 DTEND;TZID="UTC-12:00":20220129T000059
-DTSTAMP:20250831T045656Z
-UID:db81711b-4815-433d-bbc7-97e545e7c9ab
+DTSTAMP:20250831T142716Z
+UID:033aa60d-4497-4b69-a3d1-9f0a373e6f2c
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ 会议时间: July 18-22\, 2022\n📍 会议地点: Daejeo
  n\, South Korea\n⏰ 原始截止时间 (AoE): 2022-01-28 23:59:59\n分类
@@ -331,8 +331,8 @@ BEGIN:VEVENT
 SUMMARY:ISSTA 2022 截稿日期 [Workshops Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220131T235959
 DTEND;TZID="UTC-12:00":20220201T000059
-DTSTAMP:20250831T045656Z
-UID:79a20c12-0f15-4076-8d75-3c1dc2aa38dc
+DTSTAMP:20250831T142716Z
+UID:b5c4865a-f1a7-4df1-a457-e0993a96832c
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ 会议时间: July 18-22\, 2022\n📍 会议地点: Daejeo
  n\, South Korea\n⏰ 原始截止时间 (AoE): 2022-01-31 23:59:59\n分类
@@ -347,8 +347,8 @@ SUMMARY:ISSTA 2023 截稿日期 [Technical Papers First round submission d
  eadline]
 DTSTART;TZID="UTC-12:00":20221110T235959
 DTEND;TZID="UTC-12:00":20221111T000059
-DTSTAMP:20250831T045656Z
-UID:f08239d6-6ace-4e43-a21f-4ee24680fc71
+DTSTAMP:20250831T142716Z
+UID:f2a81cc0-89bf-4581-8f51-a8306d03ad05
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ 会议时间: July 17-21\, 2023\n📍 会议地点: Seattl
  e\, United States\n⏰ 原始截止时间 (AoE): 2022-11-10 23:59:59\n分
@@ -363,8 +363,8 @@ SUMMARY:ISSTA 2023 截稿日期 [Technical Papers Second round submission
  deadline]
 DTSTART;TZID="UTC-12:00":20230216T235959
 DTEND;TZID="UTC-12:00":20230217T000059
-DTSTAMP:20250831T045656Z
-UID:489f1023-369b-4e52-9cfa-d8a6cfd59a7c
+DTSTAMP:20250831T142716Z
+UID:c5125ad0-d0ba-4b42-bc13-62f4b17ab9dc
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ 会议时间: July 17-21\, 2023\n📍 会议地点: Seattl
  e\, United States\n⏰ 原始截止时间 (AoE): 2023-02-16 23:59:59\n分
@@ -379,8 +379,8 @@ SUMMARY:ISSTA 2024 截稿日期 [Technical Papers Submission deadline (Rou
  nd 1)]
 DTSTART;TZID="UTC-12:00":20231215T235959
 DTEND;TZID="UTC-12:00":20231216T000059
-DTSTAMP:20250831T045656Z
-UID:1c797a8a-c355-4eea-aab0-a272346a0961
+DTSTAMP:20250831T142716Z
+UID:38c14e05-3107-48b1-a416-54de7178b400
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ 会议时间: September 16-20\, 2024\n📍 会议地点: V
  ienna\, Austria\n⏰ 原始截止时间 (AoE): 2023-12-15 23:59:59\n分类
@@ -395,8 +395,8 @@ SUMMARY:ISSTA 2024 截稿日期 [Technical Papers Submission deadline (Rou
  nd 2)]
 DTSTART;TZID="UTC-12:00":20240412T235959
 DTEND;TZID="UTC-12:00":20240413T000059
-DTSTAMP:20250831T045656Z
-UID:361387e2-66a0-4291-bc23-26b1c15abab4
+DTSTAMP:20250831T142716Z
+UID:43838d5e-35a8-4528-9080-bcac26395f1e
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ 会议时间: September 16-20\, 2024\n📍 会议地点: V
  ienna\, Austria\n⏰ 原始截止时间 (AoE): 2024-04-12 23:59:59\n分类
@@ -410,8 +410,8 @@ BEGIN:VEVENT
 SUMMARY:ISSTA 2025 截稿日期 [Research Papers Full Paper Submission]
 DTSTART;TZID="UTC-12:00":20241031T235959
 DTEND;TZID="UTC-12:00":20241101T000059
-DTSTAMP:20250831T045656Z
-UID:c672d2db-b62c-4c1a-bc97-3590aca8f9c5
+DTSTAMP:20250831T142716Z
+UID:35faf26f-255d-4800-b7eb-2959d8a7ce07
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ 会议时间: June 25-28\, 2025\n📍 会议地点: Trondh
  eim\, Norway\n⏰ 原始截止时间 (AoE): 2024-10-31 23:59:59\n分类: 
@@ -425,8 +425,8 @@ BEGIN:VEVENT
 SUMMARY:ISSTA 2026 截稿日期
 DTSTART;TZID="UTC-12:00":20260129T235959
 DTEND;TZID="UTC-12:00":20260130T000059
-DTSTAMP:20250831T045656Z
-UID:ed5e0a23-ea6c-4505-8955-e9f4a0001fac
+DTSTAMP:20250831T142716Z
+UID:92c9e76a-8368-4ab1-9ae8-64259aec823c
 DESCRIPTION:ACM SIGSOFT International Symposium on Software Testing and An
  alysis\n🗓️ 会议时间: October 3-9\, 2026\n📍 会议地点: Oakla
  nd\, California\, United States\n⏰ 原始截止时间 (AoE): 2026-01-29 
@@ -440,8 +440,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2022 截稿日期 [Submission Deadline Round 1]
 DTSTART;TZID="UTC-12:00":20211012T235959
 DTEND;TZID="UTC-12:00":20211013T000059
-DTSTAMP:20250831T045656Z
-UID:0c430220-a6b5-410d-9c3d-6f53039348e8
+DTSTAMP:20250831T142716Z
+UID:64dbcbf7-0047-4cef-b13f-32b14bd998b7
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: November 14-19\, 2022\n📍 会
  议地点: Auckland\, New Zealand\n⏰ 原始截止时间 (AoE): 2021-10-1
@@ -455,8 +455,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2022 截稿日期 [Submission of Revisions Round 1]
 DTSTART;TZID="UTC-12:00":20220211T235959
 DTEND;TZID="UTC-12:00":20220212T000059
-DTSTAMP:20250831T045656Z
-UID:2e02f3d5-16df-464f-a75d-8f61d7e0d17a
+DTSTAMP:20250831T142716Z
+UID:32a567d9-1c57-4774-8bd1-86bc6f672ff5
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: November 14-19\, 2022\n📍 会
  议地点: Auckland\, New Zealand\n⏰ 原始截止时间 (AoE): 2022-02-1
@@ -470,8 +470,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2022 截稿日期 [Submission Deadline Round 2]
 DTSTART;TZID="UTC-12:00":20220415T235959
 DTEND;TZID="UTC-12:00":20220416T000059
-DTSTAMP:20250831T045656Z
-UID:788da889-9ffc-49b8-b540-0a60e7b1a0ef
+DTSTAMP:20250831T142716Z
+UID:e37c9e1f-d4d1-4e14-9199-41820ee9bff9
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: November 14-19\, 2022\n📍 会
  议地点: Auckland\, New Zealand\n⏰ 原始截止时间 (AoE): 2022-04-1
@@ -485,8 +485,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2022 截稿日期 [Submission of Revisions Round 2]
 DTSTART;TZID="UTC-12:00":20220815T235959
 DTEND;TZID="UTC-12:00":20220816T000059
-DTSTAMP:20250831T045656Z
-UID:583aa2f4-1c7b-474a-832e-a5b11b8a5dac
+DTSTAMP:20250831T142716Z
+UID:7ce4408a-f686-4a52-aca5-f0e213163808
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: November 14-19\, 2022\n📍 会
  议地点: Auckland\, New Zealand\n⏰ 原始截止时间 (AoE): 2022-08-1
@@ -500,8 +500,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2023 截稿日期 [Submission Deadline Round 1]
 DTSTART;TZID="UTC-12:00":20221028T235959
 DTEND;TZID="UTC-12:00":20221029T000059
-DTSTAMP:20250831T045656Z
-UID:59a9a2f9-49fe-4e26-a498-0bcd51726e88
+DTSTAMP:20250831T142716Z
+UID:4a694975-8e34-4fc6-b5c1-27161b5e20d5
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 22-27\, 2023\n📍 会
  议地点: Lisbon\, Portugal\n⏰ 原始截止时间 (AoE): 2022-10-28 23:
@@ -515,8 +515,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2023 截稿日期 [Submission of Revisions Round 1]
 DTSTART;TZID="UTC-12:00":20230224T235959
 DTEND;TZID="UTC-12:00":20230225T000059
-DTSTAMP:20250831T045656Z
-UID:20aa9591-e2d9-4885-a834-baaeb46e6ec7
+DTSTAMP:20250831T142716Z
+UID:04695c8a-b5de-4bf2-837a-7e551d5cb914
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 22-27\, 2023\n📍 会
  议地点: Lisbon\, Portugal\n⏰ 原始截止时间 (AoE): 2023-02-24 23:
@@ -530,8 +530,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2023 截稿日期 [Submission Deadline Round 2]
 DTSTART;TZID="UTC-12:00":20230414T235959
 DTEND;TZID="UTC-12:00":20230415T000059
-DTSTAMP:20250831T045656Z
-UID:16ec040a-8a20-4203-a1b1-35c5fa94f350
+DTSTAMP:20250831T142716Z
+UID:a12ebcff-0a53-4eff-b6d9-de75182e4179
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 22-27\, 2023\n📍 会
  议地点: Lisbon\, Portugal\n⏰ 原始截止时间 (AoE): 2023-04-14 23:
@@ -545,8 +545,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2023 截稿日期 [Submission of Revisions Round 2]
 DTSTART;TZID="UTC-12:00":20230818T235959
 DTEND;TZID="UTC-12:00":20230819T000059
-DTSTAMP:20250831T045656Z
-UID:856e9edc-1e62-4a11-9d3c-4d631e1b027e
+DTSTAMP:20250831T142716Z
+UID:4774db1a-d083-4a5a-abcf-a0b1e153f537
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 22-27\, 2023\n📍 会
  议地点: Lisbon\, Portugal\n⏰ 原始截止时间 (AoE): 2023-08-18 23:
@@ -569,8 +569,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2024 截稿日期 [Submission Deadline Round 1]
 DTSTART;TZID="UTC-04:00":20231021T075959
 DTEND;TZID="UTC-04:00":20231021T080059
-DTSTAMP:20250831T045656Z
-UID:3ed879ba-b5aa-413a-a1ed-6f584aee96e7
+DTSTAMP:20250831T142716Z
+UID:eed0a1c0-549d-4e65-9870-eb77899fab22
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 20-25\, 2024\n📍 会
  议地点: Pasadena\, United States\n⏰ 原始截止时间 (UTC-4): 2023-
@@ -584,8 +584,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2024 截稿日期 [Submission Deadline Round 2]
 DTSTART;TZID="UTC-04:00":20240406T075959
 DTEND;TZID="UTC-04:00":20240406T080059
-DTSTAMP:20250831T045656Z
-UID:e2a737a1-8838-4073-bd14-afb26adffa3a
+DTSTAMP:20250831T142716Z
+UID:c5609c85-094a-4613-bc37-a048d5c82f18
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 20-25\, 2024\n📍 会
  议地点: Pasadena\, United States\n⏰ 原始截止时间 (UTC-4): 2024-
@@ -599,8 +599,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2025 截稿日期 [Submission Deadline Round 1]
 DTSTART;TZID="UTC-12:00":20241015T075959
 DTEND;TZID="UTC-12:00":20241015T080059
-DTSTAMP:20250831T045656Z
-UID:107f0245-3bb5-4c77-a92e-17972de0491c
+DTSTAMP:20250831T142716Z
+UID:911a187e-19b8-4d3f-b878-c2bbf75792e6
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 12-18\, 2025\n📍 会
  议地点: Singapore\n⏰ 原始截止时间 (UTC-12): 2024-10-15 07:59:59
@@ -614,8 +614,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2025 截稿日期 [Submission Deadline Revision R1]
 DTSTART;TZID="UTC-12:00":20250204T075959
 DTEND;TZID="UTC-12:00":20250204T080059
-DTSTAMP:20250831T045656Z
-UID:acb57211-49d2-4429-a42e-c01ac68ee592
+DTSTAMP:20250831T142716Z
+UID:b6293385-4e0a-4e68-a85a-b24ef7b8d08c
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 12-18\, 2025\n📍 会
  议地点: Singapore\n⏰ 原始截止时间 (UTC-12): 2025-02-04 07:59:59
@@ -629,8 +629,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2025 截稿日期 [Submission Deadline Round 2]
 DTSTART;TZID="UTC-12:00":20250325T235959
 DTEND;TZID="UTC-12:00":20250326T000059
-DTSTAMP:20250831T045656Z
-UID:693cab31-693f-4c0d-8661-8f650270dfa9
+DTSTAMP:20250831T142716Z
+UID:1b1045be-417c-4084-b3da-1a8ae5376929
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 12-18\, 2025\n📍 会
  议地点: Singapore\n⏰ 原始截止时间 (UTC-12): 2025-03-25 23:59:59
@@ -644,8 +644,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2026 截稿日期 [Submission Deadline Round 1]
 DTSTART;TZID="UTC-12:00":20251010T235959
 DTEND;TZID="UTC-12:00":20251011T000059
-DTSTAMP:20250831T045656Z
-UID:ae0d3099-916c-424b-81e7-d0f6a86b5916
+DTSTAMP:20250831T142716Z
+UID:fe230ef8-26b2-436d-9bdb-2d6b1d0fc4a7
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 3-9\, 2025\n📍 会议
  地点: Oakland\, California\, United States\n⏰ 原始截止时间 (UTC-
@@ -660,8 +660,8 @@ BEGIN:VEVENT
 SUMMARY:OOPSLA 2026 截稿日期 [Submission Deadline Round 2]
 DTSTART;TZID="UTC-12:00":20260317T235959
 DTEND;TZID="UTC-12:00":20260318T000059
-DTSTAMP:20250831T045656Z
-UID:65ae869e-6e59-4b42-8780-ebdf48710e79
+DTSTAMP:20250831T142716Z
+UID:6f2bda4a-bd9e-4e7d-abf9-2ec6fedec9cd
 DESCRIPTION:Conference on Object-Oriented Programming Systems\, Languages\
  , and Applications\n🗓️ 会议时间: October 3-9\, 2025\n📍 会议
  地点: Oakland\, California\, United States\n⏰ 原始截止时间 (UTC-
@@ -676,8 +676,8 @@ BEGIN:VEVENT
 SUMMARY:OSDI 2022 截稿日期
 DTSTART;TZID="UTC-12:00":20211214T235959
 DTEND;TZID="UTC-12:00":20211215T000059
-DTSTAMP:20250831T045656Z
-UID:e9e407c3-94be-41b9-99fb-b6306585b9bd
+DTSTAMP:20250831T142716Z
+UID:e675cac8-89b2-490b-ac27-51391114a81a
 DESCRIPTION:USENIX Symposium on Operating Systems Design and Implementatio
  n\n🗓️ 会议时间: July 11-13\, 2022\n📍 会议地点: Omni La Cos
  ta Resort & Spa in Carlsbad\, CA\, USA\n⏰ 原始截止时间 (AoE): 2021
@@ -691,8 +691,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2021 截稿日期
 DTSTART;TZID="UTC-12:00":20201120T235959
 DTEND;TZID="UTC-12:00":20201121T000059
-DTSTAMP:20250831T045656Z
-UID:3279ecce-0b17-427b-a15f-6322d7314364
+DTSTAMP:20250831T142716Z
+UID:6a08363d-47b5-4489-bffc-081da0a638c8
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ 会议时间: June 23-25\, 2021\n📍 会议地点: Virt
  ual\n⏰ 原始截止时间 (AoE): 2020-11-20 23:59:59\n分类: 软件工
@@ -706,8 +706,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2022 截稿日期
 DTSTART;TZID="UTC-12:00":20211119T235959
 DTEND;TZID="UTC-12:00":20211120T000059
-DTSTAMP:20250831T045656Z
-UID:f34127a7-788c-443a-903a-3c810c31b73c
+DTSTAMP:20250831T142716Z
+UID:286784c4-31d8-4129-8206-560eab6a3181
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ 会议时间: June 20-24\, 2022\n📍 会议地点: San 
  Diego\, California\, United States\n⏰ 原始截止时间 (AoE): 2021-11-
@@ -721,8 +721,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20221110T235959
 DTEND;TZID="UTC-12:00":20221111T000059
-DTSTAMP:20250831T045656Z
-UID:2efa0dac-8136-461c-9528-0de6435ca531
+DTSTAMP:20250831T142716Z
+UID:e798268f-f4a9-45a3-91f8-3de065ed9404
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ 会议时间: June 19-21\, 2023\n📍 会议地点: Orla
  ndo\, Florida\, United States\n⏰ 原始截止时间 (AoE): 2022-11-10 23
@@ -736,8 +736,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20231116T235959
 DTEND;TZID="UTC-12:00":20231117T000059
-DTSTAMP:20250831T045656Z
-UID:841aa37e-85fd-4e0c-a427-e356b37dac0a
+DTSTAMP:20250831T142716Z
+UID:23d2e79f-c9d4-4833-acf6-99a209accff7
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ 会议时间: June 24-28\, 2024\n📍 会议地点: Cope
  nhagen\, Denmark\n⏰ 原始截止时间 (AoE): 2023-11-16 23:59:59\n分
@@ -751,8 +751,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20241114T235959
 DTEND;TZID="UTC-12:00":20241115T000059
-DTSTAMP:20250831T045656Z
-UID:8f73f686-f149-43a6-87dc-cc6340e110b1
+DTSTAMP:20250831T142716Z
+UID:61eab931-ec80-492f-abfc-190719b561ad
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ 会议时间: June 16-20\, 2025\n📍 会议地点: Seou
  l\, South Korea\n⏰ 原始截止时间 (AoE): 2024-11-14 23:59:59\n分类
@@ -766,8 +766,8 @@ BEGIN:VEVENT
 SUMMARY:PLDI 2026 截稿日期
 DTSTART;TZID="UTC-12:00":20251113T235959
 DTEND;TZID="UTC-12:00":20251114T000059
-DTSTAMP:20250831T045656Z
-UID:63b3ad1d-c33f-4601-a573-9a64878f44cf
+DTSTAMP:20250831T142716Z
+UID:9566c5fc-9b6a-408f-8f09-5e51e7972534
 DESCRIPTION:ACM SIGPLAN Conference on Programming Language Design & Implem
  entation\n🗓️ 会议时间: June 15-19\, 2026\n📍 会议地点: Boul
  der\, Colorado\, United States\n⏰ 原始截止时间 (AoE): 2025-11-13 2
@@ -781,8 +781,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2022 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210708T235959
 DTEND;TZID="UTC-12:00":20210709T000059
-DTSTAMP:20250831T045656Z
-UID:e69a352c-0c42-41aa-b3f2-b7a8ba72aa02
+DTSTAMP:20250831T142717Z
+UID:0a5b4447-d0a7-40ab-b1a5-ce4aa81fdb28
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ 会议时间: January 16-22\, 2022\n📍 会议地点: West
  in Philadelphia\n⏰ 原始截止时间 (AoE): 2021-07-08 23:59:59\n分类
@@ -796,8 +796,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2023 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220707T235959
 DTEND;TZID="UTC-12:00":20220708T000059
-DTSTAMP:20250831T045656Z
-UID:8908cf8d-0ef5-4461-9241-a21f9345c951
+DTSTAMP:20250831T142717Z
+UID:f251bada-c4d7-4e41-8dd2-b4a446c8aea1
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ 会议时间: January 15-21\, 2023\n📍 会议地点: Bost
  on\, Massachusetts\, United States\n⏰ 原始截止时间 (AoE): 2022-07-
@@ -811,8 +811,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2024 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20230711T235959
 DTEND;TZID="UTC-12:00":20230712T000059
-DTSTAMP:20250831T045656Z
-UID:3baad70f-5474-484f-9368-07c6a2e759b1
+DTSTAMP:20250831T142717Z
+UID:6314a5c9-ea91-4add-aeb8-71da872fdb4b
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ 会议时间: January 17-19\, 2024\n📍 会议地点: Lond
  on\, United Kingdom\n⏰ 原始截止时间 (AoE): 2023-07-11 23:59:59\n
@@ -826,8 +826,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2025 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240711T235959
 DTEND;TZID="UTC-12:00":20240712T000059
-DTSTAMP:20250831T045656Z
-UID:4cc467a9-bfb8-46d7-bea6-5fd8873233f3
+DTSTAMP:20250831T142717Z
+UID:32892c32-f30c-4865-9b65-59f663f4b504
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ 会议时间: January 19-25\, 2025\n📍 会议地点: Denv
  er\, Colorado\, United States\n⏰ 原始截止时间 (AoE): 2024-07-11 23
@@ -841,8 +841,8 @@ BEGIN:VEVENT
 SUMMARY:POPL 2026 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250710T235959
 DTEND;TZID="UTC-12:00":20250711T000059
-DTSTAMP:20250831T045656Z
-UID:b597670d-d667-4977-a4ec-5c98ce5f6075
+DTSTAMP:20250831T142717Z
+UID:a3e789cc-f587-4711-85b3-25c4579facef
 DESCRIPTION:ACM SIGPLAN-SIGACT Symposium on Principles of Programming Lang
  uages\n🗓️ 会议时间: January 11-17\, 2026\n📍 会议地点: Renn
  es\, France\n⏰ 原始截止时间 (AoE): 2025-07-10 23:59:59\n分类: 
@@ -865,8 +865,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2021 截稿日期
 DTSTART;TZID="UTC-08:00":20210507T145959
 DTEND;TZID="UTC-08:00":20210507T150059
-DTSTAMP:20250831T045656Z
-UID:2b538414-4de3-4ee6-a140-9e688a4f783f
+DTSTAMP:20250831T142717Z
+UID:bb192e9c-4287-41eb-badc-7a03319707c3
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
  时间: October 25-28\, 2021\n📍 会议地点: Virtual\n⏰ 原始截止
  时间 (UTC-8): 2021-05-07 14:59:59\n分类: 软件工程/系统软件/程
@@ -879,8 +879,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2023 截稿日期 [Deadline to Register Abstracts]
 DTSTART;TZID="UTC-04:00":20230410T235959
 DTEND;TZID="UTC-04:00":20230411T000059
-DTSTAMP:20250831T045656Z
-UID:863ebade-7802-4a77-89e5-9bdbb21fa708
+DTSTAMP:20250831T142717Z
+UID:59e1ef53-f294-4de3-90cd-ec29fc1c00d8
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
  时间: October 23 - 26\, 2023\n📍 会议地点: Koblenz\, Germany\n⏰ 
  原始截止时间 (UTC-4): 2023-04-10 23:59:59\n分类: 软件工程/系
@@ -893,8 +893,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2023 截稿日期 [Submission Deadline (no extensions)]
 DTSTART;TZID="UTC-04:00":20230417T235959
 DTEND;TZID="UTC-04:00":20230418T000059
-DTSTAMP:20250831T045656Z
-UID:c4098584-9daf-4311-9638-a79f7b251e3d
+DTSTAMP:20250831T142717Z
+UID:d56af30f-8677-4735-b79e-e37573ece0ed
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
  时间: October 23 - 26\, 2023\n📍 会议地点: Koblenz\, Germany\n⏰ 
  原始截止时间 (UTC-4): 2023-04-17 23:59:59\n分类: 软件工程/系
@@ -907,8 +907,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2024 摘要截稿
 DTSTART;TZID="UTC-08:00":20240412T235959
 DTEND;TZID="UTC-08:00":20240413T000059
-DTSTAMP:20250831T045656Z
-UID:a5c44d5e-e5a6-471d-83af-f419132297de
+DTSTAMP:20250831T142717Z
+UID:550b6dc1-99be-4fcb-bd5a-1fd93fb636f4
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
  时间: November 4 - 6\, 2024\n📍 会议地点: Hilton Austin\, Texas\, 
  USA\n⏰ 原始截止时间 (UTC-8): 2024-04-12 23:59:59\n分类: 软件
@@ -931,8 +931,8 @@ BEGIN:VEVENT
 SUMMARY:SOSP 2025 摘要截稿
 DTSTART;TZID="UTC-07:00":20250410T235959
 DTEND;TZID="UTC-07:00":20250411T000059
-DTSTAMP:20250831T045656Z
-UID:e0970051-83f0-4c1c-90dd-1a4e6bd25da0
+DTSTAMP:20250831T142717Z
+UID:16d89f3a-5e67-4e18-b2c8-3c4d7a2b0d89
 DESCRIPTION:ACM Symposium on Operating Systems Principles\n🗓️ 会议
  时间: October 13 - 16\, 2025\n📍 会议地点: Lotte Hotel World\, Seo
  ul\, Republic of Korea\n⏰ 原始截止时间 (UTC-7): 2025-04-10 23:59:5

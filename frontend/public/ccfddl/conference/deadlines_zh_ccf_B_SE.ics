@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:EUSIPCO 2024 截稿日期 [first round]
 DTSTART;TZID="UTC-08:00":20240314T180000
 DTEND;TZID="UTC-08:00":20240314T180100
-DTSTAMP:20250831T045655Z
-UID:d9880f93-fd4b-413b-884b-3a0ca36150ed
+DTSTAMP:20250831T142715Z
+UID:632f2027-23b8-4642-bf61-8ca0ba1bdb94
 DESCRIPTION:IEEE Conference on Signal Processing\n🗓️ 会议时间: Au
  gust 26-30\, 2024\n📍 会议地点: LYON\, FRANCE\n⏰ 原始截止时
  间 (UTC-8): 2024-03-14 18:00:00\n分类: 软件工程/系统软件/程序
@@ -37,8 +37,8 @@ BEGIN:VEVENT
 SUMMARY:EUSIPCO 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250313T235959
 DTEND;TZID="UTC-12:00":20250314T000059
-DTSTAMP:20250831T045655Z
-UID:2b8a6ee9-8ea5-45b4-bc0f-ad6b21a7a362
+DTSTAMP:20250831T142715Z
+UID:41bc2543-ee3d-4aa7-9b76-bf691d613196
 DESCRIPTION:IEEE Conference on Signal Processing\n🗓️ 会议时间: Se
  ptember 8-12\, 2025\n📍 会议地点: Isola delle Femmine\, Palermo\, It
  aly\n⏰ 原始截止时间 (AoE): 2025-03-13 23:59:59\n分类: 软件工
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:CAiSE 2022 截稿日期 [Abstract Submission]
 DTSTART;TZID="UTC-12:00":20211122T235959
 DTEND;TZID="UTC-12:00":20211123T000059
-DTSTAMP:20250831T045655Z
-UID:cd6789a2-00ed-40b4-b8a4-8909757c8cbe
+DTSTAMP:20250831T142715Z
+UID:9556a63d-3357-4f10-ab3a-aff2d45ffcff
 DESCRIPTION:International Conference on Advanced Information Systems Engin
  eering\n🗓️ 会议时间: June 06-10\, 2022\n📍 会议地点: Leuven
  \n⏰ 原始截止时间 (AoE): 2021-11-22 23:59:59\n分类: 软件工程/
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:CAiSE 2022 截稿日期 [Paper Submission]
 DTSTART;TZID="UTC-12:00":20211129T235959
 DTEND;TZID="UTC-12:00":20211130T000059
-DTSTAMP:20250831T045655Z
-UID:60e6c098-a4d2-42db-a982-3f3843c38eed
+DTSTAMP:20250831T142715Z
+UID:366cc8cc-cbe8-41fd-8628-815eedbdfeff
 DESCRIPTION:International Conference on Advanced Information Systems Engin
  eering\n🗓️ 会议时间: June 06-10\, 2022\n📍 会议地点: Leuven
  \n⏰ 原始截止时间 (AoE): 2021-11-29 23:59:59\n分类: 软件工程/
@@ -79,8 +79,8 @@ BEGIN:VEVENT
 SUMMARY:CAiSE 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20241122T235959
 DTEND;TZID="UTC-12:00":20241123T000059
-DTSTAMP:20250831T045655Z
-UID:3674b206-ecd3-4abe-927d-e085362a7613
+DTSTAMP:20250831T142715Z
+UID:e59ba40c-a648-4b2a-9c68-8403e24d3016
 DESCRIPTION:International Conference on Advanced Information Systems Engin
  eering\n🗓️ 会议时间: June 16-20\, 2025\n📍 会议地点: Vienna
  \, Austria\n⏰ 原始截止时间 (AoE): 2024-11-22 23:59:59\n分类: 软
@@ -94,8 +94,8 @@ BEGIN:VEVENT
 SUMMARY:CP 2022 截稿日期 [Full Paper Submission]
 DTSTART;TZID="UTC-12:00":20220225T235959
 DTEND;TZID="UTC-12:00":20220226T000059
-DTSTAMP:20250831T045655Z
-UID:d960e142-84d7-432f-8409-05a479a983a3
+DTSTAMP:20250831T142715Z
+UID:a74ed6dc-75bd-41a0-8739-d3429633e09f
 DESCRIPTION:International Conference on Principles and Practice of Constra
  int Programming\n🗓️ 会议时间: July 31-August 8\, 2022\n📍 会
  议地点: HAIFA\, ISRAEL\n⏰ 原始截止时间 (AoE): 2022-02-25 23:59:
@@ -109,8 +109,8 @@ BEGIN:VEVENT
 SUMMARY:CP 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250320T225959
 DTEND;TZID="UTC-12:00":20250320T230059
-DTSTAMP:20250831T045655Z
-UID:ea729a0f-097a-4e17-ab70-901f3cd8f7de
+DTSTAMP:20250831T142715Z
+UID:6bf83ac9-0851-4c09-aa55-9ce0085002d6
 DESCRIPTION:International Conference on Principles and Practice of Constra
  int Programming\n🗓️ 会议时间: August 10-15\, 2025\n📍 会议地
  点: Glasgow\, Scotland\n⏰ 原始截止时间 (AoE): 2025-03-20 22:59:59
@@ -124,8 +124,8 @@ BEGIN:VEVENT
 SUMMARY:ECOOP 2022 截稿日期 [Submission R1]
 DTSTART;TZID="UTC-12:00":20211201T235959
 DTEND;TZID="UTC-12:00":20211202T000059
-DTSTAMP:20250831T045655Z
-UID:0fa976f6-79c4-4e66-a436-ee6a4a6ed874
+DTSTAMP:20250831T142715Z
+UID:713660a0-89f6-464e-a691-232afb442492
 DESCRIPTION:European Conference on Object-Oriented Programming\n🗓️ 
  会议时间: June 6-10\, 2022\n📍 会议地点: Berlin\, Germany\n⏰ 
  原始截止时间 (AoE): 2021-12-01 23:59:59\n分类: 软件工程/系统
@@ -138,8 +138,8 @@ BEGIN:VEVENT
 SUMMARY:ECOOP 2022 截稿日期 [Submission R2]
 DTSTART;TZID="UTC-12:00":20220301T235959
 DTEND;TZID="UTC-12:00":20220302T000059
-DTSTAMP:20250831T045655Z
-UID:ec826d2c-0122-4217-aca2-ede6cc4082c1
+DTSTAMP:20250831T142715Z
+UID:97da6a77-ac68-4812-905e-2841458542dd
 DESCRIPTION:European Conference on Object-Oriented Programming\n🗓️ 
  会议时间: June 6-10\, 2022\n📍 会议地点: Berlin\, Germany\n⏰ 
  原始截止时间 (AoE): 2022-03-01 23:59:59\n分类: 软件工程/系统
@@ -152,8 +152,8 @@ BEGIN:VEVENT
 SUMMARY:ECOOP 2025 截稿日期 [Submission R1]
 DTSTART;TZID="UTC-12:00":20250106T235959
 DTEND;TZID="UTC-12:00":20250107T000059
-DTSTAMP:20250831T045655Z
-UID:6be6ce96-5ff4-46b0-9dd8-11d0bd871454
+DTSTAMP:20250831T142715Z
+UID:004a0a5c-4b46-4074-bfac-298bae9bd11d
 DESCRIPTION:European Conference on Object-Oriented Programming\n🗓️ 
  会议时间: June 30 - July 4\, 2025\n📍 会议地点: Bergen\, Norway\
  n⏰ 原始截止时间 (AoE): 2025-01-06 23:59:59\n分类: 软件工程/
@@ -166,8 +166,8 @@ BEGIN:VEVENT
 SUMMARY:ECOOP 2025 截稿日期 [Submission R2]
 DTSTART;TZID="UTC-12:00":20250305T235959
 DTEND;TZID="UTC-12:00":20250306T000059
-DTSTAMP:20250831T045655Z
-UID:bdd8f81c-9c36-45cf-8751-ee5629403a12
+DTSTAMP:20250831T142715Z
+UID:43058c2e-5ace-4c61-b7c1-cea487cd9ff2
 DESCRIPTION:European Conference on Object-Oriented Programming\n🗓️ 
  会议时间: June 30 - July 4\, 2025\n📍 会议地点: Bergen\, Norway\
  n⏰ 原始截止时间 (AoE): 2025-03-05 23:59:59\n分类: 软件工程/
@@ -180,8 +180,8 @@ BEGIN:VEVENT
 SUMMARY:ESEM 2022 截稿日期 [Abstract]
 DTSTART;TZID="UTC-12:00":20220425T235959
 DTEND;TZID="UTC-12:00":20220426T000059
-DTSTAMP:20250831T045655Z
-UID:8f565605-95dc-419a-aa39-9cb4f67dd377
+DTSTAMP:20250831T142715Z
+UID:b666f5e7-1019-48e5-826a-e320c8679bf1
 DESCRIPTION:International Symposium on Empirical Software Engineering and 
  Measurement\n🗓️ 会议时间: September 19-23\, 2022\n📍 会议地
  点: Helsinki\, Finland\n⏰ 原始截止时间 (AoE): 2022-04-25 23:59:59
@@ -195,8 +195,8 @@ BEGIN:VEVENT
 SUMMARY:ESEM 2022 截稿日期 [Submission]
 DTSTART;TZID="UTC-12:00":20220502T235959
 DTEND;TZID="UTC-12:00":20220503T000059
-DTSTAMP:20250831T045655Z
-UID:ecb4b375-5bb8-42a1-9675-d5a51ef0397f
+DTSTAMP:20250831T142715Z
+UID:628dd6ed-8f79-41c7-a16f-f9bcfe1870fe
 DESCRIPTION:International Symposium on Empirical Software Engineering and 
  Measurement\n🗓️ 会议时间: September 19-23\, 2022\n📍 会议地
  点: Helsinki\, Finland\n⏰ 原始截止时间 (AoE): 2022-05-02 23:59:59
@@ -210,8 +210,8 @@ BEGIN:VEVENT
 SUMMARY:ESEM 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250418T235959
 DTEND;TZID="UTC-12:00":20250419T000059
-DTSTAMP:20250831T045655Z
-UID:764cb669-8478-4bed-b772-fb22db2562a7
+DTSTAMP:20250831T142715Z
+UID:63e26648-9b0c-4eb0-8182-e35e1a32d758
 DESCRIPTION:International Symposium on Empirical Software Engineering and 
  Measurement\n🗓️ 会议时间: September 29 - October 3\, 2025\n📍 
  会议地点: Honolulu\, Hawai\, USA\n⏰ 原始截止时间 (AoE): 2025-0
@@ -225,8 +225,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2022 截稿日期 [Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20211014T235959
 DTEND;TZID="UTC-12:00":20211015T000059
-DTSTAMP:20250831T045655Z
-UID:fc173580-39c1-43f6-9e3c-08b20afab349
+DTSTAMP:20250831T142715Z
+UID:76210c38-bd12-442d-aa7b-c0e0b2ab0e97
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ 会议时间: April 2-7\, 2022\n📍 会议地点: Munich\, Germa
  ny\n⏰ 原始截止时间 (AoE): 2021-10-14 23:59:59\n分类: 软件工
@@ -239,8 +239,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2022 截稿日期 [Paper final versions]
 DTSTART;TZID="UTC-12:00":20220126T235959
 DTEND;TZID="UTC-12:00":20220127T000059
-DTSTAMP:20250831T045655Z
-UID:389ee582-6662-4fb2-a819-27a70598bd7e
+DTSTAMP:20250831T142715Z
+UID:dfcce4d7-99cc-4e65-b4b5-2539c60c396a
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ 会议时间: April 2-7\, 2022\n📍 会议地点: Munich\, Germa
  ny\n⏰ 原始截止时间 (AoE): 2022-01-26 23:59:59\n分类: 软件工
@@ -253,8 +253,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2026 截稿日期 [Submission deadline ESOP round 1]
 DTSTART;TZID="UTC-12:00":20250603T235959
 DTEND;TZID="UTC-12:00":20250604T000059
-DTSTAMP:20250831T045655Z
-UID:245c04ff-1997-4b06-a8f5-4b5543a0ae80
+DTSTAMP:20250831T142715Z
+UID:4e538a5e-ebbb-4448-b1ef-e90afddb44ab
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ 会议时间: April 11-16\, 2026\n📍 会议地点: Torino\, Ita
  ly\n⏰ 原始截止时间 (AoE): 2025-06-03 23:59:59\n分类: 软件工
@@ -267,8 +267,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2026 截稿日期 [Submission deadline ESOP round 2]
 DTSTART;TZID="UTC-12:00":20251016T235959
 DTEND;TZID="UTC-12:00":20251017T000059
-DTSTAMP:20250831T045655Z
-UID:9adef881-93ad-42c9-8aa6-a752ce9bb504
+DTSTAMP:20250831T142715Z
+UID:b3b4ded3-5d0c-44f7-bba7-2154709a766c
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ 会议时间: April 11-16\, 2026\n📍 会议地点: Torino\, Ita
  ly\n⏰ 原始截止时间 (AoE): 2025-10-16 23:59:59\n分类: 软件工
@@ -281,8 +281,8 @@ BEGIN:VEVENT
 SUMMARY:ETAPS 2026 截稿日期 [TACAS mandatory artifact submission]
 DTSTART;TZID="UTC-12:00":20251030T235959
 DTEND;TZID="UTC-12:00":20251031T000059
-DTSTAMP:20250831T045655Z
-UID:f4899b42-2b1d-4e7d-a7af-fc107fad5910
+DTSTAMP:20250831T142715Z
+UID:13574cb7-ccaa-4c22-857e-c8b1952acfc0
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ 会议时间: April 11-16\, 2026\n📍 会议地点: Torino\, Ita
  ly\n⏰ 原始截止时间 (AoE): 2025-10-30 23:59:59\n分类: 软件工
@@ -296,8 +296,8 @@ SUMMARY:ETAPS 2026 截稿日期 [ESOP\, FASE\, FoSSaCS artifact\, TACAS vo
  luntary artifact submission]
 DTSTART;TZID="UTC-12:00":20260108T235959
 DTEND;TZID="UTC-12:00":20260109T000059
-DTSTAMP:20250831T045655Z
-UID:6c9d06e7-bdb6-47a0-bb46-1c9865bf934a
+DTSTAMP:20250831T142715Z
+UID:f4e0471c-384d-44da-98bd-b4b5c857c3b4
 DESCRIPTION:European Joint Conferences on Theory and Practice of Software\
  n🗓️ 会议时间: April 11-16\, 2026\n📍 会议地点: Torino\, Ita
  ly\n⏰ 原始截止时间 (AoE): 2026-01-08 23:59:59\n分类: 软件工
@@ -310,8 +310,8 @@ BEGIN:VEVENT
 SUMMARY:HotOS 2021 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210203T235959
 DTEND;TZID="UTC-12:00":20210204T000059
-DTSTAMP:20250831T045655Z
-UID:44964088-57f3-47fc-a19e-2493b1cf5f54
+DTSTAMP:20250831T142715Z
+UID:201d0539-7a7a-4f9b-a8a1-43030ea7e8a7
 DESCRIPTION:USENIX Workshop on Hot Topics in Operating Systems\n🗓️ 
  会议时间: May 31-Jun 02\, 2021\n📍 会议地点: Virtual\n⏰ 原始
  截止时间 (AoE): 2021-02-03 23:59:59\n分类: 软件工程/系统软件
@@ -325,8 +325,8 @@ BEGIN:VEVENT
 SUMMARY:HotOS 2025 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250115T235959
 DTEND;TZID="UTC-12:00":20250116T000059
-DTSTAMP:20250831T045655Z
-UID:1af18cda-f927-4b41-aef9-c2e1df901d7d
+DTSTAMP:20250831T142715Z
+UID:b402f0e9-f5ee-476f-b888-6a0ac75cf2e2
 DESCRIPTION:USENIX Workshop on Hot Topics in Operating Systems\n🗓️ 
  会议时间: May 14-16\, 2025\n📍 会议地点: Banff\, Alberta\, Canad
  a\n⏰ 原始截止时间 (AoE): 2025-01-15 23:59:59\n分类: 软件工程
@@ -340,8 +340,8 @@ BEGIN:VEVENT
 SUMMARY:ICFP 2022 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210302T235959
 DTEND;TZID="UTC-12:00":20210303T000059
-DTSTAMP:20250831T045655Z
-UID:4738fb7d-2ead-4f9a-bd55-5ad9be1e173e
+DTSTAMP:20250831T142715Z
+UID:0f73c9da-8525-4a62-8a09-d7bf183df6c3
 DESCRIPTION:International Conference on Function Programming\n🗓️ 会
  议时间: September 11-16\, 2022\n📍 会议地点: Ljubljana\, Slovenia
  \n⏰ 原始截止时间 (AoE): 2021-03-02 23:59:59\n分类: 软件工程/
@@ -355,8 +355,8 @@ BEGIN:VEVENT
 SUMMARY:ICFP 2022 截稿日期 [Submission of revised papers]
 DTSTART;TZID="UTC-12:00":20210616T235959
 DTEND;TZID="UTC-12:00":20210617T000059
-DTSTAMP:20250831T045655Z
-UID:57fa2997-fd50-4cbe-a7c0-5acde603a846
+DTSTAMP:20250831T142715Z
+UID:993ac55d-bf0b-401c-a6c9-a7f71c82194a
 DESCRIPTION:International Conference on Function Programming\n🗓️ 会
  议时间: September 11-16\, 2022\n📍 会议地点: Ljubljana\, Slovenia
  \n⏰ 原始截止时间 (AoE): 2021-06-16 23:59:59\n分类: 软件工程/
@@ -370,8 +370,8 @@ BEGIN:VEVENT
 SUMMARY:ICFP 2025 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250227T235959
 DTEND;TZID="UTC-12:00":20250228T000059
-DTSTAMP:20250831T045655Z
-UID:acfa4721-8882-410c-b41a-5a37ce16efe4
+DTSTAMP:20250831T142715Z
+UID:530cd8af-fd10-44ec-ba62-5f9f975d4688
 DESCRIPTION:International Conference on Function Programming\n🗓️ 会
  议时间: October 12-18\, 2025\n📍 会议地点: Singapore\n⏰ 原始
  截止时间 (AoE): 2025-02-27 23:59:59\n分类: 软件工程/系统软件
@@ -384,8 +384,8 @@ BEGIN:VEVENT
 SUMMARY:ICFP 2025 截稿日期 [Submission of revised papers]
 DTSTART;TZID="UTC-12:00":20250612T235959
 DTEND;TZID="UTC-12:00":20250613T000059
-DTSTAMP:20250831T045655Z
-UID:0bec50ee-e935-4bec-acb9-22db90cbc3ce
+DTSTAMP:20250831T142715Z
+UID:37a2ff4c-d21c-4ce2-8b59-d4a087fae9ba
 DESCRIPTION:International Conference on Function Programming\n🗓️ 会
  议时间: October 12-18\, 2025\n📍 会议地点: Singapore\n⏰ 原始
  截止时间 (AoE): 2025-06-12 23:59:59\n分类: 软件工程/系统软件
@@ -398,8 +398,8 @@ BEGIN:VEVENT
 SUMMARY:ICPC 2022 摘要截稿
 DTSTART;TZID="UTC-12:00":20220113T235959
 DTEND;TZID="UTC-12:00":20220114T000059
-DTSTAMP:20250831T045655Z
-UID:fc4ccd72-8d27-4e8a-a14a-93116157b80a
+DTSTAMP:20250831T142715Z
+UID:c468f148-2a16-4827-8ef7-74e00d77c343
 DESCRIPTION:IEEE International Conference on Program Comprehension\n🗓
  ️ 会议时间: May 21-22\, 2022\n📍 会议地点: Pittsburgh\, Pennsy
  lvania\, United States\n⏰ 原始截止时间 (AoE): 2022-01-13 23:59:59\
@@ -413,8 +413,8 @@ BEGIN:VEVENT
 SUMMARY:ICPC 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20231030T235959
 DTEND;TZID="UTC-12:00":20231031T000059
-DTSTAMP:20250831T045655Z
-UID:0d04225f-110b-41e9-a01b-5d7845d97cca
+DTSTAMP:20250831T142715Z
+UID:09b3949b-adf2-47ff-83ce-d203c4f0d04a
 DESCRIPTION:IEEE International Conference on Program Comprehension\n🗓
  ️ 会议时间: April 14-20\, 2024\n📍 会议地点: Lisbon\, Portugal
  \n⏰ 原始截止时间 (AoE): 2023-10-30 23:59:59\n分类: 软件工程/
@@ -428,8 +428,8 @@ BEGIN:VEVENT
 SUMMARY:ICPC 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20241106T235959
 DTEND;TZID="UTC-12:00":20241107T000059
-DTSTAMP:20250831T045655Z
-UID:ecae1352-7a1f-4c69-be1e-2f6155b18c1e
+DTSTAMP:20250831T142715Z
+UID:730acade-7e72-4bdb-8a13-6429ee699aff
 DESCRIPTION:IEEE International Conference on Program Comprehension\n🗓
  ️ 会议时间: April 27-28\, 2025\n📍 会议地点: Ottawa\, Canada\n
  ⏰ 原始截止时间 (AoE): 2024-11-06 23:59:59\n分类: 软件工程/
@@ -443,8 +443,8 @@ BEGIN:VEVENT
 SUMMARY:ICPC 2026 摘要截稿
 DTSTART;TZID="UTC-12:00":20251019T235959
 DTEND;TZID="UTC-12:00":20251020T000059
-DTSTAMP:20250831T045655Z
-UID:49454ec5-e68f-48ef-933a-e8a1883d5762
+DTSTAMP:20250831T142715Z
+UID:02016917-2d3d-444c-9cb2-e733dda9cea4
 DESCRIPTION:IEEE International Conference on Program Comprehension\n🗓
  ️ 会议时间: April 12-13\, 2026\n📍 会议地点: Rio de Janeiro\, 
  Brazil\n⏰ 原始截止时间 (AoE): 2025-10-19 23:59:59\n分类: 软件
@@ -458,8 +458,8 @@ BEGIN:VEVENT
 SUMMARY:ICSME 2022 摘要截稿
 DTSTART;TZID="UTC-12:00":20220325T235959
 DTEND;TZID="UTC-12:00":20220326T000059
-DTSTAMP:20250831T045655Z
-UID:f3c8a7fd-ae2a-47de-9265-24a82df19e78
+DTSTAMP:20250831T142715Z
+UID:781181fc-e68e-4eff-9e51-491104cc278b
 DESCRIPTION:International Conference on Software Maintenance and Evolution
  \n🗓️ 会议时间: October 03-07\, 2022\n📍 会议地点: Limassol\
  , Cyprus\n⏰ 原始截止时间 (AoE): 2022-03-25 23:59:59\n分类: 软
@@ -473,8 +473,8 @@ BEGIN:VEVENT
 SUMMARY:ICSME 2023 摘要截稿
 DTSTART;TZID="UTC-12:00":20230420T235959
 DTEND;TZID="UTC-12:00":20230421T000059
-DTSTAMP:20250831T045655Z
-UID:5835d330-3bbe-4fbd-8b65-10fe49d8a11f
+DTSTAMP:20250831T142715Z
+UID:7e2e396c-fef6-4040-8c27-fa6e77729e61
 DESCRIPTION:International Conference on Software Maintenance and Evolution
  \n🗓️ 会议时间: October 01-06\, 2023\n📍 会议地点: Bogota\, 
  Colombia\n⏰ 原始截止时间 (AoE): 2023-04-20 23:59:59\n分类: 软
@@ -488,8 +488,8 @@ BEGIN:VEVENT
 SUMMARY:ICSME 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20240404T235959
 DTEND;TZID="UTC-12:00":20240405T000059
-DTSTAMP:20250831T045655Z
-UID:91bb8c77-a9fd-4b0b-9c8f-5800a52f8e0a
+DTSTAMP:20250831T142715Z
+UID:674d61be-850f-4194-ae8f-557b82fa6425
 DESCRIPTION:International Conference on Software Maintenance and Evolution
  \n🗓️ 会议时间: October 06-11\, 2024\n📍 会议地点: Flagstaff
  \, Arizona\, USA\n⏰ 原始截止时间 (AoE): 2024-04-04 23:59:59\n分
@@ -503,8 +503,8 @@ BEGIN:VEVENT
 SUMMARY:ICSME 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250306T235959
 DTEND;TZID="UTC-12:00":20250307T000059
-DTSTAMP:20250831T045655Z
-UID:a7399def-f0c0-49c0-86f4-5a11ac74545b
+DTSTAMP:20250831T142715Z
+UID:74817b8f-18e8-4437-9955-2001ba8ef3dc
 DESCRIPTION:International Conference on Software Maintenance and Evolution
  \n🗓️ 会议时间: September 07-12\, 2025\n📍 会议地点: Aucklan
  d\, New Zealand\n⏰ 原始截止时间 (AoE): 2025-03-06 23:59:59\n分类
@@ -519,8 +519,8 @@ SUMMARY:ICSOC 2022 截稿日期 [Abstracts/Full-Text Paper Submission Dead
  line]
 DTSTART;TZID="UTC-12:00":20220301T235959
 DTEND;TZID="UTC-12:00":20220302T000059
-DTSTAMP:20250831T045655Z
-UID:675f8105-6f5c-4f47-9cc3-8ec9d150db9a
+DTSTAMP:20250831T142715Z
+UID:95ffdfe5-d3ae-440c-a3bc-4b0acf4319f1
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ 会议时间: May 26-27\, 2022\n📍 会议地点: Barcelona\, Spain\n
  ⏰ 原始截止时间 (AoE): 2022-03-01 23:59:59\n分类: 软件工程/
@@ -534,8 +534,8 @@ SUMMARY:ICSOC 2022 截稿日期 [Final Paper (Camera Ready) Submission & E
  arly Bird Registration Deadline]
 DTSTART;TZID="UTC-12:00":20220423T235959
 DTEND;TZID="UTC-12:00":20220424T000059
-DTSTAMP:20250831T045655Z
-UID:aed8310a-eac8-4e0b-8142-efe36fb87023
+DTSTAMP:20250831T142715Z
+UID:3caa7de9-34c9-418d-a2aa-7bb01b3e7781
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ 会议时间: May 26-27\, 2022\n📍 会议地点: Barcelona\, Spain\n
  ⏰ 原始截止时间 (AoE): 2022-04-23 23:59:59\n分类: 软件工程/
@@ -548,8 +548,8 @@ BEGIN:VEVENT
 SUMMARY:ICSOC 2025 截稿日期 [Early paper submissions]
 DTSTART;TZID="UTC-12:00":20250509T235959
 DTEND;TZID="UTC-12:00":20250510T000059
-DTSTAMP:20250831T045655Z
-UID:8029de49-0aaa-4fa9-9501-2d0d9f690523
+DTSTAMP:20250831T142715Z
+UID:c3bc755e-7a70-4c1b-ad9f-25586572f061
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ 会议时间: December 1-4\, 2025\n📍 会议地点: Shenzhen\, China
  \n⏰ 原始截止时间 (AoE): 2025-05-09 23:59:59\n分类: 软件工程/
@@ -563,8 +563,8 @@ BEGIN:VEVENT
 SUMMARY:ICSOC 2025 截稿日期 [Regular paper abstract submissions]
 DTSTART;TZID="UTC-12:00":20250707T235959
 DTEND;TZID="UTC-12:00":20250708T000059
-DTSTAMP:20250831T045655Z
-UID:c6171ae6-1591-42b7-9609-1dedeab136ce
+DTSTAMP:20250831T142715Z
+UID:fdc14373-0158-4d57-bfaa-159d00720212
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ 会议时间: December 1-4\, 2025\n📍 会议地点: Shenzhen\, China
  \n⏰ 原始截止时间 (AoE): 2025-07-07 23:59:59\n分类: 软件工程/
@@ -578,8 +578,8 @@ BEGIN:VEVENT
 SUMMARY:ICSOC 2025 截稿日期 [Regular paper submissions]
 DTSTART;TZID="UTC-12:00":20250714T235959
 DTEND;TZID="UTC-12:00":20250715T000059
-DTSTAMP:20250831T045655Z
-UID:5489508c-5448-4aed-a46f-b8c914a96ec3
+DTSTAMP:20250831T142715Z
+UID:4237da80-8ee3-4d71-90d9-0eb4ade9a3b6
 DESCRIPTION:International Conference on Service Oriented Computing\n🗓
  ️ 会议时间: December 1-4\, 2025\n📍 会议地点: Shenzhen\, China
  \n⏰ 原始截止时间 (AoE): 2025-07-14 23:59:59\n分类: 软件工程/
@@ -593,8 +593,8 @@ BEGIN:VEVENT
 SUMMARY:ICWS 2022 截稿日期 [Submission deadline]
 DTSTART;TZID="UTC-12:00":20220915T235959
 DTEND;TZID="UTC-12:00":20220916T000059
-DTSTAMP:20250831T045655Z
-UID:d72c2657-0241-41ce-b37a-c3ab763c9825
+DTSTAMP:20250831T142715Z
+UID:76c28585-5076-4bd3-b98b-68f3e6731495
 DESCRIPTION:IEEE International Conference on Web Services (Research Track)
  \n🗓️ 会议时间: December 10-14\, 2022\n📍 会议地点: Honolulu
  \, Hawaii\, USA\n⏰ 原始截止时间 (AoE): 2022-09-15 23:59:59\n分类
@@ -608,8 +608,8 @@ BEGIN:VEVENT
 SUMMARY:ICWS 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20230325T235959
 DTEND;TZID="UTC-12:00":20230326T000059
-DTSTAMP:20250831T045655Z
-UID:42b00771-6331-489f-ad12-0d8adbac8ca6
+DTSTAMP:20250831T142715Z
+UID:2523a7f7-353d-4a92-9c92-da5069fb1c5a
 DESCRIPTION:IEEE International Conference on Web Services (Research Track)
  \n🗓️ 会议时间: July 2-8\, 2023\n📍 会议地点: CHICAGO\, ILLI
  NOIS USA\n⏰ 原始截止时间 (AoE): 2023-03-25 23:59:59\n分类: 软
@@ -623,8 +623,8 @@ BEGIN:VEVENT
 SUMMARY:ICWS 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250224T235959
 DTEND;TZID="UTC-12:00":20250225T000059
-DTSTAMP:20250831T045655Z
-UID:f9464eb3-31f8-46be-af66-f9938691b032
+DTSTAMP:20250831T142715Z
+UID:64d88111-8998-4209-85b1-9bbe2c5cc94c
 DESCRIPTION:IEEE International Conference on Web Services (Research Track)
  \n🗓️ 会议时间: July 7-12\, 2025\n📍 会议地点: Helsinki\, Fi
  nland\n⏰ 原始截止时间 (AoE): 2025-02-24 23:59:59\n分类: 软件
@@ -638,8 +638,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2023 截稿日期 [Abstract submission]
 DTSTART;TZID="UTC-12:00":20230522T235959
 DTEND;TZID="UTC-12:00":20230523T000059
-DTSTAMP:20250831T045655Z
-UID:46ec3638-3993-48e9-a62b-e22a7a2102b7
+DTSTAMP:20250831T142715Z
+UID:75f1a14b-3b77-4cf1-9764-b97185803112
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ 会议时间: October 9-12\, 2023\n📍 会议地点: Florence\, I
  taly\n⏰ 原始截止时间 (AoE): 2023-05-22 23:59:59\n分类: 软件工
@@ -653,8 +653,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2023 截稿日期 [Full paper submission]
 DTSTART;TZID="UTC-12:00":20210601T235959
 DTEND;TZID="UTC-12:00":20210602T000059
-DTSTAMP:20250831T045655Z
-UID:505bcee9-72ea-40a6-bc43-ff903286fbcc
+DTSTAMP:20250831T142715Z
+UID:7398ff44-e678-433b-ada4-4d17ac0b2d93
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ 会议时间: October 9-12\, 2023\n📍 会议地点: Florence\, I
  taly\n⏰ 原始截止时间 (AoE): 2021-06-01 23:59:59\n分类: 软件工
@@ -668,8 +668,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2024 截稿日期 [Research Track Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20240515T235959
 DTEND;TZID="UTC-12:00":20240516T000059
-DTSTAMP:20250831T045655Z
-UID:5e19c0d3-b499-4363-bb54-c650c01307b6
+DTSTAMP:20250831T142715Z
+UID:f3e7d1a9-dedb-46b7-aba0-9379008aedc7
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ 会议时间: October 28-31\, 2024\n📍 会议地点: Tsukuba\, J
  apan\n⏰ 原始截止时间 (AoE): 2024-05-15 23:59:59\n分类: 软件工
@@ -683,8 +683,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2025 截稿日期 [Abstract submission - Research Track]
 DTSTART;TZID="UTC-12:00":20250428T235959
 DTEND;TZID="UTC-12:00":20250429T000059
-DTSTAMP:20250831T045655Z
-UID:8e8250e7-1f90-492c-821a-d0eea1761ea4
+DTSTAMP:20250831T142715Z
+UID:f9c4b0cb-e782-4653-89c8-b4ed8ade353f
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ 会议时间: October 21st-24th\, 2025\n📍 会议地点: São Pa
  ulo\, Brazil\n⏰ 原始截止时间 (AoE): 2025-04-28 23:59:59\n分类: 
@@ -698,8 +698,8 @@ BEGIN:VEVENT
 SUMMARY:ISSRE 2025 截稿日期 [Paper submission - Research Track]
 DTSTART;TZID="UTC-12:00":20250505T235959
 DTEND;TZID="UTC-12:00":20250506T000059
-DTSTAMP:20250831T045655Z
-UID:35549970-7171-4ab0-a760-5d8339830556
+DTSTAMP:20250831T142715Z
+UID:08fe96b1-5bb1-48b8-bbc0-f874caa88627
 DESCRIPTION:International Symposium on Software Reliability Engineering\n
  🗓️ 会议时间: October 21st-24th\, 2025\n📍 会议地点: São Pa
  ulo\, Brazil\n⏰ 原始截止时间 (AoE): 2025-05-05 23:59:59\n分类: 
@@ -713,8 +713,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2021 截稿日期 [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210308T235959
 DTEND;TZID="UTC-12:00":20210309T000059
-DTSTAMP:20250831T045655Z
-UID:396312d0-f114-4f48-aa1a-c8ba4810df6f
+DTSTAMP:20250831T142715Z
+UID:b2dd83d2-1b02-4113-a08a-520351deb507
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ 会议时间: June 20-26\, 2021\n📍 会议
  地点: Virtual\n⏰ 原始截止时间 (AoE): 2021-03-08 23:59:59\n分类
@@ -728,8 +728,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2021 截稿日期 [Final Copy Deadline]
 DTSTART;TZID="UTC-12:00":20210505T235959
 DTEND;TZID="UTC-12:00":20210506T000059
-DTSTAMP:20250831T045655Z
-UID:d571c518-ad21-4bd4-8a82-7ba2142c0a95
+DTSTAMP:20250831T142715Z
+UID:e1612cdc-92a9-44ef-a33c-f9bb138d5c30
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ 会议时间: June 20-26\, 2021\n📍 会议
  地点: Virtual\n⏰ 原始截止时间 (AoE): 2021-05-05 23:59:59\n分类
@@ -743,8 +743,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20230316T235959
 DTEND;TZID="UTC-12:00":20230317T000059
-DTSTAMP:20250831T045655Z
-UID:3b353776-8460-4fb5-8116-80d741405a56
+DTSTAMP:20250831T142715Z
+UID:4d4a80a5-9f97-4834-840a-73db1e91094f
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ 会议时间: June 17-21\, 2023\n📍 会议
  地点: Orlando\, Florida\, United States\n⏰ 原始截止时间 (AoE): 2
@@ -758,8 +758,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2024 截稿日期 [Abstract submission]
 DTSTART;TZID="UTC-12:00":20240216T235959
 DTEND;TZID="UTC-12:00":20240217T000059
-DTSTAMP:20250831T045655Z
-UID:3eec4899-f96e-4ae2-8c12-d567291ef38f
+DTSTAMP:20250831T142715Z
+UID:ac98e197-fee2-4bda-bcb1-c10d17378221
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ 会议时间: June 24\, 2024\n📍 会议地
  点: Copenhagen\, Denmark\n⏰ 原始截止时间 (AoE): 2024-02-16 23:59:
@@ -773,8 +773,8 @@ BEGIN:VEVENT
 SUMMARY:LCTES 2024 截稿日期 [Paper submission]
 DTSTART;TZID="UTC-12:00":20240223T235959
 DTEND;TZID="UTC-12:00":20240224T000059
-DTSTAMP:20250831T045655Z
-UID:dbb51a4e-0f7e-40d5-9f5c-d6af3e6bb1e8
+DTSTAMP:20250831T142715Z
+UID:b7ed06d3-f9d8-4ffe-8895-24527e229781
 DESCRIPTION:International Conference on Languages\, Compilers and Tools fo
  r Embedded Systems\n🗓️ 会议时间: June 24\, 2024\n📍 会议地
  点: Copenhagen\, Denmark\n⏰ 原始截止时间 (AoE): 2024-02-23 23:59:
@@ -788,8 +788,8 @@ BEGIN:VEVENT
 SUMMARY:Middleware 2022 截稿日期 [Submission R1]
 DTSTART;TZID="UTC-12:00":20211120T235959
 DTEND;TZID="UTC-12:00":20211121T000059
-DTSTAMP:20250831T045655Z
-UID:ab22353d-aedc-458a-abf7-eb954b60a90e
+DTSTAMP:20250831T142715Z
+UID:41fdc919-9f3b-49a3-911a-69b2e5e7a525
 DESCRIPTION:International Middleware Conference\n🗓️ 会议时间: Nov
  ember 7-11\, 2022\n📍 会议地点: Fairmont Le Château Frontenac\, Qu
  ébec City\, Québec\, Canada\n⏰ 原始截止时间 (AoE): 2021-11-20 23
@@ -803,8 +803,8 @@ BEGIN:VEVENT
 SUMMARY:Middleware 2022 截稿日期 [Submission R2]
 DTSTART;TZID="UTC-12:00":20220315T235959
 DTEND;TZID="UTC-12:00":20220316T000059
-DTSTAMP:20250831T045655Z
-UID:600f69c5-d4cd-4365-b883-89cbeeed08d7
+DTSTAMP:20250831T142715Z
+UID:f974f81e-9112-4960-9caa-719a63ca7ce1
 DESCRIPTION:International Middleware Conference\n🗓️ 会议时间: Nov
  ember 7-11\, 2022\n📍 会议地点: Fairmont Le Château Frontenac\, Qu
  ébec City\, Québec\, Canada\n⏰ 原始截止时间 (AoE): 2022-03-15 23
@@ -818,8 +818,8 @@ BEGIN:VEVENT
 SUMMARY:MoDELS 2022 截稿日期
 DTSTART;TZID="UTC-12:00":20220518T235959
 DTEND;TZID="UTC-12:00":20220519T000059
-DTSTAMP:20250831T045655Z
-UID:b0eb7022-e8f1-4f28-9631-caeec804f51e
+DTSTAMP:20250831T142715Z
+UID:83eed262-514f-43cb-a8d7-ee0d7c611e90
 DESCRIPTION:International Conference on Model Driven Engineering Languages
   and Systems\n🗓️ 会议时间: October 23-28\, 2022\n📍 会议地
  点: Montréal\, Canada\n⏰ 原始截止时间 (AoE): 2022-05-18 23:59:59
@@ -833,8 +833,8 @@ BEGIN:VEVENT
 SUMMARY:RE 2022 截稿日期 [Abstract Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220217T235959
 DTEND;TZID="UTC-12:00":20220218T000059
-DTSTAMP:20250831T045655Z
-UID:680cee5c-3087-4bae-86a4-c9dcbffab57a
+DTSTAMP:20250831T142715Z
+UID:388c9073-ed26-45df-a959-bd87c410ca1f
 DESCRIPTION:IEEE International Requirements Engineering Conference\n🗓
  ️ 会议时间: August 15-19\, 2022\n📍 会议地点: Melbourne\, Aust
  ralia\n⏰ 原始截止时间 (AoE): 2022-02-17 23:59:59\n分类: 软件
@@ -848,8 +848,8 @@ BEGIN:VEVENT
 SUMMARY:RE 2022 截稿日期 [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220224T235959
 DTEND;TZID="UTC-12:00":20220225T000059
-DTSTAMP:20250831T045655Z
-UID:66df9cfa-2e7b-4ecc-ae64-b33f0a262362
+DTSTAMP:20250831T142715Z
+UID:31e93477-9778-425a-be49-6509a16c0a5d
 DESCRIPTION:IEEE International Requirements Engineering Conference\n🗓
  ️ 会议时间: August 15-19\, 2022\n📍 会议地点: Melbourne\, Aust
  ralia\n⏰ 原始截止时间 (AoE): 2022-02-24 23:59:59\n分类: 软件
@@ -863,8 +863,8 @@ BEGIN:VEVENT
 SUMMARY:RE 2023 摘要截稿
 DTSTART;TZID="UTC-12:00":20230310T235959
 DTEND;TZID="UTC-12:00":20230311T000059
-DTSTAMP:20250831T045655Z
-UID:585f1038-1784-47d8-ab61-4f3cd0d84506
+DTSTAMP:20250831T142715Z
+UID:da3eb36a-e28e-4344-b368-898ac0c8aae8
 DESCRIPTION:IEEE International Requirements Engineering Conference\n🗓
  ️ 会议时间: September 4-8\, 2023\n📍 会议地点: Hannover\, Germ
  any\n⏰ 原始截止时间 (AoE): 2023-03-10 23:59:59\n分类: 软件工
@@ -878,8 +878,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2022 截稿日期 [abstract submission deadline]
 DTSTART;TZID="UTC-12:00":20211014T235959
 DTEND;TZID="UTC-12:00":20211015T000059
-DTSTAMP:20250831T045655Z
-UID:481576de-fe8a-49f4-bd96-7766213e493d
+DTSTAMP:20250831T142715Z
+UID:c30e94d1-19e8-4e08-9089-fc18aa837bfa
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ 会议时间: March 15-18\, 2022\n📍 会议
  地点: University of Hawaii in Honolulu\, Hawaii\n⏰ 原始截止时间 
@@ -893,8 +893,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2022 截稿日期 [full paper submission deadline]
 DTSTART;TZID="UTC-12:00":20211021T235959
 DTEND;TZID="UTC-12:00":20211022T000059
-DTSTAMP:20250831T045655Z
-UID:ed3dfc54-5431-4674-8fe9-b053b1e5f36d
+DTSTAMP:20250831T142715Z
+UID:dcf2e125-8339-4eea-8322-09729f627e52
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ 会议时间: March 15-18\, 2022\n📍 会议
  地点: University of Hawaii in Honolulu\, Hawaii\n⏰ 原始截止时间 
@@ -908,8 +908,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2024 摘要截稿 [Research Papers Paper Submission]
 DTSTART;TZID="UTC-12:00":20231013T235959
 DTEND;TZID="UTC-12:00":20231014T000059
-DTSTAMP:20250831T045655Z
-UID:d13cb4c8-e420-4949-9c49-4833602dcc50
+DTSTAMP:20250831T142715Z
+UID:dc9f416a-3a38-4d50-8a9d-b8e4e3276dcd
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ 会议时间: March 12-15\, 2024\n📍 会议
  地点: Rovaniemi\, Finland\n⏰ 原始截止时间 (AoE): 2023-10-13 23:5
@@ -923,8 +923,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2025 摘要截稿 [Research Papers Paper Submission]
 DTSTART;TZID="UTC-12:00":20241004T235959
 DTEND;TZID="UTC-12:00":20241005T000059
-DTSTAMP:20250831T045655Z
-UID:4ec00bc0-c167-4df2-a3ba-d94ee88b08f6
+DTSTAMP:20250831T142715Z
+UID:aa2dcfb9-ca62-411f-9929-ab66ff350bc3
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ 会议时间: March 4-7\, 2025\n📍 会议地
  点: Montréal\, Québec\, Canada\n⏰ 原始截止时间 (AoE): 2024-10-0
@@ -939,8 +939,8 @@ SUMMARY:SANER 2026 截稿日期 [Research Track Abstract submission (manda
  tory)]
 DTSTART;TZID="UTC-12:00":20251009T235959
 DTEND;TZID="UTC-12:00":20251010T000059
-DTSTAMP:20250831T045655Z
-UID:24bbd848-d7b9-442b-a691-5873258b5f1c
+DTSTAMP:20250831T142715Z
+UID:0b0fc3b8-c030-492c-923a-0cacb8b77cd5
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ 会议时间: March 17-20\, 2026\n📍 会议
  地点: Limassol\, Cyprus\n⏰ 原始截止时间 (AoE): 2025-10-09 23:59:
@@ -954,8 +954,8 @@ BEGIN:VEVENT
 SUMMARY:SANER 2026 截稿日期 [Research Track Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20241016T235959
 DTEND;TZID="UTC-12:00":20241017T000059
-DTSTAMP:20250831T045655Z
-UID:edd73bdb-ee73-473c-8b78-f1164f8adf72
+DTSTAMP:20250831T142715Z
+UID:da91bbf3-5346-4795-abb3-62c50ff64778
 DESCRIPTION:IEEE International Conference on Software Analysis\, Evolution
   and Reengineering\n🗓️ 会议时间: March 17-20\, 2026\n📍 会议
  地点: Limassol\, Cyprus\n⏰ 原始截止时间 (AoE): 2024-10-16 23:59:
@@ -969,8 +969,8 @@ BEGIN:VEVENT
 SUMMARY:SAS 2022 截稿日期 [Submission deadline]
 DTSTART;TZID="UTC-12:00":20220504T235959
 DTEND;TZID="UTC-12:00":20220505T000059
-DTSTAMP:20250831T045655Z
-UID:19463820-eb57-4071-9faf-a10d42371af7
+DTSTAMP:20250831T142715Z
+UID:ef3e3a0f-345d-44b0-8101-a9c174129e0f
 DESCRIPTION:International Static Analysis Symposium\n🗓️ 会议时间:
   December 5-7\, 2022\n📍 会议地点: Auckland\, New Zealand\n⏰ 原
  始截止时间 (AoE): 2022-05-04 23:59:59\n分类: 软件工程/系统软
@@ -983,8 +983,8 @@ BEGIN:VEVENT
 SUMMARY:SAS 2025 截稿日期 [Paper Submission]
 DTSTART;TZID="UTC-12:00":20250504T235959
 DTEND;TZID="UTC-12:00":20250505T000059
-DTSTAMP:20250831T045655Z
-UID:6ef8a25d-7a0c-4c1e-a307-f2e511a9ea3a
+DTSTAMP:20250831T142715Z
+UID:e858487a-62fc-45db-9a59-ec73a85baad5
 DESCRIPTION:International Static Analysis Symposium\n🗓️ 会议时间:
   October 12-18\, 2025\n📍 会议地点: Singapore\n⏰ 原始截止时
  间 (AoE): 2025-05-04 23:59:59\n分类: 软件工程/系统软件/程序
@@ -997,8 +997,8 @@ BEGIN:VEVENT
 SUMMARY:VMCAI 2022 截稿日期 [Submission deadline]
 DTSTART;TZID="UTC-12:00":20210909T235959
 DTEND;TZID="UTC-12:00":20210910T000059
-DTSTAMP:20250831T045655Z
-UID:c9047107-389f-445a-8ecd-df9be33efdda
+DTSTAMP:20250831T142715Z
+UID:1ad07272-a54c-4d9c-ad53-b2c58c57ef42
 DESCRIPTION:International Conference on Verification\, Model Checking\, an
  d Abstract Interpretation\n🗓️ 会议时间: January 16-28\, 2022\n
  📍 会议地点: Philadelphia\, Pennsylvania\, United States\n⏰ 原始

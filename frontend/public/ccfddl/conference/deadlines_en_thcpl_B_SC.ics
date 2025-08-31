@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:ACNS 2022 Deadline [First submission deadline]
 DTSTART;TZID="UTC-12:00":20210903T235959
 DTEND;TZID="UTC-12:00":20210904T000059
-DTSTAMP:20250831T045659Z
-UID:378a9d74-bba8-4af8-83fa-1d3204774a0c
+DTSTAMP:20250831T142720Z
+UID:ed7d925b-3a8d-41b5-ba4e-a86a4e7782cf
 DESCRIPTION:Applied Cryptography and Network Security\n🗓️ Date: June 
  20-23\, 2022\n📍 Location: Rome\, Italy\n⏰ Original Deadline (AoE): 20
  21-09-03 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, 
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:ACNS 2022 Deadline [Second submission deadline]
 DTSTART;TZID="UTC-12:00":20220114T235959
 DTEND;TZID="UTC-12:00":20220115T000059
-DTSTAMP:20250831T045659Z
-UID:4d8b3a84-c053-4744-8c7f-00d8151d214c
+DTSTAMP:20250831T142720Z
+UID:334b1507-52fe-4392-9e48-d11ccf5319bc
 DESCRIPTION:Applied Cryptography and Network Security\n🗓️ Date: June 
  20-23\, 2022\n📍 Location: Rome\, Italy\n⏰ Original Deadline (AoE): 20
  22-01-14 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, 
@@ -42,8 +42,8 @@ BEGIN:VEVENT
 SUMMARY:ACNS 2024 Deadline [First submission deadline]
 DTSTART;TZID="UTC-12:00":20230720T235959
 DTEND;TZID="UTC-12:00":20230721T000059
-DTSTAMP:20250831T045659Z
-UID:72dfcf04-ade6-4420-8ab7-42c449c529f2
+DTSTAMP:20250831T142720Z
+UID:7b0c4232-1f0c-46a3-bdb7-4c886c2a80b2
 DESCRIPTION:Applied Cryptography and Network Security\n🗓️ Date: March
   5-8\, 2024\n📍 Location: Abu Dhabi\, UAE\n⏰ Original Deadline (AoE): 
  2023-07-20 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\
@@ -56,8 +56,8 @@ BEGIN:VEVENT
 SUMMARY:ACNS 2024 Deadline [Second submission deadline]
 DTSTART;TZID="UTC-12:00":20231020T235959
 DTEND;TZID="UTC-12:00":20231021T000059
-DTSTAMP:20250831T045659Z
-UID:367006d8-1434-4921-9612-913ad062daa1
+DTSTAMP:20250831T142720Z
+UID:6a60d7f0-eb08-4eea-bf10-fb7a5faeb105
 DESCRIPTION:Applied Cryptography and Network Security\n🗓️ Date: March
   5-8\, 2024\n📍 Location: Abu Dhabi\, UAE\n⏰ Original Deadline (AoE): 
  2023-10-20 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\
@@ -70,8 +70,8 @@ BEGIN:VEVENT
 SUMMARY:ACNS 2025 Deadline [First submission deadline]
 DTSTART;TZID="UTC-12:00":20240909T235959
 DTEND;TZID="UTC-12:00":20240910T000059
-DTSTAMP:20250831T045659Z
-UID:e3d1dd00-0fef-4148-90e1-9b93c1b690ba
+DTSTAMP:20250831T142720Z
+UID:cf5aeda3-cb65-42f6-8d7a-8412806cd295
 DESCRIPTION:Applied Cryptography and Network Security\n🗓️ Date: June 
  23-26\, 2025\n📍 Location: Munich\, Germany\n⏰ Original Deadline (AoE)
  : 2024-09-09 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE 
@@ -84,8 +84,8 @@ BEGIN:VEVENT
 SUMMARY:ACNS 2025 Deadline [Second submission deadline]
 DTSTART;TZID="UTC-12:00":20250113T235959
 DTEND;TZID="UTC-12:00":20250114T000059
-DTSTAMP:20250831T045659Z
-UID:4f1f8d81-162d-4211-bb18-e32c456072d4
+DTSTAMP:20250831T142720Z
+UID:9a3c8889-6f56-415b-a7b6-4ca54a2ec51c
 DESCRIPTION:Applied Cryptography and Network Security\n🗓️ Date: June 
  23-26\, 2025\n📍 Location: Munich\, Germany\n⏰ Original Deadline (AoE)
  : 2025-01-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE 
@@ -98,8 +98,8 @@ BEGIN:VEVENT
 SUMMARY:ACNS 2026 Deadline [Cycle 1 Submission deadline]
 DTSTART;TZID="UTC-12:00":20250926T235959
 DTEND;TZID="UTC-12:00":20250927T000059
-DTSTAMP:20250831T045659Z
-UID:75a02b3a-550e-4f2d-b3ba-1416905f1d0e
+DTSTAMP:20250831T142720Z
+UID:d427d375-998f-4c3d-af39-782260d2e4f1
 DESCRIPTION:Applied Cryptography and Network Security\n🗓️ Date: June 
  22-25\, 2026\n📍 Location: New York\, United States\n⏰ Original Deadli
  ne (AoE): 2025-09-26 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C
@@ -112,8 +112,8 @@ BEGIN:VEVENT
 SUMMARY:ACNS 2026 Deadline [Cycle 2 Submission deadline]
 DTSTART;TZID="UTC-12:00":20260123T235959
 DTEND;TZID="UTC-12:00":20260124T000059
-DTSTAMP:20250831T045659Z
-UID:01ba5c41-26e9-4421-809b-a3d7c00e7d9a
+DTSTAMP:20250831T142720Z
+UID:e71e1236-fd71-4ee3-8d00-9933aaafbcbd
 DESCRIPTION:Applied Cryptography and Network Security\n🗓️ Date: June 
  22-25\, 2026\n📍 Location: New York\, United States\n⏰ Original Deadli
  ne (AoE): 2026-01-23 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C
@@ -126,8 +126,8 @@ BEGIN:VEVENT
 SUMMARY:ACSAC 2021 Deadline
 DTSTART;TZID="UTC-12:00":20210914T235959
 DTEND;TZID="UTC-12:00":20210915T000059
-DTSTAMP:20250831T045659Z
-UID:80c1b14a-f0ec-4f4f-94cd-0e5092ebaabe
+DTSTAMP:20250831T142720Z
+UID:bd3a81c1-0c1e-4946-b789-f9420d284965
 DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ Date
  : December 6-10\, 2021\n📍 Location: Online\n⏰ Original Deadline (UTC-
  12): 2021-09-14 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CO
@@ -140,8 +140,8 @@ BEGIN:VEVENT
 SUMMARY:ACSAC 2023 Deadline
 DTSTART;TZID="UTC-12:00":20230526T235959
 DTEND;TZID="UTC-12:00":20230527T000059
-DTSTAMP:20250831T045659Z
-UID:03ce49bb-93bd-4b58-bd20-d3c6bee7baad
+DTSTAMP:20250831T142720Z
+UID:18044b07-8bee-4884-bf39-a7e4951c8c68
 DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ Date
  : December 4-8\, 2023\n📍 Location: Austin\, Texas\, USA\n⏰ Original D
  eadline (UTC-12): 2023-05-26 23:59:59\nCategory: 网络与信息安全 (SC
@@ -154,8 +154,8 @@ BEGIN:VEVENT
 SUMMARY:ACSAC 2024 Deadline
 DTSTART;TZID="UTC-12:00":20240528T235959
 DTEND;TZID="UTC-12:00":20240529T000059
-DTSTAMP:20250831T045659Z
-UID:19a4258e-e1d5-43a5-b48d-9085fb618ec9
+DTSTAMP:20250831T142720Z
+UID:5a3b89dd-ebc5-4593-8961-6385a43ca3a3
 DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ Date
  : December 9-13\, 2024\n📍 Location: Waikiki\, Hawaii\, USA\n⏰ Origina
  l Deadline (UTC-12): 2024-05-28 23:59:59\nCategory: 网络与信息安全 
@@ -168,8 +168,8 @@ BEGIN:VEVENT
 SUMMARY:ACSAC 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250530T235959
 DTEND;TZID="UTC-12:00":20250531T000059
-DTSTAMP:20250831T045659Z
-UID:129afa93-aa81-4caf-95b6-70a98d7c2450
+DTSTAMP:20250831T142720Z
+UID:a40fe41c-d43b-4e18-bfbd-727b40b02b9e
 DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ Date
  : December 9-13\, 2025\n📍 Location: Honolulu\, Hawaii\, USA\n⏰ Origin
  al Deadline (UTC-12): 2025-05-30 23:59:59\nCategory: 网络与信息安全
@@ -182,8 +182,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2022 Deadline [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20210730T235959
 DTEND;TZID="UTC-12:00":20210731T000059
-DTSTAMP:20250831T045659Z
-UID:16c0edb2-d8f2-4a33-9f3b-e9dc6d4b6d71
+DTSTAMP:20250831T142720Z
+UID:37bc9470-9436-48a3-a00c-8b58454c202d
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ Date: May 30-June 3\, 2022\n📍 Location: Nagasaki\, Japan\n⏰ Origi
  nal Deadline (AoE): 2021-07-30 23:59:59\nCategory: 网络与信息安全 (
@@ -196,8 +196,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2022 Deadline [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20211119T235959
 DTEND;TZID="UTC-12:00":20211120T000059
-DTSTAMP:20250831T045659Z
-UID:870a7c20-3f8e-4b45-b080-813e08dfb89c
+DTSTAMP:20250831T142720Z
+UID:964de72a-9cda-4de8-b919-af68bb567aea
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ Date: May 30-June 3\, 2022\n📍 Location: Nagasaki\, Japan\n⏰ Origi
  nal Deadline (AoE): 2021-11-19 23:59:59\nCategory: 网络与信息安全 (
@@ -210,8 +210,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2024 Deadline [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20230821T235959
 DTEND;TZID="UTC-12:00":20230822T000059
-DTSTAMP:20250831T045659Z
-UID:adaa7a7b-b97e-4dd5-bbb5-ce2575806f3b
+DTSTAMP:20250831T142720Z
+UID:bcfa8953-823f-435f-9464-a08f8ef02328
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ Date: July 1-5\, 2024\n📍 Location: Singapore\n⏰ Original Deadline
   (AoE): 2023-08-21 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -224,8 +224,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2024 Deadline [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20231207T235959
 DTEND;TZID="UTC-12:00":20231208T000059
-DTSTAMP:20250831T045659Z
-UID:413f8fcc-f93a-49e5-8e41-b08b5dded072
+DTSTAMP:20250831T142720Z
+UID:4ec98333-ae89-4bfe-8f60-2f614a215d5f
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ Date: July 1-5\, 2024\n📍 Location: Singapore\n⏰ Original Deadline
   (AoE): 2023-12-07 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -238,8 +238,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2025 Deadline [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20240920T235959
 DTEND;TZID="UTC-12:00":20240921T000059
-DTSTAMP:20250831T045659Z
-UID:789814c6-4ef9-409a-86b6-773a147cd40c
+DTSTAMP:20250831T142720Z
+UID:e4d2256a-d14c-4bd7-91dd-9c2956a235c6
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ Date: August 25-29\, 2025\n📍 Location: Hanoi\, Vietnam\n⏰ Origina
  l Deadline (AoE): 2024-09-20 23:59:59\nCategory: 网络与信息安全 (SC
@@ -252,8 +252,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2025 Deadline [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20250120T235959
 DTEND;TZID="UTC-12:00":20250121T000059
-DTSTAMP:20250831T045659Z
-UID:0e97d571-ef90-4fca-8a00-fd73f0322e0a
+DTSTAMP:20250831T142720Z
+UID:363f54f2-590b-4bcf-bad7-96d43e60033c
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ Date: August 25-29\, 2025\n📍 Location: Hanoi\, Vietnam\n⏰ Origina
  l Deadline (AoE): 2025-01-20 23:59:59\nCategory: 网络与信息安全 (SC
@@ -266,8 +266,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2026 Deadline [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20250825T235959
 DTEND;TZID="UTC-12:00":20250826T000059
-DTSTAMP:20250831T045659Z
-UID:9d0f02ae-8920-45bc-bcc5-60b214fd95f4
+DTSTAMP:20250831T142720Z
+UID:5ea848d2-034c-4db6-97ca-68d08b2b7dca
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ Date: June 1-6\, 2026\n📍 Location: Bangalore\, India\n⏰ Original 
  Deadline (AoE): 2025-08-25 23:59:59\nCategory: 网络与信息安全 (SC)\
@@ -280,8 +280,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2026 Deadline [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20251212T235959
 DTEND;TZID="UTC-12:00":20251213T000059
-DTSTAMP:20250831T045659Z
-UID:1593f97a-bded-4e5e-b5b6-a89fdebbe473
+DTSTAMP:20250831T142720Z
+UID:06d7828c-24a7-41d1-8268-9743913909f7
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ Date: June 1-6\, 2026\n📍 Location: Bangalore\, India\n⏰ Original 
  Deadline (AoE): 2025-12-12 23:59:59\nCategory: 网络与信息安全 (SC)\
@@ -294,8 +294,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2022 Deadline [spring]
 DTSTART;TZID="UTC-12:00":20210514T235959
 DTEND;TZID="UTC-12:00":20210515T000059
-DTSTAMP:20250831T045659Z
-UID:99bfdf12-f543-4ad4-93e2-2b4c1c114a8f
+DTSTAMP:20250831T142720Z
+UID:c223862f-adb0-4c71-8ac7-fc68b5440518
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Aug
  ust\, 2022\n📍 Location: Haifa\, Israel\n⏰ Original Deadline (UTC-12):
   2021-05-14 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A
@@ -308,8 +308,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2022 Deadline [fall]
 DTSTART;TZID="UTC-12:00":20211001T235959
 DTEND;TZID="UTC-12:00":20211002T000059
-DTSTAMP:20250831T045659Z
-UID:1c7619cc-49fd-4dbb-abdf-5c985c93845a
+DTSTAMP:20250831T142720Z
+UID:c73f2326-e303-4dec-a5e5-b6bc7f1300f2
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Aug
  ust\, 2022\n📍 Location: Haifa\, Israel\n⏰ Original Deadline (UTC-12):
   2021-10-01 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A
@@ -322,8 +322,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2023 Deadline [spring]
 DTSTART;TZID="UTC-12:00":20220513T235959
 DTEND;TZID="UTC-12:00":20220514T000059
-DTSTAMP:20250831T045659Z
-UID:b4fadeda-c695-48ab-b046-e776c83dd700
+DTSTAMP:20250831T142720Z
+UID:b535f336-56f2-4898-9f1b-7b2587a5905c
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y\, 2023\n📍 Location: Dubrovnik\, Croatia\n⏰ Original Deadline (UTC-1
  2): 2022-05-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, COR
@@ -336,8 +336,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2023 Deadline [fall]
 DTSTART;TZID="UTC-12:00":20220930T235959
 DTEND;TZID="UTC-12:00":20221001T000059
-DTSTAMP:20250831T045659Z
-UID:97cf9d32-c14a-4316-ae7b-4d61e137e6a8
+DTSTAMP:20250831T142720Z
+UID:ea5ce946-ea82-4680-9bf5-449b1ca9f316
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y\, 2023\n📍 Location: Dubrovnik\, Croatia\n⏰ Original Deadline (UTC-1
  2): 2022-09-30 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, COR
@@ -350,8 +350,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2023 Deadline [winter]
 DTSTART;TZID="UTC-12:00":20230203T235959
 DTEND;TZID="UTC-12:00":20230204T000059
-DTSTAMP:20250831T045659Z
-UID:d4eaf5b6-6cde-4e04-b7ca-094575cc2196
+DTSTAMP:20250831T142720Z
+UID:9567347f-839b-497d-b326-70e4817f2988
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y\, 2023\n📍 Location: Dubrovnik\, Croatia\n⏰ Original Deadline (UTC-1
  2): 2023-02-03 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, COR
@@ -364,8 +364,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2024 Deadline [spring]
 DTSTART;TZID="UTC-12:00":20230515T235959
 DTEND;TZID="UTC-12:00":20230516T000059
-DTSTAMP:20250831T045659Z
-UID:5d907022-03b2-4ae6-9047-5e20d1189d48
+DTSTAMP:20250831T142720Z
+UID:b4b98d9d-3658-4094-a64e-3211bef83a04
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y 8-12\, 2024\n📍 Location: Enschede\, The Netherlands\n⏰ Original Dea
  dline (UTC-12): 2023-05-15 23:59:59\nCategory: 网络与信息安全 (SC)\
@@ -378,8 +378,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2024 Deadline [fall]
 DTSTART;TZID="UTC-12:00":20230930T235959
 DTEND;TZID="UTC-12:00":20231001T000059
-DTSTAMP:20250831T045659Z
-UID:703109f1-78f0-4d37-8abf-e0e2ea0b0f74
+DTSTAMP:20250831T142720Z
+UID:1116b265-1fd5-47be-9ced-431e5956e552
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y 8-12\, 2024\n📍 Location: Enschede\, The Netherlands\n⏰ Original Dea
  dline (UTC-12): 2023-09-30 23:59:59\nCategory: 网络与信息安全 (SC)\
@@ -392,8 +392,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2024 Deadline [winter]
 DTSTART;TZID="UTC-12:00":20240203T235959
 DTEND;TZID="UTC-12:00":20240204T000059
-DTSTAMP:20250831T045659Z
-UID:95e92c72-9666-49ee-b48e-d600641b4b42
+DTSTAMP:20250831T142720Z
+UID:d36bafa4-7d02-48c9-89a4-040e6ee1083a
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y 8-12\, 2024\n📍 Location: Enschede\, The Netherlands\n⏰ Original Dea
  dline (UTC-12): 2024-02-03 23:59:59\nCategory: 网络与信息安全 (SC)\
@@ -406,8 +406,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2025 Deadline [spring]
 DTSTART;TZID="UTC-12:00":20240528T235959
 DTEND;TZID="UTC-12:00":20240529T000059
-DTSTAMP:20250831T045659Z
-UID:8efbc71f-16f1-4fd0-863b-c1763a9248bf
+DTSTAMP:20250831T142720Z
+UID:fce06fbe-eb31-4f57-b84f-615cde2726bd
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jun
  e 16-20\, 2025\n📍 Location: Santa Cruz\, CA\, USA\n⏰ Original Deadlin
  e (UTC-12): 2024-05-28 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
@@ -420,8 +420,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2025 Deadline [fall]
 DTSTART;TZID="UTC-12:00":20241001T235959
 DTEND;TZID="UTC-12:00":20241002T000059
-DTSTAMP:20250831T045659Z
-UID:b7997553-ce40-40a4-aced-3f8a1bdd4df9
+DTSTAMP:20250831T142720Z
+UID:c381cf7b-91e6-4ced-88e6-64d307e88fef
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jun
  e 16-20\, 2025\n📍 Location: Santa Cruz\, CA\, USA\n⏰ Original Deadlin
  e (UTC-12): 2024-10-01 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
@@ -434,8 +434,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2025 Deadline [winter]
 DTSTART;TZID="UTC-12:00":20250204T235959
 DTEND;TZID="UTC-12:00":20250205T000059
-DTSTAMP:20250831T045659Z
-UID:72d7b95b-cab0-4f1a-8651-23e5009a658f
+DTSTAMP:20250831T142720Z
+UID:4039a7d6-b1eb-4e82-9be8-167875d3be39
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jun
  e 16-20\, 2025\n📍 Location: Santa Cruz\, CA\, USA\n⏰ Original Deadlin
  e (UTC-12): 2025-02-04 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
@@ -448,8 +448,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2026 Deadline [Summer]
 DTSTART;TZID="UTC-12:00":20250724T235959
 DTEND;TZID="UTC-12:00":20250725T000059
-DTSTAMP:20250831T045659Z
-UID:f6aae5e2-19d0-4bb0-be2d-1811a18d69b9
+DTSTAMP:20250831T142720Z
+UID:54434575-bf1d-4aba-9d7d-ee733864d3f5
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y 26-29\, 2026\n📍 Location: Lisbon\, Portugal\n⏰ Original Deadline (U
  TC-12): 2025-07-24 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\,
@@ -462,8 +462,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2026 Deadline [Fall]
 DTSTART;TZID="UTC-12:00":20251009T235959
 DTEND;TZID="UTC-12:00":20251010T000059
-DTSTAMP:20250831T045659Z
-UID:6da9690f-25d9-444e-8a8b-53b057102eac
+DTSTAMP:20250831T142720Z
+UID:9b596429-053f-4b19-a618-e824c775744a
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y 26-29\, 2026\n📍 Location: Lisbon\, Portugal\n⏰ Original Deadline (U
  TC-12): 2025-10-09 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\,
@@ -476,8 +476,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2026 Deadline [Winter]
 DTSTART;TZID="UTC-12:00":20260129T235959
 DTEND;TZID="UTC-12:00":20260130T000059
-DTSTAMP:20250831T045659Z
-UID:4245e70a-263e-42e1-b98f-bb10b2e8b33a
+DTSTAMP:20250831T142720Z
+UID:a16447ec-3569-4c2a-8c05-ab7ca531a4b6
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ Date: Jul
  y 26-29\, 2026\n📍 Location: Lisbon\, Portugal\n⏰ Original Deadline (U
  TC-12): 2026-01-29 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\,
@@ -490,8 +490,8 @@ BEGIN:VEVENT
 SUMMARY:CT-RSA 2022 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20210913T235959
 DTEND;TZID="UTC-12:00":20210914T000059
-DTSTAMP:20250831T045659Z
-UID:bf07932e-eca0-4ada-89eb-696da13906a7
+DTSTAMP:20250831T142720Z
+UID:0602a981-4dfd-4948-a73c-6c0d61ec14e5
 DESCRIPTION:Cryptographer's Track at RSA Conference\n🗓️ Date: Februar
  y 07-10 \, 2022\n📍 Location: San Francisco\, CA\, USA\n⏰ Original Dea
  dline (UTC-12): 2021-09-13 23:59:59\nCategory: 网络与信息安全 (SC)\
@@ -504,8 +504,8 @@ BEGIN:VEVENT
 SUMMARY:CT-RSA 2024 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20231002T235959
 DTEND;TZID="UTC-12:00":20231003T000059
-DTSTAMP:20250831T045659Z
-UID:948d5768-be82-4c8d-9373-369cdf579fce
+DTSTAMP:20250831T142720Z
+UID:4e4173c3-90fd-4150-a7de-eeb812fc0cf3
 DESCRIPTION:Cryptographer's Track at RSA Conference\n🗓️ Date: May 06-
  09 \, 2024\n📍 Location: San Francisco\, CA\, USA\n⏰ Original Deadline
   (UTC-12): 2023-10-02 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF 
@@ -518,8 +518,8 @@ BEGIN:VEVENT
 SUMMARY:CT-RSA 2025 Deadline [Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20241015T235959
 DTEND;TZID="UTC-12:00":20241016T000059
-DTSTAMP:20250831T045659Z
-UID:4d787acc-24b7-4544-aa28-79ee4d171858
+DTSTAMP:20250831T142720Z
+UID:6f527590-5904-4b13-9c13-5b0452247e09
 DESCRIPTION:Cryptographer's Track at RSA Conference\n🗓️ Date: April 2
  8-May 1\, 2025\n📍 Location: San Francisco\, California\, USA\n⏰ Origi
  nal Deadline (UTC-12): 2024-10-15 23:59:59\nCategory: 网络与信息安
@@ -532,8 +532,8 @@ BEGIN:VEVENT
 SUMMARY:DIMVA 2021 Deadline [Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20210301T235959
 DTEND;TZID="UTC-12:00":20210302T000059
-DTSTAMP:20250831T045659Z
-UID:27bd6368-89cf-455f-8edf-fdba975792f3
+DTSTAMP:20250831T142720Z
+UID:8957b24b-a57f-4adf-8499-b4b28814a42b
 DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
  \n🗓️ Date: July 14-16 \, 2022\n📍 Location: Virtual\n⏰ Original D
  eadline (AoE): 2021-03-01 23:59:59\nCategory: 网络与信息安全 (SC)\n
@@ -546,8 +546,8 @@ BEGIN:VEVENT
 SUMMARY:DIMVA 2021 Deadline [Final paper submission deadline]
 DTSTART;TZID="UTC-12:00":20210514T235959
 DTEND;TZID="UTC-12:00":20210515T000059
-DTSTAMP:20250831T045659Z
-UID:ef10e289-99c5-471f-9dab-907db2006403
+DTSTAMP:20250831T142720Z
+UID:ced67039-d3df-4d11-8794-792112265cb8
 DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
  \n🗓️ Date: July 14-16 \, 2022\n📍 Location: Virtual\n⏰ Original D
  eadline (AoE): 2021-05-14 23:59:59\nCategory: 网络与信息安全 (SC)\n
@@ -560,8 +560,8 @@ BEGIN:VEVENT
 SUMMARY:DIMVA 2024 Deadline [Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20231219T235959
 DTEND;TZID="UTC-12:00":20231220T000059
-DTSTAMP:20250831T045659Z
-UID:d0ec5d83-ca97-4a7a-81f7-877a3913402d
+DTSTAMP:20250831T142720Z
+UID:666311e2-ac5f-4114-9784-be8ba7eff77b
 DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
  \n🗓️ Date: July 17-19\, 2024\n📍 Location: Lausanne\, Switzerland\n
  ⏰ Original Deadline (AoE): 2023-12-19 23:59:59\nCategory: 网络与信
@@ -574,8 +574,8 @@ BEGIN:VEVENT
 SUMMARY:DIMVA 2024 Deadline [Final paper submission deadline]
 DTSTART;TZID="UTC-12:00":20240214T235959
 DTEND;TZID="UTC-12:00":20240215T000059
-DTSTAMP:20250831T045659Z
-UID:2ea755d0-f1f1-4eea-b35b-350141583e9a
+DTSTAMP:20250831T142720Z
+UID:666bc164-f502-4228-afd3-bca086b371b6
 DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
  \n🗓️ Date: July 17-19\, 2024\n📍 Location: Lausanne\, Switzerland\n
  ⏰ Original Deadline (AoE): 2024-02-14 23:59:59\nCategory: 网络与信
@@ -588,8 +588,8 @@ BEGIN:VEVENT
 SUMMARY:DIMVA 2025 Deadline [Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20241210T235959
 DTEND;TZID="UTC-12:00":20241211T000059
-DTSTAMP:20250831T045659Z
-UID:e7c3ab0b-7354-4eb4-9942-2d4e551321d2
+DTSTAMP:20250831T142720Z
+UID:8063790b-31d6-4f50-a8a6-a773930f5f5d
 DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
  \n🗓️ Date: July 9-11\, 2025\n📍 Location: Graz University of Techno
  logy\, Graz\, Austria\n⏰ Original Deadline (AoE): 2024-12-10 23:59:59\nC
@@ -603,8 +603,8 @@ BEGIN:VEVENT
 SUMMARY:DIMVA 2025 Deadline [Final paper submission deadline]
 DTSTART;TZID="UTC-12:00":20250212T235959
 DTEND;TZID="UTC-12:00":20250213T000059
-DTSTAMP:20250831T045659Z
-UID:2accecf3-68da-44d2-bcc6-f161554cd443
+DTSTAMP:20250831T142720Z
+UID:b84dae6e-dc2d-4e8c-9853-7168c7baf310
 DESCRIPTION:Detection of Intrusions and Malware & Vulnerability Assessment
  \n🗓️ Date: July 9-11\, 2025\n📍 Location: Graz University of Techno
  logy\, Graz\, Austria\n⏰ Original Deadline (AoE): 2025-02-12 23:59:59\nC
@@ -618,8 +618,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2022 Deadline [Abstract submission deadline]
 DTSTART;TZID="UTC-12:00":20211203T235959
 DTEND;TZID="UTC-12:00":20211204T000059
-DTSTAMP:20250831T045659Z
-UID:4ff17a52-824f-41b0-a661-70fe188c9981
+DTSTAMP:20250831T142720Z
+UID:73a76d77-0c8e-4736-bb29-16d1697966db
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ Date: June 27-30\, 2022\n📍 Location: Baltimore\, Maryland\, USA
  \n⏰ Original Deadline (AoE): 2021-12-03 23:59:59\nCategory: 网络与信
@@ -632,8 +632,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2022 Deadline [Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20211210T235959
 DTEND;TZID="UTC-12:00":20211211T000059
-DTSTAMP:20250831T045659Z
-UID:a083e632-6148-40cb-a2d4-eb1afb6d7dbc
+DTSTAMP:20250831T142720Z
+UID:156a5fc9-76b5-464d-ab48-e68e7aebd5f3
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ Date: June 27-30\, 2022\n📍 Location: Baltimore\, Maryland\, USA
  \n⏰ Original Deadline (AoE): 2021-12-10 23:59:59\nCategory: 网络与信
@@ -646,8 +646,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2022 Deadline [Notification to authors]
 DTSTART;TZID="UTC-12:00":20220314T235959
 DTEND;TZID="UTC-12:00":20220315T000059
-DTSTAMP:20250831T045659Z
-UID:ed62fa9b-eb91-44d5-9b3d-23a5bdd53008
+DTSTAMP:20250831T142720Z
+UID:b8f05619-e0d6-40c1-b0a6-82802b86b60e
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ Date: June 27-30\, 2022\n📍 Location: Baltimore\, Maryland\, USA
  \n⏰ Original Deadline (AoE): 2022-03-14 23:59:59\nCategory: 网络与信
@@ -660,8 +660,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20231129T235959
 DTEND;TZID="UTC-12:00":20231130T000059
-DTSTAMP:20250831T045659Z
-UID:cb99081c-0086-4241-a161-a06a3a2dade6
+DTSTAMP:20250831T142720Z
+UID:53d29aa7-170e-4c16-a82e-ac62fc34d939
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ Date: June 24-27\, 2024\n📍 Location: Brisbane\, Australia\n⏰ 
  Original Deadline (AoE): 2023-11-29 23:59:59\nCategory: 网络与信息安
@@ -674,8 +674,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20241127T235959
 DTEND;TZID="UTC-12:00":20241128T000059
-DTSTAMP:20250831T045659Z
-UID:54cd6384-53be-4eff-830b-05e033831b0d
+DTSTAMP:20250831T142720Z
+UID:1410ff1d-b5ad-40f8-8994-74dee8c6e19d
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ Date: June 23-26\, 2025\n📍 Location: Naples\, Italy\n⏰ Origin
  al Deadline (AoE): 2024-11-27 23:59:59\nCategory: 网络与信息安全 (S
@@ -688,8 +688,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2026 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20251127T235959
 DTEND;TZID="UTC-12:00":20251128T000059
-DTSTAMP:20250831T045659Z
-UID:0f60a978-5dbc-4772-81d4-714ea067ddca
+DTSTAMP:20250831T142720Z
+UID:082c6693-3cfd-4ca4-8656-8642939fd1cb
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ Date: June 22-25\, 2026\n📍 Location: Charlotte\, USA\n⏰ Origi
  nal Deadline (AoE): 2025-11-27 23:59:59\nCategory: 网络与信息安全 (
@@ -711,8 +711,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2022 Deadline [Winter Cycle Title and Abstract]
 DTSTART;TZID="UTC+01:00":20220131T235959
 DTEND;TZID="UTC+01:00":20220201T000059
-DTSTAMP:20250831T045659Z
-UID:805744e9-2b54-4316-a249-74fc3271f2ca
+DTSTAMP:20250831T142720Z
+UID:3fbc1de6-b7c9-418a-8e64-4550e8333f52
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
  ate: September 26-30\, 2022\n📍 Location: Copenhagen\, Denmark\n⏰ Orig
  inal Deadline (UTC+1): 2022-01-31 23:59:59\nCategory: 网络与信息安
@@ -725,8 +725,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2022 Deadline [Winter Cycle Full Paper Submission]
 DTSTART;TZID="UTC+01:00":20220131T235959
 DTEND;TZID="UTC+01:00":20220201T000059
-DTSTAMP:20250831T045659Z
-UID:6dac3319-cebb-4d36-b0a3-473642cdfd6b
+DTSTAMP:20250831T142720Z
+UID:7de80d24-cf47-4663-a608-0452c1c0686c
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
  ate: September 26-30\, 2022\n📍 Location: Copenhagen\, Denmark\n⏰ Orig
  inal Deadline (UTC+1): 2022-01-31 23:59:59\nCategory: 网络与信息安
@@ -739,8 +739,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2022 Deadline [Spring Cycle Title and Abstract]
 DTSTART;TZID="UTC+01:00":20220515T235959
 DTEND;TZID="UTC+01:00":20220516T000059
-DTSTAMP:20250831T045659Z
-UID:fb8acebc-28ab-490f-b2e1-8b71c53d8250
+DTSTAMP:20250831T142720Z
+UID:5bff8ecc-215d-48e6-8d2e-5f55fbbe7fa1
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
  ate: September 26-30\, 2022\n📍 Location: Copenhagen\, Denmark\n⏰ Orig
  inal Deadline (UTC+1): 2022-05-15 23:59:59\nCategory: 网络与信息安
@@ -753,8 +753,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2022 Deadline [Spring Cycle Full Paper Submission]
 DTSTART;TZID="UTC+01:00":20220522T235959
 DTEND;TZID="UTC+01:00":20220523T000059
-DTSTAMP:20250831T045659Z
-UID:9352e233-3e97-4ad0-9c7a-b89bc366bf8e
+DTSTAMP:20250831T142720Z
+UID:8f6443d5-38be-41e4-8e91-2cd62203b64a
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
  ate: September 26-30\, 2022\n📍 Location: Copenhagen\, Denmark\n⏰ Orig
  inal Deadline (UTC+1): 2022-05-22 23:59:59\nCategory: 网络与信息安
@@ -767,8 +767,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2024 Deadline [First Submission deadline]
 DTSTART;TZID="UTC-12:00":20240108T235959
 DTEND;TZID="UTC-12:00":20240109T000059
-DTSTAMP:20250831T045659Z
-UID:3e9e451d-002a-4f94-8588-4ea2c28ff0e9
+DTSTAMP:20250831T142720Z
+UID:46d6a3b9-03e7-430c-9a5a-cb2182663471
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
  ate: September 16-20\, 2024\n📍 Location: Bydgoszcz\, Poland\n⏰ Origin
  al Deadline (AoE): 2024-01-08 23:59:59\nCategory: 网络与信息安全 (S
@@ -781,8 +781,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2024 Deadline [Second Submission deadline]
 DTSTART;TZID="UTC-12:00":20240419T235959
 DTEND;TZID="UTC-12:00":20240420T000059
-DTSTAMP:20250831T045659Z
-UID:fec32add-9863-47c4-b420-64532a21689b
+DTSTAMP:20250831T142720Z
+UID:0b36fc67-3fe6-4f9c-a6c2-ac81cb7faa17
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
  ate: September 16-20\, 2024\n📍 Location: Bydgoszcz\, Poland\n⏰ Origin
  al Deadline (AoE): 2024-04-19 23:59:59\nCategory: 网络与信息安全 (S
@@ -795,8 +795,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2025 Deadline [First Submission deadline]
 DTSTART;TZID="UTC-12:00":20250110T235959
 DTEND;TZID="UTC-12:00":20250111T000059
-DTSTAMP:20250831T045659Z
-UID:0c6777ae-fd35-4d98-8f46-ff738aaa4511
+DTSTAMP:20250831T142720Z
+UID:057bcb07-a32e-4c55-9536-643c12fe53b8
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
  ate: September 22-26\, 2025\n📍 Location: Toulouse\, France\n⏰ Origina
  l Deadline (AoE): 2025-01-10 23:59:59\nCategory: 网络与信息安全 (SC
@@ -809,8 +809,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2025 Deadline [Second Submission deadline]
 DTSTART;TZID="UTC-12:00":20250429T235959
 DTEND;TZID="UTC-12:00":20250430T000059
-DTSTAMP:20250831T045659Z
-UID:91e6dd85-4f7b-4496-ac0b-89a2c0d415d7
+DTSTAMP:20250831T142720Z
+UID:62a8c06c-9360-4d3f-9c29-c39b3a9873f1
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ D
  ate: September 22-26\, 2025\n📍 Location: Toulouse\, France\n⏰ Origina
  l Deadline (AoE): 2025-04-29 23:59:59\nCategory: 网络与信息安全 (SC
@@ -823,8 +823,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2022 Deadline [Paper registration]
 DTSTART;TZID="UTC-12:00":20210902T235959
 DTEND;TZID="UTC-12:00":20210903T000059
-DTSTAMP:20250831T045659Z
-UID:8eef2330-10cd-4a83-8d67-e7fdcc94530c
+DTSTAMP:20250831T142720Z
+UID:5a76cfc1-9c9b-4d8c-ae68-bc52d1387cce
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ Date: Februa
  ry 14-18\, 2022\n📍 Location: Radisson Grenada Beach Resort Grenada\n⏰
   Original Deadline (UTC-12): 2021-09-02 23:59:59\nCategory: 网络与信
@@ -837,8 +837,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2022 Deadline [Paper submission]
 DTSTART;TZID="UTC-12:00":20210909T235959
 DTEND;TZID="UTC-12:00":20210910T000059
-DTSTAMP:20250831T045659Z
-UID:f1e8af88-1598-497c-90d4-75748e45c476
+DTSTAMP:20250831T142720Z
+UID:2e6b396e-4459-4e06-aa43-a0ecd8884cb1
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ Date: Februa
  ry 14-18\, 2022\n📍 Location: Radisson Grenada Beach Resort Grenada\n⏰
   Original Deadline (UTC-12): 2021-09-09 23:59:59\nCategory: 网络与信
@@ -851,8 +851,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2024 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20230918T235959
 DTEND;TZID="UTC-12:00":20230919T000059
-DTSTAMP:20250831T045659Z
-UID:efe3b529-8858-44ff-800a-54aac5c5e21b
+DTSTAMP:20250831T142720Z
+UID:873ba16d-67d3-4bb8-bb5a-c8e6587ad08b
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ Date: March 
  4-8\, 2024\n📍 Location: Willemstad\, Curaçao\n⏰ Original Deadline (U
  TC-12): 2023-09-18 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -865,8 +865,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2025 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20241011T235959
 DTEND;TZID="UTC-12:00":20241012T000059
-DTSTAMP:20250831T045659Z
-UID:e712b75d-6507-49d2-95db-fa2eedb9b13a
+DTSTAMP:20250831T142720Z
+UID:6faee46a-69d5-4b9a-8986-88405b8c7343
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ Date: April 
  14-18\, 2025\n📍 Location: Miyakojima\, Japan\n⏰ Original Deadline (UT
  C-12): 2024-10-11 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, 
@@ -879,8 +879,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2026 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20250916T235959
 DTEND;TZID="UTC-12:00":20250917T000059
-DTSTAMP:20250831T045659Z
-UID:1bfb36ac-15f2-414b-97ff-0e2da2802809
+DTSTAMP:20250831T142720Z
+UID:56b0dec2-dcdc-4f4f-a746-f0b21f95e232
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ Date: March 
  2-6\, 2026\n📍 Location: St. Kitts\n⏰ Original Deadline (UTC-12): 2025
  -09-16 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE A\, TH
@@ -902,8 +902,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2023 Deadline [Submission deadline]
 DTSTART:20220301T115959Z
 DTEND:20220301T120059Z
-DTSTAMP:20250831T045659Z
-UID:79a8789a-0171-440c-88b2-b11143ffc9dd
+DTSTAMP:20250831T142720Z
+UID:68cce06a-1b3e-4577-82d6-d57dbee2e62c
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 20-24\, 2023\n
  📍 Location: Beijing\, China\n⏰ Original Deadline (UTC+0): 2022-03-01 
  11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferenc
@@ -916,8 +916,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2023 Deadline [Submission deadline]
 DTSTART:20220601T115959Z
 DTEND:20220601T120059Z
-DTSTAMP:20250831T045659Z
-UID:ebff5566-7fdd-46b3-b6b9-f3e3fe637e7b
+DTSTAMP:20250831T142720Z
+UID:392c0927-e521-4249-bcf7-6b9a22f4cc4b
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 20-24\, 2023\n
  📍 Location: Beijing\, China\n⏰ Original Deadline (UTC+0): 2022-06-01 
  11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferenc
@@ -930,8 +930,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2023 Deadline [Submission deadline]
 DTSTART:20220901T115959Z
 DTEND:20220901T120059Z
-DTSTAMP:20250831T045659Z
-UID:d8e550bd-623a-40b5-9b61-b077041236db
+DTSTAMP:20250831T142720Z
+UID:5971e8e9-e911-4904-b0d4-be4f2e398df8
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 20-24\, 2023\n
  📍 Location: Beijing\, China\n⏰ Original Deadline (UTC+0): 2022-09-01 
  11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferenc
@@ -944,8 +944,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2023 Deadline [Submission deadline]
 DTSTART:20221123T115959Z
 DTEND:20221123T120059Z
-DTSTAMP:20250831T045659Z
-UID:c82ee141-0b5d-4a1c-816e-6be84d431756
+DTSTAMP:20250831T142720Z
+UID:726600c0-0bc1-4de3-82bd-54e25a8e6e11
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 20-24\, 2023\n
  📍 Location: Beijing\, China\n⏰ Original Deadline (UTC+0): 2022-11-23 
  11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferenc
@@ -958,8 +958,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2024 Deadline [Submission deadline]
 DTSTART:20230301T115959Z
 DTEND:20230301T120059Z
-DTSTAMP:20250831T045659Z
-UID:e126e22f-4a7e-456f-bdde-99b81a73cd30
+DTSTAMP:20250831T142720Z
+UID:52c822f8-3d0d-41dc-a464-7bc7a7ba9487
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 25-29\, 2024\n
  📍 Location: Leuven\, Belgium\n⏰ Original Deadline (UTC+0): 2023-03-01
   11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferen
@@ -972,8 +972,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2024 Deadline [Submission deadline]
 DTSTART:20230601T115959Z
 DTEND:20230601T120059Z
-DTSTAMP:20250831T045659Z
-UID:c9539678-1438-47fb-8882-5311c0afecd4
+DTSTAMP:20250831T142720Z
+UID:ecff5d83-fa5c-408b-8eb4-d6adcc4a8b72
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 25-29\, 2024\n
  📍 Location: Leuven\, Belgium\n⏰ Original Deadline (UTC+0): 2023-06-01
   11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferen
@@ -986,8 +986,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2024 Deadline [Submission deadline]
 DTSTART:20230901T115959Z
 DTEND:20230901T120059Z
-DTSTAMP:20250831T045659Z
-UID:6259c97b-a2f5-4bcd-8be2-0490cc151439
+DTSTAMP:20250831T142720Z
+UID:d3d9f2e9-7c18-4b2d-99c4-10a71158ffd8
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 25-29\, 2024\n
  📍 Location: Leuven\, Belgium\n⏰ Original Deadline (UTC+0): 2023-09-01
   11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferen
@@ -1000,8 +1000,8 @@ BEGIN:VEVENT
 SUMMARY:FSE 2024 Deadline [Submission deadline]
 DTSTART:20231123T115959Z
 DTEND:20231123T120059Z
-DTSTAMP:20250831T045659Z
-UID:b24afbc9-da9d-42ed-8f9e-0458ee60fc11
+DTSTAMP:20250831T142720Z
+UID:6e828a41-ca47-4839-afa2-5491a2fcdd0e
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 25-29\, 2024\n
  📍 Location: Leuven\, Belgium\n⏰ Original Deadline (UTC+0): 2023-11-23
   11:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConferen
@@ -1015,8 +1015,8 @@ SUMMARY:FSE 2025 Deadline [ToSC\, Volume 2024\, Issue 2 Submission deadlin
  e]
 DTSTART;TZID="UTC-12:00":20240301T235959
 DTEND;TZID="UTC-12:00":20240302T000059
-DTSTAMP:20250831T045659Z
-UID:a12d9797-d91f-49a9-af12-2db088ee7c71
+DTSTAMP:20250831T142720Z
+UID:1945c9d8-c883-4063-8d52-cbda9350005b
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 17-21\, 2025\n
  📍 Location: Rome\, Italy\n⏰ Original Deadline (UTC-12): 2024-03-01 23
  :59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConference 
@@ -1030,8 +1030,8 @@ SUMMARY:FSE 2025 Deadline [ToSC\, Volume 2024\, Issue 3 Submission deadlin
  e]
 DTSTART;TZID="UTC-12:00":20240601T235959
 DTEND;TZID="UTC-12:00":20240602T000059
-DTSTAMP:20250831T045659Z
-UID:65e4c65e-106a-4384-a7aa-d50aa1cc4fba
+DTSTAMP:20250831T142720Z
+UID:4fe26cb9-fe0b-4e56-b698-83b1d4da6392
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 17-21\, 2025\n
  📍 Location: Rome\, Italy\n⏰ Original Deadline (UTC-12): 2024-06-01 23
  :59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConference 
@@ -1045,8 +1045,8 @@ SUMMARY:FSE 2025 Deadline [ToSC\, Volume 2024\, Issue 4 Submission deadlin
  e]
 DTSTART;TZID="UTC-12:00":20240901T235959
 DTEND;TZID="UTC-12:00":20240902T000059
-DTSTAMP:20250831T045659Z
-UID:65812200-2d04-469b-8597-cc0d6392ea2a
+DTSTAMP:20250831T142720Z
+UID:5d42416e-62cd-420d-af6f-2a92b88b9878
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 17-21\, 2025\n
  📍 Location: Rome\, Italy\n⏰ Original Deadline (UTC-12): 2024-09-01 23
  :59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConference 
@@ -1060,8 +1060,8 @@ SUMMARY:FSE 2025 Deadline [ToSC\, Volume 2025\, Issue 1 Submission deadlin
  e]
 DTSTART;TZID="UTC-12:00":20241122T235959
 DTEND;TZID="UTC-12:00":20241123T000059
-DTSTAMP:20250831T045659Z
-UID:16c46dc6-f450-4e3c-9502-00776ad616b5
+DTSTAMP:20250831T142720Z
+UID:4d9e90f0-2839-4072-9baa-a5209bf6ec55
 DESCRIPTION:Fast Software Encryption\n🗓️ Date: March 17-21\, 2025\n
  📍 Location: Rome\, Italy\n⏰ Original Deadline (UTC-12): 2024-11-22 23
  :59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, THCPL B\nConference 
@@ -1074,8 +1074,8 @@ BEGIN:VEVENT
 SUMMARY:IH&MMSec 2021 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210225T235959
 DTEND;TZID="UTC-12:00":20210226T000059
-DTSTAMP:20250831T045659Z
-UID:63b39e1a-cf35-4043-9d3c-7cb61551636c
+DTSTAMP:20250831T142720Z
+UID:57f526de-4633-4c63-a4f7-3dfbfd671066
 DESCRIPTION:ACM Workshop on Information Hiding and Multimedia Security\n
  🗓️ Date: June 22-25\, 2021\n📍 Location: Virtual\n⏰ Original Dead
  line (AoE): 2021-02-25 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF
@@ -1088,8 +1088,8 @@ BEGIN:VEVENT
 SUMMARY:IH&MMSec 2024 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240229T235959
 DTEND;TZID="UTC-12:00":20240301T000059
-DTSTAMP:20250831T045659Z
-UID:0759fb91-2679-4628-adee-6d40b21003c0
+DTSTAMP:20250831T142720Z
+UID:24e26a62-dcf7-4d0f-96f3-fceca25ef658
 DESCRIPTION:ACM Workshop on Information Hiding and Multimedia Security\n
  🗓️ Date: June 24-26\, 2024\n📍 Location: Baiona\, Spain\n⏰ Origin
  al Deadline (AoE): 2024-02-29 23:59:59\nCategory: 网络与信息安全 (S
@@ -1102,8 +1102,8 @@ BEGIN:VEVENT
 SUMMARY:IH&MMSec 2025 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250228T235959
 DTEND;TZID="UTC-12:00":20250301T000059
-DTSTAMP:20250831T045659Z
-UID:c241f0f8-b821-4a4c-8c23-25eaec37131b
+DTSTAMP:20250831T142720Z
+UID:3a62bb0f-6ce3-40fd-ac68-f61bc3b1090c
 DESCRIPTION:ACM Workshop on Information Hiding and Multimedia Security\n
  🗓️ Date: June 18-20\, 2025\n📍 Location: San Jose\, CA\, USA\n⏰ O
  riginal Deadline (AoE): 2025-02-28 23:59:59\nCategory: 网络与信息安
@@ -1125,8 +1125,8 @@ BEGIN:VEVENT
 SUMMARY:NOMS 2025 Abstract Deadline
 DTSTART;TZID="UTC+10:00":20240907T195959
 DTEND;TZID="UTC+10:00":20240907T200059
-DTSTAMP:20250831T045659Z
-UID:93c8d729-02fb-47ac-a7fe-71d522fc1b30
+DTSTAMP:20250831T142720Z
+UID:78c201dc-b9d4-4de3-a1ea-5d5589975757
 DESCRIPTION:IEEE/IFIP Network Operations and Management Symposium\n🗓️
   Date: May 12-16\, 2025\n📍 Location: Honolulu\, HI\, USA\n⏰ Original 
  Deadline (UTC+10): 2024-09-07 19:59:59\nCategory: 网络与信息安全 (S
@@ -1148,8 +1148,8 @@ BEGIN:VEVENT
 SUMMARY:PAM 2021 Deadline [Paper registration (with abstract)]
 DTSTART;TZID="UTC-04:00":20201016T235959
 DTEND;TZID="UTC-04:00":20201017T000059
-DTSTAMP:20250831T045659Z
-UID:e5e0f6bc-4e0a-4587-9ec7-c541e6c9498e
+DTSTAMP:20250831T142720Z
+UID:9e849d7d-62ca-4510-bd65-663aab4050de
 DESCRIPTION:Passive and Active Measurement Conference\n🗓️ Date: March
   29-31\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC-4): 2020
  -10-16 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, TH
@@ -1162,8 +1162,8 @@ BEGIN:VEVENT
 SUMMARY:PAM 2021 Deadline [Paper submission]
 DTSTART;TZID="UTC-04:00":20201023T235959
 DTEND;TZID="UTC-04:00":20201024T000059
-DTSTAMP:20250831T045659Z
-UID:ae5d1c92-335a-4708-9036-2bdb07edd2c2
+DTSTAMP:20250831T142720Z
+UID:99b98a5e-6b07-4dad-ab2a-accd408228c6
 DESCRIPTION:Passive and Active Measurement Conference\n🗓️ Date: March
   29-31\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC-4): 2020
  -10-23 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, TH
@@ -1176,8 +1176,8 @@ BEGIN:VEVENT
 SUMMARY:PAM 2022 Deadline [Paper registration (with abstract)]
 DTSTART;TZID="UTC-12:00":20211020T235959
 DTEND;TZID="UTC-12:00":20211021T000059
-DTSTAMP:20250831T045659Z
-UID:28c20ce0-1214-48e6-90cc-f0d489abb91d
+DTSTAMP:20250831T142720Z
+UID:15de39c7-1b59-4d5a-958c-084a1db509e5
 DESCRIPTION:Passive and Active Measurement Conference\n🗓️ Date: March
   28-30\, 2022\n📍 Location: Virtual\n⏰ Original Deadline (AoE): 2021-1
  0-20 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, THCP
@@ -1190,8 +1190,8 @@ BEGIN:VEVENT
 SUMMARY:PAM 2022 Deadline [Paper submission]
 DTSTART;TZID="UTC-12:00":20211027T235959
 DTEND;TZID="UTC-12:00":20211028T000059
-DTSTAMP:20250831T045659Z
-UID:8a1e24e6-cbc9-4a86-aac3-87d0e2aba3fc
+DTSTAMP:20250831T142720Z
+UID:cd5a99d8-7f9a-4085-90aa-1e258c238370
 DESCRIPTION:Passive and Active Measurement Conference\n🗓️ Date: March
   28-30\, 2022\n📍 Location: Virtual\n⏰ Original Deadline (AoE): 2021-1
  0-27 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, THCP
@@ -1204,8 +1204,8 @@ BEGIN:VEVENT
 SUMMARY:PAM 2023 Deadline
 DTSTART;TZID="UTC-12:00":20221101T235959
 DTEND;TZID="UTC-12:00":20221102T000059
-DTSTAMP:20250831T045659Z
-UID:387c52e7-1db9-4965-b851-6c8d4f0e0fbc
+DTSTAMP:20250831T142720Z
+UID:edba8f2e-8330-47fe-93ba-44db246f34e2
 DESCRIPTION:Passive and Active Measurement Conference\n🗓️ Date: March
   21-23\, 2023\n📍 Location: Virtual\n⏰ Original Deadline (AoE): 2022-1
  1-01 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, THCP
@@ -1218,8 +1218,8 @@ BEGIN:VEVENT
 SUMMARY:PAM 2024 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20231028T235959
 DTEND;TZID="UTC-12:00":20231029T000059
-DTSTAMP:20250831T045659Z
-UID:b8412d79-f647-42e6-be7d-3e6e46b111e5
+DTSTAMP:20250831T142720Z
+UID:3b1c177f-caff-4a0c-8e8d-3ab2d5fd1472
 DESCRIPTION:Passive and Active Measurement Conference\n🗓️ Date: March
   11-13\, 2024\n📍 Location: Virtual\n⏰ Original Deadline (AoE): 2023-1
  0-28 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, THCP
@@ -1232,8 +1232,8 @@ BEGIN:VEVENT
 SUMMARY:PAM 2025 Abstract Deadline
 DTSTART;TZID="UTC-12:00":20241001T235959
 DTEND;TZID="UTC-12:00":20241002T000059
-DTSTAMP:20250831T045659Z
-UID:e86093b7-5b71-45a0-b68c-ecbc8c84375d
+DTSTAMP:20250831T142720Z
+UID:59359b7f-76c7-452d-904a-7644c4dffd95
 DESCRIPTION:Passive and Active Measurement Conference\n🗓️ Date: March
   10-12\, 2025\n📍 Location: Virtual\n⏰ Original Deadline (AoE): 2024-1
  0-01 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, THCP
@@ -1246,8 +1246,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2022 Deadline [Issue 1 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210531T235959
 DTEND;TZID="UTC-12:00":20210601T000059
-DTSTAMP:20250831T045659Z
-UID:e2d4054d-a313-4465-b61a-e0a5bfc537b1
+DTSTAMP:20250831T142720Z
+UID:ebd503dd-d9c1-40be-833e-d4aaecfe83dd
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  8-23\, 2022\n📍 Location: Sydney\, Australia\n⏰ Original Deadline (AoE
  ): 2021-05-31 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE
@@ -1260,8 +1260,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2022 Deadline [Issue 2 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210831T235959
 DTEND;TZID="UTC-12:00":20210901T000059
-DTSTAMP:20250831T045659Z
-UID:2264f9b3-e9af-40f4-a5ee-17219e696d8c
+DTSTAMP:20250831T142720Z
+UID:a5873e27-4a2a-4833-999e-f04f274d2b69
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  8-23\, 2022\n📍 Location: Sydney\, Australia\n⏰ Original Deadline (AoE
  ): 2021-08-31 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE
@@ -1274,8 +1274,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2022 Deadline [Issue 3 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20211130T235959
 DTEND;TZID="UTC-12:00":20211201T000059
-DTSTAMP:20250831T045659Z
-UID:2de37287-69a1-407c-a854-d34d3cc40c18
+DTSTAMP:20250831T142720Z
+UID:a884036d-1781-4e18-abfd-3af56c3023d5
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  8-23\, 2022\n📍 Location: Sydney\, Australia\n⏰ Original Deadline (AoE
  ): 2021-11-30 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE
@@ -1288,8 +1288,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2022 Deadline [Issue 4 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220228T235959
 DTEND;TZID="UTC-12:00":20220301T000059
-DTSTAMP:20250831T045659Z
-UID:52e1168c-090d-4bc0-89f0-93704c665463
+DTSTAMP:20250831T142720Z
+UID:80e66eda-d29a-43b0-b61c-04af5ef4648a
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  8-23\, 2022\n📍 Location: Sydney\, Australia\n⏰ Original Deadline (AoE
  ): 2022-02-28 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE
@@ -1302,8 +1302,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2024 Deadline [Issue 1 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20230531T235959
 DTEND;TZID="UTC-12:00":20230601T000059
-DTSTAMP:20250831T045659Z
-UID:878e574a-2dc0-4248-9175-983233639082
+DTSTAMP:20250831T142720Z
+UID:da2d51a2-73ea-4eda-8c22-71052edb7047
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  5-20\, 2024\n📍 Location: Bristol\, UK and Online\n⏰ Original Deadline
   (AoE): 2023-05-31 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -1316,8 +1316,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2024 Deadline [Issue 2 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20230831T235959
 DTEND;TZID="UTC-12:00":20230901T000059
-DTSTAMP:20250831T045659Z
-UID:9af5ccee-0a88-4bcd-8167-b00dfb88909e
+DTSTAMP:20250831T142720Z
+UID:01459752-dc3b-4e00-a6e5-b89fd91e8ad6
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  5-20\, 2024\n📍 Location: Bristol\, UK and Online\n⏰ Original Deadline
   (AoE): 2023-08-31 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -1330,8 +1330,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2024 Deadline [Issue 3 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20231130T235959
 DTEND;TZID="UTC-12:00":20231201T000059
-DTSTAMP:20250831T045659Z
-UID:86ca3134-c6a6-45dc-b395-0a64a3a8fcf3
+DTSTAMP:20250831T142720Z
+UID:dc1091d2-7840-4f2b-82a3-15e6548cadbd
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  5-20\, 2024\n📍 Location: Bristol\, UK and Online\n⏰ Original Deadline
   (AoE): 2023-11-30 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -1344,8 +1344,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2024 Deadline [Issue 4 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240229T235959
 DTEND;TZID="UTC-12:00":20240301T000059
-DTSTAMP:20250831T045659Z
-UID:dac53c35-cfd7-4e44-8a94-1bc424a1461f
+DTSTAMP:20250831T142720Z
+UID:12c5eb10-34e7-409a-a44b-912b7921b45c
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  5-20\, 2024\n📍 Location: Bristol\, UK and Online\n⏰ Original Deadline
   (AoE): 2024-02-29 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -1358,8 +1358,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2025 Deadline [Issue 1 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240531T235959
 DTEND;TZID="UTC-12:00":20240601T000059
-DTSTAMP:20250831T045659Z
-UID:1447908b-9ccd-402b-9faf-5af994d83076
+DTSTAMP:20250831T142720Z
+UID:c52733fc-2c1f-4f61-b0bb-c87635417d56
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  4-19\, 2025\n📍 Location: Washington\, DC and Online\n⏰ Original Deadl
  ine (AoE): 2024-05-31 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF 
@@ -1372,8 +1372,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2025 Deadline [Issue 2 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240831T235959
 DTEND;TZID="UTC-12:00":20240901T000059
-DTSTAMP:20250831T045659Z
-UID:26724352-1989-445f-81ad-1cea7034b36b
+DTSTAMP:20250831T142720Z
+UID:619742c5-f875-41f3-8db2-d2f4680ce8a1
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  4-19\, 2025\n📍 Location: Washington\, DC and Online\n⏰ Original Deadl
  ine (AoE): 2024-08-31 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF 
@@ -1386,8 +1386,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2025 Deadline [Issue 3 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20241130T235959
 DTEND;TZID="UTC-12:00":20241201T000059
-DTSTAMP:20250831T045659Z
-UID:414e153e-2fca-4bce-bf9e-debef5618cd6
+DTSTAMP:20250831T142720Z
+UID:e8b88ac0-196f-4070-98eb-9f5998c56e9c
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  4-19\, 2025\n📍 Location: Washington\, DC and Online\n⏰ Original Deadl
  ine (AoE): 2024-11-30 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF 
@@ -1400,8 +1400,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2025 Deadline [Issue 4 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250228T235959
 DTEND;TZID="UTC-12:00":20250301T000059
-DTSTAMP:20250831T045659Z
-UID:f3ae0e7a-14c2-4320-9354-70167f818715
+DTSTAMP:20250831T142720Z
+UID:10b16fae-c974-4d87-9bae-eb05847c9045
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July 1
  4-19\, 2025\n📍 Location: Washington\, DC and Online\n⏰ Original Deadl
  ine (AoE): 2025-02-28 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF 
@@ -1414,8 +1414,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2026 Deadline [Issue 1 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250531T235959
 DTEND;TZID="UTC-12:00":20250601T000059
-DTSTAMP:20250831T045659Z
-UID:73915fca-680f-4467-b36b-8b8d6f620699
+DTSTAMP:20250831T142720Z
+UID:cd812782-b707-4f91-86db-21932b36364f
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July\,
   2026\n📍 Location: Location TBD\n⏰ Original Deadline (AoE): 2025-05-3
  1 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE A\, THCPL B
@@ -1428,8 +1428,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2026 Deadline [Issue 2 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250831T235959
 DTEND;TZID="UTC-12:00":20250901T000059
-DTSTAMP:20250831T045659Z
-UID:60d3a00c-3d5b-4fa0-9d30-450f8beb9fb0
+DTSTAMP:20250831T142720Z
+UID:1f0ff6e3-931d-41dd-9198-06d27e116c21
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July\,
   2026\n📍 Location: Location TBD\n⏰ Original Deadline (AoE): 2025-08-3
  1 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE A\, THCPL B
@@ -1442,8 +1442,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2026 Deadline [Issue 3 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20251130T235959
 DTEND;TZID="UTC-12:00":20251201T000059
-DTSTAMP:20250831T045659Z
-UID:0093f0fa-ef9e-4b98-ae92-c464a2a08007
+DTSTAMP:20250831T142720Z
+UID:67b01b8f-34ef-4d63-9d77-948ad7b397f9
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July\,
   2026\n📍 Location: Location TBD\n⏰ Original Deadline (AoE): 2025-11-3
  0 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE A\, THCPL B
@@ -1456,8 +1456,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2026 Deadline [Issue 4 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20260228T235959
 DTEND;TZID="UTC-12:00":20260301T000059
-DTSTAMP:20250831T045659Z
-UID:cbdf9ec4-8d50-40ae-8ed1-167554ed89bd
+DTSTAMP:20250831T142720Z
+UID:be6501b3-6cc5-43c3-8898-28f7b647caf1
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ Date: July\,
   2026\n📍 Location: Location TBD\n⏰ Original Deadline (AoE): 2026-02-2
  8 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE A\, THCPL B
@@ -1470,8 +1470,8 @@ BEGIN:VEVENT
 SUMMARY:PKC 2021 Deadline
 DTSTART;TZID="UTC-12:00":20201113T235959
 DTEND;TZID="UTC-12:00":20201114T000059
-DTSTAMP:20250831T045659Z
-UID:d22aa349-e88b-4158-a940-35474da18769
+DTSTAMP:20250831T142720Z
+UID:76e32ef7-656d-4136-8b4e-cafe9a29e24e
 DESCRIPTION:International Conference on Practice and Theory of Public-Key 
  Cryptography\n🗓️ Date: May 10\, 2021\n📍 Location: Virtual\n⏰ Ori
  ginal Deadline (UTC-12): 2020-11-13 23:59:59\nCategory: 网络与信息安
@@ -1484,8 +1484,8 @@ BEGIN:VEVENT
 SUMMARY:PKC 2024 Deadline
 DTSTART;TZID="UTC-12:00":20231001T235959
 DTEND;TZID="UTC-12:00":20231002T000059
-DTSTAMP:20250831T045659Z
-UID:a5e64fde-9a1c-4b80-bd20-16963aef6071
+DTSTAMP:20250831T142720Z
+UID:a4384c6c-e3f8-490f-ac08-ad1decbc9b58
 DESCRIPTION:International Conference on Practice and Theory of Public-Key 
  Cryptography\n🗓️ Date: April 15-17\, 2024\n📍 Location: Sydney\, Au
  stralia\n⏰ Original Deadline (UTC-12): 2023-10-01 23:59:59\nCategory: 
@@ -1498,8 +1498,8 @@ BEGIN:VEVENT
 SUMMARY:PKC 2025 Deadline
 DTSTART;TZID="UTC-12:00":20241016T235959
 DTEND;TZID="UTC-12:00":20241017T000059
-DTSTAMP:20250831T045659Z
-UID:2a85f05a-fd25-4feb-a613-96be03bcc5bd
+DTSTAMP:20250831T142720Z
+UID:ed66a3b2-8f41-4b89-9be3-90e005248d84
 DESCRIPTION:International Conference on Practice and Theory of Public-Key 
  Cryptography\n🗓️ Date: May 12-15\, 2025\n📍 Location: Røros\, Norw
  ay\n⏰ Original Deadline (UTC-12): 2024-10-16 23:59:59\nCategory: 网络
@@ -1512,8 +1512,8 @@ BEGIN:VEVENT
 SUMMARY:PKC 2026 Deadline
 DTSTART;TZID="UTC-12:00":20251024T235959
 DTEND;TZID="UTC-12:00":20251025T000059
-DTSTAMP:20250831T045659Z
-UID:eedd19a9-947b-4f44-a690-9f1f2c6a13c2
+DTSTAMP:20250831T142720Z
+UID:c72019f1-5bc8-45ab-a3ea-39683f5b70fa
 DESCRIPTION:International Conference on Practice and Theory of Public-Key 
  Cryptography\n🗓️ Date: May 25-28\, 2026\n📍 Location: West Palm Bea
  ch\, USA\n⏰ Original Deadline (UTC-12): 2025-10-24 23:59:59\nCategory: 
@@ -1526,8 +1526,8 @@ BEGIN:VEVENT
 SUMMARY:RAID 2021 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210801T235959
 DTEND;TZID="UTC-12:00":20210802T000059
-DTSTAMP:20250831T045659Z
-UID:688f83cd-cc20-4284-bcb7-593155bcca01
+DTSTAMP:20250831T142720Z
+UID:889537f6-5a42-4f93-a586-c6818d88c60f
 DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
  ion\n🗓️ Date: October 6-8\, 2021\n📍 Location: Donostia / San Sebas
  tian\, Spain\n⏰ Original Deadline (AoE): 2021-08-01 23:59:59\nCategory: 
@@ -1540,8 +1540,8 @@ BEGIN:VEVENT
 SUMMARY:RAID 2023 Deadline
 DTSTART;TZID="UTC-12:00":20230329T235959
 DTEND;TZID="UTC-12:00":20230330T000059
-DTSTAMP:20250831T045659Z
-UID:75685cdf-6f34-4871-9edb-8e454c731f05
+DTSTAMP:20250831T142720Z
+UID:0a0d31b1-3398-4463-a4de-c5b62a3546d8
 DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
  ion\n🗓️ Date: October 16-18\, 2023\n📍 Location: Hong Kong Polytech
  nic University\, Hong Kong\, China\n⏰ Original Deadline (AoE): 2023-03-2
@@ -1555,8 +1555,8 @@ BEGIN:VEVENT
 SUMMARY:RAID 2024 Deadline
 DTSTART;TZID="UTC-12:00":20240415T235959
 DTEND;TZID="UTC-12:00":20240416T000059
-DTSTAMP:20250831T045659Z
-UID:28102f76-edf0-4fbf-8488-89f89a99c756
+DTSTAMP:20250831T142720Z
+UID:1247d1bb-8498-4aed-925a-00d56b1f90ba
 DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
  ion\n🗓️ Date: September 30 - October 2\, 2024\n📍 Location: Palazzo
   della Salute\, Padua\, Italy\n⏰ Original Deadline (AoE): 2024-04-15 23:
@@ -1570,8 +1570,8 @@ BEGIN:VEVENT
 SUMMARY:RAID 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250424T235959
 DTEND;TZID="UTC-12:00":20250425T000059
-DTSTAMP:20250831T045659Z
-UID:ec03dcd5-5fc9-4f73-b162-381d45689829
+DTSTAMP:20250831T142720Z
+UID:985f20e1-4550-4cd7-89b4-e7b13da54bdf
 DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
  ion\n🗓️ Date: October 19-22\, 2025\n📍 Location: Gold Coast\, Austr
  alia\n⏰ Original Deadline (AoE): 2025-04-24 23:59:59\nCategory: 网络
@@ -1584,8 +1584,8 @@ BEGIN:VEVENT
 SUMMARY:SAC 2021 Deadline [Abstract submission]
 DTSTART;TZID="UTC+01:00":20210707T235959
 DTEND;TZID="UTC+01:00":20210708T000059
-DTSTAMP:20250831T045659Z
-UID:a4ea0a01-201c-4176-8257-548f767f95a0
+DTSTAMP:20250831T142720Z
+UID:dfe5b3f2-8edb-4a2c-8cc7-4cc5c7790a3f
 DESCRIPTION:Selected Areas in Cryptography\n🗓️ Date: September 29 - O
  ctober 01\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC+1): 2
  021-07-07 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\,
@@ -1598,8 +1598,8 @@ BEGIN:VEVENT
 SUMMARY:SAC 2021 Deadline [final paper submission]
 DTSTART;TZID="UTC+01:00":20210712T235959
 DTEND;TZID="UTC+01:00":20210713T000059
-DTSTAMP:20250831T045659Z
-UID:12edaf70-f28b-4dc5-843e-d8f19b007d23
+DTSTAMP:20250831T142720Z
+UID:86cbc806-8439-4366-a9d1-e7aca1f2ac5a
 DESCRIPTION:Selected Areas in Cryptography\n🗓️ Date: September 29 - O
  ctober 01\, 2021\n📍 Location: Virtual\n⏰ Original Deadline (UTC+1): 2
  021-07-12 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\,
@@ -1612,8 +1612,8 @@ BEGIN:VEVENT
 SUMMARY:SAC 2024 Deadline [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20240207T235959
 DTEND;TZID="UTC-12:00":20240208T000059
-DTSTAMP:20250831T045659Z
-UID:61bc4a13-7706-4aa5-b756-1537f1aff9dd
+DTSTAMP:20250831T142720Z
+UID:928b21c8-eff7-4196-8df4-c6b6f0a3d917
 DESCRIPTION:Selected Areas in Cryptography\n🗓️ Date: August 28 - 30\,
   2024\n📍 Location: Montreal\, Canada\n⏰ Original Deadline (AoE): 2024
  -02-07 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, TH
@@ -1626,8 +1626,8 @@ BEGIN:VEVENT
 SUMMARY:SAC 2024 Deadline [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20240507T235959
 DTEND;TZID="UTC-12:00":20240508T000059
-DTSTAMP:20250831T045659Z
-UID:208a6795-0e45-4d04-901c-d11412752dfc
+DTSTAMP:20250831T142720Z
+UID:986a2a5c-db93-4b20-a27e-cd9e09413dcb
 DESCRIPTION:Selected Areas in Cryptography\n🗓️ Date: August 28 - 30\,
   2024\n📍 Location: Montreal\, Canada\n⏰ Original Deadline (AoE): 2024
  -05-07 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE B\, TH
@@ -1640,8 +1640,8 @@ BEGIN:VEVENT
 SUMMARY:SAC 2025 Deadline [Paper submission deadline (cycle 1)]
 DTSTART;TZID="UTC-12:00":20250127T235959
 DTEND;TZID="UTC-12:00":20250128T000059
-DTSTAMP:20250831T045659Z
-UID:55d7ed2d-8b81-4f39-a505-9c4e27f93eac
+DTSTAMP:20250831T142720Z
+UID:628cbbaf-09be-49aa-ae4c-dc7f9d772877
 DESCRIPTION:Selected Areas in Cryptography\n🗓️ Date: August 13-15\, 2
  025\n📍 Location: Toronto\, Ontario\, Canada\n⏰ Original Deadline (AoE
  ): 2025-01-27 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE
@@ -1654,8 +1654,8 @@ BEGIN:VEVENT
 SUMMARY:SAC 2025 Deadline [Paper submission deadline (cycle 2)]
 DTSTART;TZID="UTC-12:00":20250507T235959
 DTEND;TZID="UTC-12:00":20250508T000059
-DTSTAMP:20250831T045659Z
-UID:02250fac-e0c7-4e3e-a7a0-725a937346fa
+DTSTAMP:20250831T142720Z
+UID:24d5b116-4cc6-4b7f-a2f3-1f37bbd783b3
 DESCRIPTION:Selected Areas in Cryptography\n🗓️ Date: August 13-15\, 2
  025\n📍 Location: Toronto\, Ontario\, Canada\n⏰ Original Deadline (AoE
  ): 2025-05-07 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CORE
@@ -1668,8 +1668,8 @@ BEGIN:VEVENT
 SUMMARY:SEC 2021 Deadline [Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210215T235959
 DTEND;TZID="UTC-12:00":20210216T000059
-DTSTAMP:20250831T045659Z
-UID:0353c639-3abf-41d1-964b-a2674caf9feb
+DTSTAMP:20250831T142720Z
+UID:671f8733-71b2-4625-9d34-d1d3c2cebdf6
 DESCRIPTION:IFIP International Information Security Conference\n🗓️ Da
  te: June 22-24\, 2021\n📍 Location: Oslo\, Norway\n⏰ Original Deadline
   (AoE): 2021-02-15 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -1682,8 +1682,8 @@ BEGIN:VEVENT
 SUMMARY:SEC 2021 Deadline [Submission of the camera-ready papers]
 DTSTART;TZID="UTC-12:00":20210415T235959
 DTEND;TZID="UTC-12:00":20210416T000059
-DTSTAMP:20250831T045659Z
-UID:49676e85-f85c-4ef3-994f-787fd8b26a08
+DTSTAMP:20250831T142720Z
+UID:8a13476a-1ff7-4a66-b031-fc91c927c7b4
 DESCRIPTION:IFIP International Information Security Conference\n🗓️ Da
  te: June 22-24\, 2021\n📍 Location: Oslo\, Norway\n⏰ Original Deadline
   (AoE): 2021-04-15 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\,
@@ -1696,8 +1696,8 @@ BEGIN:VEVENT
 SUMMARY:SEC 2025 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20250120T235959
 DTEND;TZID="UTC-12:00":20250121T000059
-DTSTAMP:20250831T045659Z
-UID:707a2aa2-9db3-4847-a3b4-b373e4e57304
+DTSTAMP:20250831T142720Z
+UID:850e1f81-9155-478d-bf80-9b96fcf11eeb
 DESCRIPTION:IFIP International Information Security Conference\n🗓️ Da
  te: May 21-23\, 2025\n📍 Location: Hotel City\, Maribor\, Slovenia\n⏰ 
  Original Deadline (AoE): 2025-01-20 23:59:59\nCategory: 网络与信息安
@@ -1710,8 +1710,8 @@ BEGIN:VEVENT
 SUMMARY:SEC 2026 Deadline [Submission deadline]
 DTSTART;TZID="UTC-12:00":20251219T235959
 DTEND;TZID="UTC-12:00":20251220T000059
-DTSTAMP:20250831T045659Z
-UID:949c31be-1d6e-4c92-bbfa-fcef541f983b
+DTSTAMP:20250831T142720Z
+UID:55c3ea90-3223-4859-a795-2f012a082b24
 DESCRIPTION:IFIP International Information Security Conference\n🗓️ Da
  te: June 09 - 11\, 2026\n📍 Location: Perth\, Australia\n⏰ Original De
  adline (AoE): 2025-12-19 23:59:59\nCategory: 网络与信息安全 (SC)\nC
@@ -1724,8 +1724,8 @@ BEGIN:VEVENT
 SUMMARY:SOUPS 2021 Deadline [Mandatory Paper Registration Deadline]
 DTSTART;TZID="UTC-12:00":20210218T235959
 DTEND;TZID="UTC-12:00":20210219T000059
-DTSTAMP:20250831T045659Z
-UID:6f5f3c02-3621-48e1-8586-66fb1a66c5ec
+DTSTAMP:20250831T142720Z
+UID:9c0281cd-13bd-46af-930c-3dd300390c24
 DESCRIPTION:Symposium On Usable Privacy and Security\n🗓️ Date: AUGUST
   8-10\, 2021\n📍 Location: Co-located withUSENIX Security '21\n⏰ Origi
  nal Deadline (AoE): 2021-02-18 23:59:59\nCategory: 网络与信息安全 (
@@ -1738,8 +1738,8 @@ BEGIN:VEVENT
 SUMMARY:SOUPS 2021 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210225T235959
 DTEND;TZID="UTC-12:00":20210226T000059
-DTSTAMP:20250831T045659Z
-UID:f4dfd1d7-0c72-4be9-92be-4e2723e37181
+DTSTAMP:20250831T142720Z
+UID:9c42f69f-e55d-476b-b753-c6e093ed3d57
 DESCRIPTION:Symposium On Usable Privacy and Security\n🗓️ Date: AUGUST
   8-10\, 2021\n📍 Location: Co-located withUSENIX Security '21\n⏰ Origi
  nal Deadline (AoE): 2021-02-25 23:59:59\nCategory: 网络与信息安全 (
@@ -1752,8 +1752,8 @@ BEGIN:VEVENT
 SUMMARY:SOUPS 2024 Deadline [Mandatory Paper Registration Deadline]
 DTSTART;TZID="UTC-12:00":20240208T235959
 DTEND;TZID="UTC-12:00":20240209T000059
-DTSTAMP:20250831T045659Z
-UID:528ec626-e8f2-403a-83a2-52ffad436396
+DTSTAMP:20250831T142720Z
+UID:5a4efc92-47ed-40c3-a927-0272ce58be73
 DESCRIPTION:Symposium On Usable Privacy and Security\n🗓️ Date: AUGUST
   11-13\, 2024\n📍 Location: Philadelphia\, USA\n⏰ Original Deadline (A
  oE): 2024-02-08 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CO
@@ -1766,8 +1766,8 @@ BEGIN:VEVENT
 SUMMARY:SOUPS 2024 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240215T235959
 DTEND;TZID="UTC-12:00":20240216T000059
-DTSTAMP:20250831T045659Z
-UID:cc858485-98ba-4aee-a16d-7c4221884db6
+DTSTAMP:20250831T142720Z
+UID:07c60953-7a38-4b48-a769-6e0b701ababb
 DESCRIPTION:Symposium On Usable Privacy and Security\n🗓️ Date: AUGUST
   11-13\, 2024\n📍 Location: Philadelphia\, USA\n⏰ Original Deadline (A
  oE): 2024-02-15 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CO
@@ -1780,8 +1780,8 @@ BEGIN:VEVENT
 SUMMARY:SOUPS 2025 Deadline [Mandatory Paper Registration Deadline]
 DTSTART;TZID="UTC-12:00":20250206T235959
 DTEND;TZID="UTC-12:00":20250207T000059
-DTSTAMP:20250831T045659Z
-UID:6e30ee87-89c7-4d73-91ef-c6ad6859dbdc
+DTSTAMP:20250831T142720Z
+UID:d3f6e762-7fc6-4ae7-8563-03143c637c2a
 DESCRIPTION:Symposium On Usable Privacy and Security\n🗓️ Date: August
   10-12\, 2025\n📍 Location: Seattle\, WA\, USA\n⏰ Original Deadline (A
  oE): 2025-02-06 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CO
@@ -1794,8 +1794,8 @@ BEGIN:VEVENT
 SUMMARY:SOUPS 2025 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250213T235959
 DTEND;TZID="UTC-12:00":20250214T000059
-DTSTAMP:20250831T045659Z
-UID:ec958932-c7d0-4a59-879e-e38d9cb367b5
+DTSTAMP:20250831T142720Z
+UID:25a41ce4-8873-4bce-9ab4-996f0b6a1f00
 DESCRIPTION:Symposium On Usable Privacy and Security\n🗓️ Date: August
   10-12\, 2025\n📍 Location: Seattle\, WA\, USA\n⏰ Original Deadline (A
  oE): 2025-02-13 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF C\, CO
@@ -1808,8 +1808,8 @@ BEGIN:VEVENT
 SUMMARY:TCC 2021 Deadline
 DTSTART;TZID="UTC-12:00":20210525T210000
 DTEND;TZID="UTC-12:00":20210525T210100
-DTSTAMP:20250831T045659Z
-UID:f4ab316e-c93e-4032-9c60-3c59b3d6c8d0
+DTSTAMP:20250831T142720Z
+UID:ed23d474-f668-4dd6-ba84-90e8d396f1e1
 DESCRIPTION:Theory of Cryptography Conference\n🗓️ Date: Nov 8\, 2021\
  n📍 Location: Raleigh\, United States\n⏰ Original Deadline (UTC-12): 2
  021-05-25 21:00:00\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\,
@@ -1822,8 +1822,8 @@ BEGIN:VEVENT
 SUMMARY:TCC 2023 Deadline
 DTSTART;TZID="UTC-04:00":20230601T150000
 DTEND;TZID="UTC-04:00":20230601T150100
-DTSTAMP:20250831T045659Z
-UID:538074b6-c370-4f2c-aea4-6255a2256def
+DTSTAMP:20250831T142720Z
+UID:3ea9e51c-fb1f-48cc-8f16-e38caff03e8e
 DESCRIPTION:Theory of Cryptography Conference\n🗓️ Date: Nov 29 - Dec 
  12\, 2023\n📍 Location: Taipei\, China\n⏰ Original Deadline (UTC-4): 2
  023-06-01 15:00:00\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\,
@@ -1845,8 +1845,8 @@ BEGIN:VEVENT
 SUMMARY:TCC 2024 Deadline
 DTSTART;TZID="UTC+02:00":20240520T195959
 DTEND;TZID="UTC+02:00":20240520T200059
-DTSTAMP:20250831T045659Z
-UID:b6d77a42-9c68-4690-8394-b2680715ae84
+DTSTAMP:20250831T142720Z
+UID:c17efad1-67d2-462c-b656-48e54695eef9
 DESCRIPTION:Theory of Cryptography Conference\n🗓️ Date: Dec 2 - 6\, 2
  024\n📍 Location: Milan\, Italy\n⏰ Original Deadline (UTC+2): 2024-05-
  20 19:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\, THCPL 
@@ -1859,8 +1859,8 @@ BEGIN:VEVENT
 SUMMARY:TCC 2025 Deadline
 DTSTART;TZID="UTC-12:00":20250527T235959
 DTEND;TZID="UTC-12:00":20250528T000059
-DTSTAMP:20250831T045659Z
-UID:696b7d88-94e5-40fa-9134-6e72bf971d54
+DTSTAMP:20250831T142720Z
+UID:1e8b52ce-038a-4940-bb3a-238dd044bff3
 DESCRIPTION:Theory of Cryptography Conference\n🗓️ Date: December 2-5\
  , 2025\n📍 Location: Aarhus\, Denmark\n⏰ Original Deadline (AoE): 2025
  -05-27 23:59:59\nCategory: 网络与信息安全 (SC)\nCCF B\, CORE A\, TH
@@ -1873,8 +1873,8 @@ BEGIN:VEVENT
 SUMMARY:WiSec 2021 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210325T235959
 DTEND;TZID="UTC-12:00":20210326T000059
-DTSTAMP:20250831T045659Z
-UID:63d35180-8a6b-40d6-87b7-b3b9692ebb4a
+DTSTAMP:20250831T142720Z
+UID:51bbe686-085e-4f1c-9b36-5d6b6c1989e1
 DESCRIPTION:ACM Conference on Security and Privacy in Wireless and Mobile 
  Networks\n🗓️ Date: June 28 - July 2\, 2021\n📍 Location: Abu Dhabi\
  , UAE\n⏰ Original Deadline (AoE): 2021-03-25 23:59:59\nCategory: 网络
@@ -1887,8 +1887,8 @@ BEGIN:VEVENT
 SUMMARY:WiSec 2024 Deadline [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240208T235959
 DTEND;TZID="UTC-12:00":20240209T000059
-DTSTAMP:20250831T045659Z
-UID:3a1c3d9f-5ea7-4f50-8da9-5a39933b0786
+DTSTAMP:20250831T142720Z
+UID:c620b283-9f46-4994-9976-b38cb20a16d2
 DESCRIPTION:ACM Conference on Security and Privacy in Wireless and Mobile 
  Networks\n🗓️ Date: May 27 - 30\, 2024\n📍 Location: Seoul\, Korea\n
  ⏰ Original Deadline (AoE): 2024-02-08 23:59:59\nCategory: 网络与信
@@ -1901,8 +1901,8 @@ BEGIN:VEVENT
 SUMMARY:WiSec 2025 Deadline [First Cycle deadline]
 DTSTART;TZID="UTC-12:00":20241121T235959
 DTEND;TZID="UTC-12:00":20241122T000059
-DTSTAMP:20250831T045659Z
-UID:cc855982-6d1c-4c5f-8669-3382cb4e4758
+DTSTAMP:20250831T142720Z
+UID:2b3f05c8-0dd1-4e88-abe7-d6d53108fae0
 DESCRIPTION:ACM Conference on Security and Privacy in Wireless and Mobile 
  Networks\n🗓️ Date: June 30 - July 3\, 2025\n📍 Location: Arlington\
  , Virginia\, USA\n⏰ Original Deadline (AoE): 2024-11-21 23:59:59\nCatego
@@ -1915,8 +1915,8 @@ BEGIN:VEVENT
 SUMMARY:WiSec 2025 Deadline [Second Cycle deadline]
 DTSTART;TZID="UTC-12:00":20250312T235959
 DTEND;TZID="UTC-12:00":20250313T000059
-DTSTAMP:20250831T045659Z
-UID:d23b7897-45ac-49bb-9a25-8c9fe7462a63
+DTSTAMP:20250831T142720Z
+UID:310d9a13-35a1-4f97-a1ce-eef07b6104df
 DESCRIPTION:ACM Conference on Security and Privacy in Wireless and Mobile 
  Networks\n🗓️ Date: June 30 - July 3\, 2025\n📍 Location: Arlington\
  , Virginia\, USA\n⏰ Original Deadline (AoE): 2025-03-12 23:59:59\nCatego
