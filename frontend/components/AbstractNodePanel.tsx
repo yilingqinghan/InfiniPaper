@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import withReactContent from "sweetalert2-react-content";
 import SwalCore from "sweetalert2";
