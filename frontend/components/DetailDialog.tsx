@@ -1,6 +1,7 @@
 
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
+
 type Paper = {
     id: number; title: string; abstract?: string | null; year?: number | null; venue?: string | null;
     doi?: string | null; pdf_url?: string | null;
