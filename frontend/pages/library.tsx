@@ -146,6 +146,20 @@ type Paper = {
 };
 
 /* --------------------------- helpers --------------------------- */
+// --- helpers: Fetch BibTeX via DOI only ---
+async function fetchBibTeXByDOI(doi?: string): Promise<string> {
+    if (!doi) throw new Error("没有 DOI，无法获取 BibTeX");
+    const resp = await fetch(`https://doi.org/${encodeURIComponent(doi)}`, {
+      method: "GET",
+      headers: { Accept: "application/x-bibtex; charset=utf-8" },
+      cache: "no-store",
+    });
+    if (!resp.ok) {
+      const t = await resp.text().catch(() => "");
+      throw new Error(`${resp.status} ${resp.statusText}${t ? ` - ${t}` : ""}`);
+    }
+    return await resp.text();
+  }
 async function j<T = any>(url: string, init?: RequestInit) {
     const r = await fetch(url, {
       credentials: "include",            // ✅ 默认带上 cookie
@@ -514,9 +528,46 @@ function PaperRow({
             <td className="px-2 py-1.5 w-[36px]"><DragHandle id={p.id} /></td>
             <td className="px-2 py-1.5 w-[80px] text-gray-600">{p.year ?? "—"}</td>
             <td className="px-2 py-1.5 w-[40%] min-w-[360px]">
-                <div className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
-                    {abbr && <span className={chipClass} title={tier === 1 ? "顶尖会议/期刊" : "其它会议/期刊"}>{abbr}</span>}
+                <div className="font-medium whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-2">
+                    <span className="overflow-hidden text-ellipsis">
+                    <button
+                    className="text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-indigo-50 border-indigo-200 text-indigo-700 bg-[#1E90FF88] text-white"
+                    onClick={async (e) => {
+                        e.stopPropagation();
+                        try {
+                        const tex = await fetchBibTeXByDOI(p.doi || undefined);
+                        try {
+                            await navigator.clipboard.writeText(tex);
+                            toast("已复制 BibTeX（来自 DOI）");
+                        } catch {
+                            await Swal.fire({
+                            icon: "error",
+                            title: "复制失败",
+                            text: "浏览器剪贴板不可用，请检查权限或手动复制。",
+                            });
+                        }
+                        } catch (err: any) {
+                        await Swal.fire({
+                            icon: "error",
+                            title: "获取 BibTeX 失败",
+                            text: String(err?.message || err),
+                        });
+                        }
+                    }}
+                    title="通过 DOI 获取并复制 BibTeX"
+                    >
+                    📖
+                    </button>
+                    {abbr && (
+                        <span
+                        className={chipClass}
+                        title={tier === 1 ? "顶尖会议/期刊" : "其它会议/期刊"}
+                        >
+                        {abbr}
+                        </span>
+                    )}
                     {p.title}
+                    </span>
                 </div>
             </td>
             <td className="px-2 py-1.5 w-[22%]">
