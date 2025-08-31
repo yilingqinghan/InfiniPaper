@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 import DirectorySidebar from "@/components/DirectorySidebar";
 import RecentPapers from "@/components/RecentPapers";
-import PaperDetailDialog from "@/components/PaperDetailDialog";
+import PaperDetailDialog from "@/components/Library/PaperDetailDialog";
 import UploadDropzone from "@/components/UploadDropzone";
 
 export default function Home() {

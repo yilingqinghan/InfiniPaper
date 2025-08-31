@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Search, UploadCloud, Tags, BookOpen, Sparkles, TrendingUp, ChevronRight, Wand2, Palette, CalendarClock } from "lucide-react";
 import DirectorySidebar from "@/components/DirectorySidebar";
 import RecentPapers from "@/components/RecentPapers";
-import PaperDetailDialog from "@/components/PaperDetailDialog";
+import PaperDetailDialog from "@/components/Library/PaperDetailDialog";
 import UploadDropzone from "@/components/UploadDropzone";
 
 import DecorBG from "@/components/DecorBG";
