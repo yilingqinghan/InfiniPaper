@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:ICME 2022 截稿日期
 DTSTART;TZID="UTC-08:00":20211212T235959
 DTEND;TZID="UTC-08:00":20211213T000059
-DTSTAMP:20250830T121551Z
-UID:22b52487-868e-4d73-8e20-ef619e257e6f
+DTSTAMP:20250831T045654Z
+UID:dce98398-5dfd-4eee-99b2-8a74c4c0ca9f
 DESCRIPTION:The IEEE International Conference on Multimedia & Expo\n🗓
  ️ 会议时间: July 18-22\, 2022\n📍 会议地点: Taipei\, Taiwan\, 
  China\n⏰ 原始截止时间 (UTC-8): 2021-12-12 23:59:59\n分类: 计算
@@ -37,8 +37,8 @@ BEGIN:VEVENT
 SUMMARY:ICME 2023 截稿日期
 DTSTART:20221222T235959Z
 DTEND:20221223T000059Z
-DTSTAMP:20250830T121551Z
-UID:2aa9c759-5bac-4764-8083-0442fcd7a6b5
+DTSTAMP:20250831T045654Z
+UID:c3a82a2f-097e-422d-9af3-a8b0597813d5
 DESCRIPTION:The IEEE International Conference on Multimedia & Expo\n🗓
  ️ 会议时间: July 10-14\, 2023\n📍 会议地点: Brisbane\, Austral
  ia\n⏰ 原始截止时间 (UTC+0): 2022-12-22 23:59:59\n分类: 计算机
@@ -51,8 +51,8 @@ BEGIN:VEVENT
 SUMMARY:ICME 2024 截稿日期
 DTSTART:20231230T235959Z
 DTEND:20231231T000059Z
-DTSTAMP:20250830T121551Z
-UID:38ae8185-7c1b-4d5c-81bd-5a48cafae7b7
+DTSTAMP:20250831T045654Z
+UID:16881447-bf6c-4a52-a76e-37c4c917a673
 DESCRIPTION:The IEEE International Conference on Multimedia & Expo\n🗓
  ️ 会议时间: July 15-19\, 2024\n📍 会议地点: Niagra Falls\, Can
  ada\n⏰ 原始截止时间 (UTC+0): 2023-12-30 23:59:59\n分类: 计算
@@ -65,8 +65,8 @@ BEGIN:VEVENT
 SUMMARY:ICME 2025 截稿日期
 DTSTART:20241223T235959Z
 DTEND:20241224T000059Z
-DTSTAMP:20250830T121551Z
-UID:a2fe0f7e-9b47-4eae-860e-fb58e38fc7f9
+DTSTAMP:20250831T045654Z
+UID:2810407c-2316-4e81-8f53-fa5bf08b5c04
 DESCRIPTION:The IEEE International Conference on Multimedia & Expo\n🗓
  ️ 会议时间: June 30 - July 4\, 2025\n📍 会议地点: Nantes\, Fra
  nce\n⏰ 原始截止时间 (UTC+0): 2024-12-23 23:59:59\n分类: 计算
@@ -88,8 +88,8 @@ BEGIN:VEVENT
 SUMMARY:InterSpeech 2022 截稿日期
 DTSTART;TZID="UTC+09:00":20220321T235959
 DTEND;TZID="UTC+09:00":20220322T000059
-DTSTAMP:20250830T121551Z
-UID:bc6970ec-866b-4dd1-be60-812cf338798b
+DTSTAMP:20250831T045654Z
+UID:8b69fdbf-f175-4a03-9f9f-d94f4f4b4b5e
 DESCRIPTION:Conference of the International Speech Communication Associati
  on\n🗓️ 会议时间: September 18-22\, 2022\n📍 会议地点: Inche
  on\, South Korea\n⏰ 原始截止时间 (UTC+9): 2022-03-21 23:59:59\n分
@@ -103,8 +103,8 @@ BEGIN:VEVENT
 SUMMARY:InterSpeech 2023 截稿日期
 DTSTART:20230308T235959Z
 DTEND:20230309T000059Z
-DTSTAMP:20250830T121551Z
-UID:f68ad218-994a-498f-b4f3-74349ff3814d
+DTSTAMP:20250831T045654Z
+UID:a80b452c-8e10-4ec9-a9d3-73ba8c8fd695
 DESCRIPTION:Conference of the International Speech Communication Associati
  on\n🗓️ 会议时间: August 20-24\, 2023\n📍 会议地点: Dublin\,
   Ireland\n⏰ 原始截止时间 (UTC+0): 2023-03-08 23:59:59\n分类: 计
@@ -117,8 +117,8 @@ BEGIN:VEVENT
 SUMMARY:InterSpeech 2024 摘要截稿
 DTSTART:20240301T235959Z
 DTEND:20240302T000059Z
-DTSTAMP:20250830T121551Z
-UID:f97a9b21-b645-480c-b85c-2835e695d890
+DTSTAMP:20250831T045654Z
+UID:ebd4d3f0-ed4a-4e25-ab91-cd0b3a9534a0
 DESCRIPTION:Conference of the International Speech Communication Associati
  on\n🗓️ 会议时间: September 1-5\, 2024\n📍 会议地点: Greece\
  n⏰ 原始截止时间 (UTC+0): 2024-03-01 23:59:59\n分类: 计算机图
@@ -131,8 +131,8 @@ BEGIN:VEVENT
 SUMMARY:InterSpeech 2025 截稿日期
 DTSTART:20250219T235959Z
 DTEND:20250220T000059Z
-DTSTAMP:20250830T121551Z
-UID:92072a19-2661-440f-bdbc-b623e56eff85
+DTSTAMP:20250831T045654Z
+UID:b4661271-3558-40bb-aad9-145b4f8aefd5
 DESCRIPTION:Conference of the International Speech Communication Associati
  on\n🗓️ 会议时间: August 17-22\, 2025\n📍 会议地点: Rotterda
  m\, Netherlands\n⏰ 原始截止时间 (UTC+0): 2025-02-19 23:59:59\n分
@@ -146,8 +146,8 @@ BEGIN:VEVENT
 SUMMARY:InterSpeech 2026 截稿日期
 DTSTART:20260225T235959Z
 DTEND:20260226T000059Z
-DTSTAMP:20250830T121551Z
-UID:2f41a23d-47b8-4333-86ff-0f406d8f0c60
+DTSTAMP:20250831T045654Z
+UID:c0bd66de-eacb-4f36-8f66-8a7987d7a909
 DESCRIPTION:Conference of the International Speech Communication Associati
  on\n🗓️ 会议时间: September 27 - October 1\, 2026\n📍 会议地
  点: Sydney\, Australia\n⏰ 原始截止时间 (UTC+0): 2026-02-25 23:59:
@@ -170,8 +170,8 @@ BEGIN:VEVENT
 SUMMARY:IEEE VIS 2023 摘要截稿
 DTSTART;TZID="UTC-12:00":20230321T235959
 DTEND;TZID="UTC-12:00":20230322T000059
-DTSTAMP:20250830T121551Z
-UID:7af37a6f-37b2-47a5-bfef-0a2d7fb3fafa
+DTSTAMP:20250831T045654Z
+UID:a5be2882-fce2-496e-8ff9-f361f387f57e
 DESCRIPTION:IEEE Visualization Conference\n🗓️ 会议时间: October 2
  2-27\, 2023\n📍 会议地点: Melbourne\, Australia\n⏰ 原始截止时
  间 (AoE): 2023-03-21 23:59:59\n分类: 计算机图形学与多媒体 (CG
@@ -184,8 +184,8 @@ BEGIN:VEVENT
 SUMMARY:IEEE VIS 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250321T235959
 DTEND;TZID="UTC-12:00":20250322T000059
-DTSTAMP:20250830T121551Z
-UID:775987bb-cbc0-4f42-96e7-a31e3a943c62
+DTSTAMP:20250831T045654Z
+UID:ef499c77-48d7-4d0d-8da7-955c821d5c8b
 DESCRIPTION:IEEE Visualization Conference\n🗓️ 会议时间: November 
  2-7\, 2025\n📍 会议地点: Vienna\, Austria\n⏰ 原始截止时间 (A
  oE): 2025-03-21 23:59:59\n分类: 计算机图形学与多媒体 (CG)\nCCF

@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:PacificVis 2025 摘要截稿 [Journal track]
 DTSTART;TZID="UTC-12:00":20240915T235900
 DTEND;TZID="UTC-12:00":20240916T000000
-DTSTAMP:20250830T121551Z
-UID:9a2ff601-71e6-460e-9f09-ad2dcc5aa08b
+DTSTAMP:20250831T045654Z
+UID:03d95128-fd34-454a-921b-fcc426b58054
 DESCRIPTION:IEEE Pacific Visualization Symposium\n🗓️ 会议时间: Ap
  ril 22 - 25\, 2025\n📍 会议地点: Chang Yung-fa Foundation Internatio
  nal Convention Center\, Taipei\, Taiwan\n⏰ 原始截止时间 (AoE): 202
@@ -30,8 +30,8 @@ BEGIN:VEVENT
 SUMMARY:PacificVis 2025 摘要截稿 [Conference track]
 DTSTART;TZID="UTC-12:00":20241113T235900
 DTEND;TZID="UTC-12:00":20241114T000000
-DTSTAMP:20250830T121551Z
-UID:15765a06-26fe-48d4-8bb9-b24b6102d02e
+DTSTAMP:20250831T045654Z
+UID:684e0775-f066-4ce8-9fce-3dea5952b1aa
 DESCRIPTION:IEEE Pacific Visualization Symposium\n🗓️ 会议时间: Ap
  ril 22 - 25\, 2025\n📍 会议地点: Chang Yung-fa Foundation Internatio
  nal Convention Center\, Taipei\, Taiwan\n⏰ 原始截止时间 (AoE): 202
@@ -46,8 +46,8 @@ BEGIN:VEVENT
 SUMMARY:SGP 2025 摘要截稿 [First (visa-friendly) round]
 DTSTART;TZID="UTC-12:00":20250204T235959
 DTEND;TZID="UTC-12:00":20250205T000059
-DTSTAMP:20250830T121551Z
-UID:6fb64d13-6aac-414a-8ae2-cf599b81dc4d
+DTSTAMP:20250831T045654Z
+UID:5bb65a7a-84b2-4f6b-8c62-1be61b9f1508
 DESCRIPTION:Eurographics Symposium on Geometry Processing\n🗓️ 会议
  时间: June 30 - July 4\, 2025\n📍 会议地点: BILBAO\, SPAIN\n⏰ 
  原始截止时间 (AoE): 2025-02-04 23:59:59\n分类: 计算机图形学
@@ -60,8 +60,8 @@ BEGIN:VEVENT
 SUMMARY:SGP 2025 摘要截稿 [Second (traditional) round]
 DTSTART;TZID="UTC-12:00":20250408T235959
 DTEND;TZID="UTC-12:00":20250409T000059
-DTSTAMP:20250830T121551Z
-UID:4abea11d-1e6c-4825-ac9b-5cb8f3f234a4
+DTSTAMP:20250831T045654Z
+UID:6973b129-faef-4f9a-87d1-3fbb90f4a4d9
 DESCRIPTION:Eurographics Symposium on Geometry Processing\n🗓️ 会议
  时间: June 30 - July 4\, 2025\n📍 会议地点: BILBAO\, SPAIN\n⏰ 
  原始截止时间 (AoE): 2025-04-08 23:59:59\n分类: 计算机图形学
@@ -74,8 +74,8 @@ BEGIN:VEVENT
 SUMMARY:EuroVis 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20241127T235959
 DTEND;TZID="UTC-12:00":20241128T000059
-DTSTAMP:20250830T121551Z
-UID:f0658dd0-2478-447c-9e6a-6b8b5ac878b0
+DTSTAMP:20250831T045654Z
+UID:36f0d776-ed7a-476b-b870-9899c37c615d
 DESCRIPTION:Eurographics Conference on Visualization\n🗓️ 会议时间
  : June 2-6\, 2025\n📍 会议地点: Luxembourg City\, Luxembourg\n⏰ 
  原始截止时间 (AoE): 2024-11-27 23:59:59\n分类: 计算机图形学
@@ -97,8 +97,8 @@ BEGIN:VEVENT
 SUMMARY:ICASSP 2022 截稿日期
 DTSTART:20211006T235959Z
 DTEND:20211007T000059Z
-DTSTAMP:20250830T121551Z
-UID:6a42b09e-0202-414d-a80c-08187e06272b
+DTSTAMP:20250831T045654Z
+UID:49434826-4d04-4b92-9d57-0a60b1ef96a6
 DESCRIPTION:IEEE International Conference on Acoustics\, Speech\, and Sign
  al Processing\n🗓️ 会议时间: May 22-27\, 2022\n📍 会议地点: 
  Singapore\n⏰ 原始截止时间 (UTC+0): 2021-10-06 23:59:59\n分类: 
@@ -112,8 +112,8 @@ BEGIN:VEVENT
 SUMMARY:ICASSP 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20221026T235959
 DTEND;TZID="UTC-12:00":20221027T000059
-DTSTAMP:20250830T121551Z
-UID:6a9b1da8-de49-4b5e-b68e-a613772b4765
+DTSTAMP:20250831T045654Z
+UID:689ee1a2-b847-45c9-ab14-0b2f052a2cf6
 DESCRIPTION:IEEE International Conference on Acoustics\, Speech\, and Sign
  al Processing\n🗓️ 会议时间: June 4-9\, 2023\n📍 会议地点: R
  hodes Island\, Greece\n⏰ 原始截止时间 (UTC-12): 2022-10-26 23:59:5
@@ -127,8 +127,8 @@ BEGIN:VEVENT
 SUMMARY:ICASSP 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20230906T235959
 DTEND;TZID="UTC-12:00":20230907T000059
-DTSTAMP:20250830T121551Z
-UID:6bcec566-fc49-4b81-8c46-7b47af974020
+DTSTAMP:20250831T045654Z
+UID:b253d1ef-b305-42d0-8f89-473b455a7b57
 DESCRIPTION:IEEE International Conference on Acoustics\, Speech\, and Sign
  al Processing\n🗓️ 会议时间: April 14-19\, 2024\n📍 会议地点
  : COEX\, Seoul\, Korea\n⏰ 原始截止时间 (UTC-12): 2023-09-06 23:59:
@@ -151,8 +151,8 @@ BEGIN:VEVENT
 SUMMARY:ICASSP 2025 截稿日期
 DTSTART;TZID="UTC-07:00":20240912T235959
 DTEND;TZID="UTC-07:00":20240913T000059
-DTSTAMP:20250830T121551Z
-UID:4630deb4-418b-4937-94bc-505a4e310eed
+DTSTAMP:20250831T045654Z
+UID:3b29d734-964b-4e30-a08f-0f3e64e54166
 DESCRIPTION:IEEE International Conference on Acoustics\, Speech\, and Sign
  al Processing\n🗓️ 会议时间: April 6-11\, 2025\n📍 会议地点:
   Hyderabad\, India\n⏰ 原始截止时间 (UTC-7): 2024-09-12 23:59:59\n
@@ -175,8 +175,8 @@ BEGIN:VEVENT
 SUMMARY:ICASSP 2026 截稿日期
 DTSTART;TZID="UTC-08:00":20250917T225959
 DTEND;TZID="UTC-08:00":20250917T230059
-DTSTAMP:20250830T121551Z
-UID:291b0e9b-c152-49bf-9fb4-e1d48bd5d2ab
+DTSTAMP:20250831T045654Z
+UID:786e06bc-08bf-41f6-bdfd-47d855d52582
 DESCRIPTION:IEEE International Conference on Acoustics\, Speech\, and Sign
  al Processing\n🗓️ 会议时间: May 3-8\, 2026\n📍 会议地点: Ba
  rcelona\, Spain\n⏰ 原始截止时间 (UTC-8): 2025-09-17 22:59:59\n分
@@ -190,8 +190,8 @@ BEGIN:VEVENT
 SUMMARY:ICIP 2023 截稿日期
 DTSTART:20230215T235959Z
 DTEND:20230216T000059Z
-DTSTAMP:20250830T121551Z
-UID:9bca8212-860f-4af1-8c52-e29354badb6d
+DTSTAMP:20250831T045654Z
+UID:5c9adec5-f8d4-4cad-b4c6-42358213db58
 DESCRIPTION:The IEEE International Conference on Image Processing\n🗓️
   会议时间: Oct 8-11\, 2023\n📍 会议地点: Kuala Lumpur\, Malaysia
  \n⏰ 原始截止时间 (UTC+0): 2023-02-15 23:59:59\n分类: 计算机
@@ -204,8 +204,8 @@ BEGIN:VEVENT
 SUMMARY:ICIP 2024 截稿日期
 DTSTART:20240131T235959Z
 DTEND:20240201T000059Z
-DTSTAMP:20250830T121551Z
-UID:deaca404-cf48-43ff-a782-1dd127d60eba
+DTSTAMP:20250831T045654Z
+UID:d5dfcb36-f841-4ca5-8203-dfe744575baf
 DESCRIPTION:The IEEE International Conference on Image Processing\n🗓️
   会议时间: Oct 27-30\, 2024\n📍 会议地点: Abu Dhabi\, United Ara
  b Emirates\n⏰ 原始截止时间 (UTC+0): 2024-01-31 23:59:59\n分类: 
@@ -218,8 +218,8 @@ BEGIN:VEVENT
 SUMMARY:ICIP 2025 截稿日期
 DTSTART:20250122T235959Z
 DTEND:20250123T000059Z
-DTSTAMP:20250830T121551Z
-UID:d8689c82-8916-4891-acbf-84eb33d8def6
+DTSTAMP:20250831T045654Z
+UID:ca68581d-aa0b-46cd-bea4-ecab55b8f03c
 DESCRIPTION:The IEEE International Conference on Image Processing\n🗓️
   会议时间: Sep 14-17\, 2025\n📍 会议地点: Anchorage Alaska\, USA
  \n⏰ 原始截止时间 (UTC+0): 2025-01-22 23:59:59\n分类: 计算机
@@ -232,8 +232,8 @@ BEGIN:VEVENT
 SUMMARY:ICMR 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20240201T235959
 DTEND;TZID="UTC-12:00":20240202T000059
-DTSTAMP:20250830T121551Z
-UID:b5f28c09-5ae0-4bc5-b725-a18afb0a3841
+DTSTAMP:20250831T045654Z
+UID:385a2529-d72f-47e8-b3ce-53bb797aff6f
 DESCRIPTION:ACM SIGMM International Conference on Multimedia Retrieval\n
  🗓️ 会议时间: June 11-13\, 2024\n📍 会议地点: Phuket\, Thail
  and\n⏰ 原始截止时间 (UTC-12): 2024-02-01 23:59:59\n分类: 计算
@@ -246,8 +246,8 @@ BEGIN:VEVENT
 SUMMARY:ICMR 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250223T235959
 DTEND;TZID="UTC-12:00":20250224T000059
-DTSTAMP:20250830T121551Z
-UID:faf772ca-bd48-4a71-b4f2-3aa52cd4268a
+DTSTAMP:20250831T045654Z
+UID:5c0c2e85-072f-4f6b-a2af-ee81c68716a1
 DESCRIPTION:ACM SIGMM International Conference on Multimedia Retrieval\n
  🗓️ 会议时间: June 30 - July 3\, 2025\n📍 会议地点: Chicago\
  , USA\n⏰ 原始截止时间 (UTC-12): 2025-02-23 23:59:59\n分类: 计
@@ -260,8 +260,8 @@ BEGIN:VEVENT
 SUMMARY:ISMAR 2023 摘要截稿
 DTSTART;TZID="UTC-12:00":20230605T235959
 DTEND;TZID="UTC-12:00":20230606T000059
-DTSTAMP:20250830T121551Z
-UID:48cf1541-71ac-493f-84dc-b3ebcf805e59
+DTSTAMP:20250831T045654Z
+UID:c8ce49f5-fe60-411d-a868-11c0954a2769
 DESCRIPTION:International Symposium on Mixed and Augmented Reality\n🗓
  ️ 会议时间: Oct 16-20\, 2023\n📍 会议地点: Sydney\, Australia\
  n⏰ 原始截止时间 (AoE): 2023-06-05 23:59:59\n分类: 计算机图
@@ -274,8 +274,8 @@ BEGIN:VEVENT
 SUMMARY:ISMAR 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20240503T235959
 DTEND;TZID="UTC-12:00":20240504T000059
-DTSTAMP:20250830T121551Z
-UID:3258173f-325f-4f06-91da-ebc977eff821
+DTSTAMP:20250831T045654Z
+UID:c2e03a90-d053-4a71-8a5a-238e91a4b26c
 DESCRIPTION:International Symposium on Mixed and Augmented Reality\n🗓
  ️ 会议时间: Oct 21-25\, 2024\n📍 会议地点: Greater Seattle Are
  a\, USA\n⏰ 原始截止时间 (AoE): 2024-05-03 23:59:59\n分类: 计算
@@ -288,8 +288,8 @@ BEGIN:VEVENT
 SUMMARY:ISMAR 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250404T235959
 DTEND;TZID="UTC-12:00":20250405T000059
-DTSTAMP:20250830T121551Z
-UID:94cd1040-a700-4469-9ed4-7bfddd5f9135
+DTSTAMP:20250831T045654Z
+UID:c47bacc9-48fb-412e-aead-1a0712ae3ac6
 DESCRIPTION:International Symposium on Mixed and Augmented Reality\n🗓
  ️ 会议时间: Oct 8-12\, 2025\n📍 会议地点: Daejeon\, South Kore
  a\n⏰ 原始截止时间 (AoE): 2025-04-04 23:59:59\n分类: 计算机图
@@ -302,8 +302,8 @@ BEGIN:VEVENT
 SUMMARY:PG 2023 摘要截稿
 DTSTART;TZID="UTC-12:00":20230601T235959
 DTEND;TZID="UTC-12:00":20230602T000059
-DTSTAMP:20250830T121551Z
-UID:b3243d7c-8ebe-48b9-8c54-d9bc3fed6b65
+DTSTAMP:20250831T045654Z
+UID:c39eb24a-e45a-4194-a13e-9f24ad0b6208
 DESCRIPTION:Pacific Graphics\, The Pacific Conference on Computer Graphics
   and Applications\n🗓️ 会议时间: October 10-13\, 2023\n📍 会议
  地点: Daejeon\, South Korea\n⏰ 原始截止时间 (AoE): 2023-06-01 23
@@ -316,8 +316,8 @@ BEGIN:VEVENT
 SUMMARY:PG 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250530T235959
 DTEND;TZID="UTC-12:00":20250531T000059
-DTSTAMP:20250830T121551Z
-UID:a0f35b65-e613-4c68-950a-39d22d430caf
+DTSTAMP:20250831T045654Z
+UID:75801bf1-fb2d-4d9a-9253-1b366a58c975
 DESCRIPTION:Pacific Graphics\, The Pacific Conference on Computer Graphics
   and Applications\n🗓️ 会议时间: October 14-17\, 2025\n📍 会议
  地点: National Chengchi University\, Taipei\, Taiwan\n⏰ 原始截止
@@ -331,8 +331,8 @@ BEGIN:VEVENT
 SUMMARY:SCA 2025 截稿日期 [Submission deadline (papers)]
 DTSTART;TZID="UTC-12:00":20250407T235959
 DTEND;TZID="UTC-12:00":20250408T000059
-DTSTAMP:20250830T121551Z
-UID:bb81285f-ed12-41e9-8fa7-46606e5f4641
+DTSTAMP:20250831T045654Z
+UID:d17730e0-5412-431c-941e-a93d299a4902
 DESCRIPTION:ACM SIGGRAPH/Eurographics Symposium on Computer Animation\n
  🗓️ 会议时间: August 8-10\, 2025\n📍 会议地点: Vancouver\, C
  anada\n⏰ 原始截止时间 (AoE): 2025-04-07 23:59:59\n分类: 计算
@@ -345,8 +345,8 @@ BEGIN:VEVENT
 SUMMARY:SCA 2025 截稿日期 [Submission deadline (posters)]
 DTSTART;TZID="UTC-12:00":20250615T235959
 DTEND;TZID="UTC-12:00":20250616T000059
-DTSTAMP:20250830T121551Z
-UID:20fcf4a1-483e-4919-acc9-f315976ca5c1
+DTSTAMP:20250831T045654Z
+UID:b415c76c-c139-4233-b61d-f971d51f980f
 DESCRIPTION:ACM SIGGRAPH/Eurographics Symposium on Computer Animation\n
  🗓️ 会议时间: August 8-10\, 2025\n📍 会议地点: Vancouver\, C
  anada\n⏰ 原始截止时间 (AoE): 2025-06-15 23:59:59\n分类: 计算
@@ -359,8 +359,8 @@ BEGIN:VEVENT
 SUMMARY:SPM 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20250308T235959
 DTEND;TZID="UTC-12:00":20250309T000059
-DTSTAMP:20250830T121551Z
-UID:90bc73fb-1ff8-4caf-9e58-8d907cdeacd3
+DTSTAMP:20250831T045654Z
+UID:46d5b364-48d9-42af-a69e-6ae612ca7edd
 DESCRIPTION:Symposium on Solid and Physical Modeling\n🗓️ 会议时间
  : October 29 - November 2\, 2025\n📍 会议地点: Hangzhou\, Zhejiang\,
   P.R. China\n⏰ 原始截止时间 (AoE): 2025-03-08 23:59:59\n分类: 

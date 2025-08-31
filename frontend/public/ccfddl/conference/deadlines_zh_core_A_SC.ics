@@ -14,8 +14,8 @@ BEGIN:VEVENT
 SUMMARY:ACSAC 2021 截稿日期
 DTSTART;TZID="UTC-12:00":20210914T235959
 DTEND;TZID="UTC-12:00":20210915T000059
-DTSTAMP:20250830T121552Z
-UID:e0d39b62-11f1-4f69-bafc-33a13ae33dfc
+DTSTAMP:20250831T045656Z
+UID:157e660c-1c07-4c93-8b70-ae9d33b1ca1c
 DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ 会
  议时间: December 6-10\, 2021\n📍 会议地点: Online\n⏰ 原始截
  止时间 (UTC-12): 2021-09-14 23:59:59\n分类: 网络与信息安全 (SC
@@ -28,8 +28,8 @@ BEGIN:VEVENT
 SUMMARY:ACSAC 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20230526T235959
 DTEND;TZID="UTC-12:00":20230527T000059
-DTSTAMP:20250830T121552Z
-UID:7ad13b3b-fae0-4c71-839b-5db8a912fb1b
+DTSTAMP:20250831T045656Z
+UID:5ef7426c-24c1-436a-8bda-88c59c4f0a95
 DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ 会
  议时间: December 4-8\, 2023\n📍 会议地点: Austin\, Texas\, USA\n
  ⏰ 原始截止时间 (UTC-12): 2023-05-26 23:59:59\n分类: 网络与信
@@ -42,8 +42,8 @@ BEGIN:VEVENT
 SUMMARY:ACSAC 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20240528T235959
 DTEND;TZID="UTC-12:00":20240529T000059
-DTSTAMP:20250830T121552Z
-UID:f2abf41c-329d-4822-94e0-970f8204aed0
+DTSTAMP:20250831T045656Z
+UID:6c63b0a9-f507-4881-90bd-0bec303079d4
 DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ 会
  议时间: December 9-13\, 2024\n📍 会议地点: Waikiki\, Hawaii\, USA
  \n⏰ 原始截止时间 (UTC-12): 2024-05-28 23:59:59\n分类: 网络与
@@ -56,8 +56,8 @@ BEGIN:VEVENT
 SUMMARY:ACSAC 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250530T235959
 DTEND;TZID="UTC-12:00":20250531T000059
-DTSTAMP:20250830T121552Z
-UID:266e3314-2ccd-4d38-b1d2-b9f9b6c69bda
+DTSTAMP:20250831T045656Z
+UID:e13ffb35-f5a9-4225-8532-b9a96363bc74
 DESCRIPTION:Annual Computer Security Applications Conference\n🗓️ 会
  议时间: December 9-13\, 2025\n📍 会议地点: Honolulu\, Hawaii\, US
  A\n⏰ 原始截止时间 (UTC-12): 2025-05-30 23:59:59\n分类: 网络与
@@ -70,8 +70,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2022 截稿日期 [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20210730T235959
 DTEND;TZID="UTC-12:00":20210731T000059
-DTSTAMP:20250830T121552Z
-UID:b59d6061-faf4-49ff-94aa-908572056f69
+DTSTAMP:20250831T045656Z
+UID:5eac6b2d-1a84-40f8-9f22-3ee90ec3f235
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ 会议时间: May 30-June 3\, 2022\n📍 会议地点: Nagasaki\, Japa
  n\n⏰ 原始截止时间 (AoE): 2021-07-30 23:59:59\n分类: 网络与信
@@ -84,8 +84,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2022 截稿日期 [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20211119T235959
 DTEND;TZID="UTC-12:00":20211120T000059
-DTSTAMP:20250830T121552Z
-UID:696e8eef-407d-48f4-a523-52529bc78f41
+DTSTAMP:20250831T045656Z
+UID:0e508f29-704f-4b01-8c1d-3c1c3fa8bc91
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ 会议时间: May 30-June 3\, 2022\n📍 会议地点: Nagasaki\, Japa
  n\n⏰ 原始截止时间 (AoE): 2021-11-19 23:59:59\n分类: 网络与信
@@ -98,8 +98,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2024 截稿日期 [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20230821T235959
 DTEND;TZID="UTC-12:00":20230822T000059
-DTSTAMP:20250830T121552Z
-UID:bf18d3bc-b5c4-432c-90d6-2fa863f41a6d
+DTSTAMP:20250831T045656Z
+UID:45e7441c-8428-4a0f-b27f-9721907166db
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ 会议时间: July 1-5\, 2024\n📍 会议地点: Singapore\n⏰ 原
  始截止时间 (AoE): 2023-08-21 23:59:59\n分类: 网络与信息安全 
@@ -112,8 +112,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2024 截稿日期 [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20231207T235959
 DTEND;TZID="UTC-12:00":20231208T000059
-DTSTAMP:20250830T121552Z
-UID:6457eb54-90fd-41c6-b5fb-b394a19dd393
+DTSTAMP:20250831T045656Z
+UID:8c989528-50a1-4060-954c-b1cc42d5c02a
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ 会议时间: July 1-5\, 2024\n📍 会议地点: Singapore\n⏰ 原
  始截止时间 (AoE): 2023-12-07 23:59:59\n分类: 网络与信息安全 
@@ -126,8 +126,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2025 截稿日期 [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20240920T235959
 DTEND;TZID="UTC-12:00":20240921T000059
-DTSTAMP:20250830T121552Z
-UID:e884ba86-c4b4-416c-b9a1-99d9579f94cd
+DTSTAMP:20250831T045656Z
+UID:08f486dd-dea1-48db-888e-438b82c58db5
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ 会议时间: August 25-29\, 2025\n📍 会议地点: Hanoi\, Vietnam\
  n⏰ 原始截止时间 (AoE): 2024-09-20 23:59:59\n分类: 网络与信
@@ -140,8 +140,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2025 截稿日期 [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20250120T235959
 DTEND;TZID="UTC-12:00":20250121T000059
-DTSTAMP:20250830T121552Z
-UID:db3217f2-0998-401e-8ebb-9d490d6c57ca
+DTSTAMP:20250831T045656Z
+UID:09e3f1f6-e6b9-464e-8ab1-3a171ed6e790
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ 会议时间: August 25-29\, 2025\n📍 会议地点: Hanoi\, Vietnam\
  n⏰ 原始截止时间 (AoE): 2025-01-20 23:59:59\n分类: 网络与信
@@ -154,8 +154,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2026 截稿日期 [1st round Deadline]
 DTSTART;TZID="UTC-12:00":20250825T235959
 DTEND;TZID="UTC-12:00":20250826T000059
-DTSTAMP:20250830T121552Z
-UID:d2ac7e5e-825f-4d01-ba0a-e010237aa5c7
+DTSTAMP:20250831T045656Z
+UID:2c5f3165-5d6a-4f3a-a61e-494e280d3bbf
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ 会议时间: June 1-6\, 2026\n📍 会议地点: Bangalore\, India\n
  ⏰ 原始截止时间 (AoE): 2025-08-25 23:59:59\n分类: 网络与信息
@@ -168,8 +168,8 @@ BEGIN:VEVENT
 SUMMARY:AsiaCCS 2026 截稿日期 [2nd round Deadline]
 DTSTART;TZID="UTC-12:00":20251212T235959
 DTEND;TZID="UTC-12:00":20251213T000059
-DTSTAMP:20250830T121552Z
-UID:a5524b1c-94f9-4f74-b48e-0e6051983ebb
+DTSTAMP:20250831T045656Z
+UID:dd46e8a7-4b51-4e0c-b85b-0aa032a68b55
 DESCRIPTION:Asia Conference on Computer and Communications Security\n🗓
  ️ 会议时间: June 1-6\, 2026\n📍 会议地点: Bangalore\, India\n
  ⏰ 原始截止时间 (AoE): 2025-12-12 23:59:59\n分类: 网络与信息
@@ -182,8 +182,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2022 截稿日期 [Schedule for TCHES Volume 2022/1]
 DTSTART;TZID="UTC-12:00":20210715T235959
 DTEND;TZID="UTC-12:00":20210716T000059
-DTSTAMP:20250830T121552Z
-UID:250c62f6-cb8c-4601-9683-ed97bad4c80e
+DTSTAMP:20250831T045656Z
+UID:07fb0df8-2e77-49f1-8e9d-eb21a02667e0
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September \, 2022\n📍 会议地点: Bei
  jing\, China\n⏰ 原始截止时间 (AoE): 2021-07-15 23:59:59\n分类: 
@@ -196,8 +196,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2022 截稿日期 [Schedule for TCHES Volume 2022/2]
 DTSTART;TZID="UTC-12:00":20211015T235959
 DTEND;TZID="UTC-12:00":20211016T000059
-DTSTAMP:20250830T121552Z
-UID:6c3f5b67-cdeb-4841-8661-96fbdea7a164
+DTSTAMP:20250831T045656Z
+UID:651b5f04-4451-42db-b500-a33e2558eb24
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September \, 2022\n📍 会议地点: Bei
  jing\, China\n⏰ 原始截止时间 (AoE): 2021-10-15 23:59:59\n分类: 
@@ -210,8 +210,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2022 截稿日期 [Schedule for TCHES Volume 2022/3]
 DTSTART;TZID="UTC-12:00":20220115T235959
 DTEND;TZID="UTC-12:00":20220116T000059
-DTSTAMP:20250830T121552Z
-UID:3dfeee28-d926-41c9-9fd7-4f6862b20d64
+DTSTAMP:20250831T045656Z
+UID:29e4d8bc-335c-4928-977f-87ce0556d1c7
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September \, 2022\n📍 会议地点: Bei
  jing\, China\n⏰ 原始截止时间 (AoE): 2022-01-15 23:59:59\n分类: 
@@ -224,8 +224,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2022 截稿日期 [Schedule for TCHES Volume 2022/4]
 DTSTART;TZID="UTC-12:00":20220415T235959
 DTEND;TZID="UTC-12:00":20220416T000059
-DTSTAMP:20250830T121552Z
-UID:51c4bae1-adf4-4a0b-b9ee-57bb303ada61
+DTSTAMP:20250831T045656Z
+UID:c77ade38-672f-4796-95e0-78afb35147a5
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September \, 2022\n📍 会议地点: Bei
  jing\, China\n⏰ 原始截止时间 (AoE): 2022-04-15 23:59:59\n分类: 
@@ -238,8 +238,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2023 截稿日期 [Schedule for TCHES Volume 2023/1]
 DTSTART;TZID="UTC-12:00":20220715T235959
 DTEND;TZID="UTC-12:00":20220716T000059
-DTSTAMP:20250830T121552Z
-UID:a95d4374-2186-4c55-8d31-9c93678329b4
+DTSTAMP:20250831T045656Z
+UID:1b398628-a884-48a4-8074-183313796d39
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September 10-14\, 2023\n📍 会议地点
  : Prague\, Czech Republic\n⏰ 原始截止时间 (AoE): 2022-07-15 23:59:
@@ -253,8 +253,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2023 截稿日期 [Schedule for TCHES Volume 2023/2]
 DTSTART;TZID="UTC-12:00":20221015T235959
 DTEND;TZID="UTC-12:00":20221016T000059
-DTSTAMP:20250830T121552Z
-UID:07211803-0248-4455-b088-32af83f2670d
+DTSTAMP:20250831T045656Z
+UID:5c6bd1d5-774d-4e06-afce-da2e8aee1a9b
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September 10-14\, 2023\n📍 会议地点
  : Prague\, Czech Republic\n⏰ 原始截止时间 (AoE): 2022-10-15 23:59:
@@ -268,8 +268,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2023 截稿日期 [Schedule for TCHES Volume 2023/3]
 DTSTART;TZID="UTC-12:00":20230115T235959
 DTEND;TZID="UTC-12:00":20230116T000059
-DTSTAMP:20250830T121552Z
-UID:576c29a9-28f1-4013-bb5b-0c5896dce5c2
+DTSTAMP:20250831T045656Z
+UID:3d134b16-d437-48c6-9693-98ee052b9678
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September 10-14\, 2023\n📍 会议地点
  : Prague\, Czech Republic\n⏰ 原始截止时间 (AoE): 2023-01-15 23:59:
@@ -283,8 +283,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2023 截稿日期 [Schedule for TCHES Volume 2023/4]
 DTSTART;TZID="UTC-12:00":20230415T235959
 DTEND;TZID="UTC-12:00":20230416T000059
-DTSTAMP:20250830T121552Z
-UID:a2b551d1-cdd1-47b4-a096-6e97dd2d5149
+DTSTAMP:20250831T045656Z
+UID:3c6b2006-df07-495b-8156-e5694dd20c94
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September 10-14\, 2023\n📍 会议地点
  : Prague\, Czech Republic\n⏰ 原始截止时间 (AoE): 2023-04-15 23:59:
@@ -298,8 +298,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2024 截稿日期 [Schedule for TCHES Volume 2024/1]
 DTSTART;TZID="UTC-12:00":20230715T235959
 DTEND;TZID="UTC-12:00":20230716T000059
-DTSTAMP:20250830T121552Z
-UID:aab5cedb-ad54-4150-9779-e58203025bb4
+DTSTAMP:20250831T045656Z
+UID:bbe16c8c-8946-4236-9d96-c5f362e55be1
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September\, 2024\n📍 会议地点: Hali
  fax\, Canada\n⏰ 原始截止时间 (AoE): 2023-07-15 23:59:59\n分类: 
@@ -312,8 +312,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2024 截稿日期 [Schedule for TCHES Volume 2024/2]
 DTSTART;TZID="UTC-12:00":20231015T235959
 DTEND;TZID="UTC-12:00":20231016T000059
-DTSTAMP:20250830T121552Z
-UID:2c21a1e8-44a7-4f4e-8932-f014fec18943
+DTSTAMP:20250831T045656Z
+UID:14e612c1-b978-4511-bfd9-269ef06d2032
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September\, 2024\n📍 会议地点: Hali
  fax\, Canada\n⏰ 原始截止时间 (AoE): 2023-10-15 23:59:59\n分类: 
@@ -326,8 +326,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2024 截稿日期 [Schedule for TCHES Volume 2024/3]
 DTSTART;TZID="UTC-12:00":20240115T235959
 DTEND;TZID="UTC-12:00":20240116T000059
-DTSTAMP:20250830T121552Z
-UID:40fd9b17-7392-4be3-804f-29e98c2f7e5c
+DTSTAMP:20250831T045656Z
+UID:273bd664-3266-451d-84a2-b21e58eb17c9
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September\, 2024\n📍 会议地点: Hali
  fax\, Canada\n⏰ 原始截止时间 (AoE): 2024-01-15 23:59:59\n分类: 
@@ -340,8 +340,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2024 截稿日期 [Schedule for TCHES Volume 2024/4]
 DTSTART;TZID="UTC-12:00":20240415T235959
 DTEND;TZID="UTC-12:00":20240416T000059
-DTSTAMP:20250830T121552Z
-UID:f7aa76a9-c2ba-4fb0-96ee-73617001074c
+DTSTAMP:20250831T045656Z
+UID:9a87b9df-b850-41e0-96e8-28ba37cd340e
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September\, 2024\n📍 会议地点: Hali
  fax\, Canada\n⏰ 原始截止时间 (AoE): 2024-04-15 23:59:59\n分类: 
@@ -354,8 +354,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2025 截稿日期 [Schedule for TCHES Volume 2025/1]
 DTSTART;TZID="UTC-12:00":20240715T235959
 DTEND;TZID="UTC-12:00":20240716T000059
-DTSTAMP:20250830T121552Z
-UID:9a42a8a0-06e9-40a3-b585-de92cfe02059
+DTSTAMP:20250831T045656Z
+UID:955ce04e-a6ac-4074-9be4-c0ef81d27831
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September 14-18\, 2025\n📍 会议地点
  : Kuala Lumpur\, Malaysia\n⏰ 原始截止时间 (AoE): 2024-07-15 23:59:
@@ -369,8 +369,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2025 截稿日期 [Schedule for TCHES Volume 2025/2]
 DTSTART;TZID="UTC-12:00":20241015T235959
 DTEND;TZID="UTC-12:00":20241016T000059
-DTSTAMP:20250830T121552Z
-UID:11ced413-04f0-408a-af4a-1c9ea73a9a05
+DTSTAMP:20250831T045656Z
+UID:636dd3de-f9a7-492d-b922-c8a7e16ecf10
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September 14-18\, 2025\n📍 会议地点
  : Kuala Lumpur\, Malaysia\n⏰ 原始截止时间 (AoE): 2024-10-15 23:59:
@@ -384,8 +384,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2025 截稿日期 [Schedule for TCHES Volume 2025/3]
 DTSTART;TZID="UTC-12:00":20250115T235959
 DTEND;TZID="UTC-12:00":20250116T000059
-DTSTAMP:20250830T121552Z
-UID:d7de8f66-669f-47aa-b297-d496273a4efb
+DTSTAMP:20250831T045656Z
+UID:ccb46084-fdae-486e-8811-fb24dae1b2e0
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September 14-18\, 2025\n📍 会议地点
  : Kuala Lumpur\, Malaysia\n⏰ 原始截止时间 (AoE): 2025-01-15 23:59:
@@ -399,8 +399,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2025 截稿日期 [Schedule for TCHES Volume 2025/4]
 DTSTART;TZID="UTC-12:00":20250415T235959
 DTEND;TZID="UTC-12:00":20250416T000059
-DTSTAMP:20250830T121552Z
-UID:9f5fab36-1d2d-43b7-875a-61358e1466b7
+DTSTAMP:20250831T045656Z
+UID:2c7224f2-6b39-485e-a042-f316cda2a30f
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: September 14-18\, 2025\n📍 会议地点
  : Kuala Lumpur\, Malaysia\n⏰ 原始截止时间 (AoE): 2025-04-15 23:59:
@@ -414,8 +414,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2026 截稿日期 [Schedule for TCHES Volume 2026/1]
 DTSTART;TZID="UTC-12:00":20250715T235959
 DTEND;TZID="UTC-12:00":20250716T000059
-DTSTAMP:20250830T121552Z
-UID:edf6ddcf-cff2-48d0-a6df-27063eef884b
+DTSTAMP:20250831T045656Z
+UID:c10a516b-9ea4-4063-b868-67127194cb50
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: October 11-15\, 2026\n📍 会议地点: 
  Türkiye\n⏰ 原始截止时间 (AoE): 2025-07-15 23:59:59\n分类: 网
@@ -428,8 +428,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2026 截稿日期 [Schedule for TCHES Volume 2026/2]
 DTSTART;TZID="UTC-12:00":20251015T235959
 DTEND;TZID="UTC-12:00":20251016T000059
-DTSTAMP:20250830T121552Z
-UID:c88730da-2aab-4141-bcd2-7b5820392341
+DTSTAMP:20250831T045656Z
+UID:a93135b5-30a7-49ff-9b4d-0a73876e5064
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: October 11-15\, 2026\n📍 会议地点: 
  Türkiye\n⏰ 原始截止时间 (AoE): 2025-10-15 23:59:59\n分类: 网
@@ -442,8 +442,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2026 截稿日期 [Schedule for TCHES Volume 2026/3]
 DTSTART;TZID="UTC-12:00":20260115T235959
 DTEND;TZID="UTC-12:00":20260116T000059
-DTSTAMP:20250830T121552Z
-UID:9455b5d7-a298-4393-8bc1-5ecd114c63d2
+DTSTAMP:20250831T045656Z
+UID:fa253a00-0f94-4dc1-8c77-a05a6cd42600
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: October 11-15\, 2026\n📍 会议地点: 
  Türkiye\n⏰ 原始截止时间 (AoE): 2026-01-15 23:59:59\n分类: 网
@@ -456,8 +456,8 @@ BEGIN:VEVENT
 SUMMARY:CHES 2026 截稿日期 [Schedule for TCHES Volume 2026/4]
 DTSTART;TZID="UTC-12:00":20260415T235959
 DTEND;TZID="UTC-12:00":20260416T000059
-DTSTAMP:20250830T121552Z
-UID:3073aec3-d250-4a7d-8340-baf3babcbcee
+DTSTAMP:20250831T045656Z
+UID:f1a1d450-7a50-44af-be8f-9e9e0adb53dc
 DESCRIPTION:International Conference on Cryptographic Hardware and Embedde
  d Systems\n🗓️ 会议时间: October 11-15\, 2026\n📍 会议地点: 
  Türkiye\n⏰ 原始截止时间 (AoE): 2026-04-15 23:59:59\n分类: 网
@@ -470,8 +470,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2022 截稿日期 [spring]
 DTSTART;TZID="UTC-12:00":20210514T235959
 DTEND;TZID="UTC-12:00":20210515T000059
-DTSTAMP:20250830T121552Z
-UID:08ea4fdc-bc1e-4d4a-9d9d-4b4a6fa83ab7
+DTSTAMP:20250831T045656Z
+UID:2aba6d56-c116-4916-8efd-26c1ee8f15b4
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: August\, 2022\n📍 会议地点: Haifa\, Israel\n⏰ 原始截止时
  间 (UTC-12): 2021-05-14 23:59:59\n分类: 网络与信息安全 (SC)\nCCF
@@ -484,8 +484,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2022 截稿日期 [fall]
 DTSTART;TZID="UTC-12:00":20211001T235959
 DTEND;TZID="UTC-12:00":20211002T000059
-DTSTAMP:20250830T121552Z
-UID:a9f8b807-e2dd-4418-9576-1ff23539bf4d
+DTSTAMP:20250831T045656Z
+UID:6f0a21f2-d74c-4c2f-9ca4-b22cb9a80582
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: August\, 2022\n📍 会议地点: Haifa\, Israel\n⏰ 原始截止时
  间 (UTC-12): 2021-10-01 23:59:59\n分类: 网络与信息安全 (SC)\nCCF
@@ -498,8 +498,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2023 截稿日期 [spring]
 DTSTART;TZID="UTC-12:00":20220513T235959
 DTEND;TZID="UTC-12:00":20220514T000059
-DTSTAMP:20250830T121552Z
-UID:55ff55bb-e5ce-4773-89bd-ef726c2f6c51
+DTSTAMP:20250831T045656Z
+UID:899564eb-666a-4149-b57d-adf0c34f7232
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July\, 2023\n📍 会议地点: Dubrovnik\, Croatia\n⏰ 原始截止
  时间 (UTC-12): 2022-05-13 23:59:59\n分类: 网络与信息安全 (SC)\n
@@ -512,8 +512,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2023 截稿日期 [fall]
 DTSTART;TZID="UTC-12:00":20220930T235959
 DTEND;TZID="UTC-12:00":20221001T000059
-DTSTAMP:20250830T121552Z
-UID:df701952-9608-4963-a575-02517de70ffa
+DTSTAMP:20250831T045656Z
+UID:062a4f06-f44e-402b-87e6-b35b11a08af2
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July\, 2023\n📍 会议地点: Dubrovnik\, Croatia\n⏰ 原始截止
  时间 (UTC-12): 2022-09-30 23:59:59\n分类: 网络与信息安全 (SC)\n
@@ -526,8 +526,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2023 截稿日期 [winter]
 DTSTART;TZID="UTC-12:00":20230203T235959
 DTEND;TZID="UTC-12:00":20230204T000059
-DTSTAMP:20250830T121552Z
-UID:80150318-4489-406e-9014-f1544154376c
+DTSTAMP:20250831T045656Z
+UID:516b2c9a-d50c-48e7-8778-6453177de111
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July\, 2023\n📍 会议地点: Dubrovnik\, Croatia\n⏰ 原始截止
  时间 (UTC-12): 2023-02-03 23:59:59\n分类: 网络与信息安全 (SC)\n
@@ -540,8 +540,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2024 截稿日期 [spring]
 DTSTART;TZID="UTC-12:00":20230515T235959
 DTEND;TZID="UTC-12:00":20230516T000059
-DTSTAMP:20250830T121552Z
-UID:7f9a7ae4-26b7-4132-a1d7-b667cdacacc6
+DTSTAMP:20250831T045656Z
+UID:66bea6af-1e8d-4806-ada5-b4c00ee48088
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July 8-12\, 2024\n📍 会议地点: Enschede\, The Netherlands\n⏰ 
  原始截止时间 (UTC-12): 2023-05-15 23:59:59\n分类: 网络与信息
@@ -554,8 +554,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2024 截稿日期 [fall]
 DTSTART;TZID="UTC-12:00":20230930T235959
 DTEND;TZID="UTC-12:00":20231001T000059
-DTSTAMP:20250830T121552Z
-UID:c1e0edd9-7679-4ace-8939-47414a4605bb
+DTSTAMP:20250831T045656Z
+UID:5a00c846-96c7-4add-80c6-0ae88800892b
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July 8-12\, 2024\n📍 会议地点: Enschede\, The Netherlands\n⏰ 
  原始截止时间 (UTC-12): 2023-09-30 23:59:59\n分类: 网络与信息
@@ -568,8 +568,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2024 截稿日期 [winter]
 DTSTART;TZID="UTC-12:00":20240203T235959
 DTEND;TZID="UTC-12:00":20240204T000059
-DTSTAMP:20250830T121552Z
-UID:eb8602bd-4032-4b1b-8151-165340f1fce4
+DTSTAMP:20250831T045656Z
+UID:2d2717c2-187d-4a38-87e6-a7e2bd34b5ef
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July 8-12\, 2024\n📍 会议地点: Enschede\, The Netherlands\n⏰ 
  原始截止时间 (UTC-12): 2024-02-03 23:59:59\n分类: 网络与信息
@@ -582,8 +582,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2025 截稿日期 [spring]
 DTSTART;TZID="UTC-12:00":20240528T235959
 DTEND;TZID="UTC-12:00":20240529T000059
-DTSTAMP:20250830T121552Z
-UID:bcd17b7f-0d17-47b6-a8ae-af79bdd07356
+DTSTAMP:20250831T045656Z
+UID:5e8023ee-9595-49f2-9a3f-a9b0c8432941
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: June 16-20\, 2025\n📍 会议地点: Santa Cruz\, CA\, USA\n⏰ 原
  始截止时间 (UTC-12): 2024-05-28 23:59:59\n分类: 网络与信息安
@@ -596,8 +596,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2025 截稿日期 [fall]
 DTSTART;TZID="UTC-12:00":20241001T235959
 DTEND;TZID="UTC-12:00":20241002T000059
-DTSTAMP:20250830T121552Z
-UID:25407b47-3139-4575-82e3-41e2058915c1
+DTSTAMP:20250831T045656Z
+UID:ae4df16e-91b7-49c8-ad1f-60bf67e8f99c
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: June 16-20\, 2025\n📍 会议地点: Santa Cruz\, CA\, USA\n⏰ 原
  始截止时间 (UTC-12): 2024-10-01 23:59:59\n分类: 网络与信息安
@@ -610,8 +610,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2025 截稿日期 [winter]
 DTSTART;TZID="UTC-12:00":20250204T235959
 DTEND;TZID="UTC-12:00":20250205T000059
-DTSTAMP:20250830T121552Z
-UID:821247e1-77f5-4546-9cd2-f2f977a0d5d2
+DTSTAMP:20250831T045656Z
+UID:bcdf8423-3e9b-4214-a467-2e9b32b3a6a1
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: June 16-20\, 2025\n📍 会议地点: Santa Cruz\, CA\, USA\n⏰ 原
  始截止时间 (UTC-12): 2025-02-04 23:59:59\n分类: 网络与信息安
@@ -624,8 +624,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2026 截稿日期 [Summer]
 DTSTART;TZID="UTC-12:00":20250724T235959
 DTEND;TZID="UTC-12:00":20250725T000059
-DTSTAMP:20250830T121552Z
-UID:6e420a53-2c4f-48ce-88f2-c849e2b7b10a
+DTSTAMP:20250831T045656Z
+UID:de62bc9c-79f1-4425-b547-1cf7896f385d
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July 26-29\, 2026\n📍 会议地点: Lisbon\, Portugal\n⏰ 原始
  截止时间 (UTC-12): 2025-07-24 23:59:59\n分类: 网络与信息安全 
@@ -638,8 +638,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2026 截稿日期 [Fall]
 DTSTART;TZID="UTC-12:00":20251009T235959
 DTEND;TZID="UTC-12:00":20251010T000059
-DTSTAMP:20250830T121552Z
-UID:bea29f5f-4ca1-4b00-adb0-ca621729efc6
+DTSTAMP:20250831T045656Z
+UID:cda6651e-3900-475d-921d-08be8fe007ad
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July 26-29\, 2026\n📍 会议地点: Lisbon\, Portugal\n⏰ 原始
  截止时间 (UTC-12): 2025-10-09 23:59:59\n分类: 网络与信息安全 
@@ -652,8 +652,8 @@ BEGIN:VEVENT
 SUMMARY:CSFW 2026 截稿日期 [Winter]
 DTSTART;TZID="UTC-12:00":20260129T235959
 DTEND;TZID="UTC-12:00":20260130T000059
-DTSTAMP:20250830T121552Z
-UID:2fe96eee-35ac-4249-b863-c51bf69d6b75
+DTSTAMP:20250831T045656Z
+UID:60cc0412-ca50-46ab-8fa9-4e7dc045c0c1
 DESCRIPTION:IEEE Computer Security Foundations Workshop\n🗓️ 会议时
  间: July 26-29\, 2026\n📍 会议地点: Lisbon\, Portugal\n⏰ 原始
  截止时间 (UTC-12): 2026-01-29 23:59:59\n分类: 网络与信息安全 
@@ -666,8 +666,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2022 截稿日期 [Abstract submission deadline]
 DTSTART;TZID="UTC-12:00":20211203T235959
 DTEND;TZID="UTC-12:00":20211204T000059
-DTSTAMP:20250830T121552Z
-UID:e5f65281-bd18-4f15-a47a-27f6caf76cfa
+DTSTAMP:20250831T045656Z
+UID:e839d313-694f-4441-b73b-aeb13a813235
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ 会议时间: June 27-30\, 2022\n📍 会议地点: Baltimore\, Ma
  ryland\, USA\n⏰ 原始截止时间 (AoE): 2021-12-03 23:59:59\n分类: 
@@ -680,8 +680,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2022 截稿日期 [Paper submission deadline]
 DTSTART;TZID="UTC-12:00":20211210T235959
 DTEND;TZID="UTC-12:00":20211211T000059
-DTSTAMP:20250830T121552Z
-UID:32a601c4-f82f-4334-8751-5af2d043a798
+DTSTAMP:20250831T045656Z
+UID:12b6a2bb-6a02-4047-b55d-32f72d0d2e5b
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ 会议时间: June 27-30\, 2022\n📍 会议地点: Baltimore\, Ma
  ryland\, USA\n⏰ 原始截止时间 (AoE): 2021-12-10 23:59:59\n分类: 
@@ -694,8 +694,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2022 截稿日期 [Notification to authors]
 DTSTART;TZID="UTC-12:00":20220314T235959
 DTEND;TZID="UTC-12:00":20220315T000059
-DTSTAMP:20250830T121552Z
-UID:c25b328f-8a6c-440b-bb1c-4cfe0b5c429b
+DTSTAMP:20250831T045656Z
+UID:61503523-b1df-46ec-b8ee-76f8fe01b55f
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ 会议时间: June 27-30\, 2022\n📍 会议地点: Baltimore\, Ma
  ryland\, USA\n⏰ 原始截止时间 (AoE): 2022-03-14 23:59:59\n分类: 
@@ -708,8 +708,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2024 摘要截稿
 DTSTART;TZID="UTC-12:00":20231129T235959
 DTEND;TZID="UTC-12:00":20231130T000059
-DTSTAMP:20250830T121552Z
-UID:702110be-945a-475e-9b2b-b2a258c722b6
+DTSTAMP:20250831T045656Z
+UID:1de9297d-2324-424e-97e1-98cd059c3b78
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ 会议时间: June 24-27\, 2024\n📍 会议地点: Brisbane\, Aus
  tralia\n⏰ 原始截止时间 (AoE): 2023-11-29 23:59:59\n分类: 网络
@@ -722,8 +722,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2025 摘要截稿
 DTSTART;TZID="UTC-12:00":20241127T235959
 DTEND;TZID="UTC-12:00":20241128T000059
-DTSTAMP:20250830T121552Z
-UID:cfb99be8-8251-48b0-8697-f647d376254f
+DTSTAMP:20250831T045656Z
+UID:48317290-00db-4d4a-af83-1a283c09af5f
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ 会议时间: June 23-26\, 2025\n📍 会议地点: Naples\, Italy
  \n⏰ 原始截止时间 (AoE): 2024-11-27 23:59:59\n分类: 网络与信
@@ -736,8 +736,8 @@ BEGIN:VEVENT
 SUMMARY:DSN 2026 摘要截稿
 DTSTART;TZID="UTC-12:00":20251127T235959
 DTEND;TZID="UTC-12:00":20251128T000059
-DTSTAMP:20250830T121552Z
-UID:43a1afcb-df13-4910-9dd4-78e7b831d8ec
+DTSTAMP:20250831T045656Z
+UID:c53527f1-401e-4caa-8eb7-6a0fdb17da76
 DESCRIPTION:International Conference on Dependable Systems and Networks\n
  🗓️ 会议时间: June 22-25\, 2026\n📍 会议地点: Charlotte\, US
  A\n⏰ 原始截止时间 (AoE): 2025-11-27 23:59:59\n分类: 网络与信
@@ -759,8 +759,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2022 截稿日期 [Winter Cycle Title and Abstract]
 DTSTART;TZID="UTC+01:00":20220131T235959
 DTEND;TZID="UTC+01:00":20220201T000059
-DTSTAMP:20250830T121552Z
-UID:6b8d8dc1-b701-4eb5-a1c2-46c9f7885b02
+DTSTAMP:20250831T045656Z
+UID:eb42b555-be4e-4233-9508-849695e85981
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ 
  会议时间: September 26-30\, 2022\n📍 会议地点: Copenhagen\, Denm
  ark\n⏰ 原始截止时间 (UTC+1): 2022-01-31 23:59:59\n分类: 网络
@@ -773,8 +773,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2022 截稿日期 [Winter Cycle Full Paper Submission]
 DTSTART;TZID="UTC+01:00":20220131T235959
 DTEND;TZID="UTC+01:00":20220201T000059
-DTSTAMP:20250830T121552Z
-UID:8a04b708-c4c4-45ca-8d32-c960e4d2306c
+DTSTAMP:20250831T045656Z
+UID:c7796853-3eba-42fb-a319-e284667363af
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ 
  会议时间: September 26-30\, 2022\n📍 会议地点: Copenhagen\, Denm
  ark\n⏰ 原始截止时间 (UTC+1): 2022-01-31 23:59:59\n分类: 网络
@@ -787,8 +787,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2022 截稿日期 [Spring Cycle Title and Abstract]
 DTSTART;TZID="UTC+01:00":20220515T235959
 DTEND;TZID="UTC+01:00":20220516T000059
-DTSTAMP:20250830T121552Z
-UID:b2ee09a5-a979-4e30-88d0-701671fb9388
+DTSTAMP:20250831T045656Z
+UID:81091e3f-8979-4cc8-a6aa-4bc2e9801115
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ 
  会议时间: September 26-30\, 2022\n📍 会议地点: Copenhagen\, Denm
  ark\n⏰ 原始截止时间 (UTC+1): 2022-05-15 23:59:59\n分类: 网络
@@ -801,8 +801,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2022 截稿日期 [Spring Cycle Full Paper Submission]
 DTSTART;TZID="UTC+01:00":20220522T235959
 DTEND;TZID="UTC+01:00":20220523T000059
-DTSTAMP:20250830T121552Z
-UID:f50d1353-23ec-4c39-9540-04e176a70e66
+DTSTAMP:20250831T045656Z
+UID:2746a3c2-db26-47f5-b747-96d51dd35883
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ 
  会议时间: September 26-30\, 2022\n📍 会议地点: Copenhagen\, Denm
  ark\n⏰ 原始截止时间 (UTC+1): 2022-05-22 23:59:59\n分类: 网络
@@ -815,8 +815,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2024 截稿日期 [First Submission deadline]
 DTSTART;TZID="UTC-12:00":20240108T235959
 DTEND;TZID="UTC-12:00":20240109T000059
-DTSTAMP:20250830T121552Z
-UID:197031e3-44a8-4f13-ad35-3ef5fbd3d46e
+DTSTAMP:20250831T045656Z
+UID:989854dd-af0d-43e8-8d8d-a042f00cd8e6
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ 
  会议时间: September 16-20\, 2024\n📍 会议地点: Bydgoszcz\, Polan
  d\n⏰ 原始截止时间 (AoE): 2024-01-08 23:59:59\n分类: 网络与信
@@ -829,8 +829,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2024 截稿日期 [Second Submission deadline]
 DTSTART;TZID="UTC-12:00":20240419T235959
 DTEND;TZID="UTC-12:00":20240420T000059
-DTSTAMP:20250830T121552Z
-UID:b3ba034a-ce1b-4e47-a109-992140c625a3
+DTSTAMP:20250831T045656Z
+UID:e18a3a01-3c7e-4a7c-b76c-c60b45688151
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ 
  会议时间: September 16-20\, 2024\n📍 会议地点: Bydgoszcz\, Polan
  d\n⏰ 原始截止时间 (AoE): 2024-04-19 23:59:59\n分类: 网络与信
@@ -843,8 +843,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2025 截稿日期 [First Submission deadline]
 DTSTART;TZID="UTC-12:00":20250110T235959
 DTEND;TZID="UTC-12:00":20250111T000059
-DTSTAMP:20250830T121552Z
-UID:c38068a4-b605-449e-bc62-f5bd8bfe2722
+DTSTAMP:20250831T045656Z
+UID:aa5fc803-d6bf-4e3f-8c1d-5015f0edff4c
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ 
  会议时间: September 22-26\, 2025\n📍 会议地点: Toulouse\, France
  \n⏰ 原始截止时间 (AoE): 2025-01-10 23:59:59\n分类: 网络与信
@@ -857,8 +857,8 @@ BEGIN:VEVENT
 SUMMARY:ESORICS 2025 截稿日期 [Second Submission deadline]
 DTSTART;TZID="UTC-12:00":20250429T235959
 DTEND;TZID="UTC-12:00":20250430T000059
-DTSTAMP:20250830T121552Z
-UID:239a3b1b-923a-451e-8f1b-44d9bbc6ae81
+DTSTAMP:20250831T045656Z
+UID:49549585-e8e2-459c-9e23-2234afd8de05
 DESCRIPTION:European Symposium on Research in Computer Security\n🗓️ 
  会议时间: September 22-26\, 2025\n📍 会议地点: Toulouse\, France
  \n⏰ 原始截止时间 (AoE): 2025-04-29 23:59:59\n分类: 网络与信
@@ -871,8 +871,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2022 截稿日期 [Paper registration]
 DTSTART;TZID="UTC-12:00":20210902T235959
 DTEND;TZID="UTC-12:00":20210903T000059
-DTSTAMP:20250830T121552Z
-UID:279b6b08-1a6b-4f4d-9074-95e776b9e173
+DTSTAMP:20250831T045656Z
+UID:a565c138-7189-4096-89dd-900202d33adc
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ 会议时间
  : February 14-18\, 2022\n📍 会议地点: Radisson Grenada Beach Resort 
  Grenada\n⏰ 原始截止时间 (UTC-12): 2021-09-02 23:59:59\n分类: 网
@@ -885,8 +885,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2022 截稿日期 [Paper submission]
 DTSTART;TZID="UTC-12:00":20210909T235959
 DTEND;TZID="UTC-12:00":20210910T000059
-DTSTAMP:20250830T121552Z
-UID:482a8cb7-e5ee-4eee-8c25-4ed88d24cd5a
+DTSTAMP:20250831T045656Z
+UID:de6e766c-466b-4492-9ed2-1ba72bc281a8
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ 会议时间
  : February 14-18\, 2022\n📍 会议地点: Radisson Grenada Beach Resort 
  Grenada\n⏰ 原始截止时间 (UTC-12): 2021-09-09 23:59:59\n分类: 网
@@ -899,8 +899,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2024 截稿日期 [Submission deadline]
 DTSTART;TZID="UTC-12:00":20230918T235959
 DTEND;TZID="UTC-12:00":20230919T000059
-DTSTAMP:20250830T121552Z
-UID:c1d15840-3e68-4744-a0c5-e741d4b0eaa4
+DTSTAMP:20250831T045656Z
+UID:9e11cca2-a96e-4f53-910c-c2be99c868c4
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ 会议时间
  : March 4-8\, 2024\n📍 会议地点: Willemstad\, Curaçao\n⏰ 原始
  截止时间 (UTC-12): 2023-09-18 23:59:59\n分类: 网络与信息安全 
@@ -913,8 +913,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2025 截稿日期 [Submission deadline]
 DTSTART;TZID="UTC-12:00":20241011T235959
 DTEND;TZID="UTC-12:00":20241012T000059
-DTSTAMP:20250830T121552Z
-UID:fdae92b8-5a2a-4a8a-aa36-0b071da22e1e
+DTSTAMP:20250831T045656Z
+UID:8a8a02b8-a3cb-46f3-9f54-5e04de56d143
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ 会议时间
  : April 14-18\, 2025\n📍 会议地点: Miyakojima\, Japan\n⏰ 原始截
  止时间 (UTC-12): 2024-10-11 23:59:59\n分类: 网络与信息安全 (SC
@@ -927,8 +927,8 @@ BEGIN:VEVENT
 SUMMARY:FC 2026 截稿日期 [Submission deadline]
 DTSTART;TZID="UTC-12:00":20250916T235959
 DTEND;TZID="UTC-12:00":20250917T000059
-DTSTAMP:20250830T121552Z
-UID:1c611582-e3bc-49e0-82ee-f3697a9e60eb
+DTSTAMP:20250831T045656Z
+UID:32cf43db-a7f7-4fd2-aa8b-7d31f9acb44e
 DESCRIPTION:Financial Cryptography and Data Security\n🗓️ 会议时间
  : March 2-6\, 2026\n📍 会议地点: St. Kitts\n⏰ 原始截止时间 (
  UTC-12): 2025-09-16 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, 
@@ -941,8 +941,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2022 截稿日期 [Issue 1 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210531T235959
 DTEND;TZID="UTC-12:00":20210601T000059
-DTSTAMP:20250830T121552Z
-UID:8211924a-d222-470e-9424-520ece266d5f
+DTSTAMP:20250831T045656Z
+UID:d3e0b1ae-7005-447e-b026-b2e8d0971837
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 18-23\, 2022\n📍 会议地点: Sydney\, Australia\n⏰ 原始截
  止时间 (AoE): 2021-05-31 23:59:59\n分类: 网络与信息安全 (SC)\n
@@ -955,8 +955,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2022 截稿日期 [Issue 2 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210831T235959
 DTEND;TZID="UTC-12:00":20210901T000059
-DTSTAMP:20250830T121552Z
-UID:2fe7c118-e472-4880-a38d-fe75810eafa6
+DTSTAMP:20250831T045656Z
+UID:c0a6e8ed-78d9-413c-9877-80903ee03f95
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 18-23\, 2022\n📍 会议地点: Sydney\, Australia\n⏰ 原始截
  止时间 (AoE): 2021-08-31 23:59:59\n分类: 网络与信息安全 (SC)\n
@@ -969,8 +969,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2022 截稿日期 [Issue 3 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20211130T235959
 DTEND;TZID="UTC-12:00":20211201T000059
-DTSTAMP:20250830T121552Z
-UID:7e18c269-b485-4fc0-b600-2e5d76bb5a81
+DTSTAMP:20250831T045656Z
+UID:e75d62b8-6387-402e-bf65-5fa9c77e43c2
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 18-23\, 2022\n📍 会议地点: Sydney\, Australia\n⏰ 原始截
  止时间 (AoE): 2021-11-30 23:59:59\n分类: 网络与信息安全 (SC)\n
@@ -983,8 +983,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2022 截稿日期 [Issue 4 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20220228T235959
 DTEND;TZID="UTC-12:00":20220301T000059
-DTSTAMP:20250830T121552Z
-UID:70e4dcd5-004e-40a8-be08-20ebe89f9600
+DTSTAMP:20250831T045656Z
+UID:0f45717a-1dc4-4b5b-a840-b3011154f5c0
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 18-23\, 2022\n📍 会议地点: Sydney\, Australia\n⏰ 原始截
  止时间 (AoE): 2022-02-28 23:59:59\n分类: 网络与信息安全 (SC)\n
@@ -997,8 +997,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2024 截稿日期 [Issue 1 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20230531T235959
 DTEND;TZID="UTC-12:00":20230601T000059
-DTSTAMP:20250830T121552Z
-UID:26c964b0-4b5b-4d46-a6ca-723c50a04cef
+DTSTAMP:20250831T045656Z
+UID:8fe6dee0-0804-460c-bd67-14176d6ae8a4
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 15-20\, 2024\n📍 会议地点: Bristol\, UK and Online\n⏰ 原
  始截止时间 (AoE): 2023-05-31 23:59:59\n分类: 网络与信息安全 
@@ -1011,8 +1011,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2024 截稿日期 [Issue 2 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20230831T235959
 DTEND;TZID="UTC-12:00":20230901T000059
-DTSTAMP:20250830T121552Z
-UID:5cae63c8-4cc2-40ee-abc5-e8649c0e1c20
+DTSTAMP:20250831T045656Z
+UID:13be9fc1-197a-4aec-9953-3f0aae828194
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 15-20\, 2024\n📍 会议地点: Bristol\, UK and Online\n⏰ 原
  始截止时间 (AoE): 2023-08-31 23:59:59\n分类: 网络与信息安全 
@@ -1025,8 +1025,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2024 截稿日期 [Issue 3 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20231130T235959
 DTEND;TZID="UTC-12:00":20231201T000059
-DTSTAMP:20250830T121552Z
-UID:29e84c47-4254-460d-8591-ec55c2e8d3fa
+DTSTAMP:20250831T045656Z
+UID:57aebe97-682b-4877-93b9-85634fe34962
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 15-20\, 2024\n📍 会议地点: Bristol\, UK and Online\n⏰ 原
  始截止时间 (AoE): 2023-11-30 23:59:59\n分类: 网络与信息安全 
@@ -1039,8 +1039,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2024 截稿日期 [Issue 4 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240229T235959
 DTEND;TZID="UTC-12:00":20240301T000059
-DTSTAMP:20250830T121552Z
-UID:2feb3b13-1e9e-433b-9a80-20e463379681
+DTSTAMP:20250831T045656Z
+UID:cc4c6239-6eff-428a-a08d-e0eba982189c
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 15-20\, 2024\n📍 会议地点: Bristol\, UK and Online\n⏰ 原
  始截止时间 (AoE): 2024-02-29 23:59:59\n分类: 网络与信息安全 
@@ -1053,8 +1053,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2025 截稿日期 [Issue 1 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240531T235959
 DTEND;TZID="UTC-12:00":20240601T000059
-DTSTAMP:20250830T121552Z
-UID:06853881-cf7d-4494-afa3-8a95f018a770
+DTSTAMP:20250831T045656Z
+UID:261dc36f-42b3-4453-9fe8-27a00d44f02e
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 14-19\, 2025\n📍 会议地点: Washington\, DC and Online\n⏰ 
  原始截止时间 (AoE): 2024-05-31 23:59:59\n分类: 网络与信息安
@@ -1067,8 +1067,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2025 截稿日期 [Issue 2 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20240831T235959
 DTEND;TZID="UTC-12:00":20240901T000059
-DTSTAMP:20250830T121552Z
-UID:8744e686-bf05-4371-b5a9-ea948ba13ab3
+DTSTAMP:20250831T045656Z
+UID:136b6420-4dba-42d6-9600-cf55ee3d9373
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 14-19\, 2025\n📍 会议地点: Washington\, DC and Online\n⏰ 
  原始截止时间 (AoE): 2024-08-31 23:59:59\n分类: 网络与信息安
@@ -1081,8 +1081,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2025 截稿日期 [Issue 3 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20241130T235959
 DTEND;TZID="UTC-12:00":20241201T000059
-DTSTAMP:20250830T121552Z
-UID:c1433073-0812-48ba-ae62-8307498fc040
+DTSTAMP:20250831T045656Z
+UID:7f7aa5d9-1505-4560-a81e-3c9efc375b73
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 14-19\, 2025\n📍 会议地点: Washington\, DC and Online\n⏰ 
  原始截止时间 (AoE): 2024-11-30 23:59:59\n分类: 网络与信息安
@@ -1095,8 +1095,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2025 截稿日期 [Issue 4 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250228T235959
 DTEND;TZID="UTC-12:00":20250301T000059
-DTSTAMP:20250830T121552Z
-UID:43f07536-1e6f-4e81-8640-8ef3c7d259a8
+DTSTAMP:20250831T045656Z
+UID:c3001252-0636-4cef-ac36-a0036a789103
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July 14-19\, 2025\n📍 会议地点: Washington\, DC and Online\n⏰ 
  原始截止时间 (AoE): 2025-02-28 23:59:59\n分类: 网络与信息安
@@ -1109,8 +1109,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2026 截稿日期 [Issue 1 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250531T235959
 DTEND;TZID="UTC-12:00":20250601T000059
-DTSTAMP:20250830T121552Z
-UID:94fc991b-bb27-4a9d-928b-79c390049b10
+DTSTAMP:20250831T045656Z
+UID:1f8d7675-8d31-4abb-b027-428b7f5dcaf4
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July\, 2026\n📍 会议地点: Location TBD\n⏰ 原始截止时间 (Ao
  E): 2025-05-31 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE 
@@ -1123,8 +1123,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2026 截稿日期 [Issue 2 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20250831T235959
 DTEND;TZID="UTC-12:00":20250901T000059
-DTSTAMP:20250830T121552Z
-UID:169189f0-d693-4cdb-8e6d-444d414d1e11
+DTSTAMP:20250831T045656Z
+UID:09d4f5a3-d7e3-451f-adb5-396d22494626
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July\, 2026\n📍 会议地点: Location TBD\n⏰ 原始截止时间 (Ao
  E): 2025-08-31 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE 
@@ -1137,8 +1137,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2026 截稿日期 [Issue 3 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20251130T235959
 DTEND;TZID="UTC-12:00":20251201T000059
-DTSTAMP:20250830T121552Z
-UID:2414f731-db53-429f-a748-d9de5f8d7e6f
+DTSTAMP:20250831T045656Z
+UID:c9ca287d-7ebd-4e92-857a-9489ef08ad9b
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July\, 2026\n📍 会议地点: Location TBD\n⏰ 原始截止时间 (Ao
  E): 2025-11-30 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE 
@@ -1151,8 +1151,8 @@ BEGIN:VEVENT
 SUMMARY:PETS 2026 截稿日期 [Issue 4 Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20260228T235959
 DTEND;TZID="UTC-12:00":20260301T000059
-DTSTAMP:20250830T121552Z
-UID:72c066bf-6c8c-4674-acf1-9007b04a5194
+DTSTAMP:20250831T045656Z
+UID:2e74f119-a4d4-40ac-bef0-8d7a00f8249a
 DESCRIPTION:Privacy Enhancing Technologies Symposium\n🗓️ 会议时间
  : July\, 2026\n📍 会议地点: Location TBD\n⏰ 原始截止时间 (Ao
  E): 2026-02-28 23:59:59\n分类: 网络与信息安全 (SC)\nCCF C\, CORE 
@@ -1165,8 +1165,8 @@ BEGIN:VEVENT
 SUMMARY:RAID 2021 截稿日期 [Paper Submission Deadline]
 DTSTART;TZID="UTC-12:00":20210801T235959
 DTEND;TZID="UTC-12:00":20210802T000059
-DTSTAMP:20250830T121552Z
-UID:a34b8563-4e6d-4272-a69f-879ef97cb42f
+DTSTAMP:20250831T045656Z
+UID:68b7e7b6-aa03-47cd-8108-720766e7cc20
 DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
  ion\n🗓️ 会议时间: October 6-8\, 2021\n📍 会议地点: Donostia
   / San Sebastian\, Spain\n⏰ 原始截止时间 (AoE): 2021-08-01 23:59:5
@@ -1179,8 +1179,8 @@ BEGIN:VEVENT
 SUMMARY:RAID 2023 截稿日期
 DTSTART;TZID="UTC-12:00":20230329T235959
 DTEND;TZID="UTC-12:00":20230330T000059
-DTSTAMP:20250830T121552Z
-UID:7569b611-b665-445e-92b9-d083aa8f9332
+DTSTAMP:20250831T045656Z
+UID:a9ea5c99-253f-4b8b-ab27-cc38e0d7665a
 DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
  ion\n🗓️ 会议时间: October 16-18\, 2023\n📍 会议地点: Hong K
  ong Polytechnic University\, Hong Kong\, China\n⏰ 原始截止时间 (Ao
@@ -1194,8 +1194,8 @@ BEGIN:VEVENT
 SUMMARY:RAID 2024 截稿日期
 DTSTART;TZID="UTC-12:00":20240415T235959
 DTEND;TZID="UTC-12:00":20240416T000059
-DTSTAMP:20250830T121552Z
-UID:0ca44f7e-380c-4df6-bdf3-ebecf3cb2c86
+DTSTAMP:20250831T045656Z
+UID:bbead37c-a454-4118-a259-f32b2d2537e3
 DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
  ion\n🗓️ 会议时间: September 30 - October 2\, 2024\n📍 会议地
  点: Palazzo della Salute\, Padua\, Italy\n⏰ 原始截止时间 (AoE): 2
@@ -1209,8 +1209,8 @@ BEGIN:VEVENT
 SUMMARY:RAID 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250424T235959
 DTEND;TZID="UTC-12:00":20250425T000059
-DTSTAMP:20250830T121552Z
-UID:fe01279c-a2e5-4acd-ba5a-bff9304cf286
+DTSTAMP:20250831T045656Z
+UID:edbeb791-57db-4b22-801c-e2a7aaf4e423
 DESCRIPTION:International Symposium on Recent Advances in Intrusion Detect
  ion\n🗓️ 会议时间: October 19-22\, 2025\n📍 会议地点: Gold C
  oast\, Australia\n⏰ 原始截止时间 (AoE): 2025-04-24 23:59:59\n分
@@ -1223,8 +1223,8 @@ BEGIN:VEVENT
 SUMMARY:TCC 2021 截稿日期
 DTSTART;TZID="UTC-12:00":20210525T210000
 DTEND;TZID="UTC-12:00":20210525T210100
-DTSTAMP:20250830T121552Z
-UID:2f7e829f-79ec-4e46-a293-4a2721815749
+DTSTAMP:20250831T045656Z
+UID:72b639d0-b78a-4799-adbc-ddec7dbdd4ec
 DESCRIPTION:Theory of Cryptography Conference\n🗓️ 会议时间: Nov 8
  \, 2021\n📍 会议地点: Raleigh\, United States\n⏰ 原始截止时
  间 (UTC-12): 2021-05-25 21:00:00\n分类: 网络与信息安全 (SC)\nCCF
@@ -1246,8 +1246,8 @@ BEGIN:VEVENT
 SUMMARY:TCC 2023 截稿日期
 DTSTART;TZID="UTC-04:00":20230601T150000
 DTEND;TZID="UTC-04:00":20230601T150100
-DTSTAMP:20250830T121552Z
-UID:963d5404-1be5-41eb-b390-66721e79ff28
+DTSTAMP:20250831T045656Z
+UID:0423f59f-abec-49db-8679-f0bd98fb8d4b
 DESCRIPTION:Theory of Cryptography Conference\n🗓️ 会议时间: Nov 2
  9 - Dec 12\, 2023\n📍 会议地点: Taipei\, China\n⏰ 原始截止时
  间 (UTC-4): 2023-06-01 15:00:00\n分类: 网络与信息安全 (SC)\nCCF 
@@ -1269,8 +1269,8 @@ BEGIN:VEVENT
 SUMMARY:TCC 2024 截稿日期
 DTSTART;TZID="UTC+02:00":20240520T195959
 DTEND;TZID="UTC+02:00":20240520T200059
-DTSTAMP:20250830T121552Z
-UID:a12466f5-dbad-447d-b726-6dec49160fa7
+DTSTAMP:20250831T045656Z
+UID:74e728e8-f595-420b-8e15-d764b8588277
 DESCRIPTION:Theory of Cryptography Conference\n🗓️ 会议时间: Dec 2
   - 6\, 2024\n📍 会议地点: Milan\, Italy\n⏰ 原始截止时间 (UTC
  +2): 2024-05-20 19:59:59\n分类: 网络与信息安全 (SC)\nCCF B\, CORE
@@ -1283,8 +1283,8 @@ BEGIN:VEVENT
 SUMMARY:TCC 2025 截稿日期
 DTSTART;TZID="UTC-12:00":20250527T235959
 DTEND;TZID="UTC-12:00":20250528T000059
-DTSTAMP:20250830T121552Z
-UID:a7331261-d820-4b7d-8998-cb5031608cb0
+DTSTAMP:20250831T045656Z
+UID:0160f78b-e2a6-47ed-b877-ec43a32ae921
 DESCRIPTION:Theory of Cryptography Conference\n🗓️ 会议时间: Decem
  ber 2-5\, 2025\n📍 会议地点: Aarhus\, Denmark\n⏰ 原始截止时
  间 (AoE): 2025-05-27 23:59:59\n分类: 网络与信息安全 (SC)\nCCF B\

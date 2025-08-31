@@ -108,7 +108,7 @@ function TagFilterDropdown({
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
-    UploadCloud, Plus, Pencil, Trash2, ChevronUp, ChevronDown,
+    UploadCloud, Plus, Pencil, Trash2, ChevronUp, ChevronDown, ChevronRight,
     GripVertical, Eye, Tag as TagIcon, Folder as FolderIcon
 } from "lucide-react";
 import SwalCore from "sweetalert2";
@@ -295,36 +295,101 @@ function hexWithAlpha(hex: string, alpha: number) {
     return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
+// -------- folder numbering helpers --------
+function toRoman(num: number): string {
+  if (num <= 0) return String(num);
+  const map: [number, string][] = [
+    [1000, "M"],[900, "CM"],[500, "D"],[400, "CD"],
+    [100, "C"],[90, "XC"],[50, "L"],[40, "XL"],
+    [10, "X"],[9, "IX"],[5, "V"],[4, "IV"],[1, "I"],
+  ];
+  let n = num, out = ""; for (const [v, s] of map) { while (n >= v) { out += s; n -= v; } } return out;
+}
+function toCircled(num: number): string {
+  const circ = ["", "①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
+  if (num > 0 && num < circ.length) return circ[num];
+  // fallback for > 20
+  return `(${num})`;
+}
+function numberLabelByDepth(depth: number, index: number): string {
+  // depth: 0 -> 1,2,3...; 1 -> I, II, III...; 2 -> ①②③...; deeper -> 1,2,3
+  if (depth === 0) return String(index);
+  if (depth === 1) return toRoman(index);
+  if (depth === 2) return toCircled(index);
+  return String(index);
+}
+
 /* --------------------------- left: folders --------------------------- */
 function FolderItem({
-    folder, depth, active, onClick, onCreateChild
+    folder, depth, active, onClick, onCreateChild, hasChildren, collapsed, onToggle, count = 0, numLabel
 }: {
     folder: Folder; depth: number; active: boolean; onClick: () => void; onCreateChild: (parentId: number) => void;
+    hasChildren: boolean; collapsed: boolean; onToggle: () => void; count?: number; numLabel?: string;
 }) {
     const { isOver, setNodeRef } = useDroppable({ id: `folder:${folder.id}` });
-    const pad = 6 + depth * 12;
+    const pad = 4 + depth * 10; // 更紧凑
     const col = folder.color || "#94a3b8";
     const bgCol = active ? hexWithAlpha(col, 0.16) : (isOver ? hexWithAlpha(col, 0.12) : undefined);
     const bdCol = active ? hexWithAlpha(col, 0.45) : hexWithAlpha(col, 0.25);
+    // 一级更醒目，整体字号稍大
+    const titleCls = depth === 0 ? "font-semibold text-[15px]" : (depth === 1 ? "text-[14px]" : "text-[13px]");
+
     return (
         <div ref={setNodeRef}>
             <div
                 onClick={onClick}
-                className="px-1.5 py-1 rounded-md cursor-pointer transition border select-none flex items-center justify-between"
-                style={{ paddingLeft: pad, boxShadow: `inset 3px 0 0 0 ${col}` }}
+                className="px-1 py-[2px] rounded-md cursor-pointer transition border select-none flex items-center justify-between min-h-[30px]"
+                style={{ paddingLeft: pad }}   // 去掉旧的 inset 左侧色条，改用内部矩形条
             >
                 <div
-                    className={`flex-1 px-1 py-[2px] rounded-md border ${isOver ? "ring-2 ring-blue-400" : ""}`}
+                    className={`flex items-center gap-1 flex-1 px-1 py-[1px] rounded-md border ${isOver ? "ring-2 ring-blue-400" : ""}`}
                     style={{ background: bgCol, borderColor: bdCol }}
                 >
-                    <span className="inline-block rounded-full mr-2 align-middle" style={{ background: col, width: 6, height: 6 }} />
-                    <span className="text-sm align-middle">{folder.name}</span>
+                    {hasChildren ? (
+                        <button
+                            className="w-4 h-4 rounded hover:bg-gray-100 flex items-center justify-center"
+                            onClick={(e) => { e.stopPropagation(); onToggle(); }}
+                            title={collapsed ? "展开" : "折叠"}
+                            aria-label={collapsed ? "expand" : "collapse"}
+                        >
+                            {collapsed ? <ChevronRight className="w-3.5 h-3.5 text-gray-600" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-600" />}
+                        </button>
+                    ) : (
+                        <span className="w-4" />
+                    )}
+
+                    {/* 编号彩色徽标：更大、更醒目 */}
+                    {numLabel && (
+                        <span
+                            className="text-[12px] font-semibold leading-4 px-2 py-[1px] rounded-md text-white shadow-sm"
+                            style={{ background: col }}
+                            title="自动编号"
+                        >
+                            {numLabel}
+                        </span>
+                    )}
+
+                    <span className={`${titleCls} leading-5 align-middle truncate`}>{folder.name}</span>
                 </div>
-                <button
-                    className="ml-2 text-[11px] px-1.5 py-[2px] rounded border hover:bg-gray-50"
-                    onClick={(e) => { e.stopPropagation(); onCreateChild(folder.id); }}
-                    title="新建子目录"
-                >+</button>
+
+                <div className="ml-1 flex items-center gap-1">
+                    {/* 论文数：为 0 时不显示（你之前的逻辑保留） */}
+                    {count > 0 && (
+                        <span
+                            className="text-[11px] px-1.5 py-[1px] rounded border bg-gray-50 text-gray-700 min-w-[1.5rem] text-center"
+                            title="本文夹内论文数量"
+                        >
+                            {count}
+                        </span>
+                    )}
+                    <button
+                        className="text-[10px] px-1 py-[1px] rounded border hover:bg-gray-50"
+                        onClick={(e) => { e.stopPropagation(); onCreateChild(folder.id); }}
+                        title="新建子目录"
+                    >
+                        +
+                    </button>
+                </div>
             </div>
         </div>
     );
@@ -798,20 +863,34 @@ function WordCloudPanel({ papers, tags }: { papers: Paper[]; tags: Tag[] }) {
 }
 
 function FolderTreeNode({
-    node, depth, activeId, onPick, onCreateChild
+    node, depth, index, activeId, onPick, onCreateChild, collapsedSet, toggle, counts
 }: {
-    node: FolderNode; depth: number; activeId: number | null;
+    node: FolderNode; depth: number; index: number; activeId: number | null;
     onPick: (id: number) => void; onCreateChild: (parentId: number) => void;
+    collapsedSet: Set<number>; toggle: (id: number) => void; counts: Record<number, number>;
 }) {
+    const hasChildren = !!(node.children && node.children.length > 0);
+    const isCollapsed = collapsedSet.has(node.id);
+    const numLabel = numberLabelByDepth(depth, index);
     return (
         <div>
-            <FolderItem folder={node} depth={depth} active={activeId === node.id}
-                onClick={() => onPick(node.id)} onCreateChild={onCreateChild} />
-            {node.children && node.children.length > 0 && (
+            <FolderItem
+                folder={node}
+                depth={depth}
+                active={activeId === node.id}
+                onClick={() => onPick(node.id)}
+                onCreateChild={onCreateChild}
+                hasChildren={hasChildren}
+                collapsed={isCollapsed}
+                onToggle={() => toggle(node.id)}
+                count={counts[node.id] || 0}
+                numLabel={numLabel}
+            />
+            {hasChildren && !isCollapsed && (
                 <div className="space-y-[2px] mt-0.5">
-                    {node.children.map(ch => (
-                        <FolderTreeNode key={ch.id} node={ch} depth={depth + 1} activeId={activeId}
-                            onPick={onPick} onCreateChild={onCreateChild} />
+                    {node.children!.map((ch, i) => (
+                        <FolderTreeNode key={ch.id} node={ch} depth={depth + 1} index={i + 1} activeId={activeId}
+                            onPick={onPick} onCreateChild={onCreateChild} collapsedSet={collapsedSet} toggle={toggle} counts={counts} />
                     ))}
                 </div>
             )}
@@ -963,6 +1042,35 @@ export default function Library() {
     const sensors = useSensors(useSensor(PointerSensor));
 
     const [folders, setFolders] = React.useState<Folder[]>([]);
+    const [collapsed, setCollapsed] = React.useState<Set<number>>(new Set());
+    const toggleCollapse = (id: number) =>
+        setCollapsed(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
+
+    const [folderCounts, setFolderCounts] = React.useState<Record<number, number>>({});
+    const [allCount, setAllCount] = React.useState<number>(0);
+
+    const loadFolderCounts = React.useCallback(async () => {
+        try {
+            const all = await j<Paper[]>(`${apiBase}/api/v1/papers/?dedup=true`);
+            setAllCount(all.length);
+        } catch { setAllCount(0); }
+
+        const pairs = await Promise.all(
+            folders.map(async f => {
+                try {
+                    const arr = await j<Paper[]>(`${apiBase}/api/v1/papers/?dedup=true&folder_id=${f.id}`);
+                    return [f.id, arr.length] as const;
+                } catch {
+                    return [f.id, 0] as const;
+                }
+            })
+        );
+        const map: Record<number, number> = {};
+        pairs.forEach(([id, n]) => { map[id] = n; });
+        setFolderCounts(map);
+    }, [folders]);
+
+    const refreshCounts = React.useCallback(async () => { await loadFolderCounts(); }, [loadFolderCounts]);
     const [activeFolderId, setActiveFolderId] = React.useState<number | null>(null);
 
     const [papers, setPapers] = React.useState<Paper[]>([]);
@@ -986,6 +1094,7 @@ export default function Library() {
     const [maxYear, setMaxYear] = React.useState<number>(yearNow);
     const [yearMin, setYearMin] = React.useState<number>(1990);
     const [yearMax, setYearMax] = React.useState<number>(yearNow);
+    
 
     React.useEffect(() => {
         if (!papers.length) return;
@@ -1050,6 +1159,7 @@ export default function Library() {
       };
 
     React.useEffect(() => { loadFolders(); loadTags(); }, [loadFolders, loadTags]);
+    React.useEffect(() => { if (folders.length) { loadFolderCounts(); } }, [folders.length, loadFolderCounts]);
     // 初次加载
     React.useEffect(() => { loadPapers(); }, []);
     // 任何筛选项变动，自动触发检索（轻微防抖）
@@ -1102,6 +1212,7 @@ export default function Library() {
                 method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ paper_ids: [paperId] })
             });
             await loadPapers();
+            await refreshCounts();
             const f = folders.find(x => x.id === folderId);
             toast(`已移动到「${f?.name || "目录"}」`);
         } catch { }
@@ -1127,7 +1238,9 @@ export default function Library() {
                 });
             }
         }
-        await loadPapers(); toast("导入完成");
+        await loadPapers(); 
+        await refreshCounts();
+        toast("导入完成");
     };
 
     // 快捷标签应用（确保实时刷新 + 乐观更新）
@@ -1275,6 +1388,7 @@ export default function Library() {
 
                                 // 3) 刷新并选中新建项
                                 await loadPapers();
+                                await refreshCounts();
                                 setSelectedId(created.id);
                                 Swal.close();
                                 toast("已解析并入库");
@@ -1298,7 +1412,7 @@ export default function Library() {
                 <div className="grid grid-cols-1 md:grid-cols-[300px,1fr,360px] gap-4">
                     {/* 左侧：目录 + 标签（标签位于目录下方） */}
                     <div className="space-y-4">
-                      <div className="rounded-2xl border bg-white p-3">
+                    <div className="rounded-2xl border bg-white p-2 text-[14px]">
                         <div className="flex items-center justify-between mb-2">
                             <div className="text-xs text-gray-600">目录</div>
                             <div className="flex items-center gap-1">
@@ -1307,17 +1421,21 @@ export default function Library() {
                                 <button onClick={deleteFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Trash2 className="w-3.5 h-3.5" /></button>
                             </div>
                         </div>
-                        <div className={`px-2 py-1.5 rounded-lg cursor-pointer mb-1 ${activeFolderId == null ? "bg-blue-50/70 border border-blue-200" : "hover:bg-gray-50"}`}
+                        <div className={`px-2 py-1 rounded-md cursor-pointer mb-1 text-[14px] flex items-center justify-between ${activeFolderId == null ? "bg-blue-50/70 border border-blue-200" : "hover:bg-gray-50"}`}
                             onClick={() => { setActiveFolderId(null); setSelectedId(null); }}>
-                            全部
+                            <span>全部</span>
+                            <span className="text-[11px] px-1.5 py-[1px] rounded border bg-gray-50 text-gray-700 min-w-[1.5rem] text-center">{allCount}</span>
                         </div>
                         <div className="space-y-1">
-                            {tree.map(node => (
-                                <FolderTreeNode key={node.id} node={node} depth={0} activeId={activeFolderId}
-                                    onPick={(id) => { setActiveFolderId(id); setSelectedId(null); }}
-                                    onCreateChild={createSubFolder}
-                                />
-                            ))}
+                        {tree.map((node, i) => (
+                            <FolderTreeNode key={node.id} node={node} depth={0} index={i + 1} activeId={activeFolderId}
+                                onPick={(id) => { setActiveFolderId(id); setSelectedId(null); }}
+                                onCreateChild={createSubFolder}
+                                collapsedSet={collapsed}
+                                toggle={toggleCollapse}
+                                counts={folderCounts}
+                            />
+                        ))}
                         </div>
                         <div className="text-[11px] text-gray-500 mt-3">提示：拖拽<strong>把手</strong>或在论文上<strong>右键</strong>选择目录。</div>
                       </div>
@@ -1469,6 +1587,7 @@ export default function Library() {
                                   setCtx(s => ({ ...s, visible: false }));
                                   setSelectedId(s => (s === ctx.payload!.id ? null : s));
                                   await loadPapers();
+                                  await refreshCounts();
                                   toast("论文已删除");
                                 }}
                             >
