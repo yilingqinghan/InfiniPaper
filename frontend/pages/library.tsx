@@ -104,6 +104,97 @@ function TagFilterDropdown({
         </div>
     );
 }
+/* --------------------------- author filter dropdown --------------------------- */
+function AuthorFilterDropdown({
+    authors, value, onChange,
+  }: { authors: string[]; value: string[]; onChange: (names: string[]) => void }) {
+    const [open, setOpen] = React.useState(false);
+    const [q, setQ] = React.useState("");
+    const ref = React.useRef<HTMLDivElement | null>(null);
+  
+    React.useEffect(() => {
+      const onClick = (e: MouseEvent) => { if (!ref.current) return; if (!ref.current.contains(e.target as Node)) setOpen(false); };
+      window.addEventListener("click", onClick, true);
+      return () => window.removeEventListener("click", onClick, true);
+    }, []);
+  
+    const filtered = React.useMemo(
+      () => authors.filter(n => !q || n.toLowerCase().includes(q.toLowerCase())),
+      [authors, q]
+    );
+  
+    const toggle = (name: string) => {
+      if (value.includes(name)) onChange(value.filter(n => n !== name));
+      else onChange([...value, name]);
+    };
+  
+    const selectAll = () => onChange(filtered);
+    const clearAll = () => onChange([]);
+  
+    const summary = React.useMemo(() => {
+      if (!value.length) return <span className="text-gray-500">全部作者</span>;
+      const head = value.slice(0, 3);
+      const rest = value.length - head.length;
+      return (
+        <span className="flex items-center gap-1 flex-wrap">
+          {head.map(n => (
+            <span key={n} className="text-[11px] px-2 py-[2px] rounded-full border inline-flex items-center gap-1 border-slate-300 bg-white">
+              <span className="w-2 h-2 rounded-full bg-slate-400" />
+              {n}
+            </span>
+          ))}
+          {rest > 0 && <span className="text-xs text-gray-500">+{rest}</span>}
+        </span>
+      );
+    }, [value]);
+  
+    return (
+      <div className="relative" ref={ref}>
+        <button
+          type="button"
+          onClick={(e) => { e.stopPropagation(); setOpen(o => !o); }}
+          className="flex items-center gap-2 px-2 py-1 rounded-md border bg-white hover:bg-gray-50"
+          title={value.length ? `已选 ${value.length} 位作者` : "全部作者"}
+        >
+          <span className="text-xs text-gray-500">按作者：</span>
+          {summary}
+          <ChevronDown className="w-4 h-4 text-gray-500" />
+        </button>
+  
+        {open && (
+          <div className="absolute right-0 z-50 mt-2 w-[360px] rounded-xl border bg-white shadow-lg">
+            <div className="p-2 border-b bg-gray-50 flex items-center gap-2">
+              <input
+                value={q}
+                onChange={e => setQ(e.target.value)}
+                placeholder="搜索作者…"
+                className="flex-1 text-sm px-2 py-1 rounded-md border bg-white"
+              />
+              <button className="text-xs px-2 py-1 rounded border" onClick={selectAll}>全选</button>
+              <button className="text-xs px-2 py-1 rounded border" onClick={clearAll}>清空</button>
+            </div>
+            <div className="max-h-64 overflow-auto p-1">
+              {filtered.map(name => {
+                const checked = value.includes(name);
+                return (
+                  <label key={name}
+                    className={`flex items-center gap-2 px-2 py-1 rounded cursor-pointer ${checked ? "bg-blue-50" : "hover:bg-gray-50"}`}>
+                    <input type="checkbox" checked={checked} onChange={() => toggle(name)} />
+                    <span className="w-2.5 h-2.5 rounded-full bg-slate-400" />
+                    <span className="text-sm">{name}</span>
+                  </label>
+                );
+              })}
+              {!filtered.length && <div className="p-3 text-center text-sm text-gray-400">没有匹配的作者</div>}
+            </div>
+            <div className="p-2 border-t text-right">
+              <button className="text-xs px-2 py-1 rounded border hover:bg-gray-50" onClick={() => setOpen(false)}>完成</button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
 // frontend/pages/library.tsx
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -1282,6 +1373,13 @@ export default function Library() {
     const [maxYear, setMaxYear] = React.useState<number>(yearNow);
     const [yearMin, setYearMin] = React.useState<number>(1990);
     const [yearMax, setYearMax] = React.useState<number>(yearNow);
+    const [filterAuthors, setFilterAuthors] = React.useState<string[]>([]);
+
+    const allAuthors = React.useMemo(() => {
+    const s = new Set<string>();
+    papers.forEach(p => (p.authors || []).forEach(a => a?.name && s.add(a.name)));
+    return Array.from(s).sort((a, b) => a.localeCompare(b));
+    }, [papers]);
     
 
     React.useEffect(() => {
@@ -1464,16 +1562,26 @@ export default function Library() {
     const displayPapers = React.useMemo(() => {
         let arr = [...papers];
         arr.sort((a, b) => {
-            const ay = a.year || 0, by = b.year || 0;
-            return yearAsc ? ay - by : by - ay;
+          const ay = a.year || 0, by = b.year || 0;
+          return yearAsc ? ay - by : by - ay;
         });
+      
+        // 作者筛选（命中任意一个选中作者即可）
+        if (filterAuthors.length) {
+          arr = arr.filter(p => {
+            const names = (p.authors || []).map(a => a?.name).filter(Boolean) as string[];
+            return names.some(n => filterAuthors.includes(n));
+          });
+        }
+      
+        // 标签筛选（沿用你原来的逻辑）
         if (!filterTagNames.length) return arr;
         const nameById = (id: number) => tags.find(t => t.id === id)?.name;
         return arr.filter(p => {
-            const names = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean) as string[];
-            return names.some(n => filterTagNames.includes(n));
+          const names = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean) as string[];
+          return names.some(n => filterTagNames.includes(n));
         });
-    }, [papers, yearAsc, filterTagNames, tags]);
+      }, [papers, yearAsc, filterAuthors, filterTagNames, tags]);
 
     // “期刊/会议”列：若全部能映射缩写，则隐藏
     const showVenueCol = React.useMemo(() => {
@@ -1682,6 +1790,7 @@ export default function Library() {
                         <div className="flex items-center gap-2">
                             <VenueAbbrDropdown value={filterVenueAbbrs} onChange={setFilterVenueAbbrs} />
                             <TagFilterDropdown tags={tags} value={filterTagNames} onChange={setFilterTagNames} />
+                            <AuthorFilterDropdown authors={allAuthors} value={filterAuthors} onChange={setFilterAuthors} />
                         </div>
                         </div>
 
