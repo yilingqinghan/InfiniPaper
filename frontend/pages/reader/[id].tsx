@@ -1,3 +1,4 @@
+// The new file content begins here
 "use client";
 
 import React from "react";
@@ -59,10 +60,10 @@ function selectionToOffsets(container: HTMLElement) {
   return { start: a, end: b, quote };
 }
 
-/** 用更稳妥的方式包裹选区：extractContents + insertNode，避免 InvalidStateError */
+/** 更稳妥的包裹：extractContents + insertNode */
 function wrapRange(range: Range, tagName: string, attrs: Record<string, string>, styles: Record<string, string>) {
   const el = document.createElement(tagName);
-  Object.entries(attrs || {}).forEach(([k, v]) => (el.setAttribute(k, v)));
+  Object.entries(attrs || {}).forEach(([k, v]) => el.setAttribute(k, v));
   Object.entries(styles || {}).forEach(([k, v]) => ((el.style as any)[k] = v));
   const frag = range.extractContents();
   el.appendChild(frag);
@@ -70,32 +71,40 @@ function wrapRange(range: Range, tagName: string, attrs: Record<string, string>,
   return el;
 }
 
-function highlightByOffsets(container: HTMLElement, start: number, end: number, id: string, color: string) {
+/**
+ * 将 [start,end) 的线性区间拆成多个纯文本范围逐段高亮，
+ * 避免把整个 <p> 等块级元素包进 <mark> 导致布局异常。
+ */
+function highlightOffsetsMulti(container: HTMLElement, start: number, end: number, id: string, color: string) {
   const { segments } = getLinearTextAndMap(container);
-
-  let sNode: Text | null = null, sOff = 0, eNode: Text | null = null, eOff = 0;
-  for (const seg of segments) {
-    if (!sNode && start >= seg.start && start <= seg.end) {
-      sNode = seg.node; sOff = start - seg.start;
+  const created: HTMLElement[] = [];
+  segments.forEach((seg) => {
+    const L = Math.max(start, seg.start);
+    const R = Math.min(end, seg.end);
+    if (L < R) {
+      const r = document.createRange();
+      r.setStart(seg.node, L - seg.start);
+      r.setEnd(seg.node, R - seg.start);
+      const el = wrapRange(
+        r,
+        "mark",
+        { "data-ann-id": id, class: "ann-mark" },
+        { background: color || "#FFE58F", padding: "0 2px" }
+      );
+      created.push(el as HTMLElement);
     }
-    if (!eNode && end >= seg.start && end <= seg.end) {
-      eNode = seg.node; eOff = end - seg.start;
-    }
-    if (sNode && eNode) break;
-  }
-  if (!sNode || !eNode) return;
+  });
+  return created;
+}
 
-  const range = document.createRange();
-  range.setStart(sNode, sOff);
-  range.setEnd(eNode, eOff);
+function highlightByOffsets(container: HTMLElement, start: number, end: number, id: string, color: string) {
+  return highlightOffsetsMulti(container, start, end, id, color);
+}
 
-  const el = wrapRange(
-    range,
-    "mark",
-    { "data-ann-id": id },
-    { background: color || "#FFE58F", padding: "0 2px" }
-  );
-  return el as HTMLElement;
+// 浮动层判断：工具条/右键菜单/备注面板等
+function isInFloating(target: EventTarget | null) {
+  const el = target as HTMLElement | null;
+  return !!el?.closest?.('[data-floating-ui]');
 }
 
 /* -------------------- Markdown修饰（作者块/参考文献锚点） -------------------- */
@@ -368,7 +377,8 @@ export default function ReaderPage() {
     const box = mdContainerRef.current;
     if (!box) return;
 
-    const onMouseUp = () => {
+    const onMouseUp = (e: MouseEvent) => {
+      if (isInFloating(e.target)) return;
       const info = selectionToOffsets(box);
       if (!info || info.quote.trim().length === 0) {
         setSelectionBox((s) => ({ ...s, show: false }));
@@ -385,6 +395,7 @@ export default function ReaderPage() {
     };
 
     const onContextMenu = (e: MouseEvent) => {
+      if (isInFloating(e.target)) return;
       const target = e.target as HTMLElement | null;
       if (!target) return;
       const host = mdContainerRef.current!;
@@ -431,31 +442,56 @@ export default function ReaderPage() {
     setNoteLayout(arr);
   }, [annos]);
 
-  // 询问 LLM
-  const askLLM = async () => {
+  // LLM 聊天
+  const [chat, setChat] = React.useState<{ role: 'user' | 'assistant'; text: string }[]>([]);
+  const [promptText, setPromptText] = React.useState('');
+  const askLLM = () => {
     if (!selPayload) return;
     setLlmOpen(true);
+    setPromptText(`请基于以下摘录进行解释/总结，并指出关键点：\n\n${selPayload.quote}`);
+    setChat([]);
+    setLlmLoading(false);
+  };
+  const sendLLM = async () => {
+    if (!promptText.trim()) return;
     setLlmLoading(true);
-    setLlmAnswer("");
+    setChat((c) => [...c, { role: 'user', text: promptText }]);
     try {
       const r = await fetch(api(`/api/v1/llm/ask`), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: `请基于以下摘录进行解释/总结，并指出关键点：\n\n${selPayload.quote}`, context: `Paper #${id}` }),
+        body: JSON.stringify({ prompt: promptText, context: `Paper #${id}` }),
       });
-      const data = await r.json();
-      setLlmAnswer(data?.text || "(空)");
+      if (!r.ok) {
+        const t = await r.text();
+        setChat((c) => [...c, { role: 'assistant', text: `服务错误：${r.status} ${t}` }]);
+      } else {
+        const data = await r.json();
+        setChat((c) => [...c, { role: 'assistant', text: data?.text || "(空)" }]);
+      }
     } catch (e: any) {
-      setLlmAnswer(`调用失败：${e?.message || e}`);
+      setChat((c) => [...c, { role: 'assistant', text: `调用失败：${e?.message || e}` }]);
     } finally {
       setLlmLoading(false);
     }
   };
 
-  // 添加批注（颜色可选）
-  const addAnnotation = async () => {
+  // 备注弹窗
+  const [noteEditor, setNoteEditor] = React.useState<{ show: boolean; x: number; y: number; text: string }>({ show: false, x: 0, y: 0, text: "" });
+
+  // 弹出备注编辑器
+  const openNoteEditor = () => {
+    if (!selectionBox.show) return;
+    const host = mdContainerRef.current;
+    if (!host) return;
+    const hostRect = host.getBoundingClientRect();
+    const absX = hostRect.left + selectionBox.x;
+    const absY = hostRect.top + selectionBox.y;
+    setNoteEditor({ show: true, x: absX, y: absY, text: "" });
+  };
+
+  const doAddAnnotation = async (note: string) => {
     if (!selPayload || !id) return;
-    const note = prompt("给这个高亮添加备注（可留空）", "") || "";
     const color = pickedColor || "#FFE58F";
     const annId = crypto.randomUUID();
 
@@ -476,14 +512,15 @@ export default function ReaderPage() {
     } catch {}
     setSelectionBox((s) => ({ ...s, show: false }));
     setSelPayload(null);
+    setNoteEditor({ show: false, x: 0, y: 0, text: "" });
   };
 
+  // 改色 & 删除（右键菜单）
   // 改色 & 删除（右键菜单）
   const applyAnnColor = async (annId: string, color: string) => {
     const host = mdContainerRef.current;
     if (!host) return;
-    const el = host.querySelector<HTMLElement>(`[data-ann-id="${annId}"]`);
-    if (el) el.style.background = color;
+    host.querySelectorAll<HTMLElement>(`[data-ann-id="${annId}"]`).forEach((el) => (el.style.background = color));
     setAnnos((list) => list.map((x) => (x.id === annId ? { ...x, color } : x)));
     try {
       await fetch(api(`/api/v1/annotations/${id}/${annId}`), { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ color }) });
@@ -494,14 +531,14 @@ export default function ReaderPage() {
   const deleteAnnotation = async (annId: string) => {
     const host = mdContainerRef.current;
     if (host) {
-      const el = host.querySelector<HTMLElement>(`[data-ann-id="${annId}"]`);
-      if (el) {
+      host.querySelectorAll<HTMLElement>(`[data-ann-id="${annId}"]`).forEach((el) => {
         const parent = el.parentNode as Node;
         while (el.firstChild) parent.insertBefore(el.firstChild, el);
         parent.removeChild(el);
-      }
+      });
     }
     setAnnos((list) => list.filter((x) => x.id !== annId));
+    setTimeout(() => computeSidebarLayout(), 0);
     try {
       await fetch(api(`/api/v1/annotations/${id}/${annId}`), { method: "DELETE" });
     } catch {}
@@ -554,7 +591,7 @@ export default function ReaderPage() {
         <link rel="stylesheet" href="/css/reader.css" />
       </Head>
 
-      <div className="flex items-center gap-3 px-3 py-2 border-b bg-white">
+      <div className="flex items-center gap-3 px-3 py-2 border-b bg-gradient-to-r from-white to-indigo-50/30">
         <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={() => router.back()}>
           ← 返回
         </button>
@@ -568,14 +605,15 @@ export default function ReaderPage() {
         </div>
       </div>
 
-      <div className="flex-1 grid grid-cols-2 gap-0">
+      {/* 三列布局：40% / 40% / 20% */}
+      <div className="flex-1 grid" style={{ gridTemplateColumns: "40% 40% 20%" }}>
         {/* LEFT: PDF */}
         <div className="relative border-r">
           {pdfUrl ? <PdfPane fileUrl={viewerUrl} className="h-full" /> : <div className="p-6 text-gray-500">未找到 PDF 地址</div>}
         </div>
 
-        {/* RIGHT: Markdown + tools + sidebar notes */}
-        <div className="relative">
+        {/* MIDDLE: Markdown + tools */}
+        <div className="relative border-r">
           {loading && (
             <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
               <div className="animate-spin w-8 h-8 border-2 border-gray-400 border-t-transparent rounded-full" />
@@ -584,7 +622,7 @@ export default function ReaderPage() {
           )}
 
           <div
-            className="h-full overflow-auto p-4 relative pr-[280px]" /* 右侧留出批注栏空间 */
+            className="h-full overflow-auto p-4 relative"
             style={{ ["--md-font-size" as any]: `${mdFont}px` }}
             ref={mdContainerRef}
           >
@@ -652,6 +690,13 @@ export default function ReaderPage() {
                 >
                   {md}
                 </ReactMarkdown>
+
+                {/* 连接线层（横线对齐到右侧批注栏边缘） */}
+                <div className="pointer-events-none absolute inset-0">
+                  {noteLayout.map(({ id, top }) => (
+                    <div key={`line-${id}`} className="absolute h-[1px] bg-indigo-100" style={{ top: top + 12, left: 0, right: 0 }} />
+                  ))}
+                </div>
               </article>
             ) : (
               !loading && <div className="text-gray-500">暂无解析内容</div>
@@ -660,7 +705,8 @@ export default function ReaderPage() {
             {/* 选区浮动工具条 */}
             {selectionBox.show && selPayload && (
               <div
-                className="absolute z-20 bg-white shadow-lg border rounded flex items-center gap-1 px-1 py-1"
+                data-floating-ui
+                className="absolute z-20 bg-white shadow-lg border border-indigo-100 rounded flex items-center gap-1 px-1 py-1"
                 style={{ left: selectionBox.x, top: selectionBox.y, transform: "translate(-50%, -100%)" }}
                 onMouseDown={(e) => e.preventDefault()}
               >
@@ -676,14 +722,16 @@ export default function ReaderPage() {
                 ))}
                 <span className="mx-1 text-gray-300">|</span>
                 <button className="px-2 py-1 text-sm hover:bg-gray-50 border rounded" onClick={askLLM}>询问 LLM</button>
-                <button className="px-2 py-1 text-sm hover:bg-gray-50 border rounded" onClick={addAnnotation}>添加批注</button>
+                <button className="px-2 py-1 text-sm hover:bg-gray-50 border rounded" onClick={openNoteEditor}>添加批注</button>
                 <button className="px-2 py-1 text-sm text-gray-500 hover:bg-gray-50" onClick={() => setSelectionBox((s) => ({ ...s, show: false }))}>×</button>
               </div>
             )}
 
+
             {/* 右键菜单：改色/删除 */}
             {ctxMenu.show && ctxMenu.annId && (
               <div
+                data-floating-ui
                 className="absolute z-30 bg-white border shadow rounded p-2 text-sm"
                 style={{ left: ctxMenu.x, top: ctxMenu.y }}
                 onMouseDown={(e) => e.preventDefault()}
@@ -703,54 +751,91 @@ export default function ReaderPage() {
                 <button className="ml-2 px-2 py-1 text-gray-500 hover:bg-gray-50" onClick={() => setCtxMenu({ show: false, x: 0, y: 0, annId: null })}>取消</button>
               </div>
             )}
+          </div>
+        </div>
 
-            {/* 右侧 Word 风格批注栏 */}
-            <div className="absolute top-0 right-0 w-[260px] h-full pointer-events-none">
-              {/* 连接线层（简单水平线） */}
-              <div className="absolute inset-0">
-                {noteLayout.map(({ id, top }) => (
-                  <div key={`line-${id}`} className="absolute h-[1px] bg-gray-300" style={{ top: top + 12, left: 0, right: 240 }} />
-                ))}
-              </div>
-              {/* 批注卡片层 */}
-              <div className="absolute inset-0 pr-3">
-                {annos.map((a) => {
-                  const pos = noteLayout.find((x) => x.id === a.id)?.top ?? 0;
-                  return (
-                    <div
-                      key={`note-${a.id}`}
-                      className="absolute right-2 w-[240px] bg-white border rounded shadow-sm p-2 text-xs leading-5 pointer-events-auto"
-                      style={{ top: pos }}
-                    >
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="inline-block w-3 h-3 rounded-full border" style={{ background: a.color }} />
-                        <span className="text-gray-500">批注</span>
-                        <button className="ml-auto text-gray-400 hover:text-gray-600" title="删除" onClick={() => deleteAnnotation(a.id)}>×</button>
-                      </div>
-                      <div className="text-gray-800 whitespace-pre-wrap">{a.note || "（无备注）"}</div>
+        {/* RIGHT: 批注侧栏 */}
+        <div className="relative">
+          <div className="absolute inset-0 overflow-auto p-3 space-y-3">
+            {annos.map((a) => {
+              const pos = noteLayout.find((x) => x.id === a.id)?.top ?? 0;
+              return (
+                <div key={`note-${a.id}`} className="relative">
+                  <div className="absolute left-[-16px] top-3 w-3 h-[1px] bg-gray-300" />
+                  <div
+                    className="bg-white/95 border border-indigo-100 rounded-lg shadow-sm p-2 text-xs leading-5"
+                    style={{ marginTop: pos }}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="inline-block w-3 h-3 rounded-full border" style={{ background: a.color }} />
+                      <span className="text-gray-500">批注</span>
+                      <button className="ml-auto text-gray-400 hover:text-gray-600" title="删除" onClick={() => deleteAnnotation(a.id)}>×</button>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* LLM 弹窗 */}
-            {llmOpen && (
-              <div className="absolute inset-0 z-40 bg-black/20 flex items-center justify-center" onClick={() => setLlmOpen(false)}>
-                <div className="bg-white w-[min(720px,90%)] max-h-[80%] overflow-auto rounded shadow-xl p-4" onClick={(e) => e.stopPropagation()}>
-                  <div className="flex items-center mb-2">
-                    <div className="font-medium">LLM 回答</div>
-                    <div className="ml-auto">
-                      <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50 rounded" onClick={() => setLlmOpen(false)}>关闭</button>
-                    </div>
+                    <div className="text-gray-800 whitespace-pre-wrap">{a.note || "（无备注）"}</div>
                   </div>
-                  {llmLoading ? <div className="text-gray-500">思考中…</div> : <pre className="whitespace-pre-wrap text-sm leading-6">{llmAnswer}</pre>}
                 </div>
-              </div>
-            )}
+              );
+            })}
           </div>
         </div>
       </div>
+
+      {/* 备注编辑弹窗（固定在视口，避免打断选区） */}
+      {noteEditor.show && (
+        <div
+          data-floating-ui
+          className="fixed z-40 bg-white border shadow-xl rounded p-3 w-[min(380px,90%)]"
+          style={{ left: noteEditor.x, top: noteEditor.y, transform: "translate(-50%, 8px)" }}
+          onMouseDown={(e) => e.stopPropagation()}
+        >
+          <div className="text-sm text-gray-600 mb-2">给当前高亮添加备注</div>
+          <textarea
+            className="w-full h-24 border rounded p-2 text-sm"
+            value={noteEditor.text}
+            onChange={(e) => setNoteEditor((s) => ({ ...s, text: e.target.value }))}
+            placeholder="写点想法、问题或待办…"
+          />
+          <div className="mt-2 flex items-center gap-2">
+            <button className="px-3 py-1 rounded bg-black text-white text-sm" onClick={() => doAddAnnotation(noteEditor.text)}>保存</button>
+            <button className="px-3 py-1 rounded border text-sm" onClick={() => setNoteEditor({ show: false, x: 0, y: 0, text: "" })}>取消</button>
+          </div>
+        </div>
+      )}
+
+      {/* LLM 弹窗 */}
+      {llmOpen && (
+        <div className="fixed inset-0 z-40 bg-black/30 flex items-center justify-center" onClick={() => setLlmOpen(false)}>
+          <div className="bg-white w-[min(760px,92%)] max-h-[80%] overflow-auto rounded-2xl shadow-2xl p-4 border" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center mb-3">
+              <div className="font-semibold text-lg">本地 LLM 对话</div>
+              <div className="ml-auto">
+                <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50 rounded" onClick={() => setLlmOpen(false)}>关闭</button>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="max-h-64 overflow-auto space-y-2">
+                {chat.map((m, i) => (
+                  <div key={i} className={m.role === 'user' ? "text-sm p-2 rounded bg-indigo-50" : "text-sm p-2 rounded bg-gray-50"}>
+                    <div className="text-xs text-gray-500 mb-1">{m.role === 'user' ? "你" : "助手"}</div>
+                    <div className="whitespace-pre-wrap">{m.text}</div>
+                  </div>
+                ))}
+                {llmLoading && <div className="text-sm text-gray-500">思考中…</div>}
+              </div>
+              <textarea
+                className="w-full h-28 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                value={promptText}
+                onChange={(e) => setPromptText(e.target.value)}
+                placeholder="在这里编辑你的提问，支持粘贴当前选中内容"
+              />
+              <div className="flex items-center justify-end gap-2">
+                <button className="px-3 py-1 rounded border text-sm" onClick={() => setLlmOpen(false)}>取消</button>
+                <button className="px-3 py-1 rounded bg-indigo-600 text-white text-sm disabled:opacity-60" disabled={llmLoading} onClick={sendLLM}>发送</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
