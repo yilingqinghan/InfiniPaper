@@ -1,7 +1,10 @@
+// frontend/pages/reader/[id].tsx
 "use client";
+
 import React from "react";
-import { useRouter } from "next/router";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -16,6 +19,10 @@ type ParseResp = {
   md?: string | null;
   html_file?: string | null;
   md_file?: string | null;
+  cache_key?: string | null;
+  assets_base?: string | null; // 现在是绝对URL，例如 http://127.0.0.1:8000/api/v1/mineru/assets/<key>
+  md_rel?: string | null;
+  md_base?: string | null;     // 例如 "<title>/auto"
 };
 
 export default function ReaderPage() {
@@ -29,39 +36,37 @@ export default function ReaderPage() {
   const [md, setMd] = React.useState<string | null>(null);
   const [pdfUrl, setPdfUrl] = React.useState<string>("");
 
-  // PDF.js：使用本地 /public/pdfjs/web/viewer.html （需要下面的拷贝步骤）
-  const PDFJS_VIEWER =
-    process.env.NEXT_PUBLIC_PDFJS_URL || "/pdfjs/web/viewer.html";
+  const [cacheKey, setCacheKey] = React.useState<string | null>(null);
+  const [assetsBase, setAssetsBase] = React.useState<string | null>(null);
+  const [mdRel, setMdRel] = React.useState<string | null>(null);
+  const [mdBase, setMdBase] = React.useState<string | null>(null);
 
-  // 后端 API 基座（推荐设置为 http://127.0.0.1:8000）
+  const PDFJS_VIEWER = process.env.NEXT_PUBLIC_PDFJS_URL || "/pdfjs/web/viewer.html";
   const apiBase = (process.env.NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
-  const api = React.useCallback(
-    (path: string) => (apiBase ? `${apiBase}${path}` : path),
-    [apiBase]
-  );
+  const api = React.useCallback((path: string) => (apiBase ? `${apiBase}${path}` : path), [apiBase]);
 
-  // 统一把 “/files/xxx.pdf” 变成：
-  // viewer 用于 iframe（同域）; backend 用于后端下载（127.0.0.1:8000）
+  const viewerUrl = React.useMemo(() => {
+    if (!pdfUrl) return "";
+    const abs = /^https?:\/\//i.test(pdfUrl) ? pdfUrl : `${typeof window !== "undefined" ? window.location.origin : ""}${pdfUrl}`;
+    return `${PDFJS_VIEWER}?file=${encodeURIComponent(abs)}#zoom=page-width`;
+  }, [pdfUrl, PDFJS_VIEWER]);
+
   const buildPdfUrls = React.useCallback((raw: string) => {
     let viewer = "";
     let backend = "";
     if (!raw) return { viewer, backend };
 
-    // viewer：同当前前端域
     if (/^https?:\/\//i.test(raw)) viewer = raw;
     else if (raw.startsWith("/")) viewer = `${window.location.origin}${raw}`;
     else viewer = raw;
 
-    // backend：/files/* 一律指向后端基座（避免 3000 代理/IPv6）
     if (/^https?:\/\//i.test(raw)) backend = raw;
-    else if (raw.startsWith("/files/"))
-      backend = `${apiBase || "http://127.0.0.1:8000"}${raw}`;
+    else if (raw.startsWith("/files/")) backend = `${apiBase || "http://127.0.0.1:8000"}${raw}`;
     else backend = raw;
 
     return { viewer, backend };
   }, [apiBase]);
 
-  // 初次确定 pdfUrl（允许从接口再拉取一次）
   React.useEffect(() => {
     if (!id) return;
     const ensurePdf = async () => {
@@ -80,7 +85,6 @@ export default function ReaderPage() {
     ensurePdf();
   }, [id, pdfFromQuery, api]);
 
-  // 仅触发一次 MinerU 解析，避免重复请求
   const startedRef = React.useRef(false);
   React.useEffect(() => {
     if (!id || startedRef.current) return;
@@ -106,8 +110,13 @@ export default function ReaderPage() {
         });
         if (!r.ok) throw new Error(await r.text());
         const data: ParseResp = await r.json();
+
         setHtml(data.html ?? null);
         setMd(data.md ?? null);
+        setCacheKey(data.cache_key ?? null);
+        setAssetsBase(data.assets_base ?? null);
+        setMdRel(data.md_rel ?? null);
+        setMdBase(data.md_base ?? null);
       } catch (e: any) {
         setErr(e?.message || String(e));
       } finally {
@@ -116,39 +125,16 @@ export default function ReaderPage() {
     })();
   }, [id, pdfFromQuery, buildPdfUrls, api]);
 
-  // 左侧 viewer 的 URL（默认按页宽显示）
-  const viewerUrl = React.useMemo(() => {
-    if (!pdfUrl) return "";
-    const abs = /^https?:\/\//i.test(pdfUrl)
-      ? pdfUrl
-      : `${window.location.origin}${pdfUrl}`;
-    return `${PDFJS_VIEWER}?file=${encodeURIComponent(abs)}#zoom=page-width`;
-  }, [pdfUrl, PDFJS_VIEWER]);
-
   return (
     <div className="h-screen w-screen flex flex-col">
       <Head>
-        {/* 数学公式（KaTeX） */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
-        />
-        {/* GitHub Markdown 渲染风格 */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-light.min.css"
-        />
-        {/* 代码高亮（GitHub 主题） */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css"
-        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-light.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css" />
       </Head>
+
       <div className="flex items-center gap-3 px-3 py-2 border-b bg-white">
-        <button
-          className="px-2 py-1 rounded border hover:bg-gray-50"
-          onClick={() => router.back()}
-        >
+        <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={() => router.back()}>
           ← 返回
         </button>
         <div className="text-sm text-gray-500">
@@ -159,7 +145,6 @@ export default function ReaderPage() {
       </div>
 
       <div className="flex-1 grid grid-cols-2 gap-0">
-        {/* 左：PDF */}
         <div className="relative border-r">
           {pdfUrl ? (
             <iframe title="pdf" src={viewerUrl} className="w-full h-full" />
@@ -168,14 +153,14 @@ export default function ReaderPage() {
           )}
         </div>
 
-        {/* 右：解析产物 */}
         <div className="relative">
           {loading && (
             <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
               <div className="animate-spin w-8 h-8 border-2 border-gray-400 border-t-transparent rounded-full" />
-              <div className="mt-3 text-sm text-gray-600">MinerU 正在解析，请稍候…</div>
+              <div className="mt-3 text-sm text-gray-600">MinerU 正在解析/读取缓存…</div>
             </div>
           )}
+
           <div className="h-full overflow-auto p-4">
             {html ? (
               <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
@@ -185,9 +170,37 @@ export default function ReaderPage() {
                   remarkPlugins={[remarkGfm, remarkMath]}
                   rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}
                   components={{
-                    a: ({ node, ...props }) => (
-                      <a {...props} target="_blank" rel="noreferrer" />
-                    ),
+                    a: ({ node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
+                    img: ({ node, src = "", alt, ...props }) => {
+                      // 绝对链接：原样
+                      if (/^https?:\/\//i.test(src)) {
+                        return <img src={src} alt={typeof alt === "string" ? alt : ""} {...props} />;
+                      }
+
+                      // 资源基座（后端已返回绝对 URL）
+                      const base =
+                        assetsBase ||
+                        (cacheKey ? `${apiBase}/api/v1/mineru/assets/${cacheKey}` : "");
+
+                      if (!base) {
+                        return <img src={src} alt={typeof alt === "string" ? alt : ""} {...props} />;
+                      }
+
+                      // 计算前缀：优先 mdBase，否则 mdRel
+                      const relBase = (mdBase || mdRel || "").replace(/^\/+|\/+$/g, "");
+                      const prefix = relBase ? `${base.replace(/\/+$/, "")}/${relBase}/` : `${base.replace(/\/+$/, "")}/`;
+
+                      // 关键修复：用 URL API 拼接，避免把 http:// 变成 http:/
+                      let final = src;
+                      try {
+                        final = new URL(src.replace(/^\/+/, ""), prefix).toString();
+                      } catch {
+                        // 兜底：不用任何“规范化”，只做简单拼接（绝不动协议双斜杠）
+                        final = `${prefix}${src.replace(/^\/+/, "")}`;
+                      }
+
+                      return <img src={final} alt={typeof alt === "string" ? alt : ""} {...props} />;
+                    },
                   }}
                 >
                   {md}
