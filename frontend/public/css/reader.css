@@ -189,3 +189,8 @@ html { scroll-behavior: smooth; }
 .markdown-body .author-block,
 .markdown-body .author-block * { text-indent: 0 !important; }
 .markdown-body [id^="ref-"] { text-indent: 0 !important; }
+mark[data-ann-id] {
+  background: #ffe58f;
+  border-radius: 2px;
+  padding: 0 2px;
+}

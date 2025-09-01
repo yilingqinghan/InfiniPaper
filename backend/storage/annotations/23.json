@@ -1,0 +1,28 @@
+[
+  {
+    "id": "05b4f5c8-1828-40d4-9cc7-2288592d5899",
+    "paper_id": 23,
+    "anchor": {
+      "start": 15,
+      "end": 22,
+      "quote": "kdown ."
+    },
+    "note": "",
+    "color": "#FFE58F",
+    "created_at": "2025-09-01T12:00:35.813613",
+    "updated_at": "2025-09-01T12:00:35.813613"
+  },
+  {
+    "id": "c6e03787-7973-4c2a-a86f-c8d79db96bde",
+    "paper_id": 23,
+    "anchor": {
+      "start": 642,
+      "end": 989,
+      "quote": "ependencies (e.g., user-defined attributes), resulting in dependency errors such as undefined-variable and no-member errors. In this work, we introduce ToolGen, an approach that integrates autocompletion tools into the code LLM generation process to address these dependencies. ToolGen comprises two main phases: Trigger Insertion and Model Fine-t"
+    },
+    "note": "",
+    "color": "#FFE58F",
+    "created_at": "2025-09-01T12:04:25.011979",
+    "updated_at": "2025-09-01T12:04:25.011979"
+  }
+]

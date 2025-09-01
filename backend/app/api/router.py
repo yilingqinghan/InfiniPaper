@@ -52,6 +52,18 @@ try:
 except Exception as e:
     print("[router] skip mineru:", repr(e))
 
+try:
+    from .v1 import llm
+    api_router.include_router(llm.router, prefix="/llm", tags=["llm"])
+except Exception as e:
+    print("[router] skip llm:", repr(e))
+
+try:
+    from .v1 import annotations
+    api_router.include_router(annotations.router, prefix="/annotations", tags=["annotations"])
+except Exception as e:
+    print("[router] skip annotations:", repr(e))
+
 # —— folders 子模块（稳健导入，避免包索引/循环依赖导致 404）——
 try:
     import importlib
