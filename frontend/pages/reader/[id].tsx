@@ -4,6 +4,133 @@ import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+// --- Helpers to prettify markdown ---
+// A) Wrap top author block with separators and no-indent
+function decorateAuthorBlock(md: string): string {
+  try {
+    const lines = md.split(/\r?\n/);
+
+    // utility to test whether a block looks like author+affiliation content
+    const looksLikeAuthorBlock = (arr: string[]) => {
+      if (!arr.length) return false;
+      const text = arr.join(" ");
+      const hasAff = /(University|Institute|Laboratory|College|School|Department|Faculty)/i.test(text);
+      const hasCommaNames = arr.some((l) => /,\s*[A-Z]/.test(l));
+      const manyShortLines = arr.length >= 2 && arr.length <= 20;
+      return (hasAff || hasCommaNames) && manyShortLines;
+    };
+
+    // 1) find first heading (# or ##) as paper title
+    let hIdx = lines.findIndex((l) => /^\s*#{1,2}\s+/.test(l));
+
+    // candidate blocks: (a) from top until blank/heading; (b) lines after first heading until blank line
+    const candidates: Array<{start:number,end:number}> = [];
+
+    // (a) block at very top before any heading
+    {
+      let i = 0;
+      while (i < lines.length && !lines[i].trim()) i++;
+      const start = i;
+      let end = i;
+      for (; end < lines.length; end++) {
+        const ln = lines[end];
+        if (!ln.trim()) break;
+        if (/^\s*#/.test(ln)) break;
+      }
+      if (end > start) candidates.push({ start, end });
+    }
+
+    // (b) block right after first heading
+    if (hIdx >= 0) {
+      let i = hIdx + 1;
+      // skip 0-2 blank lines just after heading
+      let blanks = 0;
+      while (i < lines.length && blanks < 3 && !lines[i].trim()) { i++; blanks++; }
+      const start = i;
+      let end = i;
+      for (; end < lines.length; end++) {
+        const ln = lines[end];
+        if (!ln.trim()) break;
+        if (/^\s*#/.test(ln)) break;
+      }
+      if (end > start) candidates.push({ start, end });
+    }
+
+    for (const { start, end } of candidates) {
+      const slice = lines.slice(start, end);
+      if (!looksLikeAuthorBlock(slice)) continue;
+
+      const before = lines.slice(0, start).join("\n");
+      const after = lines.slice(end).join("\n");
+      const items = slice.map((s) => s.trim()).filter(Boolean);
+      const inner = items.map((t) => `<p>${t}</p>`).join("\n");
+      const wrapped = `${before}\n<div class=\"author-block\">\n${inner}\n</div>\n\n<hr class=\"body-hr\"/>\n${after}`;
+      return wrapped.trim();
+    }
+  } catch {}
+  return md;
+}
+
+// B) Remark plugin: turn [1] into links to #ref-1 and add ids to reference entries
+function remarkCiteLinks() {
+  return (tree: any) => {
+    const isSkippable = (node: any) => node && (node.type === 'link' || node.type === 'inlineCode' || node.type === 'code');
+
+    // Simple recursive walk with parent/idx
+    const walk = (node: any, parent: any = null) => {
+      if (!node || isSkippable(node)) return;
+
+      // Paragraphs starting with [N] —> give id="ref-N"
+      if (node.type === 'paragraph' && Array.isArray(node.children) && node.children.length) {
+        const first = node.children[0];
+        if (first && first.type === 'text') {
+          const m = first.value && first.value.match(/^\s*\[(\d+)\]\s*/);
+          if (m) {
+            const id = `ref-${m[1]}`;
+            node.data = node.data || {};
+            node.data.hProperties = { ...(node.data.hProperties || {}), id };
+          }
+        }
+      }
+
+      // Linkify [N] in plain text nodes
+      if (node.type === 'text' && parent && Array.isArray(parent.children)) {
+        const value: string = node.value || '';
+        const parts: any[] = [];
+        let last = 0;
+        const regex = /\[(\d+)\]/g;
+        let m: RegExpExecArray | null;
+        while ((m = regex.exec(value))) {
+          const idx = m.index;
+          if (idx > last) parts.push({ type: 'text', value: value.slice(last, idx) });
+          const num = m[1];
+          parts.push({
+            type: 'link',
+            url: `#ref-${num}`,
+            data: { hProperties: { className: 'cite-link' } },
+            children: [{ type: 'text', value: `[${num}]` }],
+          });
+          last = idx + m[0].length;
+        }
+        if (parts.length) {
+          if (last < value.length) parts.push({ type: 'text', value: value.slice(last) });
+          const idx = parent.children.indexOf(node);
+          parent.children.splice(idx, 1, ...parts);
+          return; // children of new nodes will be visited in parent loop naturally
+        }
+      }
+
+      if (Array.isArray(node.children)) {
+        // copy because we may splice during iteration
+        const copy = [...node.children];
+        for (const child of copy) walk(child, node);
+      }
+    };
+
+    walk(tree, null);
+  };
+}
+
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -115,7 +242,7 @@ export default function ReaderPage() {
         const data: ParseResp = await r.json();
 
         setHtml(data.html ?? null);
-        setMd(data.md ?? null);
+        setMd(data.md ? decorateAuthorBlock(data.md) : null);
         setCacheKey(data.cache_key ?? null);
         setAssetsBase(data.assets_base ?? null);
         setMdRel(data.md_rel ?? null);
@@ -176,10 +303,37 @@ export default function ReaderPage() {
             ) : md ? (
               <article className="markdown-body">
                 <ReactMarkdown
-                  remarkPlugins={[remarkGfm, remarkMath]}
+                  remarkPlugins={[remarkGfm, remarkMath, remarkCiteLinks]}
                   rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}
                   components={{
-                    a: ({ node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
+                    a: ({ node, href, className, ...props }) => {
+                      const cls = (className || "").toString();
+                      const isCite = cls.includes("cite-link") || (typeof href === 'string' && href.startsWith('#ref-'));
+                      if (isCite) {
+                        return (
+                          <a
+                            href={href}
+                            className={className}
+                            onClick={(e) => {
+                              try {
+                                if (!href) return;
+                                if (href.startsWith('#')) {
+                                  e.preventDefault();
+                                  const id = href.slice(1);
+                                  const el = document.getElementById(id);
+                                  if (el) {
+                                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    if (history?.replaceState) history.replaceState(null, '', href);
+                                  }
+                                }
+                              } catch {}
+                            }}
+                            {...props}
+                          />
+                        );
+                      }
+                      return <a href={href} className={className} target="_blank" rel="noreferrer" {...props} />;
+                    },
 
                     // 表格外包一层，便于整体居中 + 横向滚动
                     table: ({ node, ...props }) => (
