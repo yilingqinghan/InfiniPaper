@@ -1,0 +1,191 @@
+/* public/css/reader.css */
+
+/* 全局 CSS 变量，前端可通过内联 style 改（用于字号、行距、页面宽度） */
+:root {
+  --md-font-size: 16px;       /* 正文字号 */
+  --md-line-height: 1.75;     /* 行距 */
+  --md-max-width: 52rem;      /* 版心宽度（~ 832px）*/
+  --md-text-color: #0f172a;   /* slate-900 */
+  --md-subtle: #6b7280;       /* gray-500 */
+  --md-border: #e5e7eb;       /* gray-200 */
+}
+
+.markdown-body .author-block { text-indent: 0 !important; }
+.markdown-body .author-block * { text-indent: 0 !important; }
+/* reference entry paragraphs created by remarkCiteLinks carry id="ref-N" on <p> */
+.markdown-body [id^="ref-"] { text-indent: 0 !important; }
+
+/* 论文主体容器（和 react-markdown 外层的 .markdown-body 匹配） */
+.markdown-body {
+  color: var(--md-text-color);
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: var(--md-font-size);
+  line-height: var(--md-line-height);
+  max-width: var(--md-max-width);
+  margin: 0 auto;
+}
+
+/* 标题用无衬线，层级更清晰 */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-weight: 800;
+  letter-spacing: .1px;
+  color: #0b1220;
+  margin-top: 1.6em;
+  margin-bottom: .6em;
+}
+.markdown-body h1 { font-size: 2rem; }
+.markdown-body h2 { font-size: 1.6rem; }
+.markdown-body h3 { font-size: 1.25rem; }
+
+/* 段落与列表 */
+.markdown-body p {
+  margin: 0.95em 0;
+  text-indent: 2em; /* 段落首行缩进两字符 */
+}
+.markdown-body li p,
+.markdown-body blockquote p,
+.markdown-body figure figcaption,
+.markdown-body pre,
+.markdown-body .katex-display { text-indent: 0; }
+.markdown-body li { margin: .3em 0; }
+
+/* 图片：统一居中、等比缩放、轻阴影和圆角 */
+.markdown-body img {
+  display: block;
+  margin: .75rem auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(2, 6, 23, .08);
+}
+
+/* figure + figcaption：支持图片说明文字 */
+.markdown-body figure {
+  margin: 1rem auto;
+  text-align: center;
+}
+.markdown-body figure > figcaption {
+  margin-top: .4rem;
+  font-size: .875rem;
+  color: var(--md-subtle);
+}
+
+/* 水平分割线（正文前/作者块上下） */
+.markdown-body hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d1d5db, transparent);
+  margin: 1.25rem auto;
+}
+
+/* 作者区块：上下分割线，居中排版，略小字号 */
+.markdown-body .author-block {
+  border-top: 1px solid var(--md-border);
+  border-bottom: 1px solid var(--md-border);
+  padding: .75rem 0;
+  margin: 1rem 0 1.5rem;
+  text-align: center;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* 表格：居中、边框、条纹 */
+.markdown-body .md-table {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+.markdown-body table {
+  border-collapse: collapse;
+  margin: 1rem auto;
+  min-width: 60%;
+  background: #fff;
+  border: 1px solid var(--md-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.markdown-body thead th {
+  background: #f8fafc; /* slate-50 */
+  font-weight: 700;
+}
+.markdown-body th,
+.markdown-body td {
+  border-bottom: 1px solid var(--md-border);
+  padding: .6rem .8rem;
+  vertical-align: middle;
+  text-align: center; /* 居中 */
+}
+.markdown-body tbody tr:nth-child(odd) td {
+  background: #fbfdff;
+}
+
+/* 数学公式：行间公式居中，行内公式保持默认 */
+.markdown-body .katex-display {
+  display: block;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+/* 代码与高亮 */
+.markdown-body code {
+  background: #f6f8fa;
+  border: 1px solid #eef2f7;
+  padding: .15em .35em;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+.markdown-body pre {
+  background: #0b1020; /* 深色背景 */
+  color: #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  overflow: auto;
+}
+.markdown-body pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+/* 引用 */
+.markdown-body blockquote {
+  background: #f9fafb;
+  color: #475569;
+  border-left: 4px solid #cbd5e1;
+  margin: 1rem 0;
+  padding: .6rem .9rem;
+  border-radius: 6px;
+}
+
+/* 链接与脚注 */
+.markdown-body a {
+  color: #2563eb;
+  text-decoration: none;
+}
+.markdown-body a:hover { text-decoration: underline; }
+.markdown-body sup { font-size: .75em; }
+
+/* 小屏阅读优化 */
+@media (max-width: 768px) {
+  :root { --md-max-width: 100%; }
+}
+
+/* Smooth scroll for in-page reference jumps */
+html { scroll-behavior: smooth; }
+
+/* Invisible anchors used for reference targets */
+.markdown-body .ref-anchor {
+  display: inline-block;
+  width: 0; height: 0; overflow: hidden;
+}
+
+/* 强制“作者块”和“参考文献条目”不缩进（覆盖段落首行缩进） */
+.markdown-body .author-block,
+.markdown-body .author-block * { text-indent: 0 !important; }
+.markdown-body [id^="ref-"] { text-indent: 0 !important; }

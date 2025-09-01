@@ -72,64 +72,102 @@ function decorateAuthorBlock(md: string): string {
 }
 
 // B) Remark plugin: turn [1] into links to #ref-1 and add ids to reference entries
-function remarkCiteLinks() {
-  return (tree: any) => {
-    const isSkippable = (node: any) => node && (node.type === 'link' || node.type === 'inlineCode' || node.type === 'code');
-
-    // Simple recursive walk with parent/idx
-    const walk = (node: any, parent: any = null) => {
-      if (!node || isSkippable(node)) return;
-
-      // Paragraphs starting with [N] —> give id="ref-N"
-      if (node.type === 'paragraph' && Array.isArray(node.children) && node.children.length) {
-        const first = node.children[0];
-        if (first && first.type === 'text') {
-          const m = first.value && first.value.match(/^\s*\[(\d+)\]\s*/);
-          if (m) {
-            const id = `ref-${m[1]}`;
-            node.data = node.data || {};
-            node.data.hProperties = { ...(node.data.hProperties || {}), id };
+// B) Remark plugin: add anchors in References section and linkify in-text citations elsewhere
+function remarkCiteAnchorsAndLinks() {
+    return (tree: any) => {
+      const nodeText = (node: any): string => {
+        if (!node) return "";
+        if (typeof node.value === "string") return node.value;
+        if (Array.isArray(node.children)) return node.children.map(nodeText).join("");
+        return "";
+      };
+  
+      const isSkippable = (node: any) =>
+        node && (node.type === "link" || node.type === "inlineCode" || node.type === "code");
+  
+      let inRefs = false;
+      let refDepth = 0;
+  
+      const walk = (node: any, parent: any = null) => {
+        if (!node) return;
+  
+        // 进入/退出 References 区域
+        if (node.type === "heading") {
+          const text = nodeText(node).trim();
+          const isRef = /^(references?|bibliography)$/i.test(text);
+          if (isRef) {
+            inRefs = true;
+            refDepth = node.depth || 1;
+          } else if (inRefs && (node.depth || 1) <= refDepth) {
+            inRefs = false;
           }
         }
-      }
-
-      // Linkify [N] in plain text nodes
-      if (node.type === 'text' && parent && Array.isArray(parent.children)) {
-        const value: string = node.value || '';
-        const parts: any[] = [];
-        let last = 0;
-        const regex = /\[(\d+)\]/g;
-        let m: RegExpExecArray | null;
-        while ((m = regex.exec(value))) {
-          const idx = m.index;
-          if (idx > last) parts.push({ type: 'text', value: value.slice(last, idx) });
-          const num = m[1];
-          parts.push({
-            type: 'link',
-            url: `#ref-${num}`,
-            data: { hProperties: { className: 'cite-link' } },
-            children: [{ type: 'text', value: `[${num}]` }],
-          });
-          last = idx + m[0].length;
+  
+        // 在参考文献段里：为每个 [N] 插入 <span id="ref-N"> 锚点（允许同段多个）
+        if (inRefs && (node.type === "paragraph" || node.type === "listItem")) {
+          const children = Array.isArray(node.children) ? node.children : [];
+          for (let ci = 0; ci < children.length; ci++) {
+            const ch = children[ci];
+            if (!ch || ch.type !== "text") continue;
+            const value: string = ch.value || "";
+            const parts: any[] = [];
+            let last = 0;
+            const rx = /\[(\d+)\]/g;
+            let m: RegExpExecArray | null;
+            while ((m = rx.exec(value))) {
+              const idx = m.index;
+              const num = m[1];
+              if (idx > last) parts.push({ type: "text", value: value.slice(last, idx) });
+              // 在原始 [N] 之前塞入锚点
+              parts.push({ type: "html", value: `<span id="ref-${num}" class="ref-anchor"></span>` });
+              // 保留原 [N] 文本（不转链接）
+              parts.push({ type: "text", value: m[0] });
+              last = idx + m[0].length;
+            }
+            if (parts.length) {
+              if (last < value.length) parts.push({ type: "text", value: value.slice(last) });
+              children.splice(ci, 1, ...parts);
+              ci += parts.length - 1;
+            }
+          }
         }
-        if (parts.length) {
-          if (last < value.length) parts.push({ type: 'text', value: value.slice(last) });
-          const idx = parent.children.indexOf(node);
-          parent.children.splice(idx, 1, ...parts);
-          return; // children of new nodes will be visited in parent loop naturally
+  
+        // 不在参考文献段：把 [N] 变成跳转链接
+        if (!inRefs && !isSkippable(node) && node.type === "text" && parent && Array.isArray(parent.children)) {
+          const value: string = node.value || "";
+          const parts: any[] = [];
+          let last = 0;
+          const rx = /\[(\d+)\]/g;
+          let m: RegExpExecArray | null;
+          while ((m = rx.exec(value))) {
+            const idx = m.index;
+            if (idx > last) parts.push({ type: "text", value: value.slice(last, idx) });
+            const num = m[1];
+            parts.push({
+              type: "link",
+              url: `#ref-${num}`,
+              data: { hProperties: { className: "cite-link" } },
+              children: [{ type: "text", value: `[${num}]` }],
+            });
+            last = idx + m[0].length;
+          }
+          if (parts.length) {
+            if (last < value.length) parts.push({ type: "text", value: value.slice(last) });
+            const idx = parent.children.indexOf(node);
+            parent.children.splice(idx, 1, ...parts);
+            return;
+          }
         }
-      }
-
-      if (Array.isArray(node.children)) {
-        // copy because we may splice during iteration
-        const copy = [...node.children];
-        for (const child of copy) walk(child, node);
-      }
+  
+        if (Array.isArray(node.children)) {
+          const copy = [...node.children];
+          for (const child of copy) walk(child, node);
+        }
+      };
+  
+      walk(tree, null);
     };
-
-    walk(tree, null);
-  };
-}
+  }
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -303,7 +341,7 @@ export default function ReaderPage() {
             ) : md ? (
               <article className="markdown-body">
                 <ReactMarkdown
-                  remarkPlugins={[remarkGfm, remarkMath, remarkCiteLinks]}
+                  remarkPlugins={[remarkGfm, remarkMath, remarkCiteAnchorsAndLinks]}
                   rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}
                   components={{
                     a: ({ node, href, className, ...props }) => {
@@ -315,19 +353,19 @@ export default function ReaderPage() {
                             href={href}
                             className={className}
                             onClick={(e) => {
-                              try {
-                                if (!href) return;
-                                if (href.startsWith('#')) {
-                                  e.preventDefault();
-                                  const id = href.slice(1);
-                                  const el = document.getElementById(id);
-                                  if (el) {
-                                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    if (history?.replaceState) history.replaceState(null, '', href);
+                                try {
+                                  if (!href) return;
+                                  if (href.startsWith('#')) {
+                                    e.preventDefault();
+                                    const id = href.slice(1);
+                                    const el = document.getElementById(id);
+                                    if (el) {
+                                      el.scrollIntoView({ block: 'start' }); // 平滑由 CSS 控制
+                                      if (history?.replaceState) history.replaceState(null, '', href);
+                                    }
                                   }
-                                }
-                              } catch {}
-                            }}
+                                } catch {}
+                              }}
                             {...props}
                           />
                         );
