@@ -1,3 +1,4 @@
 - 锚点同步
 - BUG: 有的PDF不解析?
 - BUG: 本地总结没有渲染markdown
+- 添加直接记录markdown笔记的功能，显示的时候覆盖左侧pdf栏
