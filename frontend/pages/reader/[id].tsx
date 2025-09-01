@@ -3,7 +3,8 @@
 import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-
+import dynamic from 'next/dynamic';
+const PdfPane = dynamic(() => import('@/components/PdfPane'), { ssr: false });
 // --- Helpers to prettify markdown ---
 // A) Wrap top author block with separators and no-indent
 function decorateAuthorBlock(md: string): string {
@@ -320,11 +321,11 @@ export default function ReaderPage() {
 
       <div className="flex-1 grid grid-cols-2 gap-0">
         <div className="relative border-r">
-          {pdfUrl ? (
-            <iframe title="pdf" src={viewerUrl} className="w-full h-full" />
-          ) : (
+        {pdfUrl ? (
+            <PdfPane fileUrl={viewerUrl} className="h-full" />
+        ) : (
             <div className="p-6 text-gray-500">未找到 PDF 地址</div>
-          )}
+        )}
         </div>
 
         <div className="relative">

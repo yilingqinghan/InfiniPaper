@@ -3,3 +3,4 @@
 - 自定义工具条
 - React-pdf替代pdf-js
 - 锚点同步
+- BUG: 有的PDF不解析?
