@@ -24,3 +24,5 @@ build/
 *.log
 **/*.zip
 backend/storage/pdfs
+.ollama.pid
+backend/storage/mineru/
