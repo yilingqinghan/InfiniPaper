@@ -12,6 +12,8 @@ import httpx
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from loguru import logger
+import hashlib
+from typing import Tuple
 
 router = APIRouter()
 
@@ -107,6 +109,59 @@ async def _mineru_http(pdf_path: Path, out_dir: Path) -> None:
         r.raise_for_status()
 
 
+def _files_root() -> Path:
+    # 允许通过环境变量覆盖静态文件根目录，默认与后端静态挂载一致
+    root = os.environ.get("FILES_ROOT") or os.environ.get("MINERU_FILES_DIR")
+    if root:
+        return Path(root).resolve()
+    # 与 main.py 的 staticfiles(directory=...) 保持一致；优先 storage，再回退 backend/storage
+    for guess in ("storage", "backend/storage", "./storage", "./backend/storage"):
+        p = Path(guess).resolve()
+        if p.exists():
+            return p
+    return Path("storage").resolve()
+
+
+def _try_local_path_from_url(pdf_url: str) -> Optional[Path]:
+    """将 http://127.0.0.1:8000/files/... 映射为本地文件系统路径。"""
+    try:
+        u = urlparse(pdf_url)
+        if not u.path.startswith("/files/"):
+            return None
+        rel = u.path[len("/files/"):].lstrip("/")  # e.g. "pdfs/foo.pdf"
+        candidate = _files_root() / rel
+        return candidate if candidate.exists() else None
+    except Exception:
+        return None
+
+
+def _sha1_file(path: Path, chunk: int = 1024 * 1024) -> str:
+    h = hashlib.sha1()
+    with path.open("rb") as f:
+        while True:
+            b = f.read(chunk)
+            if not b:
+                break
+            h.update(b)
+    return h.hexdigest()
+
+
+def _result_patterns() -> List[str]:
+    # 覆盖不同 MinerU 版本的常见输出位置
+    return [
+        "*.html", "html/*.html", "**/result.html",
+        "*.md", "markdown/*.md", "md/*.md",
+    ]
+
+
+def _has_outputs(root: Path) -> bool:
+    pats = _result_patterns()
+    for pat in pats:
+        if any(root.rglob(pat)):
+            return True
+    return False
+
+
 # ========= Endpoint =========
 def _resolve_result_root(out_dir: Path) -> Path:
     # 先看直接 auto
@@ -132,16 +187,16 @@ def _pick_latest(root: Path, patterns: List[str]) -> Optional[Path]:
 async def parse_with_mineru(req: ParseReq) -> ParseResp:
     logger.info(f"[mineru] req pdf_path={req.pdf_path} pdf_url={req.pdf_url}")
 
-    if not (req.pdf_path or req.pdf_url):
-        raise HTTPException(400, "pdf_path or pdf_url required")
+    # 根目录：临时与缓存
+    base_root = Path(os.environ.get("MINERU_TMP_DIR", "storage/mineru")).resolve()
+    _ensure_dir(base_root)
+    cache_root = base_root / "cache"
+    pdf_cache_root = base_root / "cache_pdfs"
+    _ensure_dir(cache_root)
+    _ensure_dir(pdf_cache_root)
 
-    # 建议 tmp 根目录简化为 storage/mineru（避免 backend/backend 重叠）
-    tmp_root = Path(os.environ.get("MINERU_TMP_DIR", "storage/mineru")).resolve()
-    _ensure_dir(tmp_root)
-    out_dir = tmp_root / uuid.uuid4().hex
-    _ensure_dir(out_dir)
-
-    # → 本地化 PDF
+    # → 本地化 PDF，并生成稳定 cache_key（基于文件内容 sha1）
+    local_pdf: Optional[Path] = None
     if req.pdf_path:
         p = Path(req.pdf_path)
         if not p.exists():
@@ -151,8 +206,50 @@ async def parse_with_mineru(req: ParseReq) -> ParseResp:
         if not p.exists():
             raise HTTPException(404, f"pdf_path not found: {req.pdf_path}")
         local_pdf = p
+    elif req.pdf_url:
+        # 优先直接映射到本地静态文件，避免重复下载
+        mapped = _try_local_path_from_url(req.pdf_url)
+        if mapped:
+            logger.info(f"[mineru] mapped url -> local file: {mapped}")
+            local_pdf = mapped
+        else:
+            # URL 下载到缓存
+            normalized_url = _percent_encode_url(_normalize_pdf_url(req.pdf_url))
+            # 先用 url 的 sha1 作为文件名再下载；下载后再对内容求 sha1 作为最终 key
+            url_hash = hashlib.sha1(normalized_url.encode("utf-8")).hexdigest()
+            tmp_target = pdf_cache_root / f"{url_hash}.pdf"
+            if not tmp_target.exists():
+                tmp_target = await _download_pdf(normalized_url, pdf_cache_root)
+            local_pdf = tmp_target
     else:
-        local_pdf = await _download_pdf(req.pdf_url, tmp_root / "tmp")
+        raise HTTPException(400, "pdf_path or pdf_url required")
+
+    # 内容哈希作为 cache key（确保同一份 PDF 始终复用同一目录）
+    try:
+        cache_key = _sha1_file(local_pdf)
+    except Exception as e:
+        logger.warning(f"[mineru] sha1 failed: {e}; fallback to random key")
+        cache_key = uuid.uuid4().hex
+
+    out_dir = cache_root / cache_key
+    _ensure_dir(out_dir)
+
+    # Cache hit：已有解析结果则直接返回
+    if _has_outputs(out_dir):
+        result_root = _resolve_result_root(out_dir)
+        html_p = _pick_latest(result_root, ["*.html", "html/*.html", "**/result.html"])
+        md_p   = _pick_latest(result_root, ["*.md", "markdown/*.md", "md/*.md"])
+        logger.info(f"[mineru] cache hit: {out_dir} html={html_p} md={md_p}")
+        html = html_p.read_text("utf-8", errors="ignore") if html_p and html_p.exists() else None
+        md   = md_p.read_text("utf-8", errors="ignore") if md_p and md_p.exists() else None
+        return ParseResp(
+            used_mode="cache",
+            out_dir=str(out_dir),
+            html=html,
+            md=md,
+            html_file=str(html_p) if html_p else None,
+            md_file=str(md_p) if md_p else None,
+        )
 
     # ✅ 提前定义 mode，避免 UnboundLocalError
     mode = (os.environ.get("MINERU_MODE") or "cli").strip().lower()
