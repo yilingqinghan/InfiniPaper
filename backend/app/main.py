@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from loguru import logger
-
+from pathlib import Path
 from .core.config import settings
 from .db.database import init_db
 from .api.router import api_router
@@ -42,3 +42,10 @@ def root():
         "health": "/healthz",
         "api": settings.API_V1_STR,
     }
+
+# from fastapi.routing import APIRoute
+# print("=== ROUTES DUMP START ===")
+# for r in app.routes:
+#     if isinstance(r, APIRoute):
+#         print("ROUTE", r.path, r.methods)
+# print("=== ROUTES DUMP END ===")

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useRouter } from "next/router";
 import {
     UploadCloud, Plus, Pencil, Trash2, ChevronUp, ChevronDown, ChevronRight,
     GripVertical, Eye, Folder as FolderIcon, Share2
@@ -23,7 +23,6 @@ import {abbrevVenue,venueTier} from "@/components/Library/CONST";
 
 const Swal = withReactContent(SwalCore);
 const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
-
 /* --------------------------- types --------------------------- */
 type Tag = { id: number; name: string; color?: string | null };
 type Folder = { id: number; name: string; color?: string | null; parent_id?: number | null; priority?: number | null };
@@ -251,6 +250,7 @@ function PaperRow({
     onPreviewHover: (id: number | null) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
     tagMap: Map<number, Tag>; selected: boolean; showVenueCol: boolean; vizNonce: number;
 }) {
+    const router = useRouter();
     const authors = (p.authors || []).map(a => a?.name).filter(Boolean).slice(0, 6).join(", ");
     const allTags = (p.tag_ids || []).map(id => tagMap.get(id)).filter((t): t is Tag => !!t);
     const colored = allTags.filter(t => getTagColor(t.name));
@@ -269,7 +269,11 @@ function PaperRow({
         <tr
             className={`border-t ${selected ? "bg-blue-50/60" : "odd:bg-white even:bg-slate-50/40 hover:bg-gray-50"} cursor-pointer select-none`}
             onClick={() => onSelect(p.id)}
-            onDoubleClick={() => onOpen(p.id)}
+            onDoubleClick={() => {
+              const pdf = p.pdf_url || "";
+              const q = pdf ? `?pdf=${encodeURIComponent(pdf)}` : "";
+              router.push(`/reader/${p.id}${q}`);
+            }}
             onMouseEnter={() => onPreviewHover(p.id)}
             onMouseLeave={() => onPreviewHover(null)}
             onContextMenu={(e) => onContextMenu(e, p)}

@@ -46,6 +46,12 @@ try:
 except Exception as e:
     print("[router] skip quality:", repr(e))
 
+try:
+    from .v1.mineru import router as mineru_router
+    api_router.include_router(mineru_router,  prefix="/mineru",  tags=["mineru"])
+except Exception as e:
+    print("[router] skip mineru:", repr(e))
+
 # —— folders 子模块（稳健导入，避免包索引/循环依赖导致 404）——
 try:
     import importlib
