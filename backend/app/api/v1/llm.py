@@ -35,7 +35,7 @@ async def ask_ollama(req: AskReq):
     payload["messages"].append({"role":"user","content": user_content})
 
     try:
-        async with httpx.AsyncClient(timeout=120) as client:
+        async with httpx.AsyncClient(timeout=60, trust_env=False, proxies=None) as client:
             r = await client.post(url, json=payload)
             r.raise_for_status()
             data = r.json()

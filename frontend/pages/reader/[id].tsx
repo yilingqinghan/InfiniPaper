@@ -305,6 +305,7 @@ export default function ReaderPage() {
 
   // 选择 & 工具条
   const mdContainerRef = React.useRef<HTMLDivElement | null>(null);
+  const notesPaneRef = React.useRef<HTMLDivElement | null>(null);
   const [selectionBox, setSelectionBox] = React.useState<{ x: number; y: number; show: boolean }>({ x: 0, y: 0, show: false });
   const [selPayload, setSelPayload] = React.useState<{ start: number; end: number; quote: string } | null>(null);
   const [pickedColor, setPickedColor] = React.useState<string>("#FFE58F");
@@ -411,21 +412,40 @@ export default function ReaderPage() {
       setSelectionBox((s) => ({ ...s, show: false }));
     };
 
-    const onScrollOrResize = () => { computeSidebarLayout(); };
+    const onScrollOrResize = () => {
+      recomputeLayout();
+      const host = mdContainerRef.current;
+      const notes = notesPaneRef.current;
+      if (host && notes && Math.abs(notes.scrollTop - host.scrollTop) > 1) {
+        notes.scrollTop = host.scrollTop;  // 关键：同步滚动
+      }
+    };
+
+    // Add: notes pane to markdown host scroll sync
+    const notes = notesPaneRef.current;
+    const onNotesScroll = () => {
+      const host = mdContainerRef.current;
+      const notes = notesPaneRef.current;
+      if (host && notes && Math.abs(host.scrollTop - notes.scrollTop) > 1) {
+        host.scrollTop = notes.scrollTop;
+      }
+    };
 
     box.addEventListener("mouseup", onMouseUp);
     box.addEventListener("contextmenu", onContextMenu);
     box.addEventListener("scroll", onScrollOrResize);
     window.addEventListener("resize", onScrollOrResize);
+    notes?.addEventListener("scroll", onNotesScroll);
     return () => {
       box.removeEventListener("mouseup", onMouseUp);
       box.removeEventListener("contextmenu", onContextMenu);
       box.removeEventListener("scroll", onScrollOrResize);
       window.removeEventListener("resize", onScrollOrResize);
+      notes?.removeEventListener("scroll", onNotesScroll);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [md]);
-
+  const [sidebarHeight, setSidebarHeight] = React.useState<number>(0);
   // 计算侧栏布局
   const computeSidebarLayout = React.useCallback(() => {
     const host = mdContainerRef.current;
@@ -436,11 +456,24 @@ export default function ReaderPage() {
       const el = host.querySelector<HTMLElement>(`[data-ann-id="${a.id}"]`);
       if (!el) return;
       const r = el.getBoundingClientRect();
-      const top = r.top - hostRect.top + host.scrollTop;
+      const top = r.top - hostRect.top + host.scrollTop; // 统一到 host 的滚动坐标
       arr.push({ id: a.id, top: Math.max(0, top) });
     });
     setNoteLayout(arr);
+    setSidebarHeight(host.scrollHeight);               // 关键：侧栏内容高度=正文总高度
   }, [annos]);
+
+  const recomputeLayout = React.useMemo(() => {
+    let ticking = false;
+    return () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        computeSidebarLayout();
+        ticking = false;
+      });
+    };
+  }, [computeSidebarLayout]);
 
   // LLM 聊天
   const [chat, setChat] = React.useState<{ role: 'user' | 'assistant'; text: string }[]>([]);
@@ -516,7 +549,6 @@ export default function ReaderPage() {
   };
 
   // 改色 & 删除（右键菜单）
-  // 改色 & 删除（右键菜单）
   const applyAnnColor = async (annId: string, color: string) => {
     const host = mdContainerRef.current;
     if (!host) return;
@@ -580,7 +612,27 @@ export default function ReaderPage() {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, pdfFromQuery, buildPdfUrls, api]);
-
+  React.useEffect(() => {
+    const host = mdContainerRef.current;
+    if (!host) return;
+  
+    const ro = new ResizeObserver(() => recomputeLayout());
+    ro.observe(host);
+  
+    const imgs = host.querySelectorAll('img');
+    const onImgLoad = () => recomputeLayout();
+    imgs.forEach(img => img.addEventListener('load', onImgLoad));
+  
+    // 首屏延迟重算，等字体/KaTeX样式生效
+    const t1 = setTimeout(recomputeLayout, 200);
+    const t2 = setTimeout(recomputeLayout, 800);
+  
+    return () => {
+      ro.disconnect();
+      imgs.forEach(img => img.removeEventListener('load', onImgLoad));
+      clearTimeout(t1); clearTimeout(t2);
+    };
+  }, [md, recomputeLayout]);
   /* -------------------- 渲染 -------------------- */
   return (
     <div className="h-screen w-screen flex flex-col">
@@ -756,26 +808,25 @@ export default function ReaderPage() {
 
         {/* RIGHT: 批注侧栏 */}
         <div className="relative">
-          <div className="absolute inset-0 overflow-auto p-3 space-y-3">
-            {annos.map((a) => {
-              const pos = noteLayout.find((x) => x.id === a.id)?.top ?? 0;
-              return (
-                <div key={`note-${a.id}`} className="relative">
-                  <div className="absolute left-[-16px] top-3 w-3 h-[1px] bg-gray-300" />
-                  <div
-                    className="bg-white/95 border border-indigo-100 rounded-lg shadow-sm p-2 text-xs leading-5"
-                    style={{ marginTop: pos }}
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="inline-block w-3 h-3 rounded-full border" style={{ background: a.color }} />
-                      <span className="text-gray-500">批注</span>
-                      <button className="ml-auto text-gray-400 hover:text-gray-600" title="删除" onClick={() => deleteAnnotation(a.id)}>×</button>
+          <div ref={notesPaneRef} className="absolute inset-0 overflow-auto p-3">
+            <div className="relative" style={{ height: sidebarHeight || 0 }}>
+              {annos.map((a) => {
+                const pos = noteLayout.find((x) => x.id === a.id)?.top ?? 0;
+                return (
+                  <div key={`note-${a.id}`} className="absolute left-0 right-0" style={{ top: pos }}>
+                    <div className="absolute -left-4 top-3 w-3 h-[1px] bg-gray-300" />
+                    <div className="bg-white/95 border border-indigo-100 rounded-lg shadow-sm p-2 text-xs leading-5">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="inline-block w-3 h-3 rounded-full border" style={{ background: a.color }} />
+                        <span className="text-gray-500">批注</span>
+                        <button className="ml-auto text-gray-400 hover:text-gray-600" title="删除" onClick={() => deleteAnnotation(a.id)}>×</button>
+                      </div>
+                      <div className="text-gray-800 whitespace-pre-wrap">{a.note || "（无备注）"}</div>
                     </div>
-                    <div className="text-gray-800 whitespace-pre-wrap">{a.note || "（无备注）"}</div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

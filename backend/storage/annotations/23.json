@@ -37,5 +37,18 @@
     "color": "#FFE58F",
     "created_at": "2025-09-01T14:17:30.197649",
     "updated_at": "2025-09-01T14:17:30.197649"
+  },
+  {
+    "id": "7c011239-3797-429c-a087-7978719d9a1d",
+    "paper_id": 23,
+    "anchor": {
+      "start": 2565,
+      "end": 2855,
+      "quote": "ss(ϖ1)) for CodeT5 and CodeLlama, respectively, while maintaining the same pass rate for CodeGPT. ToolGen also demonstrates high efficiency in repository-level code generation, with latency ranging from 0.63 to 2.34 seconds for generating each function. Furthermore, our generalizability ev"
+    },
+    "note": "新的批注",
+    "color": "#FFE58F",
+    "created_at": "2025-09-01T15:03:55.878370",
+    "updated_at": "2025-09-01T15:03:55.878370"
   }
 ]
