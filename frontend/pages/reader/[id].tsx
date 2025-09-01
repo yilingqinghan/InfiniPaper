@@ -1,4 +1,3 @@
-// frontend/pages/reader/[id].tsx
 "use client";
 
 import React from "react";
@@ -44,6 +43,10 @@ export default function ReaderPage() {
   const PDFJS_VIEWER = process.env.NEXT_PUBLIC_PDFJS_URL || "/pdfjs/web/viewer.html";
   const apiBase = (process.env.NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
   const api = React.useCallback((path: string) => (apiBase ? `${apiBase}${path}` : path), [apiBase]);
+
+  const [mdFont, setMdFont] = React.useState(16); // px
+  const incFont = () => setMdFont((s) => Math.min(22, s + 1));
+  const decFont = () => setMdFont((s) => Math.max(14, s - 1));
 
   const viewerUrl = React.useMemo(() => {
     if (!pdfUrl) return "";
@@ -131,6 +134,7 @@ export default function ReaderPage() {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-light.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css" />
+        <link rel="stylesheet" href="/css/reader.css" />
       </Head>
 
       <div className="flex items-center gap-3 px-3 py-2 border-b bg-white">
@@ -141,7 +145,12 @@ export default function ReaderPage() {
           {id ? `Paper #${id}` : "文档"} · {loading ? "解析中…" : "已加载"}
         </div>
         {err && <div className="text-red-600 text-sm ml-4">错误：{err}</div>}
-        <div className="ml-auto text-xs text-gray-400">MinerU 对照阅读</div>
+        <div className="ml-auto flex items-center gap-2">
+          <span className="text-xs text-gray-400 mr-2">MinerU 对照阅读</span>
+          <span className="text-xs text-gray-500">字体</span>
+          <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={decFont}>A-</button>
+          <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={incFont}>A+</button>
+        </div>
       </div>
 
       <div className="flex-1 grid grid-cols-2 gap-0">
@@ -161,7 +170,7 @@ export default function ReaderPage() {
             </div>
           )}
 
-          <div className="h-full overflow-auto p-4">
+          <div className="h-full overflow-auto p-4" style={{ ['--md-font-size' as any]: `${mdFont}px` }}>
             {html ? (
               <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
             ) : md ? (
@@ -171,35 +180,42 @@ export default function ReaderPage() {
                   rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}
                   components={{
                     a: ({ node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
+
+                    // 表格外包一层，便于整体居中 + 横向滚动
+                    table: ({ node, ...props }) => (
+                      <div className="md-table">
+                        <table {...props} />
+                      </div>
+                    ),
+
+                    // 图片渲染为 figure（alt 作为可选 figcaption），并将相对路径重写为绝对 URL
                     img: ({ node, src = "", alt, ...props }) => {
-                      // 绝对链接：原样
-                      if (/^https?:\/\//i.test(src)) {
-                        return <img src={src} alt={typeof alt === "string" ? alt : ""} {...props} />;
+                      let finalSrc = src;
+
+                      // 若为相对路径，按 assetsBase + mdBase/mdRel 拼接
+                      if (!/^https?:\/\//i.test(finalSrc)) {
+                        const base =
+                          assetsBase ||
+                          (cacheKey ? `${apiBase}/api/v1/mineru/assets/${cacheKey}` : "");
+
+                        if (base) {
+                          const relBase = (mdBase || mdRel || "").replace(/^\/+|\/+$/g, "");
+                          const prefix = relBase ? `${base.replace(/\/+$/, "")}/${relBase}/` : `${base.replace(/\/+$/, "")}/`;
+                          try {
+                            finalSrc = new URL(finalSrc.replace(/^\/+/, ""), prefix).toString();
+                          } catch {
+                            finalSrc = `${prefix}${finalSrc.replace(/^\/+/, "")}`;
+                          }
+                        }
                       }
 
-                      // 资源基座（后端已返回绝对 URL）
-                      const base =
-                        assetsBase ||
-                        (cacheKey ? `${apiBase}/api/v1/mineru/assets/${cacheKey}` : "");
-
-                      if (!base) {
-                        return <img src={src} alt={typeof alt === "string" ? alt : ""} {...props} />;
-                      }
-
-                      // 计算前缀：优先 mdBase，否则 mdRel
-                      const relBase = (mdBase || mdRel || "").replace(/^\/+|\/+$/g, "");
-                      const prefix = relBase ? `${base.replace(/\/+$/, "")}/${relBase}/` : `${base.replace(/\/+$/, "")}/`;
-
-                      // 关键修复：用 URL API 拼接，避免把 http:// 变成 http:/
-                      let final = src;
-                      try {
-                        final = new URL(src.replace(/^\/+/, ""), prefix).toString();
-                      } catch {
-                        // 兜底：不用任何“规范化”，只做简单拼接（绝不动协议双斜杠）
-                        final = `${prefix}${src.replace(/^\/+/, "")}`;
-                      }
-
-                      return <img src={final} alt={typeof alt === "string" ? alt : ""} {...props} />;
+                      const caption = typeof alt === "string" ? alt.trim() : "";
+                      return (
+                        <figure>
+                          <img src={finalSrc} alt={caption} {...props} />
+                          {caption ? <figcaption>{caption}</figcaption> : null}
+                        </figure>
+                      );
                     },
                   }}
                 >
