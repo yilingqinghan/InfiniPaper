@@ -1,7 +1,13 @@
-// frontend/pages/reader/[id].tsx
 "use client";
 import React from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight";
 
 type ParseResp = {
   used_mode: string;
@@ -110,15 +116,34 @@ export default function ReaderPage() {
     })();
   }, [id, pdfFromQuery, buildPdfUrls, api]);
 
-  // 左侧 viewer 的 URL
-  const viewerUrl = pdfUrl
-    ? `${PDFJS_VIEWER}?file=${encodeURIComponent(
-        /^https?:\/\//i.test(pdfUrl) ? pdfUrl : `${window.location.origin}${pdfUrl}`
-      )}`
-    : "";
+  // 左侧 viewer 的 URL（默认按页宽显示）
+  const viewerUrl = React.useMemo(() => {
+    if (!pdfUrl) return "";
+    const abs = /^https?:\/\//i.test(pdfUrl)
+      ? pdfUrl
+      : `${window.location.origin}${pdfUrl}`;
+    return `${PDFJS_VIEWER}?file=${encodeURIComponent(abs)}#zoom=page-width`;
+  }, [pdfUrl, PDFJS_VIEWER]);
 
   return (
     <div className="h-screen w-screen flex flex-col">
+      <Head>
+        {/* 数学公式（KaTeX） */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        />
+        {/* GitHub Markdown 渲染风格 */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-light.min.css"
+        />
+        {/* 代码高亮（GitHub 主题） */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css"
+        />
+      </Head>
       <div className="flex items-center gap-3 px-3 py-2 border-b bg-white">
         <button
           className="px-2 py-1 rounded border hover:bg-gray-50"
@@ -151,11 +176,23 @@ export default function ReaderPage() {
               <div className="mt-3 text-sm text-gray-600">MinerU 正在解析，请稍候…</div>
             </div>
           )}
-          <div className="h-full overflow-auto p-4 prose prose-sm max-w-none">
+          <div className="h-full overflow-auto p-4">
             {html ? (
-              <div dangerouslySetInnerHTML={{ __html: html }} />
+              <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
             ) : md ? (
-              <pre className="whitespace-pre-wrap text-[13px] leading-6">{md}</pre>
+              <article className="markdown-body">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm, remarkMath]}
+                  rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}
+                  components={{
+                    a: ({ node, ...props }) => (
+                      <a {...props} target="_blank" rel="noreferrer" />
+                    ),
+                  }}
+                >
+                  {md}
+                </ReactMarkdown>
+              </article>
             ) : (
               !loading && <div className="text-gray-500">暂无解析内容</div>
             )}
