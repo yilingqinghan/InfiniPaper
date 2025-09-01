@@ -146,14 +146,14 @@ export default function PdfPane({ fileUrl, className }: Props) {
       <div className="flex items-center gap-2 px-2 py-1 border-b bg-white">
         <span className="text-xs text-gray-500">{ready ? "已加载" : "加载中…"}</span>
         <div className="h-4 w-px bg-gray-200 mx-1" />
-        <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={zoomOut}>－</button>
-        <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={zoomIn}>＋</button>
-        <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={fitWidth}>适宽</button>
-        <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={fitPage}>整页</button>
-        <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={rotate}>旋转</button>
+        <button className="px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={zoomOut}>－</button>
+        <button className="px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={zoomIn}>＋</button>
+        <button className="px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={fitWidth}>适宽</button>
+        <button className="px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={fitPage}>整页</button>
+        <button className="px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={rotate}>旋转</button>
 
         <div className="h-4 w-px bg-gray-200 mx-1" />
-        <span className="text-sm text-gray-600">
+        <span className="text-xs text-gray-600">
           页码
           <input
             className="ml-2 w-16 px-2 py-1 border rounded"
@@ -165,7 +165,7 @@ export default function PdfPane({ fileUrl, className }: Props) {
           <span className="ml-1 text-gray-400">/ {pages || "…"}</span>
         </span>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2 text-xs ">
           <input
             className="w-56 px-2 py-1 border rounded"
             placeholder="查找（Enter 查找）"
