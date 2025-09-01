@@ -1,0 +1,64 @@
+:root {
+  --ip-primary: #3b82f6;      /* 你站点的主色（道奇蓝） */
+  --ip-bg: #ffffff;
+  --ip-border: #e5e7eb;
+  --ip-text: #111827;
+}
+
+/* 整体背景去灰，和站点一致 */
+:root,
+html,
+body,
+#outerContainer {
+  background: var(--ip-bg) !important;
+}
+
+/* 顶部工具条做成轻薄白底 */
+#toolbarContainer {
+  background: var(--ip-bg) !important;
+  border-bottom: 1px solid var(--ip-border) !important;
+  box-shadow: none !important;
+}
+#toolbarViewer { height: 42px; }
+
+/* 侧边导航 & 查找条统一淡边框，少阴影 */
+#sidebarContainer, #findbar, #secondaryToolbar {
+  box-shadow: none !important;
+  border-right: 1px solid var(--ip-border) !important;
+  border-bottom: 1px solid var(--ip-border) !important;
+}
+
+/* 高亮你的主色 */
+.toolbarButton.toggled,
+.splitToolbarButton > .toolbarButton.toggled,
+.secondaryToolbarButton.toggled {
+  color: var(--ip-primary) !important;
+  border-color: var(--ip-primary) !important;
+}
+
+/* 隐藏你不想要的按钮：打开文件、演示、手型、旋转、下载/打印（按需注释） */
+#openFile, #presentationMode, #cursorHandTool, #secondaryOpenFile,
+#pageRotateCcw, #pageRotateCw, #download, #print {
+  display: none !important;
+}
+
+/* 调整缩放选择器的尺寸，显得“网页化” */
+#scaleSelect {
+  height: 28px !important;
+  border-radius: 8px !important;
+}
+
+/* 页码输入更像输入框 */
+#pageNumber {
+  border: 1px solid var(--ip-border) !important;
+  border-radius: 8px !important;
+  height: 28px !important;
+  padding: 0 8px !important;
+  background: #fff !important;
+}
+
+/* 让文档铺满、去掉灰色大留白 */
+#viewerContainer {
+  background: #fff !important;
+}
+.pdfViewer .page { box-shadow: none !important; border: 1px solid #f3f4f6; }
