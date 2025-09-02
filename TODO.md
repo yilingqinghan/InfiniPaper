@@ -1,1 +1,2 @@
 - BUG:全文翻译出现React BUG
+- PDF渲染目录，下拉选择
