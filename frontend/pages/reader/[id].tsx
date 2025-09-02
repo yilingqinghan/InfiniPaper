@@ -302,6 +302,11 @@ export default function ReaderPage() {
   const [noteSaving, setNoteSaving] = React.useState(false);
   const [noteError, setNoteError] = React.useState<string | null>(null);
 
+  // 实时预览（轻量节流） & 图片上传
+  const [noteLive, setNoteLive] = React.useState<string>("");
+  const liveDebounceRef = React.useRef<number | null>(null);
+  const imgInputRef = React.useRef<HTMLInputElement | null>(null);
+
   const [cacheKey, setCacheKey] = React.useState<string | null>(null);
   const [assetsBase, setAssetsBase] = React.useState<string | null>(null);
   const [mdRel, setMdRel] = React.useState<string | null>(null);
@@ -375,8 +380,15 @@ export default function ReaderPage() {
       } finally {
         setNoteSaving(false);
       }
-    }, 5000);
+    }, 600);
   }, [id, api]);
+
+  const queueLivePreview = React.useCallback(() => {
+    if (liveDebounceRef.current) window.clearTimeout(liveDebounceRef.current);
+    liveDebounceRef.current = window.setTimeout(() => {
+      setNoteLive(noteDraftRef.current || "");
+    }, 120);
+  }, []);
 
   const applyWrapDirect = (el: HTMLTextAreaElement, before: string, after = "") => {
     const start = el.selectionStart ?? 0;
@@ -522,6 +534,7 @@ export default function ReaderPage() {
         if (got) { setNoteMd(got.content || ""); setNoteId(got.id); }
         else { setNoteMd(""); setNoteId(null); }
         noteDraftRef.current = got ? (got.content || "") : "";
+        setNoteLive(noteDraftRef.current);
         setEditorKey((k) => k + 1);
       } catch (e: any) { setNoteError(e?.message || String(e)); }
     })();
@@ -663,9 +676,46 @@ export default function ReaderPage() {
     }
   };
 
-  // 备注弹窗
-  const [noteEditor, setNoteEditor] = React.useState<{ show: boolean; x: number; y: number; text: string }>({ show: false, x: 0, y: 0, text: "" });
+  // 备注编辑弹窗优化
+  const annoTextRef = React.useRef<HTMLTextAreaElement | null>(null);
+  const [noteEditor, setNoteEditor] = React.useState<{ show: boolean; x: number; y: number }>({ show: false, x: 0, y: 0 });
+  // 图片上传相关
+  const uploadImage = async (file: File) => {
+    if (!id) throw new Error("paper id missing");
+    const fd = new FormData();
+    fd.append("file", file);
+    const r = await fetch(api(`/api/v1/richnotes/by-paper/${id}/images`), { method: "POST", body: fd });
+    if (!r.ok) throw new Error(await r.text());
+    const data = await r.json();
+    return (data.url as string) || "";
+  };
 
+  const handlePickImage = () => imgInputRef.current?.click();
+
+  const onImageChosen = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const f = e.target.files?.[0];
+    e.currentTarget.value = "";
+    if (!f) return;
+    try {
+      const url = await uploadImage(f);
+      const el = noteTextRef.current;
+      if (el) {
+        const snippet = `![${f.name}](${url})`;
+        const start = el.selectionStart ?? 0;
+        const end = el.selectionEnd ?? 0;
+        const val = el.value;
+        const next = val.slice(0, start) + snippet + val.slice(end);
+        el.value = next;
+        noteDraftRef.current = next;
+        queueLivePreview();
+        queueSave();
+        const pos = start + snippet.length;
+        requestAnimationFrame(() => { el.focus(); el.setSelectionRange(pos, pos); });
+      }
+    } catch (err: any) {
+      setNoteError(err?.message || String(err));
+    }
+  };
   // 弹出备注编辑器
   const openNoteEditor = () => {
     if (!selectionBox.show) return;
@@ -674,7 +724,7 @@ export default function ReaderPage() {
     const hostRect = host.getBoundingClientRect();
     const absX = hostRect.left + selectionBox.x;
     const absY = hostRect.top + selectionBox.y;
-    setNoteEditor({ show: true, x: absX, y: absY, text: "" });
+    setNoteEditor({ show: true, x: absX, y: absY });
   };
 
   const doAddAnnotation = async (note: string) => {
@@ -699,7 +749,7 @@ export default function ReaderPage() {
     } catch {}
     setSelectionBox((s) => ({ ...s, show: false }));
     setSelPayload(null);
-    setNoteEditor({ show: false, x: 0, y: 0, text: "" });
+    setNoteEditor({ show: false, x: 0, y: 0 });
   };
 
   // 改色 & 删除（右键菜单）
@@ -840,7 +890,7 @@ export default function ReaderPage() {
                   >编辑</button>
                   <button
                     className={`px-2 py-1 rounded text-sm border ${noteTab === 'preview' ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
-                    onClick={() => setNoteTab('preview')}
+                    onClick={() => { setNoteLive(noteDraftRef.current || ""); setNoteTab('preview'); }}
                   >预览</button>
                 </div>
 
@@ -855,6 +905,8 @@ export default function ReaderPage() {
                   <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('`','`')}>行内代码</button>
                   <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('[文本](链接)')}>链接</button>
                   <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('![alt](url)')}>图片</button>
+                  <input ref={imgInputRef} type="file" accept="image/*" onChange={onImageChosen} className="hidden" />
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={handlePickImage}>上传图片</button>
                 </div>
 
                 <div className="ml-auto flex items-center gap-2">
@@ -868,20 +920,34 @@ export default function ReaderPage() {
               {/* 内容区 */}
               <div className="flex-1 min-h-0">
                 {noteTab === 'edit' ? (
-                  <textarea
-                    key={editorKey}
-                    ref={noteTextRef}
-                    defaultValue={noteMd}
-                    onInput={(e) => { noteDraftRef.current = (e.currentTarget as HTMLTextAreaElement).value; queueSave(); }}
-                    onKeyDown={handleEditorKeyDown}
-                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
-                    className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
-                    spellCheck={false}
-                  />
+                  <div className="h-full flex flex-col">
+                    <div className="flex-1 min-h-0">
+                      <textarea
+                        key={editorKey}
+                        ref={noteTextRef}
+                        defaultValue={noteDraftRef.current || noteMd}
+                        onInput={(e) => {
+                          noteDraftRef.current = (e.currentTarget as HTMLTextAreaElement).value;
+                          queueLivePreview();
+                          queueSave();
+                        }}
+                        onKeyDown={handleEditorKeyDown}
+                        placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
+                        className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
+                        spellCheck={false}
+                      />
+                    </div>
+                    <div className="h-8 flex items-center px-3 text-xs text-gray-500 border-t bg-white/70">实时预览</div>
+                    <div className="flex-1 min-h-0 overflow-auto p-3 markdown-body">
+                      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                        {noteLive || noteDraftRef.current || ""}
+                      </ReactMarkdown>
+                    </div>
+                  </div>
                 ) : (
                   <div className="h-full overflow-auto p-3 markdown-body">
                     <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                      {noteMd || '（空笔记）'}
+                      {noteLive || noteDraftRef.current || noteMd || '（空笔记）'}
                     </ReactMarkdown>
                   </div>
                 )}
@@ -1068,13 +1134,12 @@ export default function ReaderPage() {
           <div className="text-sm text-gray-600 mb-2">给当前高亮添加备注</div>
           <textarea
             className="w-full h-24 border rounded p-2 text-sm"
-            value={noteEditor.text}
-            onChange={(e) => setNoteEditor((s) => ({ ...s, text: e.target.value }))}
+            ref={annoTextRef}
             placeholder="写点想法、问题或待办…"
           />
           <div className="mt-2 flex items-center gap-2">
-            <button className="px-3 py-1 rounded bg-black text-white text-sm" onClick={() => doAddAnnotation(noteEditor.text)}>保存</button>
-            <button className="px-3 py-1 rounded border text-sm" onClick={() => setNoteEditor({ show: false, x: 0, y: 0, text: "" })}>取消</button>
+            <button className="px-3 py-1 rounded bg-black text-white text-sm" onClick={() => doAddAnnotation(annoTextRef.current?.value || "")}>保存</button>
+            <button className="px-3 py-1 rounded border text-sm" onClick={() => setNoteEditor({ show: false, x: 0, y: 0 })}>取消</button>
           </div>
         </div>
       )}
