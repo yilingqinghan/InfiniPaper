@@ -720,6 +720,68 @@ export default function ReaderPage() {
     }
   };
 
+  // === Gemini 对接（通过后端 /api/v1/gemini/ask）===
+  const [gemOpen, setGemOpen] = React.useState(false);
+  const [gemLoading, setGemLoading] = React.useState(false);
+  const [gemChat, setGemChat] = React.useState<{ role: 'user' | 'assistant'; text: string }[]>([]);
+  const [gemPrompt, setGemPrompt] = React.useState('');
+
+  const askGemini = () => {
+    if (!selPayload) return;
+    const q = `请基于以下摘录进行解释/总结，并指出关键点：\n\n${selPayload.quote}`;
+    setGemOpen(true);
+    setGemPrompt(q);
+    setGemChat([]);
+    // 自动发送
+    setTimeout(() => { void sendGemini(q); }, 0);
+  };
+
+  const sendGemini = async (override?: string) => {
+    const text = (override ?? gemPrompt).trim();
+    if (!text) return;
+    setGemLoading(true);
+    setGemChat((c) => [...c, { role: 'user', text }]);
+    try {
+      const r = await fetch(api(`/api/v1/gemini/ask`), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: text, context: `Paper #${id}` }),
+      });
+      if (!r.ok) {
+        const t = await r.text();
+        setGemChat((c) => [...c, { role: 'assistant', text: `服务错误：${r.status} ${t}` }]);
+      } else {
+        const data = await r.json();
+        setGemChat((c) => [...c, { role: 'assistant', text: data?.text || "(空)" }]);
+      }
+    } catch (e: any) {
+      setGemChat((c) => [...c, { role: 'assistant', text: `调用失败：${e?.message || e}` }]);
+    } finally {
+      setGemLoading(false);
+    }
+  };
+
+  // === ChatGPT Bridge（Chrome 扩展控制 chat.openai.com）===
+  // 构造要发送到 ChatGPT 的问题（含选区与上下文）
+  const buildChatGPTQuestion = React.useCallback(() => {
+    const quote = selPayload?.quote?.trim() || "";
+    const prefix = quote ? `请基于以下摘录进行解释/总结，并指出关键点：\n\n${quote}\n\n` : "";
+    const ctx = id ? `（来源：Paper #${id}）` : "";
+    return `${prefix}${ctx}`.trim();
+  }, [selPayload, id]);
+
+  // 触发 Chrome 扩展：把问题发到已打开的 ChatGPT 标签页并自动发送
+  const askChatGPT = React.useCallback(() => {
+    const text = buildChatGPTQuestion();
+    if (!text) return;
+    try {
+      // 方案A：自定义事件（content-bridge.js 监听 INFINIPAPER_ASK_CHATGPT）
+      window.dispatchEvent(new CustomEvent("INFINIPAPER_ASK_CHATGPT", { detail: { text } }));
+      // 方案B：postMessage（content-bridge.js 也兼容）
+      window.postMessage({ source: "InfiniPaper", type: "ASK_CHATGPT", text }, "*");
+    } catch {}
+  }, [buildChatGPTQuestion]);
+
   // 备注编辑弹窗优化
   const annoTextRef = React.useRef<HTMLTextAreaElement | null>(null);
   const [noteEditor, setNoteEditor] = React.useState<{ show: boolean; x: number; y: number }>({ show: false, x: 0, y: 0 });
@@ -1150,6 +1212,7 @@ export default function ReaderPage() {
                 ))}
                 <span className="mx-1 text-gray-300">|</span>
                 <button className="px-2 py-1 text-sm hover:bg-gray-50 border rounded" onClick={askLLM}>询问 LLM</button>
+                <button className="px-2 py-1 text-sm hover:bg-gray-50 border rounded" onClick={askGemini}>问 Gemini</button>
                 <button className="px-2 py-1 text-sm hover:bg-gray-50 border rounded" onClick={openNoteEditor}>添加批注</button>
                 <button className="px-2 py-1 text-sm text-gray-500 hover:bg-gray-50" onClick={() => setSelectionBox((s) => ({ ...s, show: false }))}>×</button>
               </div>
@@ -1175,7 +1238,21 @@ export default function ReaderPage() {
                     />
                   ))}
                 </div>
-                <button className="px-2 py-1 rounded hover:bg-gray-50" onClick={() => deleteAnnotation(ctxMenu.annId!)}>删除高亮</button>
+                <button
+                  className="px-2 py-1 rounded hover:bg-gray-50"
+                  onClick={() => {
+                    const quote = selPayload?.quote || "";
+                    const text = quote ? `请基于以下摘录进行解释/总结，并指出关键点：\n\n${quote}` : "请帮我就所选内容给出解释/总结。";
+                    setCtxMenu({ show: false, x: 0, y: 0, annId: null });
+                    setGemOpen(true);
+                    setGemPrompt(text);
+                    setGemChat([]);
+                    setTimeout(() => { void sendGemini(text); }, 0);
+                  }}
+                >
+                  问 Gemini
+                </button>
+                <button className="ml-2 px-2 py-1 rounded hover:bg-gray-50" onClick={() => deleteAnnotation(ctxMenu.annId!)}>删除高亮</button>
                 <button className="ml-2 px-2 py-1 text-gray-500 hover:bg-gray-50" onClick={() => setCtxMenu({ show: false, x: 0, y: 0, annId: null })}>取消</button>
               </div>
             )}
@@ -1224,6 +1301,43 @@ export default function ReaderPage() {
           <div className="mt-2 flex items-center gap-2">
             <button className="px-3 py-1 rounded bg-black text-white text-sm" onClick={() => doAddAnnotation(annoTextRef.current?.value || "")}>保存</button>
             <button className="px-3 py-1 rounded border text-sm" onClick={() => setNoteEditor({ show: false, x: 0, y: 0 })}>取消</button>
+          </div>
+        </div>
+      )}
+
+      {/* Gemini 弹窗 */}
+      {gemOpen && (
+        <div className="fixed inset-0 z-40 bg-black/30 flex items-center justify-center" onClick={() => setGemOpen(false)}>
+          <div className="bg-white w-[min(760px,92%)] max-h-[80%] overflow-auto rounded-2xl shadow-2xl p-4 border" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center mb-3">
+              <div className="font-semibold text-lg">Gemini 对话</div>
+              <div className="ml-auto">
+                <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50 rounded" onClick={() => setGemOpen(false)}>关闭</button>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="max-h-64 overflow-auto space-y-2">
+                {gemChat.map((m, i) => (
+                  <div key={i} className={m.role === 'user' ? "text-sm p-2 rounded bg-indigo-50" : "text-sm p-2 rounded bg-gray-50"}>
+                    <div className="text-xs text-gray-500 mb-1">{m.role === 'user' ? "你" : "Gemini"}</div>
+                    <div className="whitespace-pre-wrap">{m.text}</div>
+                  </div>
+                ))}
+                {gemLoading && <div className="text-sm text-gray-500">思考中…</div>}
+              </div>
+              <textarea
+                className="w-full h-28 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                value={gemPrompt}
+                onChange={(e) => setGemPrompt(e.target.value)}
+                placeholder="在这里继续和 Gemini 对话"
+              />
+              <div className="flex items-center justify-end gap-2">
+                <button className="px-3 py-1 rounded border text-sm" onClick={() => setGemOpen(false)}>取消</button>
+                <button className="px-3 py-1 rounded bg-indigo-600 text-white text-sm disabled:opacity-60" disabled={gemLoading} onClick={() => sendGemini()}>
+                  发送
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Ask ChatGPT (Bridge)",
+    "version": "1.0.0",
+    "description": "从你的网页一键把批注问题发到已打开的 ChatGPT 标签页并自动发送。",
+    "permissions": ["tabs", "scripting", "activeTab"],
+    "host_permissions": ["https://chat.openai.com/*"],
+    "background": { "service_worker": "background.js" },
+    "content_scripts": [
+      {
+        "matches": ["https://YOUR_SITE_ORIGIN/*", "http://localhost/*"],
+        "js": ["content-bridge.js"],
+        "run_at": "document_start"
+      }
+    ]
+  }

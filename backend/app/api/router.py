@@ -83,3 +83,6 @@ try:
     api_router.include_router(richnotes.router, prefix="/richnotes", tags=["richnotes"])
 except Exception as e:
     print("[router] skip richnotes:", repr(e))
+
+from .v1 import gemini
+api_router.include_router(gemini.router, prefix="/gemini", tags=["gemini"])
