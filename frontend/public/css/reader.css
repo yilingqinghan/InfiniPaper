@@ -194,3 +194,27 @@ mark[data-ann-id] {
   border-radius: 2px;
   padding: 0 2px;
 }
+
+/* ----- FIX: restore list bullets & numbers in Markdown/prose ----- */
+.markdown-body ul,
+.markdown-body ol,
+.prose ul,
+.prose ol {
+  list-style-position: outside !important;
+  padding-left: 1.6em !important;
+  margin: 0.6em 0 !important;
+}
+.markdown-body ul, .prose ul { list-style-type: disc !important; }
+.markdown-body ul ul, .prose ul ul { list-style-type: circle !important; }
+.markdown-body ul ul ul, .prose ul ul ul { list-style-type: square !important; }
+
+.markdown-body ol, .prose ol { list-style-type: decimal !important; }
+.markdown-body ol ol, .prose ol ol { list-style-type: lower-alpha !important; }
+.markdown-body ol ol ol, .prose ol ol ol { list-style-type: lower-roman !important; }
+
+.markdown-body li,
+.prose li { display: list-item !important; }
+
+/* 避免 li > p 的块级规则影响 marker */
+.markdown-body li > p,
+.prose li > p { margin: 0.2em 0 !important; }

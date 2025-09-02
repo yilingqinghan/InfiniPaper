@@ -297,7 +297,7 @@ export default function ReaderPage() {
     window.setTimeout(() => setBubble(s => ({ ...s, show: false })), 2500);
   };
   // --- 笔记（Markdown 富文本）---
-  const [noteOpen, setNoteOpen] = React.useState(false);
+  const [noteOpen, setNoteOpen] = React.useState(true);
   // 笔记停靠：overlay=覆盖左侧PDF；float=悬浮独立滚动
   const [noteDock, setNoteDock] = React.useState<'overlay' | 'float'>('overlay');
   // 悬浮面板：左右贴边与自适应宽度
@@ -430,7 +430,7 @@ export default function ReaderPage() {
   const api = React.useCallback((path: string) => (apiBase ? `${apiBase}${path}` : path), [apiBase]);
 
   // 主题：plain（素雅）/ aurora（炫彩）
-  const [theme, setTheme] = React.useState<'plain' | 'aurora' | 'immersive'>('aurora');
+  const [theme, setTheme] = React.useState<'plain' | 'aurora' | 'immersive'>('immersive');
   // 字体
   const [mdFont, setMdFont] = React.useState(16);
   const incFont = () => setMdFont((s) => Math.min(22, s + 1));
