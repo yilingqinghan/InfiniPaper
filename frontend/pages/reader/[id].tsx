@@ -82,6 +82,11 @@ function highlightOffsetsMulti(container: HTMLElement, start: number, end: numbe
   segments.forEach((seg) => {
     const L = Math.max(start, seg.start);
     const R = Math.min(end, seg.end);
+    // 跳过纯空白/换行，避免空行整行着色
+    const slice = (seg.node.nodeValue || '').slice(L - seg.start, R - seg.start);
+    if (!slice || slice.trim() === '') {
+      return; // 跳过纯空白/换行，避免空行整行着色
+    }
     if (L < R) {
       const r = document.createRange();
       r.setStart(seg.node, L - seg.start);
@@ -1284,77 +1289,93 @@ export default function ReaderPage() {
           </div>
         </div>
 
-        {/* RIGHT: 批注侧栏 / 借用为 Gemini 对话区 */}
+        {/* RIGHT: 批注侧栏（常驻） + Gemini 悬浮窗（不遮挡列表） */}
         <div className="relative page-col page-col--right">
-            {/* Gemini 固定悬浮面板（右上，固定高度 70vh） */}
-        {gemOpen && (
-        <div
-            className="fixed z-40 bg-white/95 border border-indigo-100 rounded-xl shadow-2xl flex flex-col"
-            style={{ right: '16px', top: '80px', width: 'min(520px, 30vw)', height: '70vh' }}
-        >
-            <div className="px-3 py-2 border-b flex items-center gap-2">
-            <div className="font-medium">Gemini 对话</div>
-            <div className="text-xs text-gray-400">（悬浮窗口）</div>
-            <button className="ml-auto px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={() => setGemOpen(false)}>关闭</button>
-            </div>
-
-            {/* 消息区 */}
-            <div className="flex-1 min-h-0 overflow-auto space-y-2 p-2">
-            {gemChat.map((m, i) => (
-                <div key={i} className={m.role === 'user' ? "text-sm p-2 rounded bg-indigo-50" : "text-sm p-2 rounded bg-gray-50"}>
-                <div className="text-[11px] text-gray-500 mb-1">{m.role === 'user' ? "你" : "Gemini"}</div>
-                {m.role === 'assistant' ? (
-                    <div className="markdown-body">
-                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                        {m.text}
-                    </ReactMarkdown>
+          {/* 常驻：批注侧栏 */}
+          <div ref={notesPaneRef} className="absolute inset-0 overflow-auto p-3">
+            <div className="relative" style={{ height: sidebarHeight || 0 }}>
+              {annos.map((a) => {
+                const pos = noteLayout.find((x) => x.id === a.id)?.top ?? 0;
+                return (
+                  <div key={`note-${a.id}`} className="absolute left-0 right-0" style={{ top: pos }}>
+                    <div className="absolute -left-4 top-3 w-3 h-[1px] bg-gray-300" />
+                    <div className="bg-white/95 border border-indigo-100 rounded-lg shadow-sm p-2 text-xs leading-5">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="inline-block w-3 h-3 rounded-full border" style={{ background: a.color }} />
+                        <span className="text-gray-500">批注</span>
+                        <button className="ml-auto text-gray-400 hover:text-gray-600" title="删除" onClick={() => deleteAnnotation(a.id)}>×</button>
+                      </div>
+                      <div className="text-gray-800 whitespace-pre-wrap">{a.note || "（无备注）"}</div>
                     </div>
-                ) : (
-                    <div className="whitespace-pre-wrap">{m.text}</div>
-                )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 悬浮：Gemini 固定面板（右上，固定高度 70vh，不影响右侧列表滚动） */}
+          {gemOpen && (
+            <div
+              className="fixed z-40 bg-white/95 border border-indigo-100 rounded-xl shadow-2xl flex flex-col"
+              style={{ right: '16px', top: '80px', width: 'min(520px, 30vw)', height: '70vh' }}
+            >
+              <div className="px-3 py-2 border-b flex items-center gap-2">
+                <div className="font-medium">Gemini 对话</div>
+                <div className="text-xs text-gray-400">（悬浮窗口）</div>
+                <button className="ml-auto px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={() => setGemOpen(false)}>关闭</button>
+              </div>
+              <div className="flex-1 min-h-0 overflow-auto space-y-2 p-2">
+                {gemChat.map((m, i) => (
+                  <div key={i} className={m.role === 'user' ? "text-sm p-2 rounded bg-indigo-50" : "text-sm p-2 rounded bg-gray-50"}>
+                    <div className="text-[11px] text-gray-500 mb-1">{m.role === 'user' ? "你" : "Gemini"}</div>
+                    {m.role === 'assistant' ? (
+                      <div className="markdown-body">
+                        <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                          {m.text}
+                        </ReactMarkdown>
+                      </div>
+                    ) : (
+                      <div className="whitespace-pre-wrap">{m.text}</div>
+                    )}
+                  </div>
+                ))}
+                {gemLoading && <div className="text-sm text-gray-500 px-2">思考中…</div>}
+              </div>
+              <div className="border-t p-2 space-y-2">
+                <textarea
+                  className="w-full h-20 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                  value={gemPrompt}
+                  onChange={(e) => setGemPrompt(e.target.value)}
+                  placeholder="在这里编辑你的提问，然后发送给 Gemini"
+                />
+                <div className="flex items-center justify-end gap-2">
+                  <button className="px-3 py-1 rounded border text-sm" onClick={() => setGemOpen(false)}>关闭</button>
+                  <button className="px-3 py-1 rounded bg-indigo-600 text-white text-sm disabled:opacity-60" disabled={gemLoading || !gemPrompt.trim()} onClick={() => sendGemini()}>
+                    发送
+                  </button>
                 </div>
-            ))}
-            {gemLoading && <div className="text-sm text-gray-500 px-2">思考中…</div>}
+              </div>
+              <div className="border-t p-2 space-y-2">
+                <div className="text-xs text-gray-500">编辑下面的文本，点击保存可直接生成批注（使用当前选区位置）。</div>
+                <textarea
+                  className="w-full h-24 border rounded p-2 text-sm"
+                  value={gemEditText}
+                  onChange={(e) => setGemEditText(e.target.value)}
+                  placeholder="这里会自动填入上一条 Gemini 回复，你可以修改后保存为批注"
+                />
+                <div className="flex items-center justify-between">
+                  <div className="text-xs text-gray-400">{selPayload ? "将保存到当前选区的批注列表" : "（无选区：无法保存为批注）"}</div>
+                  <button
+                    className="px-3 py-1 rounded bg-black text-white text-sm disabled:opacity-50"
+                    disabled={!selPayload || !gemEditText.trim()}
+                    onClick={() => doAddAnnotation(gemEditText.trim())}
+                  >
+                    保存为批注
+                  </button>
+                </div>
+              </div>
             </div>
-
-            {/* 提问输入区（固定在窗口底部部分） */}
-            <div className="border-t p-2 space-y-2">
-            <textarea
-                className="w-full h-20 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                value={gemPrompt}
-                onChange={(e) => setGemPrompt(e.target.value)}
-                placeholder="在这里编辑你的提问，然后发送给 Gemini"
-            />
-            <div className="flex items-center justify-end gap-2">
-                <button className="px-3 py-1 rounded border text-sm" onClick={() => setGemOpen(false)}>关闭</button>
-                <button className="px-3 py-1 rounded bg-indigo-600 text-white text-sm disabled:opacity-60" disabled={gemLoading || !gemPrompt.trim()} onClick={() => sendGemini()}>
-                发送
-                </button>
-            </div>
-            </div>
-
-            {/* 可编辑的“将回复存为批注” */}
-            <div className="border-t p-2 space-y-2">
-            <div className="text-xs text-gray-500">编辑下面的文本，点击保存可直接生成批注（使用当前选区位置）。</div>
-            <textarea
-                className="w-full h-24 border rounded p-2 text-sm"
-                value={gemEditText}
-                onChange={(e) => setGemEditText(e.target.value)}
-                placeholder="这里会自动填入上一条 Gemini 回复，你可以修改后保存为批注"
-            />
-            <div className="flex items-center justify-between">
-                <div className="text-xs text-gray-400">{selPayload ? "将保存到当前选区的批注列表" : "（无选区：无法保存为批注）"}</div>
-                <button
-                className="px-3 py-1 rounded bg-black text-white text-sm disabled:opacity-50"
-                disabled={!selPayload || !gemEditText.trim()}
-                onClick={() => doAddAnnotation(gemEditText.trim())}
-                >
-                保存为批注
-                </button>
-            </div>
-            </div>
-        </div>
-        )}
+          )}
         </div>
       </div>
 
