@@ -462,9 +462,98 @@ function ReaderPage() {
   // --- 笔记（Markdown 富文本）---
   const [noteOpen, setNoteOpen] = React.useState(true);
   // 笔记停靠：overlay=覆盖左侧PDF；float=悬浮独立滚动
-  const [noteDock, setNoteDock] = React.useState<'overlay' | 'float'>('float');
+  const [noteDock, setNoteDock] = React.useState<'overlay' | 'float'>('overlay');
   // 悬浮面板：↔贴边与自适应宽度
   const [floatSide, setFloatSide] = React.useState<'left' | 'right'>('left');
+
+  // ---- Fixed-left editor bounds (match the left PDF column exactly) ----
+  const [leftFixedStyle, setLeftFixedStyle] = React.useState<React.CSSProperties | null>(null);
+  const updateLeftFixedStyle = React.useCallback(() => {
+    const leftCol = document.querySelector('.page-col--left') as HTMLElement | null;
+    if (!leftCol || typeof window === 'undefined') return;
+  
+    const colRect = leftCol.getBoundingClientRect();
+  
+    // 顶部用页头高度；当页头滚出视口时则为 0
+    const headerEl = document.querySelector('.page-header') as HTMLElement | null;
+    const headerRect = headerEl ? headerEl.getBoundingClientRect() : null;
+    const top = Math.max(0, headerRect ? headerRect.bottom : 0);
+  
+    const height = Math.max(0, window.innerHeight - top);
+  
+    setLeftFixedStyle({
+      position: 'fixed',
+      left: `${colRect.left}px`,
+      top: `${top}px`,
+      width: `${colRect.width}px`,
+      height: `${height}px`,
+      overflow: 'hidden',     // 外层不滚
+      background: 'white',
+      zIndex: 40,
+    } as React.CSSProperties);
+  }, []);
+  React.useEffect(() => {
+    updateLeftFixedStyle();
+    const onScroll = () => updateLeftFixedStyle();
+    const onResize = () => updateLeftFixedStyle();
+    window.addEventListener('scroll', onScroll, true);
+    window.addEventListener('resize', onResize);
+    const ro = new ResizeObserver(() => updateLeftFixedStyle());
+    const leftCol = document.querySelector('.page-col--left') as HTMLElement | null;
+    if (leftCol) ro.observe(leftCol);
+    return () => {
+      window.removeEventListener('scroll', onScroll, true);
+      window.removeEventListener('resize', onResize);
+      ro.disconnect();
+    };
+  }, [updateLeftFixedStyle, noteOpen]);
+
+  // ---- TOC (headings from the parsed markdown/html on the middle column) ----
+  const [tocOpen, setTocOpen] = React.useState(false);
+  const [tocItems, setTocItems] = React.useState<{ id: string; text: string; depth: number }[]>([]);
+  const slugify = React.useCallback((txt: string) => {
+    return (txt || '')
+      .toLowerCase()
+      .trim()
+      .replace(/<\/?[^>]+(>|$)/g, '')
+      .replace(/[\s\W-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }, []);
+  const buildTocFromDom = React.useCallback(() => {
+    const host = mdContainerRef.current;
+    if (!host) return;
+    const hs = host.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const used = new Set<string>();
+    const items: { id: string; text: string; depth: number }[] = [];
+    hs.forEach((el) => {
+      const depth = Number(el.tagName[1]) || 1;
+      const text = (el.textContent || '').trim();
+      let id = el.id && el.id.trim() ? el.id.trim() : '';
+      if (!id) id = slugify(text);
+      // ensure unique
+      let uniq = id, i = 2;
+      while (used.has(uniq) || !uniq) { uniq = `${id || 'section'}-${i++}`; }
+      used.add(uniq);
+      if (!el.id || el.id !== uniq) el.id = uniq;
+      items.push({ id: uniq, text, depth });
+    });
+    setTocItems(items);
+  }, [slugify]);
+  React.useEffect(() => {
+    // Recompute TOC after markdown/html content changes and next paint
+    const t = setTimeout(buildTocFromDom, 0);
+    return () => clearTimeout(t);
+  }, [md, html, buildTocFromDom]);
+  const scrollToHeading = React.useCallback((id: string) => {
+    const host = mdContainerRef.current;
+    if (!host) return;
+    const el = host.querySelector<HTMLElement>(`#${CSS.escape(id)}`);
+    if (!el) return;
+    const hostRect = host.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    const top = r.top - hostRect.top + host.scrollTop - 8; // small padding
+    host.scrollTo({ top, behavior: 'smooth' });
+  }, []);
   const [viewportKey, setViewportKey] = React.useState(0);
   React.useEffect(() => {
     const onResize = () => setViewportKey((k) => k + 1);
@@ -1534,6 +1623,12 @@ function ReaderPage() {
             onClick={() => setTheme((t) => (t === 'immersive' ? 'aurora' : 'immersive'))}
           >{theme === 'immersive' ? '退出沉浸' : '沉浸'}</button>
           <span className="mx-2 text-gray-300">|</span>
+          <button
+            className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
+            onClick={() => setTocOpen(o => !o)}
+            title="显示/隐藏目录"
+          >目录</button>
+          <span className="mx-2 text-gray-300">|</span>
           <span className="text-xs text-gray-500">笔记</span>
           <button
             className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
@@ -1547,61 +1642,53 @@ function ReaderPage() {
         </div>
       </div>
 
+      {/* Floating TOC panel */}
+      {tocOpen && (
+        <div data-floating-ui className="fixed z-50 top-[56px] right-4 w-[min(360px,40vw)] max-h-[60vh] overflow-auto bg-white border rounded shadow-lg p-2">
+          <div className="text-xs text-gray-500 mb-1">目录</div>
+          {tocItems.length ? (
+            <ul className="space-y-1">
+              {tocItems.map((it) => (
+                <li key={it.id}>
+                  <button
+                    className="w-full text-left text-sm hover:bg-gray-50 rounded px-2 py-1"
+                    style={{ paddingLeft: `${(it.depth - 1) * 12 + 8}px` }}
+                    onClick={() => { scrollToHeading(it.id); setTocOpen(false); }}
+                    title={it.text}
+                  >
+                    {it.text}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : <div className="text-sm text-gray-400 px-2 py-1">暂无标题</div>}
+        </div>
+      )}
+      {/* </div> */}
+
       {/* 三列布局：40% / 40% / 20% */}
       <div className="flex-1 grid page-grid" style={{ gridTemplateColumns: gridCols }}>
         {/* LEFT: PDF */}
         <div suppressHydrationWarning className="relative border-r page-col page-col--left">
-          {pdfUrl ? <PdfPane fileUrl={viewerUrl} className="h-full" /> : <div className="p-6 text-gray-500">未找到 PDF 地址</div>}
+          {pdfUrl ? <PdfPane fileUrl={viewerUrl} className="h-full bg-white" /> : <div className="p-6 text-gray-500">未找到 PDF 地址</div>}
 
-            {/* 覆盖左侧PDF：overlay 模式 */}
-            {noteOpen && noteDock === 'overlay' && (
-              <div ref={noteOverlayRef} className="absolute inset-0 z-20 bg-white/95 flex flex-col note-overlay">
-                {/* 顶部工具栏 */}
-                <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
-                  <MiniToolbar />
-                  <div className="ml-auto flex items-center gap-2">
-                    <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
-                    <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
-                  </div>
+          {/* 覆盖左侧PDF：overlay 模式 */}
+          {noteOpen && noteDock === 'overlay' && leftFixedStyle && (
+            <div
+              ref={noteOverlayRef}
+              className="z-40 flex flex-col note-overlay"
+              style={leftFixedStyle}
+            >
+              {/* 顶部工具栏 */}
+              <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/95">
+                <MiniToolbar />
+                <div className="ml-auto flex items-center gap-2">
+                  <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
+                  <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
                 </div>
-
-                {/* 内容区：与悬浮模式一致（↔/⇅可切） */}
-                <div className="flex-1 min-h-0 flex">
-              <div className="min-w-0 min-h-0 flex-1">
-                <WysiwygMdEditor
-                  key={editorKey}
-                  initialMarkdown={noteDraftRef.current || noteMd}
-                  onMarkdownChange={(md) => { noteDraftRef.current = md; queueSave(); }}
-                />
               </div>
-            </div>
-              </div>
-            )}
-
-            {/* 悬浮：独立滚动的富文本编辑器（通过 Portal 固定在视口，完全不受列滚动影响） */}
-            {noteOpen && noteDock === 'float' && typeof window !== 'undefined' && createPortal(
-              <div
-                ref={noteOverlayRef}
-                className="fixed z-50 bg-white/95 border border-indigo-100 rounded-xl shadow-2xl flex flex-col note-overlay"
-                style={floatStyle}
-              >
-                {/* 顶部工具栏（同覆盖模式） */}
-                <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80  whitespace-nowrap">
-                  <div className="flex items-center gap-2">
-                    <button
-                      className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
-                      onClick={() => setFloatSide((s) => (s === 'left' ? 'right' : 'left'))}
-                    >{floatSide === 'left' ? '靠右' : '靠左'}</button>
-                  </div>
-                  <MiniToolbar />
-                  <div className="ml-auto flex items-center gap-2">
-                    <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
-                    <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
-                  </div>
-                </div>
-
-                {/* 内容区：与覆盖模式一致（↔/⇅可切） */}
-                <div className="flex-1 min-h-0 flex">
+              {/* 内容区：占满左列 */}
+              <div className="flex-1 min-h-0 flex">
                 <div className="min-w-0 min-h-0 flex-1">
                   <WysiwygMdEditor
                     key={editorKey}
@@ -1610,9 +1697,8 @@ function ReaderPage() {
                   />
                 </div>
               </div>
-              </div>,
-              document.body
-            )}
+            </div>
+          )}
         </div>
 
         {/* MIDDLE: Markdown + tools */}
