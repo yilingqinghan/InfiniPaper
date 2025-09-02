@@ -1305,7 +1305,11 @@ export default function ReaderPage() {
                         <span className="text-gray-500">批注</span>
                         <button className="ml-auto text-gray-400 hover:text-gray-600" title="删除" onClick={() => deleteAnnotation(a.id)}>×</button>
                       </div>
-                      <div className="text-gray-800 whitespace-pre-wrap">{a.note || "（无备注）"}</div>
+                      <div className="markdown-body text-[13px]">
+                        <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                          {a.note || "（无备注）"}
+                        </ReactMarkdown>
+                      </div>
                     </div>
                   </div>
                 );
