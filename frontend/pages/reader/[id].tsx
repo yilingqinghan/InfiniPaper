@@ -308,6 +308,43 @@ export default function ReaderPage() {
   const saveAbortRef = React.useRef<AbortController | null>(null);
   const [editorKey, setEditorKey] = React.useState(0); // 触发 textarea 重新挂载以刷新 defaultValue
 
+  // --- 简易撤销/重做历史 ---
+  const historyRef = React.useRef<{ v: string; s: number; e: number }[]>([]);
+  const histIdxRef = React.useRef<number>(-1);
+  const pushHistory = (v: string, s: number, e: number) => {
+    const arr = historyRef.current;
+    const idx = histIdxRef.current;
+    if (idx < arr.length - 1) arr.splice(idx + 1); // 丢弃重做分支
+    arr.push({ v, s, e });
+    if (arr.length > 200) arr.splice(0, arr.length - 200); // 限制大小
+    histIdxRef.current = arr.length - 1;
+  };
+  const snapshotFromTextarea = (el: HTMLTextAreaElement) => {
+    pushHistory(el.value, el.selectionStart ?? 0, el.selectionEnd ?? 0);
+  };
+  const doUndo = () => {
+    const el = noteTextRef.current; if (!el) return;
+    if (histIdxRef.current <= 0) return;
+    histIdxRef.current -= 1;
+    const snap = historyRef.current[histIdxRef.current];
+    el.value = snap.v; noteDraftRef.current = snap.v;
+    el.setSelectionRange(snap.s, snap.e);
+    updateCaretFromTextarea(el);
+    queueLivePreview();
+    queueSave();
+  };
+  const doRedo = () => {
+    const el = noteTextRef.current; if (!el) return;
+    if (histIdxRef.current >= historyRef.current.length - 1) return;
+    histIdxRef.current += 1;
+    const snap = historyRef.current[histIdxRef.current];
+    el.value = snap.v; noteDraftRef.current = snap.v;
+    el.setSelectionRange(snap.s, snap.e);
+    updateCaretFromTextarea(el);
+    queueLivePreview();
+    queueSave();
+  };
+
   // 笔记持久化相关状态（后端）
   const [noteId, setNoteId] = React.useState<number | null>(null);
   const [noteSaving, setNoteSaving] = React.useState(false);
@@ -474,6 +511,12 @@ export default function ReaderPage() {
     }
   }, [editorKey, noteLayoutMode]);
 
+  // 编辑器挂载时，捕获初始历史快照
+  React.useEffect(() => {
+    const el = noteTextRef.current;
+    if (el) requestAnimationFrame(() => snapshotFromTextarea(el));
+  }, [editorKey]);
+
   const applyWrapDirect = (el: HTMLTextAreaElement, before: string, after = "") => {
     const start = el.selectionStart ?? 0;
     const end = el.selectionEnd ?? 0;
@@ -490,6 +533,7 @@ export default function ReaderPage() {
     });
     queueLivePreview();
     queueSave();
+    snapshotFromTextarea(el);
   };
 
   const applyLinePrefixDirect = (el: HTMLTextAreaElement, prefix: string) => {
@@ -507,6 +551,7 @@ export default function ReaderPage() {
     });
     queueLivePreview();
     queueSave();
+    snapshotFromTextarea(el);
   };
 
   const applyUnorderedListDirect = (el: HTMLTextAreaElement) => {
@@ -528,6 +573,7 @@ export default function ReaderPage() {
     requestAnimationFrame(() => { updateCaretFromTextarea(el); });
     queueLivePreview();
     queueSave();
+    snapshotFromTextarea(el);
   };
 
   const applyOrderedListDirect = (el: HTMLTextAreaElement) => {
@@ -551,37 +597,47 @@ export default function ReaderPage() {
     requestAnimationFrame(() => { updateCaretFromTextarea(el); });
     queueLivePreview();
     queueSave();
+    snapshotFromTextarea(el);
   };
 
   const handleEditorKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const el = noteTextRef.current;
     if (!el) return;
-    const mod = e.metaKey || e.ctrlKey;
-    const opt = e.altKey; // Mac Option = Alt
+    const mod = e.metaKey || e.ctrlKey; // Cmd/Ctrl
+    const opt = e.altKey;               // Option/Alt
+    const sh = e.shiftKey;              // Shift
     if (!mod) return;
     const k = e.key.toLowerCase();
 
-    if (!opt && k === 'b') { e.preventDefault(); applyWrapDirect(el, '**', '**'); return; }
-    if (!opt && k === 'i') { e.preventDefault(); applyWrapDirect(el, '*', '*'); return; }
-    if (!opt && k === 'k') { e.preventDefault();
+    // --- 撤销/重做 ---
+    if (k === 'z' && !sh) { e.preventDefault(); doUndo(); return; }
+    if ((k === 'z' && sh) || k === 'y') { e.preventDefault(); doRedo(); return; }
+
+    // --- 常用包裹 ---
+    if (!opt && !sh && k === 'b') { e.preventDefault(); applyWrapDirect(el, '**', '**'); return; }
+    if (!opt && !sh && k === 'i') { e.preventDefault(); applyWrapDirect(el, '*', '*'); return; }
+    if (!opt && !sh && k === 'k') { e.preventDefault();
       const start = el.selectionStart ?? 0; const end = el.selectionEnd ?? 0; const sel = el.value.slice(start, end) || '文本';
-      const before = `[${sel}](链接)`;
-      const next = el.value.slice(0, start) + before + el.value.slice(end);
+      const before = `[${sel}](链接)`; const next = el.value.slice(0, start) + before + el.value.slice(end);
       el.value = next; noteDraftRef.current = next; queueLivePreview(); queueSave();
       const linkStart = start + before.indexOf('链接'); const linkEnd = linkStart + 2;
       requestAnimationFrame(() => { el.focus(); el.setSelectionRange(linkStart, linkEnd); updateCaretFromTextarea(el); });
+      snapshotFromTextarea(el);
       return;
     }
-    if (!opt && k === '1') { e.preventDefault(); applyLinePrefixDirect(el, '# '); return; }
-    if (!opt && k === '2') { e.preventDefault(); applyLinePrefixDirect(el, '## '); return; }
-    if (!opt && k === '3') { e.preventDefault(); applyLinePrefixDirect(el, '### '); return; }
+    if (!opt && !sh && k === '1') { e.preventDefault(); applyLinePrefixDirect(el, '# '); return; }
+    if (!opt && !sh && k === '2') { e.preventDefault(); applyLinePrefixDirect(el, '## '); return; }
+    if (!opt && !sh && k === '3') { e.preventDefault(); applyLinePrefixDirect(el, '### '); return; }
 
-    // 新增：下划线（<u>…</u>）
-    if (!opt && k === 'u') { e.preventDefault(); applyWrapDirect(el, '<u>', '</u>'); return; }
-    // 新增：无序列表（Cmd+Option+U）
-    if (opt && k === 'u') { e.preventDefault(); applyUnorderedListDirect(el); return; }
-    // 新增：有序列表（Cmd+Option+I）
-    if (opt && k === 'i') { e.preventDefault(); applyOrderedListDirect(el); return; }
+    // --- 下划线（浏览器保留了 Cmd+U/View Source），使用 Cmd+Shift+U；同时尝试兜底 Cmd+U ---
+    if (sh && k === 'u') { e.preventDefault(); applyWrapDirect(el, '<u>', '</u>'); return; }
+    if (!sh && !opt && k === 'u') { e.preventDefault(); applyWrapDirect(el, '<u>', '</u>'); return; }
+
+    // --- 列表：提供两套键位，避免被浏览器占用 ---
+    // 无序：Cmd+Shift+8  或  Cmd+Alt+U
+    if ((sh && k === '8') || (opt && k === 'u')) { e.preventDefault(); applyUnorderedListDirect(el); return; }
+    // 有序：Cmd+Shift+7  或  Cmd+Alt+I
+    if ((sh && k === '7') || (opt && k === 'i')) { e.preventDefault(); applyOrderedListDirect(el); return; }
   };
 
   const exportNoteAsMd = () => {
@@ -1161,12 +1217,13 @@ export default function ReaderPage() {
                       updateCaretFromTextarea(el);
                       queueLivePreview();
                       queueSave();
+                      snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
                     }}
                     onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
                     onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
                     onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
                     onKeyDown={handleEditorKeyDown}
-                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
+                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
                     className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
                     spellCheck={false}
                   />
@@ -1199,12 +1256,13 @@ export default function ReaderPage() {
                       autoGrow(el);
                       queueLivePreview();
                       queueSave();
+                      snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
                     }}
                     onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
                     onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
                     onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
                     onKeyDown={handleEditorKeyDown}
-                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
+                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
                     className="w-full outline-none resize-none font-mono text-sm"
                     style={{ height: 120 }}
                     spellCheck={false}
