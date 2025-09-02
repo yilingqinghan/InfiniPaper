@@ -283,7 +283,13 @@ export default function ReaderPage() {
   const [html, setHtml] = React.useState<string | null>(null);
   const [md, setMd] = React.useState<string | null>(null);
   const [pdfUrl, setPdfUrl] = React.useState<string>("");
-
+  const [bubble, setBubble] = React.useState<{show:boolean; text:string; type:'info'|'error'}>({
+    show: false, text: '', type: 'info'
+  });
+  const showBubble = (text: string, type: 'info'|'error'='info') => {
+    setBubble({ show: true, text, type });
+    window.setTimeout(() => setBubble(s => ({ ...s, show: false })), 2500);
+  };
   // --- 笔记（Markdown 富文本）---
   const [noteOpen, setNoteOpen] = React.useState(false);
   const [noteMd, setNoteMd] = React.useState<string>("");
@@ -628,6 +634,7 @@ export default function ReaderPage() {
       const host = mdContainerRef.current;
       const notes = notesPaneRef.current;
       if (host && notes && Math.abs(notes.scrollTop - host.scrollTop) > 1) {
+        if (gemOpen) return;
         notes.scrollTop = host.scrollTop;  // 关键：同步滚动
       }
     };
@@ -722,18 +729,19 @@ export default function ReaderPage() {
 
   // === Gemini 对接（通过后端 /api/v1/gemini/ask）===
   const [gemOpen, setGemOpen] = React.useState(false);
+  const [gemDock, setGemDock] = React.useState<'sidebar' | 'modal'>('sidebar'); // 默认借用右侧栏
   const [gemLoading, setGemLoading] = React.useState(false);
   const [gemChat, setGemChat] = React.useState<{ role: 'user' | 'assistant'; text: string }[]>([]);
   const [gemPrompt, setGemPrompt] = React.useState('');
+  const [gemEditText, setGemEditText] = React.useState(''); // 可编辑的“最后回复”，用于保存为批注
 
   const askGemini = () => {
     if (!selPayload) return;
-    const q = `请基于以下摘录进行解释/总结，并指出关键点：\n\n${selPayload.quote}`;
+    const q = `请基于以下摘录进行解释/总结，并指出关键点，中文回答：\n\n${selPayload.quote}`;
     setGemOpen(true);
-    setGemPrompt(q);
+    setGemPrompt(q);     // 先允许编辑
     setGemChat([]);
-    // 自动发送
-    setTimeout(() => { void sendGemini(q); }, 0);
+    setGemEditText('');
   };
 
   const sendGemini = async (override?: string) => {
@@ -747,15 +755,31 @@ export default function ReaderPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: text, context: `Paper #${id}` }),
       });
+  
       if (!r.ok) {
         const t = await r.text();
-        setGemChat((c) => [...c, { role: 'assistant', text: `服务错误：${r.status} ${t}` }]);
+        // 针对网路/超时/502，不把原文打印到会话，改为气泡提示
+        if (r.status === 502 || /Read timed out|timeout/i.test(t)) {
+          showBubble("网络波动或服务繁忙，请稍后再试", "error");
+        } else {
+          showBubble(`服务暂不可用（${r.status}）`, "error");
+        }
+        // 给出一条简短的助手提示（可选：也可以不追加）
+        setGemChat((c) => [...c, { role: 'assistant', text: "（暂时无法获取回复，请稍后重试）" }]);
       } else {
         const data = await r.json();
-        setGemChat((c) => [...c, { role: 'assistant', text: data?.text || "(空)" }]);
+        const atext = data?.text || "(空)";
+        setGemChat((c) => [...c, { role: 'assistant', text: atext }]);
+        setGemEditText(atext); // 同步到“保存为批注”可编辑区
       }
     } catch (e: any) {
-      setGemChat((c) => [...c, { role: 'assistant', text: `调用失败：${e?.message || e}` }]);
+      const msg = String(e?.message || e || "");
+      if (/timed out|timeout|Failed to fetch|NetworkError/i.test(msg)) {
+        showBubble("网络波动或服务繁忙，请稍后再试", "error");
+      } else {
+        showBubble("请求失败，请稍后重试", "error");
+      }
+      setGemChat((c) => [...c, { role: 'assistant', text: "（暂时无法获取回复，请稍后重试）" }]);
     } finally {
       setGemLoading(false);
     }
@@ -1244,10 +1268,11 @@ export default function ReaderPage() {
                     const quote = selPayload?.quote || "";
                     const text = quote ? `请基于以下摘录进行解释/总结，并指出关键点：\n\n${quote}` : "请帮我就所选内容给出解释/总结。";
                     setCtxMenu({ show: false, x: 0, y: 0, annId: null });
+                    setGemDock('sidebar');
                     setGemOpen(true);
-                    setGemPrompt(text);
+                    setGemPrompt(text);   // 允许先编辑
                     setGemChat([]);
-                    setTimeout(() => { void sendGemini(text); }, 0);
+                    setGemEditText('');
                   }}
                 >
                   问 Gemini
@@ -1259,28 +1284,77 @@ export default function ReaderPage() {
           </div>
         </div>
 
-        {/* RIGHT: 批注侧栏 */}
+        {/* RIGHT: 批注侧栏 / 借用为 Gemini 对话区 */}
         <div className="relative page-col page-col--right">
-          <div ref={notesPaneRef} className="absolute inset-0 overflow-auto p-3">
-            <div className="relative" style={{ height: sidebarHeight || 0 }}>
-              {annos.map((a) => {
-                const pos = noteLayout.find((x) => x.id === a.id)?.top ?? 0;
-                return (
-                  <div key={`note-${a.id}`} className="absolute left-0 right-0" style={{ top: pos }}>
-                    <div className="absolute -left-4 top-3 w-3 h-[1px] bg-gray-300" />
-                    <div className="bg-white/95 border border-indigo-100 rounded-lg shadow-sm p-2 text-xs leading-5">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="inline-block w-3 h-3 rounded-full border" style={{ background: a.color }} />
-                        <span className="text-gray-500">批注</span>
-                        <button className="ml-auto text-gray-400 hover:text-gray-600" title="删除" onClick={() => deleteAnnotation(a.id)}>×</button>
-                      </div>
-                      <div className="text-gray-800 whitespace-pre-wrap">{a.note || "（无备注）"}</div>
-                    </div>
-                  </div>
-                );
-              })}
+            {/* Gemini 固定悬浮面板（右上，固定高度 70vh） */}
+        {gemOpen && (
+        <div
+            className="fixed z-40 bg-white/95 border border-indigo-100 rounded-xl shadow-2xl flex flex-col"
+            style={{ right: '16px', top: '80px', width: 'min(520px, 30vw)', height: '70vh' }}
+        >
+            <div className="px-3 py-2 border-b flex items-center gap-2">
+            <div className="font-medium">Gemini 对话</div>
+            <div className="text-xs text-gray-400">（悬浮窗口）</div>
+            <button className="ml-auto px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={() => setGemOpen(false)}>关闭</button>
             </div>
-          </div>
+
+            {/* 消息区 */}
+            <div className="flex-1 min-h-0 overflow-auto space-y-2 p-2">
+            {gemChat.map((m, i) => (
+                <div key={i} className={m.role === 'user' ? "text-sm p-2 rounded bg-indigo-50" : "text-sm p-2 rounded bg-gray-50"}>
+                <div className="text-[11px] text-gray-500 mb-1">{m.role === 'user' ? "你" : "Gemini"}</div>
+                {m.role === 'assistant' ? (
+                    <div className="markdown-body">
+                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                        {m.text}
+                    </ReactMarkdown>
+                    </div>
+                ) : (
+                    <div className="whitespace-pre-wrap">{m.text}</div>
+                )}
+                </div>
+            ))}
+            {gemLoading && <div className="text-sm text-gray-500 px-2">思考中…</div>}
+            </div>
+
+            {/* 提问输入区（固定在窗口底部部分） */}
+            <div className="border-t p-2 space-y-2">
+            <textarea
+                className="w-full h-20 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                value={gemPrompt}
+                onChange={(e) => setGemPrompt(e.target.value)}
+                placeholder="在这里编辑你的提问，然后发送给 Gemini"
+            />
+            <div className="flex items-center justify-end gap-2">
+                <button className="px-3 py-1 rounded border text-sm" onClick={() => setGemOpen(false)}>关闭</button>
+                <button className="px-3 py-1 rounded bg-indigo-600 text-white text-sm disabled:opacity-60" disabled={gemLoading || !gemPrompt.trim()} onClick={() => sendGemini()}>
+                发送
+                </button>
+            </div>
+            </div>
+
+            {/* 可编辑的“将回复存为批注” */}
+            <div className="border-t p-2 space-y-2">
+            <div className="text-xs text-gray-500">编辑下面的文本，点击保存可直接生成批注（使用当前选区位置）。</div>
+            <textarea
+                className="w-full h-24 border rounded p-2 text-sm"
+                value={gemEditText}
+                onChange={(e) => setGemEditText(e.target.value)}
+                placeholder="这里会自动填入上一条 Gemini 回复，你可以修改后保存为批注"
+            />
+            <div className="flex items-center justify-between">
+                <div className="text-xs text-gray-400">{selPayload ? "将保存到当前选区的批注列表" : "（无选区：无法保存为批注）"}</div>
+                <button
+                className="px-3 py-1 rounded bg-black text-white text-sm disabled:opacity-50"
+                disabled={!selPayload || !gemEditText.trim()}
+                onClick={() => doAddAnnotation(gemEditText.trim())}
+                >
+                保存为批注
+                </button>
+            </div>
+            </div>
+        </div>
+        )}
         </div>
       </div>
 
@@ -1305,42 +1379,6 @@ export default function ReaderPage() {
         </div>
       )}
 
-      {/* Gemini 弹窗 */}
-      {gemOpen && (
-        <div className="fixed inset-0 z-40 bg-black/30 flex items-center justify-center" onClick={() => setGemOpen(false)}>
-          <div className="bg-white w-[min(760px,92%)] max-h-[80%] overflow-auto rounded-2xl shadow-2xl p-4 border" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center mb-3">
-              <div className="font-semibold text-lg">Gemini 对话</div>
-              <div className="ml-auto">
-                <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50 rounded" onClick={() => setGemOpen(false)}>关闭</button>
-              </div>
-            </div>
-            <div className="space-y-3">
-              <div className="max-h-64 overflow-auto space-y-2">
-                {gemChat.map((m, i) => (
-                  <div key={i} className={m.role === 'user' ? "text-sm p-2 rounded bg-indigo-50" : "text-sm p-2 rounded bg-gray-50"}>
-                    <div className="text-xs text-gray-500 mb-1">{m.role === 'user' ? "你" : "Gemini"}</div>
-                    <div className="whitespace-pre-wrap">{m.text}</div>
-                  </div>
-                ))}
-                {gemLoading && <div className="text-sm text-gray-500">思考中…</div>}
-              </div>
-              <textarea
-                className="w-full h-28 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                value={gemPrompt}
-                onChange={(e) => setGemPrompt(e.target.value)}
-                placeholder="在这里继续和 Gemini 对话"
-              />
-              <div className="flex items-center justify-end gap-2">
-                <button className="px-3 py-1 rounded border text-sm" onClick={() => setGemOpen(false)}>取消</button>
-                <button className="px-3 py-1 rounded bg-indigo-600 text-white text-sm disabled:opacity-60" disabled={gemLoading} onClick={() => sendGemini()}>
-                  发送
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* LLM 弹窗 */}
       {llmOpen && (
@@ -1446,6 +1484,14 @@ export default function ReaderPage() {
           background: rgba(99,102,241,.25);
         }
       `}</style>
+      {bubble.show && (
+    <div
+        className="fixed right-4 bottom-6 z-[100] px-3 py-2 rounded-lg shadow-lg text-sm"
+        style={{ background: bubble.type === 'error' ? 'rgba(220,38,38,.92)' : 'rgba(0,0,0,.82)', color: '#fff' }}
+    >
+        {bubble.text}
+    </div>
+    )}
     </div>
   );
 }
