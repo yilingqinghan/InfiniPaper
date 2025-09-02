@@ -330,6 +330,35 @@ export default function ReaderPage() {
   // 选择 & 工具条
   const mdContainerRef = React.useRef<HTMLDivElement | null>(null);
   const notesPaneRef = React.useRef<HTMLDivElement | null>(null);
+  // 笔记分屏（上下）——支持拖拽调整高度
+  const noteOverlayRef = React.useRef<HTMLDivElement | null>(null);
+  const splitDraggingRef = React.useRef(false);
+  const [noteSplitRatio, setNoteSplitRatio] = React.useState(0.55); // 顶部编辑区高度占比
+
+  const startSplitDrag = (e: React.MouseEvent) => {
+    e.preventDefault();
+    splitDraggingRef.current = true;
+  };
+
+  React.useEffect(() => {
+    if (!noteOpen) return;
+    const onMove = (e: MouseEvent) => {
+      if (!splitDraggingRef.current) return;
+      const host = noteOverlayRef.current;
+      if (!host) return;
+      const rect = host.getBoundingClientRect();
+      const y = e.clientY - rect.top;
+      const ratio = Math.min(0.85, Math.max(0.15, y / rect.height));
+      setNoteSplitRatio(ratio);
+    };
+    const onUp = () => { splitDraggingRef.current = false; };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+  }, [noteOpen]);
   // Markdown 工具函数
   const insertMd = (before: string, after = "") => {
     const el = noteTextRef.current;
@@ -880,24 +909,18 @@ export default function ReaderPage() {
           {pdfUrl ? <PdfPane fileUrl={viewerUrl} className="h-full" /> : <div className="p-6 text-gray-500">未找到 PDF 地址</div>}
 
           {noteOpen && (
-            <div className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm flex flex-col">
+            <div ref={noteOverlayRef} className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm flex flex-col">
               {/* 顶部工具栏 */}
               <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
-                <div className="flex items-center gap-1">
-                  <button
-                    className={`px-2 py-1 rounded text-sm border ${noteTab === 'edit' ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
-                    onClick={() => setNoteTab('edit')}
-                  >编辑</button>
-                  <button
-                    className={`px-2 py-1 rounded text-sm border ${noteTab === 'preview' ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
-                    onClick={() => { setNoteLive(noteDraftRef.current || ""); setNoteTab('preview'); }}
-                  >预览</button>
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-1 rounded text-xs border bg-gray-50 text-gray-600">编辑 + 预览（上下分屏）</span>
+                  <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => setNoteSplitRatio(0.55)}>重置分屏</button>
                 </div>
 
                 {/* 简易格式工具 */}
                 <div className="ml-2 flex items-center gap-1">
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('**','**')}>粗体</button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('*','*')}>斜体</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('**','**')}><b>粗</b></button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('*','*')}><i>斜</i></button>
                   <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertAtLineStart('# ')}>H1</button>
                   <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertAtLineStart('## ')}>H2</button>
                   <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertAtLineStart('- ')}>列表</button>
@@ -910,47 +933,44 @@ export default function ReaderPage() {
                 </div>
 
                 <div className="ml-auto flex items-center gap-2">
-                <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>
-                导出 .md
-                </button>
+                  <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>
+                    导出 .md
+                  </button>
                   <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
                 </div>
               </div>
 
-              {/* 内容区 */}
-              <div className="flex-1 min-h-0">
-                {noteTab === 'edit' ? (
-                  <div className="h-full flex flex-col">
-                    <div className="flex-1 min-h-0">
-                      <textarea
-                        key={editorKey}
-                        ref={noteTextRef}
-                        defaultValue={noteDraftRef.current || noteMd}
-                        onInput={(e) => {
-                          noteDraftRef.current = (e.currentTarget as HTMLTextAreaElement).value;
-                          queueLivePreview();
-                          queueSave();
-                        }}
-                        onKeyDown={handleEditorKeyDown}
-                        placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
-                        className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
-                        spellCheck={false}
-                      />
-                    </div>
-                    <div className="h-8 flex items-center px-3 text-xs text-gray-500 border-t bg-white/70">实时预览</div>
-                    <div className="flex-1 min-h-0 overflow-auto p-3 markdown-body">
-                      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                        {noteLive || noteDraftRef.current || ""}
-                      </ReactMarkdown>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="h-full overflow-auto p-3 markdown-body">
-                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                      {noteLive || noteDraftRef.current || noteMd || '（空笔记）'}
-                    </ReactMarkdown>
-                  </div>
-                )}
+              {/* 内容区：始终上下分屏（上：编辑，下：预览） */}
+              <div className="flex-1 min-h-0 flex flex-col">
+                {/* 上：编辑区域（可拖拽改变高度占比） */}
+                <div className="min-h-0" style={{ height: `calc(${noteSplitRatio * 100}% - 6px)` }}>
+                  <textarea
+                    key={editorKey}
+                    ref={noteTextRef}
+                    defaultValue={noteDraftRef.current || noteMd}
+                    onInput={(e) => {
+                      noteDraftRef.current = (e.currentTarget as HTMLTextAreaElement).value;
+                      queueLivePreview();
+                      queueSave();
+                    }}
+                    onKeyDown={handleEditorKeyDown}
+                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
+                    className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
+                    spellCheck={false}
+                  />
+                </div>
+                {/* 拖拽条 */}
+                <div
+                  className="h-3 cursor-row-resize bg-gradient-to-b from-gray-100 to-gray-200 border-t border-b"
+                  onMouseDown={startSplitDrag}
+                  title="拖动调整编辑/预览高度"
+                />
+                {/* 下：实时预览 */}
+                <div className="min-h-0 flex-1 overflow-auto p-3 markdown-body">
+                  <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                    {noteLive || noteDraftRef.current || ""}
+                  </ReactMarkdown>
+                </div>
               </div>
             </div>
           )}
