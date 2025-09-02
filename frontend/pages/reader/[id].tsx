@@ -143,6 +143,7 @@ function WysiwygMdEditor({
           }}
         />
         {/* Toolbar bridge: respond to top toolbar buttons & image/emoji insert */}
+        <ActiveParagraphHighlightPlugin />
         <WysiwygBridge />
         <InitFromMarkdown markdown={initialMarkdown} />
         </div>
@@ -199,7 +200,32 @@ function WysiwygBridge() {
   }, [editor]);
   return null;
 }
+function ActiveParagraphHighlightPlugin() {
+  const [editor] = useLexicalComposerContext();
+  const prevRef = React.useRef<HTMLElement | null>(null);
 
+  React.useEffect(() => {
+    return editor.registerUpdateListener(({ editorState }) => {
+      editorState.read(() => {
+        const sel = $getSelection();
+        if (!$isRangeSelection(sel)) return;
+        const anchor = sel.anchor.getNode();
+        const topElem = anchor.getTopLevelElementOrThrow(); // 段落级
+        const dom = editor.getElementByKey(topElem.getKey()) as HTMLElement | null;
+
+        if (prevRef.current && prevRef.current !== dom) {
+          prevRef.current.classList.remove('editing-paragraph');
+        }
+        if (dom) {
+          dom.classList.add('editing-paragraph');
+          prevRef.current = dom;
+        }
+      });
+    });
+  }, [editor]);
+
+  return null;
+}
 /* -------------------- 组件 -------------------- */
 function ReaderPage() {
   const router = useRouter();
@@ -276,6 +302,7 @@ function ReaderPage() {
   // ---- TOC (headings from the parsed markdown/html on the middle column) ----
   const [tocOpen, setTocOpen] = React.useState(false);
   const [tocItems, setTocItems] = React.useState<{ id: string; text: string; depth: number }[]>([]);
+  const [tocPinned, setTocPinned] = React.useState(true); // 默认固定在右上角
   const slugify = React.useCallback((txt: string) => {
     return (txt || '')
       .toLowerCase()
@@ -312,15 +339,21 @@ function ReaderPage() {
   const scrollToHeading = React.useCallback((id: string) => {
     const host = mdContainerRef.current;
     if (!host) return;
-    // 先按 #id 选；选不到再按属性选择器兜底
-    let el = host.querySelector<HTMLElement>(`#${id}`);
-    if (!el) el = host.querySelector<HTMLElement>(`[id="${id}"]`);
+  
+    // 用属性选择器，避免 #id 在以数字开头或含特殊字符时抛 SyntaxError
+    const safeId = id.replace(/"/g, '\\"');
+    const el = host.querySelector<HTMLElement>(`[id="${safeId}"]`);
     if (!el) return;
   
-    const hostRect = host.getBoundingClientRect();
-    const r = el.getBoundingClientRect();
-    const top = r.top - hostRect.top + host.scrollTop - 8; // 轻微上边距
-    host.scrollTo({ top, behavior: 'smooth' });
+    try {
+      el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    } catch {
+      // 兜底：手动计算滚动偏移
+      const hostRect = host.getBoundingClientRect();
+      const r = el.getBoundingClientRect();
+      const top = r.top - hostRect.top + host.scrollTop - 8;
+      host.scrollTop = top;
+    }
   }, []);
   const gemPromptRef = React.useRef<HTMLTextAreaElement | null>(null);
   // 切换停靠模式时，保留中栏/右栏的滚动位置，避免跳到底部
@@ -1187,7 +1220,7 @@ function ReaderPage() {
       </div>
 
       {/* Floating TOC panel */}
-      {tocOpen && (
+      {tocOpen && !tocPinned && (
         <div data-floating-ui className="fixed z-50 top-[56px] right-4 w-[min(360px,40vw)] max-h-[60vh] overflow-auto bg-white border rounded shadow-lg p-2">
           <div className="text-xs text-gray-500 mb-1">目录</div>
           {tocItems.length ? (
@@ -1207,6 +1240,39 @@ function ReaderPage() {
             </ul>
           ) : <div className="text-sm text-gray-400 px-2 py-1">暂无标题</div>}
         </div>
+      )}
+      {/* Pinned TOC panel (fixed) */}
+      {tocItems.length > 0 && (
+        tocPinned ? (
+          <div data-floating-ui className="fixed z-50 top-[56px] right-4 w-[min(320px,34vw)] max-h-[70vh] overflow-auto bg-white border rounded shadow-lg p-2">
+            <div className="flex items-center justify-between">
+              <div className="text-xs text-gray-500">目录</div>
+              <button className="text-xs text-gray-500 hover:text-gray-700" onClick={() => setTocPinned(false)}>收起</button>
+            </div>
+            <ul className="mt-1 space-y-1">
+              {tocItems.map((it) => (
+                <li key={it.id}>
+                  <button
+                    className="w-full text-left text-sm hover:bg-gray-50 rounded px-2 py-1"
+                    style={{ paddingLeft: `${(it.depth - 1) * 12 + 8}px` }}
+                    onClick={() => { scrollToHeading(it.id); }}
+                    title={it.text}
+                  >
+                    {it.text}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <button
+            className="fixed z-50 right-4 bottom-4 rounded-full shadow-lg border bg-white px-3 py-2 text-sm"
+            onClick={() => setTocPinned(true)}
+            title="打开目录"
+          >
+            目录
+          </button>
+        )
       )}
       {/* </div> */}
 
@@ -1232,13 +1298,16 @@ function ReaderPage() {
                 </div>
               </div>
               {/* 内容区：占满左列 */}
-              <div className="flex-1 min-h-0 flex">
-                <div className="min-w-0 min-h-0 flex-1">
-                  <WysiwygMdEditor
-                    key={editorKey}
-                    initialMarkdown={noteDraftRef.current || noteMd}
-                    onMarkdownChange={(md) => { noteDraftRef.current = md; queueSave(); }}
-                  />
+              <div className="flex-1 min-h-0 flex flex-col">
+                <div className="min-w-0 min-h-0 flex-1 overflow-auto">
+                <WysiwygMdEditor
+                  key={editorKey}
+                  initialMarkdown={noteDraftRef.current || noteMd}
+                  onMarkdownChange={(md) => {
+                    noteDraftRef.current = md;
+                    queueSave();
+                  }}
+                />
                 </div>
               </div>
             </div>
@@ -1256,7 +1325,7 @@ function ReaderPage() {
 
           <div
             className="h-full overflow-auto p-4 relative hide-scrollbar"
-            style={{ ["--md-font-size" as any]: `${mdFont}px` }}
+            style={{ ["--md-font-size" as any]: `${mdFont}px`, scrollBehavior: "smooth" }}
             ref={mdContainerRef}
           >
             {(html || md) ? (
