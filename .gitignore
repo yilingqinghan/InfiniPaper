@@ -10,7 +10,7 @@ __pycache__/
 .DS_Store
 # Env & local
 .env
-.env.*
+.env.local
 # Python build
 dist/
 build/
