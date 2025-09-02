@@ -278,6 +278,13 @@ type Ann = {
   updated_at: string;
 };
 
+// --- stable hash for memo key ---
+function hash32(str: string) {
+  let h = 2166136261 >>> 0;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return (h >>> 0).toString(36);
+}
+
 /* -------------------- 组件 -------------------- */
 export default function ReaderPage() {
   const router = useRouter();
@@ -1242,6 +1249,78 @@ export default function ReaderPage() {
       clearTimeout(t1); clearTimeout(t2);
     };
   }, [md, recomputeLayout]);
+  const markdownView = React.useMemo(() => {
+    if (html) {
+      return (
+        <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
+      );
+    }
+    if (md) {
+      return (
+        <article key={`md-${hash32(md)}`} className="markdown-body">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm, remarkMath, remarkCiteAnchorsAndLinks]}
+            rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}
+            components={{
+              a: ({ node, href, className, ...props }) => {
+                const cls = (className || "").toString();
+                const isCite = cls.includes("cite-link") || (typeof href === "string" && href.startsWith("#ref-"));
+                if (isCite) {
+                  return (
+                    <a
+                      href={href}
+                      className={className}
+                      onClick={(e) => {
+                        try {
+                          if (!href) return;
+                          if (href.startsWith("#")) {
+                            e.preventDefault();
+                            const id = href.slice(1);
+                            const el = document.getElementById(id);
+                            if (el) {
+                              el.scrollIntoView({ block: "start", behavior: "smooth" });
+                              if (history?.replaceState) history.replaceState(null, "", href);
+                            }
+                          }
+                        } catch {}
+                      }}
+                      {...props}
+                    />
+                  );
+                }
+                return <a href={href} className={className} target="_blank" rel="noreferrer" {...props} />;
+              },
+              table: ({ node, ...props }) => (
+                <div className="md-table"><table {...props} /></div>
+              ),
+              img: ({ node, src = "", alt, ...props }) => {
+                let finalSrc = src;
+                if (!/^https?:\/\//i.test(finalSrc)) {
+                  const base = assetsBase || (cacheKey ? `${apiBase}/api/v1/mineru/assets/${cacheKey}` : "");
+                  if (base) {
+                    const relBase = (mdBase || mdRel || "").replace(/^\/+|\/+$/g, "");
+                    const prefix = relBase ? `${base.replace(/\/+$/, "")}/${relBase}/` : `${base.replace(/\/+$/, "")}/`;
+                    try { finalSrc = new URL(finalSrc.replace(/^\/+/, ""), prefix).toString(); }
+                    catch { finalSrc = `${prefix}${finalSrc.replace(/^\/+/, "")}`; }
+                  }
+                }
+                const caption = typeof alt === "string" ? alt.trim() : "";
+                return (
+                  <figure>
+                    <img src={finalSrc} alt={caption} {...props} />
+                    {caption ? <figcaption>{caption}</figcaption> : null}
+                  </figure>
+                );
+              },
+            }}
+          >
+            {md}
+          </ReactMarkdown>
+        </article>
+      );
+    }
+    return null;
+  }, [html, md, assetsBase, cacheKey, mdBase, mdRel, apiBase]);
   /* -------------------- 渲染 -------------------- */
   return (
     <div className="h-screen w-screen flex flex-col" data-theme={theme}>
@@ -1519,78 +1598,15 @@ export default function ReaderPage() {
             style={{ ["--md-font-size" as any]: `${mdFont}px` }}
             ref={mdContainerRef}
           >
-            {html ? (
-              <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
-            ) : md ? (
-              <article className="markdown-body">
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm, remarkMath, remarkCiteAnchorsAndLinks]}
-                  rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}
-                  components={{
-                    a: ({ node, href, className, ...props }) => {
-                      const cls = (className || "").toString();
-                      const isCite = cls.includes("cite-link") || (typeof href === "string" && href.startsWith("#ref-"));
-                      if (isCite) {
-                        return (
-                          <a
-                            href={href}
-                            className={className}
-                            onClick={(e) => {
-                              try {
-                                if (!href) return;
-                                if (href.startsWith("#")) {
-                                  e.preventDefault();
-                                  const id = href.slice(1);
-                                  const el = document.getElementById(id);
-                                  if (el) {
-                                    el.scrollIntoView({ block: "start", behavior: "smooth" });
-                                    if (history?.replaceState) history.replaceState(null, "", href);
-                                  }
-                                }
-                              } catch {}
-                            }}
-                            {...props}
-                          />
-                        );
-                      }
-                      return <a href={href} className={className} target="_blank" rel="noreferrer" {...props} />;
-                    },
-                    table: ({ node, ...props }) => (
-                      <div className="md-table">
-                        <table {...props} />
-                      </div>
-                    ),
-                    img: ({ node, src = "", alt, ...props }) => {
-                      let finalSrc = src;
-                      if (!/^https?:\/\//i.test(finalSrc)) {
-                        const base = assetsBase || (cacheKey ? `${apiBase}/api/v1/mineru/assets/${cacheKey}` : "");
-                        if (base) {
-                          const relBase = (mdBase || mdRel || "").replace(/^\/+|\/+$/g, "");
-                          const prefix = relBase ? `${base.replace(/\/+$/, "")}/${relBase}/` : `${base.replace(/\/+$/, "")}/`;
-                          try { finalSrc = new URL(finalSrc.replace(/^\/+/, ""), prefix).toString(); }
-                          catch { finalSrc = `${prefix}${finalSrc.replace(/^\/+/, "")}`; }
-                        }
-                      }
-                      const caption = typeof alt === "string" ? alt.trim() : "";
-                      return (
-                        <figure>
-                          <img src={finalSrc} alt={caption} {...props} />
-                          {caption ? <figcaption>{caption}</figcaption> : null}
-                        </figure>
-                      );
-                    },
-                  }}
-                >
-                  {md}
-                </ReactMarkdown>
-
-                {/* 连接线层（横线对齐到右侧批注栏边缘） */}
+            {(html || md) ? (
+              <div className="relative">
+                {markdownView}
                 <div className="pointer-events-none absolute inset-0">
                   {noteLayout.map(({ id, top }) => (
                     <div key={`line-${id}`} className="absolute h-[1px] bg-indigo-100" style={{ top: top + 12, left: 0, right: 0 }} />
                   ))}
                 </div>
-              </article>
+              </div>
             ) : (
               !loading && <div className="text-gray-500">暂无解析内容</div>
             )}
