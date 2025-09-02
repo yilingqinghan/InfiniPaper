@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import { createPortal } from "react-dom";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
@@ -297,6 +298,61 @@ export default function ReaderPage() {
   };
   // --- 笔记（Markdown 富文本）---
   const [noteOpen, setNoteOpen] = React.useState(false);
+  // 笔记停靠：overlay=覆盖左侧PDF；float=悬浮独立滚动
+  const [noteDock, setNoteDock] = React.useState<'overlay' | 'float'>('overlay');
+  // 悬浮面板：左右贴边与自适应宽度
+  const [floatSide, setFloatSide] = React.useState<'left' | 'right'>('left');
+  const [viewportKey, setViewportKey] = React.useState(0);
+  React.useEffect(() => {
+    const onResize = () => setViewportKey((k) => k + 1);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  const floatStyle = React.useMemo<React.CSSProperties>(() => {
+    const base: React.CSSProperties = { top: '80px', height: 'min(76vh, 900px)', overflow: 'hidden' };
+    if (floatSide === 'left') {
+      let left = 16, width = 680;
+      try {
+        const leftCol = document.querySelector('.page-col--left') as HTMLElement | null;
+        if (leftCol) {
+          const r = leftCol.getBoundingClientRect();
+          left = Math.max(8, r.left + 8);                               // 贴左列内边 8px
+          width = Math.max(520, Math.min(r.width - 16, 1200));          // 宽度不超出左列
+        } else if (typeof window !== 'undefined') {
+          width = Math.max(520, Math.min(window.innerWidth * 0.4 - 24, 1200));
+        }
+      } catch {}
+      return { ...base, left: `${left}px`, width: `${width}px` };
+    }
+    // 右侧贴边
+    return { ...base, right: '16px', width: 'clamp(680px, 56vw, 1200px)' };
+  }, [floatSide, viewportKey, noteOpen]);
+  const savedWinScrollRef = React.useRef<number>(0);
+  // 切换停靠模式时，保留中栏/右栏的滚动位置，避免跳到底部
+  const savedScrollRef = React.useRef<{ mid: number; right: number }>({ mid: 0, right: 0 });
+  const switchDock = (next: 'overlay' | 'float') => {
+    // 记录窗口与中栏/右栏滚动
+    savedWinScrollRef.current = typeof window !== 'undefined'
+      ? (window.scrollY || document.documentElement.scrollTop || 0)
+      : 0;
+    const host = mdContainerRef.current;
+    const notes = notesPaneRef.current;
+    savedScrollRef.current.mid = host?.scrollTop || 0;
+    savedScrollRef.current.right = notes?.scrollTop || 0;
+  
+    setNoteDock(next);
+  
+    // 下一帧恢复（包含 window）
+    requestAnimationFrame(() => {
+      if (typeof window !== 'undefined') {
+        try { window.scrollTo({ top: savedWinScrollRef.current, left: window.scrollX || 0, behavior: 'instant' as any }); } catch {}
+      }
+      const h2 = mdContainerRef.current;
+      const n2 = notesPaneRef.current;
+      if (h2) h2.scrollTop = savedScrollRef.current.mid;
+      if (n2) n2.scrollTop = savedScrollRef.current.right;
+    });
+  };
   const [noteMd, setNoteMd] = React.useState<string>("");
   const [noteTab, setNoteTab] = React.useState<'edit' | 'preview'>("edit");
   const [noteSavedAt, setNoteSavedAt] = React.useState<string | null>(null);
@@ -638,6 +694,31 @@ export default function ReaderPage() {
     if ((sh && k === '8') || (opt && k === 'u')) { e.preventDefault(); applyUnorderedListDirect(el); return; }
     // 有序：Cmd+Shift+7  或  Cmd+Alt+I
     if ((sh && k === '7') || (opt && k === 'i')) { e.preventDefault(); applyOrderedListDirect(el); return; }
+  };
+
+  const MiniToolbar: React.FC = () => {
+    const el = noteTextRef.current;
+    const safe = (fn: () => void) => () => { if (noteTextRef.current) fn(); };
+    return (
+      <div className="flex items-center gap-1 ml-2 text-sm">
+        <span className="text-xs text-gray-400 mr-1">格式</span>
+        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => applyWrapDirect(noteTextRef.current!, '**', '**'))}>B</button>
+        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => applyWrapDirect(noteTextRef.current!, '*', '*'))}>I</button>
+        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => applyWrapDirect(noteTextRef.current!, '<u>', '</u>'))}>U</button>
+        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => {
+          const el = noteTextRef.current!; const s = el.selectionStart ?? 0; const e = el.selectionEnd ?? 0;
+          const sel = el.value.slice(s, e) || '文本';
+          const before = `[${sel}](链接)`; const next = el.value.slice(0, s) + before + el.value.slice(e);
+          el.value = next; noteDraftRef.current = next; queueLivePreview(); queueSave();
+          const linkStart = s + before.indexOf('链接'); const linkEnd = linkStart + 2;
+          requestAnimationFrame(() => { el.focus(); el.setSelectionRange(linkStart, linkEnd); updateCaretFromTextarea(el); });
+          snapshotFromTextarea(el);
+        })}>Link</button>
+        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => applyUnorderedListDirect(noteTextRef.current!))}>• 列表</button>
+        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => applyOrderedListDirect(noteTextRef.current!))}>1. 列表</button>
+        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => handlePickImage())}>图</button>
+      </div>
+    );
   };
 
   const exportNoteAsMd = () => {
@@ -1160,126 +1241,212 @@ export default function ReaderPage() {
         <div className="relative border-r page-col page-col--left">
           {pdfUrl ? <PdfPane fileUrl={viewerUrl} className="h-full" /> : <div className="p-6 text-gray-500">未找到 PDF 地址</div>}
 
-          {noteOpen && (
-            <div ref={noteOverlayRef} className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm flex flex-col note-overlay">
-              {/* 顶部工具栏 */}
-              <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-1 rounded text-xs border bg-gray-50 text-gray-600">
-                    编辑 + 预览（{noteLayoutMode === 'horizontal' ? '左右分屏' : '上下自动'}）
-                  </span>
-                  <button
-                    className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
-                    onClick={() => { setNoteLayoutMode(noteLayoutMode === 'horizontal' ? 'vertical' : 'horizontal'); setEditorKey((k) => k + 1); }}
-                  >
-                    切换为{noteLayoutMode === 'horizontal' ? '上下' : '左右'}
-                  </button>
-                  {noteLayoutMode === 'horizontal' && (
-                    <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => setNoteSplitRatioLR(0.5)}>重置分屏</button>
-                  )}
+            {/* 覆盖左侧PDF：overlay 模式 */}
+            {noteOpen && noteDock === 'overlay' && (
+              <div ref={noteOverlayRef} className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm flex flex-col note-overlay">
+                {/* 顶部工具栏 */}
+                <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-1 rounded text-xs border bg-gray-50 text-gray-600">编辑 + 预览（{noteLayoutMode === 'horizontal' ? '左右分屏' : '上下自动'}）</span>
+                    <button
+                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      onClick={() => { setNoteLayoutMode(noteLayoutMode === 'horizontal' ? 'vertical' : 'horizontal'); setEditorKey((k) => k + 1); }}
+                    >切换为{noteLayoutMode === 'horizontal' ? '上下' : '左右'}</button>
+                    {noteLayoutMode === 'horizontal' && (
+                      <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => setNoteSplitRatioLR(0.5)}>重置分屏</button>
+                    )}
+                    <button
+                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      onClick={(e) => { (e.currentTarget as HTMLButtonElement)?.blur(); switchDock('float'); }}
+                    >切到悬浮</button>
+                  </div>
+                  <MiniToolbar />
+                  <div className="ml-auto flex items-center gap-2">
+                    <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
+                    <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
+                  </div>
                 </div>
 
-                {/* 简易格式工具 */}
-                <div className="ml-2 flex items-center gap-1">
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) applyWrapDirect(el, '**','**'); }}><b>粗</b></button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) applyWrapDirect(el, '*','*'); }}><i>斜</i></button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) applyLinePrefixDirect(el, '# '); }}>H1</button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) applyLinePrefixDirect(el, '## '); }}>H2</button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) applyLinePrefixDirect(el, '- '); }}>列表</button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) applyLinePrefixDirect(el, '> '); }}>引用</button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) applyWrapDirect(el, '`','`'); }}>行内代码</button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) { const start = el.selectionStart ?? 0; const end = el.selectionEnd ?? 0; const sel = el.value.slice(start, end) || '文本'; const snippet = `[${sel}](链接)`; const next = el.value.slice(0,start)+snippet+el.value.slice(end); el.value = next; noteDraftRef.current = next; queueLivePreview(); queueSave(); const linkStart = start + snippet.indexOf('链接'); const linkEnd = linkStart + 2; requestAnimationFrame(()=>{ el.focus(); el.setSelectionRange(linkStart, linkEnd); }); } }}>链接</button>
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => { const el = noteTextRef.current; if (el) { const snippet = '![alt](url)'; const start = el.selectionStart ?? 0; const end = el.selectionEnd ?? 0; const next = el.value.slice(0,start)+snippet+el.value.slice(end); el.value = next; noteDraftRef.current = next; queueLivePreview(); queueSave(); const urlStart = start + snippet.indexOf('url'); const urlEnd = urlStart + 3; requestAnimationFrame(()=>{ el.focus(); el.setSelectionRange(urlStart, urlEnd); }); } }}>图片</button>
-                  <input ref={imgInputRef} type="file" accept="image/*" onChange={onImageChosen} className="hidden" />
-                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={handlePickImage}>上传图片</button>
-                </div>
-
-                <div className="ml-auto flex items-center gap-2">
-                  <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>
-                    导出 .md
-                  </button>
-                  <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
-                </div>
+                {/* 内容区：与悬浮模式一致（左右/上下可切） */}
+                {noteLayoutMode === 'horizontal' ? (
+                  <div className="flex-1 min-h-0 flex">
+                    <div className="min-w-0" style={{ width: `calc(${noteSplitRatioLR * 100}% - 6px)` }}>
+                      <textarea
+                        key={editorKey}
+                        ref={noteTextRef}
+                        defaultValue={noteDraftRef.current || noteMd}
+                        onInput={(e) => {
+                          const el = e.currentTarget as HTMLTextAreaElement;
+                          noteDraftRef.current = el.value;
+                          updateCaretFromTextarea(el);
+                          queueLivePreview();
+                          queueSave();
+                          snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
+                        }}
+                        onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onKeyDown={handleEditorKeyDown}
+                        placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
+                        className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
+                        spellCheck={false}
+                      />
+                    </div>
+                    <div
+                      className="w-3 cursor-col-resize bg-gradient-to-r from-gray-100 to-gray-200 border-l border-r"
+                      onMouseDown={startLRDrag}
+                      title="拖动调整编辑/预览宽度"
+                    />
+                    <div className="min-w-0 flex-1 overflow-auto p-3 markdown-body">
+                      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                        {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
+                      </ReactMarkdown>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex-1 min-h-0 flex flex-col">
+                    <div className="p-3 overflow-auto">
+                      <textarea
+                        key={editorKey}
+                        ref={noteTextRef}
+                        defaultValue={noteDraftRef.current || noteMd}
+                        onInput={(e) => {
+                          const el = e.currentTarget as HTMLTextAreaElement;
+                          noteDraftRef.current = el.value;
+                          updateCaretFromTextarea(el);
+                          autoGrow(el);
+                          queueLivePreview();
+                          queueSave();
+                          snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
+                        }}
+                        onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onKeyDown={handleEditorKeyDown}
+                        placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
+                        className="w-full outline-none resize-none font-mono text-sm"
+                        style={{ height: 120 }}
+                        spellCheck={false}
+                      />
+                    </div>
+                    <div className="h-2" />
+                    <div className="min-h-0 flex-1 overflow-auto p-3 markdown-body">
+                      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                        {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
+                      </ReactMarkdown>
+                    </div>
+                  </div>
+                )}
               </div>
+            )}
 
-              {/* 内容区：布局可切换（默认左右分屏；可切到上下自动） */}
-              {noteLayoutMode === 'horizontal' ? (
-                <div className="flex-1 min-h-0 flex">
-                  {/* 左：编辑 */}
-                  <div className="min-w-0" style={{ width: `calc(${noteSplitRatioLR * 100}% - 6px)` }}>
-                  <textarea
-                    key={editorKey}
-                    ref={noteTextRef}
-                    defaultValue={noteDraftRef.current || noteMd}
-                    onInput={(e) => {
-                      const el = e.currentTarget as HTMLTextAreaElement;
-                      noteDraftRef.current = el.value;
-                      updateCaretFromTextarea(el);
-                      queueLivePreview();
-                      queueSave();
-                      snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
-                    }}
-                    onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
-                    onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
-                    onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
-                    onKeyDown={handleEditorKeyDown}
-                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
-                    className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
-                    spellCheck={false}
-                  />
+            {/* 悬浮：独立滚动的富文本编辑器（通过 Portal 固定在视口，完全不受列滚动影响） */}
+            {noteOpen && noteDock === 'float' && typeof window !== 'undefined' && createPortal(
+              <div
+                ref={noteOverlayRef}
+                className="fixed z-50 bg-white/95 border border-indigo-100 rounded-xl shadow-2xl flex flex-col note-overlay"
+                style={floatStyle}
+              >
+                {/* 顶部工具栏（同覆盖模式） */}
+                <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-1 rounded text-xs border bg-gray-50 text-gray-600">编辑 + 预览（{noteLayoutMode === 'horizontal' ? '左右分屏' : '上下自动'}）</span>
+                    <button
+                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      onClick={() => { setNoteLayoutMode(noteLayoutMode === 'horizontal' ? 'vertical' : 'horizontal'); setEditorKey((k) => k + 1); }}
+                    >切换为{noteLayoutMode === 'horizontal' ? '上下' : '左右'}</button>
+                    {noteLayoutMode === 'horizontal' && (
+                      <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => setNoteSplitRatioLR(0.5)}>重置分屏</button>
+                    )}
+                    <button
+                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      onClick={() => setFloatSide((s) => (s === 'left' ? 'right' : 'left'))}
+                    >{floatSide === 'left' ? '靠右' : '靠左'}</button>
+                    <button
+                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      onClick={(e) => { (e.currentTarget as HTMLButtonElement)?.blur(); switchDock('overlay'); }}
+                    >贴回左侧</button>
                   </div>
-                  {/* 垂直拖拽条 */}
-                  <div
-                    className="w-3 cursor-col-resize bg-gradient-to-r from-gray-100 to-gray-200 border-l border-r"
-                    onMouseDown={startLRDrag}
-                    title="拖动调整编辑/预览宽度"
-                  />
-                  {/* 右：预览 */}
-                  <div className="min-w-0 flex-1 overflow-auto p-3 markdown-body">
-                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                      {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
-                    </ReactMarkdown>
+                  <MiniToolbar />
+                  <div className="ml-auto flex items-center gap-2">
+                    <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
+                    <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
                   </div>
                 </div>
-              ) : (
-                <div className="flex-1 min-h-0 flex flex-col">
-                  {/* 上：编辑（自动增高） */}
-                  <div className="p-3 overflow-auto">
-                  <textarea
-                    key={editorKey}
-                    ref={noteTextRef}
-                    defaultValue={noteDraftRef.current || noteMd}
-                    onInput={(e) => {
-                      const el = e.currentTarget as HTMLTextAreaElement;
-                      noteDraftRef.current = el.value;
-                      updateCaretFromTextarea(el);
-                      autoGrow(el);
-                      queueLivePreview();
-                      queueSave();
-                      snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
-                    }}
-                    onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
-                    onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
-                    onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
-                    onKeyDown={handleEditorKeyDown}
-                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
-                    className="w-full outline-none resize-none font-mono text-sm"
-                    style={{ height: 120 }}
-                    spellCheck={false}
-                  />
+
+                {/* 内容区：与覆盖模式一致（左右/上下可切） */}
+                {noteLayoutMode === 'horizontal' ? (
+                  <div className="flex-1 min-h-0 flex">
+                    <div className="min-w-0" style={{ width: `calc(${noteSplitRatioLR * 100}% - 6px)` }}>
+                      <textarea
+                        key={editorKey}
+                        ref={noteTextRef}
+                        defaultValue={noteDraftRef.current || noteMd}
+                        onInput={(e) => {
+                          const el = e.currentTarget as HTMLTextAreaElement;
+                          noteDraftRef.current = el.value;
+                          updateCaretFromTextarea(el);
+                          queueLivePreview();
+                          queueSave();
+                          snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
+                        }}
+                        onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onKeyDown={handleEditorKeyDown}
+                        placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
+                        className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
+                        spellCheck={false}
+                      />
+                    </div>
+                    <div
+                      className="w-3 cursor-col-resize bg-gradient-to-r from-gray-100 to-gray-200 border-l border-r"
+                      onMouseDown={startLRDrag}
+                      title="拖动调整编辑/预览宽度"
+                    />
+                    <div className="min-w-0 flex-1 overflow-auto p-3 markdown-body">
+                      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                        {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
+                      </ReactMarkdown>
+                    </div>
                   </div>
-                  {/* 间距小一段 */}
-                  <div className="h-2" />
-                  {/* 下：预览（自动跟随在编辑尾部后显示） */}
-                  <div className="min-h-0 flex-1 overflow-auto p-3 markdown-body">
-                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                      {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
-                    </ReactMarkdown>
+                ) : (
+                  <div className="flex-1 min-h-0 flex flex-col">
+                    <div className="p-3 overflow-auto">
+                      <textarea
+                        key={editorKey}
+                        ref={noteTextRef}
+                        defaultValue={noteDraftRef.current || noteMd}
+                        onInput={(e) => {
+                          const el = e.currentTarget as HTMLTextAreaElement;
+                          noteDraftRef.current = el.value;
+                          updateCaretFromTextarea(el);
+                          autoGrow(el);
+                          queueLivePreview();
+                          queueSave();
+                          snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
+                        }}
+                        onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onKeyDown={handleEditorKeyDown}
+                        placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
+                        className="w-full outline-none resize-none font-mono text-sm"
+                        style={{ height: 120 }}
+                        spellCheck={false}
+                      />
+                    </div>
+                    <div className="h-2" />
+                    <div className="min-h-0 flex-1 overflow-auto p-3 markdown-body">
+                      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                        {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
+                      </ReactMarkdown>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          )}
+                )}
+              </div>,
+              document.body
+            )}
         </div>
 
         {/* MIDDLE: Markdown + tools */}
@@ -1674,6 +1841,7 @@ export default function ReaderPage() {
         {bubble.text}
     </div>
     )}
+    <input ref={imgInputRef} type="file" accept="image/*" className="hidden" onChange={onImageChosen} />
     </div>
   );
 }
