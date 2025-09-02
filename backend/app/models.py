@@ -65,3 +65,11 @@ class PaperFolderLink(SQLModel, table=True):
     __tablename__ = "paperfolderlink"
     paper_id: int = Field(foreign_key="paper.id", primary_key=True, index=True)
     folder_id: int = Field(foreign_key="folder.id", index=True)
+# --- add this model (独立于 Note，不互相影响) ---
+class MdNote(SQLModel, table=True):
+    __tablename__ = "mdnote"
+    id: int | None = Field(default=None, primary_key=True)
+    paper_id: int = Field(foreign_key="paper.id", index=True)
+    content: str = ""  # Markdown 文本
+    created_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)
+    updated_at: datetime = Field(default_factory=datetime.utcnow, nullable=False)

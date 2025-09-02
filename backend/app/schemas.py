@@ -70,3 +70,16 @@ class NoteUpdate(BaseModel):
 
 class NoteRead(NoteBase):
     id: int
+
+class MdNoteBase(BaseModel):
+    paper_id: int
+    content: str
+
+class MdNoteCreate(MdNoteBase):
+    pass
+
+class MdNoteUpdate(BaseModel):
+    content: Optional[str] = None
+
+class MdNoteRead(MdNoteBase):
+    id: int

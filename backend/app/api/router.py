@@ -77,3 +77,9 @@ except Exception as e:
     import traceback
     print("[router] skip folders due to error:", repr(e))
     traceback.print_exc()
+
+try:
+    from .v1 import richnotes
+    api_router.include_router(richnotes.router, prefix="/richnotes", tags=["richnotes"])
+except Exception as e:
+    print("[router] skip richnotes:", repr(e))

@@ -5,6 +5,7 @@ import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import { getByPaper, upsertByPaper, exportMarkdown } from "@/lib/richNoteApi";
 const PdfPane = dynamic(() => import("@/components/PdfPane"), { ssr: false });
 
 /* -------------------- 选择映射 & 高亮工具 -------------------- */
@@ -283,6 +284,18 @@ export default function ReaderPage() {
   const [md, setMd] = React.useState<string | null>(null);
   const [pdfUrl, setPdfUrl] = React.useState<string>("");
 
+  // --- 笔记（Markdown 富文本）---
+  const [noteOpen, setNoteOpen] = React.useState(false);
+  const [noteMd, setNoteMd] = React.useState<string>("");
+  const [noteTab, setNoteTab] = React.useState<'edit' | 'preview'>("edit");
+  const [noteSavedAt, setNoteSavedAt] = React.useState<string | null>(null);
+  const noteTextRef = React.useRef<HTMLTextAreaElement | null>(null);
+
+  // 笔记持久化相关状态（后端）
+  const [noteId, setNoteId] = React.useState<number | null>(null);
+  const [noteSaving, setNoteSaving] = React.useState(false);
+  const [noteError, setNoteError] = React.useState<string | null>(null);
+
   const [cacheKey, setCacheKey] = React.useState<string | null>(null);
   const [assetsBase, setAssetsBase] = React.useState<string | null>(null);
   const [mdRel, setMdRel] = React.useState<string | null>(null);
@@ -306,6 +319,51 @@ export default function ReaderPage() {
   // 选择 & 工具条
   const mdContainerRef = React.useRef<HTMLDivElement | null>(null);
   const notesPaneRef = React.useRef<HTMLDivElement | null>(null);
+  // Markdown 工具函数
+  const insertMd = (before: string, after = "") => {
+    const el = noteTextRef.current;
+    if (!el) return;
+    const start = el.selectionStart ?? 0;
+    const end = el.selectionEnd ?? 0;
+    const sel = noteMd.slice(start, end);
+    const newText = noteMd.slice(0, start) + before + sel + after + noteMd.slice(end);
+    setNoteMd(newText);
+    // 维持光标位置
+    requestAnimationFrame(() => {
+      const pos = start + before.length + sel.length;
+      el.focus();
+      el.setSelectionRange(pos, pos);
+    });
+  };
+
+  const insertAtLineStart = (prefix: string) => {
+    const el = noteTextRef.current;
+    if (!el) return;
+    const start = el.selectionStart ?? 0;
+    const lineStart = noteMd.lastIndexOf('\n', start - 1) + 1;
+    const newText = noteMd.slice(0, lineStart) + prefix + noteMd.slice(lineStart);
+    setNoteMd(newText);
+    requestAnimationFrame(() => {
+      const pos = start + prefix.length;
+      el.focus();
+      el.setSelectionRange(pos, pos);
+    });
+  };
+
+  const exportNoteAsMd = () => {
+    try {
+      const name = `paper-${id || 'note'}.md`;
+      const blob = new Blob([noteMd || ""], { type: "text/markdown;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    } catch {}
+  };
   const [selectionBox, setSelectionBox] = React.useState<{ x: number; y: number; show: boolean }>({ x: 0, y: 0, show: false });
   const [selPayload, setSelPayload] = React.useState<{ start: number; end: number; quote: string } | null>(null);
   const [pickedColor, setPickedColor] = React.useState<string>("#FFE58F");
@@ -372,6 +430,37 @@ export default function ReaderPage() {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, md]);
+
+  React.useEffect(() => {
+    if (!id) return;
+    (async () => {
+      try {
+        setNoteError(null);
+        const got = await getByPaper(api, Number(id));
+        if (got) { setNoteMd(got.content || ""); setNoteId(got.id); }
+        else { setNoteMd(""); setNoteId(null); }
+      } catch (e: any) { setNoteError(e?.message || String(e)); }
+    })();
+  }, [id, api]);
+  
+  // 自动保存（PUT upsert）
+  React.useEffect(() => {
+    if (!id) return;
+    const t = setTimeout(async () => {
+      try {
+        setNoteSaving(true);
+        setNoteError(null);
+        const saved = await upsertByPaper(api, Number(id), noteMd || "");
+        setNoteId(saved.id);
+        setNoteSavedAt(new Date().toISOString());
+      } catch (e: any) {
+        setNoteError(e?.message || String(e));
+      } finally {
+        setNoteSaving(false);
+      }
+    }, 600);
+    return () => clearTimeout(t);
+  }, [id, noteMd, api]);
 
   // 监听选区
   React.useEffect(() => {
@@ -654,6 +743,16 @@ export default function ReaderPage() {
           <span className="text-xs text-gray-500">字体</span>
           <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={decFont}>A-</button>
           <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={incFont}>A+</button>
+
+          <span className="mx-2 text-gray-300">|</span>
+          <span className="text-xs text-gray-500">笔记</span>
+          <button
+            className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+            onClick={() => setNoteOpen((s) => !s)}
+          >{noteOpen ? '关闭' : '打开'}</button>
+          {noteSavedAt && (
+            <span className="text-[11px] text-gray-400">已保存 {new Date(noteSavedAt).toLocaleTimeString()}</span>
+          )}
         </div>
       </div>
 
@@ -662,6 +761,63 @@ export default function ReaderPage() {
         {/* LEFT: PDF */}
         <div className="relative border-r">
           {pdfUrl ? <PdfPane fileUrl={viewerUrl} className="h-full" /> : <div className="p-6 text-gray-500">未找到 PDF 地址</div>}
+
+          {noteOpen && (
+            <div className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm flex flex-col">
+              {/* 顶部工具栏 */}
+              <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
+                <div className="flex items-center gap-1">
+                  <button
+                    className={`px-2 py-1 rounded text-sm border ${noteTab === 'edit' ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
+                    onClick={() => setNoteTab('edit')}
+                  >编辑</button>
+                  <button
+                    className={`px-2 py-1 rounded text-sm border ${noteTab === 'preview' ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
+                    onClick={() => setNoteTab('preview')}
+                  >预览</button>
+                </div>
+
+                {/* 简易格式工具 */}
+                <div className="ml-2 flex items-center gap-1">
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('**','**')}>粗体</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('*','*')}>斜体</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertAtLineStart('# ')}>H1</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertAtLineStart('## ')}>H2</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertAtLineStart('- ')}>列表</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertAtLineStart('> ')}>引用</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('`','`')}>行内代码</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('[文本](链接)')}>链接</button>
+                  <button className="px-2 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => insertMd('![alt](url)')}>图片</button>
+                </div>
+
+                <div className="ml-auto flex items-center gap-2">
+                <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>
+                导出 .md
+                </button>
+                  <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
+                </div>
+              </div>
+
+              {/* 内容区 */}
+              <div className="flex-1 min-h-0">
+                {noteTab === 'edit' ? (
+                  <textarea
+                    ref={noteTextRef}
+                    value={noteMd}
+                    onChange={(e) => setNoteMd(e.target.value)}
+                    placeholder="在此记录你的 Markdown 笔记…（自动保存）"
+                    className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
+                  />
+                ) : (
+                  <div className="h-full overflow-auto p-3 markdown-body">
+                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                      {noteMd || '（空笔记）'}
+                    </ReactMarkdown>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* MIDDLE: Markdown + tools */}
