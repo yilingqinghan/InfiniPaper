@@ -2,7 +2,6 @@
 "use client";
 
 import React from "react";
-import { createPortal } from "react-dom";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
@@ -463,8 +462,6 @@ function ReaderPage() {
   const [noteOpen, setNoteOpen] = React.useState(true);
   // 笔记停靠：overlay=覆盖左侧PDF；float=悬浮独立滚动
   const [noteDock, setNoteDock] = React.useState<'overlay' | 'float'>('overlay');
-  // 悬浮面板：↔贴边与自适应宽度
-  const [floatSide, setFloatSide] = React.useState<'left' | 'right'>('left');
 
   // ---- Fixed-left editor bounds (match the left PDF column exactly) ----
   const [leftFixedStyle, setLeftFixedStyle] = React.useState<React.CSSProperties | null>(null);
@@ -554,58 +551,8 @@ function ReaderPage() {
     const top = r.top - hostRect.top + host.scrollTop - 8; // small padding
     host.scrollTo({ top, behavior: 'smooth' });
   }, []);
-  const [viewportKey, setViewportKey] = React.useState(0);
-  React.useEffect(() => {
-    const onResize = () => setViewportKey((k) => k + 1);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-  const floatStyle = React.useMemo<React.CSSProperties>(() => {
-    const base: React.CSSProperties = { top: '12vh', height: 'min(85vh)', overflow: 'hidden' };
-    if (floatSide === 'left') {
-      let left = 16, width = 680;
-      try {
-        const leftCol = document.querySelector('.page-col--left') as HTMLElement | null;
-        if (leftCol) {
-          const r = leftCol.getBoundingClientRect();
-          left = Math.max(8, r.left + 8);                               // 贴左列内边 8px
-          width = Math.max(520, Math.min(r.width - 16, 1200));          // 宽度不超出左列
-        } else if (typeof window !== 'undefined') {
-          width = Math.max(520, Math.min(window.innerWidth * 0.4 - 24, 1200));
-        }
-      } catch {}
-      return { ...base, left: `${left}px`, width: `${width}px` };
-    }
-    // 右侧贴边
-    return { ...base, right: '16px', width: 'clamp(680px, 56vw, 1200px)' };
-  }, [floatSide, viewportKey, noteOpen]);
   const gemPromptRef = React.useRef<HTMLTextAreaElement | null>(null);
-  const savedWinScrollRef = React.useRef<number>(0);
   // 切换停靠模式时，保留中栏/右栏的滚动位置，避免跳到底部
-  const savedScrollRef = React.useRef<{ mid: number; right: number }>({ mid: 0, right: 0 });
-  const switchDock = (next: 'overlay' | 'float') => {
-    // 记录窗口与中栏/右栏滚动
-    savedWinScrollRef.current = typeof window !== 'undefined'
-      ? (window.scrollY || document.documentElement.scrollTop || 0)
-      : 0;
-    const host = mdContainerRef.current;
-    const notes = notesPaneRef.current;
-    savedScrollRef.current.mid = host?.scrollTop || 0;
-    savedScrollRef.current.right = notes?.scrollTop || 0;
-  
-    setNoteDock(next);
-  
-    // 下一帧恢复（包含 window）
-    requestAnimationFrame(() => {
-      if (typeof window !== 'undefined') {
-        try { window.scrollTo({ top: savedWinScrollRef.current, left: window.scrollX || 0, behavior: 'instant' as any }); } catch {}
-      }
-      const h2 = mdContainerRef.current;
-      const n2 = notesPaneRef.current;
-      if (h2) h2.scrollTop = savedScrollRef.current.mid;
-      if (n2) n2.scrollTop = savedScrollRef.current.right;
-    });
-  };
   const [noteMd, setNoteMd] = React.useState<string>("");
   const [noteSavedAt, setNoteSavedAt] = React.useState<string | null>(null);
   const noteTextRef = React.useRef<HTMLTextAreaElement | null>(null);
@@ -629,10 +576,6 @@ function ReaderPage() {
   };
   const snapshotFromTextarea = (el: HTMLTextAreaElement) => {
     pushHistory(el.value, el.selectionStart ?? 0, el.selectionEnd ?? 0);
-  };
-  const queueHistorySnapshot = (el: HTMLTextAreaElement) => {
-    if (historyDebounceRef.current) window.clearTimeout(historyDebounceRef.current);
-    historyDebounceRef.current = window.setTimeout(() => snapshotFromTextarea(el), 500);
   };
   const doUndo = () => {
     const el = noteTextRef.current; if (!el) return;
@@ -662,13 +605,11 @@ function ReaderPage() {
 
   // 实时预览（轻量节流） & 图片上传
   const [noteLive, setNoteLive] = React.useState<string>("");
-  const liveDebounceRef = React.useRef<number | null>(null);
   const imgInputRef = React.useRef<HTMLInputElement | null>(null);
   const [noteCaret, setNoteCaret] = React.useState<number>(0); // 当前光标位置
   const [noteLiveDecorated, setNoteLiveDecorated] = React.useState<string>(""); // 高亮当前段落的预览
   const caretDebounceRef = React.useRef<number | null>(null);
   const decorateDebounceRef = React.useRef<number | null>(null);
-  const historyDebounceRef = React.useRef<number | null>(null);
   const [cacheKey, setCacheKey] = React.useState<string | null>(null);
   const [assetsBase, setAssetsBase] = React.useState<string | null>(null);
   const [mdRel, setMdRel] = React.useState<string | null>(null);
@@ -696,64 +637,6 @@ function ReaderPage() {
   const notesPaneRef = React.useRef<HTMLDivElement | null>(null);
   // 笔记分屏（布局切换：↔/⇅自动）
   const noteOverlayRef = React.useRef<HTMLDivElement | null>(null);
-  const [noteLayoutMode, setNoteLayoutMode] = React.useState<'horizontal' | 'vertical'>('horizontal'); // 默认↔
-  const lrDraggingRef = React.useRef(false);
-  const [noteSplitRatioLR, setNoteSplitRatioLR] = React.useState(0.5); // 左侧编辑区宽度占比
-
-  const startLRDrag = (e: React.MouseEvent) => {
-    e.preventDefault();
-    lrDraggingRef.current = true;
-  };
-
-  React.useEffect(() => {
-    if (!noteOpen || noteLayoutMode !== 'horizontal') return;
-    const onMove = (e: MouseEvent) => {
-      if (!lrDraggingRef.current) return;
-      const host = noteOverlayRef.current;
-      if (!host) return;
-      const rect = host.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const ratio = Math.min(0.85, Math.max(0.15, x / rect.width));
-      setNoteSplitRatioLR(ratio);
-    };
-    const onUp = () => { lrDraggingRef.current = false; };
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
-    return () => {
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseup', onUp);
-    };
-  }, [noteOpen, noteLayoutMode]);
-  // Markdown 工具函数
-  const insertMd = (before: string, after = "") => {
-    const el = noteTextRef.current;
-    if (!el) return;
-    const start = el.selectionStart ?? 0;
-    const end = el.selectionEnd ?? 0;
-    const sel = noteMd.slice(start, end);
-    const newText = noteMd.slice(0, start) + before + sel + after + noteMd.slice(end);
-    setNoteMd(newText);
-    // 维持光标位置
-    requestAnimationFrame(() => {
-      const pos = start + before.length + sel.length;
-      el.focus();
-      el.setSelectionRange(pos, pos);
-    });
-  };
-
-  const insertAtLineStart = (prefix: string) => {
-    const el = noteTextRef.current;
-    if (!el) return;
-    const start = el.selectionStart ?? 0;
-    const lineStart = noteMd.lastIndexOf('\n', start - 1) + 1;
-    const newText = noteMd.slice(0, lineStart) + prefix + noteMd.slice(lineStart);
-    setNoteMd(newText);
-    requestAnimationFrame(() => {
-      const pos = start + prefix.length;
-      el.focus();
-      el.setSelectionRange(pos, pos);
-    });
-  };
 
   // --- 笔记编辑器无状态保存与快捷键 ---
   const queueSave = React.useCallback(() => {
@@ -776,13 +659,6 @@ function ReaderPage() {
       }
     }, 600);
   }, [id, api]);
-
-  const queueLivePreview = React.useCallback(() => {
-    if (liveDebounceRef.current) window.clearTimeout(liveDebounceRef.current);
-    liveDebounceRef.current = window.setTimeout(() => {
-      setNoteLive(noteDraftRef.current || "");
-    }, 120);
-  }, []);
 
   // 根据光标位置高亮当前编辑段落（以空行分段）
   const decorateEditingParagraph = (text: string, caret: number) => {
@@ -820,18 +696,6 @@ function ReaderPage() {
     }, 120);
   }, [noteLive, noteCaret]);
 
-  // 垂直布局下：textarea 自动增高，预览紧随其后
-  const autoGrow = (el: HTMLTextAreaElement) => {
-    el.style.height = 'auto';
-    const h = Math.min(800, Math.max(120, el.scrollHeight));
-    el.style.height = h + 'px';
-  };
-  React.useEffect(() => {
-    if (noteLayoutMode === 'vertical' && noteTextRef.current) {
-      autoGrow(noteTextRef.current);
-    }
-  }, [editorKey, noteLayoutMode]);
-
   // 编辑器挂载时，捕获初始历史快照
   React.useEffect(() => {
     const el = noteTextRef.current;
@@ -848,23 +712,6 @@ function ReaderPage() {
     noteDraftRef.current = next;
     const pos = start + before.length + sel.length;
     requestAnimationFrame(() => {
-      el.focus();
-      el.setSelectionRange(pos, pos);
-      updateCaretFromTextarea(el);
-    });
-    queueSave();
-    snapshotFromTextarea(el);
-  };
-
-  const applyLinePrefixDirect = (el: HTMLTextAreaElement, prefix: string) => {
-    const start = el.selectionStart ?? 0;
-    const val = el.value;
-    const lineStart = val.lastIndexOf('\n', start - 1) + 1;
-    const next = val.slice(0, lineStart) + prefix + val.slice(lineStart);
-    el.value = next;
-    noteDraftRef.current = next;
-    requestAnimationFrame(() => {
-      const pos = start + prefix.length;
       el.focus();
       el.setSelectionRange(pos, pos);
       updateCaretFromTextarea(el);
@@ -915,46 +762,6 @@ function ReaderPage() {
     requestAnimationFrame(() => { updateCaretFromTextarea(el); });
     queueSave();
     snapshotFromTextarea(el);
-  };
-
-  const handleEditorKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    const el = noteTextRef.current;
-    if (!el) return;
-    const mod = e.metaKey || e.ctrlKey; // Cmd/Ctrl
-    const opt = e.altKey;               // Option/Alt
-    const sh = e.shiftKey;              // Shift
-    if (!mod) return;
-    const k = e.key.toLowerCase();
-
-    // --- 撤销/重做 ---
-    if (k === 'z' && !sh) { e.preventDefault(); doUndo(); return; }
-    if ((k === 'z' && sh) || k === 'y') { e.preventDefault(); doRedo(); return; }
-
-    // --- 常用包裹 ---
-    if (!opt && !sh && k === 'b') { e.preventDefault(); applyWrapDirect(el, '**', '**'); return; }
-    if (!opt && !sh && k === 'i') { e.preventDefault(); applyWrapDirect(el, '*', '*'); return; }
-    if (!opt && !sh && k === 'k') { e.preventDefault();
-      const start = el.selectionStart ?? 0; const end = el.selectionEnd ?? 0; const sel = el.value.slice(start, end) || '文本';
-      const before = `[${sel}](链接)`; const next = el.value.slice(0, start) + before + el.value.slice(end);
-      el.value = next; noteDraftRef.current = next; queueSave();
-      const linkStart = start + before.indexOf('链接'); const linkEnd = linkStart + 2;
-      requestAnimationFrame(() => { el.focus(); el.setSelectionRange(linkStart, linkEnd); updateCaretFromTextarea(el); });
-      snapshotFromTextarea(el);
-      return;
-    }
-    if (!opt && !sh && k === '1') { e.preventDefault(); applyLinePrefixDirect(el, '# '); return; }
-    if (!opt && !sh && k === '2') { e.preventDefault(); applyLinePrefixDirect(el, '## '); return; }
-    if (!opt && !sh && k === '3') { e.preventDefault(); applyLinePrefixDirect(el, '### '); return; }
-
-    // --- 下划线（浏览器保留了 Cmd+U/View Source），使用 Cmd+Shift+U；同时尝试兜底 Cmd+U ---
-    if (sh && k === 'u') { e.preventDefault(); applyWrapDirect(el, '<u>', '</u>'); return; }
-    if (!sh && !opt && k === 'u') { e.preventDefault(); applyWrapDirect(el, '<u>', '</u>'); return; }
-
-    // --- 列表：提供两套键位，避免被浏览器占用 ---
-    // 无序：Cmd+Shift+8  或  Cmd+Alt+U
-    if ((sh && k === '8') || (opt && k === 'u')) { e.preventDefault(); applyUnorderedListDirect(el); return; }
-    // 有序：Cmd+Shift+7  或  Cmd+Alt+I
-    if ((sh && k === '7') || (opt && k === 'i')) { e.preventDefault(); applyOrderedListDirect(el); return; }
   };
 
   const MiniToolbar: React.FC = () => {
@@ -1035,20 +842,7 @@ function ReaderPage() {
       ))}
     </>
   ));
-  const exportNoteAsMd = () => {
-    try {
-      const name = `paper-${id || 'note'}.md`;
-      const blob = new Blob([noteMd || ""], { type: "text/markdown;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = name;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 2000);
-    } catch {}
-  };
+
   const [selectionBox, setSelectionBox] = React.useState<{ x: number; y: number; show: boolean }>({ x: 0, y: 0, show: false });
   const [selPayload, setSelPayload] = React.useState<{ start: number; end: number; quote: string } | null>(null);
   const [pickedColor, setPickedColor] = React.useState<string>("#FFE58F");
@@ -1059,7 +853,6 @@ function ReaderPage() {
   // LLM
   const [llmOpen, setLlmOpen] = React.useState(false);
   const [llmLoading, setLlmLoading] = React.useState(false);
-  const [llmAnswer, setLlmAnswer] = React.useState("");
 
   // 批注
   const [annos, setAnnos] = React.useState<Ann[]>([]);
@@ -1603,7 +1396,7 @@ function ReaderPage() {
 
       <div className="flex items-center gap-3 px-3 py-2 border-b bg-gradient-to-r from-white to-indigo-50/30 page-header">
         <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={() => router.back()}>
-          ← 返回
+          返回
         </button>
         <div className="text-sm text-gray-500">{id ? `Paper #${id}` : "文档"} · {loading ? "解析中…" : "已加载"}</div>
         {err && <div className="text-red-600 text-sm ml-4">错误：{err}</div>}
