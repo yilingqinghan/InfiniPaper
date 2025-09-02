@@ -309,7 +309,7 @@ export default function ReaderPage() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
   const floatStyle = React.useMemo<React.CSSProperties>(() => {
-    const base: React.CSSProperties = { top: '80px', height: 'min(76vh, 900px)', overflow: 'hidden' };
+    const base: React.CSSProperties = { top: '12vh', height: 'min(85vh)', overflow: 'hidden' };
     if (floatSide === 'left') {
       let left = 16, width = 680;
       try {
@@ -327,6 +327,7 @@ export default function ReaderPage() {
     // 右侧贴边
     return { ...base, right: '16px', width: 'clamp(680px, 56vw, 1200px)' };
   }, [floatSide, viewportKey, noteOpen]);
+  const gemPromptRef = React.useRef<HTMLTextAreaElement | null>(null);
   const savedWinScrollRef = React.useRef<number>(0);
   // 切换停靠模式时，保留中栏/右栏的滚动位置，避免跳到底部
   const savedScrollRef = React.useRef<{ mid: number; right: number }>({ mid: 0, right: 0 });
@@ -378,6 +379,10 @@ export default function ReaderPage() {
   const snapshotFromTextarea = (el: HTMLTextAreaElement) => {
     pushHistory(el.value, el.selectionStart ?? 0, el.selectionEnd ?? 0);
   };
+  const queueHistorySnapshot = (el: HTMLTextAreaElement) => {
+    if (historyDebounceRef.current) window.clearTimeout(historyDebounceRef.current);
+    historyDebounceRef.current = window.setTimeout(() => snapshotFromTextarea(el), 500);
+  };
   const doUndo = () => {
     const el = noteTextRef.current; if (!el) return;
     if (histIdxRef.current <= 0) return;
@@ -412,7 +417,9 @@ export default function ReaderPage() {
   const imgInputRef = React.useRef<HTMLInputElement | null>(null);
   const [noteCaret, setNoteCaret] = React.useState<number>(0); // 当前光标位置
   const [noteLiveDecorated, setNoteLiveDecorated] = React.useState<string>(""); // 高亮当前段落的预览
-
+  const caretDebounceRef = React.useRef<number | null>(null);
+  const decorateDebounceRef = React.useRef<number | null>(null);
+  const historyDebounceRef = React.useRef<number | null>(null);
   const [cacheKey, setCacheKey] = React.useState<string | null>(null);
   const [assetsBase, setAssetsBase] = React.useState<string | null>(null);
   const [mdRel, setMdRel] = React.useState<string | null>(null);
@@ -423,12 +430,12 @@ export default function ReaderPage() {
   const api = React.useCallback((path: string) => (apiBase ? `${apiBase}${path}` : path), [apiBase]);
 
   // 主题：plain（素雅）/ aurora（炫彩）
-  const [theme, setTheme] = React.useState<'plain' | 'aurora'>('aurora');
+  const [theme, setTheme] = React.useState<'plain' | 'aurora' | 'immersive'>('aurora');
   // 字体
   const [mdFont, setMdFont] = React.useState(16);
   const incFont = () => setMdFont((s) => Math.min(22, s + 1));
   const decFont = () => setMdFont((s) => Math.max(14, s - 1));
-
+  const gridCols = theme === 'immersive' ? "34% 46% 20%" : "40% 40% 20%";
   const viewerUrl = React.useMemo(() => {
     if (!pdfUrl) return "";
     const abs = /^https?:\/\//i.test(pdfUrl) ? pdfUrl : `${typeof window !== "undefined" ? window.location.origin : ""}${pdfUrl}`;
@@ -548,11 +555,20 @@ export default function ReaderPage() {
 
   const updateCaretFromTextarea = (el: HTMLTextAreaElement) => {
     const p = el.selectionStart ?? 0;
-    setNoteCaret(p);
+    if (caretDebounceRef.current) window.clearTimeout(caretDebounceRef.current);
+    caretDebounceRef.current = window.setTimeout(() => setNoteCaret(p), 80);
   };
 
   React.useEffect(() => {
-    setNoteLiveDecorated(decorateEditingParagraph(noteLive || "", noteCaret));
+    if (decorateDebounceRef.current) window.clearTimeout(decorateDebounceRef.current);
+    decorateDebounceRef.current = window.setTimeout(() => {
+      const src = noteLive || "";
+      if (src.length > 20000) {
+        setNoteLiveDecorated(src);           // 文本太大就别做高亮装饰，直接显示，避免卡
+      } else {
+        setNoteLiveDecorated(decorateEditingParagraph(src, noteCaret));
+      }
+    }, 120);
   }, [noteLive, noteCaret]);
 
   // 垂直布局下：textarea 自动增高，预览紧随其后
@@ -697,6 +713,17 @@ export default function ReaderPage() {
   };
 
   const MiniToolbar: React.FC = () => {
+    const [showEmoji, setShowEmoji] = React.useState(false);
+    const EMOJIS = ['✅','❓','💡','🔥','📌','⭐️','📝','⚠️','🚀','🙂','🤔','👍','👎'];
+    const insertEmoji = (em: string) => {
+      const el = noteTextRef.current; if (!el) return;
+      const s = el.selectionStart ?? 0; const e = el.selectionEnd ?? s;
+      const val = el.value; const next = val.slice(0, s) + em + val.slice(e);
+      el.value = next; noteDraftRef.current = next; queueLivePreview(); queueSave();
+      requestAnimationFrame(() => { el.focus(); el.setSelectionRange(s + em.length, s + em.length); updateCaretFromTextarea(el); });
+      snapshotFromTextarea(el);
+      setShowEmoji(false);
+    };
     const el = noteTextRef.current;
     const safe = (fn: () => void) => () => { if (noteTextRef.current) fn(); };
     return (
@@ -713,14 +740,35 @@ export default function ReaderPage() {
           const linkStart = s + before.indexOf('链接'); const linkEnd = linkStart + 2;
           requestAnimationFrame(() => { el.focus(); el.setSelectionRange(linkStart, linkEnd); updateCaretFromTextarea(el); });
           snapshotFromTextarea(el);
-        })}>Link</button>
-        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => applyUnorderedListDirect(noteTextRef.current!))}>• 列表</button>
-        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => applyOrderedListDirect(noteTextRef.current!))}>1. 列表</button>
-        <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={safe(() => handlePickImage())}>图</button>
+        })}>📎</button>
+        <button className="px-2 py-0.5 border text-xs rounded hover:bg-gray-50" onClick={safe(() => applyUnorderedListDirect(noteTextRef.current!))}>• </button>
+        <button className="px-2 py-0.5 border text-xs rounded hover:bg-gray-50" onClick={safe(() => applyOrderedListDirect(noteTextRef.current!))}>1. </button>
+        <button className="px-2 py-0.5 border text-xs rounded hover:bg-gray-50" onClick={safe(() => handlePickImage())}>图</button>
+        <div className="relative">
+          <button className="px-2 py-0.5 border rounded hover:bg-gray-50" onClick={() => setShowEmoji(v => !v)}>😊</button>
+          {showEmoji && (
+            <div className="absolute z-10 top-full left-0 mt-1 bg-white border rounded shadow p-1 emojipicker">
+              {EMOJIS.map((em) => (
+                <button key={em} className="px-1 py-1 rounded hover:bg-gray-50" onClick={() => insertEmoji(em)}>{em}</button>
+              ))}
+            </div>
+          )}
+      </div>
       </div>
     );
   };
-
+  const GemChatItems: React.FC<{ items: { role: 'user' | 'assistant'; text: string }[] }> = React.memo(({ items }) => (
+    <>
+      {items.map((m, i) => (
+        <div key={i} className={m.role === 'user' ? "text-sm p-2 rounded bg-indigo-50" : "text-sm p-2 rounded bg-gray-50"}>
+          <div className="text-[11px] text-gray-500 mb-1">{m.role === 'user' ? "你" : "Gemini"}</div>
+          {m.role === 'assistant'
+            ? <div className="markdown-body"><ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>{m.text}</ReactMarkdown></div>
+            : <div className="whitespace-pre-wrap">{m.text}</div>}
+        </div>
+      ))}
+    </>
+  ));
   const exportNoteAsMd = () => {
     try {
       const name = `paper-${id || 'note'}.md`;
@@ -972,7 +1020,7 @@ export default function ReaderPage() {
   };
 
   const sendGemini = async (override?: string) => {
-    const text = (override ?? gemPrompt).trim();
+    const text = (override ?? gemPromptRef.current?.value ?? gemPrompt).trim();
     if (!text) return;
     setGemLoading(true);
     setGemChat((c) => [...c, { role: 'user', text }]);
@@ -1213,18 +1261,22 @@ export default function ReaderPage() {
         <div className="ml-auto flex items-center gap-2">
           <span className="text-xs text-gray-400 mr-2">MinerU 对照阅读</span>
           <span className="text-xs text-gray-500">字体</span>
-          <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={decFont}>A-</button>
-          <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={incFont}>A+</button>
+          <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={decFont}>A-</button>
+          <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={incFont}>A+</button>
           <span className="mx-2 text-gray-300">|</span>
           <span className="text-xs text-gray-500">主题</span>
           <button
-            className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
-            onClick={() => setTheme((t) => (t === 'aurora' ? 'plain' : 'aurora'))}
+            className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
+            onClick={() => setTheme((t) => (t === 'immersive' ? 'aurora' : 'immersive'))}
           >{theme === 'aurora' ? '素雅' : '炫彩'}</button>
+          <button
+            className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
+            onClick={() => setTheme((t) => (t === 'immersive' ? 'aurora' : 'immersive'))}
+          >{theme === 'immersive' ? '退出沉浸' : '沉浸'}</button>
           <span className="mx-2 text-gray-300">|</span>
           <span className="text-xs text-gray-500">笔记</span>
           <button
-            className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+            className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
             onClick={() => { setNoteOpen((s) => { const nxt = !s; if (!s && noteTextRef.current) { /* opening */ setEditorKey((k)=>k+1); } return nxt; }); }}
           >{noteOpen ? '关闭' : '打开'}</button>
           {noteSaving && <span className="text-[11px] text-indigo-600">保存中…</span>}
@@ -1236,33 +1288,33 @@ export default function ReaderPage() {
       </div>
 
       {/* 三列布局：40% / 40% / 20% */}
-      <div className="flex-1 grid page-grid" style={{ gridTemplateColumns: "40% 40% 20%" }}>
+      <div className="flex-1 grid page-grid" style={{ gridTemplateColumns: gridCols }}>
         {/* LEFT: PDF */}
         <div className="relative border-r page-col page-col--left">
           {pdfUrl ? <PdfPane fileUrl={viewerUrl} className="h-full" /> : <div className="p-6 text-gray-500">未找到 PDF 地址</div>}
 
             {/* 覆盖左侧PDF：overlay 模式 */}
             {noteOpen && noteDock === 'overlay' && (
-              <div ref={noteOverlayRef} className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm flex flex-col note-overlay">
+              <div ref={noteOverlayRef} className="absolute inset-0 z-20 bg-white/95 flex flex-col note-overlay">
                 {/* 顶部工具栏 */}
                 <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-1 rounded text-xs border bg-gray-50 text-gray-600">编辑 + 预览（{noteLayoutMode === 'horizontal' ? '左右分屏' : '上下自动'}）</span>
+                    <span className="px-2 py-1 rounded text-xs border bg-gray-50 text-gray-600">☆（{noteLayoutMode === 'horizontal' ? '左右分屏' : '上下自动'}）</span>
                     <button
-                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
                       onClick={() => { setNoteLayoutMode(noteLayoutMode === 'horizontal' ? 'vertical' : 'horizontal'); setEditorKey((k) => k + 1); }}
                     >切换为{noteLayoutMode === 'horizontal' ? '上下' : '左右'}</button>
                     {noteLayoutMode === 'horizontal' && (
-                      <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => setNoteSplitRatioLR(0.5)}>重置分屏</button>
+                      <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => setNoteSplitRatioLR(0.5)}>重置分屏</button>
                     )}
                     <button
-                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
                       onClick={(e) => { (e.currentTarget as HTMLButtonElement)?.blur(); switchDock('float'); }}
                     >切到悬浮</button>
                   </div>
                   <MiniToolbar />
                   <div className="ml-auto flex items-center gap-2">
-                    <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
+                    <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
                     <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
                   </div>
                 </div>
@@ -1281,11 +1333,12 @@ export default function ReaderPage() {
                           updateCaretFromTextarea(el);
                           queueLivePreview();
                           queueSave();
-                          snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
+                          queueHistorySnapshot(e.currentTarget as HTMLTextAreaElement);
                         }}
                         onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
                         onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
                         onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onBlur={(e) => snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement)}
                         onKeyDown={handleEditorKeyDown}
                         placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
                         className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
@@ -1297,7 +1350,7 @@ export default function ReaderPage() {
                       onMouseDown={startLRDrag}
                       title="拖动调整编辑/预览宽度"
                     />
-                    <div className="min-w-0 flex-1 overflow-auto p-3 markdown-body">
+                    <div className="min-w-0 flex-1 overflow-auto p-3 markdown-body hide-scrollbar">
                       <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
                         {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
                       </ReactMarkdown>
@@ -1305,7 +1358,7 @@ export default function ReaderPage() {
                   </div>
                 ) : (
                   <div className="flex-1 min-h-0 flex flex-col">
-                    <div className="p-3 overflow-auto">
+                    <div className="p-3 overflow-auto hide-scrollbar">
                       <textarea
                         key={editorKey}
                         ref={noteTextRef}
@@ -1317,11 +1370,12 @@ export default function ReaderPage() {
                           autoGrow(el);
                           queueLivePreview();
                           queueSave();
-                          snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
+                          queueHistorySnapshot(e.currentTarget as HTMLTextAreaElement);
                         }}
                         onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
                         onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
                         onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onBlur={(e) => snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement)}
                         onKeyDown={handleEditorKeyDown}
                         placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
                         className="w-full outline-none resize-none font-mono text-sm"
@@ -1348,28 +1402,28 @@ export default function ReaderPage() {
                 style={floatStyle}
               >
                 {/* 顶部工具栏（同覆盖模式） */}
-                <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
+                <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80  whitespace-nowrap">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-1 rounded text-xs border bg-gray-50 text-gray-600">编辑 + 预览（{noteLayoutMode === 'horizontal' ? '左右分屏' : '上下自动'}）</span>
+                    <span className="px-2 py-1 rounded text-xs border bg-gray-50 text-gray-600">☆（{noteLayoutMode === 'horizontal' ? '左右分屏' : '上下自动'}）</span>
                     <button
-                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
                       onClick={() => { setNoteLayoutMode(noteLayoutMode === 'horizontal' ? 'vertical' : 'horizontal'); setEditorKey((k) => k + 1); }}
-                    >切换为{noteLayoutMode === 'horizontal' ? '上下' : '左右'}</button>
+                    >{noteLayoutMode === 'horizontal' ? '上下' : '左右'}</button>
                     {noteLayoutMode === 'horizontal' && (
-                      <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => setNoteSplitRatioLR(0.5)}>重置分屏</button>
+                      <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => setNoteSplitRatioLR(0.5)}>重置</button>
                     )}
                     <button
-                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
                       onClick={() => setFloatSide((s) => (s === 'left' ? 'right' : 'left'))}
                     >{floatSide === 'left' ? '靠右' : '靠左'}</button>
                     <button
-                      className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+                      className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
                       onClick={(e) => { (e.currentTarget as HTMLButtonElement)?.blur(); switchDock('overlay'); }}
                     >贴回左侧</button>
                   </div>
                   <MiniToolbar />
                   <div className="ml-auto flex items-center gap-2">
-                    <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
+                    <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
                     <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
                   </div>
                 </div>
@@ -1388,11 +1442,12 @@ export default function ReaderPage() {
                           updateCaretFromTextarea(el);
                           queueLivePreview();
                           queueSave();
-                          snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
+                          queueHistorySnapshot(e.currentTarget as HTMLTextAreaElement);
                         }}
                         onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
                         onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
                         onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onBlur={(e) => snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement)}
                         onKeyDown={handleEditorKeyDown}
                         placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
                         className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
@@ -1412,7 +1467,7 @@ export default function ReaderPage() {
                   </div>
                 ) : (
                   <div className="flex-1 min-h-0 flex flex-col">
-                    <div className="p-3 overflow-auto">
+                    <div className="p-3 overflow-auto hide-scrollbar">
                       <textarea
                         key={editorKey}
                         ref={noteTextRef}
@@ -1424,11 +1479,12 @@ export default function ReaderPage() {
                           autoGrow(el);
                           queueLivePreview();
                           queueSave();
-                          snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement);
+                          queueHistorySnapshot(e.currentTarget as HTMLTextAreaElement);
                         }}
                         onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
                         onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
                         onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                        onBlur={(e) => snapshotFromTextarea(e.currentTarget as HTMLTextAreaElement)}
                         onKeyDown={handleEditorKeyDown}
                         placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器；⌘B 粗体、⌘I 斜体、⌘K 链接、⌘1/2/3 标题、⌘⇧U 下划线、⌘⇧8 无序、⌘⇧7 有序、⌘Z 撤销、⌘⇧Z 重做）"
                         className="w-full outline-none resize-none font-mono text-sm"
@@ -1452,14 +1508,14 @@ export default function ReaderPage() {
         {/* MIDDLE: Markdown + tools */}
         <div className="relative border-r page-col page-col--mid">
           {loading && (
-            <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
+            <div className="absolute inset-0 bg-white/70 z-10 flex flex-col items-center justify-center">
               <div className="animate-spin w-8 h-8 border-2 border-gray-400 border-t-transparent rounded-full" />
               <div className="mt-3 text-sm text-gray-600">MinerU 正在解析/读取缓存…</div>
             </div>
           )}
 
           <div
-            className="h-full overflow-auto p-4 relative"
+            className="h-full overflow-auto p-4 relative hide-scrollbar"
             style={{ ["--md-font-size" as any]: `${mdFont}px` }}
             ref={mdContainerRef}
           >
@@ -1543,7 +1599,7 @@ export default function ReaderPage() {
             {selectionBox.show && selPayload && (
               <div
                 data-floating-ui
-                className="absolute z-20 bg-white shadow-lg border border-indigo-100 rounded flex items-center gap-1 px-1 py-1"
+                className="absolute z-20 bg-white shadow-lg border border-indigo-100 rounded flex items-center gap-1 px-1 py-1 whitespace-nowrap"
                 style={{ left: selectionBox.x, top: selectionBox.y, transform: "translate(-50%, -100%)" }}
                 onMouseDown={(e) => e.preventDefault()}
               >
@@ -1610,7 +1666,7 @@ export default function ReaderPage() {
         {/* RIGHT: 批注侧栏（常驻） + Gemini 悬浮窗（不遮挡列表） */}
         <div className="relative page-col page-col--right">
           {/* 常驻：批注侧栏 */}
-          <div ref={notesPaneRef} className="absolute inset-0 overflow-auto p-3">
+          <div ref={notesPaneRef} className="absolute inset-0 overflow-auto p-3 hide-scrollbar">
             <div className="relative" style={{ height: sidebarHeight || 0 }}>
               {annos.map((a) => {
                 const pos = noteLayout.find((x) => x.id === a.id)?.top ?? 0;
@@ -1647,31 +1703,19 @@ export default function ReaderPage() {
                 <button className="ml-auto px-2 py-1 text-xs rounded border hover:bg-gray-50" onClick={() => setGemOpen(false)}>关闭</button>
               </div>
               <div className="flex-1 min-h-0 overflow-auto space-y-2 p-2">
-                {gemChat.map((m, i) => (
-                  <div key={i} className={m.role === 'user' ? "text-sm p-2 rounded bg-indigo-50" : "text-sm p-2 rounded bg-gray-50"}>
-                    <div className="text-[11px] text-gray-500 mb-1">{m.role === 'user' ? "你" : "Gemini"}</div>
-                    {m.role === 'assistant' ? (
-                      <div className="markdown-body">
-                        <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                          {m.text}
-                        </ReactMarkdown>
-                      </div>
-                    ) : (
-                      <div className="whitespace-pre-wrap">{m.text}</div>
-                    )}
-                  </div>
-                ))}
+                <GemChatItems items={gemChat} />
                 {gemLoading && <div className="text-sm text-gray-500 px-2">思考中…</div>}
               </div>
               <div className="border-t p-2 space-y-2">
                 <textarea
+                  key={gemPrompt}                // 让程序化更新时重置初值
+                  ref={gemPromptRef}
                   className="w-full h-20 border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                  value={gemPrompt}
-                  onChange={(e) => setGemPrompt(e.target.value)}
+                  defaultValue={gemPrompt}
                   placeholder="在这里编辑你的提问，然后发送给 Gemini"
                 />
                 <div className="flex items-center justify-end gap-2">
-                  <button className="px-3 py-1 rounded border text-sm" onClick={() => setGemOpen(false)}>关闭</button>
+                  <button className="px-3 py-1 rounded border text-xs" onClick={() => setGemOpen(false)}>关闭</button>
                   <button className="px-3 py-1 rounded bg-indigo-600 text-white text-sm disabled:opacity-60" disabled={gemLoading || !gemPrompt.trim()} onClick={() => sendGemini()}>
                     发送
                   </button>
@@ -1717,7 +1761,7 @@ export default function ReaderPage() {
           />
           <div className="mt-2 flex items-center gap-2">
             <button className="px-3 py-1 rounded bg-black text-white text-sm" onClick={() => doAddAnnotation(annoTextRef.current?.value || "")}>保存</button>
-            <button className="px-3 py-1 rounded border text-sm" onClick={() => setNoteEditor({ show: false, x: 0, y: 0 })}>取消</button>
+            <button className="px-3 py-1 rounded border text-xs" onClick={() => setNoteEditor({ show: false, x: 0, y: 0 })}>取消</button>
           </div>
         </div>
       )}
@@ -1750,7 +1794,7 @@ export default function ReaderPage() {
                 placeholder="在这里编辑你的提问，支持粘贴当前选中内容"
               />
               <div className="flex items-center justify-end gap-2">
-                <button className="px-3 py-1 rounded border text-sm" onClick={() => setLlmOpen(false)}>取消</button>
+                <button className="px-3 py-1 rounded border text-xs" onClick={() => setLlmOpen(false)}>取消</button>
                 <button className="px-3 py-1 rounded bg-indigo-600 text-white text-sm disabled:opacity-60" disabled={llmLoading} onClick={sendLLM}>发送</button>
               </div>
             </div>
@@ -1832,6 +1876,35 @@ export default function ReaderPage() {
           padding: 2px 2px;
           box-shadow: inset 0 0 0 1px rgba(255, 200, 0, .20);
         }
+        /* ---- 隐藏滚动条（仍可滚动） ---- */
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .hide-scrollbar::-webkit-scrollbar { width: 0; height: 0; }
+
+        /* ---- 沉浸主题（轻量，不用滤镜） ---- */
+        [data-theme="immersive"] .page-header {
+          background: #F7F5EE;
+          border-bottom-color: #E0DCD3;
+          box-shadow: none;
+        }
+        [data-theme="immersive"] .page-grid { background: #F7F5EE; }
+        [data-theme="immersive"] .page-col--left,
+        [data-theme="immersive"] .page-col--right {
+          background: transparent;
+          box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+        }
+        [data-theme="immersive"] .page-col--mid {
+          background: #FFFFFF;
+          box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+        [data-theme="immersive"] .note-overlay {
+          background: #FFFFFF;
+          box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+          backdrop-filter: none; /* 关掉毛玻璃，避免 GPU 负担 */
+        }
+
+        /* ---- Emoji 选择器 ---- */
+        .emojipicker { display: grid; grid-template-columns: repeat(7, 1.6em); gap: .2em; }
+        .emojipicker button { font-size: 16px; line-height: 1.2; }
       `}</style>
       {bubble.show && (
     <div
