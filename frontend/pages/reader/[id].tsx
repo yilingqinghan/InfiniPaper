@@ -291,6 +291,12 @@ export default function ReaderPage() {
   const [noteSavedAt, setNoteSavedAt] = React.useState<string | null>(null);
   const noteTextRef = React.useRef<HTMLTextAreaElement | null>(null);
 
+  // 编辑器本地草稿与保存调度
+  const noteDraftRef = React.useRef<string>("");
+  const saveDebounceRef = React.useRef<number | null>(null);
+  const saveAbortRef = React.useRef<AbortController | null>(null);
+  const [editorKey, setEditorKey] = React.useState(0); // 触发 textarea 重新挂载以刷新 defaultValue
+
   // 笔记持久化相关状态（后端）
   const [noteId, setNoteId] = React.useState<number | null>(null);
   const [noteSaving, setNoteSaving] = React.useState(false);
@@ -348,6 +354,82 @@ export default function ReaderPage() {
       el.focus();
       el.setSelectionRange(pos, pos);
     });
+  };
+
+  // --- 笔记编辑器无状态保存与快捷键 ---
+  const queueSave = React.useCallback(() => {
+    if (saveDebounceRef.current) window.clearTimeout(saveDebounceRef.current);
+    saveDebounceRef.current = window.setTimeout(async () => {
+      if (!id) return;
+      try {
+        setNoteSaving(true);
+        setNoteError(null);
+        if (saveAbortRef.current) saveAbortRef.current.abort();
+        const ctrl = new AbortController();
+        saveAbortRef.current = ctrl;
+        const saved = await upsertByPaper(api, Number(id), noteDraftRef.current || "");
+        setNoteId(saved.id);
+        setNoteSavedAt(new Date().toISOString());
+      } catch (e: any) {
+        setNoteError(e?.message || String(e));
+      } finally {
+        setNoteSaving(false);
+      }
+    }, 5000);
+  }, [id, api]);
+
+  const applyWrapDirect = (el: HTMLTextAreaElement, before: string, after = "") => {
+    const start = el.selectionStart ?? 0;
+    const end = el.selectionEnd ?? 0;
+    const val = el.value;
+    const sel = val.slice(start, end);
+    const next = val.slice(0, start) + before + sel + after + val.slice(end);
+    el.value = next;
+    noteDraftRef.current = next;
+    const pos = start + before.length + sel.length;
+    requestAnimationFrame(() => {
+      el.focus();
+      el.setSelectionRange(pos, pos);
+    });
+    queueSave();
+  };
+
+  const applyLinePrefixDirect = (el: HTMLTextAreaElement, prefix: string) => {
+    const start = el.selectionStart ?? 0;
+    const val = el.value;
+    const lineStart = val.lastIndexOf('\n', start - 1) + 1;
+    const next = val.slice(0, lineStart) + prefix + val.slice(lineStart);
+    el.value = next;
+    noteDraftRef.current = next;
+    requestAnimationFrame(() => {
+      const pos = start + prefix.length;
+      el.focus();
+      el.setSelectionRange(pos, pos);
+    });
+    queueSave();
+  };
+
+  const handleEditorKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const el = noteTextRef.current;
+    if (!el) return;
+    const mod = e.metaKey || e.ctrlKey;
+    if (!mod) return;
+    const k = e.key.toLowerCase();
+    if (k === 'b') { e.preventDefault(); applyWrapDirect(el, '**', '**'); return; }
+    if (k === 'i') { e.preventDefault(); applyWrapDirect(el, '*', '*'); return; }
+    if (k === 'k') { e.preventDefault();
+      const start = el.selectionStart ?? 0; const end = el.selectionEnd ?? 0; const sel = el.value.slice(start, end) || '文本';
+      const before = `[${sel}](链接)`; // 简化：插入后可自行替换“链接”
+      const next = el.value.slice(0, start) + before + el.value.slice(end);
+      el.value = next; noteDraftRef.current = next; queueSave();
+      const linkStart = start + before.indexOf('链接');
+      const linkEnd = linkStart + 2;
+      requestAnimationFrame(() => { el.focus(); el.setSelectionRange(linkStart, linkEnd); });
+      return;
+    }
+    if (k === '1') { e.preventDefault(); applyLinePrefixDirect(el, '# '); return; }
+    if (k === '2') { e.preventDefault(); applyLinePrefixDirect(el, '## '); return; }
+    if (k === '3') { e.preventDefault(); applyLinePrefixDirect(el, '### '); return; }
   };
 
   const exportNoteAsMd = () => {
@@ -439,28 +521,11 @@ export default function ReaderPage() {
         const got = await getByPaper(api, Number(id));
         if (got) { setNoteMd(got.content || ""); setNoteId(got.id); }
         else { setNoteMd(""); setNoteId(null); }
+        noteDraftRef.current = got ? (got.content || "") : "";
+        setEditorKey((k) => k + 1);
       } catch (e: any) { setNoteError(e?.message || String(e)); }
     })();
   }, [id, api]);
-  
-  // 自动保存（PUT upsert）
-  React.useEffect(() => {
-    if (!id) return;
-    const t = setTimeout(async () => {
-      try {
-        setNoteSaving(true);
-        setNoteError(null);
-        const saved = await upsertByPaper(api, Number(id), noteMd || "");
-        setNoteId(saved.id);
-        setNoteSavedAt(new Date().toISOString());
-      } catch (e: any) {
-        setNoteError(e?.message || String(e));
-      } finally {
-        setNoteSaving(false);
-      }
-    }, 600);
-    return () => clearTimeout(t);
-  }, [id, noteMd, api]);
 
   // 监听选区
   React.useEffect(() => {
@@ -748,11 +813,13 @@ export default function ReaderPage() {
           <span className="text-xs text-gray-500">笔记</span>
           <button
             className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
-            onClick={() => setNoteOpen((s) => !s)}
+            onClick={() => { setNoteOpen((s) => { const nxt = !s; if (!s && noteTextRef.current) { /* opening */ setEditorKey((k)=>k+1); } return nxt; }); }}
           >{noteOpen ? '关闭' : '打开'}</button>
-          {noteSavedAt && (
+          {noteSaving && <span className="text-[11px] text-indigo-600">保存中…</span>}
+          {noteSavedAt && !noteSaving && (
             <span className="text-[11px] text-gray-400">已保存 {new Date(noteSavedAt).toLocaleTimeString()}</span>
           )}
+          {noteError && <span className="text-[11px] text-red-500">保存失败</span>}
         </div>
       </div>
 
@@ -802,11 +869,14 @@ export default function ReaderPage() {
               <div className="flex-1 min-h-0">
                 {noteTab === 'edit' ? (
                   <textarea
+                    key={editorKey}
                     ref={noteTextRef}
-                    value={noteMd}
-                    onChange={(e) => setNoteMd(e.target.value)}
-                    placeholder="在此记录你的 Markdown 笔记…（自动保存）"
+                    defaultValue={noteMd}
+                    onInput={(e) => { noteDraftRef.current = (e.currentTarget as HTMLTextAreaElement).value; queueSave(); }}
+                    onKeyDown={handleEditorKeyDown}
+                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
                     className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
+                    spellCheck={false}
                   />
                 ) : (
                   <div className="h-full overflow-auto p-3 markdown-body">
