@@ -267,7 +267,7 @@ import {ListNode, ListItemNode, INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LI
 import {HeadingNode, QuoteNode} from "@lexical/rich-text";
 import {CodeNode} from "@lexical/code";
 import {LinkNode, TOGGLE_LINK_COMMAND} from "@lexical/link";
-import {FORMAT_TEXT_COMMAND, INSERT_TEXT_COMMAND} from "lexical";
+import { FORMAT_TEXT_COMMAND, $getSelection, $isRangeSelection } from "lexical";
 
 /* -------------------- 类型 -------------------- */
 type ParseResp = {
@@ -419,7 +419,10 @@ function WysiwygBridge() {
       const { text } = (e as CustomEvent).detail || {};
       if (!text) return;
       editor.update(() => {
-        editor.dispatchCommand(INSERT_TEXT_COMMAND, text);
+        const sel = $getSelection();
+        if ($isRangeSelection(sel)) {
+          sel.insertText(text);
+        }
       });
     };
     window.addEventListener("IP_WYSIWYG_CMD" as any, onCmd as any);
