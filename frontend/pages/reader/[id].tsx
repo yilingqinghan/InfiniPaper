@@ -547,11 +547,14 @@ function ReaderPage() {
   const scrollToHeading = React.useCallback((id: string) => {
     const host = mdContainerRef.current;
     if (!host) return;
-    const el = host.querySelector<HTMLElement>(`#${CSS.escape(id)}`);
+    // 先按 #id 选；选不到再按属性选择器兜底
+    let el = host.querySelector<HTMLElement>(`#${id}`);
+    if (!el) el = host.querySelector<HTMLElement>(`[id="${id}"]`);
     if (!el) return;
+  
     const hostRect = host.getBoundingClientRect();
     const r = el.getBoundingClientRect();
-    const top = r.top - hostRect.top + host.scrollTop - 8; // small padding
+    const top = r.top - hostRect.top + host.scrollTop - 8; // 轻微上边距
     host.scrollTo({ top, behavior: 'smooth' });
   }, []);
   const gemPromptRef = React.useRef<HTMLTextAreaElement | null>(null);
@@ -579,26 +582,6 @@ function ReaderPage() {
   };
   const snapshotFromTextarea = (el: HTMLTextAreaElement) => {
     pushHistory(el.value, el.selectionStart ?? 0, el.selectionEnd ?? 0);
-  };
-  const doUndo = () => {
-    const el = noteTextRef.current; if (!el) return;
-    if (histIdxRef.current <= 0) return;
-    histIdxRef.current -= 1;
-    const snap = historyRef.current[histIdxRef.current];
-    el.value = snap.v; noteDraftRef.current = snap.v;
-    el.setSelectionRange(snap.s, snap.e);
-    updateCaretFromTextarea(el);
-    queueSave();
-  };
-  const doRedo = () => {
-    const el = noteTextRef.current; if (!el) return;
-    if (histIdxRef.current >= historyRef.current.length - 1) return;
-    histIdxRef.current += 1;
-    const snap = historyRef.current[histIdxRef.current];
-    el.value = snap.v; noteDraftRef.current = snap.v;
-    el.setSelectionRange(snap.s, snap.e);
-    updateCaretFromTextarea(el);
-    queueSave();
   };
 
   // 笔记持久化相关状态（后端）
