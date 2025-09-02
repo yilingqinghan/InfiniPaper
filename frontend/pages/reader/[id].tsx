@@ -316,6 +316,8 @@ export default function ReaderPage() {
   const apiBase = (process.env.NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
   const api = React.useCallback((path: string) => (apiBase ? `${apiBase}${path}` : path), [apiBase]);
 
+  // 主题：plain（素雅）/ aurora（炫彩）
+  const [theme, setTheme] = React.useState<'plain' | 'aurora'>('aurora');
   // 字体
   const [mdFont, setMdFont] = React.useState(16);
   const incFont = () => setMdFont((s) => Math.min(22, s + 1));
@@ -881,7 +883,7 @@ export default function ReaderPage() {
   }, [md, recomputeLayout]);
   /* -------------------- 渲染 -------------------- */
   return (
-    <div className="h-screen w-screen flex flex-col">
+    <div className="h-screen w-screen flex flex-col" data-theme={theme}>
       <Head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-light.min.css" />
@@ -889,7 +891,7 @@ export default function ReaderPage() {
         <link rel="stylesheet" href="/css/reader.css" />
       </Head>
 
-      <div className="flex items-center gap-3 px-3 py-2 border-b bg-gradient-to-r from-white to-indigo-50/30">
+      <div className="flex items-center gap-3 px-3 py-2 border-b bg-gradient-to-r from-white to-indigo-50/30 page-header">
         <button className="px-2 py-1 rounded border hover:bg-gray-50" onClick={() => router.back()}>
           ← 返回
         </button>
@@ -900,7 +902,12 @@ export default function ReaderPage() {
           <span className="text-xs text-gray-500">字体</span>
           <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={decFont}>A-</button>
           <button className="px-2 py-1 rounded border text-sm hover:bg-gray-50" onClick={incFont}>A+</button>
-
+          <span className="mx-2 text-gray-300">|</span>
+          <span className="text-xs text-gray-500">主题</span>
+          <button
+            className="px-2 py-1 rounded border text-sm hover:bg-gray-50"
+            onClick={() => setTheme((t) => (t === 'aurora' ? 'plain' : 'aurora'))}
+          >{theme === 'aurora' ? '素雅' : '炫彩'}</button>
           <span className="mx-2 text-gray-300">|</span>
           <span className="text-xs text-gray-500">笔记</span>
           <button
@@ -916,13 +923,13 @@ export default function ReaderPage() {
       </div>
 
       {/* 三列布局：40% / 40% / 20% */}
-      <div className="flex-1 grid" style={{ gridTemplateColumns: "40% 40% 20%" }}>
+      <div className="flex-1 grid page-grid" style={{ gridTemplateColumns: "40% 40% 20%" }}>
         {/* LEFT: PDF */}
-        <div className="relative border-r">
+        <div className="relative border-r page-col page-col--left">
           {pdfUrl ? <PdfPane fileUrl={viewerUrl} className="h-full" /> : <div className="p-6 text-gray-500">未找到 PDF 地址</div>}
 
           {noteOpen && (
-            <div ref={noteOverlayRef} className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm flex flex-col">
+            <div ref={noteOverlayRef} className="absolute inset-0 z-20 bg-white/95 backdrop-blur-sm flex flex-col note-overlay">
               {/* 顶部工具栏 */}
               <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/80">
                 <div className="flex items-center gap-2">
@@ -1034,7 +1041,7 @@ export default function ReaderPage() {
         </div>
 
         {/* MIDDLE: Markdown + tools */}
-        <div className="relative border-r">
+        <div className="relative border-r page-col page-col--mid">
           {loading && (
             <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
               <div className="animate-spin w-8 h-8 border-2 border-gray-400 border-t-transparent rounded-full" />
@@ -1176,7 +1183,7 @@ export default function ReaderPage() {
         </div>
 
         {/* RIGHT: 批注侧栏 */}
-        <div className="relative">
+        <div className="relative page-col page-col--right">
           <div ref={notesPaneRef} className="absolute inset-0 overflow-auto p-3">
             <div className="relative" style={{ height: sidebarHeight || 0 }}>
               {annos.map((a) => {
@@ -1255,6 +1262,76 @@ export default function ReaderPage() {
           </div>
         </div>
       )}
+      <style jsx global>{`
+        /* ---- Aurora 彩色主题 ---- */
+        [data-theme="aurora"] .page-header {
+          background: linear-gradient(90deg, rgba(99,102,241,.12), rgba(236,72,153,.12));
+          border-bottom-color: rgba(99,102,241,.35);
+          box-shadow: 0 10px 22px rgba(99,102,241,.08);
+        }
+        [data-theme="aurora"] .page-grid {
+          background:
+            radial-gradient(900px 400px at 0% -20%, rgba(99,102,241,.10), transparent 70%),
+            radial-gradient(900px 400px at 100% 0%, rgba(236,72,153,.10), transparent 70%),
+            linear-gradient(180deg, #fbfcff, #ffffff 50%, #fbfcff 100%);
+        }
+        [data-theme="aurora"] .page-col {
+          backdrop-filter: blur(2px);
+        }
+        [data-theme="aurora"] .page-col--left {
+          background: linear-gradient(180deg, rgba(59,130,246,0.05), rgba(99,102,241,0.05));
+          box-shadow: inset -1px 0 0 rgba(99,102,241,.18), 0 10px 26px rgba(99,102,241,.10);
+        }
+        [data-theme="aurora"] .page-col--mid {
+          background: linear-gradient(180deg, rgba(16,185,129,0.05), rgba(59,130,246,0.04));
+          box-shadow: inset -1px 0 0 rgba(99,102,241,.12), 0 10px 26px rgba(16,185,129,.10);
+        }
+        [data-theme="aurora"] .page-col--right {
+          background: linear-gradient(180deg, rgba(236,72,153,0.06), rgba(99,102,241,0.05));
+          box-shadow: inset 1px 0 0 rgba(99,102,241,.14), 0 10px 26px rgba(236,72,153,.10);
+        }
+        [data-theme="aurora"] .note-overlay {
+          background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.92));
+          box-shadow: 0 14px 46px rgba(99,102,241,.18);
+        }
+        [data-theme="aurora"] .page-header button {
+          border-color: rgba(99,102,241,.35);
+        }
+        [data-theme="aurora"] .page-header button:hover {
+          background: linear-gradient(90deg, rgba(99,102,241,.16), rgba(236,72,153,.16));
+        }
+        [data-theme="aurora"] .markdown-body code {
+          background: rgba(99,102,241,.10);
+          border-radius: 4px;
+          padding: .1em .4em;
+        }
+        [data-theme="aurora"] .markdown-body pre {
+          background: linear-gradient(180deg, rgba(17,24,39,.9), rgba(17,24,39,.92));
+          color: #e6edf3;
+          border: 1px solid rgba(99,102,241,.28);
+          border-radius: 8px;
+          box-shadow: 0 18px 40px rgba(2,6,23,.35);
+        }
+        [data-theme="aurora"] .markdown-body a {
+          color: #4f46e5;
+          text-decoration-color: rgba(99,102,241,.45);
+        }
+        [data-theme="aurora"] .markdown-body a:hover {
+          color: #ec4899;
+          text-decoration-color: rgba(236,72,153,.5);
+        }
+        [data-theme="aurora"] .markdown-body hr.body-hr {
+          border: 0; height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(99,102,241,.35), transparent);
+        }
+        [data-theme="aurora"] .ann-mark {
+          border-radius: 4px;
+          box-shadow: inset 0 1px 0 rgba(0,0,0,.06);
+        }
+        [data-theme="aurora"] ::selection {
+          background: rgba(99,102,241,.25);
+        }
+      `}</style>
     </div>
   );
 }

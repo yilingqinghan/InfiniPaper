@@ -39,7 +39,7 @@
   margin-top: 1.6em;
   margin-bottom: .6em;
 }
-.markdown-body h1 { font-size: 2rem; }
+.markdown-body h1 { font-size: 2rem;text-align: center; }
 .markdown-body h2 { font-size: 1.6rem; }
 .markdown-body h3 { font-size: 1.25rem; }
 
