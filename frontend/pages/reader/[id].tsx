@@ -317,6 +317,8 @@ export default function ReaderPage() {
   const [noteLive, setNoteLive] = React.useState<string>("");
   const liveDebounceRef = React.useRef<number | null>(null);
   const imgInputRef = React.useRef<HTMLInputElement | null>(null);
+  const [noteCaret, setNoteCaret] = React.useState<number>(0); // 当前光标位置
+  const [noteLiveDecorated, setNoteLiveDecorated] = React.useState<string>(""); // 高亮当前段落的预览
 
   const [cacheKey, setCacheKey] = React.useState<string | null>(null);
   const [assetsBase, setAssetsBase] = React.useState<string | null>(null);
@@ -433,6 +435,33 @@ export default function ReaderPage() {
     }, 120);
   }, []);
 
+  // 根据光标位置高亮当前编辑段落（以空行分段）
+  const decorateEditingParagraph = (text: string, caret: number) => {
+    if (!text) return "";
+    const c = Math.max(0, Math.min(caret, text.length));
+    const prevSep = text.lastIndexOf("\n\n", c - 1);
+    const pStart = prevSep >= 0 ? prevSep + 2 : 0;
+    const nextSep = text.indexOf("\n\n", c);
+    const pEnd = nextSep >= 0 ? nextSep : text.length;
+    // 避免在代码块内高亮：若 pStart 前的 ``` 为奇数次，直接返回原文
+    const beforeP = text.slice(0, pStart);
+    const fenceCount = (beforeP.match(/```/g) || []).length;
+    if (fenceCount % 2 === 1) return text; // 代码块中，不装饰
+    const before = text.slice(0, pStart);
+    const para = text.slice(pStart, pEnd);
+    const after = text.slice(pEnd);
+    return `${before}<span class="editing-paragraph">${para || "&nbsp;"}</span>${after}`;
+  };
+
+  const updateCaretFromTextarea = (el: HTMLTextAreaElement) => {
+    const p = el.selectionStart ?? 0;
+    setNoteCaret(p);
+  };
+
+  React.useEffect(() => {
+    setNoteLiveDecorated(decorateEditingParagraph(noteLive || "", noteCaret));
+  }, [noteLive, noteCaret]);
+
   // 垂直布局下：textarea 自动增高，预览紧随其后
   const autoGrow = (el: HTMLTextAreaElement) => {
     el.style.height = 'auto';
@@ -457,7 +486,9 @@ export default function ReaderPage() {
     requestAnimationFrame(() => {
       el.focus();
       el.setSelectionRange(pos, pos);
+      updateCaretFromTextarea(el);
     });
+    queueLivePreview();
     queueSave();
   };
 
@@ -472,7 +503,53 @@ export default function ReaderPage() {
       const pos = start + prefix.length;
       el.focus();
       el.setSelectionRange(pos, pos);
+      updateCaretFromTextarea(el);
     });
+    queueLivePreview();
+    queueSave();
+  };
+
+  const applyUnorderedListDirect = (el: HTMLTextAreaElement) => {
+    const start = el.selectionStart ?? 0;
+    const end = el.selectionEnd ?? 0;
+    const val = el.value;
+    const lineStart = val.lastIndexOf('\n', start - 1) + 1;
+    let endIdx = val.indexOf('\n', end);
+    if (endIdx === -1) endIdx = val.length;
+    const block = val.slice(lineStart, endIdx);
+    const lines = block.split('\n');
+    const mod = lines.map(l => {
+      if (!l.trim()) return l; // 保留空行
+      return l.startsWith('- ') ? l : `- ${l}`;
+    }).join('\n');
+    const next = val.slice(0, lineStart) + mod + val.slice(endIdx);
+    el.value = next;
+    noteDraftRef.current = next;
+    requestAnimationFrame(() => { updateCaretFromTextarea(el); });
+    queueLivePreview();
+    queueSave();
+  };
+
+  const applyOrderedListDirect = (el: HTMLTextAreaElement) => {
+    const start = el.selectionStart ?? 0;
+    const end = el.selectionEnd ?? 0;
+    const val = el.value;
+    const lineStart = val.lastIndexOf('\n', start - 1) + 1;
+    let endIdx = val.indexOf('\n', end);
+    if (endIdx === -1) endIdx = val.length;
+    const block = val.slice(lineStart, endIdx);
+    const lines = block.split('\n');
+    let idx = 1;
+    const mod = lines.map(l => {
+      if (!l.trim()) return l;
+      const stripped = l.replace(/^\s*\d+\.\s+/, '');
+      return `${idx++}. ${stripped}`;
+    }).join('\n');
+    const next = val.slice(0, lineStart) + mod + val.slice(endIdx);
+    el.value = next;
+    noteDraftRef.current = next;
+    requestAnimationFrame(() => { updateCaretFromTextarea(el); });
+    queueLivePreview();
     queueSave();
   };
 
@@ -480,23 +557,31 @@ export default function ReaderPage() {
     const el = noteTextRef.current;
     if (!el) return;
     const mod = e.metaKey || e.ctrlKey;
+    const opt = e.altKey; // Mac Option = Alt
     if (!mod) return;
     const k = e.key.toLowerCase();
-    if (k === 'b') { e.preventDefault(); applyWrapDirect(el, '**', '**'); return; }
-    if (k === 'i') { e.preventDefault(); applyWrapDirect(el, '*', '*'); return; }
-    if (k === 'k') { e.preventDefault();
+
+    if (!opt && k === 'b') { e.preventDefault(); applyWrapDirect(el, '**', '**'); return; }
+    if (!opt && k === 'i') { e.preventDefault(); applyWrapDirect(el, '*', '*'); return; }
+    if (!opt && k === 'k') { e.preventDefault();
       const start = el.selectionStart ?? 0; const end = el.selectionEnd ?? 0; const sel = el.value.slice(start, end) || '文本';
-      const before = `[${sel}](链接)`; // 简化：插入后可自行替换“链接”
+      const before = `[${sel}](链接)`;
       const next = el.value.slice(0, start) + before + el.value.slice(end);
-      el.value = next; noteDraftRef.current = next; queueSave();
-      const linkStart = start + before.indexOf('链接');
-      const linkEnd = linkStart + 2;
-      requestAnimationFrame(() => { el.focus(); el.setSelectionRange(linkStart, linkEnd); });
+      el.value = next; noteDraftRef.current = next; queueLivePreview(); queueSave();
+      const linkStart = start + before.indexOf('链接'); const linkEnd = linkStart + 2;
+      requestAnimationFrame(() => { el.focus(); el.setSelectionRange(linkStart, linkEnd); updateCaretFromTextarea(el); });
       return;
     }
-    if (k === '1') { e.preventDefault(); applyLinePrefixDirect(el, '# '); return; }
-    if (k === '2') { e.preventDefault(); applyLinePrefixDirect(el, '## '); return; }
-    if (k === '3') { e.preventDefault(); applyLinePrefixDirect(el, '### '); return; }
+    if (!opt && k === '1') { e.preventDefault(); applyLinePrefixDirect(el, '# '); return; }
+    if (!opt && k === '2') { e.preventDefault(); applyLinePrefixDirect(el, '## '); return; }
+    if (!opt && k === '3') { e.preventDefault(); applyLinePrefixDirect(el, '### '); return; }
+
+    // 新增：下划线（<u>…</u>）
+    if (!opt && k === 'u') { e.preventDefault(); applyWrapDirect(el, '<u>', '</u>'); return; }
+    // 新增：无序列表（Cmd+Option+U）
+    if (opt && k === 'u') { e.preventDefault(); applyUnorderedListDirect(el); return; }
+    // 新增：有序列表（Cmd+Option+I）
+    if (opt && k === 'i') { e.preventDefault(); applyOrderedListDirect(el); return; }
   };
 
   const exportNoteAsMd = () => {
@@ -1066,21 +1151,25 @@ export default function ReaderPage() {
                 <div className="flex-1 min-h-0 flex">
                   {/* 左：编辑 */}
                   <div className="min-w-0" style={{ width: `calc(${noteSplitRatioLR * 100}% - 6px)` }}>
-                    <textarea
-                      key={editorKey}
-                      ref={noteTextRef}
-                      defaultValue={noteDraftRef.current || noteMd}
-                      onInput={(e) => {
-                        const el = e.currentTarget as HTMLTextAreaElement;
-                        noteDraftRef.current = el.value;
-                        queueLivePreview();
-                        queueSave();
-                      }}
-                      onKeyDown={handleEditorKeyDown}
-                      placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
-                      className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
-                      spellCheck={false}
-                    />
+                  <textarea
+                    key={editorKey}
+                    ref={noteTextRef}
+                    defaultValue={noteDraftRef.current || noteMd}
+                    onInput={(e) => {
+                      const el = e.currentTarget as HTMLTextAreaElement;
+                      noteDraftRef.current = el.value;
+                      updateCaretFromTextarea(el);
+                      queueLivePreview();
+                      queueSave();
+                    }}
+                    onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                    onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                    onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                    onKeyDown={handleEditorKeyDown}
+                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
+                    className="w-full h-full p-3 outline-none resize-none font-mono text-sm"
+                    spellCheck={false}
+                  />
                   </div>
                   {/* 垂直拖拽条 */}
                   <div
@@ -1091,7 +1180,7 @@ export default function ReaderPage() {
                   {/* 右：预览 */}
                   <div className="min-w-0 flex-1 overflow-auto p-3 markdown-body">
                     <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                      {noteLive || noteDraftRef.current || ""}
+                      {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
                     </ReactMarkdown>
                   </div>
                 </div>
@@ -1099,30 +1188,34 @@ export default function ReaderPage() {
                 <div className="flex-1 min-h-0 flex flex-col">
                   {/* 上：编辑（自动增高） */}
                   <div className="p-3 overflow-auto">
-                    <textarea
-                      key={editorKey}
-                      ref={noteTextRef}
-                      defaultValue={noteDraftRef.current || noteMd}
-                      onInput={(e) => {
-                        const el = e.currentTarget as HTMLTextAreaElement;
-                        noteDraftRef.current = el.value;
-                        autoGrow(el);
-                        queueLivePreview();
-                        queueSave();
-                      }}
-                      onKeyDown={handleEditorKeyDown}
-                      placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
-                      className="w-full outline-none resize-none font-mono text-sm"
-                      style={{ height: 120 }}
-                      spellCheck={false}
-                    />
+                  <textarea
+                    key={editorKey}
+                    ref={noteTextRef}
+                    defaultValue={noteDraftRef.current || noteMd}
+                    onInput={(e) => {
+                      const el = e.currentTarget as HTMLTextAreaElement;
+                      noteDraftRef.current = el.value;
+                      updateCaretFromTextarea(el);
+                      autoGrow(el);
+                      queueLivePreview();
+                      queueSave();
+                    }}
+                    onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                    onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                    onSelect={(e) => updateCaretFromTextarea(e.currentTarget)}
+                    onKeyDown={handleEditorKeyDown}
+                    placeholder="在此记录你的 Markdown 笔记…（自动保存到服务器，支持 ⌘B/Ctrl+B 粗体、⌘I/Ctrl+I 斜体、⌘K 链接、⌘1/2/3 标题）"
+                    className="w-full outline-none resize-none font-mono text-sm"
+                    style={{ height: 120 }}
+                    spellCheck={false}
+                  />
                   </div>
                   {/* 间距小一段 */}
                   <div className="h-2" />
                   {/* 下：预览（自动跟随在编辑尾部后显示） */}
                   <div className="min-h-0 flex-1 overflow-auto p-3 markdown-body">
                     <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
-                      {noteLive || noteDraftRef.current || ""}
+                      {noteLiveDecorated || noteLive || noteDraftRef.current || ""}
                     </ReactMarkdown>
                   </div>
                 </div>
@@ -1507,6 +1600,12 @@ export default function ReaderPage() {
         }
         [data-theme="aurora"] ::selection {
           background: rgba(99,102,241,.25);
+        }
+        .markdown-body .editing-paragraph{
+          background: rgba(255, 243, 206, .65);
+          border-radius: 4px;
+          padding: 2px 2px;
+          box-shadow: inset 0 0 0 1px rgba(255, 200, 0, .20);
         }
       `}</style>
       {bubble.show && (
