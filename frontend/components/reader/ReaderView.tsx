@@ -427,6 +427,318 @@ export default function ReaderView() {
       inst.exec(cmd, payload);
     } catch {}
   }, []);
+  // ===== Toast 查找/替换（仅在 editMode === 'toast' 时启用） =====
+const [findOpen, setFindOpen] = React.useState(false);
+const [findQ, setFindQ] = React.useState("");
+const [replQ, setReplQ] = React.useState("");
+const [findCase, setFindCase] = React.useState(false);
+const [findWord, setFindWord] = React.useState(false);
+const [findRegex, setFindRegex] = React.useState(false);
+const [findCount, setFindCount] = React.useState(0);
+const [findActive, setFindActive] = React.useState(0); // 0-based
+const findHitsRef = React.useRef<HTMLElement[]>([]);
+const findScheduleRef = React.useRef<number | null>(null);
+
+const getToastContentHost = React.useCallback(() => {
+  const root = toastRootRef.current;
+  return root ? root.querySelector<HTMLElement>(".toastui-editor-contents") : null;
+}, []);
+
+const compileFind = React.useCallback(() => {
+  if (!findQ) return null;
+  try {
+    if (findRegex) {
+      const flags = `${findCase ? "" : "i"}g`;
+      return new RegExp(findQ, flags);
+    }
+    const escaped = findQ.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const flags = `${findCase ? "" : "i"}g`;
+    return new RegExp(escaped, flags);
+  } catch { return null; }
+}, [findQ, findCase, findRegex]);
+
+const isWordChar = (ch?: string) => !!ch && /[0-9A-Za-z_]/.test(ch);
+
+const clearFindHighlights = React.useCallback((host?: HTMLElement | null) => {
+  const h = host || getToastContentHost();
+  if (!h) return;
+  h.querySelectorAll<HTMLElement>(".ip-find-hit").forEach(el => {
+    const p = el.parentNode as Node;
+    while (el.firstChild) p.insertBefore(el.firstChild, el);
+    p.removeChild(el);
+  });
+  findHitsRef.current = [];
+  setFindCount(0);
+}, [getToastContentHost]);
+
+const shouldSkip = (el: Element) => {
+  const tag = el.tagName.toLowerCase();
+  if (/(script|style|pre|code|kbd)/.test(tag)) return true;
+  if (el.closest?.("pre, code, kbd, .katex")) return true;
+  return false;
+};
+
+const applyFindHighlights = React.useCallback(() => {
+  if (editMode !== "toast") return;
+  if (!findOpen || !findQ) { clearFindHighlights(); return; }
+  const host = getToastContentHost();
+  if (!host) return;
+  clearFindHighlights(host);
+  const re = compileFind();
+  if (!re) { setFindCount(0); return; }
+
+  // 先收集文本节点，避免在遍历时修改 DOM 造成跳节点
+  const nodes: Text[] = [];
+  const walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const p = (node.parentElement as Element | null);
+      if (!p) return NodeFilter.FILTER_REJECT;
+      if (shouldSkip(p)) return NodeFilter.FILTER_REJECT;
+      const txt = node.nodeValue || "";
+      return txt.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    },
+  } as any);
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) nodes.push(n as Text);
+
+  const hits: HTMLElement[] = [];
+  for (const tn of nodes) {
+    const text = tn.nodeValue || "";
+    re.lastIndex = 0;
+    let last = 0;
+    let m: RegExpExecArray | null;
+    const segs: (string | HTMLElement)[] = [];
+    while ((m = re.exec(text))) {
+      let s = m.index;
+      let e = s + (m[0]?.length || 0);
+      if (e === s) { re.lastIndex++; continue; }
+      // 运行时全词边界判断（仅在非正则查找时生效）
+      if (findWord && !findRegex) {
+        const prev = text[s - 1];
+        const next = text[e];
+        if (isWordChar(prev) || isWordChar(next)) continue;
+      }
+      if (s > last) segs.push(text.slice(last, s));
+      const span = document.createElement("span");
+      span.className = "ip-find-hit";
+      span.textContent = text.slice(s, e);
+      segs.push(span); hits.push(span);
+      last = e;
+    }
+    if (segs.length) {
+      if (last < text.length) segs.push(text.slice(last));
+      const frag = document.createDocumentFragment();
+      segs.forEach((x) => frag.append(x as any));
+      tn.parentNode?.replaceChild(frag, tn);
+    }
+  }
+
+  findHitsRef.current = hits;
+  setFindCount(hits.length);
+  const idx = Math.min(findActive, Math.max(0, hits.length - 1));
+  setFindActive(idx);
+  requestAnimationFrame(() => {
+    hits.forEach((el) => el.classList.remove("ip-find-hit--active"));
+    if (hits[idx]) {
+      hits[idx].classList.add("ip-find-hit--active");
+      try { hits[idx].scrollIntoView({ block: "center", behavior: "smooth" }); } catch {}
+    }
+  });
+}, [editMode, findOpen, findQ, findWord, findRegex, compileFind, getToastContentHost, clearFindHighlights, findActive]);
+
+const scheduleApplyFindHighlights = React.useCallback(() => {
+  if (!findOpen || !findQ) return;
+  if (findScheduleRef.current) {
+    window.clearTimeout(findScheduleRef.current);
+    findScheduleRef.current = null;
+  }
+  findScheduleRef.current = window.setTimeout(() => applyFindHighlights(), 80);
+}, [applyFindHighlights, findOpen, findQ]);
+
+// 查找条件变化时刷新
+React.useEffect(() => {
+  if (findOpen && editMode === "toast") {
+    setFindActive(0);
+    scheduleApplyFindHighlights();
+  } else if (!findQ) {
+    clearFindHighlights();
+  }
+}, [findQ, findCase, findWord, findRegex, findOpen, editMode, scheduleApplyFindHighlights, clearFindHighlights]);
+
+// 快捷键：Cmd/Ctrl+F 打开，Enter 导航
+React.useEffect(() => {
+  const onKey = (e: KeyboardEvent) => {
+    const metaF = (e.ctrlKey || e.metaKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === "f";
+    if (metaF && editMode === "toast") {
+      e.preventDefault();
+      setFindOpen(true);
+      scheduleApplyFindHighlights();
+    }
+    if (!findOpen) return;
+    if (e.key === "Enter") {
+      if (e.shiftKey) gotoPrev(); else gotoNext();
+    }
+  };
+  document.addEventListener("keydown", onKey, true);
+  return () => document.removeEventListener("keydown", onKey, true);
+}, [editMode, findOpen]);
+
+const gotoNext = React.useCallback(() => {
+  if (!findCount) return;
+  const next = (findActive + 1) % findCount;
+  setFindActive(next);
+  scheduleApplyFindHighlights();
+}, [findActive, findCount, scheduleApplyFindHighlights]);
+
+const gotoPrev = React.useCallback(() => {
+  if (!findCount) return;
+  const prev = (findActive - 1 + findCount) % findCount;
+  setFindActive(prev);
+  scheduleApplyFindHighlights();
+}, [findActive, findCount, scheduleApplyFindHighlights]);
+
+const getDraftKeys = React.useCallback(() => {
+  const pid = id || "";
+  return {
+    draft: `ip:noteDraft:${pid}`,
+    meta: `ip:noteDraftMeta:${pid}`,
+  };
+}, [id]);
+const markServerSaved = React.useCallback(() => {
+  try {
+    const { meta } = getDraftKeys();
+    localStorage.setItem(meta, String(Date.now()));
+  } catch {}
+}, [getDraftKeys]);
+// —— 源文本层面的替换 ——（保证替换的是 Markdown 源）
+const buildSourceRegex = React.useCallback(() => {
+  if (!findQ) return null;
+  try {
+    if (findRegex) {
+      const flags = `${findCase ? "" : "i"}g`;
+      return new RegExp(findQ, flags);
+    }
+    const escaped = findQ.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const flags = `${findCase ? "" : "i"}g`;
+    return new RegExp(escaped, flags);
+  } catch { return null; }
+}, [findQ, findCase, findRegex]);
+
+
+const saveLocalDraft = React.useCallback((content: string) => {
+  try {
+    const { draft } = getDraftKeys();
+    localStorage.setItem(draft, JSON.stringify({ content, ts: Date.now() }));
+  } catch {}
+}, [getDraftKeys]);
+
+  // 环境
+  const PDFJS_VIEWER =
+    process.env.NEXT_PUBLIC_PDFJS_URL || "/pdfjs/web/viewer.html";
+  const apiBase = (process.env.NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
+  const api = React.useCallback(
+    (path: string) => (apiBase ? `${apiBase}${path}` : path),
+    [apiBase]
+  );
+const queueSave = React.useCallback(() => {
+  dirtyRef.current = true;
+  saveLocalDraft(noteDraftRef.current || "");
+  if (saveDebounceRef.current) window.clearTimeout(saveDebounceRef.current);
+  saveDebounceRef.current = window.setTimeout(async () => {
+    if (!id) return;
+    if (!dirtyRef.current) return; // 没有真实修改则不保存
+    try {
+      setNoteSaving(true);
+      setNoteError(null);
+      if (saveAbortRef.current) saveAbortRef.current.abort();
+      const ctrl = new AbortController();
+      saveAbortRef.current = ctrl;
+      const saved = await upsertByPaper(api, Number(id), noteDraftRef.current || "");
+      setNoteId(saved.id);
+      setNoteSavedAt(new Date().toISOString());
+      lastServerContentRef.current = noteDraftRef.current || "";
+      dirtyRef.current = false;
+      markServerSaved();
+    } catch (e: any) {
+      setNoteError(e?.message || String(e));
+    } finally {
+      setNoteSaving(false);
+    }
+  }, 600);
+}, [id, api, markServerSaved, saveLocalDraft]);
+const replaceOneAt = React.useCallback((index: number) => {
+  const text = noteDraftRef.current || "";
+  const reG = buildSourceRegex();
+  if (!reG) return 0;
+  const ranges: { s: number; e: number }[] = [];
+  let m: RegExpExecArray | null;
+  reG.lastIndex = 0;
+  while ((m = reG.exec(text))) {
+    const s = m.index;
+    const e = s + (m[0]?.length || 0);
+    if (e === s) { reG.lastIndex++; continue; }
+    if (findWord && !findRegex) {
+      const prev = text[s - 1];
+      const next = text[e];
+      if (isWordChar(prev) || isWordChar(next)) continue;
+    }
+    ranges.push({ s, e });
+  }
+  if (!ranges.length) return 0;
+  const i = Math.max(0, Math.min(index, ranges.length - 1));
+  const { s, e } = ranges[i];
+  const reSingle = new RegExp(reG.source, reG.flags.replace('g',''));
+  const replaced = text.slice(s, e).replace(reSingle, replQ);
+  const next = text.slice(0, s) + replaced + text.slice(e);
+  noteDraftRef.current = next;
+  try { toastRef.current?.getInstance?.()?.setMarkdown?.(next); } catch {}
+  dirtyRef.current = true;
+  saveLocalDraft(next);
+  queueSave();
+  return 1;
+}, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex]);
+
+const replaceAll = React.useCallback(() => {
+  const text = noteDraftRef.current || "";
+  const reG = buildSourceRegex();
+  if (!reG) return 0;
+  const reSingle = new RegExp(reG.source, reG.flags.replace('g',''));
+  let out = "";
+  let last = 0;
+  let m: RegExpExecArray | null;
+  reG.lastIndex = 0;
+  let changed = false;
+  while ((m = reG.exec(text))) {
+    const s = m.index;
+    const e = s + (m[0]?.length || 0);
+    if (e === s) { reG.lastIndex++; continue; }
+    if (findWord && !findRegex) {
+      const prev = text[s - 1];
+      const next = text[e];
+      if (isWordChar(prev) || isWordChar(next)) continue;
+    }
+    out += text.slice(last, s) + m[0].replace(reSingle, replQ);
+    last = e; changed = true;
+  }
+  out += text.slice(last);
+  if (!changed) return 0;
+  noteDraftRef.current = out;
+  try { toastRef.current?.getInstance?.()?.setMarkdown?.(out); } catch {}
+  dirtyRef.current = true;
+  saveLocalDraft(out);
+  queueSave();
+  return 1;
+}, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex]);
+
+// 卸载清理定时器 & 高亮
+React.useEffect(() => {
+  return () => {
+    if (findScheduleRef.current) {
+      window.clearTimeout(findScheduleRef.current);
+      findScheduleRef.current = null;
+    }
+    clearFindHighlights();
+  };
+}, [clearFindHighlights]);
   const toastInsert = React.useCallback((text: string) => {
     const inst = toastRef.current?.getInstance?.();
     if (!inst) return;
@@ -443,21 +755,6 @@ export default function ReaderView() {
   const dirtyRef = React.useRef(false);
   const lastServerContentRef = React.useRef<string>("");
 
-  const getDraftKeys = React.useCallback(() => {
-    const pid = id || "";
-    return {
-      draft: `ip:noteDraft:${pid}`,
-      meta: `ip:noteDraftMeta:${pid}`,
-    };
-  }, [id]);
-
-  const saveLocalDraft = React.useCallback((content: string) => {
-    try {
-      const { draft } = getDraftKeys();
-      localStorage.setItem(draft, JSON.stringify({ content, ts: Date.now() }));
-    } catch {}
-  }, [getDraftKeys]);
-
   const readLocalDraft = React.useCallback((): { content: string; ts: number } | null => {
     try {
       const { draft } = getDraftKeys();
@@ -467,13 +764,6 @@ export default function ReaderView() {
       if (typeof obj?.content === "string" && typeof obj?.ts === "number") return obj;
     } catch {}
     return null;
-  }, [getDraftKeys]);
-
-  const markServerSaved = React.useCallback(() => {
-    try {
-      const { meta } = getDraftKeys();
-      localStorage.setItem(meta, String(Date.now()));
-    } catch {}
   }, [getDraftKeys]);
 
   const getLastServerSavedAt = React.useCallback((): number => {
@@ -518,15 +808,6 @@ export default function ReaderView() {
   const [mdRel, setMdRel] = React.useState<string | null>(null);
   const [mdBase, setMdBase] = React.useState<string | null>(null);
 
-  // 环境
-  const PDFJS_VIEWER =
-    process.env.NEXT_PUBLIC_PDFJS_URL || "/pdfjs/web/viewer.html";
-  const apiBase = (process.env.NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
-  const api = React.useCallback(
-    (path: string) => (apiBase ? `${apiBase}${path}` : path),
-    [apiBase]
-  );
-
   // 主题/字体
   const [theme, setTheme] = React.useState<"plain" | "aurora" | "immersive">(
     "immersive"
@@ -545,32 +826,7 @@ export default function ReaderView() {
   }, [pdfUrl, PDFJS_VIEWER]);
 
   // 笔记保存/导出
-  const queueSave = React.useCallback(() => {
-    dirtyRef.current = true;
-    saveLocalDraft(noteDraftRef.current || "");
-    if (saveDebounceRef.current) window.clearTimeout(saveDebounceRef.current);
-    saveDebounceRef.current = window.setTimeout(async () => {
-      if (!id) return;
-      if (!dirtyRef.current) return; // 没有真实修改则不保存
-      try {
-        setNoteSaving(true);
-        setNoteError(null);
-        if (saveAbortRef.current) saveAbortRef.current.abort();
-        const ctrl = new AbortController();
-        saveAbortRef.current = ctrl;
-        const saved = await upsertByPaper(api, Number(id), noteDraftRef.current || "");
-        setNoteId(saved.id);
-        setNoteSavedAt(new Date().toISOString());
-        lastServerContentRef.current = noteDraftRef.current || "";
-        dirtyRef.current = false;
-        markServerSaved();
-      } catch (e: any) {
-        setNoteError(e?.message || String(e));
-      } finally {
-        setNoteSaving(false);
-      }
-    }, 600);
-  }, [id, api, markServerSaved, saveLocalDraft]);
+
 
   const exportNow = React.useCallback(async () => {
     if (!id) return;
@@ -1237,6 +1493,14 @@ export default function ReaderView() {
     const id = requestAnimationFrame(() => renderMathInToast(toastRootRef.current || undefined));
     return () => cancelAnimationFrame(id);
   }, [editMode, editorKey]);
+  React.useEffect(() => {
+    if (editMode !== "toast") return;
+    const id = requestAnimationFrame(() => {
+      renderMathInToast(toastRootRef.current || undefined);
+      scheduleApplyFindHighlights();
+    });
+    return () => cancelAnimationFrame(id);
+  }, [editMode, editorKey, scheduleApplyFindHighlights]);
   return (
     <div className="h-screen w-screen flex flex-col" data-theme={theme} suppressHydrationWarning>
       <Head>
@@ -1276,6 +1540,14 @@ export default function ReaderView() {
           .editing-paragraph code:not(pre code)::after { content: "\x0060"; opacity: .7; }
           .editing-paragraph pre::before { content: "\x0060\x0060\x0060"; display: block; opacity: .7; }
           .editing-paragraph pre::after { content: "\x0060\x0060\x0060"; display: block; opacity: .7; }
+          /* —— 查找/替换高亮 —— */
+          .ip-findbar { background:#fff; border-bottom:1px solid #e5e7eb; }
+          .ip-findbar input[type="text"] { height:28px; font-size:12px; }
+          .ip-findbar .ip-chip { font-size:11px; padding:2px 6px; border:1px solid #e5e7eb; border-radius:4px; }
+          .ip-findbar .ip-chip.active { background:#eef2ff; border-color:#c7d2fe; }
+          .ip-find-hit { background:rgba(255,230,0,.45); border-radius:2px; box-shadow:0 0 0 1px rgba(250,204,21,.5) inset; }
+          .ip-find-hit--active { background:rgba(255,170,0,.5); outline:2px solid rgba(251,146,60,.9); }
+          .ip-find-mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
         `}</style>
       </Head>
 
@@ -1371,6 +1643,12 @@ export default function ReaderView() {
                   handlePickImage={handlePickImage}
                 />
                 <div className="ml-auto flex items-center gap-2">
+                <button
+                  className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
+                  onClick={() => { setFindOpen(s => !s); if (!findOpen) setTimeout(() => scheduleApplyFindHighlights(), 0); }}
+                >
+                  查找/替换
+                </button>
                   <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={exportNow}>
                     导出 .md
                   </button>
@@ -1379,7 +1657,34 @@ export default function ReaderView() {
                   </button>
                 </div>
               </div>
-
+              {findOpen && (
+                <div className="ip-findbar px-3 py-2 flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={findQ}
+                    onChange={(e) => setFindQ(e.target.value)}
+                    placeholder="查找…（支持正则）"
+                    className="px-2 border rounded w-[32%] ip-find-mono"
+                  />
+                  <input
+                    type="text"
+                    value={replQ}
+                    onChange={(e) => setReplQ(e.target.value)}
+                    placeholder="替换为…（可用 $&, $1…）"
+                    className="px-2 border rounded w-[32%] ip-find-mono"
+                  />
+                  <button className="px-2 py-1 border rounded text-xs" onClick={gotoPrev}>上一个</button>
+                  <button className="px-2 py-1 border rounded text-xs" onClick={gotoNext}>下一个</button>
+                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceOneAt(findActive); setTimeout(() => scheduleApplyFindHighlights(), 0); }}>替换</button>
+                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceAll(); setTimeout(() => scheduleApplyFindHighlights(), 0); }}>全部替换</button>
+                  <span className="text-xs text-gray-500 ml-2">{findCount ? `${findActive + 1}/${findCount}` : "0/0"}</span>
+                  <div className="ml-auto flex items-center gap-2">
+                    <button className={`ip-chip ${findCase ? "active" : ""}`} onClick={() => setFindCase(v => !v)} title="区分大小写">Aa</button>
+                    <button className={`ip-chip ${findWord ? "active" : ""}`} onClick={() => setFindWord(v => !v)} title="全词匹配">W</button>
+                    <button className={`ip-chip ${findRegex ? "active" : ""}`} onClick={() => setFindRegex(v => !v)} title="正则">.*</button>
+                  </div>
+                </div>
+              )}
               {/* 左列覆盖内容区（编辑器） */}
               <div className="flex-1 min-h-0 flex flex-col">
                 <div className="min-w-0 min-h-0 flex-1 overflow-auto">
@@ -1417,6 +1722,7 @@ export default function ReaderView() {
                             queueSave();
                           } catch {}
                           scheduleRenderToastMath();
+                          if (findOpen && findQ) scheduleApplyFindHighlights();
                         }}
                       />
                     </div>
