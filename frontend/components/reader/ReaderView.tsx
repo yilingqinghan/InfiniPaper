@@ -75,22 +75,98 @@ function hash32(str: string) {
   return (h >>> 0).toString(36);
 }
 
-// Client-only plugin loader to avoid SSR `window` reference
+// Client-only plugin loader to avoid SSR `window` reference, with KaTeX math support
 function useTuiPlugins() {
   const plugins = React.useMemo(() => {
     if (typeof window === "undefined") return [] as any[];
     try {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      const mod = require("@toast-ui/editor-plugin-code-syntax-highlight");
-      return [mod?.default || mod];
+      const code = require("@toast-ui/editor-plugin-code-syntax-highlight");
+      const codePlugin = code?.default || code;
+      return [codePlugin];
     } catch {
       return [] as any[];
     }
   }, []);
   return plugins;
 }
+// Toast 笔记区数学公式渲染（修复 $$ 被分段问题，避免无 $$ 时多余遍历）
+function renderMathInToast(root?: HTMLElement | null) {
+  if (!root || typeof window === "undefined") return;
+  const anyWin = window as any;
+  const fn = anyWin.renderMathInElement || anyWin.renderMathInElementDefault;
+  if (typeof fn !== "function") return;
 
+  const container = root.querySelector(".toastui-editor-contents") as HTMLElement | null;
+  if (!container) return;
+
+  // 1) 若预览把 $$ 分成三个 <p>（"$$" / 中间内容 / "$$"），先合并为一个节点，确保 auto-render 能识别
+  try {
+    const ps = Array.from(container.querySelectorAll<HTMLParagraphElement>("p"));
+    for (let i = 0; i < ps.length; i++) {
+      const p = ps[i];
+      if (!p || p.isConnected === false) continue;
+      if ((p.textContent || "").trim() === "$$") {
+        // 查找闭合 $$
+        let j = i + 1;
+        while (j < ps.length && (ps[j].textContent || "").trim() === "") j++;
+        // 找到内容段和结束段 $$
+        if (j < ps.length) {
+          // 中间可能是若干段落，直到遇到仅包含 $$ 的段
+          let k = j;
+          while (k < ps.length && (ps[k].textContent || "").trim() !== "$$") k++;
+          if (k < ps.length && (ps[k].textContent || "").trim() === "$$") {
+            // 将 j..k-1 合并为内容
+            let middle = "";
+            for (let t = j; t < k; t++) {
+              middle += ps[t].innerText + (t < k - 1 ? "\n" : "");
+            }
+            const repl = document.createElement("div");
+            repl.textContent = `$$${middle}$$`;
+            ps[k].after(repl);
+            // 移除 p..k
+            for (let t = i; t <= k; t++) {
+              ps[t]?.remove();
+            }
+            // 跳过到新位置
+            i = k; // 继续向后扫描
+          }
+        }
+      }
+    }
+  } catch {}
+
+  // 2) 若当前没有 $$，直接跳过渲染，避免不必要的遍历
+  const plain = container.innerText || "";
+  if (plain.indexOf("$$") === -1 && plain.indexOf(" $") === -1 && plain.indexOf("$") === -1) {
+    return;
+  }
+
+  try {
+    fn(container, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+      ],
+      throwOnError: false,
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+    });
+  } catch {}
+}
 export default function ReaderView() {
+  const toastRootRef = React.useRef<HTMLDivElement | null>(null);
+  const lastRenderAtRef = React.useRef<number>(0);
+  const renderToastMathDebounced = React.useRef<number | null>(null);
+  const scheduleRenderToastMath = React.useCallback(() => {
+    const now = Date.now();
+    // 粗节流：若 500 内已经渲染过一次，直接跳过本次调度
+    if (now - lastRenderAtRef.current < 500) return;
+    if (renderToastMathDebounced.current) window.clearTimeout(renderToastMathDebounced.current);
+    renderToastMathDebounced.current = window.setTimeout(() => {
+      lastRenderAtRef.current = Date.now();
+      renderMathInToast(toastRootRef.current || undefined);
+    }, 240);
+  }, []);
   const router = useRouter();
   const tuiPlugins = useTuiPlugins();
 
@@ -994,12 +1070,17 @@ export default function ReaderView() {
       clearTimeout(t2);
     };
   }, [md, recomputeLayout]);
-
+  React.useEffect(() => {
+    if (editMode !== "toast") return;
+    const t = setTimeout(() => renderMathInToast(toastRootRef.current || undefined), 120);
+    return () => clearTimeout(t);
+  }, [editMode, editorKey]);
   return (
     <div className="h-screen w-screen flex flex-col" data-theme={theme} suppressHydrationWarning>
       <Head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@toast-ui/editor/dist/toastui-editor.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.min.css" />
         <script defer src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js"></script>
@@ -1150,7 +1231,7 @@ export default function ReaderView() {
                       }}
                     />
                   ) : editMode === "toast" ? (
-                    <div className="h-full">
+                    <div className="h-full" ref={toastRootRef}>
                       <TuiEditor
                         ref={toastRef}
                         key={`toast-${editorKey}`}
@@ -1168,6 +1249,7 @@ export default function ReaderView() {
                             noteDraftRef.current = md;
                             queueSave();
                           } catch {}
+                          scheduleRenderToastMath();
                         }}
                       />
                     </div>
