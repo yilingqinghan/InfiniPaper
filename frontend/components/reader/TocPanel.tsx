@@ -21,66 +21,109 @@ export default function TocPanel({
   onOpenPinned: () => void;
   onGo: (id: string) => void;
 }) {
-  // 浮动
-  const Floating = tocOpen && !tocPinned && (
-    <div data-floating-ui className="fixed z-50 top-[56px] right-4 w-[min(360px,40vw)] max-h-[60vh] overflow-auto bg-white border rounded shadow-lg p-2">
-      <div className="flex items-center justify-between mb-1">
-        <div className="text-xs text-gray-500">目录</div>
-        <button className="text-xs text-gray-500 hover:text-gray-700" onClick={onOpenPinned}>固定</button>
-      </div>
-      {items.length ? (
-        <ul className="space-y-1">
-          {items.map((it) => (
-            <li key={it.id}>
-              <button
-                className="w-full text-left text-sm hover:bg-gray-50 rounded px-2 py-1"
-                style={{ paddingLeft: `${(it.depth - 1) * 12 + 8}px` }}
-                onClick={() => { onGo(it.id); onCloseFloating(); }}
-                title={it.text}
-              >
-                {it.text}
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : <div className="text-sm text-gray-400 px-2 py-1">暂无标题</div>}
-    </div>
-  );
+  // 紧贴页面右侧，从页头底部到窗口底部
+  const [bounds, setBounds] = React.useState<React.CSSProperties | null>(null);
+  const recompute = React.useCallback(() => {
+    if (typeof window === "undefined") return;
+    const headerEl = document.querySelector(".page-header") as HTMLElement | null;
+    const rect = headerEl ? headerEl.getBoundingClientRect() : null;
+    const top = Math.max(0, rect ? rect.bottom : 0);
+    const height = Math.max(0, window.innerHeight - top);
+    setBounds({
+      position: "fixed",
+      top: `${top}px`,
+      right: 0,
+      height: `${height}px`,
+      width: "min(380px, 92vw)",
+      zIndex: 60,
+      pointerEvents: "none", // 外层不拦截
+    } as React.CSSProperties);
+  }, []);
+  React.useEffect(() => {
+    recompute();
+    const onScroll = () => recompute();
+    const onResize = () => recompute();
+    window.addEventListener("scroll", onScroll, true);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", onScroll, true);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [recompute]);
 
-  // 固定
-  const Pinned = items.length > 0 && (tocPinned ? (
-    <div data-floating-ui className="fixed z-50 top-[56px] right-4 w-[min(320px,34vw)] max-h-[70vh] overflow-auto bg-white border rounded shadow-lg p-2">
-      <div className="flex items-center justify-between">
-        <div className="text-xs text-gray-500">目录</div>
-        <button className="text-xs text-gray-500 hover:text-gray-700" onClick={onTogglePinned}>收起</button>
-      </div>
-      <ul className="mt-1 space-y-1">
-        {items.map((it) => (
-          <li key={it.id}>
-            <button
-              className="w-full text-left text-sm hover:bg-gray-50 rounded px-2 py-1"
-              style={{ paddingLeft: `${(it.depth - 1) * 12 + 8}px` }}
-              onClick={() => { onGo(it.id); }}
-              title={it.text}
-            >
-              {it.text}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  ) : (
-    items.length > 0 && (
-      <button className="fixed z-50 right-4 bottom-4 rounded-full shadow-lg border bg-white px-3 py-2 text-sm" onClick={onOpenPinned} title="打开目录">
-        目录
-      </button>
-    )
-  ));
+  // 只由 tocOpen 控制显示/隐藏；不在这里改动 tocPinned，避免“死循环”
+  const open = !!tocOpen;
+
+  if (!bounds) return null;
 
   return (
-    <>
-      {Floating}
-      {Pinned}
-    </>
+          
+    <div style={bounds} aria-hidden={!open && !tocPinned}>
+      {/* 背景：仅在“未固定且打开”时可点击关闭 */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-200 ${
+          open && !tocPinned ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        style={{ background: "transparent", pointerEvents: open && !tocPinned ? "auto" : "none" }}
+        onClick={() => {
+          if (!tocPinned) onCloseFloating();
+        }}
+      />
+
+      {/* 抽屉体 */}
+      <aside
+        className={`ip-toc-drawer ${open ? "ip-toc-open" : "ip-toc-closed"}`}
+        style={{ pointerEvents: "auto" }}
+        role="navigation"
+        aria-label="目录"
+      >
+        <header className="ip-toc-header">
+          <div className="ip-toc-title">目录</div>
+          <div className="ip-toc-actions">
+            <button
+              className={`ip-toc-btn ${tocPinned ? "is-active" : ""}`}
+              title={tocPinned ? "取消固定" : "固定"}
+              onClick={() => onTogglePinned()}
+            >
+              {tocPinned ? "已固定" : "固定"}
+            </button>
+            <button
+              className="ip-toc-btn"
+              onClick={() => onCloseFloating()}
+              title="收起"
+            >
+              收起
+            </button>
+          </div>
+        </header>
+
+        <div className="ip-toc-body">
+          {items && items.length > 0 ? (
+            <ul className="ip-toc-list">
+              {items.map((it) => (
+                <li
+                  key={it.id}
+                  className="ip-toc-item"
+                  style={{ paddingLeft: `${10 + (it.depth - 1) * 14}px` }}
+                >
+                  <button
+                    className="ip-toc-link"
+                    onClick={() => onGo(it.id)}
+                    title={it.text}
+                  >
+                    <span
+                      className={`ip-toc-dot d${Math.max(1, Math.min(6, it.depth))}`}
+                    />
+                    <span className="ip-toc-text">{it.text}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="ip-toc-empty">暂无标题</div>
+          )}
+        </div>
+      </aside>
+    </div>
   );
 }

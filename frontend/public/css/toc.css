@@ -1,0 +1,60 @@
+/* ===========================
+   InfiniPaper — TOC Drawer
+   =========================== */
+   .ip-toc-drawer {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: min(380px, 92vw);
+    background: var(--ip-anno-bg, rgba(255,255,255,.96));
+    border-left: 1px solid var(--ip-anno-border, #e5e7eb);
+    box-shadow: 0 8px 30px rgba(0,0,0,.12);
+    transform: translateX(100%);
+    opacity: .98;
+    transition: transform .24s ease, opacity .2s ease;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: saturate(160%) blur(6px);
+    -webkit-backdrop-filter: saturate(160%) blur(6px);
+    font-family: "SF Pro Text", "Helvetica Neue", Helvetica, Arial,
+                 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                 "Noto Sans CJK SC", "Source Han Sans SC", system-ui, sans-serif;
+  }
+  .ip-toc-open { transform: translateX(0); }
+  .ip-toc-closed { transform: translateX(100%); }
+  
+  .ip-toc-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px dashed var(--ip-anno-border, #e5e7eb);
+  }
+  .ip-toc-title { font-weight: 600; font-size: 14px; color: #111827; letter-spacing: .2px; }
+  .ip-toc-actions { display: flex; gap: 8px; }
+  .ip-toc-btn {
+    font-size: 12px; padding: 6px 8px; border: 1px solid var(--ip-anno-border, #e5e7eb);
+    border-radius: 8px; background: white; color: #374151;
+  }
+  .ip-toc-btn:hover { background: #f9fafb; }
+  .ip-toc-btn.is-active { background: #eef2ff; border-color: #c7d2fe; color: #3730a3; }
+  
+  .ip-toc-body { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 8px 0; }
+  .ip-toc-list { list-style: none; margin: 0; padding: 0; }
+  .ip-toc-item { border-bottom: 1px dashed var(--ip-anno-border, #e5e7eb); }
+  .ip-toc-item:last-child { border-bottom: none; }
+  
+  .ip-toc-link {
+    width: 100%; text-align: left; display: flex; align-items: baseline; gap: 8px;
+    padding: 8px 12px; color: #374151; background: transparent; cursor: pointer;
+  }
+  .ip-toc-link:hover { background: rgba(0,0,0,.04); }
+  .ip-toc-text { font-size: 13px; line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  
+  /* 深度彩点 */
+  .ip-toc-dot { width: 6px; height: 6px; border-radius: 9999px; background: #9ca3af; flex: 0 0 auto; margin-top: 6px; }
+  .ip-toc-dot.d1 { background: #4f46e5; }
+  .ip-toc-dot.d2 { background: #6366f1; }
+  .ip-toc-dot.d3 { background: #8b5cf6; }
+  .ip-toc-dot.d4 { background: #a78bfa; }
+  .ip-toc-dot.d5 { background: #c4b5fd; }
+  .ip-toc-dot.d6 { background: #ddd6fe; }
+  
+  .ip-toc-empty { padding: 12px; color: #9ca3af; font-size: 12px; }

@@ -1007,6 +1007,7 @@ export default function ReaderView() {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css" />
         <link rel="stylesheet" href="/css/reader.css" />
         <link rel="stylesheet" href="/css/annot.css" />
+        <link rel="stylesheet" href="/css/toc.css" />
         <style>{`
           .note-textarea { padding-bottom: 24vh !important; }
           .ip-underline { text-decoration: underline; }
