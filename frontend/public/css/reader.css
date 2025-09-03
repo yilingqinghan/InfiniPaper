@@ -46,7 +46,7 @@
 /* 段落与列表 */
 .markdown-body p {
   margin: 0.95em 0;
-  text-indent: 2em; /* 段落首行缩进两字符 */
+  text-indent: 2em; 段落首行缩进两字符
 }
 .markdown-body li p,
 .markdown-body blockquote p,

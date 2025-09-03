@@ -30,7 +30,10 @@ import {ListNode, ListItemNode, INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LI
 import {HeadingNode, QuoteNode} from "@lexical/rich-text";
 import {CodeNode} from "@lexical/code";
 import {LinkNode, TOGGLE_LINK_COMMAND} from "@lexical/link";
-import { FORMAT_TEXT_COMMAND, $getSelection, $isRangeSelection } from "lexical";
+import { FORMAT_TEXT_COMMAND, $getSelection, $isRangeSelection, DecoratorNode, TextNode, $createTextNode, KEY_DOWN_COMMAND, COMMAND_PRIORITY_LOW, $createParagraphNode, $getRoot } from "lexical";
+import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
+// 某些版本构建下 LexicalErrorBoundary 可能为 undefined；提供兜底
+const SafeErrorBoundary: any = (LexicalErrorBoundary as any) || (({children}: {children: React.ReactNode}) => <>{children}</>);
 import {highlightByOffsets, isInFloating, selectionToOffsets} from "@/components/Reading/Highlight";
 import {decorateAuthorBlock, remarkCiteAnchorsAndLinks} from "@/components/Reading/MarkdownDecor";
 
@@ -91,7 +94,7 @@ function WysiwygMdEditor({
       namespace: "paper-note",
       editable: true,
       onError: (e: any) => console.error(e),
-      nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, LinkNode],
+      nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, LinkNode, MathInlineNode, MathBlockNode],
       theme: {
         text: {
           bold: "ip-bold",
@@ -124,28 +127,35 @@ function WysiwygMdEditor({
     <LexicalComposer initialConfig={initialConfig}>
       <div className="w-full h-full flex flex-col min-h-0">
         <div className="flex-1 min-h-0 overflow-auto">
-        <RichTextPlugin
-          contentEditable={
-            <ContentEditable className="w-full min-h-full p-3 outline-none text-sm markdown-body" />
-          }
-          placeholder={<div className="p-3 text-sm text-gray-400">开始输入…（支持 ** 粗体、# 标题、- 列表、``` 代码、[链接](url) 等）</div>}
-        />
-        <HistoryPlugin />
-        <ListPlugin />
-        <LinkPlugin />
-        <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-        <OnChangePlugin
-          onChange={(editorState, editor) => {
-            editorState.read(() => {
-              const md = $convertToMarkdownString(TRANSFORMERS);
-              scheduleEmit(md);
-            });
-          }}
-        />
-        {/* Toolbar bridge: respond to top toolbar buttons & image/emoji insert */}
-        <ActiveParagraphHighlightPlugin />
-        <WysiwygBridge />
-        <InitFromMarkdown markdown={initialMarkdown} />
+          <RichTextPlugin
+            contentEditable={
+              <ContentEditable className="w-full min-h-full p-3 outline-none text-sm markdown-body" />
+            }
+            placeholder={
+              <div className="p-3 text-sm text-gray-400">
+                开始输入…（支持 ** 粗体、# 标题、- 列表、``` 代码、[链接](url) 等）
+              </div>
+            }
+            ErrorBoundary={SafeErrorBoundary}
+          />
+          <HistoryPlugin />
+          <ListPlugin />
+          <LinkPlugin />
+          <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+          <OnChangePlugin
+            onChange={(editorState, editor) => {
+              editorState.read(() => {
+                const md = $convertToMarkdownString(TRANSFORMERS);
+                scheduleEmit(md);
+              });
+            }}
+          />
+          {/* Toolbar bridge: respond to top toolbar buttons & image/emoji insert */}
+          <ActiveParagraphHighlightPlugin />
+          <MathKeydownPlugin />
+          <CodeHighlightOnEditPlugin />
+          <WysiwygBridge />
+          <InitFromMarkdown markdown={initialMarkdown} />
         </div>
       </div>
     </LexicalComposer>
@@ -226,6 +236,165 @@ function ActiveParagraphHighlightPlugin() {
 
   return null;
 }
+// ===== Math Nodes (inline & block) + Plugins =====
+class MathInlineNode extends DecoratorNode<JSX.Element> {
+  __formula: string;
+  static getType() { return "math-inline"; }
+  static clone(node: MathInlineNode) { return new MathInlineNode(node.__formula, node.__key); }
+  constructor(formula: string, key?: string) { super(key); this.__formula = formula; }
+  createDOM() { const span = document.createElement('span'); span.className = 'ip-math-inline'; span.contentEditable = 'false'; return span; }
+  updateDOM() { return false; }
+  exportJSON() { return { type: "math-inline", version: 1, formula: this.__formula }; }
+  static importJSON(j: any) { return new MathInlineNode(j.formula); }
+  decorate() {
+    const katex = (typeof window !== 'undefined' ? (window as any).katex : null);
+    const html = katex ? katex.renderToString(this.__formula, { displayMode: false, throwOnError: false }) : this.__formula;
+    return <span className="ip-math-inline" dangerouslySetInnerHTML={{ __html: html }} />;
+  }
+  isInline() { return true; }
+  getTextContent() { return `$${this.__formula}$`; }
+}
+function $createMathInlineNode(formula: string) { return new MathInlineNode(formula); }
+
+class MathBlockNode extends DecoratorNode<JSX.Element> {
+  __formula: string;
+  static getType() { return "math-block"; }
+  static clone(node: MathBlockNode) { return new MathBlockNode(node.__formula, node.__key); }
+  constructor(formula: string, key?: string) { super(key); this.__formula = formula; }
+  createDOM() { const div = document.createElement('div'); div.className = 'ip-math-block'; div.contentEditable = 'false'; return div; }
+  updateDOM() { return false; }
+  exportJSON() { return { type: "math-block", version: 1, formula: this.__formula }; }
+  static importJSON(j: any) { return new MathBlockNode(j.formula); }
+  decorate() {
+    const katex = (typeof window !== 'undefined' ? (window as any).katex : null);
+    const html = katex ? katex.renderToString(this.__formula, { displayMode: true, throwOnError: false }) : this.__formula;
+    return <div className="ip-math-block" dangerouslySetInnerHTML={{ __html: html }} />;
+  }
+  isInline() { return false; }
+  getTextContent() { return `$$${this.__formula}$$`; }
+}
+function $createMathBlockNode(formula: string) { return new MathBlockNode(formula); }
+
+function MathKeydownPlugin() {
+  const [editor] = useLexicalComposerContext();
+  const busyRef = React.useRef(false);
+
+  React.useEffect(() => {
+    return editor.registerCommand(
+      KEY_DOWN_COMMAND,
+      (event: KeyboardEvent) => {
+        const key = event.key;
+        // 在输入第二个 `$`、或回车/空格时触发解析
+        if (key !== '$' && key !== 'Enter' && key !== ' ') return false;
+        if (busyRef.current) return false;
+        busyRef.current = true;
+
+        // 推迟到下一事件循环，避免在 listener 内同步嵌套 update
+        setTimeout(() => {
+          editor.update(() => {
+            try {
+              const sel = $getSelection();
+              if (!$isRangeSelection(sel)) return;
+              const anchor = sel.anchor.getNode();
+              const top: any = anchor.getTopLevelElementOrThrow();
+
+              const type = top?.getType?.() || "";
+              if (type === "code" || type === "math-block") return;
+
+              // 已经包含数学节点就别重复转
+              const childrenOfTop: any[] = top?.getChildren?.() || [];
+              const hasMathChild = childrenOfTop.some(
+                (n: any) => n?.getType?.() === "math-inline" || n?.getType?.() === "math-block"
+              );
+              if (hasMathChild) return;
+
+              const text: string = top.getTextContent() || "";
+              const trimmed = text.trim();
+
+              // 1) 同行块级: $$ ... $$
+              const m1 = trimmed.match(/^\$\$([\s\S]+?)\$\$$/);
+              if (m1) {
+                const blk = $createMathBlockNode(m1[1].trim());
+                top.replace(blk);
+                blk.insertAfter($createParagraphNode());
+                return;
+              }
+
+              // 2) 分行块级: 起始行仅 "$$"，向后找结束 "$$"
+              if (trimmed === "$$") {
+                const toRemove: any[] = [];
+                let cur: any = top.getNextSibling?.();
+                let end: any = null;
+                while (cur) {
+                  const t = (cur.getTextContent?.() || "").trim();
+                  if (t === "$$") { end = cur; break; }
+                  toRemove.push(cur);
+                  cur = cur.getNextSibling?.();
+                }
+                if (end) {
+                  const formula = toRemove.map(n => n.getTextContent()).join("\n").trim();
+                  const blk = $createMathBlockNode(formula);
+                  top.replace(blk);
+                  toRemove.forEach(n => n.remove());
+                  end.remove();
+                  blk.insertAfter($createParagraphNode());
+                  return;
+                }
+              }
+
+              // 3) 行内: $ ... $
+              if (text.includes('$')) {
+                const regex = /\$([^$]+)\$/g;
+                let idx = 0, m: RegExpExecArray | null;
+                const parts: Array<string | { math: string }> = [];
+                while ((m = regex.exec(text)) !== null) {
+                  if (m.index > idx) parts.push(text.slice(idx, m.index));
+                  parts.push({ math: m[1] });
+                  idx = m.index + m[0].length;
+                }
+                if (parts.length) {
+                  if (idx < text.length) parts.push(text.slice(idx));
+                  top.clear();
+                  parts.forEach(seg => {
+                    if (typeof seg === "string" && seg) top.append($createTextNode(seg));
+                    else top.append($createMathInlineNode((seg as any).math));
+                  });
+                }
+              }
+            } finally {
+              busyRef.current = false;
+            }
+          });
+        }, 0);
+
+        return false;
+      },
+      COMMAND_PRIORITY_LOW
+    );
+  }, [editor]);
+
+  return null;
+}
+
+function CodeHighlightOnEditPlugin() {
+  const [editor] = useLexicalComposerContext();
+  React.useEffect(() => {
+    const doHighlight = () => {
+      const root = editor.getRootElement();
+      const hljs = (typeof window !== 'undefined' ? (window as any).hljs : null);
+      if (!root || !hljs) return;
+      root.querySelectorAll('pre code').forEach((el) => {
+        try { hljs.highlightElement(el as HTMLElement); } catch {}
+      });
+    };
+    const un1 = editor.registerUpdateListener(() => { requestAnimationFrame(doHighlight); });
+    const un2 = editor.registerMutationListener(CodeNode, () => { requestAnimationFrame(doHighlight); });
+    setTimeout(doHighlight, 0);
+    return () => { un1(); un2(); };
+  }, [editor]);
+  return null;
+}
+
 /* -------------------- 组件 -------------------- */
 function ReaderPage() {
   const router = useRouter();
@@ -1165,6 +1334,8 @@ function ReaderPage() {
     <div className="h-screen w-screen flex flex-col" data-theme={theme} suppressHydrationWarning>
       <Head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-light.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css" />
         <link rel="stylesheet" href="/css/reader.css" />
@@ -1175,6 +1346,8 @@ function ReaderPage() {
           .ip-strike { text-decoration: line-through; }
           .ip-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background:#f6f8fa; padding:0 .2em; border-radius:3px; }
           .ip-link { text-decoration: underline; }
+          .ip-math-inline { display: inline-block; vertical-align: middle; }
+          .ip-math-block { display: block; margin: .5rem 0; }
         `}</style>
       </Head>
 
@@ -1222,7 +1395,10 @@ function ReaderPage() {
       {/* Floating TOC panel */}
       {tocOpen && !tocPinned && (
         <div data-floating-ui className="fixed z-50 top-[56px] right-4 w-[min(360px,40vw)] max-h-[60vh] overflow-auto bg-white border rounded shadow-lg p-2">
-          <div className="text-xs text-gray-500 mb-1">目录</div>
+          <div className="flex items-center justify-between mb-1">
+            <div className="text-xs text-gray-500">目录</div>
+            <button className="text-xs text-gray-500 hover:text-gray-700" onClick={() => setTocPinned(true)}>固定</button>
+          </div>
           {tocItems.length ? (
             <ul className="space-y-1">
               {tocItems.map((it) => (
@@ -1247,7 +1423,7 @@ function ReaderPage() {
           <div data-floating-ui className="fixed z-50 top-[56px] right-4 w-[min(320px,34vw)] max-h-[70vh] overflow-auto bg-white border rounded shadow-lg p-2">
             <div className="flex items-center justify-between">
               <div className="text-xs text-gray-500">目录</div>
-              <button className="text-xs text-gray-500 hover:text-gray-700" onClick={() => setTocPinned(false)}>收起</button>
+              <button className="text-xs text-gray-500 hover:text-gray-700" onClick={() => { setTocPinned(false); setTocOpen(false); }}>收起</button>
             </div>
             <ul className="mt-1 space-y-1">
               {tocItems.map((it) => (
