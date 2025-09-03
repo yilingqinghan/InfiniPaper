@@ -218,3 +218,9 @@ mark[data-ann-id] {
 /* 避免 li > p 的块级规则影响 marker */
 .markdown-body li > p,
 .prose li > p { margin: 0.2em 0 !important; }
+.note-overlay { overscroll-behavior: contain; }
+.note-overlay .toastui-editor-defaultUI { height: 100%; display: flex; flex-direction: column; }
+.note-overlay .toastui-editor-main { flex: 1 1 auto; min-height: 0; }
+.note-overlay .toastui-editor-md-container,
+.note-overlay .toastui-editor-md-preview { height: 100%; }
+.note-overlay .toastui-editor-md-splitter { flex: 0 0 auto; }

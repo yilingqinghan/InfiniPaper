@@ -90,7 +90,7 @@ function useTuiPlugins() {
   }, []);
   return plugins;
 }
-// Toast 笔记区数学公式渲染（修复 $$ 被分段问题，避免无 $$ 时多余遍历）
+// Toast 笔记区数学公式渲染（优化：仅在有 $/$$ 时处理，且 $$ 段落合并仅在有 $$ 时运行）
 function renderMathInToast(root?: HTMLElement | null) {
   if (!root || typeof window === "undefined") return;
   const anyWin = window as any;
@@ -100,46 +100,39 @@ function renderMathInToast(root?: HTMLElement | null) {
   const container = root.querySelector(".toastui-editor-contents") as HTMLElement | null;
   if (!container) return;
 
-  // 1) 若预览把 $$ 分成三个 <p>（"$$" / 中间内容 / "$$"），先合并为一个节点，确保 auto-render 能识别
-  try {
-    const ps = Array.from(container.querySelectorAll<HTMLParagraphElement>("p"));
-    for (let i = 0; i < ps.length; i++) {
-      const p = ps[i];
-      if (!p || p.isConnected === false) continue;
-      if ((p.textContent || "").trim() === "$$") {
-        // 查找闭合 $$
-        let j = i + 1;
-        while (j < ps.length && (ps[j].textContent || "").trim() === "") j++;
-        // 找到内容段和结束段 $$
-        if (j < ps.length) {
-          // 中间可能是若干段落，直到遇到仅包含 $$ 的段
-          let k = j;
-          while (k < ps.length && (ps[k].textContent || "").trim() !== "$$") k++;
-          if (k < ps.length && (ps[k].textContent || "").trim() === "$$") {
-            // 将 j..k-1 合并为内容
-            let middle = "";
-            for (let t = j; t < k; t++) {
-              middle += ps[t].innerText + (t < k - 1 ? "\n" : "");
+  // ---- Fast path: if there's no math marker at all, skip everything (including DOM scans) ----
+  const plain = container.innerText || "";
+  if (plain.indexOf("$") === -1) return;
+
+  // Only do the $$ paragraph re-join work if block math is actually present
+  if (plain.indexOf("$$") !== -1) {
+    try {
+      const ps = Array.from(container.querySelectorAll<HTMLParagraphElement>("p"));
+      for (let i = 0; i < ps.length; i++) {
+        const p = ps[i];
+        if (!p || p.isConnected === false) continue;
+        if ((p.textContent || "").trim() === "$$") {
+          // Find closing $$
+          let j = i + 1;
+          while (j < ps.length && (ps[j].textContent || "").trim() === "") j++;
+          if (j < ps.length) {
+            let k = j;
+            while (k < ps.length && (ps[k].textContent || "").trim() !== "$$") k++;
+            if (k < ps.length && (ps[k].textContent || "").trim() === "$$") {
+              let middle = "";
+              for (let t = j; t < k; t++) {
+                middle += ps[t].innerText + (t < k - 1 ? "\n" : "");
+              }
+              const repl = document.createElement("div");
+              repl.textContent = `$$${middle}$$`;
+              ps[k].after(repl);
+              for (let t = i; t <= k; t++) ps[t]?.remove();
+              i = k; // continue scanning
             }
-            const repl = document.createElement("div");
-            repl.textContent = `$$${middle}$$`;
-            ps[k].after(repl);
-            // 移除 p..k
-            for (let t = i; t <= k; t++) {
-              ps[t]?.remove();
-            }
-            // 跳过到新位置
-            i = k; // 继续向后扫描
           }
         }
       }
-    }
-  } catch {}
-
-  // 2) 若当前没有 $$，直接跳过渲染，避免不必要的遍历
-  const plain = container.innerText || "";
-  if (plain.indexOf("$$") === -1 && plain.indexOf(" $") === -1 && plain.indexOf("$") === -1) {
-    return;
+    } catch {}
   }
 
   try {
@@ -155,17 +148,79 @@ function renderMathInToast(root?: HTMLElement | null) {
 }
 export default function ReaderView() {
   const toastRootRef = React.useRef<HTMLDivElement | null>(null);
-  const lastRenderAtRef = React.useRef<number>(0);
-  const renderToastMathDebounced = React.useRef<number | null>(null);
+  const rafIdRef = React.useRef<number | null>(null);
+  const idleTimerRef = React.useRef<number | null>(null);
+  const mathDirtyRef = React.useRef(false);
+  const mdHasDollarRef = React.useRef(false);
+  const lastInputAtRef = React.useRef(0);
+  const lastScrollAtRef = React.useRef(0);
+  const INPUT_IDLE_MS = 80;   // 打字后稍等一丢丢再渲染（不影响输入流畅）
+  const SCROLL_IDLE_MS = 160; // 滚动结束 160ms 内不渲染，保证丝滑滚动
+
   const scheduleRenderToastMath = React.useCallback(() => {
-    const now = Date.now();
-    // 粗节流：若 500 内已经渲染过一次，直接跳过本次调度
-    if (now - lastRenderAtRef.current < 500) return;
-    if (renderToastMathDebounced.current) window.clearTimeout(renderToastMathDebounced.current);
-    renderToastMathDebounced.current = window.setTimeout(() => {
-      lastRenderAtRef.current = Date.now();
-      renderMathInToast(toastRootRef.current || undefined);
-    }, 240);
+    // 若当前文档没有 $ 标记，直接跳过任何渲染
+    if (!mdHasDollarRef.current) {
+      mathDirtyRef.current = false;
+      return;
+    }
+    const now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
+    lastInputAtRef.current = now;
+    mathDirtyRef.current = true;
+    if (idleTimerRef.current) return; // 已经在等空闲，无需重复排程
+
+    const tick = () => {
+      idleTimerRef.current = null;
+      if (!mathDirtyRef.current) return;
+
+      const t = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
+      const inputIdle = t - lastInputAtRef.current >= INPUT_IDLE_MS;
+      const scrollIdle = t - lastScrollAtRef.current >= SCROLL_IDLE_MS;
+
+      if (!(inputIdle && scrollIdle)) {
+        idleTimerRef.current = window.setTimeout(tick, 50);
+        return;
+      }
+
+      // 满足空闲条件：合并到下一帧渲染
+      mathDirtyRef.current = false;
+      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+      rafIdRef.current = requestAnimationFrame(() => {
+        renderMathInToast(toastRootRef.current || undefined);
+      });
+    };
+
+    idleTimerRef.current = window.setTimeout(tick, 50);
+  }, []);
+  const [editMode, setEditMode] = React.useState<"wysiwyg" | "markdown" | "toast">(
+    "wysiwyg"
+  );
+  // 监听编辑器内部的滚动（捕获阶段可拦截所有子滚动容器），滚动时推迟渲染
+  React.useEffect(() => {
+    if (editMode !== 'toast') return;
+    const root = toastRootRef.current;
+    if (!root) return;
+    const onScroll = () => {
+      lastScrollAtRef.current = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
+    };
+    // 使用捕获 + passive，尽可能轻量
+    root.addEventListener('scroll', onScroll, { capture: true, passive: true } as any);
+    return () => {
+      root.removeEventListener('scroll', onScroll, true);
+    };
+  }, [editMode]);
+
+  // 组件卸载 / 切换模式时清理
+  React.useEffect(() => {
+    return () => {
+      if (idleTimerRef.current) {
+        clearTimeout(idleTimerRef.current);
+        idleTimerRef.current = null;
+      }
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
+      }
+    };
   }, []);
   const router = useRouter();
   const tuiPlugins = useTuiPlugins();
@@ -203,9 +258,7 @@ export default function ReaderView() {
   // --- 笔记（Markdown 富文本）---
   const [noteOpen, setNoteOpen] = React.useState(true);
   const [noteDock, setNoteDock] = React.useState<"overlay" | "float">("overlay");
-  const [editMode, setEditMode] = React.useState<"wysiwyg" | "markdown" | "toast">(
-    "wysiwyg"
-  );
+
 
   // ---- Fixed-left editor bounds (match the left PDF column exactly) ----
   const [leftFixedStyle, setLeftFixedStyle] =
@@ -386,6 +439,53 @@ export default function ReaderView() {
   const saveAbortRef = React.useRef<AbortController | null>(null);
   const [editorKey, setEditorKey] = React.useState(0); // 触发 textarea 重新挂载以刷新 defaultValue
 
+  // --- 本地草稿与脏标记 ---
+  const dirtyRef = React.useRef(false);
+  const lastServerContentRef = React.useRef<string>("");
+
+  const getDraftKeys = React.useCallback(() => {
+    const pid = id || "";
+    return {
+      draft: `ip:noteDraft:${pid}`,
+      meta: `ip:noteDraftMeta:${pid}`,
+    };
+  }, [id]);
+
+  const saveLocalDraft = React.useCallback((content: string) => {
+    try {
+      const { draft } = getDraftKeys();
+      localStorage.setItem(draft, JSON.stringify({ content, ts: Date.now() }));
+    } catch {}
+  }, [getDraftKeys]);
+
+  const readLocalDraft = React.useCallback((): { content: string; ts: number } | null => {
+    try {
+      const { draft } = getDraftKeys();
+      const raw = localStorage.getItem(draft);
+      if (!raw) return null;
+      const obj = JSON.parse(raw);
+      if (typeof obj?.content === "string" && typeof obj?.ts === "number") return obj;
+    } catch {}
+    return null;
+  }, [getDraftKeys]);
+
+  const markServerSaved = React.useCallback(() => {
+    try {
+      const { meta } = getDraftKeys();
+      localStorage.setItem(meta, String(Date.now()));
+    } catch {}
+  }, [getDraftKeys]);
+
+  const getLastServerSavedAt = React.useCallback((): number => {
+    try {
+      const { meta } = getDraftKeys();
+      const v = Number(localStorage.getItem(meta) || "0");
+      return Number.isFinite(v) ? v : 0;
+    } catch {
+      return 0;
+    }
+  }, [getDraftKeys]);
+
   // --- 简易撤销/重做历史 ---
   const historyRef = React.useRef<{ v: string; s: number; e: number }[]>([]);
   const histIdxRef = React.useRef<number>(-1);
@@ -446,9 +546,12 @@ export default function ReaderView() {
 
   // 笔记保存/导出
   const queueSave = React.useCallback(() => {
+    dirtyRef.current = true;
+    saveLocalDraft(noteDraftRef.current || "");
     if (saveDebounceRef.current) window.clearTimeout(saveDebounceRef.current);
     saveDebounceRef.current = window.setTimeout(async () => {
       if (!id) return;
+      if (!dirtyRef.current) return; // 没有真实修改则不保存
       try {
         setNoteSaving(true);
         setNoteError(null);
@@ -458,13 +561,16 @@ export default function ReaderView() {
         const saved = await upsertByPaper(api, Number(id), noteDraftRef.current || "");
         setNoteId(saved.id);
         setNoteSavedAt(new Date().toISOString());
+        lastServerContentRef.current = noteDraftRef.current || "";
+        dirtyRef.current = false;
+        markServerSaved();
       } catch (e: any) {
         setNoteError(e?.message || String(e));
       } finally {
         setNoteSaving(false);
       }
     }, 600);
-  }, [id, api]);
+  }, [id, api, markServerSaved, saveLocalDraft]);
 
   const exportNow = React.useCallback(async () => {
     if (!id) return;
@@ -479,13 +585,16 @@ export default function ReaderView() {
       const ctrl = new AbortController();
       saveAbortRef.current = ctrl;
       await upsertByPaper(api, Number(id), noteDraftRef.current || "");
+      lastServerContentRef.current = noteDraftRef.current || "";
+      dirtyRef.current = false;
+      markServerSaved();
     } catch (e: any) {
       setNoteError(e?.message || String(e));
     } finally {
       setNoteSaving(false);
     }
     await exportMarkdown(api, Number(id));
-  }, [id, api]);
+  }, [id, api, markServerSaved]);
 
   const updateCaretFromTextarea = (el: HTMLTextAreaElement) => {
     const p = el.selectionStart ?? 0;
@@ -617,22 +726,75 @@ export default function ReaderView() {
       try {
         setNoteError(null);
         const got = await getByPaper(api, Number(id));
-        if (got) {
-          setNoteMd(got.content || "");
-          setNoteId(got.id);
+        const serverContent = got ? (got.content || "") : "";
+        if (got) setNoteId(got.id); else setNoteId(null);
+        lastServerContentRef.current = serverContent;
+
+        // 如果本地草稿比“上次服务器保存时间”新，则优先恢复本地草稿
+        const local = readLocalDraft();
+        const lastSavedAt = getLastServerSavedAt();
+        if (local && typeof local.content === "string" && local.content !== serverContent && local.ts > lastSavedAt) {
+          setNoteMd(local.content);
+          noteDraftRef.current = local.content;
+          setNoteLive(local.content);
+          setEditorKey((k) => k + 1);
+          showBubble("已从本地草稿恢复未保存内容");
         } else {
-          setNoteMd("");
-          setNoteId(null);
+          setNoteMd(serverContent);
+          noteDraftRef.current = serverContent;
+          setNoteLive(serverContent);
+          setEditorKey((k) => k + 1);
         }
-        noteDraftRef.current = got ? got.content || "" : "";
-        setNoteLive(noteDraftRef.current);
-        setEditorKey((k) => k + 1);
       } catch (e: any) {
         setNoteError(e?.message || String(e));
       }
     })();
-  }, [id, api]);
+  }, [id, api, readLocalDraft, getLastServerSavedAt]);
+  // 清理 effect：取消任何 pending 自动保存/请求（防止“幽灵 PUT”覆盖）
+  React.useEffect(() => {
+    return () => {
+      if (saveDebounceRef.current) {
+        window.clearTimeout(saveDebounceRef.current);
+        saveDebounceRef.current = null;
+      }
+      if (saveAbortRef.current) {
+        try { saveAbortRef.current.abort(); } catch {}
+        saveAbortRef.current = null;
+      }
+    };
+  }, []);
 
+  // 路由变更与页面隐藏时本地草稿落盘与保存中断
+  React.useEffect(() => {
+    const onRouteStart = () => {
+      try { saveLocalDraft(noteDraftRef.current || ""); } catch {}
+      if (saveDebounceRef.current) {
+        window.clearTimeout(saveDebounceRef.current);
+        saveDebounceRef.current = null;
+      }
+      if (saveAbortRef.current) {
+        try { saveAbortRef.current.abort(); } catch {}
+        saveAbortRef.current = null;
+      }
+    };
+    const onBeforeUnload = () => {
+      try { saveLocalDraft(noteDraftRef.current || ""); } catch {}
+    };
+    const onVis = () => {
+      if (document.visibilityState === "hidden") {
+        try { saveLocalDraft(noteDraftRef.current || ""); } catch {}
+      }
+    };
+
+    router.events.on("routeChangeStart", onRouteStart);
+    window.addEventListener("beforeunload", onBeforeUnload);
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      router.events.off("routeChangeStart", onRouteStart);
+      window.removeEventListener("beforeunload", onBeforeUnload);
+      document.removeEventListener("visibilitychange", onVis);
+    };
+  }, [router.events, saveLocalDraft]);
   const [cacheReady, setCacheReady] = React.useState(false);
   const startedRef = React.useRef(false);
   React.useEffect(() => {
@@ -1072,8 +1234,8 @@ export default function ReaderView() {
   }, [md, recomputeLayout]);
   React.useEffect(() => {
     if (editMode !== "toast") return;
-    const t = setTimeout(() => renderMathInToast(toastRootRef.current || undefined), 120);
-    return () => clearTimeout(t);
+    const id = requestAnimationFrame(() => renderMathInToast(toastRootRef.current || undefined));
+    return () => cancelAnimationFrame(id);
   }, [editMode, editorKey]);
   return (
     <div className="h-screen w-screen flex flex-col" data-theme={theme} suppressHydrationWarning>
@@ -1227,6 +1389,8 @@ export default function ReaderView() {
                       initialMarkdown={noteDraftRef.current || noteMd}
                       onMarkdownChange={(val) => {
                         noteDraftRef.current = val;
+                        dirtyRef.current = true;
+                        saveLocalDraft(val);
                         queueSave();
                       }}
                     />
@@ -1247,6 +1411,9 @@ export default function ReaderView() {
                             const inst = (toastRef.current as any)?.getInstance?.();
                             const md = inst?.getMarkdown?.() || "";
                             noteDraftRef.current = md;
+                            mdHasDollarRef.current = md.indexOf("$") !== -1; // 没有 $ 就不触发渲染
+                            dirtyRef.current = true;
+                            saveLocalDraft(md);
                             queueSave();
                           } catch {}
                           scheduleRenderToastMath();
@@ -1259,7 +1426,10 @@ export default function ReaderView() {
                       className="w-full h-full p-3 font-mono text-sm outline-none note-textarea"
                       defaultValue={noteDraftRef.current || noteMd}
                       onChange={(e) => {
-                        noteDraftRef.current = e.target.value;
+                        const v = e.target.value;
+                        noteDraftRef.current = v;
+                        dirtyRef.current = true;
+                        saveLocalDraft(v);
                         queueSave();
                       }}
                       onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
