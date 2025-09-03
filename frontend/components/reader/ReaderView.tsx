@@ -1330,13 +1330,17 @@ export default function ReaderView() {
                       {/* 被高亮的原文摘录（两行收纳） */}
                       <div className="ip-anno-quote">{a.anchor.quote}</div>
 
-                      {/* 如需后续动作按钮，解开下面注释即可 */}
-                      {/*
                       <div className="ip-anno-actions" onClick={(e) => e.stopPropagation()}>
-                        <button className="ip-anno-btn">编辑</button>
-                        <button className="ip-anno-btn">删除</button>
+                        {/* 可选：编辑入口保留占位 */}
+                        {/* <button className="ip-anno-btn" onClick={() => {/* TODO: 编辑功能 */ /*}}>编辑</button> */}
+                        <button
+                          className="ip-anno-btn"
+                          title="删除此批注"
+                          onClick={() => deleteAnnotation(a.id)}
+                        >
+                          🗑️ 删除
+                        </button>
                       </div>
-                      */}
                     </div>
                   );
                 })}
