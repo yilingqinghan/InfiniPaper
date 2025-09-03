@@ -425,6 +425,8 @@ function ReaderPage() {
   const [noteOpen, setNoteOpen] = React.useState(true);
   // 笔记停靠：overlay=覆盖左侧PDF；float=悬浮独立滚动
   const [noteDock, setNoteDock] = React.useState<'overlay' | 'float'>('overlay');
+  // 编辑模式：wysiwyg（所见即所得）/ markdown（源码）
+  const [editMode, setEditMode] = React.useState<'wysiwyg' | 'markdown'>('wysiwyg');
 
   // ---- Fixed-left editor bounds (match the left PDF column exactly) ----
   const [leftFixedStyle, setLeftFixedStyle] = React.useState<React.CSSProperties | null>(null);
@@ -717,7 +719,7 @@ function ReaderPage() {
     snapshotFromTextarea(el);
   };
 
-  const MiniToolbar: React.FC = () => {
+  const MiniToolbar: React.FC<{ editMode: 'wysiwyg' | 'markdown'; onToggleMode: () => void; }> = ({ editMode, onToggleMode }) => {
     const [showEmoji, setShowEmoji] = React.useState(false);
     const EMOJIS = ['✅','❓','💡','🔥','📌','⭐️','📝','⚠️','🚀','🙂','🤔','👍','👎'];
     const el = noteTextRef.current;
@@ -780,6 +782,13 @@ function ReaderPage() {
             </div>
           )}
         </div>
+        <button
+          className="px-2 py-0.5 border rounded text-xs"
+          title={editMode === 'wysiwyg' ? '切换到 Markdown 源码模式' : '切换到所见即所得模式'}
+          onClick={onToggleMode}
+        >
+          {editMode === 'wysiwyg' ? '源码' : '所见即所得'}
+        </button>
       </div>
     );
   };
@@ -1348,6 +1357,7 @@ function ReaderPage() {
           .ip-link { text-decoration: underline; }
           .ip-math-inline { display: inline-block; vertical-align: middle; }
           .ip-math-block { display: block; margin: .5rem 0; }
+          
         `}</style>
       </Head>
 
@@ -1467,7 +1477,16 @@ function ReaderPage() {
             >
               {/* 顶部工具栏 */}
               <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/95">
-                <MiniToolbar />
+                <MiniToolbar
+                  editMode={editMode}
+                  onToggleMode={() => {
+                    setEditMode((m) => {
+                      const nxt = m === 'wysiwyg' ? 'markdown' : 'wysiwyg';
+                      if (nxt === 'wysiwyg') setEditorKey((k) => k + 1); // 重新挂载 WYSIWYG，使用最新 markdown
+                      return nxt;
+                    });
+                  }}
+                />
                 <div className="ml-auto flex items-center gap-2">
                   <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
                   <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
@@ -1476,14 +1495,30 @@ function ReaderPage() {
               {/* 内容区：占满左列 */}
               <div className="flex-1 min-h-0 flex flex-col">
                 <div className="min-w-0 min-h-0 flex-1 overflow-auto">
-                <WysiwygMdEditor
-                  key={editorKey}
-                  initialMarkdown={noteDraftRef.current || noteMd}
-                  onMarkdownChange={(md) => {
-                    noteDraftRef.current = md;
-                    queueSave();
-                  }}
-                />
+                  {editMode === 'wysiwyg' ? (
+                    <WysiwygMdEditor
+                      key={editorKey}
+                      initialMarkdown={noteDraftRef.current || noteMd}
+                      onMarkdownChange={(md) => {
+                        noteDraftRef.current = md;
+                        queueSave();
+                      }}
+                    />
+                  ) : (
+                    <textarea
+                      ref={noteTextRef}
+                      className="w-full h-full p-3 font-mono text-sm outline-none"
+                      defaultValue={noteDraftRef.current || noteMd}
+                      onChange={(e) => {
+                        noteDraftRef.current = e.target.value;
+                        queueSave();
+                      }}
+                      onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                      onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                      spellCheck={false}
+                      placeholder="在此直接编辑 Markdown 源码（支持 **粗体**、`行内代码`、``` 代码块 ```、$\\LaTeX$ 与 $$块级公式$$）"
+                    />
+                  )}
                 </div>
               </div>
             </div>
