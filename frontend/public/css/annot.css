@@ -99,6 +99,16 @@
     color: var(--ip-anno-text);
     font-size: 13px;
     line-height: 1.6;
+    text-indent: 2em;
+    font-family: "ST KaiTi", "宋体-简", "SF Pro Text", "Helvetica Neue", Helvetica, Arial,
+                 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                 "Noto Sans CJK SC", "Source Han Sans SC",
+                 "Noto Serif CJK SC", "Source Han Serif SC",
+                 serif, sans-serif;
+  }
+  .ip-anno-body p, .ip-anno-body h1, .ip-anno-body h2, .ip-anno-body h3,
+  .ip-anno-body h4, .ip-anno-body h5, .ip-anno-body h6, .ip-anno-body li {
+    font-family: inherit;
   }
   .ip-anno-body p { margin: 0 0 .5rem 0; }
   .ip-anno-body h1, .ip-anno-body h2, .ip-anno-body h3,
