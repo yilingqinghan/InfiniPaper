@@ -839,6 +839,31 @@ function ReaderPage() {
     }, 600);
   }, [id, api]);
 
+  // 强制刷新保存然后再调用导出
+  const exportNow = React.useCallback(async () => {
+    if (!id) return;
+    try {
+      // 1) 取消未触发的保存节流，避免导出时内容仍未落库
+      if (saveDebounceRef.current) {
+        window.clearTimeout(saveDebounceRef.current);
+        saveDebounceRef.current = null;
+      }
+      // 2) 立即保存当前草稿（无论处于 WYSIWYG、Toast 还是 textarea）
+      setNoteSaving(true);
+      setNoteError(null);
+      if (saveAbortRef.current) saveAbortRef.current.abort();
+      const ctrl = new AbortController();
+      saveAbortRef.current = ctrl;
+      await upsertByPaper(api, Number(id), noteDraftRef.current || "");
+    } catch (e: any) {
+      setNoteError(e?.message || String(e));
+    } finally {
+      setNoteSaving(false);
+    }
+    // 3) 调用后端导出（此时服务端已有最新内容）
+    await exportMarkdown(api, Number(id));
+  }, [id, api]);
+
   // 根据光标位置高亮当前编辑段落（以空行分段）
   const decorateEditingParagraph = (text: string, caret: number) => {
     if (!text) return "";
@@ -1768,7 +1793,7 @@ function ReaderPage() {
                 toastInsert={toastInsert}
               />
                 <div className="ml-auto flex items-center gap-2">
-                  <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
+                  <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={exportNow}>导出 .md</button>
                   <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
                 </div>
               </div>
