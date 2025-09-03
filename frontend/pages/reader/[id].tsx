@@ -8,7 +8,20 @@ import dynamic from "next/dynamic";
 import { getByPaper, upsertByPaper, exportMarkdown } from "@/lib/richNoteApi";
 const PdfPane = dynamic(() => import("@/components/PdfPane"), { ssr: false });
 const TuiEditor: any = dynamic(() => import('@toast-ui/react-editor').then((m: any) => m.Editor), { ssr: false });
-import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+// Client-only plugin loader to avoid SSR `window` reference
+function useTuiPlugins() {
+  const plugins = React.useMemo(() => {
+    if (typeof window === 'undefined') return [] as any[];
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const mod = require('@toast-ui/editor-plugin-code-syntax-highlight');
+      return [mod?.default || mod];
+    } catch {
+      return [] as any[];
+    }
+  }, []);
+  return plugins;
+}
 /* -------------------- Markdown 渲染插件 -------------------- */
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -599,6 +612,7 @@ function CodeHighlightOnEditPlugin() {
 /* -------------------- 组件 -------------------- */
 function ReaderPage() {
   const router = useRouter();
+  const tuiPlugins = useTuiPlugins();
   // Hydration-safe: defer reading route params until router.isReady to avoid SSR/CSR mismatch
   const [id, setId] = React.useState<string | undefined>(undefined);
   const [pdfFromQuery, setPdfFromQuery] = React.useState<string>("");
@@ -1777,10 +1791,11 @@ function ReaderPage() {
                     key={`toast-${editorKey}`}
                     initialValue={(noteDraftRef.current || noteMd || '')}
                     initialEditType="markdown"
-                    previewStyle="tab"
+                    previewStyle="vertical"  // 分栏预览，边写边看
+                    hideModeSwitch={false}    // 显示 Markdown/WYSIWYG 切换
                     usageStatistics={false}
                     height="100%"
-                    plugins={[(codeSyntaxHighlight as any)]}
+                    plugins={tuiPlugins as any}
                     onChange={() => {
                       try {
                         const inst = (toastRef.current as any)?.getInstance?.();
