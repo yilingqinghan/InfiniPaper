@@ -176,6 +176,51 @@ export default function ReaderView() {
     };
   }, [updateLeftFixedStyle, noteOpen]);
 
+  // ---- Fixed-right overlay bounds (match the right notes column exactly) ----
+  const [rightFixedStyle, setRightFixedStyle] =
+    React.useState<React.CSSProperties | null>(null);
+  const updateRightFixedStyle = React.useCallback(() => {
+    const rightCol = document.querySelector(
+      ".page-col--right"
+    ) as HTMLElement | null;
+    if (!rightCol || typeof window === "undefined") return;
+
+    const colRect = rightCol.getBoundingClientRect();
+
+    // 顶部同页头底部；滚出视口则为 0
+    const headerEl = document.querySelector(".page-header") as HTMLElement | null;
+    const headerRect = headerEl ? headerEl.getBoundingClientRect() : null;
+    const top = Math.max(0, headerRect ? headerRect.bottom : 0);
+    const height = Math.max(0, window.innerHeight - top);
+
+    setRightFixedStyle({
+      position: "fixed",
+      left: `${colRect.left}px`,
+      top: `${top}px`,
+      width: `${colRect.width}px`,
+      height: `${height}px`,
+      overflow: "hidden",
+      pointerEvents: "none", // 外层不拦截滚动；面板本身再开启
+      zIndex: 50,
+    } as React.CSSProperties);
+  }, []);
+  React.useEffect(() => {
+    updateRightFixedStyle();
+    const onScroll = () => updateRightFixedStyle();
+    const onResize = () => updateRightFixedStyle();
+    window.addEventListener("scroll", onScroll, true);
+    window.addEventListener("resize", onResize);
+    const ro = new ResizeObserver(() => updateRightFixedStyle());
+    const rightCol = document.querySelector(".page-col--right") as HTMLElement | null;
+    if (rightCol) ro.observe(rightCol);
+    return () => {
+      window.removeEventListener("scroll", onScroll, true);
+      window.removeEventListener("resize", onResize);
+      ro.disconnect();
+    };
+  }, [updateRightFixedStyle, noteOpen]);
+
+
   // ---- TOC ----
   const [tocOpen, setTocOpen] = React.useState(false);
   const [tocItems, setTocItems] = React.useState<
@@ -849,6 +894,9 @@ export default function ReaderView() {
   const [gemPrompt, setGemPrompt] = React.useState("");
   const [gemEditText, setGemEditText] = React.useState("");
   const gemPromptRef = React.useRef<HTMLTextAreaElement | null>(null);
+  React.useEffect(() => {
+    updateRightFixedStyle();
+  }, [gemOpen, updateRightFixedStyle]);
 
   const askGemini = () => {
     if (!selPayload) return;
@@ -1262,7 +1310,15 @@ export default function ReaderView() {
                         <div className="text-[11px] text-gray-400">{new Date(a.created_at).toLocaleString()}</div>
                         <div className="w-3 h-3 rounded-full border" title={a.color} style={{ background: a.color }} />
                       </div>
-                      <div className="mt-1 text-sm">{a.note || <span className="text-gray-400">(无备注)</span>}</div>
+                      <div className="mt-1 text-sm prose prose-sm max-w-none">
+                        {a.note ? (
+                          <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                            {a.note}
+                          </ReactMarkdown>
+                        ) : (
+                          <span className="text-gray-400">(无备注)</span>
+                        )}
+                      </div>
                       <div className="mt-1 text-xs text-gray-500 line-clamp-2">{a.anchor.quote}</div>
                     </div>
                   );
@@ -1270,14 +1326,16 @@ export default function ReaderView() {
               </div>
             )}
 
-            {/* Gemini/LLM 面板（简洁侧栏版） */}
-            {gemOpen && gemDock === "sidebar" && (
-              <div className="border rounded p-2">
+          {/* Gemini 侧栏模式：固定覆盖右栏（不改变文档流高度） */}
+          {gemOpen && gemDock === "sidebar" && rightFixedStyle && (
+            <div style={rightFixedStyle}>
+              <div className="absolute inset-0" style={{ pointerEvents: "none" }} />
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[92%] h-[80vh] flex flex-col bg-white rounded shadow-xl p-3 pointer-events-auto">
                 <div className="flex items-center justify-between">
-                  <div className="text-xs text-gray-500">Gemini</div>
+                  <div className="text-sm font-medium">Gemini</div>
                   <div className="flex items-center gap-2">
-                    <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemDock(d => d === "sidebar" ? "modal" : "sidebar")}>
-                      {gemDock === "sidebar" ? "弹窗" : "侧栏"}
+                    <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemDock("modal")}>
+                      弹窗
                     </button>
                     <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemOpen(false)}>关闭</button>
                   </div>
@@ -1299,11 +1357,34 @@ export default function ReaderView() {
                     </button>
                   </div>
                 </div>
-                <div className="mt-3 space-y-2">
+                <div className="mt-3 flex-1 overflow-auto border rounded p-2">
                   <GemChatItems items={gemChat} />
                 </div>
+                <div className="mt-3">
+                  <div className="text-xs text-gray-500 mb-1">当前回答（可编辑后保存为批注）</div>
+                  <textarea
+                    value={gemEditText}
+                    onChange={(e) => setGemEditText(e.target.value)}
+                    className="w-full p-2 border rounded text-sm"
+                    rows={3}
+                  />
+                  <div className="mt-2 flex justify-end gap-2">
+                    <button
+                      className="px-2 py-1 border rounded text-sm"
+                      onClick={() => {
+                        const text = (gemEditText || "").trim();
+                        if (!text) return;
+                        doAddAnnotation(text);
+                        setGemOpen(false);
+                      }}
+                    >
+                      作为批注插入
+                    </button>
+                  </div>
+                </div>
               </div>
-            )}
+            </div>
+          )}
 
             {llmOpen && (
               <div className="border rounded p-2">
@@ -1333,6 +1414,70 @@ export default function ReaderView() {
               </div>
             )}
           </div>
+          {/* Gemini 弹窗（右侧覆盖，使用 fixed，完全不改变文档流高度） */}
+          {gemOpen && gemDock === "modal" && rightFixedStyle && (
+            <div style={rightFixedStyle}>
+              <div className="absolute inset-0 bg-white/85" style={{ pointerEvents: "auto" }} />
+              <div className="absolute inset-0 flex items-center justify-center p-3" style={{ pointerEvents: "none" }}>
+                <div className="relative bg-white rounded shadow-xl w-[min(720px,92%)] h-[80vh] max-h-[80vh] p-3 flex flex-col pointer-events-auto">
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm font-medium">Gemini</div>
+                    <div className="flex items-center gap-2">
+                      <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemDock("sidebar")}>
+                        移到侧栏
+                      </button>
+                      <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemOpen(false)}>关闭</button>
+                    </div>
+                  </div>
+
+                  <div className="mt-2">
+                    <textarea
+                      ref={gemPromptRef}
+                      defaultValue={gemPrompt}
+                      onChange={(e) => setGemPrompt(e.target.value)}
+                      className="w-full p-2 border rounded text-sm"
+                      rows={3}
+                    />
+                    <div className="mt-2 flex gap-2">
+                      <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
+                        {gemLoading ? "发送中…" : "发送"}
+                      </button>
+                      <button className="px-2 py-1 border rounded text-sm" onClick={() => setGemChat([])}>
+                        清空
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 flex-1 overflow-auto border rounded p-2">
+                    <GemChatItems items={gemChat} />
+                  </div>
+
+                  <div className="mt-3">
+                    <div className="text-xs text-gray-500 mb-1">当前回答（可编辑后保存为批注）</div>
+                    <textarea
+                      value={gemEditText}
+                      onChange={(e) => setGemEditText(e.target.value)}
+                      className="w-full p-2 border rounded text-sm"
+                      rows={3}
+                    />
+                    <div className="mt-2 flex justify-end gap-2">
+                      <button
+                        className="px-2 py-1 border rounded text-sm"
+                        onClick={() => {
+                          const text = (gemEditText || "").trim();
+                          if (!text) return;
+                          doAddAnnotation(text);
+                          setGemOpen(false);
+                        }}
+                      >
+                        作为批注插入
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -1345,69 +1490,6 @@ export default function ReaderView() {
             <div className="mt-2 flex justify-end gap-2">
               <button className="px-2 py-1 border rounded text-sm" onClick={() => setNoteEditor({ show: false, x: 0, y: 0 })}>取消</button>
               <button className="px-2 py-1 border rounded text-sm" onClick={() => doAddAnnotation(annoTextRef.current?.value || "")}>保存</button>
-            </div>
-          </div>
-        </div>
-      )}
-      {/* Gemini 弹窗（不参与右栏高度，避免页面无限延长） */}
-      {gemOpen && gemDock === "modal" && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/30" onClick={() => setGemOpen(false)} />
-          <div className="relative bg-white rounded shadow-xl w-[min(720px,92vw)] max-h-[80vh] p-3 flex flex-col">
-            <div className="flex items-center justify-between">
-              <div className="text-sm font-medium">Gemini</div>
-              <div className="flex items-center gap-2">
-                <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemDock("sidebar")}>
-                  移到侧栏
-                </button>
-                <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemOpen(false)}>关闭</button>
-              </div>
-            </div>
-
-            <div className="mt-2">
-              <textarea
-                ref={gemPromptRef}
-                defaultValue={gemPrompt}
-                onChange={(e) => setGemPrompt(e.target.value)}
-                className="w-full p-2 border rounded text-sm"
-                rows={3}
-              />
-              <div className="mt-2 flex gap-2">
-                <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
-                  {gemLoading ? "发送中…" : "发送"}
-                </button>
-                <button className="px-2 py-1 border rounded text-sm" onClick={() => setGemChat([])}>
-                  清空
-                </button>
-              </div>
-            </div>
-
-            <div className="mt-3 flex-1 overflow-auto border rounded p-2">
-              <GemChatItems items={gemChat} />
-            </div>
-
-            <div className="mt-3">
-              <div className="text-xs text-gray-500 mb-1">当前回答（可编辑后保存为批注）</div>
-              <textarea
-                value={gemEditText}
-                onChange={(e) => setGemEditText(e.target.value)}
-                className="w-full p-2 border rounded text-sm"
-                rows={3}
-              />
-              <div className="mt-2 flex justify-end gap-2">
-                <button
-                  className="px-2 py-1 border rounded text-sm"
-                  onClick={() => {
-                    const text = (gemEditText || "").trim();
-                    if (!text) return;
-                    // 直接用当前选区的锚点把 Gemini 的回答保存为批注
-                    doAddAnnotation(text);
-                    setGemOpen(false);
-                  }}
-                >
-                  作为批注插入
-                </button>
-              </div>
             </div>
           </div>
         </div>
