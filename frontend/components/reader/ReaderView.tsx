@@ -1298,7 +1298,7 @@ export default function ReaderView() {
                   return (
                     <div
                       key={`note-${nid}`}
-                      className="absolute left-0 right-0 border rounded p-2 hover:shadow-sm bg-white/90"
+                      className="absolute left-0 right-0 ip-anno-card"
                       style={{ top: top }}
                       onClick={() => {
                         const host = mdContainerRef.current;
@@ -1334,52 +1334,58 @@ export default function ReaderView() {
                 <div className="flex items-center justify-between">
                   <div className="text-sm font-medium">Gemini</div>
                   <div className="flex items-center gap-2">
-                    <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemDock("modal")}>
-                      弹窗
-                    </button>
+                    <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemDock("modal")}>弹窗</button>
                     <button className="text-xs px-2 py-1 border rounded" onClick={() => setGemOpen(false)}>关闭</button>
                   </div>
                 </div>
-                <div className="mt-2">
-                  <textarea
-                    ref={gemPromptRef}
-                    defaultValue={gemPrompt}
-                    onChange={(e) => setGemPrompt(e.target.value)}
-                    className="w-full p-2 border rounded text-sm"
-                    rows={3}
-                  />
-                  <div className="mt-2 flex gap-2">
-                    <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
-                      {gemLoading ? "发送中…" : "发送"}
-                    </button>
-                    <button className="px-2 py-1 border rounded text-sm" onClick={() => setGemChat([])}>
-                      清空
-                    </button>
+
+                {/* 三等分区域 */}
+                <div className="mt-2 grid grid-rows-3 gap-3 flex-1 min-h-0">
+                  {/* 区域1：提问输入 */}
+                  <div className="min-h-0 flex flex-col">
+                    <textarea
+                      ref={gemPromptRef}
+                      defaultValue={gemPrompt}
+                      onChange={(e) => setGemPrompt(e.target.value)}
+                      className="w-full h-full p-2 border rounded text-sm resize-none"
+                    />
+                    <div className="mt-2 flex gap-2">
+                      <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
+                        {gemLoading ? "发送中…" : "发送"}
+                      </button>
+                      <button className="px-2 py-1 border rounded text-sm" onClick={() => setGemChat([])}>
+                        清空
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div className="mt-3 flex-1 overflow-auto border rounded p-2">
-                  <GemChatItems items={gemChat} />
-                </div>
-                <div className="mt-3">
-                  <div className="text-xs text-gray-500 mb-1">当前回答（可编辑后保存为批注）</div>
-                  <textarea
-                    value={gemEditText}
-                    onChange={(e) => setGemEditText(e.target.value)}
-                    className="w-full p-2 border rounded text-sm"
-                    rows={3}
-                  />
-                  <div className="mt-2 flex justify-end gap-2">
-                    <button
-                      className="px-2 py-1 border rounded text-sm"
-                      onClick={() => {
-                        const text = (gemEditText || "").trim();
-                        if (!text) return;
-                        doAddAnnotation(text);
-                        setGemOpen(false);
-                      }}
-                    >
-                      作为批注插入
-                    </button>
+
+                  {/* 区域2：对话历史 */}
+                  <div className="min-h-0 overflow-auto border rounded p-2">
+                    <GemChatItems items={gemChat} />
+                  </div>
+
+                  {/* 区域3：编辑后作为批注 */}
+                  <div className="min-h-0 flex flex-col">
+                    <div className="text-xs text-gray-500 mb-1">当前回答（可编辑后保存为批注）</div>
+                    <textarea
+                      value={gemEditText}
+                      onChange={(e) => setGemEditText(e.target.value)}
+                      className="w-full h-full p-2 border rounded text-sm resize-none"
+                    />
+                    <div className="mt-2 flex justify-end gap-2">
+                      <button
+                        className="px-2 py-1 border rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={!selPayload}
+                        onClick={() => {
+                          const text = (gemEditText || "").trim();
+                          if (!text || !selPayload) return;
+                          doAddAnnotation(text);
+                          setGemOpen(false);
+                        }}
+                      >
+                        作为批注插入
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1430,48 +1436,49 @@ export default function ReaderView() {
                     </div>
                   </div>
 
-                  <div className="mt-2">
-                    <textarea
-                      ref={gemPromptRef}
-                      defaultValue={gemPrompt}
-                      onChange={(e) => setGemPrompt(e.target.value)}
-                      className="w-full p-2 border rounded text-sm"
-                      rows={3}
-                    />
-                    <div className="mt-2 flex gap-2">
-                      <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
-                        {gemLoading ? "发送中…" : "发送"}
-                      </button>
-                      <button className="px-2 py-1 border rounded text-sm" onClick={() => setGemChat([])}>
-                        清空
-                      </button>
+                  <div className="mt-2 grid grid-rows-3 gap-3 flex-1 min-h-0">
+                    <div className="min-h-0 flex flex-col">
+                      <textarea
+                        ref={gemPromptRef}
+                        defaultValue={gemPrompt}
+                        onChange={(e) => setGemPrompt(e.target.value)}
+                        className="w-full h-full p-2 border rounded text-sm resize-none"
+                      />
+                      <div className="mt-2 flex gap-2">
+                        <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
+                          {gemLoading ? "发送中…" : "发送"}
+                        </button>
+                        <button className="px-2 py-1 border rounded text-sm" onClick={() => setGemChat([])}>
+                          清空
+                        </button>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="mt-3 flex-1 overflow-auto border rounded p-2">
-                    <GemChatItems items={gemChat} />
-                  </div>
+                    <div className="min-h-0 overflow-auto border rounded p-2">
+                      <GemChatItems items={gemChat} />
+                    </div>
 
-                  <div className="mt-3">
-                    <div className="text-xs text-gray-500 mb-1">当前回答（可编辑后保存为批注）</div>
-                    <textarea
-                      value={gemEditText}
-                      onChange={(e) => setGemEditText(e.target.value)}
-                      className="w-full p-2 border rounded text-sm"
-                      rows={3}
-                    />
-                    <div className="mt-2 flex justify-end gap-2">
-                      <button
-                        className="px-2 py-1 border rounded text-sm"
-                        onClick={() => {
-                          const text = (gemEditText || "").trim();
-                          if (!text) return;
-                          doAddAnnotation(text);
-                          setGemOpen(false);
-                        }}
-                      >
-                        作为批注插入
-                      </button>
+                    <div className="min-h-0 flex flex-col">
+                      <div className="text-xs text-gray-500 mb-1">当前回答（可编辑后保存为批注）</div>
+                      <textarea
+                        value={gemEditText}
+                        onChange={(e) => setGemEditText(e.target.value)}
+                        className="w-full h-full p-2 border rounded text-sm resize-none"
+                      />
+                      <div className="mt-2 flex justify-end gap-2">
+                        <button
+                          className="px-2 py-1 border rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                          disabled={!selPayload}
+                          onClick={() => {
+                            const text = (gemEditText || "").trim();
+                            if (!text || !selPayload) return;
+                            doAddAnnotation(text);
+                            setGemOpen(false);
+                          }}
+                        >
+                          作为批注插入
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
