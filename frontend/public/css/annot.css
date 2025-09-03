@@ -1,0 +1,187 @@
+/* ===========================
+   InfiniPaper — Annotation Bubble UI
+   =========================== */
+
+/* 颜色变量（亮/暗主题可切换） */
+:root {
+    --ip-anno-bg: rgba(255,255,255,.95);
+    --ip-anno-border: #e5e7eb;   /* gray-200 */
+    --ip-anno-text: #111827;     /* gray-900 */
+    --ip-anno-subtle: #6b7280;   /* gray-500 */
+    --ip-anno-quote: #4b5563;    /* gray-600 */
+    --ip-anno-link: #2563eb;     /* blue-600 */
+    --ip-anno-code-bg: #f6f8fa;
+    --ip-anno-shadow: 0 10px 28px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.08);
+    --ip-anno-shadow-hover: 0 16px 40px rgba(0,0,0,.14), 0 3px 12px rgba(0,0,0,.10);
+  }
+  [data-theme="aurora"]:root,
+  [data-theme="immersive"]:root {
+    --ip-anno-bg: rgba(255,255,255,.94);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ip-anno-bg: rgba(17,24,39,.85);   /* gray-900 ~ 半透明 */
+      --ip-anno-border: rgba(255,255,255,.12);
+      --ip-anno-text: #f9fafb;            /* gray-50 */
+      --ip-anno-subtle: #cbd5e1;          /* slate-300 */
+      --ip-anno-quote: #cbd5e1;
+      --ip-anno-link: #60a5fa;            /* blue-400 */
+      --ip-anno-code-bg: rgba(148,163,184,.15); /* slate-400 alpha */
+      --ip-anno-shadow: 0 10px 28px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.4);
+      --ip-anno-shadow-hover: 0 16px 44px rgba(0,0,0,.6), 0 3px 12px rgba(0,0,0,.5);
+    }
+  }
+  
+  /* 右栏容器里的绝对定位图层（高度与左侧同步的那个容器里用到） */
+  .ip-anno-layer {
+    position: relative;
+    isolation: isolate; /* 让子元素阴影不被裁切 */
+  }
+  
+  /* 批注卡片主容器 */
+  .ip-anno-card {
+    position: absolute;
+    left: 0; right: 0;
+    background: var(--ip-anno-bg);
+    border: 1px solid var(--ip-anno-border);
+    border-radius: 14px;
+    padding: 10px 12px 10px 14px;
+    box-shadow: var(--ip-anno-shadow);
+    backdrop-filter: saturate(160%) blur(6px);
+    -webkit-backdrop-filter: saturate(160%) blur(6px);
+    transform: translateZ(0);  /* 提升抗锯齿 */
+    transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease, background-color .18s ease;
+    animation: ip-anno-fade-in .18s ease-out both;
+    cursor: default;
+  }
+  
+  .ip-anno-card:hover {
+    box-shadow: var(--ip-anno-shadow-hover);
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--ip-anno-border), #9ca3af 35%); /* hover 更清晰 */
+  }
+  
+  /* 左侧“气泡尾巴” */
+  .ip-anno-card::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 18px;
+    width: 0; height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid var(--ip-anno-bg);
+    filter: drop-shadow(-1px 0 0 var(--ip-anno-border));
+    pointer-events: none;
+  }
+  
+  /* 头部（时间 + 颜色点） */
+  .ip-anno-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--ip-anno-subtle);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+  .ip-anno-dot {
+    width: 12px; height: 12px;
+    border-radius: 9999px;
+    border: 1px solid var(--ip-anno-border);
+    flex: 0 0 auto;
+  }
+  
+  /* Markdown 主体（独立样式，不依赖 prose） */
+  .ip-anno-body {
+    color: var(--ip-anno-text);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .ip-anno-body p { margin: 0 0 .5rem 0; }
+  .ip-anno-body h1, .ip-anno-body h2, .ip-anno-body h3,
+  .ip-anno-body h4, .ip-anno-body h5, .ip-anno-body h6 {
+    margin: .35rem 0 .25rem;
+    line-height: 1.25;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .ip-anno-body a { color: var(--ip-anno-link); text-decoration: underline; }
+  .ip-anno-body code {
+    background: var(--ip-anno-code-bg);
+    padding: 0 .28em;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .92em;
+  }
+  .ip-anno-body pre {
+    background: var(--ip-anno-code-bg);
+    padding: .6rem .8rem;
+    border-radius: 8px;
+    overflow: auto;
+    margin: .35rem 0;
+  }
+  .ip-anno-body ul, .ip-anno-body ol { padding-left: 1.25rem; margin: .25rem 0; }
+  .ip-anno-body li { margin: .15rem 0; }
+  .ip-anno-body blockquote {
+    border-left: 3px solid var(--ip-anno-border);
+    background: color-mix(in srgb, var(--ip-anno-code-bg), transparent 40%);
+    margin: .25rem 0;
+    padding: .25rem .6rem;
+    color: var(--ip-anno-quote);
+    border-radius: 6px;
+  }
+  .ip-anno-body table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--ip-anno-border);
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 12px;
+  }
+  .ip-anno-body th, .ip-anno-body td {
+    border-bottom: 1px solid var(--ip-anno-border);
+    padding: .35rem .5rem;
+  }
+  .ip-anno-body thead th {
+    background: color-mix(in srgb, var(--ip-anno-code-bg), white 40%);
+    font-weight: 600;
+  }
+  
+  /* 原文引用（两行收纳） */
+  .ip-anno-quote {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--ip-anno-subtle);
+    border-left: 2px solid var(--ip-anno-border);
+    padding-left: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    user-select: text;
+  }
+  
+  /* 操作区（如果需要扩展按钮的话） */
+  .ip-anno-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+  .ip-anno-btn {
+    font-size: 12px; line-height: 1;
+    padding: 6px 8px; border: 1px solid var(--ip-anno-border);
+    border-radius: 8px; background: transparent; color: var(--ip-anno-text);
+  }
+  .ip-anno-btn:hover { background: color-mix(in srgb, var(--ip-anno-code-bg), transparent 60%); }
+  
+  /* 动效 & 滚动条细化 */
+  @keyframes ip-anno-fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .ip-anno-body::-webkit-scrollbar { width: 8px; height: 8px; }
+  .ip-anno-body::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 8px; }

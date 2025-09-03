@@ -1006,6 +1006,7 @@ export default function ReaderView() {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-light.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css" />
         <link rel="stylesheet" href="/css/reader.css" />
+        <link rel="stylesheet" href="/css/annot.css" />
         <style>{`
           .note-textarea { padding-bottom: 24vh !important; }
           .ip-underline { text-decoration: underline; }
@@ -1291,35 +1292,51 @@ export default function ReaderView() {
             {annos.length === 0 ? (
               <div className="text-xs text-gray-400">暂无批注</div>
             ) : (
-              <div className="relative" style={{ height: Math.max(sidebarHeight, 200) }}>
+              <div className="relative ip-anno-layer" style={{ height: Math.max(sidebarHeight, 200) }}>
                 {noteLayout.map(({ id: nid, top }) => {
                   const a = annos.find((x) => x.id === nid);
                   if (!a) return null;
                   return (
                     <div
                       key={`note-${nid}`}
-                      className="absolute left-0 right-0 ip-anno-card"
-                      style={{ top: top }}
+                      className="ip-anno-card"
+                      style={{ top }}
                       onClick={() => {
                         const host = mdContainerRef.current;
                         if (!host) return;
-                        host.scrollTo({ top: Math.max(0, top - 12), behavior: 'smooth' });
+                        host.scrollTo({ top: Math.max(0, top - 12), behavior: "smooth" });
                       }}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="text-[11px] text-gray-400">{new Date(a.created_at).toLocaleString()}</div>
-                        <div className="w-3 h-3 rounded-full border" title={a.color} style={{ background: a.color }} />
+                      {/* 头部：时间 + 颜色点 */}
+                      <div className="ip-anno-head">
+                        <div>{new Date(a.created_at).toLocaleString()}</div>
+                        <div className="ip-anno-dot" title={a.color} style={{ background: a.color }} />
                       </div>
-                      <div className="mt-1 text-sm prose prose-sm max-w-none">
+
+                      {/* Markdown 内容（独立 UI，不依赖 prose） */}
+                      <div className="ip-anno-body">
                         {a.note ? (
-                          <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}>
+                          <ReactMarkdown
+                            remarkPlugins={[remarkGfm, remarkMath]}
+                            rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw as any]}
+                          >
                             {a.note}
                           </ReactMarkdown>
                         ) : (
                           <span className="text-gray-400">(无备注)</span>
                         )}
                       </div>
-                      <div className="mt-1 text-xs text-gray-500 line-clamp-2">{a.anchor.quote}</div>
+
+                      {/* 被高亮的原文摘录（两行收纳） */}
+                      <div className="ip-anno-quote">{a.anchor.quote}</div>
+
+                      {/* 如需后续动作按钮，解开下面注释即可 */}
+                      {/*
+                      <div className="ip-anno-actions" onClick={(e) => e.stopPropagation()}>
+                        <button className="ip-anno-btn">编辑</button>
+                        <button className="ip-anno-btn">删除</button>
+                      </div>
+                      */}
                     </div>
                   );
                 })}
