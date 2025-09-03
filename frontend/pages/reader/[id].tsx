@@ -7,7 +7,8 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { getByPaper, upsertByPaper, exportMarkdown } from "@/lib/richNoteApi";
 const PdfPane = dynamic(() => import("@/components/PdfPane"), { ssr: false });
-
+const TuiEditor: any = dynamic(() => import('@toast-ui/react-editor').then((m: any) => m.Editor), { ssr: false });
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 /* -------------------- Markdown 渲染插件 -------------------- */
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -28,9 +29,9 @@ import {useLexicalComposerContext} from "@lexical/react/LexicalComposerContext";
 import {TRANSFORMERS, $convertFromMarkdownString, $convertToMarkdownString} from "@lexical/markdown";
 import {ListNode, ListItemNode, INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LIST_COMMAND} from "@lexical/list";
 import {HeadingNode, QuoteNode} from "@lexical/rich-text";
-import {CodeNode} from "@lexical/code";
+import {CodeNode, $createCodeNode} from "@lexical/code";
 import {LinkNode, TOGGLE_LINK_COMMAND} from "@lexical/link";
-import { FORMAT_TEXT_COMMAND, $getSelection, $isRangeSelection, DecoratorNode, TextNode, $createTextNode, KEY_DOWN_COMMAND, COMMAND_PRIORITY_LOW, $createParagraphNode, $getRoot } from "lexical";
+import { FORMAT_TEXT_COMMAND, $getSelection, $isRangeSelection, DecoratorNode, TextNode, $createTextNode, KEY_DOWN_COMMAND, COMMAND_PRIORITY_LOW, $createParagraphNode, $getRoot, $getNodeByKey } from "lexical";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 // 某些版本构建下 LexicalErrorBoundary 可能为 undefined；提供兜底
 const SafeErrorBoundary: any = (LexicalErrorBoundary as any) || (({children}: {children: React.ReactNode}) => <>{children}</>);
@@ -129,7 +130,7 @@ function WysiwygMdEditor({
         <div className="flex-1 min-h-0 overflow-auto">
           <RichTextPlugin
             contentEditable={
-              <ContentEditable className="w-full min-h-full p-3 outline-none text-sm markdown-body" />
+              <ContentEditable className="w-full min-h-full p-3 outline-none text-sm markdown-body ip-editor-root" />
             }
             placeholder={
               <div className="p-3 text-sm text-gray-400">
@@ -217,12 +218,40 @@ function ActiveParagraphHighlightPlugin() {
   React.useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
+        // 当无选区或失焦时，移除旧的高亮并返回
         const sel = $getSelection();
-        if (!$isRangeSelection(sel)) return;
-        const anchor = sel.anchor.getNode();
-        const topElem = anchor.getTopLevelElementOrThrow(); // 段落级
-        const dom = editor.getElementByKey(topElem.getKey()) as HTMLElement | null;
+        if (!$isRangeSelection(sel)) {
+          if (prevRef.current) {
+            prevRef.current.classList.remove('editing-paragraph');
+            prevRef.current = null;
+          }
+          return;
+        }
 
+        // 优先用 anchor 的顶层元素；若拿到 root 或为空，尝试从选区节点回退，再退到 root 的第一个子节点
+        const anchor = sel.anchor.getNode();
+        let topElem: any = anchor.getTopLevelElement ? anchor.getTopLevelElement() : null;
+        if (!topElem || topElem.getType?.() === 'root') {
+          const nodes = sel.getNodes?.() || [];
+          for (const n of nodes) {
+            const t = n.getTopLevelElement ? n.getTopLevelElement() : null;
+            if (t && t.getType?.() !== 'root') { topElem = t; break; }
+          }
+        }
+        if (!topElem || topElem.getType?.() === 'root') {
+          const root = $getRoot();
+          const first = (root as any).getFirstChild?.();
+          if (!first) {
+            if (prevRef.current) {
+              prevRef.current.classList.remove('editing-paragraph');
+              prevRef.current = null;
+            }
+            return;
+          }
+          topElem = first;
+        }
+
+        const dom = editor.getElementByKey(topElem.getKey()) as HTMLElement | null;
         if (prevRef.current && prevRef.current !== dom) {
           prevRef.current.classList.remove('editing-paragraph');
         }
@@ -242,14 +271,55 @@ class MathInlineNode extends DecoratorNode<JSX.Element> {
   static getType() { return "math-inline"; }
   static clone(node: MathInlineNode) { return new MathInlineNode(node.__formula, node.__key); }
   constructor(formula: string, key?: string) { super(key); this.__formula = formula; }
-  createDOM() { const span = document.createElement('span'); span.className = 'ip-math-inline'; span.contentEditable = 'false'; return span; }
+  createDOM() {
+    const span = document.createElement('span');
+    span.className = 'ip-math-inline';
+    span.setAttribute('data-math', 'inline');
+    return span;
+  }
   updateDOM() { return false; }
   exportJSON() { return { type: "math-inline", version: 1, formula: this.__formula }; }
   static importJSON(j: any) { return new MathInlineNode(j.formula); }
+  setFormula(next: string) {
+    const self = this.getWritable<MathInlineNode>();
+    self.__formula = next;
+  }
   decorate() {
+    const key = this.getKey();
+    const formula = this.__formula;
     const katex = (typeof window !== 'undefined' ? (window as any).katex : null);
-    const html = katex ? katex.renderToString(this.__formula, { displayMode: false, throwOnError: false }) : this.__formula;
-    return <span className="ip-math-inline" dangerouslySetInnerHTML={{ __html: html }} />;
+    const html = katex ? katex.renderToString(formula, { displayMode: false, throwOnError: false }) : formula;
+    const InlineMathView: React.FC = () => {
+      const [editor] = useLexicalComposerContext();
+      const onInput = React.useCallback((e: React.FormEvent<HTMLSpanElement>) => {
+        const raw = (e.currentTarget.textContent || "");
+        // 取 $...$ 中间内容；若未包裹，则去掉首尾单个 $
+        const m = raw.match(/^\$(.*)\$/s);
+        const inner = m ? m[1] : raw.replace(/^\\$/, "").replace(/\\$/, "");
+        editor.update(() => {
+          const node = $getNodeByKey(key) as unknown as MathInlineNode | null;
+          if (node) node.setFormula(inner);
+        });
+      }, [editor]);
+      const onKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
+        if (e.key === 'Enter') e.preventDefault(); // 行内不允许回车
+      };
+      return (
+        <>
+          <span className="katex-view" dangerouslySetInnerHTML={{ __html: html }} />
+          <span
+            className="math-raw"
+            contentEditable
+            suppressContentEditableWarning
+            onInput={onInput}
+            onKeyDown={onKeyDown}
+          >
+            {`$${formula}$`}
+          </span>
+        </>
+      );
+    };
+    return <InlineMathView />;
   }
   isInline() { return true; }
   getTextContent() { return `$${this.__formula}$`; }
@@ -261,14 +331,62 @@ class MathBlockNode extends DecoratorNode<JSX.Element> {
   static getType() { return "math-block"; }
   static clone(node: MathBlockNode) { return new MathBlockNode(node.__formula, node.__key); }
   constructor(formula: string, key?: string) { super(key); this.__formula = formula; }
-  createDOM() { const div = document.createElement('div'); div.className = 'ip-math-block'; div.contentEditable = 'false'; return div; }
+  createDOM() {
+    const div = document.createElement('div');
+    div.className = 'ip-math-block';
+    div.setAttribute('data-math', 'block');
+    return div;
+  }
   updateDOM() { return false; }
   exportJSON() { return { type: "math-block", version: 1, formula: this.__formula }; }
   static importJSON(j: any) { return new MathBlockNode(j.formula); }
+  setFormula(next: string) {
+    const self = this.getWritable<MathBlockNode>();
+    self.__formula = next;
+  }
   decorate() {
+    const key = this.getKey();
+    const formula = this.__formula;
     const katex = (typeof window !== 'undefined' ? (window as any).katex : null);
-    const html = katex ? katex.renderToString(this.__formula, { displayMode: true, throwOnError: false }) : this.__formula;
-    return <div className="ip-math-block" dangerouslySetInnerHTML={{ __html: html }} />;
+    const html = katex ? katex.renderToString(formula, { displayMode: true, throwOnError: false }) : formula;
+    const BlockMathView: React.FC = () => {
+      const [editor] = useLexicalComposerContext();
+      const onInput = React.useCallback((e: React.FormEvent<HTMLDivElement>) => {
+        const raw = (e.currentTarget.textContent || "");
+        // 支持两种形式：带围栏 $$...$$ 或单纯文本
+        // 先尝试 $$...$$ 包裹：
+        let body = raw;
+        const mm = raw.match(/^\s*\$\$([\s\S]*?)\$\$\s*$/);
+        if (mm) {
+          body = mm[1];
+        } else {
+          // 尝试首行/末行 $$ 分隔
+          const lines = raw.split(/\r?\n/);
+          if (lines[0]?.trim() === '$$') lines.shift();
+          if (lines[lines.length - 1]?.trim() === '$$') lines.pop();
+          body = lines.join('\n');
+        }
+        const inner = body.replace(/^\n+/, '').replace(/\n+$/, '');
+        editor.update(() => {
+          const node = $getNodeByKey(key) as unknown as MathBlockNode | null;
+          if (node) node.setFormula(inner);
+        });
+      }, [editor]);
+      return (
+        <>
+          <div className="katex-view" dangerouslySetInnerHTML={{ __html: html }} />
+          <div
+            className="math-raw"
+            contentEditable
+            suppressContentEditableWarning
+            onInput={onInput}
+          >
+            {`$$\n${formula}\n$$`}
+          </div>
+        </>
+      );
+    };
+    return <BlockMathView />;
   }
   isInline() { return false; }
   getTextContent() { return `$$${this.__formula}$$`; }
@@ -284,12 +402,11 @@ function MathKeydownPlugin() {
       KEY_DOWN_COMMAND,
       (event: KeyboardEvent) => {
         const key = event.key;
-        // 在输入第二个 `$`、或回车/空格时触发解析
-        if (key !== '$' && key !== 'Enter' && key !== ' ') return false;
+        // 在输入 `$`、反引号、回车或空格时尝试解析
+        if (key !== '$' && key !== '`' && key !== 'Enter' && key !== ' ') return false;
         if (busyRef.current) return false;
         busyRef.current = true;
 
-        // 推迟到下一事件循环，避免在 listener 内同步嵌套 update
         setTimeout(() => {
           editor.update(() => {
             try {
@@ -297,68 +414,152 @@ function MathKeydownPlugin() {
               if (!$isRangeSelection(sel)) return;
               const anchor = sel.anchor.getNode();
               const top: any = anchor.getTopLevelElementOrThrow();
-
               const type = top?.getType?.() || "";
-              if (type === "code" || type === "math-block") return;
-
-              // 已经包含数学节点就别重复转
-              const childrenOfTop: any[] = top?.getChildren?.() || [];
-              const hasMathChild = childrenOfTop.some(
-                (n: any) => n?.getType?.() === "math-inline" || n?.getType?.() === "math-block"
-              );
-              if (hasMathChild) return;
+              if (type === 'math-block') return; // math 块内不处理
 
               const text: string = top.getTextContent() || "";
               const trimmed = text.trim();
 
-              // 1) 同行块级: $$ ... $$
-              const m1 = trimmed.match(/^\$\$([\s\S]+?)\$\$$/);
-              if (m1) {
-                const blk = $createMathBlockNode(m1[1].trim());
-                top.replace(blk);
-                blk.insertAfter($createParagraphNode());
-                return;
-              }
-
-              // 2) 分行块级: 起始行仅 "$$"，向后找结束 "$$"
-              if (trimmed === "$$") {
-                const toRemove: any[] = [];
+              // ========= 1) 块级公式（分行 $$） =========
+              if (trimmed === '$$') {
+                // 先尝试向后找结束
                 let cur: any = top.getNextSibling?.();
+                const between: any[] = [];
                 let end: any = null;
                 while (cur) {
-                  const t = (cur.getTextContent?.() || "").trim();
-                  if (t === "$$") { end = cur; break; }
-                  toRemove.push(cur);
+                  const t = (cur.getTextContent?.() || '').trim();
+                  if (t === '$$') { end = cur; break; }
+                  between.push(cur);
                   cur = cur.getNextSibling?.();
                 }
-                if (end) {
-                  const formula = toRemove.map(n => n.getTextContent()).join("\n").trim();
+                if (!end) {
+                  // 再尝试向前找起始
+                  cur = top.getPreviousSibling?.();
+                  const rev: any[] = [];
+                  let start: any = null;
+                  while (cur) {
+                    const t = (cur.getTextContent?.() || '').trim();
+                    if (t === '$$') { start = cur; break; }
+                    rev.push(cur);
+                    cur = cur.getPreviousSibling?.();
+                  }
+                  if (start) {
+                    const betweenNodes = rev.reverse();
+                    const formula = betweenNodes.map(n => n.getTextContent()).join('\n').trim();
+                    const blk = $createMathBlockNode(formula);
+                    start.replace(blk);
+                    betweenNodes.forEach(n => n.remove());
+                    top.remove(); // 当前这一行（结束 $$）
+                    blk.insertAfter($createParagraphNode());
+                    return;
+                  }
+                } else {
+                  const formula = between.map(n => n.getTextContent()).join('\n').trim();
                   const blk = $createMathBlockNode(formula);
-                  top.replace(blk);
-                  toRemove.forEach(n => n.remove());
+                  top.replace(blk); // 当前是起始 $$
+                  between.forEach(n => n.remove());
                   end.remove();
                   blk.insertAfter($createParagraphNode());
                   return;
                 }
               }
 
-              // 3) 行内: $ ... $
-              if (text.includes('$')) {
-                const regex = /\$([^$]+)\$/g;
-                let idx = 0, m: RegExpExecArray | null;
-                const parts: Array<string | { math: string }> = [];
-                while ((m = regex.exec(text)) !== null) {
-                  if (m.index > idx) parts.push(text.slice(idx, m.index));
-                  parts.push({ math: m[1] });
-                  idx = m.index + m[0].length;
+              // ========= 2) 同行块级公式：$$...$$ =========
+              const mBlockLine = trimmed.match(/^\$\$([\s\S]+?)\$\$/);
+              if (mBlockLine) {
+                const blk = $createMathBlockNode(mBlockLine[1].trim());
+                top.replace(blk);
+                blk.insertAfter($createParagraphNode());
+                return;
+              }
+
+              // ========= 3) 代码围栏 ```（分行 & 同行） =========
+              if (type !== 'code') {
+                // 3a) 分行：当前行为 ``` 或 ```lang
+                const startFence = trimmed.match(/^```(?:(?<lang>[A-Za-z0-9_+-]+))?$/);
+                if (startFence) {
+                  let cur: any = top.getNextSibling?.();
+                  const between: any[] = [];
+                  let end: any = null;
+                  while (cur) {
+                    const t = (cur.getTextContent?.() || '').trim();
+                    if (t === '```') { end = cur; break; }
+                    between.push(cur);
+                    cur = cur.getNextSibling?.();
+                  }
+                  if (end) {
+                    const code = between.map(n => n.getTextContent()).join('\n');
+                    const lang = (startFence.groups?.lang || '').toLowerCase() || undefined;
+                    const codeNode = $createCodeNode(lang);
+                    codeNode.append($createTextNode(code));
+                    top.replace(codeNode);
+                    between.forEach(n => n.remove());
+                    end.remove();
+                    codeNode.insertAfter($createParagraphNode());
+                    return;
+                  }
                 }
-                if (parts.length) {
-                  if (idx < text.length) parts.push(text.slice(idx));
-                  top.clear();
-                  parts.forEach(seg => {
-                    if (typeof seg === "string" && seg) top.append($createTextNode(seg));
-                    else top.append($createMathInlineNode((seg as any).math));
-                  });
+
+                // 3b) 在结束行：当前行为 ```，向前找起始 ```lang?
+                if (trimmed === '```') {
+                  let cur: any = top.getPreviousSibling?.();
+                  const betweenRev: any[] = [];
+                  let start: any = null;
+                  let lang: string | undefined = undefined;
+                  while (cur) {
+                    const t = (cur.getTextContent?.() || '').trim();
+                    const m = t.match(/^```(?:(?<lang>[A-Za-z0-9_+-]+))?$/);
+                    if (m) { start = cur; lang = (m.groups?.lang || '').toLowerCase() || undefined; break; }
+                    betweenRev.push(cur);
+                    cur = cur.getPreviousSibling?.();
+                  }
+                  if (start) {
+                    const between = betweenRev.reverse();
+                    const code = between.map(n => n.getTextContent()).join('\n');
+                    const codeNode = $createCodeNode(lang);
+                    codeNode.append($createTextNode(code));
+                    start.replace(codeNode);
+                    between.forEach(n => n.remove());
+                    top.remove(); // 当前结束 ```
+                    codeNode.insertAfter($createParagraphNode());
+                    return;
+                  }
+                }
+
+                // 3c) 同行：```code```
+                const mInlineFence = trimmed.match(/^```([\s\S]+)```$/);
+                if (mInlineFence) {
+                  const codeNode = $createCodeNode(undefined);
+                  codeNode.append($createTextNode(mInlineFence[1]));
+                  top.replace(codeNode);
+                  codeNode.insertAfter($createParagraphNode());
+                  return;
+                }
+              }
+
+              // ========= 4) 行内公式：$...$ =========
+              if (type !== 'code' && text.includes('$')) {
+                const regex = /\$([^$]+)\$/g;
+                // 若段内已包含 math-inline 子节点则跳过
+                const childrenOfTop: any[] = top?.getChildren?.() || [];
+                const hasMathChild = childrenOfTop.some((n: any) => n?.getType?.() === 'math-inline' || n?.getType?.() === 'math-block');
+                if (!hasMathChild) {
+                  let idx = 0, m: RegExpExecArray | null;
+                  const parts: Array<string | { math: string }> = [];
+                  while ((m = regex.exec(text)) !== null) {
+                    if (m.index > idx) parts.push(text.slice(idx, m.index));
+                    parts.push({ math: m[1] });
+                    idx = m.index + m[0].length;
+                  }
+                  if (parts.length) {
+                    if (idx < text.length) parts.push(text.slice(idx));
+                    top.clear();
+                    parts.forEach(seg => {
+                      if (typeof seg === 'string' && seg) top.append($createTextNode(seg));
+                      else top.append($createMathInlineNode((seg as any).math));
+                    });
+                    return;
+                  }
                 }
               }
             } finally {
@@ -426,8 +627,7 @@ function ReaderPage() {
   // 笔记停靠：overlay=覆盖左侧PDF；float=悬浮独立滚动
   const [noteDock, setNoteDock] = React.useState<'overlay' | 'float'>('overlay');
   // 编辑模式：wysiwyg（所见即所得）/ markdown（源码）
-  const [editMode, setEditMode] = React.useState<'wysiwyg' | 'markdown'>('wysiwyg');
-
+  const [editMode, setEditMode] = React.useState<'wysiwyg' | 'markdown' | 'toast'>('wysiwyg');
   // ---- Fixed-left editor bounds (match the left PDF column exactly) ----
   const [leftFixedStyle, setLeftFixedStyle] = React.useState<React.CSSProperties | null>(null);
   const updateLeftFixedStyle = React.useCallback(() => {
@@ -531,7 +731,17 @@ function ReaderPage() {
   const [noteMd, setNoteMd] = React.useState<string>("");
   const [noteSavedAt, setNoteSavedAt] = React.useState<string | null>(null);
   const noteTextRef = React.useRef<HTMLTextAreaElement | null>(null);
-
+  const toastRef = React.useRef<any>(null);
+  const toastExec = React.useCallback((cmd: string, payload?: any) => {
+    const inst = toastRef.current?.getInstance?.();
+    if (!inst) return;
+    try { inst.exec(cmd, payload); } catch {}
+  }, []);
+  const toastInsert = React.useCallback((text: string) => {
+    const inst = toastRef.current?.getInstance?.();
+    if (!inst) return;
+    try { inst.insertText(text); } catch {}
+  }, []);
   // 编辑器本地草稿与保存调度
   const noteDraftRef = React.useRef<string>("");
   const saveDebounceRef = React.useRef<number | null>(null);
@@ -719,12 +929,13 @@ function ReaderPage() {
     snapshotFromTextarea(el);
   };
 
-  const MiniToolbar: React.FC<{ editMode: 'wysiwyg' | 'markdown'; onToggleMode: () => void; }> = ({ editMode, onToggleMode }) => {
+  const MiniToolbar: React.FC<{ editMode: 'wysiwyg' | 'markdown' | 'toast'; onToggleMode: () => void; onSwitchToast: () => void; toastExec?: (cmd: string, payload?: any) => void; toastInsert?: (text: string) => void; }> =
+({ editMode, onToggleMode, onSwitchToast, toastExec, toastInsert }) => {
     const [showEmoji, setShowEmoji] = React.useState(false);
     const EMOJIS = ['✅','❓','💡','🔥','📌','⭐️','📝','⚠️','🚀','🙂','🤔','👍','👎'];
     const el = noteTextRef.current;
     const safe = (fn: () => void) => () => { if (noteTextRef.current) fn(); };
-    const isWysiwyg = !el;
+    const isWysiwyg = !el && editMode === 'wysiwyg';
     const wysi = (type: string, payload?: any) => {
       window.dispatchEvent(new CustomEvent("IP_WYSIWYG_CMD", { detail: { type, payload } }));
     };
@@ -732,7 +943,10 @@ function ReaderPage() {
       window.dispatchEvent(new CustomEvent("IP_WYSIWYG_INSERT_TEXT", { detail: { text } }));
     };
     const insertEmoji = (em: string) => {
-      if (!noteTextRef.current) { insertText(em); setShowEmoji(false); return; }
+      if (!noteTextRef.current) {
+        if (editMode === 'toast') { toastInsert?.(em); setShowEmoji(false); return; }
+        insertText(em); setShowEmoji(false); return;
+      }
       const el = noteTextRef.current; if (!el) return;
       const s = el.selectionStart ?? 0; const e = el.selectionEnd ?? s;
       const val = el.value; const next = val.slice(0, s) + em + val.slice(e);
@@ -745,17 +959,29 @@ function ReaderPage() {
       <div className="flex items-center gap-1 ml-2 text-sm">
         <span className="text-xs text-gray-400 mr-1">格式</span>
         <button className="px-2 py-0.5 border rounded text-amber-800 bg-amber-50 border-amber-300 hover:bg-amber-100"
-          onClick={() => { if (isWysiwyg) wysi('bold'); else safe(() => applyWrapDirect(noteTextRef.current!, '**', '**'))(); }}
+          onClick={() => { if (editMode === 'toast') { toastExec?.('bold'); }
+          else if (isWysiwyg) { wysi('bold'); }
+          else { safe(() => applyWrapDirect(noteTextRef.current!, '**', '**'))(); } }}
         >B</button>
         <button className="px-2 py-0.5 border rounded hover:bg-gray-50"
-          onClick={() => { if (isWysiwyg) wysi('italic'); else safe(() => applyWrapDirect(noteTextRef.current!, '*', '*'))(); }}
+          onClick={() => { if (editMode === 'toast') { toastExec?.('italic'); }
+          else if (isWysiwyg) { wysi('italic'); }
+          else { safe(() => applyWrapDirect(noteTextRef.current!, '*', '*'))(); } }}
         >I</button>
         <button className="px-2 py-0.5 border rounded text-emerald-800 bg-emerald-50 border-emerald-300 hover:bg-emerald-100"
-          onClick={() => { if (isWysiwyg) wysi('underline'); else safe(() => applyWrapDirect(noteTextRef.current!, '<u>', '</u>'))(); }}
+          onClick={() => { if (editMode === 'toast') { toastExec?.('underline'); }
+          else if (isWysiwyg) { wysi('underline'); }
+          else { safe(() => applyWrapDirect(noteTextRef.current!, '<u>', '</u>'))(); } }}
         >U</button>
         <button className="px-2 py-0.5 border rounded text-fuchsia-800 bg-fuchsia-50 border-fuchsia-300 hover:bg-fuchsia-100"
           onClick={() => {
+            if (editMode === 'toast') {
+              const url: string | null = window.prompt("输入链接地址（URL）", "https://");
+              if (url) toastExec?.('addLink', { url, target: '_blank' });
+              return;
+            }
             if (isWysiwyg) { wysi('link'); return; }
+            // —— 原先 textarea 分支保留 —— 
             const el = noteTextRef.current!;
             const s = el.selectionStart ?? 0; const e = el.selectionEnd ?? 0; const sel = el.value.slice(s, e) || '文本';
             const before = `[${sel}](链接)`; const next = el.value.slice(0, s) + before + el.value.slice(e);
@@ -766,10 +992,14 @@ function ReaderPage() {
           }}
         >📎</button>
         <button className="px-2 py-0.5 border text-xs rounded text-indigo-800 bg-indigo-50 border-indigo-300 hover:bg-indigo-100"
-          onClick={() => { if (isWysiwyg) wysi('ul'); else safe(() => applyUnorderedListDirect(noteTextRef.current!))(); }}
+          onClick={() => { if (editMode === 'toast') { toastExec?.('bulletList'); }
+          else if (isWysiwyg) { wysi('ul'); }
+          else { safe(() => applyUnorderedListDirect(noteTextRef.current!))(); } }}
         >• </button>
         <button className="px-2 py-0.5 border text-xs rounded text-rose-800 bg-rose-50 border-rose-300 hover:bg-rose-100"
-          onClick={() => { if (isWysiwyg) wysi('ol'); else safe(() => applyOrderedListDirect(noteTextRef.current!))(); }}
+          onClick={() => { if (editMode === 'toast') { toastExec?.('orderedList'); }
+          else if (isWysiwyg) { wysi('ol'); }
+          else { safe(() => applyOrderedListDirect(noteTextRef.current!))(); } }}
         >1. </button>
         <button className="px-2 py-0.5 border text-xs rounded text-slate-800 bg-slate-50 border-slate-300 hover:bg-slate-100" onClick={safe(() => handlePickImage())}>图</button>
         <div className="relative">
@@ -789,6 +1019,13 @@ function ReaderPage() {
         >
           {editMode === 'wysiwyg' ? '源码' : '所见即所得'}
         </button>
+        <button
+        className="px-2 py-0.5 border rounded text-xs"
+        title={editMode === 'toast' ? '切回所见即所得' : '切换到 Toast UI 编辑器'}
+        onClick={onSwitchToast}
+      >
+        {editMode === 'toast' ? '所见即所得' : 'Toast'}
+      </button>
       </div>
     );
   };
@@ -1344,20 +1581,40 @@ function ReaderPage() {
       <Head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@toast-ui/editor/dist/toastui-editor.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.min.css" />
         <script defer src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-light.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css" />
         <link rel="stylesheet" href="/css/reader.css" />
         <style>{`
+          .note-textarea { padding-bottom: 24vh !important; }
           .ip-underline { text-decoration: underline; }
           .ip-bold { font-weight: 600; }
           .ip-italic { font-style: italic; }
           .ip-strike { text-decoration: line-through; }
+          .toastui-editor-contents::after { content: ""; display: block; height: 24vh; }
           .ip-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background:#f6f8fa; padding:0 .2em; border-radius:3px; }
           .ip-link { text-decoration: underline; }
           .ip-math-inline { display: inline-block; vertical-align: middle; }
           .ip-math-block { display: block; margin: .5rem 0; }
-          
+          /* 默认显示渲染，隐藏源码 */
+          .ip-math-inline .math-raw { display: none; }
+          .ip-math-block .math-raw { display: none; }
+          .ip-editor-root::after { content: ""; display: block; height: 24vh; }
+          /* 当前编辑段落：显示源码，隐藏渲染 */
+          .editing-paragraph .ip-math-inline .katex-view { display: none; }
+          .editing-paragraph .ip-math-inline .math-raw { display: inline; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+          .editing-paragraph .ip-math-block .katex-view { display: none; }
+          .editing-paragraph .ip-math-block .math-raw { display: block; white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+          /* 在编辑段落里给常见 Markdown 样式加可视化边界符（不改变文档内容） */
+          .editing-paragraph strong::before, .editing-paragraph strong::after { content: "**"; opacity: .6; }
+          .editing-paragraph em::before, .editing-paragraph em::after { content: "*"; opacity: .6; }
+          .editing-paragraph del::before, .editing-paragraph del::after { content: "~~"; opacity: .6; }
+          .editing-paragraph code:not(pre code)::before,
+          .editing-paragraph code:not(pre code)::after { content: "\`"; opacity: .7; }
+          .editing-paragraph pre::before { content: "\`\`\`"; display: block; opacity: .7; }
+          .editing-paragraph pre::after { content: "\`\`\`"; display: block; opacity: .7; }
         `}</style>
       </Head>
 
@@ -1477,16 +1734,25 @@ function ReaderPage() {
             >
               {/* 顶部工具栏 */}
               <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/95">
-                <MiniToolbar
-                  editMode={editMode}
-                  onToggleMode={() => {
-                    setEditMode((m) => {
-                      const nxt = m === 'wysiwyg' ? 'markdown' : 'wysiwyg';
-                      if (nxt === 'wysiwyg') setEditorKey((k) => k + 1); // 重新挂载 WYSIWYG，使用最新 markdown
-                      return nxt;
-                    });
-                  }}
-                />
+              <MiniToolbar
+                editMode={editMode}
+                onToggleMode={() => {
+                  setEditMode((m) => {
+                    const nxt = m === 'wysiwyg' ? 'markdown' : 'wysiwyg';
+                    if (nxt === 'wysiwyg') setEditorKey((k) => k + 1);
+                    return nxt;
+                  });
+                }}
+                onSwitchToast={() => {
+                  setEditMode((m) => {
+                    const nxt = m === 'toast' ? 'wysiwyg' : 'toast';
+                    setEditorKey((k) => k + 1); // 强制重挂载以载入最新内容
+                    return nxt;
+                  });
+                }}
+                toastExec={toastExec}
+                toastInsert={toastInsert}
+              />
                 <div className="ml-auto flex items-center gap-2">
                   <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={() => exportMarkdown(api, Number(id))}>导出 .md</button>
                   <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>关闭</button>
@@ -1495,30 +1761,51 @@ function ReaderPage() {
               {/* 内容区：占满左列 */}
               <div className="flex-1 min-h-0 flex flex-col">
                 <div className="min-w-0 min-h-0 flex-1 overflow-auto">
-                  {editMode === 'wysiwyg' ? (
-                    <WysiwygMdEditor
-                      key={editorKey}
-                      initialMarkdown={noteDraftRef.current || noteMd}
-                      onMarkdownChange={(md) => {
+                {editMode === 'wysiwyg' ? (
+                <WysiwygMdEditor
+                  key={editorKey}
+                  initialMarkdown={noteDraftRef.current || noteMd}
+                  onMarkdownChange={(md) => {
+                    noteDraftRef.current = md;
+                    queueSave();
+                  }}
+                />
+              ) : editMode === 'toast' ? (
+                <div className="h-full">
+                  <TuiEditor
+                    ref={toastRef}
+                    key={`toast-${editorKey}`}
+                    initialValue={(noteDraftRef.current || noteMd || '')}
+                    initialEditType="markdown"
+                    previewStyle="tab"
+                    usageStatistics={false}
+                    height="100%"
+                    plugins={[(codeSyntaxHighlight as any)]}
+                    onChange={() => {
+                      try {
+                        const inst = (toastRef.current as any)?.getInstance?.();
+                        const md = inst?.getMarkdown?.() || '';
                         noteDraftRef.current = md;
                         queueSave();
-                      }}
-                    />
-                  ) : (
-                    <textarea
-                      ref={noteTextRef}
-                      className="w-full h-full p-3 font-mono text-sm outline-none"
-                      defaultValue={noteDraftRef.current || noteMd}
-                      onChange={(e) => {
-                        noteDraftRef.current = e.target.value;
-                        queueSave();
-                      }}
-                      onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
-                      onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
-                      spellCheck={false}
-                      placeholder="在此直接编辑 Markdown 源码（支持 **粗体**、`行内代码`、``` 代码块 ```、$\\LaTeX$ 与 $$块级公式$$）"
-                    />
-                  )}
+                      } catch {}
+                    }}
+                  />
+                </div>
+              ) : (
+                <textarea
+                  ref={noteTextRef}
+                  className="w-full h-full p-3 font-mono text-sm outline-none note-textarea"
+                  defaultValue={noteDraftRef.current || noteMd}
+                  onChange={(e) => {
+                    noteDraftRef.current = e.target.value;
+                    queueSave();
+                  }}
+                  onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                  onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                  spellCheck={false}
+                  placeholder="在此直接编辑 Markdown 源码（支持 **粗体**、`行内代码`、``` 代码块 ```、$\\LaTeX$ 与 $$块级公式$$）"
+                />
+              )}
                 </div>
               </div>
             </div>
