@@ -638,6 +638,7 @@ export default function Library() {
     const [hoverPreviewId, setHoverPreviewId] = React.useState<number | null>(null);
     const [hoverPreviewRect, setHoverPreviewRect] = React.useState<DOMRect | null>(null);
     const [hoveringPreview, setHoveringPreview] = React.useState(false);
+    const [showWordCloud, setShowWordCloud] = React.useState(false);
     const hoverTimer = React.useRef<number | null>(null);
 
     const handlePreviewHover = (id: number | null, rect?: DOMRect) => {
@@ -1082,6 +1083,12 @@ export default function Library() {
                           >
                           通过 DOI 添加
                           </button>
+                    <button
+                      className="text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50"
+                      onClick={() => setShowWordCloud(v => !v)}
+                    >
+                      {showWordCloud ? "关闭词云" : "显示词云"}
+                    </button>
                     </div>
                 </div>
 
@@ -1266,11 +1273,9 @@ export default function Library() {
                         </div>
                     </div>
 
-                    {/* 右侧：预览 / 摘要 / 词云 */}
+                    {/* 右侧：预览 / 摘要 */}
                     <div className="space-y-4">
                         <AbstractNotePanel paper={selectedId ? papers.find(p => p.id === selectedId) || null : null} />
-                        {/* 词云 */}
-                        <WordCloudPanel papers={displayPapers} tags={tags} />
                     </div>
                 </div>
 
@@ -1383,6 +1388,19 @@ export default function Library() {
             </div>
           );
         })() : null}
+        {showWordCloud && (
+          <div className="fixed z-[140] bottom-4 right-4 w-[560px] max-h-[70vh]">
+            <div className="rounded-2xl border bg-white shadow-2xl overflow-hidden">
+              <div className="px-3 py-2 border-b bg-gradient-to-r from-emerald-50 to-teal-50 flex items-center">
+                <div className="text-sm font-medium">词云</div>
+                <button className="ml-auto text-xs px-2 py-1 rounded border" onClick={() => setShowWordCloud(false)}>关闭</button>
+              </div>
+              <div className="p-2">
+                <WordCloudPanel papers={displayPapers} tags={tags} />
+              </div>
+            </div>
+          </div>
+        )}
         </DndContext>
     );
 }
