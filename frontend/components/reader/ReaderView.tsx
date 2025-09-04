@@ -144,6 +144,81 @@ function renderMathInToast(root?: HTMLElement | null) {
       ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
     });
   } catch {}
+  // After math render, collapse long data URLs
+  console.log("[IP] renderMathInToast: calling maskToastDataUrls");
+  try { maskToastDataUrls(container); } catch {}
+}
+
+// —— Visually collapse data:image/...;base64,... URLs in Markdown editor (Toast) ——
+function maskToastDataUrls(root?: HTMLElement | null) {
+  // Prefer the editor root (defaultUI). If we were given the preview .toastui-editor-contents,
+  // climb up to the editor root so we can see the Markdown token spans, too.
+  const editorRoot =
+    (root && (root.matches?.(".toastui-editor-defaultUI")
+      ? root
+      : (root.closest?.(".toastui-editor-defaultUI") as HTMLElement | null))) ||
+    (document.querySelector(".toastui-editor-defaultUI") as HTMLElement | null);
+
+  console.log("[IP] maskToastDataUrls: start", {
+    hasRoot: !!root,
+    editorRootFound: !!editorRoot,
+    givenRootClass: root ? (root.className || "").toString() : "(none)",
+  });
+  if (!editorRoot) return;
+
+  // Candidates:
+  //  - Markdown tokenized URL spans: .toastui-editor-md-link-url
+  //  - WYSIWYG URL tokens (in case): .toastui-editor-ww-link-url
+  //  - As a fallback, also look at <a href="data:...">
+  const urls = editorRoot.querySelectorAll<HTMLElement>(
+    ".toastui-editor-md-link-url, .toastui-editor-ww-link-url, a[href^='data:']"
+  );
+  console.log("[IP] maskToastDataUrls: candidates", { count: urls.length });
+
+  urls.forEach((el, idx) => {
+    if (el.classList.contains("ip-url-data")) return; // already processed
+    const rawTxt = (el.tagName.toLowerCase() === "a" ? (el.getAttribute("href") || "") : (el.textContent || ""));
+    // Allow leading quotes / parentheses in Markdown tokens, but for <a> we read href directly.
+    const m = rawTxt.match(/^\s*["'(]?(data:[a-z0-9.+-]+\/[a-z0-9.+-]+;base64,)([A-Za-z0-9+/=]+)([^"')\s]*)?/i);
+    console.log("[IP] maskToastDataUrls: inspect", {
+      idx,
+      tag: el.tagName.toLowerCase(),
+      class: el.className,
+      sample: rawTxt.slice(0, 60),
+      matched: !!m,
+      groups: m ? { p: m[1]?.slice(0, 40), b64len: m[2]?.length || 0, suff: m[3] || "" } : null,
+    });
+    if (m) {
+      const prefix = m[1];
+      const b64 = m[2] || "";
+      const suffix = m[3] || "";
+      el.classList.add("ip-url-data");
+      el.setAttribute("title", rawTxt); // keep full value on hover
+
+      // For <a>, also update its textContent to show only prefix+suffix (href 保持不变)
+      if (el.tagName.toLowerCase() === "a") {
+        // Replace inner text with a split structure
+        while (el.firstChild) el.removeChild(el.firstChild);
+      } else {
+        // Markdown token span: also rebuild children
+        while (el.firstChild) el.removeChild(el.firstChild);
+      }
+      const s1 = document.createElement("span");
+      s1.className = "ip-url-prefix";
+      s1.textContent = prefix;
+      const s2 = document.createElement("span");
+      s2.className = "ip-url-b64"; // hidden by CSS
+      s2.textContent = b64;
+      s2.setAttribute("style", "display:none"); // runtime safety: hide even if CSS not applied
+      const s3 = document.createElement("span");
+      s3.className = "ip-url-suffix";
+      s3.textContent = suffix;
+      el.appendChild(s1);
+      el.appendChild(s2);
+      el.appendChild(s3);
+      console.log("[IP] maskToastDataUrls: masked", { idx, shown: s1.textContent + s3.textContent, hiddenLen: b64.length });
+    }
+  });
 }
 // —— Convert a subset of HTML to Markdown (fallback path to preserve formatting) ——
 function htmlToMarkdown(html: string): string {
@@ -868,6 +943,8 @@ const refreshToastDecorationsAfterUpdate = React.useCallback(() => {
       requestAnimationFrame(() => {
         decoPhaseRef.current = true;
         renderMathInToast(toastRootRef.current || undefined);
+        console.log("[IP] refreshToastDecorationsAfterUpdate: calling maskToastDataUrls");
+        try { maskToastDataUrls(toastRootRef.current || undefined); } catch {}
         decoPhaseRef.current = false;
         if (findOpen && findQ) {
           applyFindHighlights();
@@ -901,7 +978,9 @@ const redecorateSoon = React.useCallback(() => {
   // 兼容 ToastUI 偶发延迟：再追加几次轻量重试
   [50, 120, 250, 400].forEach((ms) => {
     window.setTimeout(() => {
+      console.log("[IP] redecorateSoon retry", ms, ": calling maskToastDataUrls");
       try { forceToastPreviewSync(); } catch {}
+      try { maskToastDataUrls(toastRootRef.current || undefined); } catch {}
       try { applyFindHighlights(); } catch {}
     }, ms);
   });
@@ -1165,11 +1244,13 @@ React.useEffect(() => {
     moTimerRef.current = window.setTimeout(() => {
       // 先把编辑器真实 Markdown 同步回模型（覆盖不触发 onChange 的修改，如 exec/insertText）
       try { syncToastModelFromInst(); } catch {}
-    
+
       // 任何内容变更先刷新数学，再按需刷新高亮（不用等空闲）
       try {
         decoPhaseRef.current = true;
         renderMathInToast(toastRootRef.current || undefined);
+        console.log("[IP] MutationObserver: calling maskToastDataUrls");
+        try { maskToastDataUrls(toastRootRef.current || undefined); } catch {}
       } finally {
         decoPhaseRef.current = false;
       }
@@ -2018,6 +2099,12 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           .ip-find-hit { background:rgba(255,230,0,.45); border-radius:2px; box-shadow:0 0 0 1px rgba(250,204,21,.5) inset; }
           .ip-find-hit--active { background:rgba(255,170,0,.5); outline:2px solid rgba(251,146,60,.9); }
           .ip-find-mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+          /* 1) Always hide the base64 payload span (JS also sets inline style as safety) */
+          .toastui-editor-defaultUI .ip-url-b64{ display:none !important; }
+          /* 2) Optionally hide the entire URL token element when it is a data URL (we add .ip-url-data on that node) */
+          .toastui-editor-defaultUI .ip-url-data{ display:none !important; }
+          /* 3) Keep the visible prefix monospace if we ever choose not to hide the whole token */
+          .toastui-editor-defaultUI .ip-url-prefix{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
         `}</style>
       </Head>
 
