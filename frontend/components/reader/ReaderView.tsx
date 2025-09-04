@@ -11,7 +11,7 @@ import { getByPaper, upsertByPaper, exportMarkdown } from "@/lib/richNoteApi";
 // 动态组件
 const PdfPane = dynamic(() => import("@/components/PdfPane"), { ssr: false });
 const TuiEditor: any = dynamic(
-  () => import("@toast-ui/react-editor").then((m: any) => m.Editor),
+  () => import("@toast-ui/react-editor").then((m: any) => m.default || m.Editor),
   { ssr: false }
 );
 
@@ -144,6 +144,28 @@ function renderMathInToast(root?: HTMLElement | null) {
       ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
     });
   } catch {}
+}
+// —— Safely read Toast UI Editor content（避免空读） ——
+function readToastMarkdown(inst?: any, previewHost?: HTMLElement | null): string {
+  try {
+    const md = inst?.getMarkdown?.();
+    if (typeof md === "string" && md.length) return md;
+  } catch {}
+  try {
+    const html = inst?.getHTML?.();
+    if (typeof html === "string" && html.trim()) {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = html;
+      tmp.querySelectorAll("br").forEach((br) => (br.outerHTML = "\n"));
+      const txt = (tmp.textContent || "").replace(/\u00A0/g, " ");
+      if (txt.trim()) return txt;      // 退化为纯文本也比“空”强
+    }
+  } catch {}
+  if (previewHost) {
+    const txt = (previewHost.innerText || "").replace(/\u00A0/g, " ");
+    if (txt.trim()) return txt;
+  }
+  return "";
 }
 export default function ReaderView() {
   const toastRootRef = React.useRef<HTMLDivElement | null>(null);
@@ -423,21 +445,25 @@ export default function ReaderView() {
 const pullLatestMarkdown = React.useCallback((): string => {
   let next = noteDraftRef.current || "";
   try {
-    const inst = toastRef.current?.getInstance?.();
-    if (inst && editMode === "toast") {
-      const md = inst.getMarkdown?.() ?? "";
-      next = typeof md === "string" ? md : "";
+    if (editMode === "toast") {
+      const inst = toastRef.current?.getInstance?.();
+      const previewHost = toastRootRef.current?.querySelector(".toastui-editor-contents") as HTMLElement | null;
+      const md = readToastMarkdown(inst, previewHost);
+      // 不要用空字符串把已有内容盖掉
+      if (typeof md === "string" && (md.length > 0 || next.length === 0)) {
+        next = md;
+      }
     } else if (noteTextRef.current && editMode === "markdown") {
       next = noteTextRef.current.value || "";
     }
   } catch (e) {
-    console.warn("[ReaderView] pullLatestMarkdown error:", e);
+    console.log("[ReaderView] pullLatestMarkdown error:", e);
   }
   if (next !== noteDraftRef.current) {
     console.log("[ReaderView] pullLatestMarkdown -> sync ref", { len: next.length });
+    noteDraftRef.current = next;
+    mdHasDollarRef.current = next.indexOf("$") !== -1;
   }
-  noteDraftRef.current = next;
-  mdHasDollarRef.current = next.indexOf("$") !== -1;
   return next;
 }, [editMode]);
   // ===== Toast 查找/替换（仅在 editMode === 'toast' 时启用） =====
@@ -722,7 +748,7 @@ const saveLocalDraft = React.useCallback((content: string) => {
     (path: string) => (apiBase ? `${apiBase}${path}` : path),
     [apiBase]
   );
-  const queueSave = React.useCallback(() => {
+  const queueSave = React.useCallback((override?: string) => {
     if (!contentReadyRef.current) {
       console.log("[ReaderView] queueSave blocked: content not ready");
       return;
@@ -744,7 +770,7 @@ const saveLocalDraft = React.useCallback((content: string) => {
         const ctrl = new AbortController();
         saveAbortRef.current = ctrl;
   
-        const latest = pullLatestMarkdown();
+        const latest = (typeof override === "string") ? override : pullLatestMarkdown();
         console.log("[ReaderView] saving...", { id, len: latest.length });
   
         const saved = await upsertByPaper(api, Number(id), latest);
@@ -766,7 +792,8 @@ const saveLocalDraft = React.useCallback((content: string) => {
     const inst = toastRef.current?.getInstance?.();
     if (!inst) return;
     try {
-      const md = inst.getMarkdown?.() || "";
+      const previewHost = toastRootRef.current?.querySelector(".toastui-editor-contents") as HTMLElement | null;
+      const md = readToastMarkdown(inst, previewHost);
       if (md !== noteDraftRef.current) {
         const prevLen = (noteDraftRef.current || "").length;
         noteDraftRef.current = md;
@@ -774,10 +801,10 @@ const saveLocalDraft = React.useCallback((content: string) => {
         dirtyRef.current = true;
         try { saveLocalDraft(md); } catch {}
         console.log("[ReaderView] syncToastModelFromInst", { prevLen, nextLen: md.length });
-        queueSave();
+        queueSave(md);
       }
     } catch (e) {
-      console.warn("[ReaderView] syncToastModelFromInst error", e);
+      console.log("[ReaderView] syncToastModelFromInst error", e);
     }
   }, [queueSave, saveLocalDraft]);
 const toastExec = React.useCallback((cmd: string, payload?: any) => {
@@ -1018,7 +1045,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
       const ctrl = new AbortController();
       saveAbortRef.current = ctrl;
   
-      const latest = pullLatestMarkdown();
+      const latest = noteDraftRef.current || pullLatestMarkdown();
       console.log("[ReaderView] exportNow -> upsert before export", { id, len: latest.length });
       await upsertByPaper(api, Number(id), latest);
       lastServerContentRef.current = latest;
@@ -1889,24 +1916,23 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                         height="100%"
                         plugins={tuiPlugins as any}
                         onChange={() => {
-                          if (!contentReadyRef.current) return; // 数据未就绪，直接忽略
+                          if (!contentReadyRef.current) return;
                           try {
                             const inst = (toastRef.current as any)?.getInstance?.();
-                            const md = inst?.getMarkdown?.() || "";
+                            const previewHost = toastRootRef.current?.querySelector(".toastui-editor-contents") as HTMLElement | null;
+                            const md = readToastMarkdown(inst, previewHost);
+                        
                             const prevLen = (noteDraftRef.current || "").length;
                             noteDraftRef.current = md;
                             mdHasDollarRef.current = md.indexOf("$") !== -1;
                             console.log("[ReaderView] TUI onChange", { prevLen, nextLen: md.length, suppress: suppressSaveRef.current });
-                          
-                            if (suppressSaveRef.current) {
-                              // 首次挂载触发的一次 onChange 也允许排一次保存，避免“保存空内容”
-                              suppressSaveRef.current = false;
-                            }
+                        
+                            if (suppressSaveRef.current) suppressSaveRef.current = false;
                             dirtyRef.current = true;
                             try { saveLocalDraft(md); } catch {}
-                            queueSave();
+                            queueSave(md);                          // ← 关键：不再“再读一次”，直接传
                           } catch (e) {
-                            console.warn("[ReaderView] TUI onChange read markdown failed", e);
+                            console.log("[ReaderView] TUI onChange read markdown failed", e);
                           }
                           scheduleRenderToastMath();
                           if (findOpen && findQ) scheduleApplyFindHighlights();
