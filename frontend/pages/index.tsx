@@ -42,7 +42,7 @@ function AuroraBG({ enabled = true }: { enabled?: boolean }) {
 function FancyTabs() {
   const [hover, setHover] = React.useState<string | null>(null);
   return (
-    <div className="relative inline-flex items-center gap-2 p-1 rounded-2xl border bg-white/70 backdrop-blur shadow-sm">
+    <div className="relative inline-flex items-center gap-1.5 p-1 rounded-2xl border bg-white/70 backdrop-blur shadow-sm max-w-full flex-nowrap overflow-x-auto">
       {TABS.map((t) => {
         const Icon = t.icon as any;
         const active = hover === t.key;
@@ -50,7 +50,7 @@ function FancyTabs() {
           <a
             key={t.key}
             href={t.href}
-            className="relative"
+            className="relative inline-flex shrink-0 group"
             onMouseEnter={() => setHover(t.key)}
             onMouseLeave={() => setHover(null)}
           >
@@ -67,13 +67,13 @@ function FancyTabs() {
               )}
             </AnimatePresence>
             <div
-              className={`relative z-10 flex items-center gap-2 px-3 py-2 rounded-xl transition-colors ${
-                active ? "text-white" : "text-gray-700 hover:text-gray-900"
+              className={`relative z-10 flex items-center gap-1.5 px-3 py-2 rounded-xl transition-colors whitespace-nowrap ${
+                active ? "text-white" : "text-gray-900 hover:text-gray-900"
               }`}
             >
-              <Icon className="w-4 h-4" />
-              <span className="text-sm font-medium">{t.label}</span>
-              <ChevronRight className={`w-3.5 h-3.5 ${active ? "opacity-100" : "opacity-0 group-hover:opacity-100"} transition`} />
+              <Icon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+              <span className="text-xs md:text-sm font-medium">{t.label}</span>
+              <ChevronRight className={`w-3.5 h-3.5 flex-none ${active ? "opacity-100" : "opacity-0 group-hover:opacity-100"} transition`} />
             </div>
           </a>
         );
