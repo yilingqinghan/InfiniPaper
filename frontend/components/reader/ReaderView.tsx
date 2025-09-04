@@ -447,8 +447,27 @@ const moRef = React.useRef<MutationObserver | null>(null);
 const moTimerRef = React.useRef<number | null>(null);
 
 const getToastContentHost = React.useCallback(() => {
-  const root = toastRootRef.current;
-  return root ? root.querySelector<HTMLElement>(".toastui-editor-contents") : null;
+  // Prefer the Markdown preview container inside the default UI
+  const root = toastRootRef.current || (typeof document !== 'undefined' ? document.body : null);
+  if (!root) return null;
+  const defaultUI = (root.querySelector?.('.toastui-editor-defaultUI') as HTMLElement | null)
+    || (root.closest?.('.toastui-editor-defaultUI') as HTMLElement | null)
+    || (typeof document !== 'undefined' ? document.querySelector('.toastui-editor-defaultUI') as HTMLElement | null : null);
+
+  const prefer = defaultUI?.querySelector?.('.toastui-editor-md-preview .toastui-editor-contents') as HTMLElement | null;
+  if (prefer) return prefer;
+
+  // Fallback: choose the largest contents node under the editor root
+  const scope: ParentNode = (defaultUI || root);
+  const all = Array.from(scope.querySelectorAll<HTMLElement>('.toastui-editor-contents'));
+  if (all.length) {
+    all.sort((a, b) => (b.scrollHeight * b.clientWidth) - (a.scrollHeight * a.clientWidth));
+    return all[0];
+  }
+
+  // Ultimate fallback: global search
+  const glob = Array.from((document || ({} as any)).querySelectorAll?.('.toastui-editor-md-preview .toastui-editor-contents, .toastui-editor-contents') || []) as HTMLElement[];
+  return glob.length ? glob[0] : null;
 }, []);
 
 const compileFind = React.useCallback(() => {
@@ -489,6 +508,8 @@ const applyFindHighlights = React.useCallback(() => {
   if (editMode !== "toast") return;
   if (!findOpen || !findQ) { clearFindHighlights(); return; }
   const host = getToastContentHost();
+  // NEW: 开始扫描前确保预览 DOM 是最新
+  try { forceToastPreviewSync(); } catch {}
   if (!host) return;
   clearFindHighlights(host);
   const re = compileFind();
@@ -566,24 +587,6 @@ const scheduleApplyFindHighlights = React.useCallback(() => {
   }
   findScheduleRef.current = window.setTimeout(() => applyFindHighlights(), 16);
 }, [applyFindHighlights, findOpen, findQ]);
-
-// Re-apply math & highlights after Toast UI DOM update (wait for DOM commit)
-const refreshToastDecorationsAfterUpdate = React.useCallback(() => {
-  // TUI setMarkdown -> internal render is async. Triple rAF to wait for DOM commit.
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        decoPhaseRef.current = true;
-        renderMathInToast(toastRootRef.current || undefined);
-        decoPhaseRef.current = false;
-        if (findOpen && findQ) {
-          applyFindHighlights();
-        }
-      });
-    });
-  });
-}, [applyFindHighlights, findOpen, findQ]);
-// 强制同步 Toast 预览（有些环境 setMarkdown 不会立刻刷新预览区）
 const forceToastPreviewSync = React.useCallback(() => {
   const inst = toastRef.current?.getInstance?.();
   const host = getToastContentHost();
@@ -598,6 +601,45 @@ const forceToastPreviewSync = React.useCallback(() => {
     }
   } catch {}
 }, [getToastContentHost]);
+// Re-apply math & highlights after Toast UI DOM update (wait for DOM commit)
+const refreshToastDecorationsAfterUpdate = React.useCallback(() => {
+  // TUI setMarkdown -> internal render is async.
+  // 先强制把预览区同步，再等 DOM commit 后做 KaTeX 和高亮。
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        // NEW: 先让预览 HTML 与编辑器状态对齐
+        try { forceToastPreviewSync(); } catch {}
+        // 再渲染数学
+        try {
+          decoPhaseRef.current = true;
+          renderMathInToast(toastRootRef.current || undefined);
+        } finally {
+          decoPhaseRef.current = false;
+        }
+        // 最后根据最新 DOM 重新做查找高亮
+        if (findOpen && findQ) {
+          applyFindHighlights();
+        }
+      });
+    });
+  });
+}, [applyFindHighlights, findOpen, findQ, forceToastPreviewSync]);
+
+const redecorateSoon = React.useCallback(() => {
+  // Run once now
+  refreshToastDecorationsAfterUpdate();
+  // Then retry a few times in case Toast's preview commits late
+  if (!(findOpen && findQ)) return;
+  [50, 120, 250, 400].forEach((ms) => {
+    window.setTimeout(() => {
+      try { forceToastPreviewSync(); } catch {}
+      applyFindHighlights();
+    }, ms);
+  });
+}, [applyFindHighlights, refreshToastDecorationsAfterUpdate, findOpen, findQ, forceToastPreviewSync]);
+// 强制同步 Toast 预览（有些环境 setMarkdown 不会立刻刷新预览区）
+
 // Activate-only: highlighs the current hit, no recompute
 const activateCurrentHit = React.useCallback(() => {
   const hits = findHitsRef.current;
@@ -747,11 +789,12 @@ const replaceOneAt = React.useCallback((index: number) => {
   const next = text.slice(0, s) + replaced + text.slice(e);
   noteDraftRef.current = next;
   try { toastRef.current?.getInstance?.()?.setMarkdown?.(next); } catch {}
+  try { forceToastPreviewSync(); } catch {}
+  redecorateSoon();
   mdHasDollarRef.current = next.indexOf("$") !== -1;
   dirtyRef.current = true;
   saveLocalDraft(next);
   queueSave();
-  refreshToastDecorationsAfterUpdate();
   return 1;
 }, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex, refreshToastDecorationsAfterUpdate]);
 
@@ -781,11 +824,14 @@ const replaceAll = React.useCallback(() => {
   if (!changed) return 0;
   noteDraftRef.current = out;
   try { toastRef.current?.getInstance?.()?.setMarkdown?.(out); } catch {}
+  // NEW: 让预览立刻反映最新 markdown，然后再做数学与高亮
+  try { forceToastPreviewSync(); } catch {}
+  redecorateSoon();
   mdHasDollarRef.current = out.indexOf("$") !== -1;
   dirtyRef.current = true;
   saveLocalDraft(out);
   queueSave();
-  refreshToastDecorationsAfterUpdate();
+  // refreshToastDecorationsAfterUpdate(); // removed duplicate
   return 1;
 }, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex, refreshToastDecorationsAfterUpdate]);
 
@@ -843,7 +889,18 @@ React.useEffect(() => {
 const [contentReady, setContentReady] = React.useState(false);
 const contentReadyRef = React.useRef(false);
 const suppressSaveRef = React.useRef(true); // 首次挂载/切换模式后，忽略编辑器初始化 onChange
-
+const hardReloadFromServer = React.useCallback(async () => {
+  if (!id) return;
+  try {
+    await upsertByPaper(api, Number(id), noteDraftRef.current || "");
+    const got = await getByPaper(api, Number(id));
+    const txt = got?.content || "";
+    noteDraftRef.current = txt;
+    try { toastRef.current?.getInstance?.()?.setMarkdown?.(txt); } catch {}
+    try { forceToastPreviewSync(); } catch {}
+    refreshToastDecorationsAfterUpdate();
+  } catch {}
+}, [id, api, refreshToastDecorationsAfterUpdate]);
 // 每次重新挂载编辑器（切模式或 editorKey 变）都抑制一次“首帧保存”
 React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]);
 
@@ -1747,7 +1804,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                 <div className="ml-auto flex items-center gap-2">
                 <button
                   className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
-                  onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) refreshToastDecorationsAfterUpdate(); }}
+                  onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) redecorateSoon(); }}
                 >
                   查找/替换
                 </button>
@@ -1837,6 +1894,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                               queueSave();
                             }
                           } catch {}
+                          try { forceToastPreviewSync(); } catch {}
                           scheduleRenderToastMath();
                           if (findOpen && findQ) scheduleApplyFindHighlights();
                         }}
