@@ -3,6 +3,15 @@ import withReactContent from "sweetalert2-react-content";
 import SwalCore from "sweetalert2";
 const Swal = withReactContent(SwalCore);
 
+// 简单的 fetch 封装，返回 JSON，非 2xx 会 throw
+async function j<T = any>(url: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(url, init);
+  if (!res.ok) {
+    throw new Error(`Request failed: ${res.status} ${res.statusText}`);
+  }
+  return res.json() as Promise<T>;
+}
+
 const NOTE_SECTIONS = [
   { key: "innovation", label: "创新点" },
   { key: "motivation", label: "动机" },
@@ -19,6 +28,10 @@ type NoteSections = {
   limits: string;
 };
 
+function escapeRegExp(s: string) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function parseStructuredNote(raw: string): NoteSections {
   const result: NoteSections = {
     innovation: "",
@@ -29,24 +42,40 @@ function parseStructuredNote(raw: string): NoteSections {
   };
   if (!raw) return result;
 
-  // Build a regex that captures each labeled section until the next label or end.
-  // Accept both Chinese colon `：` and ASCII `:` after labels.
-  const labelGroup = NOTE_SECTIONS.map(s => s.label).join("|");
-  const re = new RegExp(`(?:^|\n)\s*((${labelGroup}))\s*[：:]\s*([\s\S]*?)(?=(?:\n\s*(?:${labelGroup})\s*[：:]|$))`, "g");
-  let matched = false;
-  for (const m of raw.matchAll(re)) {
-    matched = true;
+  // Normalize line breaks: CRLF/CR -> LF
+  const text = raw.replace(/\r\n?/g, "\n");
+
+  // Build a single-line matcher for label lines
+  const labelGroup = NOTE_SECTIONS.map(s => escapeRegExp(s.label)).join("|");
+  const headingRe = new RegExp(`^\n?\s*(${labelGroup})\s*[：:]\s*`, "gm");
+
+  // Find all headings with their start offsets
+  const hits: Array<{ label: string; start: number; endOfHeading: number }> = [];
+  let m: RegExpExecArray | null;
+  while ((m = headingRe.exec(text)) !== null) {
     const label = m[1];
-    const content = m[3].trim();
-    const entry = NOTE_SECTIONS.find(s => s.label === label);
+    const endOfHeading = headingRe.lastIndex; // content starts here
+    const start = m.index;
+    hits.push({ label, start, endOfHeading });
+  }
+
+  if (hits.length === 0) {
+    // No headings detected; put everything into 方法简述 作为回退
+    result.method = text.trim();
+    return result;
+  }
+
+  // Walk headings and slice content between them
+  for (let i = 0; i < hits.length; i++) {
+    const cur = hits[i];
+    const nextStart = (i + 1 < hits.length) ? hits[i + 1].start : text.length;
+    const content = text.slice(cur.endOfHeading, nextStart).trim();
+    const entry = NOTE_SECTIONS.find(s => s.label === cur.label);
     if (entry) {
       (result as any)[entry.key] = content;
     }
   }
-  // If no labeled sections were found, put the whole note into “方法简述”作为回退
-  if (!matched) {
-    result.method = raw.trim();
-  }
+
   return result;
 }
 
@@ -54,6 +83,31 @@ function buildStructuredNote(sections: NoteSections): string {
   return NOTE_SECTIONS
     .map(s => `${s.label}：${(sections as any)[s.key] || ""}`)
     .join("\n\n");
+}
+
+// 轻量日志工具
+const dbg = (...args: any[]) => { try { console.debug('[AbstractNotePanel]', ...args); } catch {} };
+
+async function fetchNoteContent(paperId: number): Promise<string> {
+  const url = `${apiBase}/api/v1/papers/${paperId}/note`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`GET note failed: ${res.status}`);
+    const ct = res.headers.get('content-type') || '';
+    if (ct.includes('application/json')) {
+      const data: any = await res.json();
+      // 兼容多种返回结构：{content}, {note}, {data:{content}}
+      const v = data?.content ?? data?.note ?? data?.data?.content ?? data?.data?.note;
+      return typeof v === 'string' ? v : '';
+    } else {
+      // 兼容 text/plain
+      const text = await res.text();
+      return text ?? '';
+    }
+  } catch (e) {
+    dbg('fetchNoteContent error', e);
+    return '';
+  }
 }
 
 type Paper = {
@@ -74,21 +128,32 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
       limits: "",
     });
     const [absDraft, setAbsDraft] = React.useState("");
+    const [saving, setSaving] = React.useState(false);
+    const [lastSavedAt, setLastSavedAt] = React.useState<number | null>(null);
   
     React.useEffect(() => {
-      if (!paper) { setNote(""); setAbsDraft(""); setEditingAbs(false); return; }
+      if (!paper) {
+        setNote(""); setAbsDraft(""); setEditingAbs(false);
+        setSections({ innovation: "", motivation: "", method: "", tools: "", limits: "" });
+        return;
+      }
       setAbsDraft(paper.abstract || "");
+      let alive = true; // 防止快速切换论文导致后到的请求覆盖现有内容
       (async () => {
         try {
-          const r = await j<{ paper_id: number; content: string }>(`${apiBase}/api/v1/papers/${paper.id}/note`);
-          const raw = r?.content || "";
+          dbg('fetch note for paper', paper.id);
+          const raw = await fetchNoteContent(paper.id);
+          if (!alive) return;
           setNote(raw);
           setSections(parseStructuredNote(raw));
-        } catch {
-          setNote("");
-          setSections({ innovation: "", motivation: "", method: "", tools: "", limits: "" });
+        } catch (e) {
+          dbg('fetch note failed', e);
+          if (!alive) return;
+          setNote('');
+          setSections({ innovation: '', motivation: '', method: '', tools: '', limits: '' });
         }
       })();
+      return () => { alive = false; };
     }, [paper?.id]);
   
     return (
@@ -184,22 +249,53 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
 
             <div className="mt-2 flex gap-2">
               <button
-                className="text-xs px-2 py-1 rounded border bg-green-50"
+                className="text-xs px-2 py-1 rounded border bg-green-50 disabled:opacity-60"
+                disabled={saving}
                 onClick={async () => {
                   if (!paper) return;
                   const payload = buildStructuredNote(sections);
-                  setNote(payload);
-                  await j(`${apiBase}/api/v1/papers/${paper.id}/note`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ content: payload }),
-                  });
-                  Swal.fire({ toast: true, icon: "success", title: "笔记已保存", timer: 1000, showConfirmButton: false, position: "top" });
+                  setSaving(true);
+                  dbg('saving note for paper', paper.id, payload);
+                  try {
+                    // 优先 PUT 更新；若失败再尝试 POST（兼容后端可能的语义差异）
+                    try {
+                      await j(`${apiBase}/api/v1/papers/${paper.id}/note`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ content: payload, note: payload })
+                      });
+                    } catch (e: any) {
+                      dbg('PUT failed, try POST', e);
+                      await j(`${apiBase}/api/v1/papers/${paper.id}/note`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ content: payload, note: payload })
+                      });
+                    }
+                    setNote(payload);
+                    setLastSavedAt(Date.now());
+                    // 保存后立刻拉取一次，确认确实持久化（避免你切换论文回来丢失）
+                    try {
+                      const serverRaw = await fetchNoteContent(paper.id);
+                      if (serverRaw !== payload) {
+                        dbg('post-save verify mismatch, server returned different content');
+                        console.warn('[AbstractNotePanel] Post-save verify mismatch', { local: payload, server: serverRaw });
+                      }
+                    } catch (e) {
+                      dbg('post-save verify fetch failed', e);
+                    }
+                    Swal.fire({ toast: true, icon: "success", title: "笔记已保存", timer: 1000, showConfirmButton: false, position: "top" });
+                  } catch (e: any) {
+                    console.error('[AbstractNotePanel] save error', e);
+                    Swal.fire({ icon: "error", title: "保存失败", text: String(e?.message || e) });
+                  } finally {
+                    setSaving(false);
+                  }
                 }}
-              >保存笔记</button>
+              >{saving ? '保存中…' : '保存笔记'}</button>
               <button
                 className="text-xs px-2 py-1 rounded border"
-                onClick={() => setSections(parseStructuredNote(note))}
+                onClick={() => { dbg('re-parse from saved note for paper', paper?.id); setSections(parseStructuredNote(note)); }}
               >从已保存笔记解析</button>
             </div>
           </div>
