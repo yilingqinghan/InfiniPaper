@@ -202,6 +202,18 @@ function htmlToMarkdown(html: string): string {
     const tag = e.tagName.toLowerCase();
     const inner = Array.from(e.childNodes).map(outInline).join("");
 
+    // KaTeX output: recover original TeX from MathML annotation
+    if ((tag === "span" || tag === "div") && (e.classList.contains("katex") || e.classList.contains("katex-display"))) {
+      const ann = e.querySelector('annotation[encoding="application/x-tex"]') as HTMLElement | null;
+      const raw = (ann?.textContent || "").trim();
+      if (raw) {
+        const isDisplay = e.classList.contains("katex-display") || !!e.closest(".katex-display");
+        return isDisplay ? `$$${raw}$$` : `$${raw}$`;
+      }
+      // Fallback: if no annotation found, keep inner text (last resort)
+      return inner;
+    }
+
     if (tag === "strong" || tag === "b") return `**${inner}**`;
     if (tag === "em" || tag === "i") return `*${inner}*`;
     if (tag === "del" || tag === "s" || tag === "strike") return `~~${inner}~~`;
