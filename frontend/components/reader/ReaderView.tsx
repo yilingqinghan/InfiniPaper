@@ -1354,7 +1354,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
   const [mdFont, setMdFont] = React.useState(16);
   const incFont = () => setMdFont((s) => Math.min(22, s + 1));
   const decFont = () => setMdFont((s) => Math.max(14, s - 1));
-  const gridCols = theme === "immersive" ? "42% 43% 15%" : "40% 40% 20%";
+  const gridCols = theme === "immersive" ? "43% 15% 42%" : "40% 20% 40%";
 
   const viewerUrl = React.useMemo(() => {
     if (!pdfUrl) return "";
@@ -2385,155 +2385,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
 
       {/* 三列布局 */}
       <div className="flex-1 grid page-grid" style={{ gridTemplateColumns: gridCols }}>
-        {/* 左列：PDF + 覆盖笔记编辑器 */}
-        <div suppressHydrationWarning className="relative border-r page-col page-col--left">
-          {pdfUrl ? (
-            <PdfPane fileUrl={viewerUrl} className="h-full bg-white" />
-          ) : (
-            <div className="p-6 text-gray-500">未找到 PDF 地址</div>
-          )}
 
-          {noteOpen && noteDock === "overlay" && leftFixedStyle && (
-            <div className="z-40 flex flex-col note-overlay" style={leftFixedStyle}>
-              {/* 顶部工具栏 */}
-              <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/95">
-                <MiniToolbar
-                  editMode={editMode}
-                  onToggleMode={() => {
-                    setEditMode((m) => {
-                      const nxt: "markdown" | "toast" = m === "markdown" ? "toast" : "markdown";
-                      if (nxt === "toast") setEditorKey((k) => k + 1); // 进入 Toast 需要重挂载以刷新 initialValue
-                      return nxt;
-                    });
-                  }}
-                  onSwitchToast={() => {
-                    setEditMode((m) => {
-                      if (m !== "toast") setEditorKey((k) => k + 1);
-                      return "toast";
-                    });
-                  }}
-                  toastExec={toastExec}
-                  toastInsert={toastInsert}
-                  noteTextRef={noteTextRef}
-                  queueSave={queueSave}
-                  snapshotFromTextarea={snapshotFromTextarea}
-                  updateCaretFromTextarea={updateCaretFromTextarea}
-                  handlePickImage={handlePickImage}
-                />
-                <div className="ml-auto flex items-center gap-2">
-                <button
-                  className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
-                  onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) redecorateSoon(); }}
-                >
-                  查找/替换
-                </button>
-                  <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={exportNow}>
-                    导出 .md
-                  </button>
-                  <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>
-                    关闭
-                  </button>
-                </div>
-              </div>
-              {findOpen && (
-                <div className="ip-findbar px-3 py-2 flex items-center gap-2">
-                  <input
-                    type="text"
-                    value={findQ}
-                    onChange={(e) => setFindQ(e.target.value)}
-                    placeholder="查找…（支持正则）"
-                    className="px-2 border rounded w-[32%] ip-find-mono"
-                  />
-                  <input
-                    type="text"
-                    value={replQ}
-                    onChange={(e) => setReplQ(e.target.value)}
-                    placeholder="替换为…（可用 $&, $1…）"
-                    className="px-2 border rounded w-[32%] ip-find-mono"
-                  />
-                  <button className="px-2 py-1 border rounded text-xs" onClick={gotoPrev}>上一个</button>
-                  <button className="px-2 py-1 border rounded text-xs" onClick={gotoNext}>下一个</button>
-                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceOneAt(findActive); }}>替换</button>
-                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceAll(); }}>全部替换</button>
-                  <span className="text-xs text-gray-500 ml-2">{findCount ? `${findActive + 1}/${findCount}` : "0/0"}</span>
-                  <div className="ml-auto flex items-center gap-2">
-                    <button className={`ip-chip ${findCase ? "active" : ""}`} onClick={() => setFindCase(v => !v)} title="区分大小写">Aa</button>
-                    <button className={`ip-chip ${findWord ? "active" : ""}`} onClick={() => setFindWord(v => !v)} title="全词匹配">W</button>
-                    <button className={`ip-chip ${findRegex ? "active" : ""}`} onClick={() => setFindRegex(v => !v)} title="正则">.*</button>
-                  </div>
-                </div>
-              )}
-              {/* 左列覆盖内容区（编辑器） */}
-              <div className="flex-1 min-h-0 flex flex-col">
-                <div className="min-w-0 min-h-0 flex-1 overflow-hidden">
-                  {editMode === "toast" ? (
-                    <div className="h-full" ref={toastRootRef}>
-                      <TuiEditor
-                        ref={toastRef}
-                        key={`toast-${editorKey}`}
-                        initialValue={noteDraftRef.current || noteMd || ""}
-                        initialEditType="markdown"
-                        previewStyle="vertical"
-                        hideModeSwitch={false}
-                        usageStatistics={false}
-                        height="100%"
-                        plugins={tuiPlugins as any}
-                        onChange={() => {
-                          if (!contentReadyRef.current) return;
-                          try {
-                            const inst = (toastRef.current as any)?.getInstance?.();
-                            const previewHost = toastRootRef.current?.querySelector(".toastui-editor-contents") as HTMLElement | null;
-                            const md = readToastMarkdown(inst, previewHost);
-                        
-                            const prevLen = (noteDraftRef.current || "").length;
-                            noteDraftRef.current = md;
-                            mdHasDollarRef.current = md.indexOf("$") !== -1;
-                            console.log("[ReaderView] TUI onChange", { prevLen, nextLen: md.length, suppress: suppressSaveRef.current });
-                        
-                            if (suppressSaveRef.current) suppressSaveRef.current = false;
-                            dirtyRef.current = true;
-                            try { saveLocalDraft(md); } catch {}
-                            queueSave(md);                          // ← 关键：不再“再读一次”，直接传
-                          } catch (e) {
-                            console.log("[ReaderView] TUI onChange read markdown failed", e);
-                          }
-                          scheduleRenderToastMath();
-                          if (findOpen && findQ) scheduleApplyFindHighlights();
-                        }}
-                      />
-                    </div>
-                  ) : (
-                    <textarea
-                      ref={noteTextRef}
-                      className="w-full h-full p-3 font-mono text-sm outline-none note-textarea"
-                      defaultValue={noteDraftRef.current || noteMd}
-                      onChange={(e) => {
-                        const v = e.target.value;
-                        noteDraftRef.current = v;
-                        dirtyRef.current = true;
-                        saveLocalDraft(v);
-                        queueSave();
-                      }}
-                      onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
-                      onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
-                      spellCheck={false}
-                      placeholder="在此直接编辑 Markdown 源码（支持 **粗体**、`行内代码`、``` 代码块 ```、$\\LaTeX$ 与 $$块级公式$$）"
-                    />
-                  )}
-                </div>
-              </div>
-
-              {/* 隐形文件选择器 */}
-              <input
-                ref={imgInputRef}
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={onImageChosen}
-              />
-            </div>
-          )}
-        </div>
 
         {/* 中列：Markdown 渲染 + 选区工具条 + 注释定位线 */}
         <div className="relative border-r page-col page-col--mid">
@@ -2839,6 +2691,155 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                   </div>
                 </div>
               </div>
+            </div>
+          )}
+        </div>
+                {/* 左列：PDF + 覆盖笔记编辑器 */}
+                <div suppressHydrationWarning className="relative border-r page-col page-col--left">
+          {pdfUrl ? (
+            <PdfPane fileUrl={viewerUrl} className="h-full bg-white" />
+          ) : (
+            <div className="p-6 text-gray-500">未找到 PDF 地址</div>
+          )}
+
+          {noteOpen && noteDock === "overlay" && leftFixedStyle && (
+            <div className="z-40 flex flex-col note-overlay" style={leftFixedStyle}>
+              {/* 顶部工具栏 */}
+              <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/95">
+                <MiniToolbar
+                  editMode={editMode}
+                  onToggleMode={() => {
+                    setEditMode((m) => {
+                      const nxt: "markdown" | "toast" = m === "markdown" ? "toast" : "markdown";
+                      if (nxt === "toast") setEditorKey((k) => k + 1); // 进入 Toast 需要重挂载以刷新 initialValue
+                      return nxt;
+                    });
+                  }}
+                  onSwitchToast={() => {
+                    setEditMode((m) => {
+                      if (m !== "toast") setEditorKey((k) => k + 1);
+                      return "toast";
+                    });
+                  }}
+                  toastExec={toastExec}
+                  toastInsert={toastInsert}
+                  noteTextRef={noteTextRef}
+                  queueSave={queueSave}
+                  snapshotFromTextarea={snapshotFromTextarea}
+                  updateCaretFromTextarea={updateCaretFromTextarea}
+                  handlePickImage={handlePickImage}
+                />
+                <div className="ml-auto flex items-center gap-2">
+                <button
+                  className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
+                  onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) redecorateSoon(); }}
+                >
+                  查找/替换
+                </button>
+                  <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={exportNow}>
+                    导出 .md
+                  </button>
+                  <button className="px-2 py-1 text-sm text-gray-600 hover:bg-gray-50" onClick={() => setNoteOpen(false)}>
+                    关闭
+                  </button>
+                </div>
+              </div>
+              {findOpen && (
+                <div className="ip-findbar px-3 py-2 flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={findQ}
+                    onChange={(e) => setFindQ(e.target.value)}
+                    placeholder="查找…（支持正则）"
+                    className="px-2 border rounded w-[32%] ip-find-mono"
+                  />
+                  <input
+                    type="text"
+                    value={replQ}
+                    onChange={(e) => setReplQ(e.target.value)}
+                    placeholder="替换为…（可用 $&, $1…）"
+                    className="px-2 border rounded w-[32%] ip-find-mono"
+                  />
+                  <button className="px-2 py-1 border rounded text-xs" onClick={gotoPrev}>上一个</button>
+                  <button className="px-2 py-1 border rounded text-xs" onClick={gotoNext}>下一个</button>
+                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceOneAt(findActive); }}>替换</button>
+                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceAll(); }}>全部替换</button>
+                  <span className="text-xs text-gray-500 ml-2">{findCount ? `${findActive + 1}/${findCount}` : "0/0"}</span>
+                  <div className="ml-auto flex items-center gap-2">
+                    <button className={`ip-chip ${findCase ? "active" : ""}`} onClick={() => setFindCase(v => !v)} title="区分大小写">Aa</button>
+                    <button className={`ip-chip ${findWord ? "active" : ""}`} onClick={() => setFindWord(v => !v)} title="全词匹配">W</button>
+                    <button className={`ip-chip ${findRegex ? "active" : ""}`} onClick={() => setFindRegex(v => !v)} title="正则">.*</button>
+                  </div>
+                </div>
+              )}
+              {/* 左列覆盖内容区（编辑器） */}
+              <div className="flex-1 min-h-0 flex flex-col">
+                <div className="min-w-0 min-h-0 flex-1 overflow-hidden">
+                  {editMode === "toast" ? (
+                    <div className="h-full" ref={toastRootRef}>
+                      <TuiEditor
+                        ref={toastRef}
+                        key={`toast-${editorKey}`}
+                        initialValue={noteDraftRef.current || noteMd || ""}
+                        initialEditType="markdown"
+                        previewStyle="vertical"
+                        hideModeSwitch={false}
+                        usageStatistics={false}
+                        height="100%"
+                        plugins={tuiPlugins as any}
+                        onChange={() => {
+                          if (!contentReadyRef.current) return;
+                          try {
+                            const inst = (toastRef.current as any)?.getInstance?.();
+                            const previewHost = toastRootRef.current?.querySelector(".toastui-editor-contents") as HTMLElement | null;
+                            const md = readToastMarkdown(inst, previewHost);
+                        
+                            const prevLen = (noteDraftRef.current || "").length;
+                            noteDraftRef.current = md;
+                            mdHasDollarRef.current = md.indexOf("$") !== -1;
+                            console.log("[ReaderView] TUI onChange", { prevLen, nextLen: md.length, suppress: suppressSaveRef.current });
+                        
+                            if (suppressSaveRef.current) suppressSaveRef.current = false;
+                            dirtyRef.current = true;
+                            try { saveLocalDraft(md); } catch {}
+                            queueSave(md);                          // ← 关键：不再“再读一次”，直接传
+                          } catch (e) {
+                            console.log("[ReaderView] TUI onChange read markdown failed", e);
+                          }
+                          scheduleRenderToastMath();
+                          if (findOpen && findQ) scheduleApplyFindHighlights();
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <textarea
+                      ref={noteTextRef}
+                      className="w-full h-full p-3 font-mono text-sm outline-none note-textarea"
+                      defaultValue={noteDraftRef.current || noteMd}
+                      onChange={(e) => {
+                        const v = e.target.value;
+                        noteDraftRef.current = v;
+                        dirtyRef.current = true;
+                        saveLocalDraft(v);
+                        queueSave();
+                      }}
+                      onKeyUp={(e) => updateCaretFromTextarea(e.currentTarget)}
+                      onClick={(e) => updateCaretFromTextarea(e.currentTarget)}
+                      spellCheck={false}
+                      placeholder="在此直接编辑 Markdown 源码（支持 **粗体**、`行内代码`、``` 代码块 ```、$\\LaTeX$ 与 $$块级公式$$）"
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* 隐形文件选择器 */}
+              <input
+                ref={imgInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={onImageChosen}
+              />
             </div>
           )}
         </div>
