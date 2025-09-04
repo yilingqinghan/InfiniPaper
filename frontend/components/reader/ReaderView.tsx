@@ -438,6 +438,13 @@ const [findCount, setFindCount] = React.useState(0);
 const [findActive, setFindActive] = React.useState(0); // 0-based
 const findHitsRef = React.useRef<HTMLElement[]>([]);
 const findScheduleRef = React.useRef<number | null>(null);
+// Mirror latest findActive in a ref for highlight clamping
+const findActiveRef = React.useRef(0);
+React.useEffect(() => { findActiveRef.current = findActive; }, [findActive]);
+// MutationObserver & decoration guard
+const decoPhaseRef = React.useRef(false);
+const moRef = React.useRef<MutationObserver | null>(null);
+const moTimerRef = React.useRef<number | null>(null);
 
 const getToastContentHost = React.useCallback(() => {
   const root = toastRootRef.current;
@@ -487,7 +494,7 @@ const applyFindHighlights = React.useCallback(() => {
   const re = compileFind();
   if (!re) { setFindCount(0); return; }
 
-  // 先收集文本节点，避免在遍历时修改 DOM 造成跳节点
+  // Collect text nodes first to avoid walker invalidation
   const nodes: Text[] = [];
   const walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
@@ -501,6 +508,7 @@ const applyFindHighlights = React.useCallback(() => {
   for (let n = walker.nextNode(); n; n = walker.nextNode()) nodes.push(n as Text);
 
   const hits: HTMLElement[] = [];
+  decoPhaseRef.current = true; // guard against observer feedback
   for (const tn of nodes) {
     const text = tn.nodeValue || "";
     re.lastIndex = 0;
@@ -511,7 +519,6 @@ const applyFindHighlights = React.useCallback(() => {
       let s = m.index;
       let e = s + (m[0]?.length || 0);
       if (e === s) { re.lastIndex++; continue; }
-      // 运行时全词边界判断（仅在非正则查找时生效）
       if (findWord && !findRegex) {
         const prev = text[s - 1];
         const next = text[e];
@@ -531,11 +538,17 @@ const applyFindHighlights = React.useCallback(() => {
       tn.parentNode?.replaceChild(frag, tn);
     }
   }
+  decoPhaseRef.current = false;
 
   findHitsRef.current = hits;
   setFindCount(hits.length);
-  const idx = Math.min(findActive, Math.max(0, hits.length - 1));
-  setFindActive(idx);
+
+  // Clamp ONLY if current active is out of range; otherwise keep it
+  let idx = findActiveRef.current;
+  if (hits.length === 0) idx = 0;
+  if (idx >= hits.length) idx = Math.max(0, hits.length - 1);
+  if (idx !== findActiveRef.current) setFindActive(idx);
+
   requestAnimationFrame(() => {
     hits.forEach((el) => el.classList.remove("ip-find-hit--active"));
     if (hits[idx]) {
@@ -543,7 +556,7 @@ const applyFindHighlights = React.useCallback(() => {
       try { hits[idx].scrollIntoView({ block: "center", behavior: "smooth" }); } catch {}
     }
   });
-}, [editMode, findOpen, findQ, findWord, findRegex, compileFind, getToastContentHost, clearFindHighlights, findActive]);
+}, [editMode, findOpen, findQ, findWord, findRegex, compileFind, getToastContentHost, clearFindHighlights]);
 
 const scheduleApplyFindHighlights = React.useCallback(() => {
   if (!findOpen || !findQ) return;
@@ -551,18 +564,64 @@ const scheduleApplyFindHighlights = React.useCallback(() => {
     window.clearTimeout(findScheduleRef.current);
     findScheduleRef.current = null;
   }
-  findScheduleRef.current = window.setTimeout(() => applyFindHighlights(), 80);
+  findScheduleRef.current = window.setTimeout(() => applyFindHighlights(), 16);
 }, [applyFindHighlights, findOpen, findQ]);
+
+// Re-apply math & highlights after Toast UI DOM update (wait for DOM commit)
+const refreshToastDecorationsAfterUpdate = React.useCallback(() => {
+  // TUI setMarkdown -> internal render is async. Triple rAF to wait for DOM commit.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        decoPhaseRef.current = true;
+        renderMathInToast(toastRootRef.current || undefined);
+        decoPhaseRef.current = false;
+        if (findOpen && findQ) {
+          applyFindHighlights();
+        }
+      });
+    });
+  });
+}, [applyFindHighlights, findOpen, findQ]);
+// 强制同步 Toast 预览（有些环境 setMarkdown 不会立刻刷新预览区）
+const forceToastPreviewSync = React.useCallback(() => {
+  const inst = toastRef.current?.getInstance?.();
+  const host = getToastContentHost();
+  if (!inst || !host) return;
+  try {
+    const html = inst.getHTML?.();
+    if (typeof html === 'string' && html && host.innerHTML !== html) {
+      // 避免触发 MutationObserver 的回环
+      decoPhaseRef.current = true;
+      host.innerHTML = html;
+      decoPhaseRef.current = false;
+    }
+  } catch {}
+}, [getToastContentHost]);
+// Activate-only: highlighs the current hit, no recompute
+const activateCurrentHit = React.useCallback(() => {
+  const hits = findHitsRef.current;
+  let idx = findActiveRef.current;
+  if (hits.length === 0) idx = 0;
+  if (idx >= hits.length) idx = Math.max(0, hits.length - 1);
+  hits.forEach((el) => el.classList.remove("ip-find-hit--active"));
+  if (hits[idx]) {
+    hits[idx].classList.add("ip-find-hit--active");
+    try { hits[idx].scrollIntoView({ block: "center", behavior: "smooth" }); } catch {}
+  }
+}, []);
+
+React.useEffect(() => { activateCurrentHit(); }, [findActive, activateCurrentHit]);
 
 // 查找条件变化时刷新
 React.useEffect(() => {
   if (findOpen && editMode === "toast") {
     setFindActive(0);
-    scheduleApplyFindHighlights();
+    applyFindHighlights();   // 直接执行一次，避免输入时出现“致命延迟”
   } else if (!findQ) {
     clearFindHighlights();
   }
-}, [findQ, findCase, findWord, findRegex, findOpen, editMode, scheduleApplyFindHighlights, clearFindHighlights]);
+}, [findQ, findCase, findWord, findRegex, findOpen, editMode, applyFindHighlights, clearFindHighlights]);
 
 // 快捷键：Cmd/Ctrl+F 打开，Enter 导航
 React.useEffect(() => {
@@ -584,17 +643,13 @@ React.useEffect(() => {
 
 const gotoNext = React.useCallback(() => {
   if (!findCount) return;
-  const next = (findActive + 1) % findCount;
-  setFindActive(next);
-  scheduleApplyFindHighlights();
-}, [findActive, findCount, scheduleApplyFindHighlights]);
+  setFindActive((cur) => (cur + 1) % findCount);
+}, [findCount]);
 
 const gotoPrev = React.useCallback(() => {
   if (!findCount) return;
-  const prev = (findActive - 1 + findCount) % findCount;
-  setFindActive(prev);
-  scheduleApplyFindHighlights();
-}, [findActive, findCount, scheduleApplyFindHighlights]);
+  setFindActive((cur) => (cur - 1 + findCount) % findCount);
+}, [findCount]);
 
 const getDraftKeys = React.useCallback(() => {
   const pid = id || "";
@@ -640,6 +695,7 @@ const saveLocalDraft = React.useCallback((content: string) => {
     [apiBase]
   );
 const queueSave = React.useCallback(() => {
+  if (!contentReadyRef.current || suppressSaveRef.current) return;
   dirtyRef.current = true;
   saveLocalDraft(noteDraftRef.current || "");
   if (saveDebounceRef.current) window.clearTimeout(saveDebounceRef.current);
@@ -691,11 +747,14 @@ const replaceOneAt = React.useCallback((index: number) => {
   const next = text.slice(0, s) + replaced + text.slice(e);
   noteDraftRef.current = next;
   try { toastRef.current?.getInstance?.()?.setMarkdown?.(next); } catch {}
+  forceToastPreviewSync();
+  mdHasDollarRef.current = next.indexOf("$") !== -1;
   dirtyRef.current = true;
   saveLocalDraft(next);
   queueSave();
+  refreshToastDecorationsAfterUpdate();
   return 1;
-}, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex]);
+}, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex, refreshToastDecorationsAfterUpdate]);
 
 const replaceAll = React.useCallback(() => {
   const text = noteDraftRef.current || "";
@@ -723,11 +782,14 @@ const replaceAll = React.useCallback(() => {
   if (!changed) return 0;
   noteDraftRef.current = out;
   try { toastRef.current?.getInstance?.()?.setMarkdown?.(out); } catch {}
+  forceToastPreviewSync();
+  mdHasDollarRef.current = out.indexOf("$") !== -1;
   dirtyRef.current = true;
   saveLocalDraft(out);
   queueSave();
+  refreshToastDecorationsAfterUpdate();
   return 1;
-}, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex]);
+}, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex, refreshToastDecorationsAfterUpdate]);
 
 // 卸载清理定时器 & 高亮
 React.useEffect(() => {
@@ -739,6 +801,27 @@ React.useEffect(() => {
     clearFindHighlights();
   };
 }, [clearFindHighlights]);
+
+// MutationObserver: auto rehighlight after DOM mutation (only when find is open)
+React.useEffect(() => {
+  if (editMode !== 'toast') return;
+  const host = getToastContentHost();
+  if (!host) return;
+  if (moRef.current) { moRef.current.disconnect(); moRef.current = null; }
+  const mo = new MutationObserver(() => {
+    if (!findOpen || !findQ) return;
+    if (decoPhaseRef.current) return; // ignore self-caused mutations
+    if (moTimerRef.current) { clearTimeout(moTimerRef.current); moTimerRef.current = null; }
+    moTimerRef.current = window.setTimeout(() => applyFindHighlights(), 5);
+  });
+  mo.observe(host, { childList: true, characterData: true, subtree: true });
+  moRef.current = mo;
+  return () => {
+    mo.disconnect();
+    moRef.current = null;
+    if (moTimerRef.current) { clearTimeout(moTimerRef.current); moTimerRef.current = null; }
+  };
+}, [editMode, getToastContentHost, findOpen, findQ, applyFindHighlights]);
   const toastInsert = React.useCallback((text: string) => {
     const inst = toastRef.current?.getInstance?.();
     if (!inst) return;
@@ -750,6 +833,13 @@ React.useEffect(() => {
   const saveDebounceRef = React.useRef<number | null>(null);
   const saveAbortRef = React.useRef<AbortController | null>(null);
   const [editorKey, setEditorKey] = React.useState(0); // 触发 textarea 重新挂载以刷新 defaultValue
+  // —— 内容就绪与首帧保存抑制 ——
+const [contentReady, setContentReady] = React.useState(false);
+const contentReadyRef = React.useRef(false);
+const suppressSaveRef = React.useRef(true); // 首次挂载/切换模式后，忽略编辑器初始化 onChange
+
+// 每次重新挂载编辑器（切模式或 editorKey 变）都抑制一次“首帧保存”
+React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]);
 
   // --- 本地草稿与脏标记 ---
   const dirtyRef = React.useRef(false);
@@ -994,12 +1084,18 @@ React.useEffect(() => {
           noteDraftRef.current = local.content;
           setNoteLive(local.content);
           setEditorKey((k) => k + 1);
+          contentReadyRef.current = true;
+          setContentReady(true);
+          suppressSaveRef.current = true; // 新挂载的编辑器首个 onChange 仍需要忽略
           showBubble("已从本地草稿恢复未保存内容");
         } else {
           setNoteMd(serverContent);
           noteDraftRef.current = serverContent;
           setNoteLive(serverContent);
           setEditorKey((k) => k + 1);
+          contentReadyRef.current = true;
+          setContentReady(true);
+          suppressSaveRef.current = true; // 新挂载的编辑器首个 onChange 仍需要忽略
         }
       } catch (e: any) {
         setNoteError(e?.message || String(e));
@@ -1645,7 +1741,7 @@ React.useEffect(() => {
                 <div className="ml-auto flex items-center gap-2">
                 <button
                   className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
-                  onClick={() => { setFindOpen(s => !s); if (!findOpen) setTimeout(() => scheduleApplyFindHighlights(), 0); }}
+                  onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) refreshToastDecorationsAfterUpdate(); }}
                 >
                   查找/替换
                 </button>
@@ -1675,8 +1771,8 @@ React.useEffect(() => {
                   />
                   <button className="px-2 py-1 border rounded text-xs" onClick={gotoPrev}>上一个</button>
                   <button className="px-2 py-1 border rounded text-xs" onClick={gotoNext}>下一个</button>
-                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceOneAt(findActive); setTimeout(() => scheduleApplyFindHighlights(), 0); }}>替换</button>
-                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceAll(); setTimeout(() => scheduleApplyFindHighlights(), 0); }}>全部替换</button>
+                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceOneAt(findActive); }}>替换</button>
+                  <button className="px-2 py-1 border rounded text-xs" onClick={() => { replaceAll(); }}>全部替换</button>
                   <span className="text-xs text-gray-500 ml-2">{findCount ? `${findActive + 1}/${findCount}` : "0/0"}</span>
                   <div className="ml-auto flex items-center gap-2">
                     <button className={`ip-chip ${findCase ? "active" : ""}`} onClick={() => setFindCase(v => !v)} title="区分大小写">Aa</button>
@@ -1693,6 +1789,12 @@ React.useEffect(() => {
                       key={editorKey}
                       initialMarkdown={noteDraftRef.current || noteMd}
                       onMarkdownChange={(val) => {
+                        if (!contentReadyRef.current) return;
+                        if (suppressSaveRef.current) {
+                          noteDraftRef.current = val; // 只同步，不保存
+                          suppressSaveRef.current = false;
+                          return;
+                        }
                         noteDraftRef.current = val;
                         dirtyRef.current = true;
                         saveLocalDraft(val);
@@ -1712,14 +1814,22 @@ React.useEffect(() => {
                         height="100%"
                         plugins={tuiPlugins as any}
                         onChange={() => {
+                          if (!contentReadyRef.current) return; // 数据未就绪，直接忽略
                           try {
                             const inst = (toastRef.current as any)?.getInstance?.();
                             const md = inst?.getMarkdown?.() || "";
-                            noteDraftRef.current = md;
-                            mdHasDollarRef.current = md.indexOf("$") !== -1; // 没有 $ 就不触发渲染
-                            dirtyRef.current = true;
-                            saveLocalDraft(md);
-                            queueSave();
+                            if (suppressSaveRef.current) {
+                              // 首次挂载产生的初始化 onChange：只同步内存，不保存
+                              noteDraftRef.current = md;
+                              mdHasDollarRef.current = md.indexOf("$") !== -1;
+                              suppressSaveRef.current = false;
+                            } else {
+                              noteDraftRef.current = md;
+                              mdHasDollarRef.current = md.indexOf("$") !== -1;
+                              dirtyRef.current = true;
+                              saveLocalDraft(md);
+                              queueSave();
+                            }
                           } catch {}
                           scheduleRenderToastMath();
                           if (findOpen && findQ) scheduleApplyFindHighlights();
