@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Search, UploadCloud, Tags, BookOpen, Sparkles, TrendingUp, FolderKanban, Link as LinkIcon,
+  Search, UploadCloud, Tags, BookOpen, Sparkles, TrendingUp, FolderKanban, Link as LinkIcon, IdCard
 } from "lucide-react";
 import DirectorySidebar from "@/components/DirectorySidebar";
 import RecentPapers from "@/components/RecentPapers";
@@ -92,6 +92,7 @@ export default function Home() {
                 <Quick icon={FolderKanban} text="目录管理" href="/library" />
                 <Quick icon={Tags} text="标签" href="/tags" />
                 <Quick icon={TrendingUp} text="质量面板" href="/quality" />
+                <Quick icon={IdCard} text="论文卡片" href="/cards" />
               </div>
             </div>
 

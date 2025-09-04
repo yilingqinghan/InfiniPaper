@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Search, UploadCloud, Tags, BookOpen, Sparkles, TrendingUp, ChevronRight, Wand2, Palette, CalendarClock } from "lucide-react";
+import { Search, UploadCloud, Tags, BookOpen, Sparkles, TrendingUp, ChevronRight, Wand2, Palette, CalendarClock, CreditCard } from "lucide-react";
 import DirectorySidebar from "@/components/DirectorySidebar";
 import RecentPapers from "@/components/RecentPapers";
 import PaperDetailDialog from "@/components/Library/PaperDetailDialog";
@@ -23,6 +23,7 @@ const TABS: Tab[] = [
   { key: "import",  label: "导入",     href: "/library?import=1", icon: UploadCloud, grad: "from-emerald-500 to-lime-400" },
   { key: "tags",    label: "标签",     href: "/tags",    icon: Tags,       grad: "from-rose-500 to-orange-500" },
   { key: "quality", label: "质量面板", href: "/quality", icon: TrendingUp, grad: "from-violet-500 to-indigo-400" },
+  { key: "cards", label: "论文卡片", href: "/cards", icon: CreditCard, grad: "from-silver-500 to-indigo-400" },
 ];
 
 function AuroraBG({ enabled = true }: { enabled?: boolean }) {

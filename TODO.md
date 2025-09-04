@@ -1,3 +1,3 @@
 - 生成论文卡片!（3D优雅）
-- GeminiAPI支持pdf问答吗？
+- GeminiAPI支持pdf问答吗？支持一下
 - Toast支持查找替换
