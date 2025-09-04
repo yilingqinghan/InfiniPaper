@@ -2122,6 +2122,193 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
             background: transparent !important;
             border: none !important;
           }
+
+          /* =========================================================
+          Toast UI Editor — Elegant Theme (editor + preview)
+          - Softer background, rounded panels
+          - Harmonized typography (same as markdown preview)
+          - Refined toolbar + buttons + splitter
+          - Consistent tokens (blockquote / table / code)
+          ========================================================= */
+
+          :root{
+          --ip-accent: #4f46e5;              /* Indigo-600 */
+          --ip-accent-weak: #eef2ff;         /* Indigo-50 */
+          --ip-paper: #ffffff;               /* panel bg */
+          --ip-surface: #fafafa;             /* subtle bg */
+          --ip-border: #e5e7eb;              /* gray-200 */
+          --ip-text: #0f172a;                /* slate-900 */
+          --ip-muted: #6b7280;               /* gray-500 */
+          --ip-shadow: 0 10px 30px rgba(2,6,23,.06);
+          }
+
+          /* Root panel */
+          .note-overlay .toastui-editor-defaultUI{
+          background: var(--ip-paper);
+          border: 1px solid var(--ip-border);
+          border-radius: 14px;
+          box-shadow: var(--ip-shadow);
+          overflow: hidden;
+          }
+
+          /* Toolbar */
+          .note-overlay .toastui-editor-toolbar{
+          background: linear-gradient(180deg, #fff, #fafbff);
+          border-bottom: 1px solid var(--ip-border);
+          padding: 6px 8px;
+          }
+          .note-overlay .toastui-editor-toolbar .toastui-editor-toolbar-group{
+          gap: 4px;
+          }
+          .note-overlay .toastui-editor-toolbar .toastui-editor-toolbar-icons{
+          border-radius: 8px;
+          transition: background .15s ease, transform .05s ease;
+          }
+          .note-overlay .toastui-editor-toolbar .toastui-editor-toolbar-icons:hover{
+          background: var(--ip-accent-weak);
+          }
+          .note-overlay .toastui-editor-toolbar .toastui-editor-toolbar-icons:active{
+          transform: translateY(1px);
+          }
+          .note-overlay .toastui-editor-toolbar .toastui-editor-toolbar-icons.active{
+          background: color-mix(in srgb, var(--ip-accent) 14%, #fff);
+          }
+
+          /* Editor + Preview containers */
+          .note-overlay .toastui-editor-main{
+          background: var(--ip-paper);
+          }
+          .note-overlay .toastui-editor-md-container,
+          .note-overlay .toastui-editor-ww-container,
+          .note-overlay .toastui-editor-md-preview{
+          background: var(--ip-paper);
+          }
+
+          /* Splitter */
+          .note-overlay .toastui-editor-md-splitter{
+          width: 2px !important;
+          background: linear-gradient(180deg, transparent, var(--ip-border), transparent);
+          margin: 0 2px;
+          }
+
+          /* CONTENT TYPOGRAPHY INSIDE EDITOR PANES */
+          .note-overlay .toastui-editor-contents{
+          color: var(--ip-text);
+          font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+          line-height: var(--md-line-height);
+          padding: 16px 18px 24px;
+          }
+
+          /* Headings inside editor (match preview) */
+          .note-overlay .toastui-editor-contents h1,
+          .note-overlay .toastui-editor-contents h2,
+          .note-overlay .toastui-editor-contents h3,
+          .note-overlay .toastui-editor-contents h4,
+          .note-overlay .toastui-editor-contents h5,
+          .note-overlay .toastui-editor-contents h6{
+          font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+          color: #0b1220;
+          margin-top: 1.6em;
+          margin-bottom: .6em;
+          font-weight: 800;
+          letter-spacing: .1px;
+          }
+          .note-overlay .toastui-editor-contents h1{ font-size: 2rem; }
+          .note-overlay .toastui-editor-contents h2{ font-size: 1.6rem; }
+          .note-overlay .toastui-editor-contents h3{ font-size: 1.25rem; }
+
+          /* Links */
+          .note-overlay .toastui-editor-contents a{
+          color: var(--ip-accent);
+          text-decoration: none;
+          }
+          .note-overlay .toastui-editor-contents a:hover{ text-decoration: underline; }
+
+          /* Blockquote */
+          .note-overlay .toastui-editor-contents blockquote{
+          background: var(--ip-accent-weak);
+          border-left: 4px solid var(--ip-accent);
+          color: #374151;
+          padding: .6rem .9rem;
+          border-radius: 8px;
+          }
+
+          /* Inline code + code block */
+          .note-overlay .toastui-editor-contents code:not(pre code){
+          background: #f6f8fa;
+          border: 1px solid #eef2f7;
+          padding: .15em .35em;
+          border-radius: 6px;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+          }
+          .note-overlay .toastui-editor-contents pre{
+          background: #0b1020;
+          color: #e5e7eb;
+          border-radius: 12px;
+          padding: 1rem 1.1rem;
+          }
+
+          /* Lists: nicer markers */
+          .note-overlay .toastui-editor-contents ul>li::marker{ color: var(--ip-accent); }
+          .note-overlay .toastui-editor-contents ol>li::marker{ color: var(--ip-accent); font-weight: 700; }
+
+          /* Tables */
+          .note-overlay .toastui-editor-contents table{
+          border-collapse: collapse;
+          margin: 1rem auto;
+          min-width: 60%;
+          background: #fff;
+          border: 1px solid var(--ip-border);
+          border-radius: 10px;
+          overflow: hidden;
+          }
+          .note-overlay .toastui-editor-contents thead th{
+          background: #f8fafc;
+          font-weight: 700;
+          }
+          .note-overlay .toastui-editor-contents th,
+          .note-overlay .toastui-editor-contents td{
+          border-bottom: 1px solid var(--ip-border);
+          padding: .6rem .8rem;
+          text-align: center;
+          }
+          .note-overlay .toastui-editor-contents tbody tr:nth-child(odd) td{
+          background: #fbfdff;
+          }
+
+          /* Preview panel subtle separation */
+          .note-overlay .toastui-editor-md-preview{
+          border-left: 1px solid var(--ip-border);
+          }
+          .note-overlay .toastui-editor-md-preview .toastui-editor-contents{
+          background: var(--ip-surface);
+          }
+
+          /* Toolbar dropdowns / color pickers / popups */
+          .note-overlay .toastui-editor-popup{
+          border-radius: 10px;
+          border: 1px solid var(--ip-border);
+          box-shadow: var(--ip-shadow);
+          }
+
+          /* Findbar badges & small chips that you render (inherit accent) */
+          .ip-chip, .ip-badge{
+          background: var(--ip-accent-weak);
+          color: var(--ip-accent);
+          border: 1px solid color-mix(in srgb, var(--ip-accent) 20%, #fff);
+          border-radius: 8px;
+          }
+
+          /* Hover card for links in preview (optional, safe) */
+          .markdown-body a{
+          color: var(--ip-accent);
+          }
+          .markdown-body a:hover{
+          text-decoration: none;
+          background: color-mix(in srgb, var(--ip-accent) 8%, #fff);
+          box-shadow: inset 0 -2px 0 var(--ip-accent);
+          border-radius: 3px;
+          }
         `}</style>
       </Head>
 

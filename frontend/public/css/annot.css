@@ -18,7 +18,12 @@
   [data-theme="immersive"]:root {
     --ip-anno-bg: rgba(255,255,255,.94);
   }
-  
+
+/* 应用到布局块 */
+.page-header{ background: var(--paper); border-color: var(--border); }
+.page-col--left{ background: var(--paper); }
+.page-col--right{ background: var(--paper); }
+body{ background: var(--bg); color: var(--text); }
   @media (prefers-color-scheme: dark) {
     :root {
       --ip-anno-bg: rgba(17,24,39,.85);   /* gray-900 ~ 半透明 */
