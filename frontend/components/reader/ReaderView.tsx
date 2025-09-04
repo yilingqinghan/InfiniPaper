@@ -2207,6 +2207,8 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           .note-overlay .toastui-editor-contents h5,
           .note-overlay .toastui-editor-contents h6{
           font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+          line-height: 1.25;
+          text-align: center;
           color: #0b1220;
           margin-top: 1.6em;
           margin-bottom: .6em;
@@ -2255,11 +2257,12 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           /* Tables */
           .note-overlay .toastui-editor-contents table{
           border-collapse: collapse;
-          margin: 1rem auto;
+          margin: 0.1rem auto;
           min-width: 60%;
           background: #fff;
           border: 1px solid var(--ip-border);
           border-radius: 10px;
+          padding: 0;
           overflow: hidden;
           }
           .note-overlay .toastui-editor-contents thead th{
@@ -2308,6 +2311,14 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           background: color-mix(in srgb, var(--ip-accent) 8%, #fff);
           box-shadow: inset 0 -2px 0 var(--ip-accent);
           border-radius: 3px;
+          }
+          /* === Extra polish for Editor + Preview === */
+          /* 图片居中显示 */
+          .note-overlay .toastui-editor-contents img,
+          .markdown-body img {
+            display: block;
+            margin: 1.2rem auto;
+            max-width: 100%;
           }
         `}</style>
       </Head>
