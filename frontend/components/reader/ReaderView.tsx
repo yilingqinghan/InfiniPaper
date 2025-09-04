@@ -2206,7 +2206,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           .note-overlay .toastui-editor-contents h4,
           .note-overlay .toastui-editor-contents h5,
           .note-overlay .toastui-editor-contents h6{
-          font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+          font-family: Times New Roman,;
           line-height: 1.25;
           text-align: center;
           color: #0b1220;
@@ -2241,7 +2241,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           border: 1px solid #eef2f7;
           padding: .15em .35em;
           border-radius: 6px;
-          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+          font-family: Consolas, Menlo, Monaco, "Liberation Mono", monospace;
           }
           .note-overlay .toastui-editor-contents pre{
           background: #0b1020;
