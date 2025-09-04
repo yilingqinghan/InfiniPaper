@@ -1354,7 +1354,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
   const [mdFont, setMdFont] = React.useState(16);
   const incFont = () => setMdFont((s) => Math.min(22, s + 1));
   const decFont = () => setMdFont((s) => Math.max(14, s - 1));
-  const gridCols = theme === "immersive" ? "34% 46% 20%" : "40% 40% 20%";
+  const gridCols = theme === "immersive" ? "42% 43% 15%" : "40% 40% 20%";
 
   const viewerUrl = React.useMemo(() => {
     if (!pdfUrl) return "";
