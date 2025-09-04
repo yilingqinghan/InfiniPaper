@@ -1360,6 +1360,23 @@ export default function Library() {
             papers={paperGraphPapers ?? displayPapers}
             onClose={() => { setPaperGraphOpen(false); setPaperGraphPapers(null); }}
             />
+                    {/* Hide all scrollbars globally (keeps scrolling functional) */}
+            <style jsx global>{`
+              /* Hide all scrollbars globally (keeps scrolling functional) */
+              * {
+                -ms-overflow-style: none;  /* IE & old Edge */
+                scrollbar-width: none;     /* Firefox */
+              }
+              *::-webkit-scrollbar {
+                width: 0 !important;
+                height: 0 !important;
+              }
+              *::-webkit-scrollbar-thumb,
+              *::-webkit-scrollbar-track {
+                background: transparent !important;
+                border: none !important;
+              }
+            `}</style>
         </DndContext>
     );
 }
