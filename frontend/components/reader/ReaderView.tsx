@@ -2105,6 +2105,23 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           .toastui-editor-defaultUI .ip-url-data{ display:none !important; }
           /* 3) Keep the visible prefix monospace if we ever choose not to hide the whole token */
           .toastui-editor-defaultUI .ip-url-prefix{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+          /* ===== Global: hide ALL scrollbars but keep scrolling ===== */
+          html, body, #__next, .page-root, * {
+            scrollbar-width: none !important;      /* Firefox */
+            -ms-overflow-style: none !important;   /* IE/old Edge */
+          }
+          /* WebKit-based browsers (Chrome / Safari / new Edge) */
+          *::-webkit-scrollbar {
+            width: 0 !important;
+            height: 0 !important;
+            display: none !important;
+          }
+          *::-webkit-scrollbar-thumb,
+          *::-webkit-scrollbar-track,
+          *::-webkit-scrollbar-corner {
+            background: transparent !important;
+            border: none !important;
+          }
         `}</style>
       </Head>
 
