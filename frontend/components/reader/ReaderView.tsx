@@ -16,7 +16,6 @@ const TuiEditor: any = dynamic(
 );
 
 // 子组件
-import WysiwygMdEditor from "./WysiwygMdEditor";
 import MiniToolbar from "./MiniToolbar";
 import MarkdownPane from "./MarkdownPane";
 import TocPanel from "./TocPanel";
@@ -191,8 +190,8 @@ export default function ReaderView() {
 
     idleTimerRef.current = window.setTimeout(tick, 50);
   }, []);
-  const [editMode, setEditMode] = React.useState<"wysiwyg" | "markdown" | "toast">(
-    "wysiwyg"
+  const [editMode, setEditMode] = React.useState<"markdown" | "toast">(
+    "toast"
   );
   // 监听编辑器内部的滚动（捕获阶段可拦截所有子滚动容器），滚动时推迟渲染
   React.useEffect(() => {
@@ -420,13 +419,7 @@ export default function ReaderView() {
   const [noteSavedAt, setNoteSavedAt] = React.useState<string | null>(null);
   const noteTextRef = React.useRef<HTMLTextAreaElement | null>(null);
   const toastRef = React.useRef<any>(null);
-  const toastExec = React.useCallback((cmd: string, payload?: any) => {
-    const inst = toastRef.current?.getInstance?.();
-    if (!inst) return;
-    try {
-      inst.exec(cmd, payload);
-    } catch {}
-  }, []);
+
   // ===== Toast 查找/替换（仅在 editMode === 'toast' 时启用） =====
 const [findOpen, setFindOpen] = React.useState(false);
 const [findQ, setFindQ] = React.useState("");
@@ -598,6 +591,21 @@ const forceToastPreviewSync = React.useCallback(() => {
     }
   } catch {}
 }, [getToastContentHost]);
+const redecorateSoon = React.useCallback(() => {
+  // 先跑一轮：等待 Toast 预览 DOM 提交，再做数学和高亮
+  refreshToastDecorationsAfterUpdate();
+
+  // 没开查找或无查询词就不用重试
+  if (!(findOpen && findQ)) return;
+
+  // 兼容 ToastUI 偶发延迟：再追加几次轻量重试
+  [50, 120, 250, 400].forEach((ms) => {
+    window.setTimeout(() => {
+      try { forceToastPreviewSync(); } catch {}
+      try { applyFindHighlights(); } catch {}
+    }, ms);
+  });
+}, [applyFindHighlights, refreshToastDecorationsAfterUpdate, findOpen, findQ, forceToastPreviewSync]);
 // Activate-only: highlighs the current hit, no recompute
 const activateCurrentHit = React.useCallback(() => {
   const hits = findHitsRef.current;
@@ -721,6 +729,33 @@ const queueSave = React.useCallback(() => {
     }
   }, 600);
 }, [id, api, markServerSaved, saveLocalDraft]);
+const syncToastModelFromInst = React.useCallback(() => {
+  const inst = toastRef.current?.getInstance?.();
+  if (!inst) return;
+  try {
+    const md = inst.getMarkdown?.() || "";
+    if (md !== noteDraftRef.current) {
+      noteDraftRef.current = md;
+      mdHasDollarRef.current = md.indexOf("$") !== -1;
+      dirtyRef.current = true;
+      saveLocalDraft(md);
+      queueSave();
+    }
+  } catch {}
+}, [queueSave, saveLocalDraft]);
+const toastExec = React.useCallback((cmd: string, payload?: any) => {
+  const inst = toastRef.current?.getInstance?.();
+  if (!inst) return;
+  try {
+    inst.exec(cmd, payload);
+  } catch {}
+  // 立刻刷预览 + 同步到模型 + 重绘装饰
+  try { forceToastPreviewSync(); } catch {}
+  try { syncToastModelFromInst(); } catch {}
+  try { redecorateSoon?.(); } catch {}
+  // 兜底：某些命令内部异步提交，稍后再同步一次
+  window.setTimeout(() => { try { syncToastModelFromInst(); } catch {} }, 30);
+}, [syncToastModelFromInst, forceToastPreviewSync, redecorateSoon]);
 const replaceOneAt = React.useCallback((index: number) => {
   const text = noteDraftRef.current || "";
   const reG = buildSourceRegex();
@@ -751,7 +786,7 @@ const replaceOneAt = React.useCallback((index: number) => {
   dirtyRef.current = true;
   saveLocalDraft(next);
   queueSave();
-  refreshToastDecorationsAfterUpdate();
+  redecorateSoon();
   return 1;
 }, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex, refreshToastDecorationsAfterUpdate]);
 
@@ -785,7 +820,7 @@ const replaceAll = React.useCallback(() => {
   dirtyRef.current = true;
   saveLocalDraft(out);
   queueSave();
-  refreshToastDecorationsAfterUpdate();
+  redecorateSoon();
   return 1;
 }, [buildSourceRegex, replQ, queueSave, saveLocalDraft, findWord, findRegex, refreshToastDecorationsAfterUpdate]);
 
@@ -810,6 +845,9 @@ React.useEffect(() => {
     if (decoPhaseRef.current) return; // ignore self-caused mutations
     if (moTimerRef.current) { clearTimeout(moTimerRef.current); moTimerRef.current = null; }
     moTimerRef.current = window.setTimeout(() => {
+      // 先把编辑器真实 Markdown 同步回模型（覆盖不触发 onChange 的修改，如 exec/insertText）
+      try { syncToastModelFromInst(); } catch {}
+    
       // 任何内容变更先刷新数学，再按需刷新高亮（不用等空闲）
       try {
         decoPhaseRef.current = true;
@@ -828,13 +866,19 @@ React.useEffect(() => {
     if (moTimerRef.current) { clearTimeout(moTimerRef.current); moTimerRef.current = null; }
   };
 }, [editMode, getToastContentHost, findOpen, findQ, applyFindHighlights]);
-  const toastInsert = React.useCallback((text: string) => {
-    const inst = toastRef.current?.getInstance?.();
-    if (!inst) return;
-    try {
-      inst.insertText(text);
-    } catch {}
-  }, []);
+const toastInsert = React.useCallback((text: string) => {
+  const inst = toastRef.current?.getInstance?.();
+  if (!inst) return;
+  try {
+    inst.insertText(text);
+  } catch {}
+  // 立即刷预览 + 同步到模型 + 重绘装饰
+  try { forceToastPreviewSync(); } catch {}
+  try { syncToastModelFromInst(); } catch {}
+  try { redecorateSoon?.(); } catch {}
+  // 兜底：Toast 可能异步合并事务，稍后再同步一次
+  window.setTimeout(() => { try { syncToastModelFromInst(); } catch {} }, 30);
+}, [syncToastModelFromInst, forceToastPreviewSync, redecorateSoon]);
   const noteDraftRef = React.useRef<string>("");
   const saveDebounceRef = React.useRef<number | null>(null);
   const saveAbortRef = React.useRef<AbortController | null>(null);
@@ -1724,16 +1768,15 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                   editMode={editMode}
                   onToggleMode={() => {
                     setEditMode((m) => {
-                      const nxt = m === "wysiwyg" ? "markdown" : "wysiwyg";
-                      if (nxt === "wysiwyg") setEditorKey((k) => k + 1);
+                      const nxt: "markdown" | "toast" = m === "markdown" ? "toast" : "markdown";
+                      if (nxt === "toast") setEditorKey((k) => k + 1); // 进入 Toast 需要重挂载以刷新 initialValue
                       return nxt;
                     });
                   }}
                   onSwitchToast={() => {
                     setEditMode((m) => {
-                      const nxt = m === "toast" ? "wysiwyg" : "toast";
-                      setEditorKey((k) => k + 1);
-                      return nxt;
+                      if (m !== "toast") setEditorKey((k) => k + 1);
+                      return "toast";
                     });
                   }}
                   toastExec={toastExec}
@@ -1747,7 +1790,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                 <div className="ml-auto flex items-center gap-2">
                 <button
                   className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
-                  onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) refreshToastDecorationsAfterUpdate(); }}
+                  onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) redecorateSoon(); }}
                 >
                   查找/替换
                 </button>
@@ -1790,24 +1833,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
               {/* 左列覆盖内容区（编辑器） */}
               <div className="flex-1 min-h-0 flex flex-col">
                 <div className="min-w-0 min-h-0 flex-1 overflow-auto">
-                  {editMode === "wysiwyg" ? (
-                    <WysiwygMdEditor
-                      key={editorKey}
-                      initialMarkdown={noteDraftRef.current || noteMd}
-                      onMarkdownChange={(val) => {
-                        if (!contentReadyRef.current) return;
-                        if (suppressSaveRef.current) {
-                          noteDraftRef.current = val; // 只同步，不保存
-                          suppressSaveRef.current = false;
-                          return;
-                        }
-                        noteDraftRef.current = val;
-                        dirtyRef.current = true;
-                        saveLocalDraft(val);
-                        queueSave();
-                      }}
-                    />
-                  ) : editMode === "toast" ? (
+                  {editMode === "toast" ? (
                     <div className="h-full" ref={toastRootRef}>
                       <TuiEditor
                         ref={toastRef}
