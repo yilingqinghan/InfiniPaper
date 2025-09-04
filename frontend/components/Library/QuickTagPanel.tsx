@@ -105,7 +105,7 @@ function QuickTagPanel({
     const canApply = !!paper && (sel.length > 0 || input.trim().length > 0);
     const outerCls = compact
         ? "rounded-2xl border bg-white flex flex-col overflow-hidden max-h-[260px]"
-        : "rounded-2xl border bg-white h-full flex flex-col overflow-hidden  max-h-[500px]";
+        : "rounded-2xl border bg-white h-full flex flex-col overflow-hidden  max-h-[350px]";
     return (
         <div className={outerCls}>
             <div className="px-3 py-2 border-b bg-gradient-to-r from-indigo-50 to-blue-50 flex items-center gap-2">

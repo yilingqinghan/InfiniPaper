@@ -244,10 +244,10 @@ function DragHandle({ id }: { id: number }) {
 
 /* --------------------------- row --------------------------- */
 function PaperRow({
-    p, onOpen, onSelect, onPreviewHover, onContextMenu, tagMap, selected, showVenueCol, vizNonce,
+    p, onOpen, onSelect, onPreviewHover, onPreviewMove, onContextMenu, tagMap, selected, showVenueCol, vizNonce,
 }: {
     p: Paper; onOpen: (id: number) => void; onSelect: (id: number) => void;
-    onPreviewHover: (id: number | null) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
+    onPreviewHover: (id: number | null) => void; onPreviewMove: (x: number, y: number) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
     tagMap: Map<number, Tag>; selected: boolean; showVenueCol: boolean; vizNonce: number;
 }) {
     const router = useRouter();
@@ -276,6 +276,7 @@ function PaperRow({
             }}
             onMouseEnter={() => onPreviewHover(p.id)}
             onMouseLeave={() => onPreviewHover(null)}
+            onMouseMove={(e) => onPreviewMove(e.clientX, e.clientY)}
             onContextMenu={(e) => onContextMenu(e, p)}
             data-viz={vizNonce}
         >
@@ -636,6 +637,8 @@ export default function Library() {
     const [pageSize, setPageSize] = React.useState(50);
 
     const [hoverPreviewId, setHoverPreviewId] = React.useState<number | null>(null);
+    const [hoverPreviewPos, setHoverPreviewPos] = React.useState<{ x: number; y: number }>({ x: 0, y: 0 });
+    const [showWordCloud, setShowWordCloud] = React.useState(false);
     const [ctx, setCtx] = React.useState<{ x: number; y: number; visible: boolean; payload?: Paper }>({ x: 0, y: 0, visible: false });
 
     const [vizNonce, setVizNonce] = React.useState(0);
@@ -982,7 +985,6 @@ export default function Library() {
     return (
         <DndContext sensors={sensors} onDragEnd={onDragEnd}>
             {/* 宽度 90% + 渐变背景 */}
-            
             <div className="mx-auto w-[90%] py-6 bg-gradient-to-b from-white via-slate-50 to-white rounded-2xl">
                 <div className="flex items-center justify-between mb-4">
                     <div className="text-xl font-semibold flex items-center gap-2">
@@ -1061,6 +1063,12 @@ export default function Library() {
                           >
                           通过 DOI 添加
                           </button>
+                    <button
+                      className="text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50"
+                      onClick={() => setShowWordCloud(v => !v)}
+                    >
+                      {showWordCloud ? "关闭词云" : "显示词云"}
+                    </button>
                     </div>
                 </div>
 
@@ -1201,6 +1209,7 @@ export default function Library() {
                                             onOpen={id => setOpenId(id)}
                                             onSelect={(id) => setSelectedId(id)}
                                             onPreviewHover={(id) => setHoverPreviewId(id)}
+                                            onPreviewMove={(x, y) => setHoverPreviewPos({ x, y })}
                                             onContextMenu={showCtx}
                                             selected={selectedId === p.id}
                                             tagMap={tagMap}
@@ -1245,29 +1254,9 @@ export default function Library() {
                         </div>
                     </div>
 
-                    {/* 右侧：预览 / 摘要 / 词云 */}
+                    {/* 右侧：预览 / 摘要 */}
                     <div className="space-y-4">
-                        {/* 悬停预览 */}
-                        <div className="rounded-2xl border bg-white overflow-hidden h-[220px]">
-                            <div className="px-3 py-2 border-b bg-gradient-to-r from-sky-50 to-indigo-50 flex items-center gap-2">
-                                <Eye className="w-4 h-4 text-sky-600" />
-                                <div className="text-sm font-medium">PDF 预览</div>
-                                {selectedId && <button className="ml-auto text-xs px-2 py-1 rounded border" onClick={editMeta}>编辑元信息</button>}
-                            </div>
-                            {hoverPreviewId
-                                ? (() => {
-                                    const paper = displayPapers.find(p => p.id === hoverPreviewId);
-                                    if (paper?.pdf_url) {
-                                        const src = `${apiBase}${paper.pdf_url}#view=FitH,top&toolbar=0&navpanes=0`;
-                                        return <iframe src={src} className="w-full h-[180px]" />;
-                                    }
-                                    return <div className="h-[180px] flex items-center justify-center text-sm text-gray-400">无 PDF</div>;
-                                })()
-                                : <div className="h-[180px] flex items-center justify-center text-sm text-gray-400">将鼠标悬停在某行以预览 PDF</div>}
-                        </div>
                         <AbstractNotePanel paper={selectedId ? papers.find(p => p.id === selectedId) || null : null} />
-                        {/* 词云 */}
-                        <WordCloudPanel papers={displayPapers} tags={tags} />
                     </div>
                 </div>
 
@@ -1325,6 +1314,41 @@ export default function Library() {
 
                 <Detail openId={openId} onClose={() => setOpenId(null)} />
             </div>
+            {/* 悬停浮动 PDF 预览 */}
+            {hoverPreviewId ? (() => {
+              const paper = displayPapers.find(p => p.id === hoverPreviewId);
+              if (!paper || !paper.pdf_url) return null;
+              const src = `${apiBase}${paper.pdf_url}#view=FitH,top&toolbar=0&navpanes=0`;
+              const style: React.CSSProperties = {
+                position: 'fixed',
+                top: Math.min(window.innerHeight - 260, Math.max(0, hoverPreviewPos.y + 12)),
+                left: Math.min(window.innerWidth - 380, Math.max(0, hoverPreviewPos.x + 12)),
+                width: 360,
+                height: 240,
+                pointerEvents: 'none', // 不抢焦点，不影响鼠标事件
+                zIndex: 120,
+                boxShadow: '0 8px 32px rgba(0,0,0,0.25)'
+              };
+              return (
+                <div style={style} className="rounded-lg overflow-hidden border bg-white">
+                  <iframe src={src} className="w-full h-full" />
+                </div>
+              );
+            })() : null}
+            {/* 浮动词云面板 */}
+            {showWordCloud && (
+              <div className="fixed z-[130] bottom-4 right-4 w-[560px] max-h-[70vh]">
+                <div className="rounded-2xl border bg-white shadow-2xl overflow-hidden">
+                  <div className="px-3 py-2 border-b bg-gradient-to-r from-emerald-50 to-teal-50 flex items-center">
+                    <div className="text-sm font-medium">词云</div>
+                    <button className="ml-auto text-xs px-2 py-1 rounded border" onClick={() => setShowWordCloud(false)}>关闭</button>
+                  </div>
+                  <div className="p-2">
+                    <WordCloudPanel papers={displayPapers} tags={tags} />
+                  </div>
+                </div>
+              </div>
+            )}
             <AuthorGraphDialog
             open={graphOpen}
             seed={graphSeed}
