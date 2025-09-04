@@ -328,15 +328,20 @@ function htmlToMarkdown(html: string): string {
 
     if (tag === "pre") {
       const codeEl = el.querySelector("code");
-      const raw = codeEl ? (codeEl.textContent || "") : (el.textContent || "");
+      const rawText = codeEl ? (codeEl.textContent || "") : (el.textContent || "");
       let lang = "";
       const klass = (codeEl || el).className || "";
       const m = klass.match(/language-([a-z0-9\+\-]+)/i);
       if (m) lang = m[1];
+      // Normalize NBSPs and remove trailing blank lines so we don't end up with
+      // an empty line just before the closing ```
+      const cleaned = rawText
+        .replace(/\u00A0/g, " ")
+        .replace(/\r?\n+$/g, ""); // <-- trim final newlines
       lines.push("```" + lang);
-      lines.push(raw.replace(/\u00A0/g, " "));
+      lines.push(cleaned);
       lines.push("```");
-      lines.push("");
+      lines.push(""); // keep one blank line AFTER the fence (outside the block)
       return;
     }
 
