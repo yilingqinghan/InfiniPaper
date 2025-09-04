@@ -2265,6 +2265,9 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           padding: 0;
           overflow: hidden;
           }
+          .note-overlay .toastui-editor-contents p {
+            text-indent: 2em;
+          }
           .note-overlay .toastui-editor-contents thead th{
           background: #f8fafc;
           font-weight: 700;
