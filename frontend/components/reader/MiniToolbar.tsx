@@ -146,11 +146,11 @@ export default function MiniToolbar({
       </div>
 
       <button className="px-2 py-0.5 border rounded text-xs" title={editMode === "wysiwyg" ? "切换到 Markdown 源码模式" : "切换到所见即所得模式"} onClick={onToggleMode}>
-        {editMode === "wysiwyg" ? "源码" : "所见即所得"}
+        {editMode === "wysiwyg" ? "源码" : "渲染"}
       </button>
 
       <button className="px-2 py-0.5 border rounded text-xs" title={editMode === "toast" ? "切回所见即所得" : "切换到 Toast UI 编辑器"} onClick={onSwitchToast}>
-        {editMode === "toast" ? "所见即所得" : "Toast"}
+        {editMode === "toast" ? "Lexical" : "Toast"}
       </button>
     </div>
   );

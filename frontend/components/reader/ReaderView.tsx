@@ -747,7 +747,6 @@ const replaceOneAt = React.useCallback((index: number) => {
   const next = text.slice(0, s) + replaced + text.slice(e);
   noteDraftRef.current = next;
   try { toastRef.current?.getInstance?.()?.setMarkdown?.(next); } catch {}
-  forceToastPreviewSync();
   mdHasDollarRef.current = next.indexOf("$") !== -1;
   dirtyRef.current = true;
   saveLocalDraft(next);
@@ -782,7 +781,6 @@ const replaceAll = React.useCallback(() => {
   if (!changed) return 0;
   noteDraftRef.current = out;
   try { toastRef.current?.getInstance?.()?.setMarkdown?.(out); } catch {}
-  forceToastPreviewSync();
   mdHasDollarRef.current = out.indexOf("$") !== -1;
   dirtyRef.current = true;
   saveLocalDraft(out);
@@ -802,17 +800,25 @@ React.useEffect(() => {
   };
 }, [clearFindHighlights]);
 
-// MutationObserver: auto rehighlight after DOM mutation (only when find is open)
+// MutationObserver: auto rehighlight after DOM mutation (always re-render KaTeX, then optionally highlights)
 React.useEffect(() => {
   if (editMode !== 'toast') return;
   const host = getToastContentHost();
   if (!host) return;
   if (moRef.current) { moRef.current.disconnect(); moRef.current = null; }
   const mo = new MutationObserver(() => {
-    if (!findOpen || !findQ) return;
     if (decoPhaseRef.current) return; // ignore self-caused mutations
     if (moTimerRef.current) { clearTimeout(moTimerRef.current); moTimerRef.current = null; }
-    moTimerRef.current = window.setTimeout(() => applyFindHighlights(), 5);
+    moTimerRef.current = window.setTimeout(() => {
+      // 任何内容变更先刷新数学，再按需刷新高亮（不用等空闲）
+      try {
+        decoPhaseRef.current = true;
+        renderMathInToast(toastRootRef.current || undefined);
+      } finally {
+        decoPhaseRef.current = false;
+      }
+      if (findOpen && findQ) applyFindHighlights();
+    }, 5);
   });
   mo.observe(host, { childList: true, characterData: true, subtree: true });
   moRef.current = mo;
