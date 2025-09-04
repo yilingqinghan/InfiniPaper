@@ -145,28 +145,265 @@ function renderMathInToast(root?: HTMLElement | null) {
     });
   } catch {}
 }
-// —— Safely read Toast UI Editor content（避免空读） ——
+// —— Convert a subset of HTML to Markdown (fallback path to preserve formatting) ——
+function htmlToMarkdown(html: string): string {
+  const root = document.createElement("div");
+  root.innerHTML = html;
+
+  // Escape only outside math ($...$ / $$...$$). Inside math, keep backslashes as-is.
+  const escapeTextSmart = (s: string) => {
+    s = (s || "").replace(/\u00A0/g, " ");
+    let out = "";
+    let i = 0;
+    let mathDelim: 0 | 1 | 2 = 0; // 0 none, 1 = $, 2 = $$
+    while (i < s.length) {
+      const ch = s[i];
+      // handle $ and $$ delimiters
+      if (ch === "$") {
+        const isDouble = i + 1 < s.length && s[i + 1] === "$";
+        const len = isDouble ? 2 : 1;
+        if (mathDelim === 0) {
+          mathDelim = isDouble ? 2 : 1;
+          out += isDouble ? "$$" : "$";
+          i += len;
+          continue;
+        } else if ((mathDelim === 2 && isDouble) || (mathDelim === 1 && !isDouble)) {
+          // closing with matching delimiter
+          mathDelim = 0;
+          out += isDouble ? "$$" : "$";
+          i += len;
+          continue;
+        } else {
+          // a $ inside current math context, just output it
+          out += isDouble ? "$$" : "$";
+          i += len;
+          continue;
+        }
+      }
+      if (mathDelim !== 0) {
+        out += ch; // inside math: do not escape
+      } else {
+        // outside math: escape markdown control chars (including pipe)
+        if (/[\*\_\`\~\[\]\(\)#>\|\\]/.test(ch)) out += "\\" + ch;
+        else out += ch;
+      }
+      i++;
+    }
+    return out;
+  };
+
+  const lines: string[] = [];
+
+  // Render an inline fragment (no paragraph breaks)
+  const outInline = (el: Node): string => {
+    if (el.nodeType === Node.TEXT_NODE) return escapeTextSmart(el.textContent || "");
+    if (el.nodeType !== Node.ELEMENT_NODE) return "";
+    const e = el as HTMLElement;
+    const tag = e.tagName.toLowerCase();
+    const inner = Array.from(e.childNodes).map(outInline).join("");
+
+    if (tag === "strong" || tag === "b") return `**${inner}**`;
+    if (tag === "em" || tag === "i") return `*${inner}*`;
+    if (tag === "del" || tag === "s" || tag === "strike") return `~~${inner}~~`;
+    if (tag === "code") {
+      // inline code: take raw text, do not escape/backslash-transform
+      const raw = (e.textContent || "").replace(/\u00A0/g, " ");
+      return "`" + raw + "`";
+    }
+    if (tag === "a") {
+      const href = e.getAttribute("href") || "";
+      return `[${inner}](${href})`;
+    }
+    if (tag === "span" && e.classList.contains("math-raw")) {
+      // keep raw math verbatim (already includes $...$ or $$...$$)
+      return e.textContent || "";
+    }
+    if (tag === "img") {
+      const alt = e.getAttribute("alt") || "";
+      const src = e.getAttribute("src") || "";
+      return `![${alt}](${src})`;
+    }
+    if (tag === "br") {
+      return "<br>";
+    }
+    // default inline: flatten
+    return inner;
+  };
+
+  const pushPara = (txt: string) => {
+    if (!txt) return;
+    const cleaned = txt.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n");
+    lines.push(cleaned);
+    lines.push(""); // paragraph break
+  };
+
+  const tableCellToInline = (cell: HTMLElement): string => {
+    // Convert cell inner HTML to inline MD; turn newlines into <br> to keep them inside a cell
+    const md = htmlToMarkdown(cell.innerHTML);
+    return md.trim().replace(/\n{2,}/g, "<br>").replace(/\n/g, "<br>");
+  };
+
+  const getAlignToken = (cell: HTMLElement): string => {
+    const align =
+      (cell.getAttribute("align") || (cell.style && (cell.style as any).textAlign) || "")
+        .toString()
+        .toLowerCase();
+    if (align === "left") return ":---";
+    if (align === "right") return "---:";
+    if (align === "center") return ":---:";
+    return "---";
+  };
+
+  const visit = (node: Node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const t = (node.textContent || "").replace(/\s+/g, " ");
+      if (t.trim()) lines.push(escapeTextSmart(t));
+      return;
+    }
+    if (node.nodeType !== Node.ELEMENT_NODE) return;
+    const el = node as HTMLElement;
+    const tag = el.tagName.toLowerCase();
+
+    if (tag === "table") {
+      const rowsEls = Array.from(el.querySelectorAll("tr"));
+      const rows: string[][] = [];
+      const thAlign: string[] = [];
+      let hasHeader = false;
+      rowsEls.forEach((tr, rIdx) => {
+        const cellEls = Array.from(tr.children).filter(
+          (c) => {
+            const t = (c as HTMLElement).tagName.toLowerCase();
+            return t === "td" || t === "th";
+          }
+        ) as HTMLElement[];
+        if (!cellEls.length) return;
+        const row = cellEls.map((c) => tableCellToInline(c));
+        rows.push(row);
+        if (rIdx === 0) {
+          hasHeader = cellEls.some((c) => c.tagName.toLowerCase() === "th") || !!el.querySelector("thead");
+          cellEls.forEach((c, i) => (thAlign[i] = getAlignToken(c)));
+        }
+      });
+      if (rows.length) {
+        const colCount = Math.max(...rows.map((r) => r.length));
+        const pad = (r: string[]) => {
+          while (r.length < colCount) r.push("");
+          return r;
+        };
+        const header = pad(rows[0].slice());
+        const sep = Array.from({ length: colCount }).map((_, i) => thAlign[i] || "---");
+        const body = rows.slice(1).map((r) => pad(r.slice()));
+
+        lines.push(`| ${header.join(" | ")} |`);
+        lines.push(`| ${sep.join(" | ")} |`);
+        body.forEach((r) => lines.push(`| ${r.join(" | ")} |`));
+        lines.push(""); // blank line after table
+      }
+      return;
+    }
+
+    if (/^h[1-6]$/.test(tag)) {
+      const depth = Math.min(6, Math.max(1, Number(tag[1] || 1)));
+      const text = outInline(el);
+      pushPara(`${"#".repeat(depth)} ${text}`);
+      return;
+    }
+
+    if (tag === "p") {
+      const text = outInline(el);
+      pushPara(text);
+      return;
+    }
+
+    if (tag === "br") {
+      lines.push("  "); // soft break outside table
+      return;
+    }
+
+    if (tag === "hr") {
+      lines.push("---");
+      lines.push("");
+      return;
+    }
+
+    if (tag === "pre") {
+      const codeEl = el.querySelector("code");
+      const raw = codeEl ? (codeEl.textContent || "") : (el.textContent || "");
+      let lang = "";
+      const klass = (codeEl || el).className || "";
+      const m = klass.match(/language-([a-z0-9\+\-]+)/i);
+      if (m) lang = m[1];
+      lines.push("```" + lang);
+      lines.push(raw.replace(/\u00A0/g, " "));
+      lines.push("```");
+      lines.push("");
+      return;
+    }
+
+    if (tag === "blockquote") {
+      const md = htmlToMarkdown(el.innerHTML).trim().split("\n").map(l => (l ? `> ${l}` : ">")).join("\n");
+      lines.push(md);
+      lines.push("");
+      return;
+    }
+
+    if (tag === "ul" || tag === "ol") {
+      let idx = 1;
+      Array.from(el.children).forEach((li) => {
+        if ((li as HTMLElement).tagName.toLowerCase() !== "li") return;
+        const bullet = tag === "ol" ? `${idx}. ` : "- ";
+        const inner = htmlToMarkdown((li as HTMLElement).innerHTML).trim().replace(/\n/g, "\n  ");
+        lines.push(bullet + inner);
+        idx += 1;
+      });
+      lines.push("");
+      return;
+    }
+
+    if (tag === "img") {
+      const alt = el.getAttribute("alt") || "";
+      const src = el.getAttribute("src") || "";
+      pushPara(`![${alt}](${src})`);
+      return;
+    }
+
+    // default: descend
+    Array.from(el.childNodes).forEach(visit);
+  };
+
+  Array.from(root.childNodes).forEach(visit);
+  while (lines.length && lines[lines.length - 1] === "") lines.pop();
+  return lines.join("\n");
+}
+
+// —— Safely read Toast UI Editor content (prefers Markdown, falls back to HTML→Markdown) ——
 function readToastMarkdown(inst?: any, previewHost?: HTMLElement | null): string {
   try {
     const md = inst?.getMarkdown?.();
-    if (typeof md === "string" && md.length) return md;
+    if (typeof md === "string" && md.trim().length) return md;
   } catch {}
+
+  // Fallback：把 HTML 转成 Markdown，保留格式
   try {
     const html = inst?.getHTML?.();
     if (typeof html === "string" && html.trim()) {
-      const tmp = document.createElement("div");
-      tmp.innerHTML = html;
-      tmp.querySelectorAll("br").forEach((br) => (br.outerHTML = "\n"));
-      const txt = (tmp.textContent || "").replace(/\u00A0/g, " ");
-      if (txt.trim()) return txt;      // 退化为纯文本也比“空”强
+      const converted = htmlToMarkdown(html);
+      if (converted.trim()) return converted;
     }
   } catch {}
+
   if (previewHost) {
-    const txt = (previewHost.innerText || "").replace(/\u00A0/g, " ");
-    if (txt.trim()) return txt;
+    const html = (previewHost as HTMLElement).innerHTML || "";
+    if (html && html.trim()) {
+      const converted = htmlToMarkdown(html);
+      if (converted.trim()) return converted;
+    }
   }
+
+  // 最后的保底：返回空（上层逻辑会避免用空覆盖已有草稿）
   return "";
 }
+
 export default function ReaderView() {
   const toastRootRef = React.useRef<HTMLDivElement | null>(null);
   const rafIdRef = React.useRef<number | null>(null);
