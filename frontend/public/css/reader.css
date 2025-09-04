@@ -32,7 +32,7 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-family: 'Times New Roman', ;
   font-weight: 800;
   letter-spacing: .1px;
   color: #0b1220;
@@ -46,7 +46,7 @@
 /* 段落与列表 */
 .markdown-body p {
   margin: 0.95em 0;
-  text-indent: 2em; 段落首行缩进两字符
+  text-indent: 2em; 
 }
 .markdown-body li p,
 .markdown-body blockquote p,
@@ -214,13 +214,3 @@ mark[data-ann-id] {
 
 .markdown-body li,
 .prose li { display: list-item !important; }
-
-/* 避免 li > p 的块级规则影响 marker */
-.markdown-body li > p,
-.prose li > p { margin: 0.2em 0 !important; }
-.note-overlay { overscroll-behavior: contain; }
-.note-overlay .toastui-editor-defaultUI { height: 100%; display: flex; flex-direction: column; }
-.note-overlay .toastui-editor-main { flex: 1 1 auto; min-height: 0; }
-.note-overlay .toastui-editor-md-container,
-.note-overlay .toastui-editor-md-preview { height: 100%; }
-.note-overlay .toastui-editor-md-splitter { flex: 0 0 auto; }
