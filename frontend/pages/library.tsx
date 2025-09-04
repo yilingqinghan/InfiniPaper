@@ -244,10 +244,10 @@ function DragHandle({ id }: { id: number }) {
 
 /* --------------------------- row --------------------------- */
 function PaperRow({
-    p, onOpen, onSelect, onPreviewHover, onPreviewMove, onContextMenu, tagMap, selected, showVenueCol, vizNonce,
+    p, onOpen, onSelect, onPreviewHover, onContextMenu, tagMap, selected, showVenueCol, vizNonce,
 }: {
     p: Paper; onOpen: (id: number) => void; onSelect: (id: number) => void;
-    onPreviewHover: (id: number | null) => void; onPreviewMove: (x: number, y: number) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
+    onPreviewHover: (id: number | null, rect?: DOMRect) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
     tagMap: Map<number, Tag>; selected: boolean; showVenueCol: boolean; vizNonce: number;
 }) {
     const router = useRouter();
@@ -274,9 +274,8 @@ function PaperRow({
               const q = pdf ? `?pdf=${encodeURIComponent(pdf)}` : "";
               router.push(`/reader/${p.id}${q}`);
             }}
-            onMouseEnter={() => onPreviewHover(p.id)}
+            onMouseEnter={(e) => onPreviewHover(p.id, (e.currentTarget as HTMLElement).getBoundingClientRect())}
             onMouseLeave={() => onPreviewHover(null)}
-            onMouseMove={(e) => onPreviewMove(e.clientX, e.clientY)}
             onContextMenu={(e) => onContextMenu(e, p)}
             data-viz={vizNonce}
         >
@@ -637,16 +636,22 @@ export default function Library() {
     const [pageSize, setPageSize] = React.useState(50);
 
     const [hoverPreviewId, setHoverPreviewId] = React.useState<number | null>(null);
-    const [hoverPreviewPos, setHoverPreviewPos] = React.useState<{ x: number; y: number }>({ x: 0, y: 0 });
+    const [hoverPreviewRect, setHoverPreviewRect] = React.useState<DOMRect | null>(null);
+    const [hoveringPreview, setHoveringPreview] = React.useState(false);
     const hoverTimer = React.useRef<number | null>(null);
 
-    const handlePreviewHover = (id: number | null) => {
+    const handlePreviewHover = (id: number | null, rect?: DOMRect) => {
       if (hoverTimer.current) { window.clearTimeout(hoverTimer.current); hoverTimer.current = null; }
-      if (id == null) { setHoverPreviewId(null); return; }
+      if (id == null) {
+        // 若预览面板仍在被鼠标悬停，则不立即关闭；稍作延迟避免抖动
+        if (!hoveringPreview) setHoverPreviewId(null);
+        return;
+      }
+      if (rect) setHoverPreviewRect(rect);
       hoverTimer.current = window.setTimeout(() => {
         setHoverPreviewId(id);
         hoverTimer.current = null;
-      }, 2000); // 2 秒延迟
+      }, 1300); // 1.3 秒延迟
     };
 
     React.useEffect(() => {
@@ -1217,7 +1222,6 @@ export default function Library() {
                                             onOpen={id => setOpenId(id)}
                                             onSelect={(id) => setSelectedId(id)}
                                             onPreviewHover={handlePreviewHover}
-                                            onPreviewMove={(x, y) => setHoverPreviewPos({ x, y })}
                                             onContextMenu={showCtx}
                                             selected={selectedId === p.id}
                                             tagMap={tagMap}
@@ -1352,24 +1356,30 @@ export default function Library() {
             border: none !important;
           }
         `}</style>
-        {/* 悬停浮动 PDF 预览（延迟 2 秒生效，窗口更大） */}
-        {hoverPreviewId ? (() => {
+        {/* 悬停浮动 PDF 预览（延迟 2 秒生效，贴合行位置，允许交互） */}
+        {hoverPreviewId && hoverPreviewRect ? (() => {
           const paper = displayPapers.find(p => p.id === hoverPreviewId);
           if (!paper || !paper.pdf_url) return null;
           const src = `${apiBase}${paper.pdf_url}#view=FitH,top&toolbar=0&navpanes=0`;
+          const W = 880, H = 1000, GAP = 12; // 更大窗口
+          // 先尝试放在行右侧，不够空间则放在左侧；再做上下边界裁剪
+          const preferRight = (hoverPreviewRect.right + GAP + W) <= window.innerWidth - 8;
+          const left = preferRight ? Math.min(window.innerWidth - W - 8, hoverPreviewRect.right + GAP)
+                                   : Math.max(8, hoverPreviewRect.left - GAP - W);
+          const topRaw = hoverPreviewRect.top;
+          const top = Math.min(window.innerHeight - H - 8, Math.max(8, topRaw));
           const style: React.CSSProperties = {
-            position: 'fixed',
-            top: Math.min(window.innerHeight - 420, Math.max(0, hoverPreviewPos.y + 14)),
-            left: Math.min(window.innerWidth - 620, Math.max(0, hoverPreviewPos.x + 14)),
-            width: 600,
-            height: 400,
-            pointerEvents: 'none',
-            zIndex: 130,
-            boxShadow: '0 10px 40px rgba(0,0,0,0.28)'
+            position: 'fixed', top, left, width: W, height: H, zIndex: 130,
+            boxShadow: '0 10px 40px rgba(0,0,0,0.28)', borderRadius: 12, background: 'white',
           };
           return (
-            <div style={style} className="rounded-xl overflow-hidden border bg-white">
-              <iframe src={src} className="w-full h-full" scrolling="no" />
+            <div
+              style={style}
+              className="overflow-hidden border bg-white"
+              onMouseEnter={() => setHoveringPreview(true)}
+              onMouseLeave={() => { setHoveringPreview(false); setTimeout(() => { if (!hoverTimer.current) setHoverPreviewId(null); }, 100); }}
+            >
+              <iframe src={src} className="w-full h-full" scrolling="auto" />
             </div>
           );
         })() : null}
