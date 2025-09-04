@@ -419,7 +419,27 @@ export default function ReaderView() {
   const [noteSavedAt, setNoteSavedAt] = React.useState<string | null>(null);
   const noteTextRef = React.useRef<HTMLTextAreaElement | null>(null);
   const toastRef = React.useRef<any>(null);
-
+// —— 获取编辑器当前内容（Toast 或 textarea），并同步到 noteDraftRef ——
+const pullLatestMarkdown = React.useCallback((): string => {
+  let next = noteDraftRef.current || "";
+  try {
+    const inst = toastRef.current?.getInstance?.();
+    if (inst && editMode === "toast") {
+      const md = inst.getMarkdown?.() ?? "";
+      next = typeof md === "string" ? md : "";
+    } else if (noteTextRef.current && editMode === "markdown") {
+      next = noteTextRef.current.value || "";
+    }
+  } catch (e) {
+    console.warn("[ReaderView] pullLatestMarkdown error:", e);
+  }
+  if (next !== noteDraftRef.current) {
+    console.log("[ReaderView] pullLatestMarkdown -> sync ref", { len: next.length });
+  }
+  noteDraftRef.current = next;
+  mdHasDollarRef.current = next.indexOf("$") !== -1;
+  return next;
+}, [editMode]);
   // ===== Toast 查找/替换（仅在 editMode === 'toast' 时启用） =====
 const [findOpen, setFindOpen] = React.useState(false);
 const [findQ, setFindQ] = React.useState("");
@@ -702,47 +722,64 @@ const saveLocalDraft = React.useCallback((content: string) => {
     (path: string) => (apiBase ? `${apiBase}${path}` : path),
     [apiBase]
   );
-const queueSave = React.useCallback(() => {
-  if (!contentReadyRef.current || suppressSaveRef.current) return;
-  dirtyRef.current = true;
-  saveLocalDraft(noteDraftRef.current || "");
-  if (saveDebounceRef.current) window.clearTimeout(saveDebounceRef.current);
-  saveDebounceRef.current = window.setTimeout(async () => {
-    if (!id) return;
-    if (!dirtyRef.current) return; // 没有真实修改则不保存
+  const queueSave = React.useCallback(() => {
+    if (!contentReadyRef.current) {
+      console.log("[ReaderView] queueSave blocked: content not ready");
+      return;
+    }
+    // 读取实时内容，避免因 ref 过期而保存为空
+    const cur = pullLatestMarkdown();
+    dirtyRef.current = true;
+    try { saveLocalDraft(cur); } catch {}
+    console.log("[ReaderView] queueSave scheduled", { id, len: cur.length, suppress: suppressSaveRef.current });
+  
+    if (saveDebounceRef.current) window.clearTimeout(saveDebounceRef.current);
+    saveDebounceRef.current = window.setTimeout(async () => {
+      if (!id) return;
+      if (!dirtyRef.current) { console.log("[ReaderView] queueSave skipped: not dirty"); return; }
+      try {
+        setNoteSaving(true);
+        setNoteError(null);
+        if (saveAbortRef.current) saveAbortRef.current.abort();
+        const ctrl = new AbortController();
+        saveAbortRef.current = ctrl;
+  
+        const latest = pullLatestMarkdown();
+        console.log("[ReaderView] saving...", { id, len: latest.length });
+  
+        const saved = await upsertByPaper(api, Number(id), latest);
+        setNoteId(saved.id);
+        setNoteSavedAt(new Date().toISOString());
+        lastServerContentRef.current = latest;
+        dirtyRef.current = false;
+        markServerSaved();
+        console.log("[ReaderView] saved ok", { id, len: latest.length, savedId: saved?.id });
+      } catch (e: any) {
+        console.log("[ReaderView] save failed", e);
+        setNoteError(e?.message || String(e));
+      } finally {
+        setNoteSaving(false);
+      }
+    }, 600);
+  }, [id, api, markServerSaved, saveLocalDraft, pullLatestMarkdown]);
+  const syncToastModelFromInst = React.useCallback(() => {
+    const inst = toastRef.current?.getInstance?.();
+    if (!inst) return;
     try {
-      setNoteSaving(true);
-      setNoteError(null);
-      if (saveAbortRef.current) saveAbortRef.current.abort();
-      const ctrl = new AbortController();
-      saveAbortRef.current = ctrl;
-      const saved = await upsertByPaper(api, Number(id), noteDraftRef.current || "");
-      setNoteId(saved.id);
-      setNoteSavedAt(new Date().toISOString());
-      lastServerContentRef.current = noteDraftRef.current || "";
-      dirtyRef.current = false;
-      markServerSaved();
-    } catch (e: any) {
-      setNoteError(e?.message || String(e));
-    } finally {
-      setNoteSaving(false);
+      const md = inst.getMarkdown?.() || "";
+      if (md !== noteDraftRef.current) {
+        const prevLen = (noteDraftRef.current || "").length;
+        noteDraftRef.current = md;
+        mdHasDollarRef.current = md.indexOf("$") !== -1;
+        dirtyRef.current = true;
+        try { saveLocalDraft(md); } catch {}
+        console.log("[ReaderView] syncToastModelFromInst", { prevLen, nextLen: md.length });
+        queueSave();
+      }
+    } catch (e) {
+      console.warn("[ReaderView] syncToastModelFromInst error", e);
     }
-  }, 600);
-}, [id, api, markServerSaved, saveLocalDraft]);
-const syncToastModelFromInst = React.useCallback(() => {
-  const inst = toastRef.current?.getInstance?.();
-  if (!inst) return;
-  try {
-    const md = inst.getMarkdown?.() || "";
-    if (md !== noteDraftRef.current) {
-      noteDraftRef.current = md;
-      mdHasDollarRef.current = md.indexOf("$") !== -1;
-      dirtyRef.current = true;
-      saveLocalDraft(md);
-      queueSave();
-    }
-  } catch {}
-}, [queueSave, saveLocalDraft]);
+  }, [queueSave, saveLocalDraft]);
 const toastExec = React.useCallback((cmd: string, payload?: any) => {
   const inst = toastRef.current?.getInstance?.();
   if (!inst) return;
@@ -980,17 +1017,22 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
       if (saveAbortRef.current) saveAbortRef.current.abort();
       const ctrl = new AbortController();
       saveAbortRef.current = ctrl;
-      await upsertByPaper(api, Number(id), noteDraftRef.current || "");
-      lastServerContentRef.current = noteDraftRef.current || "";
+  
+      const latest = pullLatestMarkdown();
+      console.log("[ReaderView] exportNow -> upsert before export", { id, len: latest.length });
+      await upsertByPaper(api, Number(id), latest);
+      lastServerContentRef.current = latest;
       dirtyRef.current = false;
       markServerSaved();
     } catch (e: any) {
+      console.log("[ReaderView] exportNow save failed", e);
       setNoteError(e?.message || String(e));
     } finally {
       setNoteSaving(false);
     }
+    console.log("[ReaderView] exportNow -> exportMarkdown", { id });
     await exportMarkdown(api, Number(id));
-  }, [id, api, markServerSaved]);
+  }, [id, api, markServerSaved, pullLatestMarkdown]);
 
   const updateCaretFromTextarea = (el: HTMLTextAreaElement) => {
     const p = el.selectionStart ?? 0;
@@ -1123,6 +1165,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
         setNoteError(null);
         const got = await getByPaper(api, Number(id));
         const serverContent = got ? (got.content || "") : "";
+        console.log("[ReaderView] loaded content", { id, len: serverContent.length, from: got ? "server" : "none" });
         if (got) setNoteId(got.id); else setNoteId(null);
         lastServerContentRef.current = serverContent;
 
@@ -1850,19 +1893,21 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                           try {
                             const inst = (toastRef.current as any)?.getInstance?.();
                             const md = inst?.getMarkdown?.() || "";
+                            const prevLen = (noteDraftRef.current || "").length;
+                            noteDraftRef.current = md;
+                            mdHasDollarRef.current = md.indexOf("$") !== -1;
+                            console.log("[ReaderView] TUI onChange", { prevLen, nextLen: md.length, suppress: suppressSaveRef.current });
+                          
                             if (suppressSaveRef.current) {
-                              // 首次挂载产生的初始化 onChange：只同步内存，不保存
-                              noteDraftRef.current = md;
-                              mdHasDollarRef.current = md.indexOf("$") !== -1;
+                              // 首次挂载触发的一次 onChange 也允许排一次保存，避免“保存空内容”
                               suppressSaveRef.current = false;
-                            } else {
-                              noteDraftRef.current = md;
-                              mdHasDollarRef.current = md.indexOf("$") !== -1;
-                              dirtyRef.current = true;
-                              saveLocalDraft(md);
-                              queueSave();
                             }
-                          } catch {}
+                            dirtyRef.current = true;
+                            try { saveLocalDraft(md); } catch {}
+                            queueSave();
+                          } catch (e) {
+                            console.warn("[ReaderView] TUI onChange read markdown failed", e);
+                          }
                           scheduleRenderToastMath();
                           if (findOpen && findQ) scheduleApplyFindHighlights();
                         }}
