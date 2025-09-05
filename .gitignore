@@ -27,3 +27,5 @@ backend/storage/pdfs
 .ollama.pid
 backend/storage/mineru/
 backend/storage/annotations/
+backend/storage/images/
+backend/uploads/
