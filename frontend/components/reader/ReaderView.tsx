@@ -28,6 +28,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
+import { attachImagePasteDrop, uploadImageViaApi, buildImageMarkdown } from "@/lib/imageStore";
 
 // 批注/装饰工具
 import {
@@ -1267,17 +1268,74 @@ React.useEffect(() => {
 }, [editMode, getToastContentHost, findOpen, findQ, applyFindHighlights]);
 const toastInsert = React.useCallback((text: string) => {
   const inst = toastRef.current?.getInstance?.();
-  if (!inst) return;
+  const previewHost = toastRootRef.current?.querySelector(".toastui-editor-contents") as HTMLElement | null;
+  console.log('[toastInsert] begin', { hasInst: !!inst, mode: editMode, len: (text||'').length, head: (text||'').slice(0,80) });
+
+  // Robust fallback: setMarkdown with appended content
+  const hardSet = () => {
+    try {
+      // 读取当前真实 Markdown，再附加本次插入的文本
+      const cur = inst ? readToastMarkdown(inst, previewHost) : (noteDraftRef.current || "");
+      const next = (cur || "") + (cur?.endsWith("\n") ? "" : "\n") + (text || "") + "\n";
+      inst?.setMarkdown?.(next);
+      console.log('[toastInsert] hard setMarkdown fallback', { nextLen: next.length });
+    } catch (e) {
+      console.log('[toastInsert] hard setMarkdown failed', e);
+    }
+  };
+
+  // 如果实例还没就绪，排一个稍后的 setMarkdown 重试，以防止 paste 发生在初始化竞态中
+  if (!inst) {
+    try {
+      const cur = noteDraftRef.current || "";
+      noteDraftRef.current = cur + (cur.endsWith("\n") ? "" : "\n") + (text || "") + "\n";
+    } catch {}
+    console.log('[toastInsert] no inst; schedule retry setMarkdown');
+    window.setTimeout(() => {
+      const i = toastRef.current?.getInstance?.();
+      if (!i) return;
+      try { i.setMarkdown?.(noteDraftRef.current || ""); } catch {}
+      try { forceToastPreviewSync(); } catch {}
+      try { syncToastModelFromInst(); } catch {}
+      try { redecorateSoon?.(); } catch {}
+    }, 50);
+    return;
+  }
+
   try {
-    inst.insertText(text);
-  } catch {}
-  // 立即刷预览 + 同步到模型 + 重绘装饰
+    // 识别是否是单纯的一条图片 Markdown：![alt](url "title")
+    const m = /^\s*!\[([^\]]*)\]\(([^)\s]+)(?:\s+\"([^\"]*)\")?\)\s*$/.exec(text || "");
+    if (m) {
+      const alt = m[1] || 'image';
+      const url = m[2];
+      let ok = false;
+      try {
+        inst.exec?.('addImage', { imageUrl: url, altText: alt });
+        ok = true;
+        console.log('[toastInsert] exec addImage', { url, alt });
+      } catch (e) {
+        console.log('[toastInsert] addImage failed', e);
+      }
+      if (!ok) {
+        try { inst.insertText?.(text); console.log('[toastInsert] fallback insertText (image)'); }
+        catch (e) { console.log('[toastInsert] insertText failed -> hardSet', e); hardSet(); }
+      }
+    } else {
+      try { inst.insertText?.(text); console.log('[toastInsert] insertText (generic)'); }
+      catch (e) { console.log('[toastInsert] insertText failed -> hardSet', e); hardSet(); }
+    }
+  } catch (e) {
+    console.log('[toastInsert] error', e);
+    hardSet();
+  }
+
+  // 刷新预览 + 同步模型 + 重绘装饰
   try { forceToastPreviewSync(); } catch {}
   try { syncToastModelFromInst(); } catch {}
   try { redecorateSoon?.(); } catch {}
   // 兜底：Toast 可能异步合并事务，稍后再同步一次
   window.setTimeout(() => { try { syncToastModelFromInst(); } catch {} }, 30);
-}, [syncToastModelFromInst, forceToastPreviewSync, redecorateSoon]);
+}, [editMode, syncToastModelFromInst, forceToastPreviewSync, redecorateSoon]);
   const noteDraftRef = React.useRef<string>("");
   const saveDebounceRef = React.useRef<number | null>(null);
   const saveAbortRef = React.useRef<AbortController | null>(null);
@@ -1453,36 +1511,100 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
   const onImageChosen = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     e.currentTarget.value = "";
-    if (!f) return;
+    if (!f || !id) return;
     try {
-      const url = await uploadImage(f);
-      const snippet = `![${f.name}](${url})`;
+      const { internalUrl, externalUrl } = await uploadImageViaApi(api, Number(id), f, { mirror: true });
+      // Make URLs absolute if backend serves them under /files on a different origin
+      const primary0 = externalUrl || internalUrl;
+      const backup0 = externalUrl ? internalUrl : undefined;
+      const toAbs = (u?: string) => {
+        if (!u) return u;
+        if (/^https?:\/\//i.test(u)) return u;
+        if (u.startsWith("/files/")) return `${apiBase || ""}${u}`;
+        return u;
+      };
+      const primary = toAbs(primary0) as string;
+      const backup = toAbs(backup0) as string | undefined;
+      const snippet = buildImageMarkdown(primary, f.name, backup);
+
+      // WYSIWYG / Toast
       if (!noteTextRef.current) {
-        window.dispatchEvent(
-          new CustomEvent("IP_WYSIWYG_INSERT_TEXT", { detail: { text: snippet } })
-        );
+        window.dispatchEvent(new CustomEvent("IP_WYSIWYG_INSERT_TEXT", { detail: { text: snippet } }));
         return;
       }
+      // 纯 Markdown 文本域
       const el = noteTextRef.current;
-      if (el) {
-        const start = el.selectionStart ?? 0;
-        const end = el.selectionEnd ?? 0;
-        const val = el.value;
-        const next = val.slice(0, start) + snippet + val.slice(end);
-        el.value = next;
-        noteDraftRef.current = next;
-        queueSave();
-        const pos = start + snippet.length;
-        requestAnimationFrame(() => {
-          el.focus();
-          el.setSelectionRange(pos, pos);
-        });
-      }
+      const start = el.selectionStart ?? 0;
+      const end = el.selectionEnd ?? 0;
+      const val = el.value;
+      const next = val.slice(0, start) + snippet + val.slice(end);
+      el.value = next;
+      noteDraftRef.current = next;
+      queueSave();
+      const pos = start + snippet.length;
+      requestAnimationFrame(() => {
+        el.focus();
+        el.setSelectionRange(pos, pos);
+      });
     } catch (err: any) {
       setNoteError(err?.message || String(err));
+      showBubble("上传失败", "error");
     }
   };
+  React.useEffect(() => {
+    if (!id) return;
+    const teardown = attachImagePasteDrop({
+      root: toastRootRef.current || undefined,            // Toast 编辑器根（WYSIWYG）
+      textarea: noteTextRef.current || undefined,         // 纯文本域
+      paperId: Number(id),
+      api,
+      onInsert: (markdown) => {
+        console.log('[IP paste] onInsert received', { mode: editMode, len: (markdown||'').length, head: (markdown||'').slice(0, 80) });
+        // Toast 模式：走现成的插入（走你已有的 toastInsert 可以触发预览/保存）
+        if (editMode === "toast") {
+          try { toastInsert(markdown); } catch { /* fallback */ }
+          console.log('[IP paste] toastInsert dispatched');
+          return;
+        }
+        // Markdown 模式：直接写入 textarea
+        const el = noteTextRef.current;
+        if (el) {
+          const start = el.selectionStart ?? 0;
+          const end = el.selectionEnd ?? 0;
+          const val = el.value;
+          const next = val.slice(0, start) + markdown + val.slice(end);
+          el.value = next;
+          noteDraftRef.current = next;
+          queueSave();
+          const pos = start + markdown.length;
+          console.log('[IP paste] textarea inserted markdown', { pos: pos, len: markdown.length });
+          requestAnimationFrame(() => { el.focus(); el.setSelectionRange(pos, pos); });
+        }
+      },
+      onStart: (msg) => showBubble(msg || "正在上传图片…"),
+      onDone: (ok, msg) => {
+        if (!ok) showBubble(`上传失败：${msg || "未知错误"}`, "error");
+      },
+      maxSizeMB: 25, // 可调
+    });
+    return () => teardown?.();
+  }, [id, api, editMode, toastInsert, queueSave]);
 
+  // Global listener for reliable fallback of image paste/insert
+  React.useEffect(() => {
+    const handler = (e: any) => {
+      try {
+        const text = e?.detail?.text as string;
+        if (!text) return;
+        console.log('[IP] IP_WYSIWYG_INSERT_TEXT received', { len: text.length });
+        toastInsert(text);
+      } catch (err) {
+        console.log('[IP] IP_WYSIWYG_INSERT_TEXT handler error', err);
+      }
+    };
+    window.addEventListener('IP_WYSIWYG_INSERT_TEXT', handler as any);
+    return () => window.removeEventListener('IP_WYSIWYG_INSERT_TEXT', handler as any);
+  }, [toastInsert]);
   // ------- PDF 地址 & MinerU 解析 -------
   const buildPdfUrls = React.useCallback(
     (raw: string) => {
