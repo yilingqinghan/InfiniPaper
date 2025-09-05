@@ -1,7 +1,7 @@
 // frontend/lib/imageStore.ts
 export type UploadResp = {
-    internalUrl: string;       // 内部可访问地址（你现有后端返回的 url）
-    externalUrl?: string;      // 外部图床地址（后端可选返回）
+    internalUrl: string;       // 内部可访问地址（你现有后端返回的 url），用于应用内部引用和权限控制
+    externalUrl?: string;      // 外部图床地址（后端可选返回），用于公开访问或 CDN 加速
     width?: number;
     height?: number;
     format?: string;
@@ -28,27 +28,146 @@ export type UploadResp = {
     return Array.from(new Set(all));
   }
   
+  // —— 配置解析：优先 .env.local (NEXT_PUBLIC_*)，其次代码入参 / window 全局 / localStorage ——
+  // 注意：Next.js 需要“直接属性访问”才能在客户端替换 env；不要用 (process as any).env 动态访问
+  const ENV_IMGBB_KEY = process.env.NEXT_PUBLIC_IMGBB_KEY;
+  const ENV_UPLOAD_PROVIDER = process.env.NEXT_PUBLIC_UPLOAD_PROVIDER as ('backend'|'imgbb'|'both'|undefined);
+  const ENV_IMGBB_EXPIRATION = process.env.NEXT_PUBLIC_IMGBB_EXPIRATION;
+
+  function resolveImgBBKey(explicit?: string): string {
+    return explicit
+      || (ENV_IMGBB_KEY as string)
+      || (typeof window !== 'undefined' && ((window as any).__IMGBB_KEY__ || localStorage.getItem('IMGBB_API_KEY')))
+      || '';
+  }
+  function resolveUploadProvider(explicit?: 'backend'|'imgbb'|'both', keyMaybe?: string): 'backend'|'imgbb'|'both' {
+    const fromEnv = ENV_UPLOAD_PROVIDER;
+    return explicit || fromEnv || (keyMaybe ? 'both' : 'backend');
+  }
+  function resolveImgBBExpiration(explicit?: number): number | undefined {
+    if (typeof explicit === 'number' && Number.isFinite(explicit)) return explicit;
+    const raw = ENV_IMGBB_EXPIRATION;
+    const v = raw ? parseInt(raw, 10) : NaN;
+    return Number.isFinite(v) ? v : undefined;
+  }
+  
+  // —— 调试工具 ——
+  const __IS_DEV__ = typeof process !== 'undefined' ? ((process as any).env?.NODE_ENV !== 'production') : true;
+  const redact = (s?: string) => (s ? (s.length <= 8 ? '*'.repeat(Math.max(0, s.length - 2)) + s.slice(-2) : s.slice(0, 2) + '***' + s.slice(-4)) : '');
+  export function debugUploadEnv() {
+    console.log('[debugUploadEnv] env', {
+      NEXT_PUBLIC_UPLOAD_PROVIDER: ENV_UPLOAD_PROVIDER,
+      NEXT_PUBLIC_IMGBB_KEY_tail: redact(ENV_IMGBB_KEY as any),
+      NEXT_PUBLIC_IMGBB_EXPIRATION: ENV_IMGBB_EXPIRATION,
+      has_window_key: typeof window !== 'undefined' && !!(window as any).__IMGBB_KEY__,
+      localStorage_key_tail: typeof window !== 'undefined' ? redact(localStorage.getItem('IMGBB_API_KEY') || '') : '',
+    });
+  }
+  if (typeof window !== 'undefined') {
+    (window as any).__IP_debugUploadEnv = debugUploadEnv; // 在控制台可调用 window.__IP_debugUploadEnv()
+    ;(window as any).__IP__debugUploadEnv = debugUploadEnv; // 兼容多一个下划线的误输入
+  }
+  
+  // 上传到 ImgBB 图床（返回 externalUrl；其余字段尽量补齐）
+  export async function uploadImageViaImgBB(
+    file: File,
+    opts: { apiKey: string; name?: string; expirationSec?: number }
+  ): Promise<UploadResp> {
+    const { apiKey, name, expirationSec } = opts || ({} as any);
+    if (!apiKey) throw new Error('ImgBB apiKey missing');
+    const fd = new FormData();
+    fd.append('image', file); // 直接二进制文件
+    if (name) fd.append('name', name);
+    const url = new URL('https://api.imgbb.com/1/upload');
+    url.searchParams.set('key', apiKey);
+    if (expirationSec && Number.isFinite(expirationSec)) {
+      url.searchParams.set('expiration', String(Math.max(60, Math.min(15552000, Math.floor(expirationSec)))));
+    }
+    console.log('[uploadImageViaImgBB] POST', { to: url.toString().replace(/key=[^&]+/, 'key=***'), name, size: file.size, type: file.type, expiration: expirationSec });
+    const r = await fetch(url.toString(), { method: 'POST', body: fd });
+    const j = await r.json().catch(() => ({}));
+    console.log('[uploadImageViaImgBB] resp', { ok: r.ok, status: r.status, success: j?.success, hasData: !!j?.data });
+    if (!r.ok || !j || j.success === false) {
+      const msg = (j && (j.error?.message || j.data?.error?.message)) || r.statusText || 'ImgBB upload failed';
+      throw new Error(msg);
+    }
+    // 尽力从多处字段拿直链
+    const data = j.data || {};
+    const ex = data.url || data.display_url || data.image?.url || '';
+    console.log('[uploadImageViaImgBB] parsed', { externalUrl: ex, width: data?.width || data?.image?.width, height: data?.height || data?.image?.height });
+    return {
+      internalUrl: '',
+      externalUrl: ex,
+      width: data.width || data.image?.width,
+      height: data.height || data.image?.height,
+      format: data.image?.mime || data.image?.extension,
+      size: data.size || undefined,
+    } as UploadResp;
+  }
+  
   // 统一上传：支持 mirror=1（让后端同时推外链）
   // api('/path') 是你项目里现成的 path 拼接函数
   export async function uploadImageViaApi(
     api: (p: string) => string,
     paperId: number,
     file: File,
-    opts?: { mirror?: boolean }
+    opts?: { mirror?: boolean; provider?: 'backend' | 'imgbb' | 'both'; imgbbKey?: string; expirationSec?: number }
   ): Promise<UploadResp> {
-    const fd = new FormData();
-    fd.append("file", file);
-    const url = opts?.mirror
-      ? api(`/api/v1/richnotes/by-paper/${paperId}/images?mirror=1`)
-      : api(`/api/v1/richnotes/by-paper/${paperId}/images`);
-    const r = await fetch(url, { method: "POST", body: fd });
-    if (!r.ok) throw new Error(await r.text());
-    const data = await r.json();
-    return {
-      internalUrl: data.url || data.internal_url || data.path || "",
-      externalUrl: data.external_url || data.cdn_url || data.public_url || "",
-      width: data.width, height: data.height, format: data.format, size: data.size,
-    };
+    const keyResolved = resolveImgBBKey(opts?.imgbbKey);
+    const provider = resolveUploadProvider(opts?.provider, keyResolved);
+    const expResolved = resolveImgBBExpiration(opts?.expirationSec);
+    console.log('[uploadImageViaApi] config', { provider, hasKey: !!keyResolved, key_tail: redact(keyResolved), expiration: expResolved });
+
+    let imgbbError: any = null;
+
+    // 1) 如果需要 ImgBB，先传 ImgBB
+    let imgbb: UploadResp | null = null;
+    if (provider === 'imgbb' || provider === 'both') {
+      const key = keyResolved;
+      if (!key && provider === 'imgbb') throw new Error('ImgBB key is required');
+      if (key) {
+        try {
+          imgbb = await uploadImageViaImgBB(file, { apiKey: key, name: file.name, expirationSec: expResolved });
+        } catch (e: any) {
+          console.log('[uploadImageViaApi] ImgBB failed', e);
+          imgbbError = e;
+          if (provider === 'imgbb') throw e;
+        }
+      }
+    }
+
+    // 2) 后端（为了生成内部可用的备份/权限控制）
+    let backend: UploadResp | null = null;
+    if (provider === 'backend' || provider === 'both') {
+      const fd = new FormData();
+      fd.append('file', file);
+      const url = opts?.mirror
+        ? api(`/api/v1/richnotes/by-paper/${paperId}/images?mirror=1`)
+        : api(`/api/v1/richnotes/by-paper/${paperId}/images`);
+      const r = await fetch(url, { method: 'POST', body: fd });
+      if (!r.ok) throw new Error(await r.text());
+      const data = await r.json();
+      backend = {
+        internalUrl: data.url || data.internal_url || data.path || '',
+        externalUrl: data.external_url || data.cdn_url || data.public_url || '',
+        width: data.width, height: data.height, format: data.format, size: data.size,
+      } as UploadResp;
+    }
+
+    // 3) 组装：优先 external，再给出 backup internal
+    const externalUrl = (imgbb?.externalUrl) || (backend?.externalUrl) || '';
+    const internalUrl = backend?.internalUrl || '';
+    console.log('[uploadImageViaApi] summary', {
+      provider,
+      usedExternal: !!externalUrl,
+      externalUrl,
+      internalUrl,
+      imgbbTried: provider !== 'backend',
+      imgbbOk: !!(imgbb && imgbb.externalUrl),
+      imgbbError: imgbbError ? (imgbbError.message || String(imgbbError)) : null,
+      backendOk: !!(backend && backend.internalUrl),
+    });
+    return { internalUrl, externalUrl, width: imgbb?.width || backend?.width, height: imgbb?.height || backend?.height, format: imgbb?.format || backend?.format, size: imgbb?.size || backend?.size } as UploadResp;
   }
   
   // 给编辑器插入 Markdown 图片（primary 优先外链，backup 内链做注释）
@@ -71,6 +190,9 @@ export type UploadResp = {
     onStart?: (msg?: string) => void;
     onDone?: (ok: boolean, msg?: string) => void;
     maxSize?: number; // 默认 25MB
+    uploadProvider?: 'backend' | 'imgbb' | 'both';
+    imgbbKey?: string;            // 也可从 localStorage.IMGBB_API_KEY 或 window.__IMGBB_KEY__ 读取
+    imgbbExpiration?: number;     // 可选，秒（60~15552000）
   }) {
     const maxSize = (opts.maxSize ?? 25) * 1024 * 1024;
   
@@ -133,12 +255,27 @@ export type UploadResp = {
       e.preventDefault();
       e.stopPropagation();
       (e as any).stopImmediatePropagation?.();
-  
+
+      // 解析上传配置并打印（不暴露完整 key）
+      const _key = resolveImgBBKey(opts.imgbbKey);
+      const _provider = resolveUploadProvider(opts.uploadProvider, _key);
+      const _exp = resolveImgBBExpiration(opts.imgbbExpiration);
+      console.log('[attachImagePasteDrop] resolved', { provider: _provider, hasKey: !!_key, key_tail: redact(_key), expiration: _exp });
+
       opts.onStart?.("正在上传图片…");
       try {
         for (const f of files) {
           if (f.size > maxSize) throw new Error(`图片过大（>${Math.round(maxSize / 1024 / 1024)}MB）`);
-          const { internalUrl, externalUrl } = await uploadImageViaApi(opts.api, opts.paperId, f, {} as any);
+          const { internalUrl, externalUrl } = await uploadImageViaApi(
+            opts.api, opts.paperId, f,
+            ((): any => {
+              const key = resolveImgBBKey(opts.imgbbKey);
+              const provider = resolveUploadProvider(opts.uploadProvider, key);
+              const expirationSec = resolveImgBBExpiration(opts.imgbbExpiration);
+              return { provider, imgbbKey: key, expirationSec };
+            })()
+          );
+          console.log('[attachImagePasteDrop] urls', { externalUrl, internalUrl });
           const primary0 = externalUrl || internalUrl;
           const backup0 = externalUrl ? internalUrl : undefined;
           // absolute-ize URLs so frontend on a different origin can load images served by backend
@@ -151,9 +288,11 @@ export type UploadResp = {
           };
           const primary = toAbs(primary0) as string;
           const backup = toAbs(backup0) as string | undefined;
+          console.log('[attachImagePasteDrop] chosen', { primary, backup });
           const md = buildImageMarkdown(primary, f.name, backup);
           opts.onInsert(md);
           console.log("[attachImagePasteDrop] inserted image markdown", md);
+          console.log('[attachImagePasteDrop] provider-summary', { provider: _provider });
         }
         opts.onDone?.(true, "上传完成");
       } catch (err: any) {
