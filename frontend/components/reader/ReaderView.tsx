@@ -149,7 +149,6 @@ function renderMathInToast(root?: HTMLElement | null) {
   console.log("[IP] renderMathInToast: calling maskToastDataUrls");
   try { maskToastDataUrls(container); } catch {}
 }
-
 // —— Visually collapse data:image/...;base64,... URLs in Markdown editor (Toast) ——
 function maskToastDataUrls(root?: HTMLElement | null) {
   // Prefer the editor root (defaultUI). If we were given the preview .toastui-editor-contents,
@@ -608,8 +607,6 @@ export default function ReaderView() {
 
   // --- 笔记（Markdown 富文本）---
   const [noteOpen, setNoteOpen] = React.useState(true);
-  const [noteDock, setNoteDock] = React.useState<"overlay" | "float">("overlay");
-
 
   // ---- Fixed-left editor bounds (match the left PDF column exactly) ----
   const [leftFixedStyle, setLeftFixedStyle] =
@@ -699,7 +696,6 @@ export default function ReaderView() {
       ro.disconnect();
     };
   }, [updateRightFixedStyle, noteOpen]);
-
 
   // ---- TOC ----
   const [tocOpen, setTocOpen] = React.useState(false);
@@ -1066,7 +1062,6 @@ const buildSourceRegex = React.useCallback(() => {
   } catch { return null; }
 }, [findQ, findCase, findRegex]);
 
-
 const saveLocalDraft = React.useCallback((content: string) => {
   try {
     const { draft } = getDraftKeys();
@@ -1266,10 +1261,41 @@ React.useEffect(() => {
     if (moTimerRef.current) { clearTimeout(moTimerRef.current); moTimerRef.current = null; }
   };
 }, [editMode, getToastContentHost, findOpen, findQ, applyFindHighlights]);
+// Wait for Toast Editor instance (handles paste-time pseudo-clipboard focus race)
+const waitToastInst = React.useCallback(async (label: string, retries: number[] = [0, 16, 50, 120, 250, 400, 800]) => {
+  for (let i = 0; i < retries.length; i++) {
+    const inst = toastRef.current?.getInstance?.();
+    const hasRef = !!toastRef.current;
+    if (inst) {
+      console.log(`[waitToastInst](${label}) got inst`, { try: i, hasRef });
+      return inst;
+    }
+    console.log(`[waitToastInst](${label}) no inst yet`, { try: i, hasRef });
+    await new Promise(r => setTimeout(r, retries[i]));
+  }
+  console.log(`[waitToastInst](${label}) failed to obtain instance after retries`);
+  return null as any;
+}, []);
+
+// Force remount Toast editor with given markdown (used when instance is unavailable)
+const forceRemountWith = React.useCallback((next: string, why: string) => {
+  try {
+    console.log('[toastRemount]', why, { len: (next||'').length });
+    noteDraftRef.current = next || '';
+    setNoteMd(next || '');
+    setNoteLive(next || '');
+    setEditorKey((k) => k + 1);
+    contentReadyRef.current = true;
+    suppressSaveRef.current = true; // ignore first onChange after remount
+    try { saveLocalDraft(next || ''); } catch {}
+  } catch (e) {
+    console.log('[toastRemount] failed', e);
+  }
+}, [saveLocalDraft]);
 const toastInsert = React.useCallback((text: string) => {
   const inst = toastRef.current?.getInstance?.();
   const previewHost = toastRootRef.current?.querySelector(".toastui-editor-contents") as HTMLElement | null;
-  console.log('[toastInsert] begin', { hasInst: !!inst, mode: editMode, len: (text||'').length, head: (text||'').slice(0,80) });
+  console.log('[toastInsert] begin', { hasInst: !!inst, hasRef: !!toastRef.current, mode: editMode, len: (text||'').length, head: (text||'').slice(0,80) });
 
   // Robust fallback: setMarkdown with appended content
   const hardSet = () => {
@@ -1284,22 +1310,32 @@ const toastInsert = React.useCallback((text: string) => {
     }
   };
 
-  // 如果实例还没就绪，排一个稍后的 setMarkdown 重试，以防止 paste 发生在初始化竞态中
+  // 如果实例还没就绪，异步重试 setMarkdown，记录进度
   if (!inst) {
-    try {
-      const cur = noteDraftRef.current || "";
-      noteDraftRef.current = cur + (cur.endsWith("\n") ? "" : "\n") + (text || "") + "\n";
-    } catch {}
-    console.log('[toastInsert] no inst; schedule retry setMarkdown');
-    window.setTimeout(() => {
-      const i = toastRef.current?.getInstance?.();
-      if (!i) return;
-      try { i.setMarkdown?.(noteDraftRef.current || ""); } catch {}
-      try { forceToastPreviewSync(); } catch {}
-      try { syncToastModelFromInst(); } catch {}
-      try { redecorateSoon?.(); } catch {}
-    }, 50);
-    return;
+    {
+      // Optimistically append to draft so model has it even if UI lags
+      try {
+        const cur = noteDraftRef.current || "";
+        noteDraftRef.current = cur + (cur.endsWith("\n") ? "" : "\n") + (text || "") + "\n";
+      } catch {}
+      console.log('[toastInsert] no inst; will wait & setMarkdown');
+      // Additionally, show it immediately by remounting the editor with latest draft
+      try { forceRemountWith(noteDraftRef.current || '', 'toastInsert/noInst'); } catch {}
+      (async () => {
+        const i = await waitToastInst('toastInsert');
+        if (!i) { console.log('[toastInsert] still no inst after wait; giving up'); return; }
+        try {
+          i.setMarkdown?.(noteDraftRef.current || "");
+          console.log('[toastInsert] setMarkdown after wait', { nextLen: (noteDraftRef.current || '').length });
+        } catch (e) {
+          console.log('[toastInsert] setMarkdown after wait failed', e);
+        }
+        try { forceToastPreviewSync(); } catch {}
+        try { syncToastModelFromInst(); } catch {}
+        try { redecorateSoon?.(); } catch {}
+      })();
+      return;
+    }
   }
 
   try {
@@ -1335,13 +1371,12 @@ const toastInsert = React.useCallback((text: string) => {
   try { redecorateSoon?.(); } catch {}
   // 兜底：Toast 可能异步合并事务，稍后再同步一次
   window.setTimeout(() => { try { syncToastModelFromInst(); } catch {} }, 30);
-}, [editMode, syncToastModelFromInst, forceToastPreviewSync, redecorateSoon]);
+}, [editMode, syncToastModelFromInst, forceToastPreviewSync, redecorateSoon, waitToastInst, forceRemountWith]);
   const noteDraftRef = React.useRef<string>("");
   const saveDebounceRef = React.useRef<number | null>(null);
   const saveAbortRef = React.useRef<AbortController | null>(null);
   const [editorKey, setEditorKey] = React.useState(0); // 触发 textarea 重新挂载以刷新 defaultValue
   // —— 内容就绪与首帧保存抑制 ——
-const [contentReady, setContentReady] = React.useState(false);
 const contentReadyRef = React.useRef(false);
 const suppressSaveRef = React.useRef(true); // 首次挂载/切换模式后，忽略编辑器初始化 onChange
 
@@ -1494,19 +1529,6 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
     if (el) requestAnimationFrame(() => snapshotFromTextarea(el));
   }, [editorKey]);
 
-  // 图片上传
-  const uploadImage = async (file: File) => {
-    if (!id) throw new Error("paper id missing");
-    const fd = new FormData();
-    fd.append("file", file);
-    const r = await fetch(api(`/api/v1/richnotes/by-paper/${id}/images`), {
-      method: "POST",
-      body: fd,
-    });
-    if (!r.ok) throw new Error(await r.text());
-    const data = await r.json();
-    return (data.url as string) || "";
-  };
   const handlePickImage = () => imgInputRef.current?.click();
   const onImageChosen = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
@@ -1581,14 +1603,18 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           requestAnimationFrame(() => { el.focus(); el.setSelectionRange(pos, pos); });
         }
       },
-      onStart: (msg) => showBubble(msg || "正在上传图片…"),
+      onStart: (msg) => {
+        console.log('[IP paste] onStart', { msg, mode: editMode });
+        // No placeholder insertion anymore; just show the bubble
+        showBubble(msg || '正在上传图片…');
+      },
       onDone: (ok, msg) => {
         if (!ok) showBubble(`上传失败：${msg || "未知错误"}`, "error");
       },
       maxSizeMB: 25, // 可调
     });
     return () => teardown?.();
-  }, [id, api, editMode, toastInsert, queueSave]);
+  }, [id, api, editMode, toastInsert, queueSave, waitToastInst, forceRemountWith]);
 
   // Global listener for reliable fallback of image paste/insert
   React.useEffect(() => {
@@ -1662,7 +1688,6 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           setNoteLive(local.content);
           setEditorKey((k) => k + 1);
           contentReadyRef.current = true;
-          setContentReady(true);
           suppressSaveRef.current = true; // 新挂载的编辑器首个 onChange 仍需要忽略
           showBubble("已从本地草稿恢复未保存内容");
         } else {
@@ -1671,7 +1696,6 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           setNoteLive(serverContent);
           setEditorKey((k) => k + 1);
           contentReadyRef.current = true;
-          setContentReady(true);
           suppressSaveRef.current = true; // 新挂载的编辑器首个 onChange 仍需要忽略
         }
       } catch (e: any) {
@@ -2824,7 +2848,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
             <div className="p-6 text-gray-500">未找到 PDF 地址</div>
           )}
 
-          {noteOpen && noteDock === "overlay" && leftFixedStyle && (
+          {noteOpen && leftFixedStyle && (
             <div className="z-40 flex flex-col note-overlay" style={leftFixedStyle}>
               {/* 顶部工具栏 */}
               <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/95">
