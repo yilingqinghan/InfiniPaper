@@ -1,4 +1,3 @@
-# backend/app/api/v1/mineru.py
 from __future__ import annotations
 
 import os
@@ -6,6 +5,7 @@ import re
 import uuid
 import hashlib
 import subprocess
+import shlex
 from pathlib import Path
 from typing import Optional, List, Tuple
 from urllib.parse import urlparse, urlunparse, urlsplit, urlunsplit, quote
@@ -192,14 +192,25 @@ async def _download_pdf(pdf_url: str, dest_dir: Path) -> Path:
 
 def _mineru_cli(pdf_path: Path, out_dir: Path) -> None:
     bin_ = os.environ.get("MINERU_CLI_BIN", "mineru")
-    cmd = [bin_, "-p", str(pdf_path), "-o", str(out_dir), "--format", "html,md"]
-    logger.info(f"[mineru-cli] exec: {' '.join(cmd)}")
+    # Use space-separated option style (-p <path>) because some mineru builds
+    # treat "-p=<path>" as a literal value starting with '=' (see error log).
+    p_str = str(Path(pdf_path).resolve())
+    o_str = str(Path(out_dir).resolve())
+    cmd = [
+        bin_,
+        "-p", p_str,
+        "-o", o_str,
+        "--format", "html,md",
+    ]
+    # Log a shell-safe version for easier debugging
+    log_cmd = " ".join(shlex.quote(x) for x in cmd)
+    logger.info(f"[mineru-cli] exec: {log_cmd}")
+
     r = subprocess.run(cmd, capture_output=True, text=True)
     logger.info(f"[mineru-cli] stdout:\n{(r.stdout or '')[:4000]}")
     if r.returncode != 0:
         logger.error(f"[mineru-cli] code={r.returncode}\nSTDERR:\n{(r.stderr or '')[:4000]}")
         raise RuntimeError(r.stderr or "mineru failed")
-
 
 async def _mineru_http(pdf_path: Path, out_dir: Path) -> None:
     base = os.environ.get("MINERU_HTTP_URL", "http://127.0.0.1:7001").rstrip("/")
