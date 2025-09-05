@@ -2085,6 +2085,11 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
   const [gemPrompt, setGemPrompt] = React.useState("");
   const [gemEditText, setGemEditText] = React.useState("");
   const gemPromptRef = React.useRef<HTMLTextAreaElement | null>(null);
+  // —— Gemini：是否携带 PDF & 已准备的 PDF 数据 ——
+  const [gemAttachPdf, setGemAttachPdf] = React.useState(false);
+  const [gemAttachLoading, setGemAttachLoading] = React.useState(false);
+  const [gemPdfBlob, setGemPdfBlob] = React.useState<Blob | null>(null);
+  const [gemPdfName, setGemPdfName] = React.useState<string>("document.pdf");
   React.useEffect(() => {
     updateRightFixedStyle();
   }, [gemOpen, updateRightFixedStyle]);
@@ -2102,42 +2107,57 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
     const text = (override ?? gemPromptRef.current?.value ?? gemPrompt).trim();
     if (!text) return;
     setGemLoading(true);
-    setGemChat((c) => [...c, { role: "user", text }]);
+    const userMsg = gemAttachPdf ? `${text}\n\n（附：整份 PDF）` : text;
+    setGemChat((c) => [...c, { role: "user", text: userMsg }]);
     try {
-      const r = await fetch(api(`/api/v1/gemini/ask`), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: text, context: `Paper #${id}` }),
-      });
-
-      if (!r.ok) {
-        const t = await r.text();
-        if (r.status === 502 || /Read timed out|timeout/i.test(t)) {
-          showBubble("网络波动或服务繁忙，请稍后再试", "error");
+      if (gemAttachPdf) {
+        if (!gemPdfBlob) {
+          showBubble("PDF 尚未准备好，请先重新点击‘携带PDF’", "error");
+          setGemChat((c) => [...c, { role: "assistant", text: "（PDF 未就绪，未发送）" }]);
         } else {
-          showBubble(`服务暂不可用（${r.status}）`, "error");
+          const fd = new FormData();
+          fd.append("prompt", text);
+          const file = new File([gemPdfBlob], gemPdfName || "document.pdf", {
+            type: (gemPdfBlob as any).type || "application/pdf",
+          });
+          fd.append("file", file);
+  
+          const r = await fetch(api(`/api/v1/gemini/ask_pdf`), { method: "POST", body: fd });
+          if (!r.ok) {
+            const t = await r.text();
+            if (r.status === 502 || /timeout/i.test(t)) showBubble("网络波动或服务繁忙，请稍后再试", "error");
+            else showBubble(`服务暂不可用（${r.status}）`, "error");
+            setGemChat((c) => [...c, { role: "assistant", text: "（暂时无法获取回复，请稍后重试）" }]);
+          } else {
+            const data = await r.json();
+            const atext = data?.text || "(空)";
+            setGemChat((c) => [...c, { role: "assistant", text: atext }]);
+            setGemEditText(atext);
+          }
         }
-        setGemChat((c) => [
-          ...c,
-          { role: "assistant", text: "（暂时无法获取回复，请稍后重试）" },
-        ]);
       } else {
-        const data = await r.json();
-        const atext = data?.text || "(空)";
-        setGemChat((c) => [...c, { role: "assistant", text: atext }]);
-        setGemEditText(atext);
+        const r = await fetch(api(`/api/v1/gemini/ask`), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: text, context: `Paper #${id}` }),
+        });
+        if (!r.ok) {
+          const t = await r.text();
+          if (r.status === 502 || /Read timed out|timeout/i.test(t)) showBubble("网络波动或服务繁忙，请稍后再试", "error");
+          else showBubble(`服务暂不可用（${r.status}）`, "error");
+          setGemChat((c) => [...c, { role: "assistant", text: "（暂时无法获取回复，请稍后重试）" }]);
+        } else {
+          const data = await r.json();
+          const atext = data?.text || "(空)";
+          setGemChat((c) => [...c, { role: "assistant", text: atext }]);
+          setGemEditText(atext);
+        }
       }
     } catch (e: any) {
       const msg = String(e?.message || e || "");
-      if (/timed out|timeout|Failed to fetch|NetworkError/i.test(msg)) {
-        showBubble("网络波动或服务繁忙，请稍后再试", "error");
-      } else {
-        showBubble("请求失败，请稍后重试", "error");
-      }
-      setGemChat((c) => [
-        ...c,
-        { role: "assistant", text: "（暂时无法获取回复，请稍后重试）" },
-      ]);
+      if (/timed out|timeout|Failed to fetch|NetworkError/i.test(msg)) showBubble("网络波动或服务繁忙，请稍后再试", "error");
+      else showBubble("请求失败，请稍后重试", "error");
+      setGemChat((c) => [...c, { role: "assistant", text: "（暂时无法获取回复，请稍后重试）" }]);
     } finally {
       setGemLoading(false);
     }
@@ -2155,47 +2175,22 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
     }
   };
 
-  const sendGeminiWithPdf = async (override?: string) => {
-    const text = (override ?? gemPromptRef.current?.value ?? gemPrompt).trim();
-    if (!text) return;
-    setGemLoading(true);
-    setGemChat((c) => [...c, { role: 'user', text: `${text}\n\n（附：整份 PDF）` }]);
+  const attachGeminiPdf = async () => {
+    setGemAttachLoading(true);
     try {
-      // 复用你已有的 PDF 源地址推导逻辑
       const raw = (pdfFromQuery as string) || (pdfUrl as string);
       const { backend } = buildPdfUrls(raw);
       if (!backend) {
         showBubble('未找到可下载的 PDF 源地址', 'error');
-        setGemChat((c) => [...c, { role: 'assistant', text: '（未找到可用的 PDF 来源）' }]);
         return;
       }
-
       const resp = await fetch(backend, { credentials: 'include' });
       if (!resp.ok) throw new Error(`获取 PDF 失败：${resp.status}`);
       const blob = await resp.blob();
-
-      const fd = new FormData();
-      fd.append('prompt', text);
-      const fname = filenameFromUrl(backend);
-      const pdfFile = new File([blob], fname, { type: blob.type || 'application/pdf' });
-      fd.append('file', pdfFile);
-
-      const r = await fetch(api(`/api/v1/gemini/ask_pdf`), { method: 'POST', body: fd });
-
-      if (!r.ok) {
-        const t = await r.text();
-        if (r.status === 502 || /timeout/i.test(t)) {
-          showBubble('网络波动或服务繁忙，请稍后再试', 'error');
-        } else {
-          showBubble(`服务暂不可用（${r.status}）`, 'error');
-        }
-        setGemChat((c) => [...c, { role: 'assistant', text: '（暂时无法获取回复，请稍后重试）' }]);
-      } else {
-        const data = await r.json();
-        const atext = data?.text || '(空)';
-        setGemChat((c) => [...c, { role: 'assistant', text: atext }]);
-        setGemEditText(atext);
-      }
+      setGemPdfBlob(blob);
+      setGemPdfName(filenameFromUrl(backend));
+      setGemAttachPdf(true);
+      showBubble('已附上 PDF，先编辑文字，稍后点击“发送”');
     } catch (e: any) {
       const msg = String(e?.message || e || '');
       if (/timed out|timeout|Failed to fetch|NetworkError/i.test(msg)) {
@@ -2203,10 +2198,16 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
       } else {
         showBubble(msg || '请求失败', 'error');
       }
-      setGemChat((c) => [...c, { role: 'assistant', text: '（暂时无法获取回复，请稍后重试）' }]);
     } finally {
-      setGemLoading(false);
+      setGemAttachLoading(false);
     }
+  };
+  
+  const detachGeminiPdf = () => {
+    setGemAttachPdf(false);
+    setGemPdfBlob(null);
+    setGemPdfName('document.pdf');
+    showBubble('已取消携带 PDF');
   };
 
   // ------- Markdown 渲染块（带行位置线） -------
@@ -2771,14 +2772,22 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                     />
                     <div className="mt-2 flex gap-2">
                       <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
-                        {gemLoading ? "发送中…" : "发送"}
+                      {gemLoading ? "发送中…" : (gemAttachPdf ? "发送（附PDF）" : "发送")}
                       </button>
-                      <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGeminiWithPdf()}>
-                        {gemLoading ? "发送中…" : "携带PDF"}
+                      <button
+                        className="px-2 py-1 border rounded text-sm"
+                        onClick={() => (gemAttachPdf ? detachGeminiPdf() : attachGeminiPdf())}
+                      >
+                        {gemAttachLoading ? '处理中…' : (gemAttachPdf ? '取消携带' : '携带PDF')}
                       </button>
                       <button className="px-2 py-1 border rounded text-sm" onClick={() => setGemChat([])}>
                         清空
                       </button>
+                      {gemAttachPdf && (
+                        <span className="px-2 py-1 border rounded text-xs pointer-events-none opacity-70">
+                          已附PDF：{gemPdfName}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -2868,11 +2877,14 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                         className="w-full h-full p-2 border rounded text-sm resize-none"
                       />
                       <div className="mt-2 flex gap-2">
-                        <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
-                          {gemLoading ? "发送中…" : "发送"}
+                      <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGemini()}>
+                          {gemLoading ? "发送中…" : (gemAttachPdf ? "发送（附PDF）" : "发送")}
                         </button>
-                        <button className="px-2 py-1 border rounded text-sm" onClick={() => sendGeminiWithPdf()}>
-                          {gemLoading ? "发送中…" : "携带PDF"}
+                        <button
+                          className="px-2 py-1 border rounded text-sm"
+                          onClick={() => (gemAttachPdf ? detachGeminiPdf() : attachGeminiPdf())}
+                        >
+                          {gemAttachLoading ? '处理中…' : (gemAttachPdf ? '取消携带' : '携带PDF')}
                         </button>
                         <button className="px-2 py-1 border rounded text-sm" onClick={() => setGemChat([])}>
                           清空
