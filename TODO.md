@@ -1,1 +1,0 @@
-- GeminiAPI支持pdf问答吗？支持一下
