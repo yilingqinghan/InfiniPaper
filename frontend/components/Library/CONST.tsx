@@ -31,6 +31,7 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(cluster computing|(^|\W)cluster(\W|$))/i, "Cluster Computing"],
     [/(ACM Transactions on Information Systems|(^|\W)TOIS(\W|$))/i, "TOIS"],
     [/(Association for Computational Linguistics|(^|\W)ACL(\W|$))/i, "ACL"],
+    [/(ACM Computing Surveys|(^|\W)CSUR(\W|$))/i, "综述·CSUR"],
 
     // 其他相关会议
     [/(design, automation & test in europe|(^|\W)date(\W|$))/i, "DATE"],
@@ -93,8 +94,10 @@ export function abbrevVenue(venue?: string | null): string | null {
 /** 顶尖会议/期刊缩写定义（Tier1） */
 const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS"]);
 const preprint = new Set(["预印"]);
-export function venueTier(abbr: string | null): 0 | 1 | 2 | 3 {
+const survey = new Set(["综述·CSUR"]);
+export function venueTier(abbr: string | null): 0 | 1 | 2 | 3 | 4{
     if (!abbr) return 0;
     if (preprint.has(abbr)) return 3;
+    if (survey.has(abbr)) return 4;
     return TOP_TIER.has(abbr) ? 1 : 2;
 }
