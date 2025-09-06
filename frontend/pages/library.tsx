@@ -489,11 +489,12 @@ function AbbrBadge({ abbr, tier }: { abbr?: string | null; tier?: number | null 
 
 /* --------------------------- row --------------------------- */
 function PaperRow({
-    p, onOpen, onSelect, onPreviewHover, onContextMenu, tagMap, selected, vizNonce,
+    p, onOpen, onSelect, onPreviewHover, onContextMenu, tagMap, selected, vizNonce, compact,
 }: {
     p: Paper; onOpen: (id: number) => void; onSelect: (id: number) => void;
     onPreviewHover: (id: number | null, rect?: DOMRect) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
     tagMap: Map<number, Tag>; selected: boolean; vizNonce: number;
+    compact: boolean;
 }) {
     const router = useRouter();
     const allTags = (p.tag_ids || []).map(id => tagMap.get(id)).filter((t): t is Tag => !!t);
@@ -516,12 +517,12 @@ function PaperRow({
             onContextMenu={(e) => onContextMenu(e, p)}
             data-viz={vizNonce}
         >
-            <td className="px-2 py-1.5 w-[36px]"><DragHandle id={p.id} /></td>
-            <td className="px-2 py-1.5 w-[80px] text-gray-600">{p.year ?? "—"}</td>
-            <td className="px-2 py-1.5 w-[80px] text-center">
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[36px]`}><DragHandle id={p.id} /></td>
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[80px] text-gray-600`}>{p.year ?? "—"}</td>
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[80px] text-center`}>
               <AbbrBadge abbr={abbr} tier={tier} />
             </td>
-            <td className="px-2 py-1.5 w-[60%] min-w-[360px]">
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[60%] min-w-[360px]`}>
                 <div className="font-medium whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-2">
                     <span className="overflow-hidden text-ellipsis">
                     <button
@@ -556,7 +557,7 @@ function PaperRow({
                     </span>
                 </div>
             </td>
-            <td className="px-2 py-1.5 w-[18%]">
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[18%]`}>
                 <div className="flex flex-wrap gap-1 items-center">
                     {colored.length ? colored.map(t => {
                         const color = getTagColor(t.name) || "#3b82f6";
@@ -584,7 +585,7 @@ function PaperRow({
                     }) : <span className="text-[11px] text-gray-400">—</span>}
                 </div>
             </td>
-            <td className="px-2 py-1.5 w-[18%]">
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[18%]`}>
                 <div className="flex flex-wrap gap-1">
                     {plain.length ? plain.map(t => (
                         isOpenSourceTag(t.name) ? (
@@ -600,7 +601,7 @@ function PaperRow({
                     )) : <span className="text-[11px] text-gray-400">—</span>}
                 </div>
             </td>
-            <td className="px-2 py-1.5 w-[60px]">{p.pdf_url ? "有" : "-"}</td>
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[60px]`}>{p.pdf_url ? "有" : "-"}</td>
         </tr>
     );
 }
@@ -872,6 +873,7 @@ export default function Library() {
     const [hoverPreviewRect, setHoverPreviewRect] = React.useState<DOMRect | null>(null);
     const [hoveringPreview, setHoveringPreview] = React.useState(false);
     const [showWordCloud, setShowWordCloud] = React.useState(false);
+    const [compactMode, setCompactMode] = React.useState<boolean>(true);
     const hoverTimer = React.useRef<number | null>(null);
 
     const handlePreviewHover = (id: number | null, rect?: DOMRect) => {
@@ -1261,86 +1263,90 @@ export default function Library() {
                     <div className="text-xl font-semibold flex items-center gap-2">
                         <FolderIcon className="w-5 h-5 text-indigo-600" /><span>文献目录管理</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <label className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50 cursor-pointer">
-                            <UploadCloud className="w-4 h-4" /><span>导入 PDF（支持多选）</span>
-                            <input type="file" multiple className="hidden" onChange={e => onUpload(e.target.files)} />
-                        </label>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    <button
-                            className="ml-2 text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50"
-                            onClick={async () => {
-                              const { value: form } = await Swal.fire({
-                                title: "通过 DOI 添加",
-                                html: `
-                                  <div class="space-y-2 text-left">
-                                    <input id="doi" class="swal2-input" placeholder="DOI（必填）" />
-                                    <input id="title" class="swal2-input" placeholder="标题（可选，解析失败才会用到）" />
-                                    <input id="venue" class="swal2-input" placeholder="期刊/会议（可选）" />
-                                    <input id="year"  class="swal2-input" type="number" placeholder="年份（可选）" />
-                                    <textarea id="abs" class="swal2-textarea" placeholder="摘要（可选）"></textarea>
-                                  </div>`,
-                                focusConfirm: false, showCancelButton: true,
-                                preConfirm: () => {
-                                  const doi = (document.getElementById('doi') as HTMLInputElement).value.trim();
-                                  if (!doi) { Swal.showValidationMessage("DOI 不能为空"); return false; }
-                                  const title = (document.getElementById('title') as HTMLInputElement).value.trim();
-                                  const venue = (document.getElementById('venue') as HTMLInputElement).value.trim();
-                                  const yearRaw = (document.getElementById('year') as HTMLInputElement).value.trim();
-                                  const abstract = (document.getElementById('abs') as HTMLTextAreaElement).value.trim();
-                                  const year = yearRaw ? Number(yearRaw) : undefined;
-                                  return { doi, title: title || undefined, venue: venue || undefined, year, abstract: abstract || undefined };
-                                }
-                              });
-                              if (!form) return;
+                <div className="flex items-center gap-2">
+                    <label className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50 cursor-pointer">
+                        <UploadCloud className="w-4 h-4" /><span>导入 PDF（支持多选）</span>
+                        <input type="file" multiple className="hidden" onChange={e => onUpload(e.target.files)} />
+                    </label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                      className="ml-2 text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50"
+                      onClick={async () => {
+                        const { value: form } = await Swal.fire({
+                          title: "通过 DOI 添加",
+                          html: `
+                            <div class="space-y-2 text-left">
+                              <input id="doi" class="swal2-input" placeholder="DOI（必填）" />
+                              <input id="title" class="swal2-input" placeholder="标题（可选，解析失败才会用到）" />
+                              <input id="venue" class="swal2-input" placeholder="期刊/会议（可选）" />
+                              <input id="year"  class="swal2-input" type="number" placeholder="年份（可选）" />
+                              <textarea id="abs" class="swal2-textarea" placeholder="摘要（可选）"></textarea>
+                            </div>`,
+                          focusConfirm: false, showCancelButton: true,
+                          preConfirm: () => {
+                            const doi = (document.getElementById('doi') as HTMLInputElement).value.trim();
+                            if (!doi) { Swal.showValidationMessage("DOI 不能为空"); return false; }
+                            const title = (document.getElementById('title') as HTMLInputElement).value.trim();
+                            const venue = (document.getElementById('venue') as HTMLInputElement).value.trim();
+                            const yearRaw = (document.getElementById('year') as HTMLInputElement).value.trim();
+                            const abstract = (document.getElementById('abs') as HTMLTextAreaElement).value.trim();
+                            const year = yearRaw ? Number(yearRaw) : undefined;
+                            return { doi, title: title || undefined, venue: venue || undefined, year, abstract: abstract || undefined };
+                          }
+                        });
+                        if (!form) return;
 
-                              // 显示“解析中”，不要等待弹窗 Promise（避免卡住）
-                              Swal.fire({ title: "正在解析 DOI…", didOpen: () => Swal.showLoading(), allowOutsideClick: false });
-                              try {
-                                // 1) 请求后端严格解析 + 入库（解析失败将返回 424，不会入库）
-                                const created = await j<Paper>(`${apiBase}/api/v1/papers/create`, {
-                                  method: "POST",
-                                  headers: { "Content-Type": "application/json" },
-                                  body: JSON.stringify(form),
-                                });
+                        // 显示“解析中”，不要等待弹窗 Promise（避免卡住）
+                        Swal.fire({ title: "正在解析 DOI…", didOpen: () => Swal.showLoading(), allowOutsideClick: false });
+                        try {
+                          // 1) 请求后端严格解析 + 入库（解析失败将返回 424，不会入库）
+                          const created = await j<Paper>(`${apiBase}/api/v1/papers/create`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(form),
+                          });
 
-                                // 2) 若当前在某个目录下，归档进去
-                                if (created?.id != null && activeFolderId != null) {
-                                  await j(`${apiBase}/api/v1/folders/${activeFolderId}/assign`, {
-                                    method: "POST",
-                                    headers: { "Content-Type": "application/json" },
-                                    body: JSON.stringify({ paper_ids: [created.id] })
-                                  });
-                                }
+                          // 2) 若当前在某个目录下，归档进去
+                          if (created?.id != null && activeFolderId != null) {
+                            await j(`${apiBase}/api/v1/folders/${activeFolderId}/assign`, {
+                              method: "POST",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({ paper_ids: [created.id] })
+                            });
+                          }
 
-                                // 3) 刷新并选中新建项
-                                await loadPapers();
-                                await refreshCounts();
-                                setSelectedId(created.id);
-                                Swal.close();
-                                toast("已解析并入库");
-                              } catch (e: any) {
-                                // 424 / 网络错误等：弹窗提示错误信息（后端 detail 会包含失败原因）
-                                Swal.close();
-                                Swal.fire({
-                                  icon: "error",
-                                  title: "添加失败",
-                                  text: String(e?.message || e),
-                                });
-                              }
-                            }}
-
-                          >
-                          通过 DOI 添加
-                          </button>
-                    <button
-                      className="text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50"
-                      onClick={() => setShowWordCloud(v => !v)}
-                    >
-                      {showWordCloud ? "关闭词云" : "显示词云"}
-                    </button>
-                    </div>
+                          // 3) 刷新并选中新建项
+                          await loadPapers();
+                          await refreshCounts();
+                          setSelectedId(created.id);
+                          Swal.close();
+                          toast("已解析并入库");
+                        } catch (e: any) {
+                          // 424 / 网络错误等：弹窗提示错误信息（后端 detail 会包含失败原因）
+                          Swal.close();
+                          Swal.fire({
+                            icon: "error",
+                            title: "添加失败",
+                            text: String(e?.message || e),
+                          });
+                        }
+                      }}
+                  >
+                    通过 DOI 添加
+                  </button>
+                  <button
+                    className="text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50"
+                    onClick={() => setShowWordCloud(v => !v)}
+                  >
+                    {showWordCloud ? "关闭词云" : "显示词云"}
+                  </button>
+                  <button
+                    className={`text-sm px-3 py-1.5 rounded-lg border hover:bg-gray-50 ${compactMode ? 'bg-indigo-50 border-indigo-200 text-indigo-700' : ''}`}
+                    onClick={() => setCompactMode(v => !v)}
+                    title="切换列表紧凑模式"
+                  >{compactMode ? '紧凑模式：开' : '紧凑模式：关'}</button>
+                </div>
                 </div>
 
                 <div
@@ -1499,13 +1505,13 @@ export default function Library() {
                             <table className="w-full text-sm table-fixed">
                                 <thead className="sticky top-0 bg-gray-50">
                                     <tr className="text-left text-xs text-gray-500">
-                                        <th className="px-2 py-1.5 w-[36px]"></th>
-                                        <th className="px-2 py-1.5 w-[50px]">年</th>
-                                        <th className="px-2 py-1.5 w-[80px]">期刊/会议</th>
-                                        <th className="px-2 py-1.5 w-[60%] min-w-[360px]">标题</th>
-                                        <th className="px-2 py-1.5 w-[18%]">彩色标签</th>
-                                        <th className="px-2 py-1.5 w-[14%]">文字标签</th>
-                                        <th className="px-2 py-1.5 w-[50px]">PDF</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[36px]`}></th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>年</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[80px]`}>期刊/会议</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[60%] min-w-[360px]`}>标题</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[18%]`}>彩色标签</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[14%]`}>文字标签</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>PDF</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1519,6 +1525,7 @@ export default function Library() {
                                             selected={selectedId === p.id}
                                             tagMap={tagMap}
                                             vizNonce={vizNonce}
+                                            compact={compactMode}
                                         />
                                     ))}
                                     {!displayPapers.length && (

@@ -1,4 +1,16 @@
-.PHONY: init backend frontend dev db-migrate export ollama ollama-pull ollama-stop mineru-http mineru-http-stop grobid grobid-stop
+.PHONY: init backend frontend dev db-migrate export ollama ollama-pull ollama-stop mineru-http mineru-http-stop grobid grobid-up grobid-stop grobid-restart grobid-health grobid-logs
+
+# ---- GROBID config ----
+GROBID_IMAGE ?= lfoppiano/grobid:0.8.0
+GROBID_NAME  ?= grobid
+GROBID_PORT  ?= 8070
+# On Apple Silicon (arm64), default to amd64 image via QEMU unless user opts into native build with GROBID_NATIVE=1
+ARCH := $(shell uname -m)
+ifeq ($(ARCH),arm64)
+ifneq ($(GROBID_NATIVE),1)
+  PLATFORM_FLAG := --platform=linux/amd64
+endif
+endif
 
 init:
 	cd backend && poetry add uvicorn && poetry install
@@ -47,14 +59,40 @@ mineru-http:
 mineru-http-stop:
 	-@docker rm -f mineru >/dev/null 2>&1 || true
 
+
 # --- GROBID (optional) -------------------------------------------------------
-grobid:
-	@echo "Starting GROBID on :8070 ..."
-	docker run -d --name grobid -p 8070:8070 lfoppiano/grobid:0.7.3 >/dev/null
-	@echo "GROBID running at http://localhost:8070"
+# Usage:
+#   make grobid-up                 # start (auto-detect platform; on arm64 uses amd64 via QEMU by default)
+#   make grobid-stop               # stop & remove container
+#   make grobid-restart            # restart and run health check
+#   make grobid-health             # curl /api/isalive
+#   make grobid-logs               # show last 200 log lines
+# Vars:
+#   GROBID_IMAGE=lfoppiano/grobid:0.8.0
+#   GROBID_PORT=8070
+#   GROBID_NAME=grobid
+#   GROBID_NATIVE=1  # on arm64, use native image/build if available (disables amd64 emulation)
+
+grobid-up:
+	@echo "Starting GROBID on :$(GROBID_PORT) (image=$(GROBID_IMAGE)) ..."
+	-@docker rm -f $(GROBID_NAME) >/dev/null 2>&1 || true
+	docker run -d $(PLATFORM_FLAG) --name $(GROBID_NAME) -p $(GROBID_PORT):8070 $(GROBID_IMAGE) >/dev/null
+	@echo "GROBID running at http://localhost:$(GROBID_PORT)"
+
+# Backward compatible alias
+grobid: grobid-up
 
 grobid-stop:
-	-@docker rm -f grobid >/dev/null 2>&1 || true
+	-@docker rm -f $(GROBID_NAME) >/dev/null 2>&1 || true
+
+grobid-health:
+	@echo "Health check: http://localhost:$(GROBID_PORT)/api/isalive"
+	-@curl -fsS -i http://localhost:$(GROBID_PORT)/api/isalive || true
+
+grobid-logs:
+	-@docker logs -n 200 $(GROBID_NAME) || true
+
+grobid-restart: grobid-stop grobid-up grobid-health
 
 # --- Helpers -----------------------------------------------------------------
 ollama-stop:
@@ -76,6 +114,6 @@ run:
 	@echo "Starting the local environment..."
 	@make ccf &
 	@make ollama &
-	-@make grobid &
+	-@make grobid-up &
 	@make backend &
 	@make frontend
