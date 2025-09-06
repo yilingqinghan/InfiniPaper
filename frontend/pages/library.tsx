@@ -242,13 +242,30 @@ function DragHandle({ id }: { id: number }) {
     );
 }
 
+// Fixed-width venue abbreviation badge (uniform width)
+function AbbrBadge({ abbr, tier }: { abbr?: string | null; tier?: number | null }) {
+  const chipBase = "font-bold text-[10px] px-1 py-[0px] rounded border inline-flex items-center justify-center w-[64px] h-[18px]";
+  const cls =
+    tier === 1
+      ? `${chipBase} bg-rose-50 border-rose-200 text-rose-700`
+      : tier === 3
+      ? `${chipBase} bg-blue-700 border-blue-800 text-white`
+      : tier === 4
+      ? `${chipBase} bg-purple-900 border-green-200 text-white`
+      : tier === 5
+      ? `${chipBase} bg-indigo-50 border-indigo-200 text-gray-400`
+      : `${chipBase} bg-indigo-50 border-indigo-200 text-indigo-700`;
+  if (!abbr) return <span className={`${chipBase} text-gray-400 bg-white border-gray-200`}>—</span>;
+  return <span className={cls} title="期刊/会议缩写">{abbr}</span>;
+}
+
 /* --------------------------- row --------------------------- */
 function PaperRow({
-    p, onOpen, onSelect, onPreviewHover, onContextMenu, tagMap, selected, showVenueCol, vizNonce,
+    p, onOpen, onSelect, onPreviewHover, onContextMenu, tagMap, selected, vizNonce,
 }: {
     p: Paper; onOpen: (id: number) => void; onSelect: (id: number) => void;
     onPreviewHover: (id: number | null, rect?: DOMRect) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
-    tagMap: Map<number, Tag>; selected: boolean; showVenueCol: boolean; vizNonce: number;
+    tagMap: Map<number, Tag>; selected: boolean; vizNonce: number;
 }) {
     const router = useRouter();
     const allTags = (p.tag_ids || []).map(id => tagMap.get(id)).filter((t): t is Tag => !!t);
@@ -257,17 +274,6 @@ function PaperRow({
     const abbr = abbrevVenue(p.venue);
     const tier = venueTier(abbr);
 
-    const chipClass =
-        tier === 1
-            ? "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-rose-50 border-rose-200 text-rose-700"
-            : tier === 3
-            ? "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-blue-700 border-blue-800 text-white" 
-            : tier === 4
-            ? "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-purple-900 border-green-200 text-white"
-            : tier === 5
-            ? "text-[11px] px-1.5 py-[1px] mr-2 bg-indigo-50 border-indigo-200 text-gray-400"
-            : "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-indigo-50 border-indigo-200 text-indigo-700";
-    
     return (
         <tr
             className={`border-t ${selected ? "bg-blue-50/60" : "odd:bg-white even:bg-slate-50/40 hover:bg-gray-50"} cursor-pointer select-none`}
@@ -284,7 +290,10 @@ function PaperRow({
         >
             <td className="px-2 py-1.5 w-[36px]"><DragHandle id={p.id} /></td>
             <td className="px-2 py-1.5 w-[80px] text-gray-600">{p.year ?? "—"}</td>
-            <td className="px-2 py-1.5 w-[40%] min-w-[360px]">
+            <td className="px-2 py-1.5 w-[80px] text-center">
+              <AbbrBadge abbr={abbr} tier={tier} />
+            </td>
+            <td className="px-2 py-1.5 w-[60%] min-w-[360px]">
                 <div className="font-medium whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-2">
                     <span className="overflow-hidden text-ellipsis">
                     <button
@@ -315,23 +324,10 @@ function PaperRow({
                     >
                     📖
                     </button>
-                    {abbr && (
-                        <span
-                        className={chipClass}
-                        title={tier === 1 ? "顶尖会议/期刊" : "其它会议/期刊"}
-                        >
-                        {abbr}
-                        </span>
-                    )}
                     {p.title}
                     </span>
                 </div>
             </td>
-            {showVenueCol && (
-                <td className="px-2 py-1.5 w-[20%]">
-                    <div className="text-xs text-gray-600 whitespace-nowrap overflow-hidden text-ellipsis">{p.venue || "—"}</div>
-                </td>
-            )}
             <td className="px-2 py-1.5 w-[18%]">
                 <div className="flex flex-wrap gap-1 items-center">
                     {colored.length ? colored.map(t => {
@@ -939,12 +935,6 @@ export default function Library() {
     React.useEffect(() => { if (page > totalPages) setPage(totalPages); }, [totalPages]);
     React.useEffect(() => { setPage(1); }, [search, filterVenueAbbrs, filterAuthors, filterTagNames, yearMin, yearMax, activeFolderId]);
 
-    // “期刊/会议”列：若全部能映射缩写，则隐藏
-    const showVenueCol = React.useMemo(() => {
-      if (!displayPapers.length) return true;
-      const allHave = displayPapers.every(p => !!abbrevVenue(p.venue));
-      return !allHave;
-    }, [displayPapers]);
 
     // 使用 CSS 变量在 md+ 断点下平滑动画左列宽度
     const gridColsStyle = React.useMemo(() => ({
@@ -1283,8 +1273,8 @@ export default function Library() {
                                     <tr className="text-left text-xs text-gray-500">
                                         <th className="px-2 py-1.5 w-[36px]"></th>
                                         <th className="px-2 py-1.5 w-[50px]">年</th>
+                                        <th className="px-2 py-1.5 w-[80px]">期刊/会议</th>
                                         <th className="px-2 py-1.5 w-[60%] min-w-[360px]">标题</th>
-                                        {showVenueCol && <th className="px-2 py-1.5 w-[10%]">期刊/会议</th>}
                                         <th className="px-2 py-1.5 w-[18%]">彩色标签</th>
                                         <th className="px-2 py-1.5 w-[14%]">文字标签</th>
                                         <th className="px-2 py-1.5 w-[50px]">PDF</th>
@@ -1300,12 +1290,11 @@ export default function Library() {
                                             onContextMenu={showCtx}
                                             selected={selectedId === p.id}
                                             tagMap={tagMap}
-                                            showVenueCol={showVenueCol}
                                             vizNonce={vizNonce}
                                         />
                                     ))}
                                     {!displayPapers.length && (
-                                        <tr><td colSpan={showVenueCol ? 7 : 6} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
+                                        <tr><td colSpan={7} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
                                     )}
                                 </tbody>
                             </table>

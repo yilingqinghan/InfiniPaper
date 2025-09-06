@@ -83,7 +83,7 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(proceedings of the acm on programming languages|(^|\W)pacmpl(\W|$))/i, "PACMPL"],
     [/(object-oriented programming, systems, languages, and applications|(^|\W)oopsla(\W|$))/i, "OOPSLA"],
     [/(Research and Development inInformation Retrieval|(^|\W)sigir(\W|$))/i, "SIGIR"],
-    [/(arxiv|(^|\W)arxiv(\W|$))/i, "预印"],
+    [/(arxiv|(^|\W)arxiv(\W|$))/i, "预印本"],
 ];
 
 export function abbrevVenue(venue?: string | null): string | null {
@@ -94,7 +94,7 @@ export function abbrevVenue(venue?: string | null): string | null {
 
 /** 顶尖会议/期刊缩写定义（Tier1） */
 const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS"]);
-const preprint = new Set(["预印"]);
+const preprint = new Set(["预印本"]);
 const survey = new Set(["综述·CSUR"]);
 const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS"]);
 export function venueTier(abbr: string | null): 0 | 1 | 2 | 3 | 4 | 5{
