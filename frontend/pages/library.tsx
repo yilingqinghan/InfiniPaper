@@ -1,8 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
 import {
-    UploadCloud, Plus, Pencil, Trash2, ChevronUp, ChevronDown, ChevronRight, ChevronLeft,
-    GripVertical, Eye, Folder as FolderIcon, Share2
+  UploadCloud, Plus, Pencil, Trash2, ChevronUp, ChevronDown, ChevronRight, ChevronLeft,
+  GripVertical, Eye, Folder as FolderIcon, Share2, ChevronsDown, ChevronsUp
 } from "lucide-react";
 import SwalCore from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -599,6 +599,13 @@ export default function Library() {
     const [collapsed, setCollapsed] = React.useState<Set<number>>(new Set());
     const toggleCollapse = (id: number) =>
         setCollapsed(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
+    // 一键全展开 / 全折叠
+    const expandAllFolders = React.useCallback(() => {
+      setCollapsed(new Set());
+    }, []);
+    const collapseAllFolders = React.useCallback(() => {
+      setCollapsed(new Set(folders.map(f => f.id)));
+    }, [folders]);
 
     const [folderCounts, setFolderCounts] = React.useState<Record<number, number>>({});
     const [allCount, setAllCount] = React.useState<number>(0);
@@ -1121,8 +1128,26 @@ export default function Library() {
                             <div className="text-xs text-gray-600">目录</div>
                             <div className="flex items-center gap-1">
                                 <button onClick={() => setLeftCollapsed(true)} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50" title="隐藏目录栏">
-                                    <ChevronLeft className="w-3.5 h-3.5" />
+                                  <ChevronLeft className="w-3.5 h-3.5" />
                                 </button>
+                                <button
+                                  onClick={expandAllFolders}
+                                  className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"
+                                  title="展开所有目录"
+                                  aria-label="展开所有目录"
+                                >
+                                  <ChevronsDown className="w-3.5 h-3.5" />
+                                </button>
+                                <button
+                                  onClick={collapseAllFolders}
+                                  className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"
+                                  title="折叠所有目录"
+                                  aria-label="折叠所有目录"
+                                >
+                                  <ChevronsUp className="w-3.5 h-3.5" />
+                                </button>
+
+                                <button onClick={createFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Plus className="w-3.5 h-3.5" /></button>
                                 <button onClick={createFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Plus className="w-3.5 h-3.5" /></button>
                                 <button onClick={renameFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Pencil className="w-3.5 h-3.5" /></button>
                                 <button onClick={deleteFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Trash2 className="w-3.5 h-3.5" /></button>
