@@ -241,7 +241,6 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
             </div>
             {/* 笔记 */}
             <div>
-              <div className="text-xs text-gray-500 mb-1">笔记（已拆分为模块）</div>
               <div className="space-y-2">
                 <div>
                   <div className="text-xs text-gray-500 mb-1">创新点</div>
