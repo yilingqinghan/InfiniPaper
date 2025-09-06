@@ -18,6 +18,10 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(computer-aided design|(^|\W)iccad(\W|$))/i, "ICCAD"],
     [/(china|(^|\W)china(\W|$))/i, "中文"],
     [/(intelligent computing|(^|\W)intelligent computing(\W|$))/i, "中文"],
+    [/(International Symposium on Computer Architecture|(^|\W)ISCA(\W|$))/i, "ISCA"],
+    [/(Compiler Construction|(^|\W)CC(\W|$))/i, "CC"],
+    
+    
 
     // 顶级期刊（编译与体系结构领域）
     [/(acm transactions on computer systems|(^|\W)tocs(\W|$))/i, "TOCS"],
