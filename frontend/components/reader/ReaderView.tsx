@@ -1,6 +1,61 @@
 "use client";
 
 import React from "react";
+// —— Global DOM hardening against third‑party mutations (Immersive/Google Translate, etc.) ——
+function installDomGuards() {
+  if (typeof window === "undefined") return;
+  const w = window as any;
+  if (w.__ipDomGuardsInstalled) return;
+  w.__ipDomGuardsInstalled = true;
+
+  const NP: any = (Node.prototype as any);
+  const _insertBefore = NP.insertBefore;
+  const _replaceChild = NP.replaceChild;
+  const _removeChild = NP.removeChild;
+
+  // Prevent NotFoundError when the ref node was reparented by extensions
+  NP.insertBefore = function (this: Node, newNode: Node, refNode: Node | null) {
+    try {
+      if (refNode && refNode.parentNode !== this) {
+        // Fallback: append when ref is no longer under the same parent
+        return _insertBefore.call(this, newNode, null);
+      }
+      return _insertBefore.call(this, newNode, refNode);
+    } catch (e) {
+      try { return _insertBefore.call(this, newNode, null); } catch {}
+      return newNode as any;
+    }
+  };
+
+  NP.replaceChild = function (this: Node, newChild: Node, oldChild: Node) {
+    try {
+      if (oldChild && oldChild.parentNode !== this) {
+        // Fallback: if oldChild is no longer ours, just append the new child
+        return _insertBefore.call(this, newChild, null);
+      }
+      return _replaceChild.call(this, newChild, oldChild);
+    } catch (e) {
+      try { return _insertBefore.call(this, newChild, null); } catch {}
+      return newChild as any;
+    }
+  };
+
+  NP.removeChild = function (this: Node, oldChild: Node) {
+    try {
+      if (!oldChild) return oldChild as any;
+      if (oldChild.parentNode !== this) {
+        // If the node is no longer our child (likely reparented by extensions),
+        // treat as already-removed to avoid NotFoundError.
+        return oldChild as any;
+      }
+      return _removeChild.call(this, oldChild);
+    } catch (e) {
+      // Swallow race conditions where the node gets detached between the check and the call
+      return oldChild as any;
+    }
+  };
+}
+try { installDomGuards(); } catch {}
 import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
@@ -219,6 +274,81 @@ function maskToastDataUrls(root?: HTMLElement | null) {
       console.log("[IP] maskToastDataUrls: masked", { idx, shown: s1.textContent + s3.textContent, hiddenLen: b64.length });
     }
   });
+}
+// —— DOM safety helpers to avoid NotFoundError when extensions mutate the tree ——
+function safeInsertBefore(parent: Node, newNode: Node, refNode: Node | null) {
+  try {
+    if (refNode && refNode.parentNode === parent) {
+      (parent as any).insertBefore(newNode, refNode);
+    } else {
+      (parent as any).appendChild(newNode);
+    }
+  } catch {
+    try { (parent as any).appendChild(newNode); } catch {}
+  }
+}
+
+function safeReplaceChild(parent: Node, newChild: Node, oldChild: Node) {
+  try {
+    if (oldChild.parentNode === parent) {
+      (parent as any).replaceChild(newChild, oldChild);
+    } else {
+      (parent as any).appendChild(newChild);
+    }
+  } catch {
+    try {
+      (parent as any).appendChild(newChild);
+      if (oldChild.parentNode === parent) (parent as any).removeChild(oldChild);
+    } catch {}
+  }
+}
+
+// —— Safely unwrap a wrapper element while resisting external DOM mutations (e.g., translators) ——
+function unwrapNodeSafely(el: HTMLElement) {
+  try {
+    const parentAtStart = el.parentNode as (Node | null);
+    if (!parentAtStart) return;
+    if (!el.isConnected) return;
+
+    // 1) Fast path: try to replace the wrapper atomically
+    try {
+      const frag = document.createDocumentFragment();
+      while (el.firstChild) frag.appendChild(el.firstChild);
+      const parentNow = el.parentNode as (Node | null);
+      if (parentNow) {
+        safeReplaceChild(parentNow, frag, el);
+        return;
+      }
+    } catch {}
+
+    // 2) Range-based fallback (robust when third-party scripts reparent between checks)
+    try {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const contents = range.extractContents(); // el is now empty
+      const parent = (el.parentNode as (Node | null)) || parentAtStart;
+      if (parent) {
+        const ref: Node | null = el.parentNode === parent ? el : null;
+        while (contents.firstChild) {
+          const node = contents.firstChild as Node;
+          safeInsertBefore(parent, node, ref);
+        }
+        if (ref && ref.parentNode === parent) {
+          try { (parent as any).removeChild(ref); } catch {}
+        }
+      }
+      return;
+    } catch {}
+
+    // 3) Last resort: append children to the best-known parent and remove the wrapper
+    try {
+      const parent = (el.parentNode as (Node | null)) || parentAtStart;
+      if (parent) {
+        while (el.firstChild) (parent as any).appendChild(el.firstChild);
+      }
+      if (el.parentNode) (el.parentNode as any).removeChild(el);
+    } catch {}
+  } catch {}
 }
 // —— Convert a subset of HTML to Markdown (fallback path to preserve formatting) ——
 function htmlToMarkdown(html: string): string {
@@ -506,6 +636,10 @@ export default function ReaderView() {
   const lastScrollAtRef = React.useRef(0);
   const INPUT_IDLE_MS = 80;   // 打字后稍等一丢丢再渲染（不影响输入流畅）
   const SCROLL_IDLE_MS = 160; // 滚动结束 160ms 内不渲染，保证丝滑滚动
+
+  React.useLayoutEffect(() => {
+    try { installDomGuards(); } catch {}
+  }, []);
 
   const scheduleRenderToastMath = React.useCallback(() => {
     // 若当前文档没有 $ 标记，直接跳过任何渲染
@@ -834,10 +968,8 @@ const isWordChar = (ch?: string) => !!ch && /[0-9A-Za-z_]/.test(ch);
 const clearFindHighlights = React.useCallback((host?: HTMLElement | null) => {
   const h = host || getToastContentHost();
   if (!h) return;
-  h.querySelectorAll<HTMLElement>(".ip-find-hit").forEach(el => {
-    const p = el.parentNode as Node;
-    while (el.firstChild) p.insertBefore(el.firstChild, el);
-    p.removeChild(el);
+  h.querySelectorAll<HTMLElement>(".ip-find-hit").forEach((el) => {
+    try { unwrapNodeSafely(el); } catch {}
   });
   findHitsRef.current = [];
   setFindCount(0);
@@ -900,7 +1032,17 @@ const applyFindHighlights = React.useCallback(() => {
       if (last < text.length) segs.push(text.slice(last));
       const frag = document.createDocumentFragment();
       segs.forEach((x) => frag.append(x as any));
-      tn.parentNode?.replaceChild(frag, tn);
+      try {
+        const p = tn.parentNode as (Node | null);
+        if (p) {
+          try {
+            (p as any).replaceChild(frag, tn);
+          } catch {
+            try { (p as any).appendChild(frag); } catch {}
+            try { if (tn.parentNode === p) (p as any).removeChild(tn); } catch {}
+          }
+        }
+      } catch {}
     }
   }
   decoPhaseRef.current = false;
@@ -1233,6 +1375,11 @@ React.useEffect(() => {
   if (editMode !== 'toast') return;
   const host = getToastContentHost();
   if (!host) return;
+  try {
+    host.setAttribute("translate", "no");
+    host.setAttribute("data-no-translate", "true");
+    (host.closest('.toastui-editor-defaultUI') as HTMLElement | null)?.setAttribute('translate', 'no');
+  } catch {}
   if (moRef.current) { moRef.current.disconnect(); moRef.current = null; }
   const mo = new MutationObserver(() => {
     if (decoPhaseRef.current) return; // ignore self-caused mutations
@@ -2022,9 +2169,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
     const host = mdContainerRef.current;
     if (host) {
       host.querySelectorAll<HTMLElement>(`[data-ann-id=\"${annId}\"]`).forEach((el) => {
-        const parent = el.parentNode as Node;
-        while (el.firstChild) parent.insertBefore(el.firstChild, el);
-        parent.removeChild(el);
+        try { unwrapNodeSafely(el); } catch {}
       });
     }
     setAnnos((list) => list.filter((x) => x.id !== annId));
