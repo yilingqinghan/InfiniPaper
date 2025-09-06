@@ -3,6 +3,9 @@ import withReactContent from "sweetalert2-react-content";
 import SwalCore from "sweetalert2";
 const Swal = withReactContent(SwalCore);
 
+// HTML escape helper
+function escHtml(s: string): string { return (s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
 // 简单的 fetch 封装，返回 JSON，非 2xx 会 throw
 async function j<T = any>(url: string, init?: RequestInit): Promise<T> {
   const res = await fetch(url, init);
@@ -12,6 +15,15 @@ async function j<T = any>(url: string, init?: RequestInit): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+// fetch with timeout and credentials
+async function fetchWithTimeout(input: RequestInfo | URL, init: RequestInit & { timeoutMs?: number } = {}): Promise<Response> {
+  const { timeoutMs = 60000, ...rest } = init as any;
+  const controller = new AbortController();
+  const id = setTimeout(() => { try { controller.abort(); } catch {} }, timeoutMs);
+  try {
+    return await fetch(input, { ...rest, signal: controller.signal });
+  } finally { clearTimeout(id); }
+}
 const NOTE_SECTIONS = [
   { key: "innovation", label: "创新点" },
   { key: "motivation", label: "动机" },
@@ -19,7 +31,6 @@ const NOTE_SECTIONS = [
   { key: "tools", label: "工具+平台" },
   { key: "limits", label: "局限性" },
 ] as const;
-
 type NoteSections = {
   innovation: string;
   motivation: string;
@@ -83,6 +94,114 @@ function buildStructuredNote(sections: NoteSections): string {
   return NOTE_SECTIONS
     .map(s => `${s.label}：${(sections as any)[s.key] || ""}`)
     .join("\n\n");
+}
+
+// ===== Gemini 结构化总结（中文）=====
+// 将 1..20 转成 ①..⑳
+const CIRCLED = ["", "①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"];
+function toCircledList(arr: string[]): string {
+  return (arr || []).map(s => String(s || '').trim()).filter(Boolean).map((s, i) => `${CIRCLED[i+1] || `${i+1}.`} ${s}`).join('\n');
+}
+
+// 从任意字符串里尽力解析 JSON（去掉```json围栏/转义换行等）
+function parseJsonFromString(str: string): any | null {
+  if (typeof str !== 'string') return null;
+  let s = str.trim();
+  const fence = s.match(/```json\s*([\s\S]*?)```/i) || s.match(/```\s*([\s\S]*?)```/i);
+  if (fence) s = fence[1].trim();
+  if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith('\'') && s.endsWith('\''))) {
+    try { s = JSON.parse(s); } catch {}
+  }
+  s = s.replace(/\\n/g, '\n');
+  try { return JSON.parse(s); } catch {}
+  const i = s.indexOf('{'), j = s.lastIndexOf('}');
+  if (i >= 0 && j > i) { try { return JSON.parse(s.slice(i, j+1)); } catch {} }
+  return null;
+}
+function collectStringFields(obj: any, depth = 0, maxDepth = 4): string[] {
+  if (depth > maxDepth || obj == null) return [];
+  if (typeof obj === 'string') return [obj];
+  let out: string[] = [];
+  if (Array.isArray(obj)) obj.forEach(v => out.push(...collectStringFields(v, depth+1, maxDepth)));
+  else if (typeof obj === 'object') Object.values(obj).forEach(v => out.push(...collectStringFields(v, depth+1, maxDepth)));
+  return out;
+}
+function extractJSONBlock(text: string): any | null {
+  try {
+    const parsed = JSON.parse(text);
+    if (parsed && typeof parsed === 'object' && ('innovation' in parsed || 'motivation' in parsed || 'method' in parsed || 'tools' in parsed || 'limits' in parsed)) return parsed;
+    if (typeof parsed === 'string') return parseJsonFromString(parsed);
+    if (typeof parsed === 'object') {
+      for (const s of collectStringFields(parsed)) {
+        const inner = parseJsonFromString(s);
+        if (inner && typeof inner === 'object') return inner;
+      }
+    }
+  } catch {}
+  const inner = parseJsonFromString(text);
+  return inner;
+}
+
+async function fetchPdfBlobStrict(pdf_url?: string | null): Promise<Blob> {
+  if (!pdf_url) throw new Error('该论文没有 PDF 地址');
+  const url = (/^https?:/i.test(pdf_url) ? pdf_url : `${apiBase}${pdf_url}`);
+  const r = await fetchWithTimeout(url, { credentials: 'include', timeoutMs: 60000 });
+  if (!r.ok) throw new Error(`获取 PDF 失败：${r.status} ${r.statusText}`);
+  const blob = await r.blob();
+  return blob;
+}
+
+function normalizeGeminiSections(raw: any): NoteSections {
+  const pick = (k: keyof NoteSections) => {
+    const v: any = raw?.[k];
+    if (Array.isArray(v)) return toCircledList(v.map(String));
+    if (typeof v === 'string') {
+      const arr = v.split(/\n+|[;；]/).map(s => s.trim()).filter(Boolean);
+      return toCircledList(arr);
+    }
+    return '';
+  };
+  return {
+    innovation: pick('innovation'),
+    motivation: pick('motivation'),
+    method: pick('method'),
+    tools: pick('tools'),
+    limits: pick('limits'),
+  };
+}
+
+async function askGeminiForStructuredNote(pdf: Blob, ctxAbs: string, ctxNote: string, attempt = 1): Promise<{ sections: NoteSections, raw: string }> {
+  const prompt = [
+    '你将阅读一篇学术论文（已附上 PDF）。请用简体中文给出结构化研究笔记，并严格只输出 JSON：',
+    '{',
+    '  "innovation": string[],',
+    '  "motivation": string[],',
+    '  "method": string[],',
+    '  "tools": string[],',
+    '  "limits": string[]',
+    '}',
+    '要求：',
+    '1. 每个字段 1–6 条、简洁通顺、避免英文直译；',
+    '2. 只写事实，不要编造，不确定就留空数组；',
+    '3. 不要使用 Markdown，不要在 JSON 外输出任何文字或代码块；',
+    '4. 语言必须是中文。',
+    '附加上下文（可为空）：',
+    `【摘要】${ctxAbs || ''}`,
+    `【已有笔记】${ctxNote || ''}`
+  ].join('\n');
+
+  const fd = new FormData();
+  fd.append('prompt', attempt === 1 ? prompt : `${prompt}\n请严格只返回 JSON 本体。`);
+  fd.append('file', pdf, 'paper.pdf');
+  const r = await fetchWithTimeout(`${apiBase}/api/v1/gemini/ask_pdf`, { method: 'POST', body: fd, credentials: 'include', timeoutMs: 120000 });
+  const text = await r.text();
+  if (!r.ok) throw new Error(`Gemini 接口错误：${r.status} ${r.statusText} ${text ? `- ${text}` : ''}`);
+  const obj = extractJSONBlock(text);
+  if (!obj) {
+    if (attempt < 2) return askGeminiForStructuredNote(pdf, ctxAbs, ctxNote, attempt + 1);
+    throw new Error('未能从返回中解析出 JSON');
+  }
+  return { sections: normalizeGeminiSections(obj), raw: text };
 }
 
 // 轻量日志工具
@@ -185,6 +304,38 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
         try { ro && ro.disconnect(); } catch {}
       };
     }, [open]);
+
+  async function runGeminiSummarize() {
+    if (!paper) return;
+    const t0 = Date.now();
+    const lines: string[] = [];
+    const log = (msg: string) => {
+      const t = Math.round((Date.now() - t0) / 1000);
+      lines.push(`[+${t}s] ${msg}`);
+      try {
+        Swal.update({ html: `<pre class="text-xs text-left max-h-[220px] overflow-auto">${escHtml(lines.join('\n'))}</pre>` });
+      } catch {}
+      dbg('Gemini summarize:', msg);
+    };
+    try {
+      Swal.fire({ title: 'Gemini 正在总结…', allowOutsideClick: false, didOpen: () => Swal.showLoading(), html: '<pre class="text-xs text-left">初始化…</pre>' });
+      log('开始获取 PDF …');
+      const pdf = await fetchPdfBlobStrict(paper.pdf_url);
+      log(`PDF 获取完成，大小 ${Math.round(pdf.size/1024)} KB，类型 ${pdf.type || '未知'}`);
+      if (!/pdf/i.test(pdf.type || '')) log('警告：响应的 MIME 非 PDF，可能被重定向或需要登录');
+      log('调用 Gemini 接口 …');
+      const { sections: s } = await askGeminiForStructuredNote(pdf, absDraft, note);
+      log('Gemini 返回成功，解析 JSON 完成');
+      setSections(s);
+      Swal.close();
+      Swal.fire({ toast: true, icon: 'success', title: '已用 Gemini 填充笔记', timer: 1200, showConfirmButton: false, position: 'top' });
+    } catch (e: any) {
+      const isAbort = (e?.name === 'AbortError');
+      log(isAbort ? '请求超时，已中止' : `失败：${String(e?.message || e)}`);
+      try { Swal.close(); } catch {}
+      Swal.fire({ icon: 'error', title: 'Gemini 总结失败', html: `<div class="text-left text-sm">${isAbort ? '请求超时（可能网络或服务端处理过慢）。' : '错误'}<details class="mt-2"><summary class="text-xs text-gray-500 cursor-pointer">诊断日志</summary><pre class="mt-1 p-2 bg-gray-50 rounded border max-h-[260px] overflow-auto text-[11px] leading-snug whitespace-pre-wrap">${escHtml(lines.join('\n'))}</pre></details></div>` });
+    }
+  }
   
     return (
       <div className="rounded-2xl border bg-white overflow-hidden">
@@ -303,6 +454,11 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
               </div>
 
               <div className="mt-2 flex gap-2">
+                <button
+                  className="text-xs px-2 py-1 rounded border bg-amber-50"
+                  onClick={runGeminiSummarize}
+                  title="调用 Gemini 根据 PDF 自动总结为结构化笔记（中文）"
+                >Gemini 总结</button>
                 <button
                   className="text-xs px-2 py-1 rounded border bg-green-50 disabled:opacity-60"
                   disabled={saving}
