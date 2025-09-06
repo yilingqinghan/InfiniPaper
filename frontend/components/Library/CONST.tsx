@@ -20,7 +20,7 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(intelligent computing|(^|\W)intelligent computing(\W|$))/i, "中文"],
     [/(International Symposium on Computer Architecture|(^|\W)ISCA(\W|$))/i, "ISCA"],
     [/(Compiler Construction|(^|\W)CC(\W|$))/i, "CC"],
-    
+    [/(Knowledge-Based Systems|(^|\W)KBS(\W|$))/i, "KBS"],
     
 
     // 顶级期刊（编译与体系结构领域）
@@ -107,7 +107,7 @@ export function abbrevVenue(venue?: string | null): string | null {
 const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS"]);
 const preprint = new Set(["预印本"]);
 const survey = new Set(["综述·CSUR"]);
-const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS","中文"]);
+const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS","中文","KBS"]);
 export function venueTier(abbr: string | null): 0 | 1 | 2 | 3 | 4 | 5{
     if (!abbr) return 0;
     if (preprint.has(abbr)) return 3;

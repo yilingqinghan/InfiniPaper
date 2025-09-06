@@ -212,10 +212,21 @@ function escHtml(s: string): string {
   return (s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+
+// --- fetch with timeout helper ---
+async function fetchWithTimeout(input: RequestInfo | URL, init: RequestInit & { timeoutMs?: number } = {}): Promise<Response> {
+  const { timeoutMs = 60000, ...rest } = init as any;
+  const controller = new AbortController();
+  const id = setTimeout(() => { try { controller.abort(); } catch {} }, timeoutMs);
+  try {
+    return await fetch(input, { ...rest, signal: controller.signal });
+  } finally { clearTimeout(id); }
+}
+
 async function fetchPdfBlob(pdf_url?: string | null): Promise<Blob> {
   if (!pdf_url) throw new Error("该论文没有 PDF 地址");
   const url = (/^https?:/i.test(pdf_url) ? pdf_url : `${apiBase}${pdf_url}`);
-  const r = await fetch(url, { credentials: 'include' });
+  const r = await fetchWithTimeout(url, { credentials: 'include', timeoutMs: 60000 });
   if (!r.ok) throw new Error(`获取 PDF 失败：${r.status} ${r.statusText}`);
   return await r.blob();
 }
@@ -265,7 +276,7 @@ async function askGeminiForMeta(pdf: Blob, attempt = 1): Promise<{ meta: ReturnT
   fd.append('prompt', attempt === 1 ? prompt : `${prompt}\nSTRICT: JSON only, no commentary.`);
   fd.append('file', pdf, 'paper.pdf');
 
-  const r = await fetch(apiUrl('/api/v1/gemini/ask_pdf'), { method: 'POST', body: fd, credentials: 'include' });
+  const r = await fetchWithTimeout(apiUrl('/api/v1/gemini/ask_pdf'), { method: 'POST', body: fd, credentials: 'include', timeoutMs: 120000 });
   const text = await (async () => { try { return await r.text(); } catch { return ''; } })();
   if (!r.ok) throw new Error(`Gemini 接口错误：${r.status} ${r.statusText} ${text ? `- ${text}` : ''}`);
 
@@ -295,10 +306,31 @@ async function writeAuthors(paperId: number, authors: string[]): Promise<void> {
 
 async function runGeminiParseAndMaybeReplace(p: Paper, refresh: () => Promise<void>) {
   if (!p?.pdf_url) { await Swal.fire({ icon: 'info', title: '没有 PDF', text: '该论文缺少 pdf_url，无法调用 Gemini。' }); return; }
+  let lines: string[] = [];
   try {
-    Swal.fire({ title: 'Gemini 正在解析 PDF…', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+    const t0 = Date.now();
+    lines = [];
+    const log = (msg: string) => {
+      const t = Math.round((Date.now() - t0) / 1000);
+      lines.push(`[+${t}s] ${msg}`);
+      try {
+        Swal.update({ html: `<pre class="text-xs text-left max-h-[220px] overflow-auto">${escHtml(lines.join('\n'))}</pre>` });
+      } catch {}
+    };
+
+    // 非阻塞方式打开加载弹窗
+    Swal.fire({ title: 'Gemini 正在解析 PDF…', allowOutsideClick: false, didOpen: () => Swal.showLoading(), html: '<pre class="text-xs text-left">初始化…</pre>' });
+
+    log('开始获取 PDF …');
     const pdf = await fetchPdfBlob(p.pdf_url);
+    log(`PDF 获取完成，大小 ${Math.round(pdf.size/1024)} KB，类型 ${pdf.type || '未知'}`);
+    if (!/pdf/i.test(pdf.type || '')) log('警告：MIME 非 PDF，可能是重定向或登录页');
+
+    log('调用 Gemini 接口 …');
     const { meta, rawText } = await askGeminiForMeta(pdf);
+    log(`Gemini 返回成功，原始长度 ${rawText?.length ?? 0} 字符；开始解析 JSON …`);
+    log('解析完成，准备展示确认弹窗');
+
     Swal.close();
 
     const html = `
@@ -328,7 +360,12 @@ async function runGeminiParseAndMaybeReplace(p: Paper, refresh: () => Promise<vo
     Swal.fire({ icon: 'success', title: '已更新元信息' });
   } catch (e: any) {
     Swal.close();
-    await Swal.fire({ icon: 'error', title: 'Gemini 解析失败', text: String(e?.message || e) });
+    const isAbort = (e?.name === 'AbortError');
+    await Swal.fire({
+      icon: 'error',
+      title: isAbort ? '解析超时' : 'Gemini 解析失败',
+      html: `<div class="text-left text-sm">${escHtml(String(e?.message || e))}<details class="mt-2"><summary class="text-xs text-gray-500 cursor-pointer">诊断日志</summary><pre class="mt-1 p-2 bg-gray-50 rounded border max-h-[260px] overflow-auto text-[11px] leading-snug whitespace-pre-wrap">${escHtml((lines||[]).join('\n'))}</pre></details></div>`
+    });
   }
 }
 
@@ -489,10 +526,10 @@ function AbbrBadge({ abbr, tier }: { abbr?: string | null; tier?: number | null 
 
 /* --------------------------- row --------------------------- */
 function PaperRow({
-    p, onOpen, onSelect, onPreviewHover, onContextMenu, tagMap, selected, vizNonce, compact,
+    p, onOpen, onSelect, onPreviewRequest, onContextMenu, tagMap, selected, vizNonce, compact,
 }: {
     p: Paper; onOpen: (id: number) => void; onSelect: (id: number) => void;
-    onPreviewHover: (id: number | null, rect?: DOMRect) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
+    onPreviewRequest: (id: number, rect?: DOMRect) => void; onContextMenu: (e: React.MouseEvent, paper: Paper) => void;
     tagMap: Map<number, Tag>; selected: boolean; vizNonce: number;
     compact: boolean;
 }) {
@@ -512,10 +549,9 @@ function PaperRow({
               const q = pdf ? `?pdf=${encodeURIComponent(pdf)}` : "";
               router.push(`/reader/${p.id}${q}`);
             }}
-            onMouseEnter={(e) => onPreviewHover(p.id, (e.currentTarget as HTMLElement).getBoundingClientRect())}
-            onMouseLeave={() => onPreviewHover(null)}
             onContextMenu={(e) => onContextMenu(e, p)}
             data-viz={vizNonce}
+            data-row-id={p.id}
         >
             <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[36px]`}><DragHandle id={p.id} /></td>
             <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[80px] text-gray-600`}>{p.year ?? "—"}</td>
@@ -552,6 +588,19 @@ function PaperRow({
                     title="通过 DOI 获取并复制 BibTeX"
                     >
                     📖
+                    </button>
+                    <button
+                      className="text-[11px] px-1.5 py-[1px] mr-1 rounded-md border hover:bg-gray-50"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const tr = (e.currentTarget.closest('tr') as HTMLElement) || null;
+                        const rect = tr ? tr.getBoundingClientRect() : undefined;
+                        onPreviewRequest(p.id, rect);
+                      }}
+                      title="打开 PDF 预览（快捷键：P 或空格）"
+                      aria-label="预览PDF"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
                     </button>
                     {p.title}
                     </span>
@@ -874,24 +923,10 @@ export default function Library() {
     const [hoveringPreview, setHoveringPreview] = React.useState(false);
     const [showWordCloud, setShowWordCloud] = React.useState(false);
     const [compactMode, setCompactMode] = React.useState<boolean>(true);
-    const hoverTimer = React.useRef<number | null>(null);
 
-    const handlePreviewHover = (id: number | null, rect?: DOMRect) => {
-      if (hoverTimer.current) { window.clearTimeout(hoverTimer.current); hoverTimer.current = null; }
-      if (id == null) {
-        // 若预览面板仍在被鼠标悬停，则不立即关闭；稍作延迟避免抖动
-        if (!hoveringPreview) setHoverPreviewId(null);
-        return;
-      }
+    const openPreview = React.useCallback((id: number, rect?: DOMRect) => {
+      setHoverPreviewId(id);
       if (rect) setHoverPreviewRect(rect);
-      hoverTimer.current = window.setTimeout(() => {
-        setHoverPreviewId(id);
-        hoverTimer.current = null;
-      }, 1900); // 1.9 秒延迟
-    };
-
-    React.useEffect(() => {
-      return () => { if (hoverTimer.current) { window.clearTimeout(hoverTimer.current); } };
     }, []);
     const [ctx, setCtx] = React.useState<{ x: number; y: number; visible: boolean; payload?: Paper }>({ x: 0, y: 0, visible: false });
 
@@ -1171,11 +1206,13 @@ export default function Library() {
       ["--cols" as any]: `${leftCollapsed ? 0 : 300}px 1fr 360px`,
     }), [leftCollapsed]);
 
-    // 键盘：↑↓ 选中，Enter 详情
+    // 键盘：↑↓ 选中，Enter 详情，P/空格预览，Esc 关闭预览
     React.useEffect(() => {
         const h = (e: KeyboardEvent) => {
-            if (["INPUT", "TEXTAREA"].includes((e.target as any)?.tagName)) return;
+            const tag = (e.target as any)?.tagName;
+            if (tag === "INPUT" || tag === "TEXTAREA" || (e as any).isComposing) return;
             if (!pageData.length) return;
+
             const idx = selectedId == null ? -1 : pageData.findIndex(p => p.id === selectedId);
             if (e.key === "ArrowDown") {
                 const next = pageData[Math.min(pageData.length - 1, Math.max(0, idx + 1))];
@@ -1185,10 +1222,24 @@ export default function Library() {
                 if (prev) setSelectedId(prev.id);
             } else if (e.key === "Enter") {
                 if (selectedId != null) setOpenId(selectedId);
+            } else if (e.key === "p" || e.key === "P" || e.key === " ") {
+                if (selectedId != null) {
+                    e.preventDefault(); // 防止空格滚动页面
+                    if (hoverPreviewId === selectedId) {
+                        setHoverPreviewId(null); // 再按一次关闭
+                    } else {
+                        const rowEl = document.querySelector(`tr[data-row-id="${selectedId}"]`) as HTMLElement | null;
+                        const rect = rowEl ? rowEl.getBoundingClientRect() : undefined;
+                        openPreview(selectedId, rect);
+                    }
+                }
+            } else if (e.key === "Escape") {
+                if (hoverPreviewId != null) setHoverPreviewId(null);
             }
         };
-        window.addEventListener("keydown", h); return () => window.removeEventListener("keydown", h);
-    }, [pageData, selectedId]);
+        window.addEventListener("keydown", h);
+        return () => window.removeEventListener("keydown", h);
+    }, [pageData, selectedId, hoverPreviewId, openPreview]);
     // ✅ 仅本文件夹的引用网（兼容多字段名 + 提前检查 DOI）
     React.useEffect(() => {
         const handler = (ev: Event) => {
@@ -1520,7 +1571,7 @@ export default function Library() {
                                             p={p}
                                             onOpen={id => setOpenId(id)}
                                             onSelect={(id) => setSelectedId(id)}
-                                            onPreviewHover={handlePreviewHover}
+                                            onPreviewRequest={openPreview}
                                             onContextMenu={showCtx}
                                             selected={selectedId === p.id}
                                             tagMap={tagMap}
@@ -1728,7 +1779,7 @@ export default function Library() {
               style={style}
               className="overflow-hidden border bg-white"
               onMouseEnter={() => setHoveringPreview(true)}
-              onMouseLeave={() => { setHoveringPreview(false); setTimeout(() => { if (!hoverTimer.current) setHoverPreviewId(null); }, 100); }}
+              onMouseLeave={() => { setHoveringPreview(false); }}
             >
               <iframe src={src} className="w-full h-full" scrolling="auto" />
             </div>
