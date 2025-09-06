@@ -1302,7 +1302,30 @@ export default function Library() {
 
                     {/* 右侧：预览 / 摘要 */}
                     <div className="space-y-4">
-                        <AbstractNotePanel paper={selectedId ? papers.find(p => p.id === selectedId) || null : null} />
+                      {selectedId && (() => {
+                        const p = papers.find(x => x.id === selectedId);
+                        if (!p) return null;
+                        return (
+                          <div className="rounded-2xl border bg-white overflow-hidden">
+                            <div className="px-3 py-2 border-b flex items-center">
+                              <div className="text-sm font-medium">基本信息</div>
+                              <button
+                                className="ml-auto text-xs px-2 py-1 rounded border hover:bg-gray-50"
+                                onClick={editMeta}
+                                title="编辑论文基本信息（标题/期刊/年份/DOI）"
+                              >编辑</button>
+                            </div>
+                            <div className="p-3 text-sm text-gray-700 space-y-1">
+                              <div className="truncate"><span className="text-gray-500 mr-2">标题</span>{p.title || '—'}</div>
+                              <div><span className="text-gray-500 mr-2">期刊/会议</span>{p.venue || '—'}</div>
+                              <div><span className="text-gray-500 mr-2">年份</span>{p.year ?? '—'}</div>
+                              <div className="truncate"><span className="text-gray-500 mr-2">DOI</span>{p.doi || '—'}</div>
+                            </div>
+                          </div>
+                        );
+                      })()}
+
+                      <AbstractNotePanel paper={selectedId ? papers.find(p => p.id === selectedId) || null : null} />
                     </div>
                 </div>
 
@@ -1329,6 +1352,19 @@ export default function Library() {
                                     </button>
                                 ))}
                             </div>
+                            <button
+                              className="w-full text-left px-2 py-1.5 rounded hover:bg-gray-50 text-sm flex items-center gap-2"
+                              onClick={async () => {
+                                const id = ctx.payload?.id;
+                                setCtx(s => ({ ...s, visible: false }));
+                                if (!id) return;
+                                setSelectedId(id);
+                                await editMeta();
+                              }}
+                            >
+                              <Pencil className="w-4 h-4" />
+                              编辑元信息
+                            </button>
                             <div className="border-t my-1" />
                             <button
                                 className="w-full text-left px-2 py-1.5 rounded hover:bg-red-50 text-sm flex items-center gap-2 text-red-600"
