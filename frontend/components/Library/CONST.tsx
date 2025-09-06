@@ -30,7 +30,7 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(acm journal on emerging technologies in computing systems|(^|\W)jetc(\W|$))/i, "JETC"],
     [/(cluster computing|(^|\W)cluster(\W|$))/i, "Cluster Computing"],
     [/(ACM Transactions on Information Systems|(^|\W)TOIS(\W|$))/i, "TOIS"],
-    
+    [/(Association for Computational Linguistics|(^|\W)ACL(\W|$))/i, "ACL"],
 
     // 其他相关会议
     [/(design, automation & test in europe|(^|\W)date(\W|$))/i, "DATE"],
