@@ -37,7 +37,7 @@ type Paper = {
   type Tag = { id: number; name: string; color?: string | null };
 
 // 特殊标签：开源（深色底、白字）
-const OPEN_SOURCE_TAGS = new Set(["开源", "Open Source"]);
+const OPEN_SOURCE_TAGS = new Set(["开源", "Open Source", "☆"]);
 export function isOpenSourceTag(name: string) { return OPEN_SOURCE_TAGS.has(name.trim()); }
 /* --------------------------- quick tag panel --------------------------- */
 function QuickTagPanel({

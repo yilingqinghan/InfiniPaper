@@ -104,6 +104,234 @@ function hexWithAlpha(hex: string, alpha: number) {
     return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
+// ----- Gemini helpers -----
+function apiUrl(path: string) { return `${apiBase}${path}`; }
+
+// --- Robust JSON extraction from arbitrary AI/SDK wrappers ---
+/**
+ * Try to extract a JSON object from any string, including code fences and escaped newlines.
+ */
+function parseJsonFromString(str: string): any | null {
+  if (typeof str !== "string") return null;
+  // Remove code fences if present
+  let s = str.trim();
+  const fence = s.match(/```json\s*([\s\S]*?)```/i) || s.match(/```\s*([\s\S]*?)```/i);
+  if (fence) s = fence[1].trim();
+  // Remove leading/trailing quotes if present (e.g. model SDK may double-encode)
+  if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
+    try { s = JSON.parse(s); } catch { /* ignore */ }
+  }
+  // Replace escaped newlines (from backend)
+  s = s.replace(/\\n/g, "\n");
+  // Try direct parse
+  try { return JSON.parse(s); } catch {}
+  // Fallback: try to find a {...} block
+  const i = s.indexOf("{"), j = s.lastIndexOf("}");
+  if (i >= 0 && j > i) {
+    const cand = s.slice(i, j + 1);
+    try { return JSON.parse(cand); } catch {}
+  }
+  return null;
+}
+
+/**
+ * Recursively collect all string fields from an object/array up to a given depth.
+ */
+function collectStringFields(obj: any, depth = 0, maxDepth = 4): string[] {
+  if (depth > maxDepth || obj == null) return [];
+  let out: string[] = [];
+  if (typeof obj === "string") return [obj];
+  if (Array.isArray(obj)) {
+    for (const v of obj) out.push(...collectStringFields(v, depth + 1, maxDepth));
+  } else if (typeof obj === "object") {
+    for (const k of Object.keys(obj)) {
+      out.push(...collectStringFields(obj[k], depth + 1, maxDepth));
+    }
+  }
+  return out;
+}
+
+/**
+ * Extract a JSON block matching the expected schema from arbitrary wrapper objects.
+ * Handles backend wrappers like {text: "..."} or model SDK containers.
+ */
+function extractJSONBlock(text: string): any | null {
+  // Try direct parse
+  try {
+    const parsed = JSON.parse(text);
+    // If already looks like our schema, return
+    if (parsed && typeof parsed === "object" && (
+      "title" in parsed || "authors" in parsed || "year" in parsed || "doi" in parsed
+    )) return parsed;
+    // If it's a string, maybe double-wrapped
+    if (typeof parsed === "string") {
+      const inner = parseJsonFromString(parsed);
+      if (inner && typeof inner === "object" && (
+        "title" in inner || "authors" in inner || "year" in inner || "doi" in inner
+      )) return inner;
+    }
+    // If it's a wrapper object/array, search for string fields
+    if (typeof parsed === "object" && parsed !== null) {
+      const candidates = collectStringFields(parsed, 0, 4);
+      for (const s of candidates) {
+        const inner = parseJsonFromString(s);
+        if (inner && typeof inner === "object" && (
+          "title" in inner || "authors" in inner || "year" in inner || "doi" in inner
+        )) return inner;
+      }
+    }
+  } catch { /* fallback below */ }
+  // Try to extract from string (code fence etc)
+  const tryParse = (s: string) => {
+    const obj = parseJsonFromString(s);
+    if (obj && typeof obj === "object" && (
+      "title" in obj || "authors" in obj || "year" in obj || "doi" in obj
+    )) return obj;
+    return null;
+  };
+  // Try code fence
+  const fence = text.match(/```json\s*([\s\S]*?)```/i) || text.match(/```\s*([\s\S]*?)```/i);
+  if (fence) {
+    const obj = tryParse(fence[1]);
+    if (obj) return obj;
+  }
+  // Try greedy {...} block
+  const i = text.indexOf('{'), j = text.lastIndexOf('}');
+  if (i >= 0 && j > i) {
+    const obj = tryParse(text.slice(i, j + 1));
+    if (obj) return obj;
+  }
+  // As last resort, try parse the whole text
+  const obj = tryParse(text);
+  if (obj) return obj;
+  return null;
+}
+
+// HTML escape helper for safe display of raw Gemini response
+function escHtml(s: string): string {
+  return (s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+async function fetchPdfBlob(pdf_url?: string | null): Promise<Blob> {
+  if (!pdf_url) throw new Error("该论文没有 PDF 地址");
+  const url = (/^https?:/i.test(pdf_url) ? pdf_url : `${apiBase}${pdf_url}`);
+  const r = await fetch(url, { credentials: 'include' });
+  if (!r.ok) throw new Error(`获取 PDF 失败：${r.status} ${r.statusText}`);
+  return await r.blob();
+}
+
+type AiMeta = { title?: string; authors?: string[] | string; year?: number | string; doi?: string | null; venue?: string | null };
+
+function normalizeAiMeta(raw: any): Required<Pick<AiMeta, 'title'>> & { authors: string[]; year?: number; doi?: string | null; venue?: string | null } {
+  const obj: AiMeta = raw || {};
+  let authors: string[] = [];
+  if (Array.isArray(obj.authors)) authors = obj.authors.map(String).map(s => s.trim()).filter(Boolean);
+  else if (typeof obj.authors === 'string') authors = obj.authors.split(/[;,\n]+/).map(s => s.trim()).filter(Boolean);
+
+  let year: number | undefined;
+  if (typeof obj.year === 'number') year = obj.year;
+  else if (typeof obj.year === 'string') {
+    const m = obj.year.match(/\b(19\d{2}|20\d{2}|21\d{2})\b/); if (m) year = Number(m[1]);
+  }
+
+  let doi: string | null | undefined = (obj.doi == null ? obj.doi : String(obj.doi));
+  if (doi) {
+    const m = String(doi).match(/10\.\d{4,9}\/[-._;()/:A-Z0-9]+/i); doi = m ? m[0] : null;
+  }
+
+  const title = String(obj.title || '').trim() || 'Untitled';
+  const venue = obj.venue == null ? null : String(obj.venue || '').trim() || null;
+  return { title, authors, year, doi: doi ?? null, venue };
+}
+
+async function askGeminiForMeta(pdf: Blob, attempt = 1): Promise<{ meta: ReturnType<typeof normalizeAiMeta>; rawText: string }> {
+  const prompt = [
+    'You are given a research paper PDF. Extract bibliographic metadata and reply with **ONLY** JSON that follows this schema:',
+    '{',
+    '  "title": string,',
+    '  "authors": string[],  // full author names in order',
+    '  "year": number | string,',
+    '  "doi": string | null,',
+    '  "venue": string | null',
+    '}',
+    'Rules:',
+    '- Respond with JSON only, no prose, no code fences.',
+    '- If a field is unknown, use null (do not invent).',
+    '- Prefer the title on the first page. Use Arabic numerals for year.',
+    '- DOI must match /^10\\.\\d{4,9}\\\/[-._;()\/:A-Z0-9]+$/i or be null.'
+  ].join('\n');
+
+  const fd = new FormData();
+  fd.append('prompt', attempt === 1 ? prompt : `${prompt}\nSTRICT: JSON only, no commentary.`);
+  fd.append('file', pdf, 'paper.pdf');
+
+  const r = await fetch(apiUrl('/api/v1/gemini/ask_pdf'), { method: 'POST', body: fd, credentials: 'include' });
+  const text = await (async () => { try { return await r.text(); } catch { return ''; } })();
+  if (!r.ok) throw new Error(`Gemini 接口错误：${r.status} ${r.statusText} ${text ? `- ${text}` : ''}`);
+
+  const parsed = extractJSONBlock(text);
+  if (!parsed) {
+    if (attempt < 2) return await askGeminiForMeta(pdf, attempt + 1); // 自动重试一次
+    throw new Error('解析 Gemini 返回失败：未找到可用 JSON');
+  }
+  return { meta: normalizeAiMeta(parsed), rawText: text };
+}
+
+async function writeAuthors(paperId: number, authors: string[]): Promise<void> {
+  if (!authors || !authors.length) return;
+  // 优先命中 authors 接口
+  try {
+    await j(`${apiBase}/api/v1/papers/${paperId}/authors`, {
+      method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ authors: authors.map(n => ({ name: n })) })
+    });
+    return;
+  } catch { /* fallback */ }
+  try {
+    await j(`${apiBase}/api/v1/papers/${paperId}`, {
+      method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ authors })
+    });
+  } catch { /* ignore if backend not supported */ }
+}
+
+async function runGeminiParseAndMaybeReplace(p: Paper, refresh: () => Promise<void>) {
+  if (!p?.pdf_url) { await Swal.fire({ icon: 'info', title: '没有 PDF', text: '该论文缺少 pdf_url，无法调用 Gemini。' }); return; }
+  try {
+    Swal.fire({ title: 'Gemini 正在解析 PDF…', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+    const pdf = await fetchPdfBlob(p.pdf_url);
+    const { meta, rawText } = await askGeminiForMeta(pdf);
+    Swal.close();
+
+    const html = `
+      <div class="text-left">
+        <div class="text-xs text-gray-500">标题</div><div class="mb-1">${(meta.title || '').replace(/</g,'&lt;')}</div>
+        <div class="text-xs text-gray-500">作者</div><div class="mb-1">${(meta.authors||[]).join(', ') || '—'}</div>
+        <div class="text-xs text-gray-500">年份</div><div class="mb-1">${meta.year ?? '—'}</div>
+        <div class="text-xs text-gray-500">DOI</div><div class="mb-1">${meta.doi || '—'}</div>
+        <div class="text-xs text-gray-500">期刊/会议</div><div>${meta.venue || '—'}</div>
+        <details class="mt-2">
+          <summary class="text-xs text-gray-500 cursor-pointer">显示 Raw 返回</summary>
+          <pre class="mt-1 p-2 bg-gray-50 rounded border max-h-[260px] overflow-auto text-[11px] leading-snug whitespace-pre-wrap">${escHtml(rawText)}</pre>
+        </details>
+      </div>`;
+
+    const ok = (await Swal.fire({ icon: 'question', title: '替换为 Gemini 解析结果？', html, showCancelButton: true, confirmButtonText: '替换', cancelButtonText: '取消' })).isConfirmed;
+    if (!ok) return;
+
+    const payload: any = { title: meta.title };
+    if (meta.year) payload.year = meta.year;
+    if (meta.doi != null) payload.doi = meta.doi;
+    if (meta.venue != null) payload.venue = meta.venue;
+
+    await j(`${apiBase}/api/v1/papers/${p.id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    await writeAuthors(p.id, meta.authors || []);
+    await refresh();
+    Swal.fire({ icon: 'success', title: '已更新元信息' });
+  } catch (e: any) {
+    Swal.close();
+    await Swal.fire({ icon: 'error', title: 'Gemini 解析失败', text: String(e?.message || e) });
+  }
+}
+
 // -------- folder numbering helpers --------
 function toRoman(num: number): string {
   if (num <= 0) return String(num);
@@ -1340,6 +1568,11 @@ export default function Library() {
                               <div className="text-sm font-medium">基本信息</div>
                               <button
                                 className="ml-auto text-xs px-2 py-1 rounded border hover:bg-gray-50"
+                                onClick={async () => { const p0 = p; await runGeminiParseAndMaybeReplace(p0, async () => { await refreshAll(); }); }}
+                                title="用 Gemini 解析 PDF 并替换元信息"
+                              >Gemini 解析</button>
+                              <button
+                                className="ml-2 text-xs px-2 py-1 rounded border hover:bg-gray-50"
                                 onClick={editMeta}
                                 title="编辑论文基本信息（标题/期刊/年份/DOI）"
                               >编辑</button>

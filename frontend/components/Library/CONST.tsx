@@ -36,6 +36,8 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(ACM Transactions on Information Systems|(^|\W)TOIS(\W|$))/i, "TOIS"],
     [/(Association for Computational Linguistics|(^|\W)ACL(\W|$))/i, "ACL"],
     [/(ACM Computing Surveys|(^|\W)CSUR(\W|$))/i, "综述·CSUR"],
+    [/(ACM Comput. Surv.|(^|\W)CSUR(\W|$))/i, "综述·CSUR"],
+    
     [/(Journal of systems and software|(^|\W)JSS(\W|$))/i, "JSS"],
 
     // 其他相关会议
