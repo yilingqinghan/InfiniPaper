@@ -16,9 +16,12 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(embedded software|(^|\W)emsoft(\W|$))/i, "EMSOFT"],
     [/(design automation|(^|\W)iccad(\W|$))/i, "ICCAD"],
     [/(computer-aided design|(^|\W)iccad(\W|$))/i, "ICCAD"],
+    [/(china|(^|\W)china(\W|$))/i, "中文"],
 
     // 顶级期刊（编译与体系结构领域）
     [/(acm transactions on computer systems|(^|\W)tocs(\W|$))/i, "TOCS"],
+    [/(acm transactions on Software Engineering and Methodology |(^|\W)TOSEM(\W|$))/i, "TOSEM"],
+    
     [/(ieee transactions on parallel and distributed systems|(^|\W)tpds(\W|$))/i, "TPDS"],
     [/(ieee transactions on computers|(^|\W)tc(\W|$))/i, "TC"],
     [/(ieee transactions on computer-aided design of integrated circuits and systems|(^|\W)tcad(\W|$))/i, "TCAD"],
@@ -32,6 +35,7 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(ACM Transactions on Information Systems|(^|\W)TOIS(\W|$))/i, "TOIS"],
     [/(Association for Computational Linguistics|(^|\W)ACL(\W|$))/i, "ACL"],
     [/(ACM Computing Surveys|(^|\W)CSUR(\W|$))/i, "综述·CSUR"],
+    [/(Journal of systems and software|(^|\W)JSS(\W|$))/i, "JSS"],
 
     // 其他相关会议
     [/(design, automation & test in europe|(^|\W)date(\W|$))/i, "DATE"],
@@ -96,7 +100,7 @@ export function abbrevVenue(venue?: string | null): string | null {
 const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS"]);
 const preprint = new Set(["预印本"]);
 const survey = new Set(["综述·CSUR"]);
-const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS"]);
+const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS","中文"]);
 export function venueTier(abbr: string | null): 0 | 1 | 2 | 3 | 4 | 5{
     if (!abbr) return 0;
     if (preprint.has(abbr)) return 3;
