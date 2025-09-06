@@ -251,7 +251,6 @@ function PaperRow({
     tagMap: Map<number, Tag>; selected: boolean; showVenueCol: boolean; vizNonce: number;
 }) {
     const router = useRouter();
-    const authors = (p.authors || []).map(a => a?.name).filter(Boolean).slice(0, 6).join(", ");
     const allTags = (p.tag_ids || []).map(id => tagMap.get(id)).filter((t): t is Tag => !!t);
     const colored = allTags.filter(t => getTagColor(t.name));
     const plain = allTags.filter(t => !getTagColor(t.name));
@@ -323,9 +322,6 @@ function PaperRow({
                     {p.title}
                     </span>
                 </div>
-            </td>
-            <td className="px-2 py-1.5 w-[22%]">
-                <div className="text-xs text-gray-700 whitespace-nowrap overflow-hidden text-ellipsis">{authors || "—"}</div>
             </td>
             {showVenueCol && (
                 <td className="px-2 py-1.5 w-[20%]">
@@ -736,61 +732,6 @@ export default function Library() {
     const refreshAll = React.useCallback(async () => { await loadTags(); await loadPapers(); }, [loadTags, loadPapers]);
 
     // 编辑作者（支持"姓名 | 单位"逐行输入），优先命中 /papers/{id}/authors 接口，失败则回退 PATCH /papers/{id}
-    const editAuthors = async () => {
-        if (!selectedId) return;
-        const p = papers.find(x => x.id === selectedId);
-        // 预填：一行一个作者；如有单位以竖线分隔
-        const preset = (p?.authors || [])
-          .map(a => [a?.name || "", a?.affiliation || ""].filter(Boolean).join(" | "))
-          .join("\n");
-
-        const { value: ok } = await Swal.fire({
-          title: "编辑作者",
-          html: `
-            <div class="text-left text-xs text-gray-500 mb-1">每行一个作者，可选格式：<code>姓名</code> 或 <code>姓名 | 单位</code></div>
-            <textarea id="authors" class="swal2-textarea" placeholder="例如：\nAlice Zhang | PKU\nBob Li | MSR\n..." style="height: 180px;">${preset.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</textarea>
-          `,
-          showCancelButton: true,
-          focusConfirm: false,
-          preConfirm: async () => {
-            const raw = (document.getElementById('authors') as HTMLTextAreaElement).value || '';
-            const lines = raw.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
-            const authors = lines.map(line => {
-              const m = line.split('|');
-              const name = (m[0] || '').trim();
-              const affiliation = (m[1] || '').trim();
-              const obj: any = { name };
-              if (affiliation) obj.affiliation = affiliation;
-              return obj;
-            }).filter(a => a.name);
-            if (!authors.length) {
-              Swal.showValidationMessage('至少需要 1 位作者');
-              return false as any;
-            }
-            // 优先使用专用接口；失败则回退 PATCH /papers/{id}
-            try {
-              await j(`${apiBase}/api/v1/papers/${selectedId}/authors`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ authors })
-              });
-            } catch (e) {
-              // 回退：直接把 authors 传给 PATCH；后端若不支持会无效，但我们随后会提示
-              try {
-                await j(`${apiBase}/api/v1/papers/${selectedId}`, {
-                  method: 'PATCH',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ authors })
-                });
-              } catch (e2) {
-                throw e2;
-              }
-            }
-            return true;
-          }
-        });
-        if (ok) { await refreshAll(); toast('作者已更新'); }
-      };
     const editMeta = async () => {
         if (!selectedId) return;
         const p = papers.find(x => x.id === selectedId);
@@ -1298,7 +1239,6 @@ export default function Library() {
                                         <th className="px-2 py-1.5 w-[36px]"></th>
                                         <th className="px-2 py-1.5 w-[50px]">年</th>
                                         <th className="px-2 py-1.5 w-[60%] min-w-[360px]">标题</th>
-                                        <th className="px-2 py-1.5 w-[10%]">作者</th>
                                         {showVenueCol && <th className="px-2 py-1.5 w-[10%]">期刊/会议</th>}
                                         <th className="px-2 py-1.5 w-[18%]">彩色标签</th>
                                         <th className="px-2 py-1.5 w-[14%]">文字标签</th>
@@ -1320,9 +1260,7 @@ export default function Library() {
                                         />
                                     ))}
                                     {!displayPapers.length && (
-                                        <tr><td colSpan={8} className="px-3 py-6 text-center text-sm text-gray-500">
-                                            这里还没有论文，右上角导入或者拖拽 PDF 到页内空白处试试～
-                                        </td></tr>
+                                        <tr><td colSpan={showVenueCol ? 7 : 6} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
                                     )}
                                 </tbody>
                             </table>
@@ -1377,29 +1315,6 @@ export default function Library() {
                               <div><span className="text-gray-500 mr-2">期刊/会议</span>{p.venue || '—'}</div>
                               <div><span className="text-gray-500 mr-2">年份</span>{p.year ?? '—'}</div>
                               <div className="truncate"><span className="text-gray-500 mr-2">DOI</span>{p.doi || '—'}</div>
-                            </div>
-                          </div>
-                          <div className="rounded-2xl border bg-white overflow-hidden">
-                            <div className="px-3 py-2 border-b flex items-center">
-                              <div className="text-sm font-medium">作者</div>
-                              <button
-                                className="ml-auto text-xs px-2 py-1 rounded border hover:bg-gray-50"
-                                onClick={editAuthors}
-                                title="编辑作者（支持姓名 | 单位，每行一位）"
-                              >编辑</button>
-                            </div>
-                            <div className="p-3 text-sm text-gray-700 space-y-1">
-                              {(p.authors && p.authors.length) ? (
-                                <ul className="list-disc pl-5 space-y-0.5">
-                                  {p.authors!.map((a, i) => (
-                                    <li key={i} className="truncate">
-                                      {a?.name || '未命名'}{a?.affiliation ? ` · ${a.affiliation}` : ''}
-                                    </li>
-                                  ))}
-                                </ul>
-                              ) : (
-                                <div className="text-gray-400">（无作者信息）</div>
-                              )}
                             </div>
                           </div>
                           </>
