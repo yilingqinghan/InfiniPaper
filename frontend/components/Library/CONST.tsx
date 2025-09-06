@@ -21,8 +21,12 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(International Symposium on Computer Architecture|(^|\W)ISCA(\W|$))/i, "ISCA"],
     [/(Compiler Construction|(^|\W)CC(\W|$))/i, "CC"],
     [/(Knowledge-Based Systems|(^|\W)KBS(\W|$))/i, "KBS"],
-    
-
+    [/(International Symposium on Microarchitecture|(^|\W)MICRO(\W|$))/i, "MICRO"],
+    [/(European Conference on Computer Systems|(^|\W)EuroSys(\W|$))/i, "EuroSys"],
+    [/(International Symposium on Software Testing and Analysis|(^|\W)ISSTA(\W|$))/i, "ISSTA"],
+    [/(USENIX Security Symposium|(^|\W)USENIX Security(\W|$))/i, "USENIX"],
+    [/( Conference on Systems, Man, and Cybernetics|(^|\W)SMC(\W|$))/i, "SMC"],
+   
     // 顶级期刊（编译与体系结构领域）
     [/(acm transactions on computer systems|(^|\W)tocs(\W|$))/i, "TOCS"],
     [/(acm transactions on Software Engineering and Methodology |(^|\W)TOSEM(\W|$))/i, "TOSEM"],
@@ -36,14 +40,16 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(parallel computing|(^|\W)parco(\W|$))/i, "PARCO"],
     [/(ieee transactions on cloud computing|(^|\W)tcc(\W|$))/i, "TCC"],
     [/(acm journal on emerging technologies in computing systems|(^|\W)jetc(\W|$))/i, "JETC"],
-    [/(cluster computing|(^|\W)cluster(\W|$))/i, "Cluster Computing"],
+    [/(cluster computing|(^|\W)cluster(\W|$))/i, "CLUSTER"],
     [/(ACM Transactions on Information Systems|(^|\W)TOIS(\W|$))/i, "TOIS"],
     [/(Association for Computational Linguistics|(^|\W)ACL(\W|$))/i, "ACL"],
     [/(ACM Computing Surveys|(^|\W)CSUR(\W|$))/i, "综述·CSUR"],
     [/(ACM Comput. Surv.|(^|\W)CSUR(\W|$))/i, "综述·CSUR"],
-    
+    [/(Compilers, and Tools for Embedded Systems|(^|\W)LCTES(\W|$))/i, "LCTES"],
     [/(Journal of systems and software|(^|\W)JSS(\W|$))/i, "JSS"],
-
+    [/(ACM Trans. Architec. Code Optim.|(^|\W)TACO(\W|$))/i, "TACO"],
+    [/(ACM Transactions on Embedded Computing Systems|(^|\W)TECS(\W|$))/i, "TECS"],
+    
     // 其他相关会议
     [/(design, automation & test in europe|(^|\W)date(\W|$))/i, "DATE"],
     [/(hot chips|(^|\W)hot chips(\W|$))/i, "HOT CHIPS"],
@@ -61,6 +67,8 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(mass storage systems and technologies|(^|\W)msst(\W|$))/i, "MSST"],
     [/(ieee real-time and embedded technology and applications symposium|(^|\W)rtas(\W|$))/i, "RTAS"],
     [/(communications of the ACM|(^|\W)CACM(\W|$))/i, "CACM"],
+    [/(Computer and Communications Security|(^|\W)CCS(\W|$))/i, "CCS"],
+    
 
     // 人工智能领域（参考）
     [/(conference on neural information processing systems|(^|\W)neurips(\W|$))/i, "NeurIPS"],
@@ -104,7 +112,7 @@ export function abbrevVenue(venue?: string | null): string | null {
 }
 
 /** 顶尖会议/期刊缩写定义（Tier1） */
-const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS"]);
+const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS","CCS","ISSTA","POPL","SPLASH","TACO","TOCS","TOCS","TOIS","TPDS","TC","TCAD","TCC","JETC","USENIX"]);
 const preprint = new Set(["预印本"]);
 const survey = new Set(["综述·CSUR"]);
 const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS","中文","KBS"]);
