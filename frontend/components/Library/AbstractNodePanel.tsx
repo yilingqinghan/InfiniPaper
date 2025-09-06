@@ -368,7 +368,7 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
         >
           <div className="p-3 space-y-3">
             {/* 摘要 */}
-            <div>
+            {/* <div>
               <div className="text-xs text-gray-500 mb-1">摘要</div>
               {!editingAbs ? (
                 <div className="text-sm leading-6 text-gray-800 whitespace-pre-wrap">{absDraft || <span className="text-gray-400">（暂无摘要）</span>}</div>
@@ -389,7 +389,7 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
                   </>
                 )}
               </div>
-            </div>
+            </div> */}
             {/* 笔记 */}
             <div>
               <div className="space-y-2">
@@ -442,14 +442,6 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
                     rows={3}
                     placeholder="适用范围、失败案例、未来工作…"
                   />
-                </div>
-              </div>
-
-              {/* 预览（解析显示自动映射） */}
-              <div className="mt-3 p-2 bg-gray-50 rounded-md">
-                <div className="text-xs text-gray-500 mb-1">预览</div>
-                <div className="text-sm leading-6 text-gray-800 whitespace-pre-wrap">
-                  {buildStructuredNote(sections)}
                 </div>
               </div>
 
