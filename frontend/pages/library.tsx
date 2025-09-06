@@ -264,6 +264,8 @@ function PaperRow({
             ? "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-blue-700 border-blue-800 text-white" 
             : tier === 4
             ? "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-purple-900 border-green-200 text-white"
+            : tier === 5
+            ? "text-[11px] px-1.5 py-[1px] mr-2 bg-indigo-50 border-indigo-200 text-gray-400"
             : "text-[11px] px-1.5 py-[1px] mr-2 rounded-md border bg-indigo-50 border-indigo-200 text-indigo-700";
     
     return (

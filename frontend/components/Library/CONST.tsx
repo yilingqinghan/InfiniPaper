@@ -49,6 +49,7 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(large installation system administration conference|(^|\W)lisa(\W|$))/i, "LISA"],
     [/(mass storage systems and technologies|(^|\W)msst(\W|$))/i, "MSST"],
     [/(ieee real-time and embedded technology and applications symposium|(^|\W)rtas(\W|$))/i, "RTAS"],
+    [/(communications of the ACM|(^|\W)CACM(\W|$))/i, "CACM"],
 
     // 人工智能领域（参考）
     [/(conference on neural information processing systems|(^|\W)neurips(\W|$))/i, "NeurIPS"],
@@ -95,9 +96,11 @@ export function abbrevVenue(venue?: string | null): string | null {
 const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS"]);
 const preprint = new Set(["预印"]);
 const survey = new Set(["综述·CSUR"]);
-export function venueTier(abbr: string | null): 0 | 1 | 2 | 3 | 4{
+const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS"]);
+export function venueTier(abbr: string | null): 0 | 1 | 2 | 3 | 4 | 5{
     if (!abbr) return 0;
     if (preprint.has(abbr)) return 3;
     if (survey.has(abbr)) return 4;
+    if (LOW_TIER.has(abbr)) return 5;
     return TOP_TIER.has(abbr) ? 1 : 2;
 }
