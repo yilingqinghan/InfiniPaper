@@ -685,6 +685,8 @@ export default function Library() {
     const [filterAuthors, setFilterAuthors] = React.useState<string[]>([]);
     const [graphOpen, setGraphOpen] = React.useState(false);
     const [graphSeed, setGraphSeed] = React.useState<string | null>(null);
+    // 仅查看未打标签论文
+    const [onlyUntagged, setOnlyUntagged] = React.useState<boolean>(false);
     
     const openAuthorGraph = React.useCallback(async () => {
       if (!filterAuthors.length) {
@@ -911,6 +913,11 @@ export default function Library() {
         });
       }
 
+      // 只看未打标签
+      if (onlyUntagged) {
+        return arr.filter(p => !p.tag_ids || p.tag_ids.length === 0);
+      }
+
       // 标签筛选（沿用你原来的逻辑）
       if (!filterTagNames.length) return arr;
       const nameById = (id: number) => tags.find(t => t.id === id)?.name;
@@ -918,7 +925,7 @@ export default function Library() {
         const names = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean) as string[];
         return names.some(n => filterTagNames.includes(n));
       });
-    }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags]);
+    }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged]);
 
     // 本地分页数据
     const total = displayPapers.length;
@@ -1246,6 +1253,15 @@ export default function Library() {
                                 <VenueAbbrDropdown value={filterVenueAbbrs} onChange={setFilterVenueAbbrs} />
                                 <TagFilterDropdown tags={tags} value={filterTagNames} onChange={setFilterTagNames} />
                                 <AuthorFilterDropdown authors={allAuthors} value={filterAuthors} onChange={setFilterAuthors} />
+                                <label className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border bg-white hover:bg-gray-50 cursor-pointer">
+                                  <input
+                                    type="checkbox"
+                                    className="accent-indigo-600"
+                                    checked={onlyUntagged}
+                                    onChange={(e) => setOnlyUntagged(e.target.checked)}
+                                  />
+                                  <span>只看未打标签</span>
+                                </label>
                                 <button
                                   type="button"
                                   onClick={openAuthorGraph}
