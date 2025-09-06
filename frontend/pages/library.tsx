@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import {
-    UploadCloud, Plus, Pencil, Trash2, ChevronUp, ChevronDown, ChevronRight,
+    UploadCloud, Plus, Pencil, Trash2, ChevronUp, ChevronDown, ChevronRight, ChevronLeft,
     GripVertical, Eye, Folder as FolderIcon, Share2
 } from "lucide-react";
 import SwalCore from "sweetalert2";
@@ -486,6 +486,8 @@ export default function Library() {
     const [advFilterOpen, setAdvFilterOpen] = React.useState(true);
     const [paperGraphOpen, setPaperGraphOpen] = React.useState(false);
     const [paperGraphPapers, setPaperGraphPapers] = React.useState<Paper[] | null>(null);
+    // 左侧目录折叠：隐藏目录，让中间表格占满
+    const [leftCollapsed, setLeftCollapsed] = React.useState<boolean>(false);
     const openFolderCtx = (x: number, y: number, folderId: number | null) => setFolderCtx({ visible: true, x, y, folderId });
     React.useEffect(() => {
       const hide = () => setFolderCtx(s => ({ ...s, visible: false }));
@@ -929,6 +931,11 @@ export default function Library() {
       return !allHave;
     }, [displayPapers]);
 
+    // 使用 CSS 变量在 md+ 断点下平滑动画左列宽度
+    const gridColsStyle = React.useMemo(() => ({
+      ["--cols" as any]: `${leftCollapsed ? 0 : 300}px 1fr 360px`,
+    }), [leftCollapsed]);
+
     // 键盘：↑↓ 选中，Enter 详情
     React.useEffect(() => {
         const h = (e: KeyboardEvent) => {
@@ -1005,7 +1012,18 @@ export default function Library() {
         <DndContext sensors={sensors} onDragEnd={onDragEnd}>
             {/* 宽度 90% + 渐变背景 */}
             
-            <div className="mx-auto w-[90%] py-6 bg-gradient-to-b from-white via-slate-50 to-white rounded-2xl">
+            <div className="relative mx-auto w-[90%] py-6 bg-gradient-to-b from-white via-slate-50 to-white rounded-2xl">
+                {leftCollapsed && (
+                  <button
+                    type="button"
+                    onClick={() => setLeftCollapsed(false)}
+                    className="fixed top-1/2 -translate-y-1/2 left-[calc(5vw-12px)] z-50 px-1.5 py-1 rounded-r-md border bg-white shadow hover:bg-gray-50 transition-transform duration-200"
+                    title="展开目录栏"
+                    aria-label="展开目录栏"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                )}
                 <div className="flex items-center justify-between mb-4">
                     <div className="text-xl font-semibold flex items-center gap-2">
                         <FolderIcon className="w-5 h-5 text-indigo-600" /><span>文献目录管理</span>
@@ -1092,13 +1110,22 @@ export default function Library() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-[300px,1fr,360px] gap-4">
+                <div
+                  className="grid grid-cols-1 md:[grid-template-columns:var(--cols)] gap-4 md:transition-[grid-template-columns] md:duration-300"
+                  style={gridColsStyle}
+                >
                     {/* 左侧：目录 + 标签（标签位于目录下方） */}
-                    <div className="space-y-4">
+                    <div
+                      className={`space-y-4 overflow-hidden md:transition-opacity md:duration-300 ${leftCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                      aria-hidden={leftCollapsed}
+                    >
                     <div className="rounded-2xl border bg-white p-2 text-[14px]">
                         <div className="flex items-center justify-between mb-2">
                             <div className="text-xs text-gray-600">目录</div>
                             <div className="flex items-center gap-1">
+                                <button onClick={() => setLeftCollapsed(true)} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50" title="隐藏目录栏">
+                                    <ChevronLeft className="w-3.5 h-3.5" />
+                                </button>
                                 <button onClick={createFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Plus className="w-3.5 h-3.5" /></button>
                                 <button onClick={renameFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Pencil className="w-3.5 h-3.5" /></button>
                                 <button onClick={deleteFolder} className="text-xs px-2 py-1 rounded-md border hover:bg-gray-50"><Trash2 className="w-3.5 h-3.5" /></button>
@@ -1213,13 +1240,13 @@ export default function Library() {
                                 <thead className="sticky top-0 bg-gray-50">
                                     <tr className="text-left text-xs text-gray-500">
                                         <th className="px-2 py-1.5 w-[36px]"></th>
-                                        <th className="px-2 py-1.5 w-[80px]">年</th>
-                                        <th className="px-2 py-1.5 w-[48%] min-w-[360px]">标题</th>
-                                        <th className="px-2 py-1.5 w-[18%]">作者</th>
+                                        <th className="px-2 py-1.5 w-[50px]">年</th>
+                                        <th className="px-2 py-1.5 w-[60%] min-w-[360px]">标题</th>
+                                        <th className="px-2 py-1.5 w-[10%]">作者</th>
                                         {showVenueCol && <th className="px-2 py-1.5 w-[10%]">期刊/会议</th>}
                                         <th className="px-2 py-1.5 w-[18%]">彩色标签</th>
-                                        <th className="px-2 py-1.5 w-[18%]">文字标签</th>
-                                        <th className="px-2 py-1.5 w-[60px]">PDF</th>
+                                        <th className="px-2 py-1.5 w-[14%]">文字标签</th>
+                                        <th className="px-2 py-1.5 w-[50px]">PDF</th>
                                     </tr>
                                 </thead>
                                 <tbody>
