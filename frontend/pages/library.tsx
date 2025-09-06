@@ -1495,7 +1495,7 @@ export default function Library() {
                           </div>
                         </div>
 
-                        <div className="relative z-0 max-h-[74vh] overflow-auto">
+                        <div className="rounded-2xl border bg-white overflow-auto min-h-[800px] max-h-[calc(100vh+300px)]">
                             <table className="w-full text-sm table-fixed">
                                 <thead className="sticky top-0 bg-gray-50">
                                     <tr className="text-left text-xs text-gray-500">
