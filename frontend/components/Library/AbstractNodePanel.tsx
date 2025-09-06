@@ -207,6 +207,80 @@ async function askGeminiForStructuredNote(pdf: Blob, ctxAbs: string, ctxNote: st
 // 轻量日志工具
 const dbg = (...args: any[]) => { try { console.debug('[AbstractNotePanel]', ...args); } catch {} };
 
+// ---- UI helpers for inner content density ----
+function useAutosizeTextArea(ref: React.RefObject<HTMLTextAreaElement>, value: string, max = 420) {
+  React.useLayoutEffect(() => {
+    const el = ref.current; if (!el) return;
+    el.style.height = 'auto';
+    const next = Math.min(max, el.scrollHeight);
+    el.style.height = next + 'px';
+    el.style.overflowY = el.scrollHeight > max ? 'auto' as any : 'hidden' as any;
+  }, [value, ref, max]);
+}
+
+function copy(text: string) {
+  try { navigator.clipboard.writeText(text || ''); Swal.fire({ toast:true, icon:'success', title:'已复制', timer:800, showConfirmButton:false, position:'top'}); } catch {}
+}
+
+async function openLargeEditor(title: string, value: string): Promise<string | null> {
+  await Swal.fire({
+    title,
+    width: '60rem',
+    html: `<textarea id="swal-editor" rows="16" class="w-full text-sm border rounded-md p-3" style="min-height:320px"></textarea>`,
+    focusConfirm: false,
+    showCancelButton: true,
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    didOpen: () => {
+      const ta = document.getElementById('swal-editor') as HTMLTextAreaElement | null;
+      if (ta) { ta.value = value || ''; ta.focus(); }
+    }
+  });
+  const ta = document.getElementById('swal-editor') as HTMLTextAreaElement | null;
+  return ta ? ta.value : null;
+}
+
+function SectionCard({
+  title, hint, colorClass = 'from-indigo-500 to-purple-500',
+  value, onChange, placeholder
+}: {
+  title: string; hint?: string; colorClass?: string; value: string; onChange: (v: string) => void; placeholder?: string;
+}) {
+  const taRef = React.useRef<HTMLTextAreaElement>(null);
+  useAutosizeTextArea(taRef, value);
+  return (
+    <div className="relative rounded-xl border bg-white/80 shadow-sm overflow-hidden">
+      <div className={`absolute inset-y-0 left-0 w-1 bg-gradient-to-b ${colorClass}`} />
+      <div className="px-3 pt-2 pb-2 sm:px-4">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <div className="text-sm font-semibold">{title}</div>
+            {hint && <div className="text-[11px] text-gray-500">{hint}</div>}
+          </div>
+          <div className="flex items-center gap-1">
+            <button className="text-[11px] px-2 py-1 rounded-md border hover:bg-gray-50" onClick={() => copy(value)}>复制</button>
+            <button className="text-[11px] px-2 py-1 rounded-md border hover:bg-gray-50" onClick={async ()=>{ const nv = await openLargeEditor(`编辑 - ${title}`, value); if (nv!=null) onChange(nv); }}>放大编辑</button>
+          </div>
+        </div>
+        <div className="mt-2">
+          <textarea
+            ref={taRef}
+            value={value}
+            onChange={e => onChange(e.target.value)}
+            placeholder={placeholder}
+            className="w-full text-sm border rounded-md p-2 bg-white/70 resize-none max-h-[420px]"
+            rows={3}
+          />
+          <div className="flex items-center justify-between px-1 pt-1 text-[11px] text-gray-500">
+            <span>使用 ①②③… 分条；长内容自动滚动</span>
+            <span>{(value || '').length} 字</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 async function fetchNoteContent(paperId: number): Promise<string> {
   const url = `${apiBase}/api/v1/papers/${paperId}/note`;
   try {
@@ -393,56 +467,42 @@ function AbstractNotePanel({ paper }: { paper: Paper | null }) {
             {/* 笔记 */}
             <div>
               <div className="space-y-2">
-                <div>
-                  <div className="text-xs text-gray-500 mb-1">创新点</div>
-                  <textarea
-                    value={sections.innovation}
-                    onChange={e => setSections(s => ({ ...s, innovation: e.target.value }))}
-                    className="w-full text-sm border rounded-md p-2"
-                    rows={3}
-                    placeholder="这篇工作的关键创新…"
-                  />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 mb-1">动机</div>
-                  <textarea
-                    value={sections.motivation}
-                    onChange={e => setSections(s => ({ ...s, motivation: e.target.value }))}
-                    className="w-full text-sm border rounded-md p-2"
-                    rows={3}
-                    placeholder="为什么要做这件事…"
-                  />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 mb-1">方法简述</div>
-                  <textarea
-                    value={sections.method}
-                    onChange={e => setSections(s => ({ ...s, method: e.target.value }))}
-                    className="w-full text-sm border rounded-md p-2"
-                    rows={4}
-                    placeholder="核心方法/框架/流程…"
-                  />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 mb-1">工具+平台</div>
-                  <textarea
-                    value={sections.tools}
-                    onChange={e => setSections(s => ({ ...s, tools: e.target.value }))}
-                    className="w-full text-sm border rounded-md p-2"
-                    rows={3}
-                    placeholder="代码库、模型、数据、算力/云平台等…"
-                  />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 mb-1">局限性</div>
-                  <textarea
-                    value={sections.limits}
-                    onChange={e => setSections(s => ({ ...s, limits: e.target.value }))}
-                    className="w-full text-sm border rounded-md p-2"
-                    rows={3}
-                    placeholder="适用范围、失败案例、未来工作…"
-                  />
-                </div>
+                <SectionCard
+                  title="创新点"
+                  hint="最多 6 条"
+                  colorClass="from-amber-500 to-pink-500"
+                  value={sections.innovation}
+                  onChange={v => setSections(s => ({ ...s, innovation: v }))}
+                  placeholder="例如：① 提出…\n② 引入…"
+                />
+                <SectionCard
+                  title="动机"
+                  colorClass="from-rose-500 to-orange-500"
+                  value={sections.motivation}
+                  onChange={v => setSections(s => ({ ...s, motivation: v }))}
+                  placeholder="研究动因 / 痛点…"
+                />
+                <SectionCard
+                  title="方法简述"
+                  colorClass="from-indigo-500 to-sky-500"
+                  value={sections.method}
+                  onChange={v => setSections(s => ({ ...s, method: v }))}
+                  placeholder="核心方法/框架/流程…"
+                />
+                <SectionCard
+                  title="工具+平台"
+                  colorClass="from-emerald-500 to-teal-500"
+                  value={sections.tools}
+                  onChange={v => setSections(s => ({ ...s, tools: v }))}
+                  placeholder="代码库、模型、数据、算力/云平台…"
+                />
+                <SectionCard
+                  title="局限性"
+                  colorClass="from-fuchsia-500 to-violet-500"
+                  value={sections.limits}
+                  onChange={v => setSections(s => ({ ...s, limits: v }))}
+                  placeholder="适用范围、失败案例、未来工作…"
+                />
               </div>
 
               <div className="mt-2 flex gap-2">
