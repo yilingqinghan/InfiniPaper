@@ -650,7 +650,7 @@ export default function Library() {
       hoverTimer.current = window.setTimeout(() => {
         setHoverPreviewId(id);
         hoverTimer.current = null;
-      }, 1300); // 1.3 秒延迟
+      }, 1900); // 1.9 秒延迟
     };
 
     React.useEffect(() => {
