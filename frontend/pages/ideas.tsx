@@ -223,7 +223,7 @@ function IdeaForm(props: {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">预计耗时（分钟）</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">预计投入（分钟）</label>
           <input
             type="number"
             min={0}
@@ -316,7 +316,7 @@ export default function IdeasPage() {
   async function submit() {
     try {
       if (!form.title.trim()) {
-        push("标题不能为空", "error");
+        push("标题(方向)不能为空", "error");
         return;
       }
       if (editing) {
@@ -384,8 +384,8 @@ export default function IdeasPage() {
 
       <header className="mb-5 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">想法（Ideas）</h1>
-          <p className="text-sm text-gray-500 mt-1">管理“标题、描述、优先级、可行性、预计时间”的轻量任务/灵感清单。</p>
+          <h1 className="text-2xl font-semibold tracking-tight">论文思考（Ideas）</h1>
+          <p className="text-sm text-gray-500 mt-1">用于记录你对论文方向的最新思考：是否可发、理由、优先级与预计投入时间等。</p>
         </div>
         <div className="flex gap-2">
           <button
@@ -408,7 +408,7 @@ export default function IdeasPage() {
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 onKeyDown={(e) => { if (e.key === "Enter") { setPage(1); refresh(); } }}
-                placeholder="按标题/描述搜索…"
+                placeholder="按思考/方向关键词搜索…"
                 className="flex-1 rounded-l-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
               <button
@@ -422,7 +422,7 @@ export default function IdeasPage() {
           </div>
 
           <div>
-            <label className="block text-xs text-gray-500 mb-1">优先级过滤</label>
+            <label className="block text-xs text-gray-500 mb-1">优先级（投稿潜力）</label>
             <div className="flex gap-1 flex-wrap">
               {[1,2,3,4,5].map(n => {
                 const on = prioritySet.has(n);
@@ -462,7 +462,7 @@ export default function IdeasPage() {
                 value={feasible}
                 onChange={(e) => { setFeasible(e.target.value as any); setPage(1); }}
                 className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                title="是否已论证"
+                title="是否已论证可行性"
               >
                 <option value="all">全部</option>
                 <option value="true">已论证</option>
@@ -489,7 +489,7 @@ export default function IdeasPage() {
                 value={timeMin}
                 onChange={(e) => setTimeMin(e.target.value === "" ? "" : Math.max(0, Number(e.target.value)))}
                 className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                title="预计时间下限"
+                title="预计投入下限"
               />
               <input
                 type="number"
@@ -498,7 +498,7 @@ export default function IdeasPage() {
                 value={timeMax}
                 onChange={(e) => setTimeMax(e.target.value === "" ? "" : Math.max(0, Number(e.target.value)))}
                 className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                title="预计时间上限"
+                title="预计投入上限"
               />
             </div>
           </div>
