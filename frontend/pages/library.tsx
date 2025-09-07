@@ -770,52 +770,52 @@ function PaperRow({
                 )}
               </div>
             </td>
-            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[18%]`}>
-                <OverflowEllipsis className="items-center">
-                    {colored.length ? colored.map(t => {
-                        const color = getTagColor(t.name) || "#3b82f6";
-                        const prio = getTagPrio(t.name);
-                        if (isOpenSourceTag(t.name)) {
-                            return (
-                                <span key={t.id}
-                                    className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white"
-                                    title={t.name}
-                                >
-                                    {t.name}
-                                </span>
-                            );
-                        }
-                        return (
-                            <span key={t.id}
-                                className="text-[11px] px-2 py-[2px] rounded-full border inline-flex items-center gap-1"
-                                style={{ borderColor: color }}
-                                title={t.name}
-                            >
-                                <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: color }} />
-                                {prio ? <span className="text-xs">{prio}</span> : null}{t.name}
-                            </span>
-                        );
-                    }) : <span className="text-[11px] text-gray-400">—</span>}
-                </OverflowEllipsis>
-            </td>
-            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[18%]`}>
-                <OverflowEllipsis>
-                    {plain.length ? plain.map(t => (
-                        isOpenSourceTag(t.name) ? (
-                            <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white" title={t.name}>
-                                {t.name}
-                            </span>
-                        ) : (
-                            <span
-                                key={t.id}
-                                className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center"
-                                title={t.name}
-                            >
-                                {t.name}
-                            </span>
-                        )
-                    )) : <span className="text-[11px] text-gray-400">—</span>}
-                </OverflowEllipsis>
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[36%]`}>
+              {/* 一行显示；超出就直接裁掉，不显示“...” */}
+              <div className="flex items-center gap-1 overflow-hidden whitespace-nowrap">
+                {(() => {
+                  const chips: React.ReactNode[] = [];
+
+                  // 先彩色标签
+                  colored.forEach(t => {
+                    const color = getTagColor(t.name) || "#3b82f6";
+                    const prio = getTagPrio(t.name);
+                    if (isOpenSourceTag(t.name)) {
+                      chips.push(
+                        <span key={`c-${t.id}`} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white" title={t.name}>
+                          {t.name}
+                        </span>
+                      );
+                    } else {
+                      chips.push(
+                        <span key={`c-${t.id}`} className="text-[11px] px-2 py-[2px] rounded-full border inline-flex items-center gap-1" style={{ borderColor: color }} title={t.name}>
+                          <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: color }} />
+                          {prio ? <span className="text-xs">{prio}</span> : null}{t.name}
+                        </span>
+                      );
+                    }
+                  });
+
+                  // 再文字标签
+                  plain.forEach(t => {
+                    if (isOpenSourceTag(t.name)) {
+                      chips.push(
+                        <span key={`p-${t.id}`} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white" title={t.name}>
+                          {t.name}
+                        </span>
+                      );
+                    } else {
+                      chips.push(
+                        <span key={`p-${t.id}`} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center" title={t.name}>
+                          {t.name}
+                        </span>
+                      );
+                    }
+                  });
+
+                  return chips.length ? chips : <span className="text-[11px] text-gray-400">—</span>;
+                })()}
+              </div>
             </td>
             <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[80px] text-center`}>
               <CiteCell doi={p.doi} initial={(p as any).cited_by_count ?? undefined} />
@@ -1748,8 +1748,7 @@ export default function Library() {
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[80px]`}>期刊/会议</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[60%] min-w-[360px]`}>标题</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>评级</th>
-                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[18%]`}>彩色标签</th>
-                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[14%]`}>文字标签</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[20%]`}>标签</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[45px]`}>被引数</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>PDF</th>
                                     </tr>
@@ -1769,7 +1768,7 @@ export default function Library() {
                                         />
                                     ))}
                                     {!displayPapers.length && (
-                                        <tr><td colSpan={9} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
+                                        <tr><td colSpan={8} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
                                     )}
                                 </tbody>
                             </table>
