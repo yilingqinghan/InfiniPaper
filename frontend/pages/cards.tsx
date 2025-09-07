@@ -1,328 +1,639 @@
 import React from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ChevronDown, ChevronUp, BookOpen, ExternalLink, Loader2, Layers3 } from "lucide-react";
 
-// --- Small fetch helper (JSON) ---
-async function j<T = any>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(url, init);
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-  return res.json() as Promise<T>;
-}
+/**
+ * Ideas 管理页（本地存储后端的 /api/v1/ideas）
+ * - 增：新建想法
+ * - 删：删除想法
+ * - 改：编辑想法
+ * - 查：列表、搜索、过滤、排序、分页
+ * 纯 TSX，自带 Modal/Toast，无第三方依赖；样式使用 Tailwind。
+ */
 
-const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
-
-// --- Types ---
-export type Paper = {
+type Idea = {
   id: number;
   title: string;
-  year?: number | null;
-  venue?: string | null;
-  pdf_url?: string | null;
-  authors?: { name?: string }[];
+  description: string;
+  priority: 1 | 2 | 3 | 4 | 5;
+  feasibility_proved: boolean;
+  estimated_minutes: number;
+  created_at: string; // ISO
+  updated_at: string; // ISO
 };
 
-type NoteSections = {
-  innovation: string;
-  motivation: string;
-  method: string;
-  tools: string;
-  limits: string;
+type IdeaListOut = {
+  items: Idea[];
+  total: number;
+  page: number;
+  page_size: number;
 };
 
-const NOTE_SECTIONS = [
-  { key: "innovation", label: "创新点" },
-  { key: "motivation", label: "动机" },
-  { key: "method", label: "方法简述" },
-  { key: "tools", label: "工具+平台" },
-  { key: "limits", label: "局限性" },
-] as const;
+const API_ROOT = (process.env.NEXT_PUBLIC_API_BASE || "").replace(/\/+$/, "");
+const API_BASE = `${API_ROOT}/api/v1/ideas`;
 
-function escapeRegExp(s: string) {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
+// --------------------------- 小工具 ---------------------------
 
-// ——与项目保持一致的解析器（健壮版）
-function parseStructuredNote(raw: string): NoteSections {
-  const result: NoteSections = { innovation: "", motivation: "", method: "", tools: "", limits: "" };
-  if (!raw) return result;
-  const text = raw.replace(/\r\n?/g, "\n");
-  const labelGroup = NOTE_SECTIONS.map(s => escapeRegExp(s.label)).join("|");
-  const headingRe = new RegExp(`^\\n?\\s*(${labelGroup})\\s*[：:]\\s*`, "gm");
-  const hits: Array<{ label: string; start: number; endOfHeading: number }> = [];
-  let m: RegExpExecArray | null;
-  while ((m = headingRe.exec(text)) !== null) hits.push({ label: m[1], start: m.index, endOfHeading: headingRe.lastIndex });
-  if (hits.length === 0) { result.method = text.trim(); return result; }
-  for (let i = 0; i < hits.length; i++) {
-    const cur = hits[i];
-    const nextStart = i + 1 < hits.length ? hits[i + 1].start : text.length;
-    const content = text.slice(cur.endOfHeading, nextStart).trim();
-    const entry = NOTE_SECTIONS.find(s => s.label === cur.label);
-    if (entry) (result as any)[entry.key] = content;
-  }
-  return result;
-}
-
-function buildStructuredNote(sections: NoteSections): string {
-  return NOTE_SECTIONS.map(s => `${s.label}：${(sections as any)[s.key] || ""}`).join("\n\n");
-}
-
-async function fetchNoteContent(paperId: number): Promise<string> {
-  const url = `${apiBase}/api/v1/papers/${paperId}/note`;
-  const res = await fetch(url);
-  if (!res.ok) return "";
-  const ct = res.headers.get("content-type") || "";
-  if (ct.includes("application/json")) {
-    const data: any = await res.json();
-    return (data?.content ?? data?.note ?? data?.data?.content ?? data?.data?.note ?? "") as string;
-  }
-  return (await res.text()) ?? "";
-}
-
-// Intersection observer hook for lazy work
-function useInView(opts?: IntersectionObserverInit) {
-  const ref = React.useRef<HTMLDivElement | null>(null);
-  const [inView, setInView] = React.useState(false);
-  React.useEffect(() => {
-    if (!ref.current) return;
-    const el = ref.current;
-    const io = new IntersectionObserver(([e]) => setInView(!!e.isIntersecting), opts);
-    io.observe(el);
-    return () => io.disconnect();
-  }, [opts?.root, opts?.rootMargin, opts?.threshold]);
-  return { ref, inView } as const;
-}
-
-// Small util for truncation
-function clip(s: string, n = 160) {
-  if (!s) return "";
-  return s.length > n ? s.slice(0, n) + "…" : s;
-}
-
-type StackMode = "z" | "y";
-
-function NoteCard({
-  paper,
-  index,
-  onExpand,
-  expanded,
-  stackMode,
-}: {
-  paper: Paper;
-  index: number;
-  onExpand: (id: number) => void;
-  expanded: boolean;
-  stackMode: StackMode;
-}) {
-  const prefersReduced = useReducedMotion();
-  const { ref, inView } = useInView({ rootMargin: "200px" });
-  const [loading, setLoading] = React.useState(false);
-  const [sections, setSections] = React.useState<NoteSections>({ innovation: "", motivation: "", method: "", tools: "", limits: "" });
-  const [loaded, setLoaded] = React.useState(false);
-
-  // Lazy load note only when the card is visible or expanded
-  React.useEffect(() => {
-    let alive = true;
-    if ((inView || expanded) && !loaded) {
-      setLoading(true);
-      fetchNoteContent(paper.id)
-        .then((raw) => { if (!alive) return; setSections(parseStructuredNote(raw)); setLoaded(true); })
-        .catch(() => {})
-        .finally(() => { if (alive) setLoading(false); });
+async function api<T>(path: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(path, {
+    headers: { "Content-Type": "application/json" },
+    ...init,
+  });
+  if (!res.ok) {
+    // 只读一次 body，避免“body stream already read”
+    let detail = "";
+    try {
+      const text = await res.text();
+      try {
+        const j = JSON.parse(text);
+        detail = (j && (j.detail || j.message)) ? (j.detail || j.message) : text;
+      } catch {
+        detail = text;
+      }
+    } catch {
+      /* ignore */
     }
-    return () => { alive = false; };
-  }, [inView, expanded, loaded, paper.id]);
+    throw new Error(detail || res.statusText);
+  }
+  if (res.status === 204) return undefined as unknown as T;
+  return res.json();
+}
 
-  // —— 堆叠样式
-  const zDepth = Math.max(0, 10 - index);
-  const collapsedZStyle: React.CSSProperties =
-    stackMode === "z"
-      ? {
-          zIndex: 100 - index,
-          transformStyle: "preserve-3d",
-          transform: `translateY(${index * -6}px) translateZ(${zDepth * -28}px) rotateX(${prefersReduced ? 0 : -3}deg) rotateY(${prefersReduced ? 0 : 7}deg)`,
-        }
-      : {
-          zIndex: 100 - index,
-          transform: `translateY(${index * -12}px)`,
-        };
+function fmtMinutes(m: number): string {
+  if (m < 60) return `${m} 分钟`;
+  const h = m / 60;
+  if (h < 24) return `${(Math.round(h * 10) / 10).toFixed(h % 1 ? 1 : 0)} 小时`;
+  const d = h / 24;
+  return `${(Math.round(d * 10) / 10).toFixed(d % 1 ? 1 : 0)} 天`;
+}
 
-  const shadow = prefersReduced ? "0 2px 12px rgba(0,0,0,0.08)" : "0 12px 36px rgba(0,0,0,0.18)";
+function cls(...s: Array<string | false | null | undefined>) {
+  return s.filter(Boolean).join(" ");
+}
 
-  return (
-    <motion.div ref={ref} layoutId={`paper-${paper.id}`} className="relative w-full" style={{ perspective: 1200 }}>
-      <motion.div
-        className="rounded-2xl bg-white border overflow-hidden select-none will-change-transform"
-        initial={false}
-        animate={
-          expanded
-            ? {
-                rotateY: prefersReduced ? 0 : 0, // 展开后正面
-                rotateX: 0,
-                x: 0, y: 0, scale: 1,
-                width: "min(860px, 92vw)",
-                height: "min(560px, 72vh)",
-                boxShadow: shadow,
-                zIndex: 999,
-              }
-            : {
-                scale: 1,
-                boxShadow: shadow,
-                width: "min(620px, 92vw)",
-                height: 180,
-                ...collapsedZStyle,
-              }
-        }
-        transition={{ type: "spring", stiffness: 160, damping: 20 }}
-        onClick={() => onExpand(paper.id)}
-      >
-        {/* Header */}
-        <div className="px-4 py-3 border-b bg-gradient-to-r from-slate-50 to-slate-100 flex items-center gap-2">
-          <BookOpen className="w-4 h-4 text-sky-600" />
-          <div className="text-sm font-medium line-clamp-1">{paper.title}</div>
-          <div className="ml-auto flex items-center gap-2 text-xs text-slate-500">
-            {paper.venue && <span>{paper.venue}</span>}
-            {paper.year && <span>· {paper.year}</span>}
-            <motion.span layout>{expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}</motion.span>
-          </div>
-        </div>
+function toQuery(params: Record<string, any>) {
+  const usp = new URLSearchParams();
+  Object.entries(params).forEach(([k, v]) => {
+    if (v === undefined || v === null || v === "") return;
+    usp.set(k, String(v));
+  });
+  const q = usp.toString();
+  return q ? `?${q}` : "";
+}
 
-        {/* Body */}
-        <div className="p-4 h-full overflow-hidden">
-          <div className={`grid ${expanded ? "grid-cols-2 gap-4 h-full" : "grid-cols-1"}`}>
-            {/* Left column */}
-            <div className={`${expanded ? "overflow-auto pr-1" : ""}`}>
-              {!loaded && <div className="flex items-center gap-2 text-slate-400 text-sm"><Loader2 className="w-4 h-4 animate-spin" /> 正在加载笔记…</div>}
-              {loaded && (
-                <div className="space-y-3 text-sm leading-6 text-slate-800">
-                  {NOTE_SECTIONS.map(s => (
-                    <div key={s.key}>
-                      <div className="text-[11px] uppercase tracking-wider text-slate-500 mb-0.5">{s.label}</div>
-                      <div className={`rounded-lg border px-3 py-2 ${expanded ? "bg-white" : "bg-slate-50"}`}>
-                        {clip((sections as any)[s.key], expanded ? 380 : 140) || <span className="text-slate-400">（无）</span>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+// --------------------------- Toast ---------------------------
 
-            {/* Right column */}
-            {expanded && (
-              <div className="flex flex-col h-full">
-                <div className="text-xs text-slate-500 mb-2">快速操作</div>
-                <div className="flex flex-wrap gap-2">
-                  {paper.pdf_url && (
-                    <a
-                      href={`/reader/${paper.id}?pdf=${encodeURIComponent(paper.pdf_url)}`}
-                      target="_blank" rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded-lg border hover:bg-slate-50"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      打开阅读器 <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-                  <button
-                    className="text-xs px-3 py-1.5 rounded-lg border hover:bg-slate-50"
-                    onClick={(e) => { e.stopPropagation(); const text = buildStructuredNote(sections); navigator.clipboard?.writeText(text).catch(() => {}); }}
-                  >复制笔记</button>
-                </div>
-
-                <div className="mt-4 text-xs text-slate-500">作者</div>
-                <div className="text-sm text-slate-800 line-clamp-5">{paper.authors?.map(a => a?.name).filter(Boolean).join(", ") || "未知"}</div>
-                <div className="mt-auto"></div>
-              </div>
+type ToastItem = { id: number; text: string; type?: "info" | "success" | "error" };
+function useToasts() {
+  const [items, setItems] = React.useState<ToastItem[]>([]);
+  const push = React.useCallback((text: string, type: ToastItem["type"] = "info") => {
+    const id = Date.now() + Math.random();
+    setItems((arr) => [...arr, { id, text, type }]);
+    setTimeout(() => setItems((arr) => arr.filter((t) => t.id !== id)), 2400);
+  }, []);
+  const Toasts = React.useCallback(
+    () => (
+      <div className="fixed top-4 right-4 z-50 space-y-2">
+        {items.map((t) => (
+          <div
+            key={t.id}
+            className={cls(
+              "px-3 py-2 rounded-md shadow text-sm text-white",
+              t.type === "success" && "bg-emerald-600",
+              t.type === "error" && "bg-rose-600",
+              (!t.type || t.type === "info") && "bg-gray-800"
             )}
+          >
+            {t.text}
           </div>
+        ))}
+      </div>
+    ),
+    [items]
+  );
+  return { push, Toasts };
+}
+
+// --------------------------- Modal ---------------------------
+
+function Modal(props: { open: boolean; title: string; onClose: () => void; children: React.ReactNode; footer?: React.ReactNode }) {
+  if (!props.open) return null;
+  return (
+    <div className="fixed inset-0 z-40">
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]" onClick={props.onClose} />
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="w-full max-w-2xl rounded-xl bg-white shadow-2xl border border-gray-100">
+          <div className="flex items-center justify-between px-5 py-3 border-b">
+            <h3 className="text-lg font-semibold">{props.title}</h3>
+            <button
+              onClick={props.onClose}
+              className="rounded-md p-1 hover:bg-gray-100"
+              aria-label="Close"
+              title="关闭"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="px-5 py-4 max-h-[70vh] overflow-auto">{props.children}</div>
+          <div className="px-5 py-3 border-t bg-gray-50 rounded-b-xl flex justify-end gap-2">{props.footer}</div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
-// —— 主组件：支持 Z / Y 堆叠切换；点击翻牌并重排把上一张放到最后
-export default function PaperNoteCards({ papers: initialPapers }: { papers?: Paper[] }) {
-  const prefersReduced = useReducedMotion();
-  const [papers, setPapers] = React.useState<Paper[]>(initialPapers || []);
-  const [expandedId, setExpandedId] = React.useState<number | null>(null);
-  const [limit, setLimit] = React.useState(12);
-  const [stackMode, setStackMode] = React.useState<StackMode>("z"); // NEW: Z 轴堆叠
+// --------------------------- 表单 ---------------------------
 
-  // 默认拉一批
-  React.useEffect(() => {
-    let alive = true;
-    (async () => {
-      if (initialPapers?.length) return;
-      try {
-        const data = await j<Paper[]>(`${apiBase}/api/v1/papers?limit=30`);
-        if (alive) setPapers(data || []);
-      } catch {}
-    })();
-    return () => { alive = false; };
-  }, [initialPapers]);
+type IdeaFormState = {
+  title: string;
+  description: string;
+  priority: 1 | 2 | 3 | 4 | 5;
+  feasibility_proved: boolean;
+  estimated_minutes: number;
+};
 
-  // 将选中的卡片放到最前，同时把“旧的最前卡片”放到末尾
-  const handleExpand = React.useCallback((id: number) => {
-    setPapers(prev => {
-      if (!prev.length) return prev;
-      const idx = prev.findIndex(p => p.id === id);
-      if (idx < 0) return prev;
-
-      const arr = prev.slice();
-      const selected = arr.splice(idx, 1)[0];
-      const prevFront = prev[0];
-      const reordered = [selected, ...arr.filter(p => p.id !== prevFront.id)];
-      // 旧顶卡放到末尾（若本次点击的不是它）
-      if (prevFront.id !== selected.id) reordered.push(prevFront);
-      return reordered;
-    });
-    setExpandedId(id);
-  }, []);
-
-  const visible = React.useMemo(() => papers.slice(0, limit), [papers, limit]);
-
+function IdeaForm(props: {
+  value: IdeaFormState;
+  onChange: (v: IdeaFormState) => void;
+}) {
+  const v = props.value;
   return (
-    <div className="w-full flex justify-center">
-      <div className="w-full max-w-[980px]">
-        {/* Toolbar */}
-        <div className="mb-3 flex items-center gap-2">
-          <div className="text-sm text-slate-600 flex items-center gap-1"><Layers3 className="w-4 h-4" />3D 笔记卡片</div>
-          <div className="ml-auto flex items-center gap-2 text-xs">
-            <button
-              className="px-3 py-1.5 rounded-lg border hover:bg-slate-50"
-              onClick={() => setStackMode(m => (m === "z" ? "y" : "z"))}
-              title="切换堆叠方向"
-            >
-              {stackMode === "z" ? "切到纵向堆叠" : "切到Z轴堆叠"}
-            </button>
-            <label className="text-slate-500">显示数量</label>
-            <select
-              className="border rounded-md px-2 py-1"
-              value={limit}
-              onChange={(e) => setLimit(Math.max(4, Math.min(24, Number(e.target.value) || 12)))}
-            >
-              {[6, 8, 10, 12, 16, 20].map(n => <option key={n} value={n}>{n}</option>)}
-            </select>
+    <div className="space-y-4">
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">一句话标题</label>
+        <input
+          className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="例如：为论文库增加语义标签规则"
+          value={v.title}
+          maxLength={120}
+          onChange={(e) => props.onChange({ ...v, title: e.target.value })}
+        />
+        <div className="text-xs text-gray-400 mt-1">{v.title.length}/120</div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">描述</label>
+        <textarea
+          className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          rows={5}
+          placeholder="补充背景、目标、方案或风险……"
+          value={v.description}
+          maxLength={4000}
+          onChange={(e) => props.onChange({ ...v, description: e.target.value })}
+        />
+        <div className="text-xs text-gray-400 mt-1">{v.description.length}/4000</div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">优先级</label>
+          <div className="flex gap-2">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <button
+                key={n}
+                type="button"
+                className={cls(
+                  "flex-1 py-1.5 rounded-md border text-sm",
+                  v.priority === n
+                    ? "border-indigo-600 bg-indigo-50 text-indigo-700"
+                    : "border-gray-300 hover:bg-gray-50"
+                )}
+                onClick={() => props.onChange({ ...v, priority: n as any })}
+                title={`优先级 ${n}`}
+              >
+                {n}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Stack container */}
-        <div className="relative flex flex-col items-center" style={{ perspective: 1400 }}>
-          <AnimatePresence initial={false}>
-            {visible.map((p, i) => (
-              <NoteCard
-                key={p.id}
-                paper={p}
-                index={i}
-                expanded={expandedId === p.id}
-                onExpand={handleExpand}
-                stackMode={stackMode}
-              />
-            ))}
-          </AnimatePresence>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">可行性已论证？</label>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => props.onChange({ ...v, feasibility_proved: !v.feasibility_proved })}
+              className={cls(
+                "inline-flex items-center gap-2 px-3 py-1.5 rounded-md border",
+                v.feasibility_proved ? "border-emerald-600 bg-emerald-50 text-emerald-700" : "border-gray-300 hover:bg-gray-50"
+              )}
+            >
+              <span className="text-lg">{v.feasibility_proved ? "✅" : "⬜️"}</span>
+              <span>{v.feasibility_proved ? "已论证" : "未论证"}</span>
+            </button>
+          </div>
         </div>
 
-        {prefersReduced && <div className="mt-2 text-xs text-slate-500">* 检测到系统“减少动态效果”，动画已尽量简化。</div>}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">预计耗时（分钟）</label>
+          <input
+            type="number"
+            min={0}
+            step={30}
+            value={v.estimated_minutes}
+            onChange={(e) => props.onChange({ ...v, estimated_minutes: Math.max(0, Number(e.target.value || 0)) })}
+            className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          />
+          <div className="text-xs text-gray-500 mt-1">≈ {fmtMinutes(v.estimated_minutes)}</div>
+        </div>
       </div>
+    </div>
+  );
+}
+
+// --------------------------- 主页面 ---------------------------
+
+export default function IdeasPage() {
+  const { push, Toasts } = useToasts();
+
+  // 查询/过滤/分页/排序
+  const [q, setQ] = React.useState("");
+  const [prioritySet, setPrioritySet] = React.useState<Set<number>>(new Set()); // 选中则过滤
+  const [feasible, setFeasible] = React.useState<"all" | "true" | "false">("all");
+  const [timeMin, setTimeMin] = React.useState<number | "">("");
+  const [timeMax, setTimeMax] = React.useState<number | "">("");
+  const [sort, setSort] = React.useState<string>("-updated_at");
+  const [page, setPage] = React.useState(1);
+  const [pageSize, setPageSize] = React.useState(20);
+
+  const [loading, setLoading] = React.useState(false);
+  const [data, setData] = React.useState<IdeaListOut>({ items: [], total: 0, page: 1, page_size: 20 });
+  const totalPages = Math.max(1, Math.ceil(data.total / pageSize));
+
+  // 新建/编辑 Modal
+  const [editing, setEditing] = React.useState<Idea | null>(null);
+  const [form, setForm] = React.useState<IdeaFormState>({
+    title: "",
+    description: "",
+    priority: 3,
+    feasibility_proved: false,
+    estimated_minutes: 60,
+  });
+  const [open, setOpen] = React.useState(false);
+
+  const refresh = React.useCallback(async () => {
+    setLoading(true);
+    try {
+      const params: Record<string, any> = {
+        page,
+        page_size: pageSize,
+        sort,
+      };
+      if (q.trim()) params.q = q.trim();
+      if (prioritySet.size) params.priority = Array.from(prioritySet).join(",");
+      if (feasible !== "all") params.feasible = feasible === "true";
+      if (timeMin !== "") params.time_min = timeMin;
+      if (timeMax !== "") params.time_max = timeMax;
+      const res = await api<IdeaListOut>(`${API_BASE}${toQuery(params)}`);
+      setData(res);
+    } catch (err: any) {
+      push(`加载失败：${err.message || err}`, "error");
+    } finally {
+      setLoading(false);
+    }
+  }, [q, prioritySet, feasible, timeMin, timeMax, sort, page, pageSize, push]);
+
+  React.useEffect(() => {
+    refresh();
+  }, [refresh]);
+
+  function openCreate() {
+    setEditing(null);
+    setForm({ title: "", description: "", priority: 3, feasibility_proved: false, estimated_minutes: 60 });
+    setOpen(true);
+  }
+
+  function openEdit(it: Idea) {
+    setEditing(it);
+    setForm({
+      title: it.title,
+      description: it.description,
+      priority: it.priority,
+      feasibility_proved: it.feasibility_proved,
+      estimated_minutes: it.estimated_minutes,
+    });
+    setOpen(true);
+  }
+
+  async function submit() {
+    try {
+      if (!form.title.trim()) {
+        push("标题不能为空", "error");
+        return;
+      }
+      if (editing) {
+        const payload: Partial<Idea> = {
+          title: form.title.trim(),
+          description: form.description,
+          priority: form.priority,
+          feasibility_proved: form.feasibility_proved,
+          estimated_minutes: form.estimated_minutes,
+        };
+        const updated = await api<Idea>(`${API_BASE}/${editing.id}`, {
+          method: "PATCH",
+          body: JSON.stringify(payload),
+        });
+        push("已更新", "success");
+        setOpen(false);
+        // 局部替换
+        setData((d) => ({ ...d, items: d.items.map((x) => (x.id === updated.id ? updated : x)) }));
+      } else {
+        const created = await api<Idea>(`${API_BASE}`, {
+          method: "POST",
+          body: JSON.stringify({
+            title: form.title.trim(),
+            description: form.description,
+            priority: form.priority,
+            feasibility_proved: form.feasibility_proved,
+            estimated_minutes: form.estimated_minutes,
+          }),
+        });
+        push("已创建", "success");
+        setOpen(false);
+        // 放到列表顶部并刷新分页信息
+        setData((d) => ({ ...d, items: [created, ...d.items], total: d.total + 1 }));
+      }
+    } catch (err: any) {
+      push(`保存失败：${err.message || err}`, "error");
+    }
+  }
+
+  async function remove(it: Idea) {
+    if (!confirm(`确认删除「${it.title}」？`)) return;
+    try {
+      await api<void>(`${API_BASE}/${it.id}`, { method: "DELETE" });
+      push("已删除", "success");
+      setData((d) => ({ ...d, items: d.items.filter((x) => x.id !== it.id), total: Math.max(0, d.total - 1) }));
+    } catch (err: any) {
+      push(`删除失败：${err.message || err}`, "error");
+    }
+  }
+
+  function PriorityBadge({ n }: { n: number }) {
+    const palette = ["bg-gray-200 text-gray-700", "bg-blue-100 text-blue-700", "bg-indigo-100 text-indigo-700", "bg-amber-100 text-amber-800", "bg-rose-100 text-rose-700"];
+    return (
+      <span className={cls("inline-flex items-center px-2 py-0.5 rounded text-xs font-medium", palette[Math.min(4, Math.max(0, n - 1))])}>
+        P{n}
+      </span>
+    );
+  }
+
+  // --------------------------- UI ---------------------------
+
+  return (
+    <div className="p-6">
+      <Toasts />
+
+      <header className="mb-5 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">想法（Ideas）</h1>
+          <p className="text-sm text-gray-500 mt-1">管理“标题、描述、优先级、可行性、预计时间”的轻量任务/灵感清单。</p>
+        </div>
+        <div className="flex gap-2">
+          <button
+            onClick={openCreate}
+            className="inline-flex items-center gap-2 rounded-md bg-indigo-600 text-white px-4 py-2 hover:bg-indigo-700 active:bg-indigo-800 shadow"
+          >
+            <span className="text-lg">＋</span>
+            <span>新建想法</span>
+          </button>
+        </div>
+      </header>
+
+      {/* 工具栏 */}
+      <section className="mb-4 rounded-xl border bg-white shadow-sm">
+        <div className="p-3 grid grid-cols-1 md:grid-cols-4 gap-3">
+          <div className="md:col-span-2">
+            <label className="block text-xs text-gray-500 mb-1">搜索</label>
+            <div className="flex">
+              <input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") { setPage(1); refresh(); } }}
+                placeholder="按标题/描述搜索…"
+                className="flex-1 rounded-l-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              />
+              <button
+                onClick={() => { setPage(1); refresh(); }}
+                className="rounded-r-md border border-l-0 border-gray-300 px-4 hover:bg-gray-50"
+                title="搜索"
+              >
+                🔎
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs text-gray-500 mb-1">优先级过滤</label>
+            <div className="flex gap-1 flex-wrap">
+              {[1,2,3,4,5].map(n => {
+                const on = prioritySet.has(n);
+                return (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => {
+                      const next = new Set(prioritySet);
+                      if (on) next.delete(n); else next.add(n);
+                      setPrioritySet(next); setPage(1);
+                    }}
+                    className={cls(
+                      "px-2 py-1 rounded-md border text-sm",
+                      on ? "border-indigo-600 bg-indigo-50 text-indigo-700" : "border-gray-300 hover:bg-gray-50"
+                    )}
+                  >
+                    P{n}
+                  </button>
+                );
+              })}
+              <button
+                type="button"
+                onClick={() => { setPrioritySet(new Set()); setPage(1); }}
+                className="ml-1 px-2 py-1 rounded-md border border-gray-300 text-sm hover:bg-gray-50"
+                title="清空优先级过滤"
+              >
+                清空
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs text-gray-500 mb-1">其它过滤 / 排序</label>
+            <div className="grid grid-cols-2 gap-2">
+              <select
+                value={feasible}
+                onChange={(e) => { setFeasible(e.target.value as any); setPage(1); }}
+                className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                title="是否已论证"
+              >
+                <option value="all">全部</option>
+                <option value="true">已论证</option>
+                <option value="false">未论证</option>
+              </select>
+              <select
+                value={sort}
+                onChange={(e) => { setSort(e.target.value); setPage(1); }}
+                className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                title="排序"
+              >
+                <option value="-updated_at">按更新时间（新→旧）</option>
+                <option value="updated_at">按更新时间（旧→新）</option>
+                <option value="-priority">按优先级（高→低）</option>
+                <option value="priority">按优先级（低→高）</option>
+                <option value="-estimated_minutes">按用时（多→少）</option>
+                <option value="estimated_minutes">按用时（少→多）</option>
+              </select>
+
+              <input
+                type="number"
+                min={0}
+                placeholder="最少分钟"
+                value={timeMin}
+                onChange={(e) => setTimeMin(e.target.value === "" ? "" : Math.max(0, Number(e.target.value)))}
+                className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                title="预计时间下限"
+              />
+              <input
+                type="number"
+                min={0}
+                placeholder="最多分钟"
+                value={timeMax}
+                onChange={(e) => setTimeMax(e.target.value === "" ? "" : Math.max(0, Number(e.target.value)))}
+                className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                title="预计时间上限"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="px-3 pb-3 flex items-center justify-between">
+          <div className="text-xs text-gray-500">
+            共 <b>{data.total}</b> 条
+          </div>
+          <div className="flex items-center gap-2">
+            <select
+              value={pageSize}
+              onChange={(e) => { setPageSize(Number(e.target.value)); setPage(1); }}
+              className="rounded-md border-gray-300 text-sm"
+              title="每页数量"
+            >
+              {[10,20,50,100].map(n => <option key={n} value={n}>{n}/页</option>)}
+            </select>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setPage(p => Math.max(1, p - 1))}
+                disabled={page <= 1}
+                className={cls(
+                  "px-2 py-1 rounded-md border",
+                  page <= 1 ? "text-gray-400 border-gray-200" : "hover:bg-gray-50 border-gray-300"
+                )}
+              >上一页</button>
+              <span className="text-sm text-gray-600 px-1">第 {page}/{totalPages} 页</span>
+              <button
+                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                disabled={page >= totalPages}
+                className={cls(
+                  "px-2 py-1 rounded-md border",
+                  page >= totalPages ? "text-gray-400 border-gray-200" : "hover:bg-gray-50 border-gray-300"
+                )}
+              >下一页</button>
+            </div>
+            <button
+              onClick={refresh}
+              className="ml-2 px-3 py-1.5 rounded-md border border-gray-300 hover:bg-gray-50"
+              title="刷新"
+            >刷新</button>
+          </div>
+        </div>
+      </section>
+
+      {/* 列表表格 */}
+      <section className="rounded-xl border bg-white shadow-sm overflow-hidden">
+        <div className="grid grid-cols-12 bg-gray-50 px-4 py-2 text-xs font-medium text-gray-500">
+          <div className="col-span-5">标题</div>
+          <div className="col-span-2">优先级</div>
+          <div className="col-span-2">可行性</div>
+          <div className="col-span-2">预计时间</div>
+          <div className="col-span-1 text-right pr-2">操作</div>
+        </div>
+
+        {loading && (
+          <div className="p-6 text-center text-gray-500">加载中…</div>
+        )}
+
+        {!loading && data.items.length === 0 && (
+          <div className="p-10 text-center text-gray-500">
+            没有数据。点击右上角的 <span className="font-medium">「新建想法」</span> 开始吧～
+          </div>
+        )}
+
+        <ul className="divide-y">
+          {data.items.map((it) => (
+            <li key={it.id} className="grid grid-cols-12 px-4 py-3 hover:bg-gray-50">
+              <div className="col-span-5 pr-4">
+                <div className="font-medium leading-6 text-gray-900">{it.title}</div>
+                {it.description && (
+                  <div className="text-sm text-gray-600 line-clamp-2 mt-0.5">{it.description}</div>
+                )}
+                <div className="mt-1 text-[11px] text-gray-400">
+                  更新于 {new Date(it.updated_at).toLocaleString()} · 创建 {new Date(it.created_at).toLocaleString()}
+                </div>
+              </div>
+
+              <div className="col-span-2 flex items-center">
+                <PriorityBadge n={it.priority} />
+              </div>
+
+              <div className="col-span-2 flex items-center">
+                {it.feasibility_proved ? (
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-xs border border-emerald-200">✅ 已论证</span>
+                ) : (
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-gray-100 text-gray-700 text-xs border border-gray-200">🕵️ 未论证</span>
+                )}
+              </div>
+
+              <div className="col-span-2 flex items-center">
+                <span className="text-sm text-gray-800">{fmtMinutes(it.estimated_minutes)}</span>
+              </div>
+
+              <div className="col-span-1 flex items-center justify-end gap-2">
+                <button
+                  onClick={() => openEdit(it)}
+                  className="px-2 py-1 rounded-md border border-gray-300 text-sm hover:bg-gray-50"
+                  title="编辑"
+                >编辑</button>
+                <button
+                  onClick={() => remove(it)}
+                  className="px-2 py-1 rounded-md border border-rose-300 text-sm text-rose-700 hover:bg-rose-50"
+                  title="删除"
+                >删除</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* 新建/编辑弹窗 */}
+      <Modal
+        open={open}
+        title={editing ? "编辑想法" : "新建想法"}
+        onClose={() => setOpen(false)}
+        footer={
+          <>
+            <button
+              onClick={() => setOpen(false)}
+              className="px-3 py-1.5 rounded-md border border-gray-300 hover:bg-gray-50"
+            >
+              取消
+            </button>
+            <button
+              onClick={submit}
+              className="px-4 py-1.5 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 shadow"
+            >
+              保存
+            </button>
+          </>
+        }
+      >
+        <IdeaForm value={form} onChange={setForm} />
+      </Modal>
     </div>
   );
 }
