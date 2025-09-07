@@ -28,7 +28,10 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(USENIX ATC|(^|\W)USENIX ATC(\W|$))/i, "USENIX"],
     [/(Conference on Systems, Man, and Cybernetics|(^|\W)SMC(\W|$))/i, "SMC"],
     [/(European Conference on Computer Systems|(^|\W)EuroSys(\W|$))/i, "EuroSys"],
-    [/(Operating Systems Design and Implementation |(^|\W)OSDI(\W|$))/i, "OSDI"],
+    [/(Operating Systems Design and Implementation|(^|\W)OSDI(\W|$))/i, "OSDI"],
+    [/(Practice of Parallel Programming|(^|\W)PPoPP(\W|$))/i, "PPoPP"],
+    [/(Annual Computer Security Applications Conference |(^|\W)ACSAC(\W|$))/i, "ACSAC"],
+    
    
     // 顶级期刊（编译与体系结构领域）
     [/(acm transactions on computer systems|(^|\W)tocs(\W|$))/i, "TOCS"],
