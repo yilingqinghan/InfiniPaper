@@ -642,6 +642,29 @@ function ratingTooltip(e: RatingEmoji): string {
     case "📖": return "计划阅读";
   }
 }
+// 省略号溢出单行显示辅助组件
+function OverflowEllipsis({ children, className }: { children: React.ReactNode; className?: string }) {
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const [overflowed, setOverflowed] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current; if (!el) return;
+    const check = () => setOverflowed(el.scrollWidth > el.clientWidth + 1);
+    check();
+    const ro = new (window as any).ResizeObserver?.(check);
+    if (ro && el) ro.observe(el);
+    window.addEventListener('resize', check);
+    return () => { try { ro && ro.disconnect(); } catch {} window.removeEventListener('resize', check); };
+  }, []);
+  return (
+    <div ref={ref} className={`relative overflow-hidden whitespace-nowrap ${className || ''}`}>
+      <div className="inline-flex items-center gap-1">{children}</div>
+      {overflowed && (
+        <span className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 pl-1 bg-white">…</span>
+      )}
+    </div>
+  );
+}
+
 /* --------------------------- row --------------------------- */
 function PaperRow({
     p, onOpen, onSelect, onPreviewRequest, onContextMenu, tagMap, selected, vizNonce, compact,
@@ -746,7 +769,7 @@ function PaperRow({
               </div>
             </td>
             <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[18%]`}>
-                <div className="flex flex-wrap gap-1 items-center">
+                <OverflowEllipsis className="items-center">
                     {colored.length ? colored.map(t => {
                         const color = getTagColor(t.name) || "#3b82f6";
                         const prio = getTagPrio(t.name);
@@ -771,10 +794,10 @@ function PaperRow({
                             </span>
                         );
                     }) : <span className="text-[11px] text-gray-400">—</span>}
-                </div>
+                </OverflowEllipsis>
             </td>
             <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[18%]`}>
-                <div className="flex flex-wrap gap-1">
+                <OverflowEllipsis>
                     {plain.length ? plain.map(t => (
                         isOpenSourceTag(t.name) ? (
                             <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white" title={t.name}>
@@ -790,7 +813,7 @@ function PaperRow({
                             </span>
                         )
                     )) : <span className="text-[11px] text-gray-400">—</span>}
-                </div>
+                </OverflowEllipsis>
             </td>
             <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[80px] text-center`}>
               <CiteCell doi={p.doi} initial={(p as any).cited_by_count ?? undefined} />
