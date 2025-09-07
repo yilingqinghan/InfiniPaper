@@ -58,11 +58,9 @@ async function api<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 function fmtMinutes(m: number): string {
-  if (m < 60) return `${m} 分钟`;
-  const h = m / 60;
-  if (h < 24) return `${(Math.round(h * 10) / 10).toFixed(h % 1 ? 1 : 0)} 小时`;
-  const d = h / 24;
-  return `${(Math.round(d * 10) / 10).toFixed(d % 1 ? 1 : 0)} 天`;
+  const d = m / 1440; // 60 * 24
+  const rounded = Math.round(d * 10) / 10;
+  return `${rounded.toFixed(rounded % 1 ? 1 : 0)} 天`;
 }
 
 function cls(...s: Array<string | false | null | undefined>) {
@@ -223,13 +221,17 @@ function IdeaForm(props: {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">预计投入（分钟）</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">预计投入（天）</label>
           <input
             type="number"
             min={0}
-            step={30}
-            value={v.estimated_minutes}
-            onChange={(e) => props.onChange({ ...v, estimated_minutes: Math.max(0, Number(e.target.value || 0)) })}
+            step={0.5}
+            value={Number.isFinite(v.estimated_minutes) ? Math.round((v.estimated_minutes / 1440) * 10) / 10 : 0}
+            onChange={(e) => {
+              const days = Math.max(0, Number(e.target.value || 0));
+              const minutes = Math.round(days * 1440);
+              props.onChange({ ...v, estimated_minutes: minutes });
+            }}
             className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
           <div className="text-xs text-gray-500 mt-1">≈ {fmtMinutes(v.estimated_minutes)}</div>
@@ -280,8 +282,8 @@ export default function IdeasPage() {
       if (q.trim()) params.q = q.trim();
       if (prioritySet.size) params.priority = Array.from(prioritySet).join(",");
       if (feasible !== "all") params.feasible = feasible === "true";
-      if (timeMin !== "") params.time_min = timeMin;
-      if (timeMax !== "") params.time_max = timeMax;
+      if (timeMin !== "") params.time_min = Math.round(Number(timeMin) * 1440);
+      if (timeMax !== "") params.time_max = Math.round(Number(timeMax) * 1440);
       const res = await api<IdeaListOut>(`${API_BASE}${toQuery(params)}`);
       setData(res);
     } catch (err: any) {
@@ -485,20 +487,22 @@ export default function IdeasPage() {
               <input
                 type="number"
                 min={0}
-                placeholder="最少分钟"
+                step={0.5}
+                placeholder="最少天数"
                 value={timeMin}
                 onChange={(e) => setTimeMin(e.target.value === "" ? "" : Math.max(0, Number(e.target.value)))}
                 className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                title="预计投入下限"
+                title="预计投入下限（天）"
               />
               <input
                 type="number"
                 min={0}
-                placeholder="最多分钟"
+                step={0.5}
+                placeholder="最多天数"
                 value={timeMax}
                 onChange={(e) => setTimeMax(e.target.value === "" ? "" : Math.max(0, Number(e.target.value)))}
                 className="rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                title="预计投入上限"
+                title="预计投入上限（天）"
               />
             </div>
           </div>
@@ -550,7 +554,7 @@ export default function IdeasPage() {
           <div className="col-span-5">标题</div>
           <div className="col-span-2">优先级</div>
           <div className="col-span-2">可行性</div>
-          <div className="col-span-2">预计时间</div>
+          <div className="col-span-2">预计天数</div>
           <div className="col-span-1 text-right pr-2">操作</div>
         </div>
 
