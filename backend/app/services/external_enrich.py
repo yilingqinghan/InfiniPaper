@@ -54,7 +54,8 @@ async def fetch_crossref_by_doi(doi: str) -> Dict[str, Any]:
                 authors.append({"name": name, "affiliation": aff, "orcid": orcid})
             return {
                 "title": title, "venue": container, "year": year,
-                "authors": authors, "url": url_cr, "doi": doi
+                "authors": authors, "url": url_cr, "doi": doi,
+                "cited_by_count": msg.get("is-referenced-by-count")
             }
     except Exception as e:
         logger.debug(f"Crossref DOI fetch failed: {e}")
@@ -75,7 +76,7 @@ async def fetch_crossref_by_title(title: str) -> Dict[str, Any]:
             year = issued[0][0] if issued and issued[0] else None
             url_cr = it.get("URL")
             doi = it.get("DOI")
-            return {"title": title, "venue": container, "year": year, "url": url_cr, "doi": doi}
+            return {"title": title, "venue": container, "year": year, "url": url_cr, "doi": doi, "cited_by_count": it.get("is-referenced-by-count")}
     except Exception as e:
         logger.debug(f"Crossref title search failed: {e}")
         return {}
@@ -176,7 +177,7 @@ async def fetch_semanticscholar_by_arxiv(arxiv_id: str) -> Dict[str, Any]:
         aid = aid.split(":", 1)[1]
     url = (
         "https://api.semanticscholar.org/graph/v1/paper/ArXiv:" + aid +
-        "?fields=title,year,venue,publicationVenue,authors.name,externalIds,url"
+        "?fields=title,year,venue,publicationVenue,authors.name,externalIds,url,citationCount"
     )
     try:
         async with httpx.AsyncClient(timeout=20, trust_env=False) as client:
@@ -193,6 +194,7 @@ async def fetch_semanticscholar_by_arxiv(arxiv_id: str) -> Dict[str, Any]:
         url_html = obj.get("url")
         ex = obj.get("externalIds") or {}
         doi = ex.get("DOI")
+        cc = obj.get("citationCount")
 
         authors: List[Dict[str, Optional[str]]] = []
         for a in (obj.get("authors") or []):
@@ -200,7 +202,7 @@ async def fetch_semanticscholar_by_arxiv(arxiv_id: str) -> Dict[str, Any]:
             if nm:
                 authors.append({"name": nm, "affiliation": None})
 
-        return {"title": title, "year": year, "venue": venue, "url": url_html, "doi": doi, "authors": authors}
+        return {"title": title, "year": year, "venue": venue, "url": url_html, "doi": doi, "authors": authors, "cited_by_count": cc}
     except Exception as e:
         logger.warning(f"SemanticScholar fetch failed for arXiv:{arxiv_id}: {e}")
         return {}
@@ -232,9 +234,11 @@ def _openalex_payload(obj: Dict[str, Any]) -> Dict[str, Any]:
     if ids.get("doi"):
         doi = _norm_doi(ids["doi"])
 
+    cited = obj.get("cited_by_count")
+
     return {
         "authors": authors, "year": year, "url": url, "oa_pdf_url": oa_pdf_url,
-        "venue": venue, "doi": doi
+        "venue": venue, "doi": doi, "cited_by_count": cited
     }
 
 def merge_meta(*metas: Dict[str, Any]) -> Dict[str, Any]:

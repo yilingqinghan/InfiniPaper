@@ -32,6 +32,7 @@ type Paper = {
     doi?: string | null; pdf_url?: string | null;
     authors?: { id?: number; name?: string; affiliation?: string | null }[];
     tag_ids?: number[];
+    cited_by_count?: number | null;
 };
 function buildTree(rows: Folder[]): FolderNode[] {
     const map = new Map<number, FolderNode>();
@@ -302,6 +303,100 @@ async function writeAuthors(paperId: number, authors: string[]): Promise<void> {
       method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ authors })
     });
   } catch { /* ignore if backend not supported */ }
+}
+
+// ----- citation count helpers -----
+const CITE_CACHE_KEY = "infinipaper:citation:v1";
+const CITE_NEXT_KEY  = "infinipaper:citation:nextRefreshAt";
+
+type CiteCacheItem = { count: number | null; source: string; url?: string; updatedAt: number };
+type CiteCache = Record<string, CiteCacheItem>;
+
+function loadCiteCache(): CiteCache {
+  try { return JSON.parse(localStorage.getItem(CITE_CACHE_KEY) || "{}") as CiteCache; } catch { return {}; }
+}
+function saveCiteCache(c: CiteCache) { try { localStorage.setItem(CITE_CACHE_KEY, JSON.stringify(c)); } catch {} }
+function getCiteFromCache(doi: string): CiteCacheItem | undefined { return loadCiteCache()[doi]; }
+function setCiteToCache(doi: string, item: Omit<CiteCacheItem, "updatedAt">) {
+  const c = loadCiteCache(); c[doi] = { ...item, updatedAt: Date.now() }; saveCiteCache(c);
+}
+
+async function fetchCitationOpenAlex(doi: string): Promise<CiteCacheItem | null> {
+  const url = `https://api.openalex.org/works/https://doi.org/${encodeURIComponent(doi)}?select=id,cited_by_count`;
+  const r = await fetchWithTimeout(url, { timeoutMs: 15000 });
+  if (!r.ok) return null;
+  const obj = await r.json().catch(() => null) as any;
+  if (!obj) return null;
+  const id: string | undefined = obj?.id;
+  const cnt: number | null = typeof obj?.cited_by_count === "number" ? obj.cited_by_count : null;
+  return { count: cnt, source: "openalex", url: id, updatedAt: Date.now() };
+}
+async function fetchCitationCrossref(doi: string): Promise<CiteCacheItem | null> {
+  const url = `https://api.crossref.org/works/${encodeURIComponent(doi)}`;
+  const r = await fetchWithTimeout(url, { timeoutMs: 15000 });
+  if (!r.ok) return null;
+  const obj = await r.json().catch(() => null) as any;
+  if (!obj) return null;
+  const cnt = obj?.message?.["is-referenced-by-count"];
+  return { count: (typeof cnt === "number" ? cnt : null), source: "crossref", updatedAt: Date.now() };
+}
+
+// 计算下一次每日刷新（本地时间 04:00）
+function computeNextCitationRefreshTs(now = new Date()): number {
+  const d = new Date(now);
+  d.setHours(4, 0, 0, 0);
+  if (now.getTime() >= d.getTime()) d.setDate(d.getDate() + 1);
+  return d.getTime();
+}
+
+// 单元格组件：显示并按需拉取被引数
+function CiteCell({ doi, initial }: { doi?: string | null; initial?: number | null }) {
+  const [count, setCount] = React.useState<number | null | undefined>(initial);
+  const [url, setUrl] = React.useState<string | undefined>(undefined);
+
+  const doFetch = React.useCallback(async () => {
+    if (!doi) { setCount(null); return; }
+    try {
+      // 先 OpenAlex，失败/无数值再回退 Crossref
+      let item = await fetchCitationOpenAlex(doi);
+      if (!item || item.count == null) item = await fetchCitationCrossref(doi);
+      if (item) {
+        setCount(item.count);
+        setUrl(item.url);
+        setCiteToCache(doi, { count: item.count, source: item.source, url: item.url });
+      }
+    } catch { /* ignore */ }
+  }, [doi]);
+
+  React.useEffect(() => {
+    if (!doi) { setCount(null); return; }
+    const cached = getCiteFromCache(doi);
+    // 1) 先用缓存兜底
+    if (typeof count === "undefined" && cached && typeof cached.count !== "undefined") {
+      setCount(cached.count);
+      setUrl(cached.url);
+    }
+    // 2) 如果是空值/没有缓存，立即请求
+    if (!cached || cached.count == null) doFetch();
+
+    // 3) 监听页面级刷新事件
+    const onRefresh = () => doFetch();
+    window.addEventListener("citations:refresh", onRefresh);
+    return () => window.removeEventListener("citations:refresh", onRefresh);
+  }, [doi, doFetch]);
+
+  if (!doi) return <span className="text-[11px] text-gray-400">—</span>;
+  if (typeof count === "undefined") return <span className="text-[11px] text-gray-400">…</span>;
+  if (count === null) return <span className="text-[11px] text-gray-400">—</span>;
+  return url ? (
+    <a href={url} target="_blank" rel="noopener"
+       className="text-[12px] px-2 py-[2px] rounded border inline-block hover:bg-blue-50"
+       title="在 OpenAlex 查看">
+      {count}
+    </a>
+  ) : (
+    <span className="text-[12px] px-2 py-[2px] rounded border inline-block">{count}</span>
+  );
 }
 
 async function runGeminiParseAndMaybeReplace(p: Paper, refresh: () => Promise<void>) {
@@ -694,6 +789,9 @@ function PaperRow({
                     )) : <span className="text-[11px] text-gray-400">—</span>}
                 </div>
             </td>
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[80px] text-center`}>
+              <CiteCell doi={p.doi} initial={(p as any).cited_by_count ?? undefined} />
+            </td>
             <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[60px]`}>{p.pdf_url ? "有" : "-"}</td>
         </tr>
     );
@@ -822,6 +920,20 @@ export default function Library() {
       folders.forEach(f => { if (f.parent_id) { const arr = m.get(f.parent_id) || []; arr.push(f.id); m.set(f.parent_id, arr); } });
       return m;
     }, [folders]);
+    // 每日 04:00 自动刷新被引数；若错过，则下次打开页面立即刷新一次
+    React.useEffect(() => {
+      const tick = () => {
+        let next = Number(localStorage.getItem(CITE_NEXT_KEY) || 0);
+        const now = Date.now();
+        if (!next || now >= next) {
+          try { window.dispatchEvent(new Event("citations:refresh")); } catch {}
+          try { localStorage.setItem(CITE_NEXT_KEY, String(computeNextCitationRefreshTs(new Date()))); } catch {}
+        }
+      };
+      tick(); // 进页先检查一次
+      const id = setInterval(tick, 60 * 1000); // 每分钟检查
+      return () => clearInterval(id);
+    }, []);
     const getDescendantIds = React.useCallback((rootId: number): number[] => {
       const res: number[] = [];
       const stack = [rootId];
@@ -1607,6 +1719,7 @@ export default function Library() {
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[70px]`}>评级</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[18%]`}>彩色标签</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[14%]`}>文字标签</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[80px]`}>被引数</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>PDF</th>
                                     </tr>
                                 </thead>
@@ -1625,7 +1738,7 @@ export default function Library() {
                                         />
                                     ))}
                                     {!displayPapers.length && (
-                                        <tr><td colSpan={8} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
+                                        <tr><td colSpan={9} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
                                     )}
                                 </tbody>
                             </table>
