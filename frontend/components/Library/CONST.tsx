@@ -25,7 +25,10 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(European Conference on Computer Systems|(^|\W)EuroSys(\W|$))/i, "EuroSys"],
     [/(International Symposium on Software Testing and Analysis|(^|\W)ISSTA(\W|$))/i, "ISSTA"],
     [/(USENIX Security Symposium|(^|\W)USENIX Security(\W|$))/i, "USENIX"],
-    [/( Conference on Systems, Man, and Cybernetics|(^|\W)SMC(\W|$))/i, "SMC"],
+    [/(USENIX ATC|(^|\W)USENIX ATC(\W|$))/i, "USENIX"],
+    [/(Conference on Systems, Man, and Cybernetics|(^|\W)SMC(\W|$))/i, "SMC"],
+    [/(European Conference on Computer Systems|(^|\W)EuroSys(\W|$))/i, "EuroSys"],
+    [/(Operating Systems Design and Implementation |(^|\W)OSDI(\W|$))/i, "OSDI"],
    
     // 顶级期刊（编译与体系结构领域）
     [/(acm transactions on computer systems|(^|\W)tocs(\W|$))/i, "TOCS"],
@@ -49,7 +52,8 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(Journal of systems and software|(^|\W)JSS(\W|$))/i, "JSS"],
     [/(ACM Trans. Architec. Code Optim.|(^|\W)TACO(\W|$))/i, "TACO"],
     [/(ACM Transactions on Embedded Computing Systems|(^|\W)TECS(\W|$))/i, "TECS"],
-    
+    [/(Transactions on Programming Languages and Systems|(^|\W)TOPLAS(\W|$))/i, "TOPLAS"],
+
     // 其他相关会议
     [/(design, automation & test in europe|(^|\W)date(\W|$))/i, "DATE"],
     [/(hot chips|(^|\W)hot chips(\W|$))/i, "HOT CHIPS"],
@@ -112,7 +116,7 @@ export function abbrevVenue(venue?: string | null): string | null {
 }
 
 /** 顶尖会议/期刊缩写定义（Tier1） */
-const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS","CCS","ISSTA","POPL","SPLASH","TACO","TOCS","TOCS","TOIS","TPDS","TC","TCAD","TCC","JETC","USENIX"]);
+const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS","CCS","ISSTA","POPL","SPLASH","TACO","TOCS","TOCS","TOIS","TPDS","TC","TCAD","TCC","JETC","USENIX","TOPLAS","ICLR","EuroSys"]);
 const preprint = new Set(["预印本"]);
 const survey = new Set(["综述·CSUR"]);
 const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS","中文","KBS"]);
