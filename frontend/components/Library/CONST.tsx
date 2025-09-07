@@ -52,11 +52,13 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(ACM Computing Surveys|(^|\W)CSUR(\W|$))/i, "综述·CSUR"],
     [/(ACM Comput. Surv.|(^|\W)CSUR(\W|$))/i, "综述·CSUR"],
     [/(Compilers, and Tools for Embedded Systems|(^|\W)LCTES(\W|$))/i, "LCTES"],
+    [/(Compilers and Tools for Embedded Systems|(^|\W)LCTES(\W|$))/i, "LCTES"],
     [/(Journal of systems and software|(^|\W)JSS(\W|$))/i, "JSS"],
     [/(ACM Trans. Architec. Code Optim.|(^|\W)TACO(\W|$))/i, "TACO"],
     [/(ACM Transactions on Embedded Computing Systems|(^|\W)TECS(\W|$))/i, "TECS"],
     [/(Transactions on Programming Languages and Systems|(^|\W)TOPLAS(\W|$))/i, "TOPLAS"],
     [/(Transactions on Computer Systems |(^|\W)TOCS(\W|$))/i, "TOCS"],
+    [/(Network and Distributed System Security Symposium |(^|\W)NDSS(\W|$))/i, "NDSS"],
     
     // 其他相关会议
     [/(design, automation & test in europe|(^|\W)date(\W|$))/i, "DATE"],
