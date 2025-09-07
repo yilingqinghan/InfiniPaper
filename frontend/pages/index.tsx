@@ -146,7 +146,7 @@ export default function Home() {
                   <Sparkles className="w-3.5 h-3.5" /> 学术资料中心 · InfiniPaper
                 </div>
                 <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-sky-600">
-                  把论文“收、管、找、看、讲”一站式做好
+                  一站式论文管理套件 by 逸翎清晗
                 </h1>
                 <div className="mt-3 flex flex-wrap gap-2">
                   <StatBadge icon={Search} text="语义搜索" />
