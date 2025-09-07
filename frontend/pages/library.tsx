@@ -781,8 +781,11 @@ function PaperRow({
                                 {t.name}
                             </span>
                         ) : (
-                            <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1" title={t.name}>
-                                <span className="w-2 h-2 rounded-full bg-gray-400 inline-block" />
+                            <span
+                                key={t.id}
+                                className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center"
+                                title={t.name}
+                            >
                                 {t.name}
                             </span>
                         )
