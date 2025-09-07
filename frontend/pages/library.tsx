@@ -523,7 +523,30 @@ function AbbrBadge({ abbr, tier }: { abbr?: string | null; tier?: number | null 
   if (!abbr) return <span className={`${chipBase} text-gray-400 bg-white border-gray-200`}>—</span>;
   return <span className={cls} title="期刊/会议缩写">{abbr}</span>;
 }
-
+// ----- rating tag helpers -----
+const RATING_TAGS = ["🏆", "🎖", "🏅", "🥈", "🥉", "📖"] as const;
+type RatingEmoji = typeof RATING_TAGS[number];
+const RATING_ORDER: Record<RatingEmoji, number> = {
+  "🏆": 5,
+  "🎖": 4,
+  "🏅": 3,
+  "🥈": 2,
+  "🥉": 1,
+  "📖": 0, // to-read marker
+};
+function isRatingTag(name?: string | null): name is RatingEmoji {
+  return !!name && (RATING_TAGS as readonly string[]).includes(name);
+}
+function ratingTooltip(e: RatingEmoji): string {
+  switch (e) {
+    case "🏆": return "评级：5/5（顶级）";
+    case "🎖": return "评级：4/5";
+    case "🏅": return "评级：3/5";
+    case "🥈": return "评级：2/5";
+    case "🥉": return "评级：1/5";
+    case "📖": return "计划阅读";
+  }
+}
 /* --------------------------- row --------------------------- */
 function PaperRow({
     p, onOpen, onSelect, onPreviewRequest, onContextMenu, tagMap, selected, vizNonce, compact,
@@ -535,8 +558,10 @@ function PaperRow({
 }) {
     const router = useRouter();
     const allTags = (p.tag_ids || []).map(id => tagMap.get(id)).filter((t): t is Tag => !!t);
-    const colored = allTags.filter(t => getTagColor(t.name));
-    const plain = allTags.filter(t => !getTagColor(t.name));
+    const rating = allTags.filter(t => isRatingTag(t.name));
+    const others = allTags.filter(t => !isRatingTag(t.name));
+    const colored = others.filter(t => getTagColor(t.name));
+    const plain = others.filter(t => !getTagColor(t.name));
     const abbr = abbrevVenue(p.venue);
     const tier = venueTier(abbr);
 
@@ -605,6 +630,25 @@ function PaperRow({
                     {p.title}
                     </span>
                 </div>
+            </td>
+            <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[70px]`}>
+              <div className="flex flex-wrap gap-1 items-center">
+                {rating.length ? (
+                  rating
+                    .sort((a, b) => RATING_ORDER[b.name as RatingEmoji] - RATING_ORDER[a.name as RatingEmoji])
+                    .map(t => (
+                      <span
+                        key={t.id}
+                        className="text-[20px] px-[8px] py-[2px] rounded-md border inline-flex items-center justify-center"
+                        title={ratingTooltip(t.name as RatingEmoji)}
+                      >
+                        {t.name}
+                      </span>
+                    ))
+                ) : (
+                  <span className="text-[11px] text-gray-400">—</span>
+                )}
+              </div>
             </td>
             <td className={`${compact ? "px-1 py-0.5" : "px-2 py-1.5"} w-[18%]`}>
                 <div className="flex flex-wrap gap-1 items-center">
@@ -1560,6 +1604,7 @@ export default function Library() {
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>年</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[80px]`}>期刊/会议</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[60%] min-w-[360px]`}>标题</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[70px]`}>评级</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[18%]`}>彩色标签</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[14%]`}>文字标签</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>PDF</th>
@@ -1580,7 +1625,7 @@ export default function Library() {
                                         />
                                     ))}
                                     {!displayPapers.length && (
-                                        <tr><td colSpan={7} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
+                                        <tr><td colSpan={8} className="px-3 py-6 text-center text-sm text-gray-500"></td></tr>
                                     )}
                                 </tbody>
                             </table>
