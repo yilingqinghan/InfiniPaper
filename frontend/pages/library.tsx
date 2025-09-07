@@ -1747,10 +1747,10 @@ export default function Library() {
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>年</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[80px]`}>期刊/会议</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[60%] min-w-[360px]`}>标题</th>
-                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[70px]`}>评级</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>评级</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[18%]`}>彩色标签</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[14%]`}>文字标签</th>
-                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[80px]`}>被引数</th>
+                                        <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[45px]`}>被引数</th>
                                         <th className={`${compactMode ? 'px-1 py-0.5' : 'px-2 py-1.5'} w-[50px]`}>PDF</th>
                                     </tr>
                                 </thead>
