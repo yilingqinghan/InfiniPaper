@@ -92,7 +92,7 @@ export default function Home() {
                 <Quick icon={FolderKanban} text="目录管理" href="/library" />
                 <Quick icon={Tags} text="标签" href="/tags" />
                 <Quick icon={TrendingUp} text="质量面板" href="/quality" />
-                <Quick icon={IdCard} text="论文卡片" href="/cards" />
+                <Quick icon={IdCard} text="想法" href="/ideas" />
               </div>
             </div>
 

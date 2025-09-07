@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/import" className="hover:underline">导入</Link>
             <Link href="/tags" className="hover:underline">标签</Link>
             <Link href="/quality" className="hover:underline">质量</Link>
-            <Link href="/cards" className="hover:underline">卡片</Link>
+            <Link href="/ideas" className="hover:underline">卡片</Link>
           </div>
         </div>
       </nav>

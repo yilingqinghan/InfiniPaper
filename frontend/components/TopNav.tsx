@@ -15,7 +15,7 @@ const NAV_ITEMS: Item[] = [
   { key: "import",  label: "导入",     href: "/library?import=1", icon: UploadCloud, grad: "from-emerald-500 to-lime-400" },
   { key: "tags",    label: "标签",     href: "/tags",    icon: Tags,       grad: "from-rose-500 to-orange-500" },
   { key: "quality", label: "质量面板", href: "/quality", icon: TrendingUp, grad: "from-violet-500 to-indigo-400" },
-  { key: "cards", label: "论文卡片", href: "/cards", icon: CreditCard, grad: "from-silver-500 to-indigo-400" },
+  { key: "cards", label: "想法", href: "/ideas", icon: CreditCard, grad: "from-sky-500 to-cyan-400" },
 ];
 
 export default function TopNav() {
