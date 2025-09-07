@@ -1117,7 +1117,10 @@ export default function Library() {
     const [vizNonce, setVizNonce] = React.useState(0);
 
     const tagMap = React.useMemo(() => new Map(tags.map(t => [t.id, t])), [tags]);
-
+    const currentPaper = React.useMemo(() => {
+      const id = (openId ?? selectedId ?? null);
+      return id == null ? null : (papers.find(p => p.id === id) || null);
+    }, [papers, openId, selectedId]);
     const [yearAsc, setYearAsc] = React.useState<boolean>(false);
     const [filterTagNames, setFilterTagNames] = React.useState<string[]>([]);
     const [filterVenueAbbrs, setFilterVenueAbbrs] = React.useState<string[]>([]);
@@ -1831,7 +1834,70 @@ export default function Library() {
                           </>
                         );
                       })()}
+{/* 标签汇总（右侧基本信息下方） */}
+<div className="rounded-2xl border bg-white overflow-hidden">
+  <div className="px-3 py-2 border-b bg-gradient-to-r from-sky-50 to-indigo-50 text-sm font-medium">标签</div>
+  <div className="p-3">
+    {(() => {
+      const cur = currentPaper;
+      if (!cur) return <div className="text-sm text-gray-400">未选中论文</div>;
+      const all = (cur.tag_ids || []).map(id => tagMap.get(id)).filter((t): t is Tag => !!t);
+      // 去掉评级相关标签，仅展示其余标签（彩色 + 文字）
+      const others = all.filter(t => !isRatingTag(t.name));
+      const colored = others.filter(t => getTagColor(t.name));
+      const plain   = others.filter(t => !getTagColor(t.name));
+      const hasAny  = colored.length > 0 || plain.length > 0;
 
+      return (
+        <>
+          <div className="relative">
+            <div className={`transition-[max-height] duration-300 ease-out 'max-h-[240px]' overflow-hidden'}`}>
+              <div className="flex flex-wrap gap-1 items-center">
+                {hasAny ? (
+                  <>
+                    {colored.map(t => {
+                      const color = getTagColor(t.name) || '#3b82f6';
+                      const prio = getTagPrio(t.name);
+                      if (isOpenSourceTag(t.name)) {
+                        return (
+                          <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white" title={t.name}>
+                            {t.name}
+                          </span>
+                        );
+                      }
+                      return (
+                        <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-full border inline-flex items-center gap-1" style={{ borderColor: color }} title={t.name}>
+                          <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: color }} />
+                          {prio ? <span className="text-xs">{prio}</span> : null}{t.name}
+                        </span>
+                      );
+                    })}
+                    {plain.map(t => (
+                      isOpenSourceTag(t.name) ? (
+                        <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center gap-1 bg-gray-900 border-gray-900 text-white" title={t.name}>
+                          {t.name}
+                        </span>
+                      ) : (
+                        <span key={t.id} className="text-[11px] px-2 py-[2px] rounded-md border inline-flex items-center" title={t.name}>
+                          {t.name}
+                        </span>
+                      )
+                    ))}
+                  </>
+                ) : (
+                  <span className="text-[11px] text-gray-400">—</span>
+                )}
+              </div>
+            </div>
+            {hasAny && (
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent" />
+            )}
+          </div>
+        </>
+      );
+    })()}
+  </div>
+</div>
                       <AbstractNotePanel paper={selectedId ? papers.find(p => p.id === selectedId) || null : null} />
                     </div>
                 </div>
