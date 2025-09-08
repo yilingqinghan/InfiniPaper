@@ -148,6 +148,7 @@ type IdeaFormState = {
   feasibility_proved: boolean;
   estimated_minutes: number;
   planned_conferences: string[];
+  planned_conferences_text?: string;
 };
 
 function IdeaForm(props: {
@@ -187,16 +188,29 @@ function IdeaForm(props: {
         <input
           className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
           placeholder="例如：ASPLOS, PLDI, CGO"
-          value={v.planned_conferences.join(", ")}
+          value={v.planned_conferences_text ?? v.planned_conferences.join(", ")}
           onChange={(e) => {
-            const parts = e.target.value
-              .split(",")
+            const raw = e.target.value;
+            const parts = raw
+              .split(/[,，]/)
               .map((s) => s.trim())
               .filter(Boolean);
-            props.onChange({ ...v, planned_conferences: parts });
+            props.onChange({ ...v, planned_conferences_text: raw, planned_conferences: parts });
+          }}
+          onBlur={() => {
+            const normalized = (v.planned_conferences_text ?? "")
+              .split(/[,，]/)
+              .map((s) => s.trim())
+              .filter(Boolean)
+              .join(", ");
+            const parts = normalized
+              .split(/[,，]/)
+              .map((s) => s.trim())
+              .filter(Boolean);
+            props.onChange({ ...v, planned_conferences_text: normalized, planned_conferences: parts });
           }}
         />
-        <div className="text-xs text-gray-400 mt-1">用逗号分隔多个会议，例如：ASPLOS, PLDI</div>
+        <div className="text-xs text-gray-400 mt-1">用逗号分隔多个会议（英文或中文逗号均可），例如：ASPLOS, PLDI</div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -288,6 +302,7 @@ export default function IdeasPage() {
     feasibility_proved: false,
     estimated_minutes: 60,
     planned_conferences: [],
+    planned_conferences_text: "",
   });
   const [open, setOpen] = React.useState(false);
 
@@ -319,7 +334,7 @@ export default function IdeasPage() {
 
   function openCreate() {
     setEditing(null);
-    setForm({ title: "", description: "", priority: 3, feasibility_proved: false, estimated_minutes: 60, planned_conferences: [] });
+    setForm({ title: "", description: "", priority: 3, feasibility_proved: false, estimated_minutes: 60, planned_conferences: [], planned_conferences_text: "" });
     setOpen(true);
   }
 
@@ -332,6 +347,7 @@ export default function IdeasPage() {
       feasibility_proved: it.feasibility_proved,
       estimated_minutes: it.estimated_minutes,
       planned_conferences: it.planned_conferences || [],
+      planned_conferences_text: (it.planned_conferences || []).join(", "),
     });
     setOpen(true);
   }
