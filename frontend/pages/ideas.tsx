@@ -186,7 +186,7 @@ function IdeaForm(props: {
         <label className="block text-sm font-medium text-gray-700 mb-1">计划投稿的会议（多个）</label>
         <input
           className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-          placeholder="例如：NeurIPS, ICLR, KDD"
+          placeholder="例如：ASPLOS, PLDI, CGO"
           value={v.planned_conferences.join(", ")}
           onChange={(e) => {
             const parts = e.target.value
@@ -196,7 +196,7 @@ function IdeaForm(props: {
             props.onChange({ ...v, planned_conferences: parts });
           }}
         />
-        <div className="text-xs text-gray-400 mt-1">用逗号分隔多个会议，例如：NeurIPS, ICLR</div>
+        <div className="text-xs text-gray-400 mt-1">用逗号分隔多个会议，例如：ASPLOS, PLDI</div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
