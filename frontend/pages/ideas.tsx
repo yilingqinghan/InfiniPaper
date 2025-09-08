@@ -78,6 +78,73 @@ function toQuery(params: Record<string, any>) {
   return q ? `?${q}` : "";
 }
 
+// --------------------------- Markdown 工具 ---------------------------
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function mdToHtml(src: string): string {
+  if (!src) return "";
+  // --- extract fenced code blocks first ---
+  const fences: string[] = [];
+  let tmp = src.replace(/```([\s\S]*?)```/g, (_m, p1) => {
+    const idx = fences.push(`<pre class=\"md-code\"><code>${escapeHtml(p1.trim())}</code></pre>`) - 1;
+    return `§§FENCE${idx}§§`;
+  });
+
+  // Escape the remainder
+  tmp = escapeHtml(tmp);
+
+  // inline code
+  tmp = tmp.replace(/`([^`]+)`/g, (_m, p1) => `<code class=\"md-inline\">${p1}</code>`);
+  // links [text](url)
+  tmp = tmp.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="md-link">$1</a>');
+  // bold **text**
+  tmp = tmp.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  // italic *text*
+  tmp = tmp.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>');
+  // headings
+  tmp = tmp.replace(/^######\s+(.+)$/gm, '<h6>$1</h6>')
+           .replace(/^#####\s+(.+)$/gm, '<h5>$1</h5>')
+           .replace(/^####\s+(.+)$/gm, '<h4>$1</h4>')
+           .replace(/^###\s+(.+)$/gm, '<h3>$1</h3>')
+           .replace(/^##\s+(.+)$/gm, '<h2>$1</h2>')
+           .replace(/^#\s+(.+)$/gm, '<h1>$1</h1>');
+  // blockquote
+  tmp = tmp.replace(/^>\s?(.+)$/gm, '<blockquote>$1</blockquote>');
+  // lists: convert lines starting with - or * to <li>, then wrap sequences into <ul>
+  tmp = tmp.replace(/^(\s*[-*]\s+.+)$/gm, (_m, p1) => `<li>${p1.replace(/^\s*[-*]\s+/, '')}</li>`);
+  tmp = tmp.replace(/(?:^(?:<li>.*<\/li>)(?:\n)?)+/gm, (m) => `<ul>${m.replace(/\n/g, '')}</ul>`);
+
+  // paragraphs: wrap bare lines into <p>
+  const lines = tmp.split(/\n{2,}/).map((blk) => {
+    if (/^\s*<\/?(h\d|ul|li|pre|blockquote)/.test(blk)) return blk; // likely already block-level
+    return `<p>${blk.replace(/\n/g, '<br/>')}</p>`;
+  });
+  tmp = lines.join('\n');
+
+  // restore fences
+  tmp = tmp.replace(/§§FENCE(\d+)§§/g, (_m, i) => fences[Number(i)] || '');
+
+  return tmp;
+}
+
+function MarkdownView({ text, className }: { text: string; className?: string }) {
+  const html = React.useMemo(() => mdToHtml(text), [text]);
+  return (
+    <div
+      className={cls("markdown-view prose-base max-w-none whitespace-pre-wrap", className)}
+      // 安全性：已转义 + 仅做轻量格式替换
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+}
+
 // --------------------------- Toast ---------------------------
 
 type ToastItem = { id: number; text: string; type?: "info" | "success" | "error" };
@@ -119,7 +186,7 @@ function Modal(props: { open: boolean; title: string; onClose: () => void; child
     <div className="fixed inset-0 z-40">
       <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]" onClick={props.onClose} />
       <div className="absolute inset-0 flex items-center justify-center p-4">
-        <div className="w-full max-w-2xl rounded-xl bg-white shadow-2xl border border-gray-100">
+        <div className="w-full max-w-4xl rounded-xl bg-white shadow-2xl border border-gray-100">
           <div className="flex items-center justify-between px-5 py-3 border-b">
             <h3 className="text-lg font-semibold">{props.title}</h3>
             <button
@@ -131,7 +198,7 @@ function Modal(props: { open: boolean; title: string; onClose: () => void; child
               ✕
             </button>
           </div>
-          <div className="px-5 py-4 max-h-[70vh] overflow-auto">{props.children}</div>
+          <div className="px-5 py-4 max-h-[80vh] overflow-auto">{props.children}</div>
           <div className="px-5 py-3 border-t bg-gray-50 rounded-b-xl flex justify-end gap-2">{props.footer}</div>
         </div>
       </div>
@@ -156,6 +223,21 @@ function IdeaForm(props: {
   onChange: (v: IdeaFormState) => void;
 }) {
   const v = props.value;
+  const [mode, setMode] = React.useState<'edit' | 'preview'>('edit');
+  const MarkdownToggle = React.useCallback(() => (
+    <div className="inline-flex items-center rounded-md border border-gray-300 overflow-hidden text-xs">
+      <button
+        type="button"
+        className={cls('px-2 py-1', mode === 'edit' ? 'bg-indigo-50 text-indigo-700' : 'hover:bg-gray-50')}
+        onClick={() => setMode('edit')}
+      >编辑</button>
+      <button
+        type="button"
+        className={cls('px-2 py-1 border-l border-gray-300', mode === 'preview' ? 'bg-indigo-50 text-indigo-700' : 'hover:bg-gray-50')}
+        onClick={() => setMode('preview')}
+      >预览</button>
+    </div>
+  ), [mode]);
   return (
     <div className="space-y-4">
       <div>
@@ -171,16 +253,25 @@ function IdeaForm(props: {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">描述</label>
-        <textarea
-          className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-          rows={5}
-          placeholder=""
-          value={v.description}
-          maxLength={4000}
-          onChange={(e) => props.onChange({ ...v, description: e.target.value })}
-        />
-        <div className="text-xs text-gray-400 mt-1">{v.description.length}/4000</div>
+        <div className="flex items-center justify-between mb-1">
+          <label className="block text-sm font-medium text-gray-700">描述（支持 Markdown）</label>
+          <MarkdownToggle />
+        </div>
+        {mode === 'edit' ? (
+          <textarea
+            className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[220px] resize-y"
+            rows={12}
+            placeholder="例如：问题背景、核心创新、可行性分析、实验设计、威胁模型、评审预期等… 支持 Markdown。"
+            value={v.description}
+            maxLength={20000}
+            onChange={(e) => props.onChange({ ...v, description: e.target.value })}
+          />
+        ) : (
+          <div className="rounded-md border bg-gray-50 p-3 min-h-[220px] overflow-auto">
+            <MarkdownView text={v.description} />
+          </div>
+        )}
+        <div className="text-xs text-gray-400 mt-1">提示：**Ctrl/⌘ + Enter** 可快速保存（在弹窗中）。</div>
       </div>
 
       <div>
@@ -288,6 +379,16 @@ export default function IdeasPage() {
   const [sort, setSort] = React.useState<string>("-updated_at");
   const [page, setPage] = React.useState(1);
   const [pageSize, setPageSize] = React.useState(20);
+
+  // 阅读全文 展开/收起
+  const [expandedIds, setExpandedIds] = React.useState<Set<number>>(new Set());
+  const toggleExpand = React.useCallback((id: number) => {
+    setExpandedIds((s) => {
+      const next = new Set(s);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  }, []);
 
   const [loading, setLoading] = React.useState(false);
   const [data, setData] = React.useState<IdeaListOut>({ items: [], total: 0, page: 1, page_size: 20 });
@@ -613,7 +714,20 @@ export default function IdeasPage() {
               <div className="col-span-5 pr-4">
                 <div className="font-medium leading-6 text-gray-900">{it.title}</div>
                 {it.description && (
-                  <div className="text-sm text-gray-600 line-clamp-2 mt-0.5">{it.description}</div>
+                  expandedIds.has(it.id) ? (
+                    <div className="text-sm text-gray-800 mt-0.5">
+                      <MarkdownView text={it.description} />
+                    </div>
+                  ) : (
+                    <div className="text-sm text-gray-600 line-clamp-2 mt-0.5 whitespace-pre-wrap">{it.description}</div>
+                  )
+                )}
+                {it.description && (
+                  <button
+                    type="button"
+                    onClick={() => toggleExpand(it.id)}
+                    className="mt-1 text-xs text-indigo-600 hover:underline"
+                  >{expandedIds.has(it.id) ? '收起' : '阅读全文'}</button>
                 )}
                 {it.planned_conferences && it.planned_conferences.length > 0 && (
                   <div className="mt-1 flex flex-wrap gap-1">
