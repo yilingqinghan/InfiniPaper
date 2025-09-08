@@ -21,6 +21,7 @@ class IdeaBase(BaseModel):
     priority: int = Field(..., ge=1, le=5)
     feasibility_proved: bool = False
     estimated_minutes: int = Field(..., ge=0)
+    planned_conferences: List[str] = Field(default_factory=list)
 
     @validator("title")
     def _one_line_title(cls, v: str) -> str:
@@ -31,6 +32,25 @@ class IdeaBase(BaseModel):
             raise ValueError("title must be one line")
         return v
 
+    @validator("planned_conferences", pre=True)
+    def _normalize_planned_conferences(cls, v):
+        # Accept None, list of strings, or a comma-separated string; trim and drop empties
+        if v is None:
+            return []
+        if isinstance(v, str):
+            parts = [p.strip() for p in v.split(",")]
+            return [p for p in parts if p]
+        if isinstance(v, list):
+            out: List[str] = []
+            for x in v:
+                if x is None:
+                    continue
+                s = str(x).strip()
+                if s:
+                    out.append(s)
+            return out
+        return []
+
 class IdeaCreate(IdeaBase):
     pass
 
@@ -40,6 +60,7 @@ class IdeaUpdate(BaseModel):
     priority: Optional[int] = Field(None, ge=1, le=5)
     feasibility_proved: Optional[bool] = None
     estimated_minutes: Optional[int] = Field(None, ge=0)
+    planned_conferences: Optional[List[str]] = None
 
     @validator("title")
     def _one_line_title(cls, v: Optional[str]) -> Optional[str]:
@@ -52,10 +73,30 @@ class IdeaUpdate(BaseModel):
             raise ValueError("title must be one line")
         return v
 
+    @validator("planned_conferences", pre=True)
+    def _normalize_planned_conferences_update(cls, v):
+        # For PATCH: None means "no change"; otherwise normalize like in IdeaBase
+        if v is None:
+            return v
+        if isinstance(v, str):
+            parts = [p.strip() for p in v.split(",")]
+            return [p for p in parts if p]
+        if isinstance(v, list):
+            out: List[str] = []
+            for x in v:
+                if x is None:
+                    continue
+                s = str(x).strip()
+                if s:
+                    out.append(s)
+            return out
+        return []
+
 class IdeaOut(IdeaBase):
     id: int
     created_at: datetime
     updated_at: datetime
+    planned_conferences: List[str]
 
     class Config:
         orm_mode = True
@@ -101,6 +142,7 @@ def _create(payload: Dict[str, Any]) -> Dict[str, Any]:
             "priority": int(payload["priority"]),
             "feasibility_proved": bool(payload.get("feasibility_proved", False)),
             "estimated_minutes": int(payload.get("estimated_minutes", 0)),
+            "planned_conferences": payload.get("planned_conferences", []),
             "created_at": now,
             "updated_at": now,
         }
@@ -213,6 +255,7 @@ def _to_out(d: Dict[str, Any]) -> IdeaOut:
         priority=int(d.get("priority", 0)),
         feasibility_proved=bool(d.get("feasibility_proved", False)),
         estimated_minutes=int(d.get("estimated_minutes", 0)),
+        planned_conferences=list(d.get("planned_conferences") or []),
         created_at=parse_dt(d.get("created_at")),
         updated_at=parse_dt(d.get("updated_at")),
     )
