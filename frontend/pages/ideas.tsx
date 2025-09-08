@@ -159,7 +159,7 @@ function IdeaForm(props: {
         <label className="block text-sm font-medium text-gray-700 mb-1">一句话标题</label>
         <input
           className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-          placeholder="例如：为论文库增加语义标签规则"
+          placeholder="新的论文..."
           value={v.title}
           maxLength={120}
           onChange={(e) => props.onChange({ ...v, title: e.target.value })}
@@ -172,7 +172,7 @@ function IdeaForm(props: {
         <textarea
           className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
           rows={5}
-          placeholder="补充背景、目标、方案或风险……"
+          placeholder=""
           value={v.description}
           maxLength={4000}
           onChange={(e) => props.onChange({ ...v, description: e.target.value })}
