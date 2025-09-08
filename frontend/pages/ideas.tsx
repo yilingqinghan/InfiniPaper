@@ -16,6 +16,7 @@ type Idea = {
   priority: 1 | 2 | 3 | 4 | 5;
   feasibility_proved: boolean;
   estimated_minutes: number;
+  planned_conferences: string[];
   created_at: string; // ISO
   updated_at: string; // ISO
 };
@@ -146,6 +147,7 @@ type IdeaFormState = {
   priority: 1 | 2 | 3 | 4 | 5;
   feasibility_proved: boolean;
   estimated_minutes: number;
+  planned_conferences: string[];
 };
 
 function IdeaForm(props: {
@@ -178,6 +180,23 @@ function IdeaForm(props: {
           onChange={(e) => props.onChange({ ...v, description: e.target.value })}
         />
         <div className="text-xs text-gray-400 mt-1">{v.description.length}/4000</div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">计划投稿的会议（多个）</label>
+        <input
+          className="w-full rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="例如：NeurIPS, ICLR, KDD"
+          value={v.planned_conferences.join(", ")}
+          onChange={(e) => {
+            const parts = e.target.value
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean);
+            props.onChange({ ...v, planned_conferences: parts });
+          }}
+        />
+        <div className="text-xs text-gray-400 mt-1">用逗号分隔多个会议，例如：NeurIPS, ICLR</div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -268,6 +287,7 @@ export default function IdeasPage() {
     priority: 3,
     feasibility_proved: false,
     estimated_minutes: 60,
+    planned_conferences: [],
   });
   const [open, setOpen] = React.useState(false);
 
@@ -299,7 +319,7 @@ export default function IdeasPage() {
 
   function openCreate() {
     setEditing(null);
-    setForm({ title: "", description: "", priority: 3, feasibility_proved: false, estimated_minutes: 60 });
+    setForm({ title: "", description: "", priority: 3, feasibility_proved: false, estimated_minutes: 60, planned_conferences: [] });
     setOpen(true);
   }
 
@@ -311,6 +331,7 @@ export default function IdeasPage() {
       priority: it.priority,
       feasibility_proved: it.feasibility_proved,
       estimated_minutes: it.estimated_minutes,
+      planned_conferences: it.planned_conferences || [],
     });
     setOpen(true);
   }
@@ -328,6 +349,7 @@ export default function IdeasPage() {
           priority: form.priority,
           feasibility_proved: form.feasibility_proved,
           estimated_minutes: form.estimated_minutes,
+          planned_conferences: form.planned_conferences,
         };
         const updated = await api<Idea>(`${API_BASE}/${editing.id}`, {
           method: "PATCH",
@@ -346,6 +368,7 @@ export default function IdeasPage() {
             priority: form.priority,
             feasibility_proved: form.feasibility_proved,
             estimated_minutes: form.estimated_minutes,
+            planned_conferences: form.planned_conferences,
           }),
         });
         push("已创建", "success");
@@ -575,6 +598,19 @@ export default function IdeasPage() {
                 <div className="font-medium leading-6 text-gray-900">{it.title}</div>
                 {it.description && (
                   <div className="text-sm text-gray-600 line-clamp-2 mt-0.5">{it.description}</div>
+                )}
+                {it.planned_conferences && it.planned_conferences.length > 0 && (
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    {it.planned_conferences.map((c, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-sky-50 text-sky-700 text-[11px] border border-sky-200"
+                        title={`计划投稿：${c}`}
+                      >
+                        🎯 {c}
+                      </span>
+                    ))}
+                  </div>
                 )}
                 <div className="mt-1 text-[11px] text-gray-400">
                   更新于 {new Date(it.updated_at).toLocaleString()} · 创建 {new Date(it.created_at).toLocaleString()}
