@@ -937,6 +937,8 @@ function FolderTreeNode({
 
 /* --------------------------- main page --------------------------- */
 export default function Library() {
+  // 新增：按标题字母排序
+  const [sortAlphabetical, setSortAlphabetical] = React.useState<boolean>(false);
   // 左侧目录右键菜单（导出功能）
   const [folderCtx, setFolderCtx] = React.useState<{ visible: boolean; x: number; y: number; folderId: number | null }>({ visible: false, x: 0, y: 0, folderId: null });
   // 顶部筛选栏：第二排（高级筛选）折叠开关
@@ -1376,6 +1378,11 @@ export default function Library() {
       return yearAsc ? ay - by : by - ay;
     });
 
+    // 新增：按标题字母排序
+    if (sortAlphabetical) {
+      arr = [...arr].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    }
+
     // 先应用“永不显示”的屏蔽关键词（默认启用）
     if (blockKeywords.length) {
       arr = arr.filter(p => !paperMatchesAnyKeyword(p, blockKeywords));
@@ -1409,7 +1416,7 @@ export default function Library() {
       const names = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean) as string[];
       return names.some(n => filterTagNames.includes(n));
     });
-  }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged, blockKeywords]);
+  }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged, blockKeywords, sortAlphabetical]);
 
   // 本地分页数据
   const total = displayPapers.length;
@@ -1716,6 +1723,16 @@ export default function Library() {
                 <button onClick={() => setYearAsc(v => !v)} className="px-2 py-1 rounded-md border hover:bg-white">
                   年份排序 {yearAsc ? <ChevronUp className="w-4 h-4 inline" /> : <ChevronDown className="w-4 h-4 inline" />}
                 </button>
+                {/* 新增：按标题字母排序 */}
+                <label className="inline-flex items-center gap-1 px-2 py-1 rounded-md border bg-white hover:bg-gray-50 cursor-pointer text-xs">
+                  <input
+                    type="checkbox"
+                    className="accent-indigo-600"
+                    checked={sortAlphabetical}
+                    onChange={e => setSortAlphabetical(e.target.checked)}
+                  />
+                  <span>按标题字母排序</span>
+                </label>
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
