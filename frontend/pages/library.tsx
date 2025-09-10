@@ -939,14 +939,44 @@ function FolderTreeNode({
 export default function Library() {
   // 新增：按标题字母排序
   const [sortAlphabetical, setSortAlphabetical] = React.useState<boolean>(false);
+  // 初始化与持久化：按标题字母排序
+  React.useEffect(() => {
+    try {
+      const v = localStorage.getItem("infinipaper:sortAlpha:v1");
+      if (v !== null) setSortAlphabetical(v === "1");
+    } catch {}
+  }, []);
+  React.useEffect(() => {
+    try { localStorage.setItem("infinipaper:sortAlpha:v1", sortAlphabetical ? "1" : "0"); } catch {}
+  }, [sortAlphabetical]);
   // 左侧目录右键菜单（导出功能）
   const [folderCtx, setFolderCtx] = React.useState<{ visible: boolean; x: number; y: number; folderId: number | null }>({ visible: false, x: 0, y: 0, folderId: null });
   // 顶部筛选栏：第二排（高级筛选）折叠开关
   const [advFilterOpen, setAdvFilterOpen] = React.useState(true);
+  // 初始化与持久化：高级筛选折叠
+  React.useEffect(() => {
+    try {
+      const v = localStorage.getItem("infinipaper:advFilterOpen:v1");
+      if (v !== null) setAdvFilterOpen(v === "1");
+    } catch {}
+  }, []);
+  React.useEffect(() => {
+    try { localStorage.setItem("infinipaper:advFilterOpen:v1", advFilterOpen ? "1" : "0"); } catch {}
+  }, [advFilterOpen]);
   const [paperGraphOpen, setPaperGraphOpen] = React.useState(false);
   const [paperGraphPapers, setPaperGraphPapers] = React.useState<Paper[] | null>(null);
   // 左侧目录折叠：隐藏目录，让中间表格占满
   const [leftCollapsed, setLeftCollapsed] = React.useState<boolean>(false);
+  // 初始化与持久化：左侧目录是否折叠
+  React.useEffect(() => {
+    try {
+      const v = localStorage.getItem("infinipaper:leftCollapsed:v1");
+      if (v !== null) setLeftCollapsed(v === "1");
+    } catch {}
+  }, []);
+  React.useEffect(() => {
+    try { localStorage.setItem("infinipaper:leftCollapsed:v1", leftCollapsed ? "1" : "0"); } catch {}
+  }, [leftCollapsed]);
   const openFolderCtx = (x: number, y: number, folderId: number | null) => setFolderCtx({ visible: true, x, y, folderId });
   React.useEffect(() => {
     const hide = () => setFolderCtx(s => ({ ...s, visible: false }));
@@ -1074,6 +1104,19 @@ export default function Library() {
   }, [fetchPapersForFolders, folders, tags]);
   const sensors = useSensors(useSensor(PointerSensor));
   const [collapsed, setCollapsed] = React.useState<Set<number>>(new Set());
+  // 初始化与持久化：目录折叠节点集合
+  React.useEffect(() => {
+    try {
+      const raw = localStorage.getItem("infinipaper:folderCollapsed:v1");
+      if (raw) {
+        const ids = JSON.parse(raw) as number[];
+        if (Array.isArray(ids)) setCollapsed(new Set(ids));
+      }
+    } catch {}
+  }, []);
+  React.useEffect(() => {
+    try { localStorage.setItem("infinipaper:folderCollapsed:v1", JSON.stringify(Array.from(collapsed))); } catch {}
+  }, [collapsed]);
   const toggleCollapse = (id: number) =>
     setCollapsed(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
   // 一键全展开 / 全折叠
@@ -1122,6 +1165,16 @@ export default function Library() {
   const [hoveringPreview, setHoveringPreview] = React.useState(false);
   const [showWordCloud, setShowWordCloud] = React.useState(false);
   const [compactMode, setCompactMode] = React.useState<boolean>(true);
+  // 初始化与持久化：列表紧凑模式
+  React.useEffect(() => {
+    try {
+      const v = localStorage.getItem("infinipaper:compactMode:v1");
+      if (v !== null) setCompactMode(v === "1");
+    } catch {}
+  }, []);
+  React.useEffect(() => {
+    try { localStorage.setItem("infinipaper:compactMode:v1", compactMode ? "1" : "0"); } catch {}
+  }, [compactMode]);
 
   const openPreview = React.useCallback((id: number, rect?: DOMRect) => {
     setHoverPreviewId(id);
