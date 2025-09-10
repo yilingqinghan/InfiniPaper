@@ -85,7 +85,7 @@ def ask(req: AskReq):
     if not api_key:
         raise HTTPException(status_code=500, detail="GEMINI_API_KEY not set")
 
-    model = (req.model or os.environ.get("GEMINI_MODEL") or "gemini-2.0-flash").strip()
+    model = (req.model or os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash").strip()
 
     # Compose prompt with optional context
     prompt = req.prompt if not req.context else f"{req.prompt}\n\n{req.context}"
@@ -132,7 +132,7 @@ async def ask_pdf(
     if not api_key:
         raise HTTPException(status_code=500, detail="GEMINI_API_KEY not set")
 
-    chosen_model = (model or os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash").strip()
+    chosen_model = (model or os.environ.get("GEMINI_MODEL") or "gemini-2.5-pro").strip()
 
     # Validate file
     if not file.filename:
