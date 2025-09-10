@@ -831,6 +831,19 @@ const STOP = new Set(["the", "and", "for", "with", "from", "that", "this", "are"
 function tokenize(s: string) {
   return (s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(w => w.length >= 3 && !STOP.has(w)));
 }
+
+/** check if a paper should be blocked by keywords (case-insensitive) */
+function paperMatchesAnyKeyword(p: Paper, kws: string[]): boolean {
+  if (!kws.length) return false;
+  const hay: string[] = [];
+  if (p.title) hay.push(p.title);
+  if (p.abstract) hay.push(p.abstract);
+  if (p.venue) hay.push(p.venue);
+  if (p.doi) hay.push(p.doi);
+  (p.authors || []).forEach(a => { if (a?.name) hay.push(a.name); if (a?.affiliation) hay.push(a.affiliation); });
+  const big = hay.join(" ").toLowerCase();
+  return kws.some(k => big.includes(k));
+}
 function WordCloudPanel({ papers, tags }: { papers: Paper[]; tags: Tag[] }) {
   const words = React.useMemo(() => {
     const m = new Map<string, number>();
@@ -1136,6 +1149,24 @@ export default function Library() {
   // 仅查看未打标签论文
   const [onlyUntagged, setOnlyUntagged] = React.useState<boolean>(false);
 
+  // 全局屏蔽关键词（分号/逗号/换行分隔，默认始终启用）
+  const [blockKeywordsText, setBlockKeywordsText] = React.useState<string>("");
+  const blockKeywords = React.useMemo(
+    () => blockKeywordsText.split(/[,;\n]+/).map(s => s.trim().toLowerCase()).filter(Boolean),
+    [blockKeywordsText]
+  );
+  // 初始化：从 localStorage 读取
+  React.useEffect(() => {
+    try {
+      const saved = localStorage.getItem("infinipaper:blockKeywords:v1") || "";
+      if (saved) setBlockKeywordsText(saved);
+    } catch {}
+  }, []);
+  // 持久化
+  React.useEffect(() => {
+    try { localStorage.setItem("infinipaper:blockKeywords:v1", blockKeywordsText); } catch {}
+  }, [blockKeywordsText]);
+
   const openAuthorGraph = React.useCallback(async () => {
     if (!filterAuthors.length) {
       await Swal.fire({ icon: 'info', title: '请选择作者', text: '请先在“按作者”里选择一个作者。' });
@@ -1345,6 +1376,11 @@ export default function Library() {
       return yearAsc ? ay - by : by - ay;
     });
 
+    // 先应用“永不显示”的屏蔽关键词（默认启用）
+    if (blockKeywords.length) {
+      arr = arr.filter(p => !paperMatchesAnyKeyword(p, blockKeywords));
+    }
+
     // 作者筛选（命中任意一个选中作者即可）
     if (filterAuthors.length) {
       arr = arr.filter(p => {
@@ -1373,7 +1409,7 @@ export default function Library() {
       const names = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean) as string[];
       return names.some(n => filterTagNames.includes(n));
     });
-  }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged]);
+  }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged, blockKeywords]);
 
   // 本地分页数据
   const total = displayPapers.length;
@@ -1734,6 +1770,26 @@ export default function Library() {
                       <Share2 className="w-3.5 h-3.5" />
                       关系网
                     </button>
+                    {/* 屏蔽关键词（默认启用） */}
+                    <div className="inline-flex items-center gap-1">
+                      <input
+                        value={blockKeywordsText}
+                        onChange={(e) => setBlockKeywordsText(e.target.value)}
+                        placeholder="屏蔽关键词（, ; 换行分隔，默认生效）"
+                        className="px-2 py-1 rounded-md border text-xs w-[260px]"
+                        title="包含任一关键词的论文将被永久隐藏；支持标题、摘要、作者、期刊、DOI 等字段匹配"
+                      />
+                      {blockKeywordsText ? (
+                        <button
+                          type="button"
+                          onClick={() => setBlockKeywordsText("")}
+                          className="text-xs px-2 py-1 rounded-md border bg-white hover:bg-gray-50"
+                          title="清空屏蔽关键词"
+                        >
+                          清空
+                        </button>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </div>
