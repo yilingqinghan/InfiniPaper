@@ -58,7 +58,8 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(ACM Transactions on Embedded Computing Systems|(^|\W)TECS(\W|$))/i, "TECS"],
     [/(Transactions on Programming Languages and Systems|(^|\W)TOPLAS(\W|$))/i, "TOPLAS"],
     [/(Transactions on Computer Systems |(^|\W)TOCS(\W|$))/i, "TOCS"],
-    [/(Network and Distributed System Security Symposium |(^|\W)NDSS(\W|$))/i, "NDSS"],
+    [/(Network and Distributed System Security Symposium|(^|\W)NDSS(\W|$))/i, "NDSS"],
+    [/(Conference on Knowledge Discovery and Data Mining|(^|\W)KDD(\W|$))/i, "KDD"],
     
     // 其他相关会议
     [/(design, automation & test in europe|(^|\W)date(\W|$))/i, "DATE"],
@@ -122,7 +123,7 @@ export function abbrevVenue(venue?: string | null): string | null {
 }
 
 /** 顶尖会议/期刊缩写定义（Tier1） */
-const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS","CCS","ISSTA","POPL","SPLASH","TACO","TOCS","TOIS","TPDS","TC","TCAD","TCC","JETC","USENIX","TOPLAS","ICLR","EuroSys"]);
+const TOP_TIER = new Set(["MICRO","PLDI","ISCA","ASPLOS","NeurIPS","ICML","CVPR","ICCV","ECCV","SIGMOD","VLDB","WWW","SC","SIGGRAPH","FAST","OSDI","ASE","FSE","ICSE","SOSP","SIGCOMM","NSDI","KDD","AAAI","IJCAI","TOSEM","SIGIR","OOPSLA","TOIS","CCS","ISSTA","POPL","SPLASH","TACO","TOCS","TOIS","TPDS","TC","TCAD","TCC","JETC","USENIX","TOPLAS","ICLR","EuroSys","KDD"]);
 const preprint = new Set(["预印本"]);
 const survey = new Set(["综述·CSUR"]);
 const LOW_TIER = new Set(["CACM","Euro-Par","CF","HPCC","HiPC","MASCOTS","ISPA","ITC","LISA","MSST","RTAS","中文","KBS"]);
