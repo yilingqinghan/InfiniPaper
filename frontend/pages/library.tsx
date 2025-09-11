@@ -831,10 +831,6 @@ const STOP = new Set(["the", "and", "for", "with", "from", "that", "this", "are"
 function tokenize(s: string) {
   return (s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(w => w.length >= 3 && !STOP.has(w)));
 }
-const BUILTIN_BLOCK_KEYWORDS: string[] = [
-  // 'draft',
-  // 'call for papers',
-];
 
 /** check if paper title contains any of the blocked keywords (case-insensitive) */
 function paperMatchesAnyKeyword(p: Paper, kws: string[]): boolean {
@@ -843,6 +839,33 @@ function paperMatchesAnyKeyword(p: Paper, kws: string[]): boolean {
   if (!title) return false;
   return kws.some(k => title.includes(k));
 }
+
+const BUILTIN_BLOCK_KEYWORDS: string[] = [
+  "TOSEM 2",
+  "TOCS 2",
+  "ASPLOS 2",
+  "ICSE 2",
+  "CSUR 2",
+  "USENIX",
+  "TACO 2",
+  "PPoPP 2",
+  "EuroSys 2",
+  "EuroMLSys 2",
+  "TOPLAS 2",
+  "POPL 2",
+  "OSDI 2",
+  "CGO 2",
+  "ICS 2",
+  "OOPSLA 2",
+  "PACT 2",
+  "SOSP 2",
+  "PLDI 2",
+  "ISSTA 2",
+  "ASE 2",
+  "SC 2",
+  "MICRO 2",
+  "ESEC/FSE",
+];
 function WordCloudPanel({ papers, tags }: { papers: Paper[]; tags: Tag[] }) {
   const words = React.useMemo(() => {
     const m = new Map<string, number>();
