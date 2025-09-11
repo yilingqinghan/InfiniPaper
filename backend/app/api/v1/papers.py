@@ -494,13 +494,11 @@ async def _upload_one(
     existing = None
     if data.get("doi"):
         existing = session.exec(select(Paper).where(Paper.doi == data["doi"])).first()
-    if existing:
-        _merge_paper_fields(existing, data)
-        session.add(existing); session.commit()
-        paper = existing
-    else:
-        paper = Paper(**data)
-        session.add(paper); session.commit(); session.refresh(paper)
+        if existing:
+            # If DOI already exists, force creation of new Paper by setting DOI to None.
+            data["doi"] = None
+    paper = Paper(**data)
+    session.add(paper); session.commit(); session.refresh(paper)
 
     # 解析作者
     authors_meta = meta.get("authors") or []
