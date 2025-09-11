@@ -619,9 +619,10 @@ function AbbrBadge({ abbr, tier }: { abbr?: string | null; tier?: number | null 
   return <span className={cls} title="期刊/会议缩写">{abbr}</span>;
 }
 // ----- rating tag helpers -----
-const RATING_TAGS = ["🏆", "🎖", "🏅", "🥈", "🥉", "📖"] as const;
+const RATING_TAGS = ["✅︎", "🏆", "🎖", "🏅", "🥈", "🥉", "📖"] as const;
 type RatingEmoji = typeof RATING_TAGS[number];
 const RATING_ORDER: Record<RatingEmoji, number> = {
+  "✅︎": 6,
   "🏆": 5,
   "🎖": 4,
   "🏅": 3,
@@ -640,6 +641,7 @@ function ratingTooltip(e: RatingEmoji): string {
     case "🥈": return "评级：2/5";
     case "🥉": return "评级：1/5";
     case "📖": return "计划阅读";
+    case "✅︎": return "已读";
   }
 }
 // 省略号溢出单行显示辅助组件
