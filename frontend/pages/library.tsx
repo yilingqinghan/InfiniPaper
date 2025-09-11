@@ -831,6 +831,10 @@ const STOP = new Set(["the", "and", "for", "with", "from", "that", "this", "are"
 function tokenize(s: string) {
   return (s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(w => w.length >= 3 && !STOP.has(w)));
 }
+const BUILTIN_BLOCK_KEYWORDS: string[] = [
+  // 'draft',
+  // 'call for papers',
+];
 
 /** check if paper title contains any of the blocked keywords (case-insensitive) */
 function paperMatchesAnyKeyword(p: Paper, kws: string[]): boolean {
@@ -1216,6 +1220,28 @@ export default function Library() {
     () => blockKeywordsText.split(/[,;\n]+/).map(s => s.trim().toLowerCase()).filter(Boolean),
     [blockKeywordsText]
   );
+  // 本地单个屏蔽词（仅本机，单个），与内置+用户列表共同生效
+  const [blockLocalOne, setBlockLocalOne] = React.useState<string>("");
+  React.useEffect(() => {
+    try {
+      const saved = localStorage.getItem("infinipaper:blockLocalOne:v1") || "";
+      if (saved) setBlockLocalOne(saved);
+    } catch {}
+  }, []);
+  React.useEffect(() => {
+    try { localStorage.setItem("infinipaper:blockLocalOne:v1", blockLocalOne); } catch {}
+  }, [blockLocalOne]);
+
+  // 合并：内置 + 用户列表 + 本地单个（去重，小写）
+  const combinedBlockKeywords = React.useMemo(() => {
+    const one = blockLocalOne.trim().toLowerCase();
+    const items = [
+      ...BUILTIN_BLOCK_KEYWORDS.map(s => s.trim().toLowerCase()).filter(Boolean),
+      ...blockKeywords,
+      ...(one ? [one] : []),
+    ];
+    return Array.from(new Set(items));
+  }, [blockKeywords, blockLocalOne]);
   // 初始化：从 localStorage 读取
   React.useEffect(() => {
     try {
@@ -1450,8 +1476,8 @@ export default function Library() {
 
     // 仅在主目录（activeFolderId == null）时隐藏命中关键词（仅标题匹配）的论文；
     // 进入任意文件夹后，这些论文可以在其所属文件夹/子目录中显示
-    if (blockKeywords.length && activeFolderId == null) {
-      arr = arr.filter(p => !paperMatchesAnyKeyword(p, blockKeywords));
+    if (combinedBlockKeywords.length && activeFolderId == null) {
+      arr = arr.filter(p => !paperMatchesAnyKeyword(p, combinedBlockKeywords));
     }
 
     // 作者筛选（命中任意一个选中作者即可）
@@ -1482,7 +1508,7 @@ export default function Library() {
       const names = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean) as string[];
       return names.some(n => filterTagNames.includes(n));
     });
-  }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged, blockKeywords, sortAlphabetical, activeFolderId]);
+  }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged, combinedBlockKeywords, sortAlphabetical, activeFolderId]);
 
   // 本地分页数据
   const total = displayPapers.length;
@@ -1864,20 +1890,21 @@ export default function Library() {
                       关系网
                     </button>
                     {/* 屏蔽关键词（默认启用） */}
+                    {/* 本地屏蔽词（仅本机，单个） */}
                     <div className="inline-flex items-center gap-1">
                       <input
-                        value={blockKeywordsText}
-                        onChange={(e) => setBlockKeywordsText(e.target.value)}
-                        placeholder="屏蔽关键词（, ; 换行分隔，默认生效）"
-                        className="px-2 py-1 rounded-md border text-xs w-[260px]"
-                        title="仅匹配标题（Title）。命中即在主目录隐藏；进入任意文件夹仍可显示"
+                        value={blockLocalOne}
+                        onChange={(e) => setBlockLocalOne(e.target.value)}
+                        placeholder="本地屏蔽词（单个）"
+                        className="px-2 py-1 rounded-md border text-xs w-[180px]"
+                        title="仅在本机生效，单个关键词；与内置+用户列表一并生效（仅标题匹配，主目录隐藏）"
                       />
-                      {blockKeywordsText ? (
+                      {blockLocalOne ? (
                         <button
                           type="button"
-                          onClick={() => setBlockKeywordsText("")}
+                          onClick={() => setBlockLocalOne("")}
                           className="text-xs px-2 py-1 rounded-md border bg-white hover:bg-gray-50"
-                          title="清空屏蔽关键词"
+                          title="清空本地屏蔽词"
                         >
                           清空
                         </button>
