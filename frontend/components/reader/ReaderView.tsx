@@ -1896,10 +1896,17 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
     };
   }, [router.events, saveLocalDraft]);
   const [cacheReady, setCacheReady] = React.useState(false);
-  const startedRef = React.useRef(false);
   React.useEffect(() => {
-    if (!id || startedRef.current) return;
-    startedRef.current = true;
+    if (!id) return;
+    // Show confirmation dialog on mount if id is present
+    if (typeof window !== "undefined") {
+      const confirm = window.confirm("是否调用 MinerU 解析论文？");
+      if (!confirm) {
+        setLoading(false);
+        setCacheReady(false);
+        return;
+      }
+    }
     (async () => {
       setLoading(true);
       setErr(null);
