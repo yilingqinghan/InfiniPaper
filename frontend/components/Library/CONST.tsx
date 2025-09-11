@@ -34,13 +34,13 @@ const VENUE_ABBR: [RegExp, string][] = [
     
    
     // 顶级期刊（编译与体系结构领域）
-    [/(acm transactions on computer systems|(^|\W)tocs(\W|$))/i, "TOCS"],
-    [/(acm transactions on Software Engineering and Methodology |(^|\W)TOSEM(\W|$))/i, "TOSEM"],
+    [/(transactions on computer systems|(^|\W)tocs(\W|$))/i, "TOCS"],
+    [/(transactions on Software Engineering and Methodology|(^|\W)TOSEM(\W|$))/i, "TOSEM"],
     
     [/(ieee transactions on parallel and distributed systems|(^|\W)tpds(\W|$))/i, "TPDS"],
     [/(ieee transactions on computers|(^|\W)tc(\W|$))/i, "TC"],
     [/(ieee transactions on computer-aided design of integrated circuits and systems|(^|\W)tcad(\W|$))/i, "TCAD"],
-    [/(acm transactions on architecture and code optimization|(^|\W)taco(\W|$))/i, "TACO"],
+    [/(transactions on architecture and code optimization|(^|\W)taco(\W|$))/i, "TACO"],
     [/(journal of parallel and distributed computing|(^|\W)jpdc(\W|$))/i, "JPDC"],
     [/(ieee transactions on very large scale integration systems|(^|\W)tvlsi(\W|$))/i, "TVLSI"],
     [/(parallel computing|(^|\W)parco(\W|$))/i, "PARCO"],
@@ -98,7 +98,7 @@ const VENUE_ABBR: [RegExp, string][] = [
     [/(symposium on principles of programming languages|(^|\W)splash(\W|$))/i, "SPLASH"],
     [/(programming language design and implementation|(^|\W)pldi(\W|$))/i, "PLDI"],
     [/(functional programming|(^|\W)icfp(\W|$))/i, "ICFP"],
-    [/(software engineering|(^|\W)icse(\W|$))/i, "ICSE"],
+    [/(confernece on software engineering|(^|\W)icse(\W|$))/i, "ICSE"],
     [/(automated software engineering|(^|\W)ase(\W|$))/i, "ASE"],
     [/(software and systems engineering|(^|\W)fse(\W|$))/i, "FSE"],
     [/(programming languages and systems|(^|\W)popl(\W|$))/i, "POPL"],
