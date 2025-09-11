@@ -196,8 +196,12 @@ def _merge_paper_fields(paper: Paper, data: Dict[str, Any]) -> None:
         val = data.get(key)
         if val is None or val == "":
             continue
-        if getattr(paper, key, None) in (None, "", 0):
+        current = getattr(paper, key, None)
+        if current in (None, "", 0):
+            logger.info(f"[_merge_paper_fields] setting {key} from {current!r} -> {val!r}")
             setattr(paper, key, val)
+        else:
+            logger.info(f"[_merge_paper_fields] keep existing {key}={current!r}, skip new {val!r}")
 
 @router.post("/upload", response_model=PaperRead)
 async def upload_paper(
@@ -531,4 +535,5 @@ async def _upload_one(
 
     session.commit()
     logger.info(f"[upload] paper#{paper.id} saved file={dest.name} doi={paper.doi}")
+    logger.info(f"[upload_one] final paper id={paper.id} doi={paper.doi!r} pdf_url={getattr(paper, 'pdf_url', None)!r}")
     return _paper_payload(session, paper.id)

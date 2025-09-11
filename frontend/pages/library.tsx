@@ -949,6 +949,17 @@ export default function Library() {
   React.useEffect(() => {
     try { localStorage.setItem("infinipaper:sortAlpha:v1", sortAlphabetical ? "1" : "0"); } catch {}
   }, [sortAlphabetical]);
+  // 新增：按添加时间排序
+  const [sortByAddedTime, setSortByAddedTime] = React.useState<boolean>(false);
+  React.useEffect(() => {
+    try {
+      const v = localStorage.getItem("infinipaper:sortAddedTime:v1");
+      if (v !== null) setSortByAddedTime(v === "1");
+    } catch {}
+  }, []);
+  React.useEffect(() => {
+    try { localStorage.setItem("infinipaper:sortAddedTime:v1", sortByAddedTime ? "1" : "0"); } catch {}
+  }, [sortByAddedTime]);
   // 左侧目录右键菜单（导出功能）
   const [folderCtx, setFolderCtx] = React.useState<{ visible: boolean; x: number; y: number; folderId: number | null }>({ visible: false, x: 0, y: 0, folderId: null });
   // 顶部筛选栏：第二排（高级筛选）折叠开关
@@ -1272,9 +1283,15 @@ export default function Library() {
       if (yearMin != null) url.searchParams.set("year_min", String(yearMin));
       if (yearMax != null) url.searchParams.set("year_max", String(yearMax));
       if (filterVenueAbbrs.length) url.searchParams.set("venue_abbr", filterVenueAbbrs.join(","));
-      setPapers(await j<Paper[]>(url.toString()));
+      let list = await j<Paper[]>(url.toString());
+      if (sortAlphabetical) {
+        list = list.slice().sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+      } else if (sortByAddedTime) {
+        list = list.slice().sort((a, b) => (b.id - a.id));
+      }
+      setPapers(list);
     } catch { setPapers([]); }
-  }, [activeFolderId, search, filterVenueAbbrs, yearMin, yearMax]);
+  }, [activeFolderId, search, filterVenueAbbrs, yearMin, yearMax, sortAlphabetical, sortByAddedTime]);
 
   const refreshAll = React.useCallback(async () => { await loadTags(); await loadPapers(); }, [loadTags, loadPapers]);
 
@@ -1785,6 +1802,16 @@ export default function Library() {
                     onChange={e => setSortAlphabetical(e.target.checked)}
                   />
                   <span>按标题字母排序</span>
+                </label>
+                {/* 新增：按添加时间排序 */}
+                <label className="inline-flex items-center gap-1 px-2 py-1 rounded-md border bg-white hover:bg-gray-50 cursor-pointer text-xs">
+                  <input
+                    type="checkbox"
+                    className="accent-indigo-600"
+                    checked={sortByAddedTime}
+                    onChange={e => setSortByAddedTime(e.target.checked)}
+                  />
+                  <span>按添加时间排序</span>
                 </label>
                 <input
                   value={search}
