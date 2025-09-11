@@ -57,6 +57,18 @@ function installDomGuards() {
 }
 try { installDomGuards(); } catch {}
 import Head from "next/head";
+import Swal from "sweetalert2";
+// Ensure SweetAlert2 CSS is available (inject via CDN once at runtime)
+function ensureSwalCss() {
+  if (typeof document === "undefined") return;
+  const id = "swal2-cdn-css";
+  if (document.getElementById(id)) return;
+  const link = document.createElement("link");
+  link.id = id;
+  link.rel = "stylesheet";
+  link.href = "https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css";
+  document.head.appendChild(link);
+}
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
@@ -1898,16 +1910,26 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
   const [cacheReady, setCacheReady] = React.useState(false);
   React.useEffect(() => {
     if (!id) return;
-    // Show confirmation dialog on mount if id is present
-    if (typeof window !== "undefined") {
-      const confirm = window.confirm("是否调用 MinerU 解析论文？");
-      if (!confirm) {
+    // SweetAlert2 confirmation dialog on mount
+    (async () => {
+      ensureSwalCss();
+      const res = await Swal.fire({
+        title: "解析论文",
+        text: "是否要调用 MinerU 解析论文？",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "立即解析",
+        cancelButtonText: "稍后再说",
+        reverseButtons: true,
+        allowOutsideClick: false,
+        allowEscapeKey: true,
+      });
+      if (!res.isConfirmed) {
         setLoading(false);
         setCacheReady(false);
         return;
       }
-    }
-    (async () => {
+
       setLoading(true);
       setErr(null);
       try {
