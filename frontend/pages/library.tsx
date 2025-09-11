@@ -832,17 +832,12 @@ function tokenize(s: string) {
   return (s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(w => w.length >= 3 && !STOP.has(w)));
 }
 
-/** check if a paper should be blocked by keywords (case-insensitive) */
+/** check if paper title contains any of the blocked keywords (case-insensitive) */
 function paperMatchesAnyKeyword(p: Paper, kws: string[]): boolean {
   if (!kws.length) return false;
-  const hay: string[] = [];
-  if (p.title) hay.push(p.title);
-  if (p.abstract) hay.push(p.abstract);
-  if (p.venue) hay.push(p.venue);
-  if (p.doi) hay.push(p.doi);
-  (p.authors || []).forEach(a => { if (a?.name) hay.push(a.name); if (a?.affiliation) hay.push(a.affiliation); });
-  const big = hay.join(" ").toLowerCase();
-  return kws.some(k => big.includes(k));
+  const title = (p.title || "").toLowerCase();
+  if (!title) return false;
+  return kws.some(k => title.includes(k));
 }
 function WordCloudPanel({ papers, tags }: { papers: Paper[]; tags: Tag[] }) {
   const words = React.useMemo(() => {
@@ -1453,8 +1448,9 @@ export default function Library() {
       arr = [...arr].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
     }
 
-    // 先应用“永不显示”的屏蔽关键词（默认启用）
-    if (blockKeywords.length) {
+    // 仅在主目录（activeFolderId == null）时隐藏命中关键词（仅标题匹配）的论文；
+    // 进入任意文件夹后，这些论文可以在其所属文件夹/子目录中显示
+    if (blockKeywords.length && activeFolderId == null) {
       arr = arr.filter(p => !paperMatchesAnyKeyword(p, blockKeywords));
     }
 
@@ -1486,7 +1482,7 @@ export default function Library() {
       const names = (p.tag_ids || []).map(id => nameById(id)).filter(Boolean) as string[];
       return names.some(n => filterTagNames.includes(n));
     });
-  }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged, blockKeywords, sortAlphabetical]);
+  }, [papers, yearAsc, filterAuthors, filterTagNames, filterVenueAbbrs, tags, onlyUntagged, blockKeywords, sortAlphabetical, activeFolderId]);
 
   // 本地分页数据
   const total = displayPapers.length;
@@ -1874,7 +1870,7 @@ export default function Library() {
                         onChange={(e) => setBlockKeywordsText(e.target.value)}
                         placeholder="屏蔽关键词（, ; 换行分隔，默认生效）"
                         className="px-2 py-1 rounded-md border text-xs w-[260px]"
-                        title="包含任一关键词的论文将被永久隐藏；支持标题、摘要、作者、期刊、DOI 等字段匹配"
+                        title="仅匹配标题（Title）。命中即在主目录隐藏；进入任意文件夹仍可显示"
                       />
                       {blockKeywordsText ? (
                         <button
