@@ -1604,9 +1604,60 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
     "immersive"
   );
   const [mdFont, setMdFont] = React.useState(16);
+  const [noteDock, setNoteDock] = React.useState<'left' | 'right'>('right');
   const incFont = () => setMdFont((s) => Math.min(22, s + 1));
   const decFont = () => setMdFont((s) => Math.max(14, s - 1));
+  // 左列笔记浮动定位相关
+  const leftColRef = React.useRef<HTMLDivElement | null>(null);
+  const [noteLeftFixedStyle, setNoteLeftFixedStyle] = React.useState<React.CSSProperties | null>(null);
+  const updateNoteLeftFixedStyle = React.useCallback(() => {
+    try {
+      const host = leftColRef.current;
+      if (!host) { setNoteLeftFixedStyle(null); return; }
+      const r = host.getBoundingClientRect();
+      const border = 1; // compensate the left-column border so edges align
+      setNoteLeftFixedStyle({
+        position: 'fixed',
+        top: Math.round(r.top),
+        left: Math.round(r.left + border),
+        width: Math.round(r.width - border),
+        height: Math.round(r.height),
+      } as React.CSSProperties);
+    } catch { setNoteLeftFixedStyle(null); }
+  }, []);
+  // 右列笔记浮动定位（仅供“笔记靠右”使用，独立于 Gemini 的 rightFixedStyle）
+  const rightColRef = React.useRef<HTMLDivElement | null>(null);
+  const [noteRightFixedStyle, setNoteRightFixedStyle] = React.useState<React.CSSProperties | null>(null);
+  const updateNoteRightFixedStyle = React.useCallback(() => {
+    try {
+      const host = rightColRef.current;
+      if (!host) { setNoteRightFixedStyle(null); return; }
+      const r = host.getBoundingClientRect();
+      const border = 1;
+      setNoteRightFixedStyle({
+        position: 'fixed',
+        top: Math.round(r.top),
+        left: Math.round(r.left + border),
+        width: Math.round(r.width - border),
+        height: Math.round(r.height),
+      } as React.CSSProperties);
+    } catch { setNoteRightFixedStyle(null); }
+  }, []);
   const gridCols = theme === "immersive" ? "43% 15% 42%" : "40% 20% 40%";
+  const [gemOpen, setGemOpen] = React.useState(false);
+  React.useEffect(() => { updateNoteLeftFixedStyle(); }, [updateNoteLeftFixedStyle, noteOpen, theme, mdFont, gridCols]);
+  React.useEffect(() => { updateNoteRightFixedStyle(); }, [updateNoteRightFixedStyle, noteOpen, theme, mdFont, gridCols, gemOpen]);
+  React.useEffect(() => {
+    const onResize = () => { updateNoteLeftFixedStyle(); updateNoteRightFixedStyle(); };
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', onResize);
+    window.addEventListener('scroll', onResize, true);
+    return () => {
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('orientationchange', onResize);
+      window.removeEventListener('scroll', onResize, true);
+    };
+  }, [updateNoteLeftFixedStyle, updateNoteRightFixedStyle]);
 
   const viewerUrl = React.useMemo(() => {
     if (!pdfUrl) return "";
@@ -1631,7 +1682,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
       if (saveAbortRef.current) saveAbortRef.current.abort();
       const ctrl = new AbortController();
       saveAbortRef.current = ctrl;
-  
+
       const latest = noteDraftRef.current || pullLatestMarkdown();
       console.log("[ReaderView] exportNow -> upsert before export", { id, len: latest.length });
       await upsertByPaper(api, Number(id), latest);
@@ -2250,7 +2301,6 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
     }
   };
 
-  const [gemOpen, setGemOpen] = React.useState(false);
   const [gemDock, setGemDock] = React.useState<"sidebar" | "modal">("sidebar");
   const [gemLoading, setGemLoading] = React.useState(false);
   const [gemChat, setGemChat] = React.useState<
@@ -2295,7 +2345,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
             type: (gemPdfBlob as any).type || "application/pdf",
           });
           fd.append("file", file);
-  
+
           const r = await fetch(api(`/api/v1/gemini/ask_pdf`), { method: "POST", body: fd });
           if (!r.ok) {
             const t = await r.text();
@@ -2376,7 +2426,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
       setGemAttachLoading(false);
     }
   };
-  
+
   const detachGeminiPdf = () => {
     setGemAttachPdf(false);
     setGemPdfBlob(null);
@@ -2751,6 +2801,11 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
               });
             }}
           >{noteOpen ? "关闭" : "打开"}</button>
+          <button
+            className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
+            onClick={() => setNoteDock((d) => (d === 'right' ? 'left' : 'right'))}
+            title="切换笔记位置"
+          >{noteDock === 'right' ? '靠右' : '靠左'}</button>
           {noteSaving && <span className="text-[11px] text-indigo-600">保存中…</span>}
           {noteSavedAt && !noteSaving && (
             <span className="text-[11px] text-gray-400">已保存 {new Date(noteSavedAt).toLocaleTimeString()}</span>
@@ -2774,8 +2829,8 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
       <div className="flex-1 grid page-grid" style={{ gridTemplateColumns: gridCols }}>
 
 
-        {/* 中列：Markdown 渲染 + 选区工具条 + 注释定位线 */}
-        <div className="relative border-r page-col page-col--mid">
+        {/* 左列：Markdown 渲染 + 选区工具条 + 注释定位线 */}
+        <div className="relative border-r page-col page-col--mid" ref={leftColRef}>
           {loading && (
             <div className="absolute inset-0 bg-white/70 z-10 flex flex-col items-center justify-center">
               <div className="animate-spin w-8 h-8 border-2 border-gray-400 border-t-transparent rounded-full" />
@@ -2854,7 +2909,7 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
           </div>
         </div>
 
-        {/* 右列：批注列表 + Gemini/LLM 侧栏 */}
+        {/* 中列：批注列表 + Gemini/LLM 侧栏 */}
         <div className="relative page-col page-col--right">
           <div ref={notesPaneRef} className="h-full overflow-auto p-3 space-y-4">
             <div className="flex items-center justify-between">
@@ -3098,16 +3153,17 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
             </div>
           )}
         </div>
-                {/* 左列：PDF + 覆盖笔记编辑器 */}
-                <div suppressHydrationWarning className="relative border-r page-col page-col--left">
+
+        {/* 右列：PDF + 覆盖笔记编辑器 */}
+        <div suppressHydrationWarning className="relative border-r page-col page-col--left" ref={rightColRef}>
           {pdfUrl ? (
             <PdfPane fileUrl={viewerUrl} className="h-full bg-white" />
           ) : (
             <div className="p-6 text-gray-500">未找到 PDF 地址</div>
           )}
 
-          {noteOpen && leftFixedStyle && (
-            <div className="z-40 flex flex-col note-overlay" style={leftFixedStyle}>
+          {noteOpen && (noteDock === 'left' ? noteLeftFixedStyle : noteRightFixedStyle) && (
+            <div className="z-40 flex flex-col note-overlay" style={(noteDock === 'left' ? noteLeftFixedStyle : noteRightFixedStyle)}>
               {/* 顶部工具栏 */}
               <div className="flex items-center gap-2 px-3 py-2 border-b bg-white/95">
                 <MiniToolbar
@@ -3134,12 +3190,18 @@ React.useEffect(() => { suppressSaveRef.current = true; }, [editorKey, editMode]
                   handlePickImage={handlePickImage}
                 />
                 <div className="ml-auto flex items-center gap-2">
-                <button
-                  className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
-                  onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) redecorateSoon(); }}
-                >
-                  查找/替换
-                </button>
+                  <button
+                    className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
+                    onClick={() => { const willOpen = !findOpen; setFindOpen(willOpen); if (willOpen) redecorateSoon(); }}
+                  >
+                    查找/替换
+                  </button>
+                  {/* NEW: dock side toggle */}
+                  <button
+                    className="px-2 py-1 rounded border text-xs hover:bg-gray-50"
+                    onClick={() => setNoteDock((d) => (d === 'left' ? 'right' : 'left'))}
+                    title="切换笔记位置"
+                  >{noteDock === 'left' ? '靠右' : '靠左'}</button>
                   <button className="px-2 py-1 rounded border text-xs hover:bg-gray-50" onClick={exportNow}>
                     导出 .md
                   </button>
